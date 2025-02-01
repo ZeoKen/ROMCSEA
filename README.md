@@ -1,2 +1,2 @@
-# ROMCSEA
-Ragnarok M: Classic SEA
+# ROMC SEA
+Ragnarok M: Classic - SEA
