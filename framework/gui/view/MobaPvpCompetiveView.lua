@@ -81,10 +81,12 @@ function MobaPvpCompetiveView:UpdateView()
       firstSeasonStartTimeFormat = GameConfig.Triple and GameConfig.Triple.FirstSeasonTime
     end
     local firstSeasonStartTime = ClientTimeUtil.GetOSDateTime(firstSeasonStartTimeFormat)
+    local abortTimeFormat = GameConfig.Triple and GameConfig.Triple.AbortTime
+    local abortTime = ClientTimeUtil.GetOSDateTime(abortTimeFormat)
     local curTime = ServerTime.CurServerTime() / 1000
-    if firstSeasonStartTime and firstSeasonStartTime > curTime then
+    if firstSeasonStartTime and firstSeasonStartTime > curTime or abortTime and abortTime <= curTime then
       local remainDay = math.floor((firstSeasonStartTime - curTime) / 86400)
-      self.seasonEndLabel.text = string.format(ZhString.Triple_SeasonStartRemainDay, remainDay)
+      self.seasonEndLabel.text = ZhString.Triple_SeasonStartSoon
     else
       local curTimeDate = os.date("*t", curTime)
       local time

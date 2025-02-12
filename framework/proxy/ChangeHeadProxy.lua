@@ -22,36 +22,11 @@ function ChangeHeadProxy:Init()
 end
 
 function ChangeHeadProxy:RecvQueryPortraitList(data)
-  if data.portrait then
-    TableUtility.ArrayClear(self.portraitList)
-    local empty = ChangeHeadData.new(0)
-    empty:SetType(ChangeHeadData.HeadCellType.Avatar)
-    TableUtility.ArrayPushBack(self.portraitList, empty)
-    for i = 1, #data.portrait do
-      local changeHeadData = ChangeHeadData.new(data.portrait[i])
-      changeHeadData:SetType(ChangeHeadData.HeadCellType.Avatar)
-      TableUtility.ArrayPushBack(self.portraitList, changeHeadData)
-    end
-  end
+  self:SyncChangeAvatarData(self.portraitList, ChangeHeadData.HeadCellType.Avatar, data)
 end
 
-function ChangeHeadProxy:RecvNewPortraitFrame(data)
-  if data.portrait then
-    if #self.portraitList == 0 then
-      local empty = ChangeHeadData.new(0)
-      empty:SetType(ChangeHeadData.HeadCellType.Avatar)
-      TableUtility.ArrayPushBack(self.portraitList, empty)
-    end
-    for i = 1, #data.portrait do
-      local changeHeadData = ChangeHeadData.new(data.portrait[i])
-      changeHeadData:SetType(ChangeHeadData.HeadCellType.Avatar)
-      TableUtility.ArrayPushBack(self.portraitList, changeHeadData)
-    end
-  end
-end
-
-function ChangeHeadProxy:GetPortraitList()
-  return self.portraitList
+function ChangeHeadProxy:RecvUpdatePortraitFrame(data)
+  self:SyncChangeAvatarData(self.portraitList, ChangeHeadData.HeadCellType.Avatar, data)
 end
 
 function ChangeHeadProxy:RecvSyncAllPhotoFrame(data)
@@ -70,6 +45,46 @@ function ChangeHeadProxy:SyncChangeHeadData(list, type, data)
   if data.ids then
     for i = 1, #data.ids do
       local info = data.ids[i]
+      local id = info.id
+      if info.del then
+        list[id] = nil
+      else
+        local changeHeadData = list[id]
+        if not changeHeadData then
+          changeHeadData = ChangeHeadData.new(id)
+          list[id] = changeHeadData
+        end
+        changeHeadData:SetType(type)
+        changeHeadData:SetEndTime(info.endtime)
+      end
+    end
+  end
+end
+
+function ChangeHeadProxy:SetChooseData(type, isChoose, chooseData)
+  local targetList
+  if type == ChangeHeadData.HeadCellType.Avatar then
+    targetList = self.portraitList
+  elseif type == ChangeHeadData.HeadCellType.Portrait then
+    targetList = self.frameList
+  elseif type == ChangeHeadData.HeadCellType.Frame then
+    targetList = self.backgroundList
+  elseif type == ChangeHeadData.HeadCellType.ChatFrame then
+    targetList = self.chatframeList
+  end
+  for id, headData in pairs(targetList) do
+    if headData.id == chooseData then
+      headData:SetChoose(true)
+    else
+      headData:SetChoose(false)
+    end
+  end
+end
+
+function ChangeHeadProxy:SyncChangeAvatarData(list, type, data)
+  if data.portraits then
+    for i = 1, #data.portraits do
+      local info = data.portraits[i]
       local id = info.id
       if info.del then
         list[id] = nil
@@ -145,4 +160,8 @@ end
 
 function ChangeHeadProxy:GetChatframeList()
   return self:GetListDatas(ChangeHeadData.HeadCellType.ChatFrame, self.chatframeList)
+end
+
+function ChangeHeadProxy:GetPortraitList()
+  return self:GetListDatas(ChangeHeadData.HeadCellType.Avatar, self.portraitList)
 end

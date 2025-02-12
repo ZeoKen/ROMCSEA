@@ -242,6 +242,130 @@ Table_Class_t = {
       {name = "Luk", value = 30}
     }
   },
+  LimitMasterSkills = {
+    {
+      {
+        5690001,
+        5691001,
+        5692001,
+        5693001
+      }
+    },
+    {
+      {
+        6090001,
+        6091001,
+        6092001,
+        6093001
+      }
+    }
+  },
+  MasterSkills = {
+    {
+      {
+        5300001,
+        5301001,
+        5302001,
+        5303001
+      }
+    },
+    {
+      {
+        5200001,
+        5201001,
+        5202001,
+        5203001
+      }
+    },
+    {
+      {
+        5000001,
+        5001001,
+        5002001,
+        5003001
+      }
+    },
+    {
+      {
+        6100001,
+        6101001,
+        6102001,
+        6103001
+      }
+    },
+    {
+      {
+        5700001,
+        5701001,
+        5702001,
+        5703001
+      }
+    },
+    {
+      {
+        5600001,
+        5601001,
+        5602001,
+        5603001
+      }
+    },
+    {
+      {
+        5100001,
+        5101001,
+        5102001,
+        5103001
+      }
+    },
+    {
+      {
+        5550001,
+        5551001,
+        5552001,
+        5553001
+      }
+    },
+    {
+      {
+        5900001,
+        5901001,
+        5902001,
+        5903001
+      }
+    },
+    {
+      {
+        5800001,
+        5801001,
+        5802001,
+        5803001
+      }
+    },
+    {
+      {
+        5500001,
+        5501001,
+        5502001,
+        5503001
+      }
+    },
+    {
+      {
+        6000001,
+        6001001,
+        6002001,
+        6003001
+      }
+    },
+    {
+      {
+        5400001,
+        5401001,
+        5402001,
+        5403001
+      }
+    }
+  },
   ProfessionalFashion = {
     {440052, 440053},
     {440080, 440081},
@@ -651,7 +775,8 @@ Table_Class_t = {
       1242001,
       1244001,
       1248001,
-      1256001
+      1256001,
+      815001
     },
     {
       1280001,
@@ -1099,6 +1224,7 @@ Table_Class = {
     Desc = "##149259",
     DefaultWeapon = 40301,
     Skill = Table_Class_t.Skill[11],
+    MasterSkills = Table_Class_t.MasterSkills[2],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1221,6 +1347,7 @@ Table_Class = {
     Desc = "##149233",
     DefaultWeapon = 40601,
     Skill = Table_Class_t.Skill[17],
+    MasterSkills = Table_Class_t.MasterSkills[3],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1345,6 +1472,7 @@ Table_Class = {
     Desc = "##149240",
     DefaultWeapon = 40702,
     Skill = Table_Class_t.Skill[23],
+    MasterSkills = Table_Class_t.MasterSkills[4],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1464,6 +1592,7 @@ Table_Class = {
     Desc = "##149242",
     DefaultWeapon = 41201,
     Skill = Table_Class_t.Skill[29],
+    MasterSkills = Table_Class_t.MasterSkills[5],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1575,6 +1704,7 @@ Table_Class = {
   },
   [54] = {
     id = 54,
+    NameZh = "##142509",
     NameEn = "Archbishop",
     MaleBody = 41,
     FemaleBody = 42,
@@ -1583,6 +1713,7 @@ Table_Class = {
     Desc = "##149270",
     DefaultWeapon = 41501,
     Skill = Table_Class_t.Skill[38],
+    MasterSkills = Table_Class_t.MasterSkills[9],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1666,7 +1797,6 @@ Table_Class = {
   [63] = {
     id = 63,
     NameZh = "##139279",
-    NameEn = "Whitesmith",
     MaleBody = 47,
     FemaleBody = 48,
     MaleEye = 1,
@@ -1704,11 +1834,14 @@ Table_Class = {
     Desc = "##149279",
     DefaultWeapon = 41801,
     Skill = Table_Class_t.Skill[30],
+    MasterSkills = Table_Class_t.MasterSkills[6],
+    LimitMasterSkills = Table_Class_t.LimitMasterSkills[1],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
     AdvanceClass = Table_Class_t.AdvanceClass[30],
     Type = 6,
+    icon = "icon_6_4",
     InitialAttr = Table_Class_t.InitialAttr[1],
     AddPointSolution = Table_Class_t.AddPointSolution[1],
     SkillPointSolution = Table_Class_t.SkillPointSolution[1],
@@ -1797,6 +1930,7 @@ Table_Class = {
     Desc = "##149276",
     DefaultWeapon = 40001,
     Skill = Table_Class_t.Skill[46],
+    MasterSkills = Table_Class_t.MasterSkills[13],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1887,6 +2021,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 63401,
     Skill = Table_Class_t.Skill[31],
+    MasterSkills = Table_Class_t.MasterSkills[7],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1968,7 +2103,6 @@ Table_Class = {
   },
   [94] = {
     id = 94,
-    NameZh = "##145855",
     NameEn = "ShadowChaser",
     MaleBody = 77,
     FemaleBody = 78,
@@ -1976,6 +2110,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 40702,
     Skill = Table_Class_t.Skill[39],
+    MasterSkills = Table_Class_t.MasterSkills[10],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2063,6 +2198,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 63101,
     Skill = Table_Class_t.Skill[40],
+    MasterSkills = Table_Class_t.MasterSkills[11],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2151,12 +2287,12 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 62801,
     Skill = Table_Class_t.Skill[35],
+    MasterSkills = Table_Class_t.MasterSkills[8],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
     AdvanceClass = Table_Class_t.AdvanceClass[35],
     TypeBranch = 43,
-    icon = "icon_10_3",
     InitialAttr = Table_Class_t.InitialAttr[10],
     AddPointSolution = Table_Class_t.AddPointSolution[17],
     SkillPointSolution = Table_Class_t.SkillPointSolution[11],
@@ -2243,6 +2379,8 @@ Table_Class = {
     Desc = "##149278",
     DefaultWeapon = 62501,
     Skill = Table_Class_t.Skill[44],
+    MasterSkills = Table_Class_t.MasterSkills[12],
+    LimitMasterSkills = Table_Class_t.LimitMasterSkills[2],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2266,6 +2404,7 @@ Table_Class = {
   [132] = {
     id = 132,
     NameZh = "##144781",
+    NameEn = "Alchemist",
     MaleBody = 67,
     FemaleBody = 68,
     MaleEye = 1,
@@ -2333,6 +2472,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 41801,
     Skill = Table_Class_t.Skill[5],
+    MasterSkills = Table_Class_t.MasterSkills[1],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2379,10 +2519,12 @@ local cell_mt = {
     HeroTitle = "",
     InitialAttr = _EmptyTable,
     Intro = "",
+    LimitMasterSkills = _EmptyTable,
+    MasterSkills = _EmptyTable,
     MaxJobLevel = 130,
-    NameEn = "Alchemist",
+    NameEn = "Whitesmith",
     NameEnFemale = "",
-    NameZh = "##142509",
+    NameZh = "##145855",
     NameZhFemale = "",
     ProfessionalFashion = _EmptyTable,
     ShowEndTime = "",
@@ -2397,7 +2539,7 @@ local cell_mt = {
     TypeBranch = 61,
     UnlockAttr = _EmptyTable,
     UnlockTips = "",
-    icon = "icon_6_4",
+    icon = "icon_10_3",
     id = 1
   }
 }

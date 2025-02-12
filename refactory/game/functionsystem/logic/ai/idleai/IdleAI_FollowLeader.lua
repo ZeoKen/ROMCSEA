@@ -512,10 +512,7 @@ function IdleAI_FollowLeader:_SwitchLeader(newLeaderID, ignoreNotifyServer, forD
     end
     self.skipTeamCheck = forDoubleAction and true or false
   else
-    if not creature.ai.forceUpdate then
-      self.autoBattle:Reset()
-      Game.AutoBattleManager:ClearController(self, true)
-    end
+    Game.AutoBattleManager:ClearController(self, true)
     self:ResetMoveCMD(nil)
     self.prevUpdateTime = nil
     self.goFromMapID = nil

@@ -73,7 +73,7 @@ end
 
 function QualitySelectView:SetCommonlySetting()
   local setting = FunctionPerformanceSetting.Me()
-  local screenCount = GameConfig.Setting.ScreenCountLow
+  local screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
   setting:SetBegin()
   setting:SetOutLine(false)
   setting:SetSlim(true)
@@ -89,7 +89,7 @@ end
 
 function QualitySelectView:SetGoodSetting()
   local setting = FunctionPerformanceSetting.Me()
-  local screenCount = GameConfig.Setting.ScreenCountHigh
+  local screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High)
   setting:SetBegin()
   setting:SetOutLine(true)
   setting:SetSlim(true)

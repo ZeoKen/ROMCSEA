@@ -31,7 +31,8 @@ BagProxy.BagType = {
   PersonalArtifactFragment = SceneItem_pb.EPACKTYPE_ARTIFACT_FLAGMENT,
   ShadowEquip = SceneItem_pb.EPACKTYPE_SHADOWEQUIP,
   SecretLand = SceneItem_pb.EPACKTYPE_GEM_SECRETLAND,
-  Memory = SceneItem_pb.EPACKTYPE_MEMORY
+  Memory = SceneItem_pb.EPACKTYPE_MEMORY,
+  SpecialFashion = SceneItem_pb.EPACKTYPE_SPECIAL_FASHION
 }
 BagEquipType = {Equip = 1, ViceEquip = 2}
 BagProxy.ItemTypeGroup = {Card = 2}
@@ -150,6 +151,7 @@ function BagProxy:ctor(proxyName, data)
   self.personalArtifactBagData = BagData.new(nil, nil, BagProxy.BagType.PersonalArtifact)
   self.personalArtifactFragmentBagData = BagData.new(nil, nil, BagProxy.BagType.PersonalArtifactFragment)
   self.memoryBagData = BagData.new(nil, nil, BagProxy.BagType.Memory)
+  self.specialFashionBagData = BagData.new(nil, nil, BagProxy.BagType.SpecialFashion)
   local FoodPackPage = GameConfig.FoodPackPage
   if FoodPackPage then
     self.foodBagData = BagData.new({
@@ -184,6 +186,7 @@ function BagProxy:ctor(proxyName, data)
   self.bagMap[BagProxy.BagType.PersonalArtifactFragment] = self.personalArtifactFragmentBagData
   self.bagMap[BagProxy.BagType.ShadowEquip] = self.shadowBagData
   self.bagMap[BagProxy.BagType.Memory] = self.memoryBagData
+  self.bagMap[BagProxy.BagType.SpecialFashion] = self.specialFashionBagData
   FunctionCDCommand.Me():StartCDProxy(BagCDRefresher, 33)
   FunctionCDCommand.Me():StartCDProxy(BagItemDataFunctionCD, 33, self)
   self._moneyGet = {}
@@ -1663,6 +1666,12 @@ end
 
 function BagProxy:GetMemoryAutoDecomposeOption()
   return self.memoryAutoDecomposeOption
+end
+
+function BagProxy:GetSpecialFashionDatas()
+  if not self.specialFashionBagData then
+    return
+  end
 end
 
 return BagProxy

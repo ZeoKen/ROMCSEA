@@ -5728,7 +5728,6 @@ Table_HomeFurniture = {
   },
   [32105] = {
     id = 32105,
-    Name = "Glastham_01_WallDecoration",
     NameZh = "##2834360",
     Row = 1,
     BeginHeight = 2,
@@ -6083,6 +6082,7 @@ Table_HomeFurniture = {
   },
   [38020] = {
     id = 38020,
+    Name = "Normal_01_MagicBox",
     NameZh = "##123179",
     Row = 3,
     Height = 3,
@@ -7875,7 +7875,7 @@ local cell_mt = {
     FurnitureFunction = _EmptyTable,
     HomeScore = 65,
     LoadShowPosition = _EmptyTable,
-    Name = "Normal_01_MagicBox",
+    Name = "Glastham_01_WallDecoration",
     NameZh = "##1134421",
     NormalType = 1,
     Npc = _EmptyTable,

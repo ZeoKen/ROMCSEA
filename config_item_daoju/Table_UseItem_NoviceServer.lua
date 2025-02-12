@@ -253,6 +253,8 @@ Table_UseItem_t = {
       184,
       185
     },
+    {124},
+    {64},
     {
       32,
       22,
@@ -2759,32 +2761,32 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60003674,
+      id = 70000155,
       show = 1,
       type = "reward"
     },
     {
-      id = 60003679,
+      id = 70000159,
       show = 1,
       type = "reward"
     },
     {
-      id = 60003680,
+      id = 70000160,
       show = 1,
       type = "reward"
     },
     {
-      id = 60003681,
+      id = 70000161,
       show = 1,
       type = "reward"
     },
     {
-      id = 60003682,
+      id = 70000162,
       show = 1,
       type = "reward"
     },
     {
-      id = 60003683,
+      id = 70000163,
       show = 1,
       type = "reward"
     },
@@ -11962,6 +11964,131 @@ Table_UseItem_t = {
     },
     {
       item = {
+        {40319, 1},
+        {40047, 1},
+        {40011, 1},
+        {40310, 1},
+        {40003, 1},
+        {40322, 1},
+        {40308, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {42044, 1},
+        {42007, 1},
+        {42020, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {40011, 1},
+        {40017, 1},
+        {40003, 1},
+        {40038, 1},
+        {40031, 1},
+        {40716, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {42077, 1},
+        {42037, 1},
+        {42020, 1},
+        {42007, 1},
+        {42060, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {40620, 1},
+        {40633, 1},
+        {40622, 1},
+        {40652, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {42043, 1},
+        {42042, 1},
+        {42009, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {63417, 1},
+        {63433, 1},
+        {40620, 1},
+        {40621, 1},
+        {40664, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {42081, 1},
+        {42043, 1},
+        {42009, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {40914, 1},
+        {40723, 1},
+        {40715, 1},
+        {40716, 1},
+        {40919, 1},
+        {40738, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {42007, 1},
+        {42049, 1},
+        {42046, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {41237, 1},
+        {41217, 1},
+        {41205, 1},
+        {40716, 1},
+        {40746, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {42073, 1},
+        {42049, 1},
+        {42046, 1},
+        {42007, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {41205, 1},
+        {41217, 1},
+        {41233, 1},
+        {41221, 1},
+        {41232, 1},
+        {41226, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
         {42055, 1},
         {42047, 1},
         {42045, 1}
@@ -13109,12 +13236,156 @@ Table_UseItem_t = {
       use = 1
     },
     {
+      id = 60002612,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60002620,
+      show = 1,
+      type = "reward"
+    },
+    {
+      pos = 5,
+      refine = 1,
+      refinelv = 10,
+      type = "equip"
+    },
+    {
+      id = 70000213,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000212,
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {3004775, 1},
+        {3004776, 1},
+        {3004777, 1},
+        {3004778, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      id = 60002617,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60002156,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60001441,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60001374,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60001373,
+      show = 1,
+      type = "reward"
+    },
+    {
       id = 60002057,
       show = 1,
       type = "reward"
     },
     {
       id = 60002058,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000205,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000204,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000203,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000202,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000201,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000200,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000199,
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {10000002, 1},
+        {10000003, 1},
+        {10000004, 1},
+        {10000005, 1},
+        {10000006, 1},
+        {10000007, 1},
+        {10000121, 1},
+        {10000123, 1},
+        {10000124, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {3006543, 1},
+        {3006544, 1},
+        {10000127, 1},
+        {10000126, 1},
+        {10000129, 1},
+        {10000128, 1},
+        {10000122, 1},
+        {3008750, 1},
+        {3008751, 1},
+        {10000125, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      id = 61001155,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 70000167,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60000804,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60000805,
       show = 1,
       type = "reward"
     },
@@ -13134,7 +13405,51 @@ Table_UseItem_t = {
       type = "unlockpetwear"
     },
     {
-      id = 60002865,
+      ids = {6014},
+      type = "profileunlocklabel"
+    },
+    {
+      item = {
+        {
+          [1] = 40633,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40622,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      disappeartime = 60,
+      id = 56330,
+      type = "summon"
+    },
+    {
+      item = {
+        {3010759, 1},
+        {3010760, 1},
+        {3010761, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      id = 60002861,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60002303,
       show = 1,
       type = "reward"
     },
@@ -13166,12 +13481,12 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60002861,
+      id = 60002863,
       show = 1,
       type = "reward"
     },
     {
-      id = 60002863,
+      id = 60002865,
       show = 1,
       type = "reward"
     },
@@ -13186,31 +13501,7 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 800407,
-      type = "usedepositcard"
-    },
-    {
-      id = 800406,
-      type = "usedepositcard"
-    },
-    {
-      id = 800212,
-      type = "usedepositcard"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 30034,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      id = 60003031,
-      realid = {60003029, 60003030},
-      shopid = {201942, 201980},
+      id = 60002898,
       show = 1,
       type = "reward"
     },
@@ -13218,27 +13509,27 @@ Table_UseItem_t = {
     {
       behavior = 3,
       disappeartime = 600,
-      id = 30003,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 30002,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
       id = 30001,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 20020,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 20008,
       life = 1,
       pri_attack_owner = 1,
       search = 10,
@@ -13265,19 +13556,19 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      buff = 1540,
-      lv = {10, 90},
-      name = "冒险教程",
-      skill = 90005001,
-      type = "tutorskill"
-    },
-    {
       id = 10000106,
       type = "usedepositcard"
     },
     {
       id = 10000105,
       type = "usedepositcard"
+    },
+    {
+      buff = 1540,
+      lv = {10, 90},
+      name = "冒险教程",
+      skill = 90005001,
+      type = "tutorskill"
     },
     {
       id = 10000104,
@@ -13325,12 +13616,6 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      name = "冒险教程",
-      profession = 2,
-      skill = 90006001,
-      type = "tutorskill"
-    },
-    {
       item = {
         {3010859, 1},
         {3010860, 1},
@@ -13339,6 +13624,12 @@ Table_UseItem_t = {
         {3010863, 1}
       },
       type = "selectreward"
+    },
+    {
+      name = "冒险教程",
+      profession = 2,
+      skill = 90006001,
+      type = "tutorskill"
     },
     {
       item = {
@@ -13606,6 +13897,28 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      item = {
+        {
+          [1] = 40746,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40746,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
       body = {10245, 10310},
       itemid = 47002,
       type = "unlockpetwear"
@@ -13630,7 +13943,7 @@ Table_UseItem_t = {
         {
           [1] = 40746,
           [2] = 1,
-          refine_lv = 12
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -13821,28 +14134,6 @@ Table_UseItem_t = {
         {
           [1] = 40746,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40746,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40746,
-          [2] = 1,
           refine_lv = 9
         }
       },
@@ -13991,11 +14282,6 @@ Table_UseItem_t = {
       },
       noshow = 1,
       type = "selectreward"
-    },
-    {
-      id = 60002128,
-      show = 1,
-      type = "reward"
     },
     {
       item = {
@@ -14014,6 +14300,33 @@ Table_UseItem_t = {
           [1] = 40687,
           [2] = 1,
           refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      id = 60002128,
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {
+          [1] = 40687,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40687,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -14040,28 +14353,6 @@ Table_UseItem_t = {
         {
           [1] = 40687,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40687,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40687,
-          [2] = 1,
           refine_lv = 9
         }
       },
@@ -14272,6 +14563,28 @@ Table_UseItem_t = {
           [1] = 40031,
           [2] = 1,
           refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62570,
+          [2] = 1,
+          refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62570,
+          [2] = 1,
+          refine_lv = 4
         }
       },
       noshow = 1,
@@ -14380,28 +14693,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 62570,
-          [2] = 1,
-          refine_lv = 5
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 62570,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 62572,
           [2] = 1,
           refine_lv = 12
@@ -14425,6 +14716,28 @@ Table_UseItem_t = {
       item = {
         {
           [1] = 62572,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 63488,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 63488,
           [2] = 1,
           refine_lv = 10
         }
@@ -14555,32 +14868,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 63488,
-          [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 63488,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      type = "openurl",
-      url = "https://www.taptap.com/user/49181113"
-    },
-    {
-      item = {
-        {
           [1] = 63486,
           [2] = 1,
           refine_lv = 12
@@ -14601,9 +14888,8 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      id = 60002157,
-      show = 1,
-      type = "reward"
+      type = "openurl",
+      url = "https://www.taptap.com/user/49181113"
     },
     {
       item = {
@@ -14626,6 +14912,11 @@ Table_UseItem_t = {
       },
       noshow = 1,
       type = "selectreward"
+    },
+    {
+      id = 60002157,
+      show = 1,
+      type = "reward"
     },
     {
       item = {
@@ -14782,6 +15073,28 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      item = {
+        {
+          [1] = 63612,
+          [2] = 1,
+          refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 63612,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
       id = 2301,
       show = 1,
       type = "reward"
@@ -14861,7 +15174,7 @@ Table_UseItem_t = {
         {
           [1] = 63612,
           [2] = 1,
-          refine_lv = 9
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -14872,7 +15185,7 @@ Table_UseItem_t = {
         {
           [1] = 63612,
           [2] = 1,
-          refine_lv = 8
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -14887,7 +15200,7 @@ Table_UseItem_t = {
         {
           [1] = 63612,
           [2] = 1,
-          refine_lv = 7
+          refine_lv = 5
         }
       },
       noshow = 1,
@@ -14913,7 +15226,7 @@ Table_UseItem_t = {
         {
           [1] = 63612,
           [2] = 1,
-          refine_lv = 6
+          refine_lv = 4
         }
       },
       noshow = 1,
@@ -14922,9 +15235,9 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 63612,
+          [1] = 44604,
           [2] = 1,
-          refine_lv = 5
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -14985,28 +15298,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 63612,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44604,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 44604,
           [2] = 1,
           refine_lv = 11
@@ -15076,6 +15367,28 @@ Table_UseItem_t = {
           [1] = 44601,
           [2] = 1,
           refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44601,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44601,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -15106,28 +15419,6 @@ Table_UseItem_t = {
         {
           [1] = 44601,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44601,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44601,
-          [2] = 1,
           refine_lv = 9
         }
       },
@@ -15173,6 +15464,28 @@ Table_UseItem_t = {
           [1] = 44601,
           [2] = 1,
           refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44601,
+          [2] = 1,
+          refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44602,
+          [2] = 1,
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -15196,28 +15509,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 44601,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44602,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 44602,
           [2] = 1,
           refine_lv = 11
@@ -15320,6 +15611,28 @@ Table_UseItem_t = {
           [1] = 44305,
           [2] = 1,
           refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44305,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44305,
+          [2] = 1,
+          refine_lv = 9
         }
       },
       noshow = 1,
@@ -15376,7 +15689,7 @@ Table_UseItem_t = {
         {
           [1] = 44305,
           [2] = 1,
-          refine_lv = 10
+          refine_lv = 8
         }
       },
       noshow = 1,
@@ -15396,7 +15709,7 @@ Table_UseItem_t = {
         {
           [1] = 44305,
           [2] = 1,
-          refine_lv = 9
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -15412,48 +15725,11 @@ Table_UseItem_t = {
         {
           [1] = 44305,
           [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44305,
-          [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44305,
-          [2] = 1,
           refine_lv = 5
         }
       },
       noshow = 1,
       type = "selectreward"
-    },
-    {
-      id = 3974,
-      show = 1,
-      type = "reward"
-    },
-    {
-      no_extra = 1,
-      to_level = 200,
-      type = "joblevelup"
-    },
-    {
-      no_extra = 1,
-      num = 1,
-      type = "levelup"
     },
     {
       item = {
@@ -15478,6 +15754,21 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      id = 3974,
+      show = 1,
+      type = "reward"
+    },
+    {
+      no_extra = 1,
+      to_level = 200,
+      type = "joblevelup"
+    },
+    {
+      no_extra = 1,
+      num = 1,
+      type = "levelup"
+    },
+    {
       item = {
         {
           [1] = 44302,
@@ -15487,11 +15778,6 @@ Table_UseItem_t = {
       },
       noshow = 1,
       type = "selectreward"
-    },
-    {
-      id = 2082,
-      show = 1,
-      type = "reward"
     },
     {
       item = {
@@ -15510,6 +15796,33 @@ Table_UseItem_t = {
           [1] = 44302,
           [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      id = 2082,
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {
+          [1] = 44302,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44302,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -15548,7 +15861,7 @@ Table_UseItem_t = {
         {
           [1] = 44302,
           [2] = 1,
-          refine_lv = 8
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -15558,28 +15871,6 @@ Table_UseItem_t = {
       id = 60002250,
       show = 1,
       type = "reward"
-    },
-    {
-      item = {
-        {
-          [1] = 44302,
-          [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44302,
-          [2] = 1,
-          refine_lv = 6
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
     },
     {
       item = {
@@ -15609,6 +15900,28 @@ Table_UseItem_t = {
           [1] = 44303,
           [2] = 1,
           refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44303,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 44303,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -15736,33 +16049,6 @@ Table_UseItem_t = {
         {
           [1] = 44303,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 44303,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      id = 4646,
-      show = 1,
-      type = "reward"
-    },
-    {
-      item = {
-        {
-          [1] = 44303,
-          [2] = 1,
           refine_lv = 9
         }
       },
@@ -15781,11 +16067,38 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      id = 4646,
+      show = 1,
+      type = "reward"
+    },
+    {
       item = {
         {
           [1] = 44303,
           [2] = 1,
           refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62507,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62507,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -15801,7 +16114,7 @@ Table_UseItem_t = {
         {
           [1] = 62507,
           [2] = 1,
-          refine_lv = 11
+          refine_lv = 9
         }
       },
       noshow = 1,
@@ -15824,7 +16137,7 @@ Table_UseItem_t = {
         {
           [1] = 62507,
           [2] = 1,
-          refine_lv = 10
+          refine_lv = 8
         }
       },
       noshow = 1,
@@ -15835,7 +16148,7 @@ Table_UseItem_t = {
         {
           [1] = 62507,
           [2] = 1,
-          refine_lv = 9
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -15851,28 +16164,6 @@ Table_UseItem_t = {
         {
           [1] = 62507,
           [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 62507,
-          [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 62507,
-          [2] = 1,
           refine_lv = 6
         }
       },
@@ -16226,34 +16517,34 @@ Table_UseItem_t = {
           [1] = 63433,
           [2] = 1,
           refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 63113,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 63113,
+          [2] = 1,
+          refine_lv = 11
         }
       },
       noshow = 1,
       type = "selectreward"
     },
     {id = 3937, type = "reward"},
-    {
-      item = {
-        {
-          [1] = 63113,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 63113,
-          [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
     {
       item = {
         {
@@ -16337,6 +16628,28 @@ Table_UseItem_t = {
           [1] = 62809,
           [2] = 1,
           refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62809,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62809,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -16394,29 +16707,29 @@ Table_UseItem_t = {
         {
           [1] = 62809,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 62809,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 62809,
-          [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62809,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62809,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -16432,7 +16745,7 @@ Table_UseItem_t = {
         {
           [1] = 62809,
           [2] = 1,
-          refine_lv = 8
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -16447,7 +16760,7 @@ Table_UseItem_t = {
         {
           [1] = 62809,
           [2] = 1,
-          refine_lv = 7
+          refine_lv = 5
         }
       },
       noshow = 1,
@@ -16458,7 +16771,7 @@ Table_UseItem_t = {
         {
           [1] = 62809,
           [2] = 1,
-          refine_lv = 6
+          refine_lv = 4
         }
       },
       noshow = 1,
@@ -16486,9 +16799,9 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 62809,
+          [1] = 63417,
           [2] = 1,
-          refine_lv = 5
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -16545,28 +16858,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 62809,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 63417,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 63417,
           [2] = 1,
           refine_lv = 11
@@ -16592,6 +16883,28 @@ Table_UseItem_t = {
           [1] = 63417,
           [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 63417,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 63417,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -16607,28 +16920,6 @@ Table_UseItem_t = {
         {
           [1] = 63417,
           [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 63417,
-          [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 63417,
-          [2] = 1,
           refine_lv = 6
         }
       },
@@ -16795,6 +17086,28 @@ Table_UseItem_t = {
           [1] = 41851,
           [2] = 1,
           refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41851,
+          [2] = 1,
+          refine_lv = 7
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41851,
+          [2] = 1,
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -16835,28 +17148,6 @@ Table_UseItem_t = {
         {
           [1] = 41851,
           [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41851,
-          [2] = 1,
-          refine_lv = 6
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41851,
-          [2] = 1,
           refine_lv = 5
         }
       },
@@ -16869,6 +17160,28 @@ Table_UseItem_t = {
           [1] = 41851,
           [2] = 1,
           refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41545,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41545,
+          [2] = 1,
+          refine_lv = 11
         }
       },
       noshow = 1,
@@ -16935,7 +17248,7 @@ Table_UseItem_t = {
         {
           [1] = 41545,
           [2] = 1,
-          refine_lv = 12
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -16946,7 +17259,7 @@ Table_UseItem_t = {
         {
           [1] = 41545,
           [2] = 1,
-          refine_lv = 11
+          refine_lv = 9
         }
       },
       noshow = 1,
@@ -16982,12 +17295,6 @@ Table_UseItem_t = {
       pos = 4,
       refine = 1,
       refinelv = 12,
-      type = "equip"
-    },
-    {
-      pos = 5,
-      refine = 1,
-      refinelv = 10,
       type = "equip"
     },
     {
@@ -17044,28 +17351,6 @@ Table_UseItem_t = {
         {
           [1] = 41545,
           [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41545,
-          [2] = 1,
-          refine_lv = 9
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41545,
-          [2] = 1,
           refine_lv = 8
         }
       },
@@ -17116,13 +17401,35 @@ Table_UseItem_t = {
       noshow = 1,
       type = "selectreward"
     },
-    {id = 141, type = "addbuff"},
     {
       item = {
         {
           [1] = 41604,
           [2] = 1,
           refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41604,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {id = 141, type = "addbuff"},
+    {
+      item = {
+        {
+          [1] = 41604,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -17145,7 +17452,7 @@ Table_UseItem_t = {
         {
           [1] = 41604,
           [2] = 1,
-          refine_lv = 11
+          refine_lv = 9
         }
       },
       noshow = 1,
@@ -17156,7 +17463,7 @@ Table_UseItem_t = {
         {
           [1] = 41604,
           [2] = 1,
-          refine_lv = 10
+          refine_lv = 8
         }
       },
       noshow = 1,
@@ -17205,28 +17512,6 @@ Table_UseItem_t = {
         {
           [1] = 41604,
           [2] = 1,
-          refine_lv = 9
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41604,
-          [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41604,
-          [2] = 1,
           refine_lv = 7
         }
       },
@@ -17349,6 +17634,28 @@ Table_UseItem_t = {
           [1] = 40621,
           [2] = 1,
           refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40621,
+          [2] = 1,
+          refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41509,
+          [2] = 1,
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -17571,28 +17878,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 40621,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41509,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 41509,
           [2] = 1,
           refine_lv = 11
@@ -17618,6 +17903,28 @@ Table_UseItem_t = {
           [1] = 41509,
           [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41509,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41509,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -17726,28 +18033,6 @@ Table_UseItem_t = {
     {
       id = 800712,
       type = "usedepositcard"
-    },
-    {
-      item = {
-        {
-          [1] = 41509,
-          [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41509,
-          [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
     },
     {
       item = {
@@ -18135,6 +18420,28 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      item = {
+        {
+          [1] = 41809,
+          [2] = 1,
+          refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41809,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
       duration = 300,
       effect = "Common/PicnicMat01",
       range = 1,
@@ -18199,28 +18506,6 @@ Table_UseItem_t = {
         {
           [1] = 41809,
           [2] = 1,
-          refine_lv = 9
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41809,
-          [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41809,
-          [2] = 1,
           refine_lv = 7
         }
       },
@@ -18310,6 +18595,28 @@ Table_UseItem_t = {
           [1] = 41835,
           [2] = 1,
           refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41835,
+          [2] = 1,
+          refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62509,
+          [2] = 1,
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -18323,28 +18630,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 41835,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 62509,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 62509,
           [2] = 1,
           refine_lv = 11
@@ -18480,6 +18765,28 @@ Table_UseItem_t = {
           [1] = 62515,
           [2] = 1,
           refine_lv = 6
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62515,
+          [2] = 1,
+          refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 62515,
+          [2] = 1,
+          refine_lv = 4
         }
       },
       noshow = 1,
@@ -18523,9 +18830,9 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 62515,
+          [1] = 62508,
           [2] = 1,
-          refine_lv = 5
+          refine_lv = 11
         }
       },
       noshow = 1,
@@ -18534,28 +18841,6 @@ Table_UseItem_t = {
     {
       id = 800801,
       type = "usedepositcard"
-    },
-    {
-      item = {
-        {
-          [1] = 62515,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 62508,
-          [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
     },
     {
       item = {
@@ -18618,6 +18903,28 @@ Table_UseItem_t = {
           [1] = 40716,
           [2] = 1,
           refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40716,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40716,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -18633,28 +18940,6 @@ Table_UseItem_t = {
         {
           [1] = 40716,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40716,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40716,
-          [2] = 1,
           refine_lv = 9
         }
       },
@@ -18891,16 +19176,6 @@ Table_UseItem_t = {
       },
       noshow = 1,
       type = "selectreward"
-    },
-    {
-      id = 4740,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 4737,
-      show = 1,
-      type = "reward"
     },
     {
       item = {
@@ -18919,6 +19194,38 @@ Table_UseItem_t = {
           [1] = 40914,
           [2] = 1,
           refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      id = 4740,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 4737,
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {
+          [1] = 40914,
+          [2] = 1,
+          refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40914,
+          [2] = 1,
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -18977,28 +19284,6 @@ Table_UseItem_t = {
         {
           [1] = 40914,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40914,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40914,
-          [2] = 1,
           refine_lv = 9
         }
       },
@@ -19044,6 +19329,28 @@ Table_UseItem_t = {
           [1] = 40914,
           [2] = 1,
           refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40914,
+          [2] = 1,
+          refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40919,
+          [2] = 1,
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -19057,28 +19364,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 40914,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40919,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 40919,
           [2] = 1,
           refine_lv = 11
@@ -19214,6 +19499,28 @@ Table_UseItem_t = {
           [1] = 40723,
           [2] = 1,
           refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40723,
+          [2] = 1,
+          refine_lv = 7
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40723,
+          [2] = 1,
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -19229,7 +19536,7 @@ Table_UseItem_t = {
         {
           [1] = 40723,
           [2] = 1,
-          refine_lv = 7
+          refine_lv = 5
         }
       },
       noshow = 1,
@@ -19255,28 +19562,6 @@ Table_UseItem_t = {
         {
           [1] = 40723,
           [2] = 1,
-          refine_lv = 6
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40723,
-          [2] = 1,
-          refine_lv = 5
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40723,
-          [2] = 1,
           refine_lv = 4
         }
       },
@@ -19300,6 +19585,28 @@ Table_UseItem_t = {
           [1] = 40622,
           [2] = 1,
           refine_lv = 11
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40622,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40622,
+          [2] = 1,
+          refine_lv = 9
         }
       },
       noshow = 1,
@@ -19346,39 +19653,6 @@ Table_UseItem_t = {
         {
           [1] = 40622,
           [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40622,
-          [2] = 1,
-          refine_lv = 9
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40622,
-          [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40622,
-          [2] = 1,
           refine_lv = 7
         }
       },
@@ -19391,6 +19665,28 @@ Table_UseItem_t = {
           [1] = 40622,
           [2] = 1,
           refine_lv = 6
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40622,
+          [2] = 1,
+          refine_lv = 5
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40622,
+          [2] = 1,
+          refine_lv = 4
         }
       },
       noshow = 1,
@@ -19424,28 +19720,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 40622,
-          [2] = 1,
-          refine_lv = 5
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40622,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 40633,
           [2] = 1,
           refine_lv = 12
@@ -19455,15 +19729,9 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      item = {
-        {
-          [1] = 40633,
-          [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
+      id = 70000128,
+      show = 1,
+      type = "reward"
     },
     {
       item = {
@@ -19702,6 +19970,28 @@ Table_UseItem_t = {
           [1] = 41221,
           [2] = 1,
           refine_lv = 7
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41221,
+          [2] = 1,
+          refine_lv = 6
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41221,
+          [2] = 1,
+          refine_lv = 5
         }
       },
       noshow = 1,
@@ -20029,28 +20319,6 @@ Table_UseItem_t = {
         {
           [1] = 41221,
           [2] = 1,
-          refine_lv = 6
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41221,
-          [2] = 1,
-          refine_lv = 5
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41221,
-          [2] = 1,
           refine_lv = 4
         }
       },
@@ -20327,6 +20595,28 @@ Table_UseItem_t = {
           [1] = 41217,
           [2] = 1,
           refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40017,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40017,
+          [2] = 1,
+          refine_lv = 11
         }
       },
       noshow = 1,
@@ -20360,7 +20650,7 @@ Table_UseItem_t = {
         {
           [1] = 40017,
           [2] = 1,
-          refine_lv = 12
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -20381,7 +20671,7 @@ Table_UseItem_t = {
         {
           [1] = 40017,
           [2] = 1,
-          refine_lv = 11
+          refine_lv = 9
         }
       },
       noshow = 1,
@@ -20428,28 +20718,6 @@ Table_UseItem_t = {
         {
           [1] = 40017,
           [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40017,
-          [2] = 1,
-          refine_lv = 9
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40017,
-          [2] = 1,
           refine_lv = 8
         }
       },
@@ -20495,6 +20763,28 @@ Table_UseItem_t = {
           [1] = 40017,
           [2] = 1,
           refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40310,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40310,
+          [2] = 1,
+          refine_lv = 11
         }
       },
       noshow = 1,
@@ -20570,7 +20860,7 @@ Table_UseItem_t = {
         {
           [1] = 40310,
           [2] = 1,
-          refine_lv = 12
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -20591,29 +20881,29 @@ Table_UseItem_t = {
         {
           [1] = 40310,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40310,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40310,
-          [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40310,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40310,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -20634,7 +20924,7 @@ Table_UseItem_t = {
         {
           [1] = 40310,
           [2] = 1,
-          refine_lv = 8
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -20645,7 +20935,7 @@ Table_UseItem_t = {
         {
           [1] = 40310,
           [2] = 1,
-          refine_lv = 7
+          refine_lv = 5
         }
       },
       noshow = 1,
@@ -20661,7 +20951,7 @@ Table_UseItem_t = {
         {
           [1] = 40310,
           [2] = 1,
-          refine_lv = 6
+          refine_lv = 4
         }
       },
       noshow = 1,
@@ -20675,9 +20965,9 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 40310,
+          [1] = 40047,
           [2] = 1,
-          refine_lv = 5
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -20692,28 +20982,6 @@ Table_UseItem_t = {
       id = 60000366,
       show = 1,
       type = "reward"
-    },
-    {
-      item = {
-        {
-          [1] = 40310,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40047,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
     },
     {
       item = {
@@ -20798,6 +21066,28 @@ Table_UseItem_t = {
           [1] = 40047,
           [2] = 1,
           refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40038,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40038,
+          [2] = 1,
+          refine_lv = 11
         }
       },
       noshow = 1,
@@ -20928,7 +21218,7 @@ Table_UseItem_t = {
         {
           [1] = 40038,
           [2] = 1,
-          refine_lv = 12
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -20964,7 +21254,7 @@ Table_UseItem_t = {
         {
           [1] = 40038,
           [2] = 1,
-          refine_lv = 11
+          refine_lv = 9
         }
       },
       noshow = 1,
@@ -21030,7 +21320,7 @@ Table_UseItem_t = {
         {
           [1] = 40038,
           [2] = 1,
-          refine_lv = 10
+          refine_lv = 8
         }
       },
       noshow = 1,
@@ -21146,7 +21436,7 @@ Table_UseItem_t = {
         {
           [1] = 40038,
           [2] = 1,
-          refine_lv = 9
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -21157,7 +21447,7 @@ Table_UseItem_t = {
         {
           [1] = 40038,
           [2] = 1,
-          refine_lv = 8
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -21193,7 +21483,7 @@ Table_UseItem_t = {
         {
           [1] = 40038,
           [2] = 1,
-          refine_lv = 7
+          refine_lv = 5
         }
       },
       noshow = 1,
@@ -21209,7 +21499,7 @@ Table_UseItem_t = {
         {
           [1] = 40038,
           [2] = 1,
-          refine_lv = 6
+          refine_lv = 4
         }
       },
       noshow = 1,
@@ -21228,9 +21518,9 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 40038,
+          [1] = 40319,
           [2] = 1,
-          refine_lv = 5
+          refine_lv = 12
         }
       },
       noshow = 1,
@@ -21389,28 +21679,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 40038,
-          [2] = 1,
-          refine_lv = 4
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40319,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 40319,
           [2] = 1,
           refine_lv = 11
@@ -21464,21 +21732,6 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      id = 3975,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 3976,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 3977,
-      show = 1,
-      type = "reward"
-    },
-    {
       item = {
         {
           [1] = 40319,
@@ -21501,11 +21754,48 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      id = 3975,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 3976,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 3977,
+      show = 1,
+      type = "reward"
+    },
+    {
       item = {
         {
           [1] = 40319,
           [2] = 1,
           refine_lv = 4
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40003,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40003,
+          [2] = 1,
+          refine_lv = 11
         }
       },
       noshow = 1,
@@ -21576,7 +21866,7 @@ Table_UseItem_t = {
         {
           [1] = 40003,
           [2] = 1,
-          refine_lv = 12
+          refine_lv = 10
         }
       },
       noshow = 1,
@@ -21633,29 +21923,29 @@ Table_UseItem_t = {
         {
           [1] = 40003,
           [2] = 1,
-          refine_lv = 11
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40003,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40003,
-          [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40003,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40003,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -21690,7 +21980,7 @@ Table_UseItem_t = {
         {
           [1] = 40003,
           [2] = 1,
-          refine_lv = 8
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -21705,7 +21995,7 @@ Table_UseItem_t = {
         {
           [1] = 40003,
           [2] = 1,
-          refine_lv = 7
+          refine_lv = 5
         }
       },
       noshow = 1,
@@ -21742,28 +22032,6 @@ Table_UseItem_t = {
         {
           [1] = 40003,
           [2] = 1,
-          refine_lv = 6
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40003,
-          [2] = 1,
-          refine_lv = 5
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40003,
-          [2] = 1,
           refine_lv = 4
         }
       },
@@ -21780,11 +22048,6 @@ Table_UseItem_t = {
       },
       noshow = 1,
       type = "selectreward"
-    },
-    {
-      id = 244,
-      layer = 3600,
-      type = "addbuff"
     },
     {
       item = {
@@ -21809,11 +22072,38 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      id = 244,
+      layer = 3600,
+      type = "addbuff"
+    },
+    {
       item = {
         {
           [1] = 40308,
           [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40308,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40308,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -22164,28 +22454,6 @@ Table_UseItem_t = {
         {
           [1] = 40308,
           [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40308,
-          [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40308,
-          [2] = 1,
           refine_lv = 6
         }
       },
@@ -22222,6 +22490,19 @@ Table_UseItem_t = {
     {
       id = 61000295,
       realid = {61000295},
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {23220, 1},
+        {23302, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      id = 61000291,
+      realid = {61000288, 61000289},
       show = 1,
       type = "reward"
     },
@@ -22265,23 +22546,22 @@ Table_UseItem_t = {
       type = "unlock_boki_equip"
     },
     {
-      item = {
-        {23220, 1},
-        {23302, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      id = 61000291,
-      realid = {61000288, 61000289},
-      show = 1,
-      type = "reward"
-    },
-    {
       id = 61000292,
       show = 1,
       type = "reward",
       unlockmanual = 1
+    },
+    {
+      id = 61000293,
+      show = 1,
+      type = "reward",
+      unlockmanual = 1
+    },
+    {
+      id = 61000287,
+      realid = {61000285},
+      show = 1,
+      type = "reward"
     },
     {
       body = {10233, 10298},
@@ -22309,10 +22589,10 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 61000293,
+      id = 61000284,
+      realid = {61000282, 61000283},
       show = 1,
-      type = "reward",
-      unlockmanual = 1
+      type = "reward"
     },
     {
       id = 60002476,
@@ -22346,22 +22626,6 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 61000287,
-      realid = {61000285},
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 61000284,
-      realid = {61000282, 61000283},
-      show = 1,
-      type = "reward"
-    },
-    {
-      reward = 60002495,
-      type = "friendreward"
-    },
-    {
       item = {
         {
           [1] = 40806,
@@ -22371,6 +22635,10 @@ Table_UseItem_t = {
       },
       noshow = 1,
       type = "selectreward"
+    },
+    {
+      reward = 60002495,
+      type = "friendreward"
     },
     {
       item = {
@@ -22455,6 +22723,28 @@ Table_UseItem_t = {
           [1] = 40425,
           [2] = 1,
           refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40425,
+          [2] = 1,
+          refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40425,
+          [2] = 1,
+          refine_lv = 7
         }
       },
       noshow = 1,
@@ -22623,30 +22913,14 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      item = {
-        {
-          [1] = 40425,
-          [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 40425,
-          [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
       id = 61000201,
       realid = {61000201},
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 61000195,
+      realid = {61000195},
       show = 1,
       type = "reward"
     },
@@ -22700,17 +22974,21 @@ Table_UseItem_t = {
       type = "rand_select_reward"
     },
     {
-      id = 61000195,
-      realid = {61000195},
-      show = 1,
-      type = "reward"
-    },
-    {
       reward = 61000199,
       type = "friendreward"
     },
     {
       id = 61000186,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 61000187,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 61000165,
       show = 1,
       type = "reward"
     },
@@ -22812,36 +23090,7 @@ Table_UseItem_t = {
       type = "questitem"
     },
     {
-      id = 61000187,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 61000165,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 3294,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 4659,
-      show = 1,
-      type = "reward"
-    },
-    {
       id = 61000164,
-      show = 1,
-      type = "reward"
-    },
-    {
-      ids = {5154, 5155},
-      type = "addbuff"
-    },
-    {
-      id = 4661,
       show = 1,
       type = "reward"
     },
@@ -22857,6 +23106,16 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      id = 3294,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 4659,
+      show = 1,
+      type = "reward"
+    },
+    {
       item = {
         {
           [1] = 140383,
@@ -22866,6 +23125,32 @@ Table_UseItem_t = {
       },
       noshow = 1,
       type = "selectreward"
+    },
+    {
+      ids = {5154, 5155},
+      type = "addbuff"
+    },
+    {
+      id = 4661,
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {
+          [1] = 144115,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      id = 61000161,
+      realid = {61000161},
+      show = 1,
+      type = "reward"
     },
     {
       id = 4663,
@@ -22880,15 +23165,10 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      item = {
-        {
-          [1] = 144115,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
+      id = 61000008,
+      realid = {61000008},
+      show = 1,
+      type = "reward"
     },
     {
       id = 4665,
@@ -22956,8 +23236,7 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 61000161,
-      realid = {61000161},
+      id = 61000007,
       show = 1,
       type = "reward"
     },
@@ -22967,8 +23246,7 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 61000008,
-      realid = {61000008},
+      id = 61000002,
       show = 1,
       type = "reward"
     },
@@ -23142,9 +23420,45 @@ Table_UseItem_t = {
       type = "equip"
     },
     {
-      id = 61000007,
-      show = 1,
-      type = "reward"
+      item = {
+        {
+          [1] = 42022,
+          [2] = 1,
+          refine_lv = 12
+        },
+        {
+          [1] = 43007,
+          [2] = 1,
+          refine_lv = 12
+        },
+        {
+          [1] = 43024,
+          [2] = 1,
+          refine_lv = 12
+        },
+        {
+          [1] = 43031,
+          [2] = 1,
+          refine_lv = 12
+        },
+        {
+          [1] = 43032,
+          [2] = 1,
+          refine_lv = 12
+        },
+        {
+          [1] = 43039,
+          [2] = 1,
+          refine_lv = 12
+        },
+        {
+          [1] = 43030,
+          [2] = 1,
+          refine_lv = 12
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
     },
     {
       id = 4173,
@@ -23162,52 +23476,6 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 61000002,
-      show = 1,
-      type = "reward"
-    },
-    {
-      item = {
-        {
-          [1] = 42022,
-          [2] = 1,
-          refine_lv = 12
-        },
-        {
-          [1] = 43007,
-          [2] = 1,
-          refine_lv = 12
-        },
-        {
-          [1] = 43024,
-          [2] = 1,
-          refine_lv = 12
-        },
-        {
-          [1] = 43031,
-          [2] = 1,
-          refine_lv = 12
-        },
-        {
-          [1] = 43032,
-          [2] = 1,
-          refine_lv = 12
-        },
-        {
-          [1] = 43039,
-          [2] = 1,
-          refine_lv = 12
-        },
-        {
-          [1] = 43030,
-          [2] = 1,
-          refine_lv = 12
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
       item = {
         {
           [1] = 42022,
@@ -23516,6 +23784,188 @@ Table_UseItem_t = {
           [1] = 61512,
           [2] = 1,
           refine_lv = 10
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 42506,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42507,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42508,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42518,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42520,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42524,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42525,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42535,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42536,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 42557,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 60504,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 61011,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 61012,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 61014,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 61506,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 61511,
+          [2] = 1,
+          refine_lv = 9
+        },
+        {
+          [1] = 61512,
+          [2] = 1,
+          refine_lv = 9
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 42506,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42507,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42508,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42518,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42520,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42524,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42525,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42535,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42536,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 42557,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 60504,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 61011,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 61012,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 61014,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 61506,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 61511,
+          [2] = 1,
+          refine_lv = 8
+        },
+        {
+          [1] = 61512,
+          [2] = 1,
+          refine_lv = 8
         }
       },
       noshow = 1,
@@ -23554,188 +24004,6 @@ Table_UseItem_t = {
     {
       item = {
         {
-          [1] = 42506,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42507,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42508,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42518,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42520,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42524,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42525,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42535,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42536,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 42557,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 60504,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 61011,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 61012,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 61014,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 61506,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 61511,
-          [2] = 1,
-          refine_lv = 9
-        },
-        {
-          [1] = 61512,
-          [2] = 1,
-          refine_lv = 9
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 42506,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42507,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42508,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42518,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42520,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42524,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42525,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42535,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42536,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 42557,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 60504,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 61011,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 61012,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 61014,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 61506,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 61511,
-          [2] = 1,
-          refine_lv = 8
-        },
-        {
-          [1] = 61512,
-          [2] = 1,
-          refine_lv = 8
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
           [1] = 41582,
           [2] = 1,
           refine_lv = 9
@@ -23750,6 +24018,28 @@ Table_UseItem_t = {
           [1] = 41582,
           [2] = 1,
           refine_lv = 8
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41582,
+          [2] = 1,
+          refine_lv = 7
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 41582,
+          [2] = 1,
+          refine_lv = 6
         }
       },
       noshow = 1,
@@ -23775,32 +24065,36 @@ Table_UseItem_t = {
         {
           [1] = 41582,
           [2] = 1,
-          refine_lv = 7
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41582,
-          [2] = 1,
-          refine_lv = 6
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
-    },
-    {
-      item = {
-        {
-          [1] = 41582,
-          [2] = 1,
           refine_lv = 5
         }
       },
       noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 143602,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
+      noshow = 1,
+      type = "selectreward"
+    },
+    {
+      item = {
+        {
+          [1] = 40389,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 41556,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
       type = "selectreward"
     },
     {
@@ -23852,15 +24146,9 @@ Table_UseItem_t = {
       type = "addbuff"
     },
     {
-      item = {
-        {
-          [1] = 143602,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      noshow = 1,
-      type = "selectreward"
+      id = 60003541,
+      show = 1,
+      type = "reward"
     },
     {
       id = 60002537,
@@ -23907,36 +24195,8 @@ Table_UseItem_t = {
     },
     {
       item = {
-        {
-          [1] = 40389,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 41556,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      type = "selectreward"
-    },
-    {
-      id = 60003541,
-      show = 1,
-      type = "reward"
-    },
-    {
-      item = {
         {3006522, 1},
         {3002385, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {5530, 1},
-        {5531, 1},
-        {5532, 1}
       },
       type = "selectreward"
     },
@@ -23949,6 +24209,14 @@ Table_UseItem_t = {
       id = 60003536,
       show = 1,
       type = "reward"
+    },
+    {
+      item = {
+        {5530, 1},
+        {5531, 1},
+        {5532, 1}
+      },
+      type = "selectreward"
     },
     {
       id = 60003535,
@@ -23980,7 +24248,6 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
-    {id = 864, type = "menu"},
     {
       id = 60003545,
       show = 1,
@@ -23991,6 +24258,7 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
+    {id = 864, type = "menu"},
     {
       item = {
         {3000851, 1},
@@ -24029,8 +24297,6 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
-    {id = 862, type = "menu"},
-    {id = 863, type = "menu"},
     {
       id = 60003511,
       show = 1,
@@ -24041,6 +24307,8 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
+    {id = 862, type = "menu"},
+    {id = 863, type = "menu"},
     {
       id = 60003502,
       show = 1,
@@ -24059,9 +24327,6 @@ Table_UseItem_t = {
     },
     {id = 60003465, type = "reward"},
     {id = 60003464, type = "reward"},
-    {id = 870, type = "menu"},
-    {id = 871, type = "menu"},
-    {id = 872, type = "menu"},
     {
       id = 60003463,
       realid = {60003462},
@@ -24149,6 +24414,9 @@ Table_UseItem_t = {
       },
       type = "recommendreward"
     },
+    {id = 870, type = "menu"},
+    {id = 871, type = "menu"},
+    {id = 872, type = "menu"},
     {
       item = {
         {
@@ -24198,6 +24466,146 @@ Table_UseItem_t = {
         },
         {
           [1] = 43620,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
+      type = "recommendreward"
+    },
+    {
+      item = {
+        {
+          [1] = 43071,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43077,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43080,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43083,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43086,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43089,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43092,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43095,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 43098,
+          [2] = 1,
+          refine_lv = 10
+        }
+      },
+      type = "recommendreward"
+    },
+    {
+      item = {
+        {
+          [1] = 42128,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42131,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42134,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42137,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42140,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42143,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42146,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42149,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42152,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42155,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42158,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42161,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42164,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42167,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42170,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42176,
+          [2] = 1,
+          refine_lv = 10
+        },
+        {
+          [1] = 42179,
           [2] = 1,
           refine_lv = 10
         }
@@ -24388,146 +24796,6 @@ Table_UseItem_t = {
       id = 4783,
       show = 1,
       type = "reward"
-    },
-    {
-      item = {
-        {
-          [1] = 43071,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43077,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43080,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43083,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43086,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43089,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43092,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43095,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 43098,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      type = "recommendreward"
-    },
-    {
-      item = {
-        {
-          [1] = 42128,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42131,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42134,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42137,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42140,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42143,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42146,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42149,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42152,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42155,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42158,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42161,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42164,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42167,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42170,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42176,
-          [2] = 1,
-          refine_lv = 10
-        },
-        {
-          [1] = 42179,
-          [2] = 1,
-          refine_lv = 10
-        }
-      },
-      type = "recommendreward"
     },
     {
       item = {
@@ -24831,7 +25099,15 @@ Table_UseItem_t = {
       id = 10000112,
       type = "usedepositcard"
     },
-    {id = 2091, type = "addbuff"},
+    {id = 2215, type = "addbuff"},
+    {id = 2216, type = "addbuff"},
+    {id = 2217, type = "addbuff"},
+    {id = 2218, type = "addbuff"},
+    {id = 2219, type = "addbuff"},
+    {id = 2220, type = "addbuff"},
+    {id = 4002, type = "addbuff"},
+    {id = 4017, type = "addbuff"},
+    {id = 4023, type = "addbuff"},
     {
       behavior = 3,
       disappeartime = 600,
@@ -24872,68 +25148,15 @@ Table_UseItem_t = {
       stype = "branch",
       type = "summon"
     },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 20008,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 20020,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 30004,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 30008,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 30009,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
     {id = 70000048, type = "reward"},
     {id = 70000050, type = "reward"},
     {id = 70000051, type = "reward"},
     {
-      behavior = 3,
-      disappeartime = 600,
-      id = 30005,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
+      id = 60003031,
+      realid = {60003029, 60003030},
+      shopid = {201942, 201980},
+      show = 1,
+      type = "reward"
     },
     {
       item = {
@@ -24955,42 +25178,79 @@ Table_UseItem_t = {
       refine_level = 6,
       type = "refine"
     },
-    {id = 70000, type = "reward"},
-    {id = 70010, type = "reward"},
+    {id = 75135, type = "reward"},
+    {id = 4697, type = "reward"},
     {
       body = {10156, 10157},
-      itemid = 47095,
+      itemid = 47012,
       type = "unlockpetwear"
     },
     {
-      body = {10080, 10161},
-      itemid = 45085,
-      type = "unlockpetwear"
+      action = "fashion",
+      fashion = 45052,
+      id = 4,
+      skillid = 81022,
+      type = "weaponpet"
     },
     {
-      body = {
-        20014,
-        10164,
-        10268
-      },
-      itemid = 48528,
-      type = "unlockpetwear"
+      action = "fashion",
+      fashion = 145069,
+      id = 4,
+      skillid = 81022,
+      type = "weaponpet"
     },
     {
       ids = {
-        1183,
-        1184,
-        1185
+        1270,
+        1271,
+        1272
       },
       type = "addbuff"
     },
     {
       ids = {
-        1213,
-        1214,
-        1215
+        1233,
+        1234,
+        1235
       },
       type = "addbuff"
+    },
+    {
+      id = 40019001,
+      type = "client_useskill"
+    },
+    {
+      id = 40020001,
+      type = "client_useskill"
+    },
+    {
+      id = 40020002,
+      type = "client_useskill"
+    },
+    {type = "loveletter", type1 = 1},
+    {
+      id = 1858,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 1859,
+      show = 1,
+      type = "reward"
+    },
+    {
+      sptype = 1,
+      spvalue = {30, 50},
+      type = "heal"
+    },
+    {
+      id = 3135,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 129,
+      type = "unlockrecipe"
     },
     {
       bg = "letter_icon_leo",
@@ -25004,6 +25264,16 @@ Table_UseItem_t = {
       type1 = 3
     },
     {
+      id = 130,
+      type = "unlockrecipe"
+    },
+    {
+      bg = "letter_icon_leo",
+      item = 1768,
+      type = "loveletter",
+      type1 = 4
+    },
+    {
       bg = "letter_icon_leo",
       type = "loveletter",
       type1 = 4
@@ -25013,58 +25283,16 @@ Table_UseItem_t = {
       type = "unlockrecipe"
     },
     {
-      sptype = 1,
-      spvalue = {30, 50},
-      type = "heal"
-    },
-    {
       id = 60000148,
       show = 1,
       type = "reward"
     },
     {id = 6021, type = "addbuff"},
-    {id = 6022, type = "addbuff"},
     {id = 6023, type = "addbuff"},
     {
-      bg = "letter_icon_leo",
-      type = "loveletter",
-      type1 = 2
-    },
-    {id = 1076, type = "reward"},
-    {id = 3049, type = "reward"},
-    {
-      id = 308,
-      style = 1,
-      type = "addmotion"
-    },
-    {
-      id = 309,
-      style = 1,
-      type = "addmotion"
-    },
-    {
-      id = 800107,
-      type = "usedepositcard"
-    },
-    {
-      id = 800108,
-      type = "usedepositcard"
-    },
-    {
-      id = 800109,
-      type = "usedepositcard"
-    },
-    {
-      id = 800110,
-      type = "usedepositcard"
-    },
-    {
-      id = 800111,
-      type = "usedepositcard"
-    },
-    {
-      id = 800112,
-      type = "usedepositcard"
+      id = 60002966,
+      show = 1,
+      type = "reward"
     },
     {id = 70000090, type = "reward"},
     {
@@ -25093,7 +25321,8 @@ Table_UseItem_t = {
     },
     {
       item = {
-        {4703, 1}
+        {4703, 1},
+        {4706, 1}
       },
       type = "selectreward"
     },
@@ -25153,6 +25382,11 @@ Table_UseItem_t = {
           [1] = 62568,
           [2] = 1,
           refine_lv = 12
+        },
+        {
+          [1] = 62861,
+          [2] = 1,
+          refine_lv = 12
         }
       },
       type = "selectreward"
@@ -25170,14 +25404,18 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
+      id = 60000661,
+      show = 1,
+      type = "reward"
+    },
+    {
       id = 60000662,
       show = 1,
       type = "reward"
     },
     {
-      disappeartime = 60,
-      id = 56330,
-      type = "summon"
+      ids = {6015},
+      type = "profileunlocklabel"
     },
     {
       id = 60000771,
@@ -25185,7 +25423,7 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60000774,
+      id = 60000797,
       show = 1,
       type = "reward"
     },
@@ -25215,7 +25453,7 @@ Table_UseItem_t = {
       type = "unlockpetwear"
     },
     {
-      id = 60000783,
+      id = 70000137,
       show = 1,
       type = "reward"
     },
@@ -25225,21 +25463,24 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60000805,
+      item = {
+        {10000195, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      item = {
+        {10000196, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      id = 60000821,
       show = 1,
       type = "reward"
     },
     {
-      id = 60000804,
-      show = 1,
-      type = "reward"
-    },
-    {
-      body = {id = 701290, petid = 500130},
-      type = "pet"
-    },
-    {
-      id = 60000811,
+      id = 60000904,
       show = 1,
       type = "reward"
     },
@@ -25296,17 +25537,12 @@ Table_UseItem_t = {
       type = "catchpet"
     },
     {
-      id = 60000904,
+      id = 60000997,
       show = 1,
       type = "reward"
     },
     {
-      id = 60000927,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 60000951,
+      id = 60000918,
       show = 1,
       type = "reward"
     },
@@ -25397,12 +25633,12 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60001367,
+      id = 60001368,
       show = 1,
       type = "reward"
     },
     {
-      id = 60001368,
+      id = 60001371,
       show = 1,
       type = "reward"
     },
@@ -25435,43 +25671,37 @@ Table_UseItem_t = {
       type = "catchpet"
     },
     {
-      id = 60001373,
+      id = 70000206,
       show = 1,
       type = "reward"
     },
     {
-      id = 60001374,
+      id = 70000207,
       show = 1,
       type = "reward"
     },
     {
-      id = 60001378,
+      id = 70000208,
       show = 1,
       type = "reward"
     },
     {
-      id = 60001334,
+      id = 70000209,
       show = 1,
       type = "reward"
     },
     {
-      id = 110761,
-      num = 1,
-      questid = 1107610001,
-      type = "questitem"
-    },
-    {
-      id = 60002196,
+      id = 70000210,
       show = 1,
       type = "reward"
     },
     {
-      id = 60002620,
+      id = 70000211,
       show = 1,
       type = "reward"
     },
     {
-      id = 60002612,
+      id = 70000216,
       show = 1,
       type = "reward"
     },
@@ -25502,19 +25732,6 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      id = 60002554,
-      show = 1,
-      type = "reward"
-    },
-    {
-      item = {
-        {3004810, 1},
-        {3004811, 1},
-        {3004812, 1}
-      },
-      type = "selectreward"
-    },
-    {
       item = {
         {25133, 1},
         {3000940, 1},
@@ -25540,12 +25757,17 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
+      id = 60002834,
+      show = 1,
+      type = "reward"
+    },
+    {
       id = 60002684,
       show = 1,
       type = "reward"
     },
     {
-      id = 60002834,
+      id = 60002546,
       show = 1,
       type = "reward"
     },
@@ -25563,17 +25785,25 @@ Table_UseItem_t = {
     {id = 9170, type = "menu"},
     {id = 9180, type = "menu"},
     {
-      id = 60002546,
-      show = 1,
-      type = "reward"
-    },
-    {
       id = 60002538,
       show = 1,
       type = "reward"
     },
     {
       id = 60002534,
+      show = 1,
+      type = "reward"
+    },
+    {
+      item = {
+        {3004810, 1},
+        {3004811, 1},
+        {3004812, 1}
+      },
+      type = "selectreward"
+    },
+    {
+      id = 60002554,
       show = 1,
       type = "reward"
     },
@@ -25619,20 +25849,6 @@ Table_UseItem_t = {
         {3720, 20}
       },
       type = "selectreward"
-    },
-    {
-      item = {
-        {3004775, 1},
-        {3004776, 1},
-        {3004777, 1},
-        {3004778, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      id = 60002617,
-      show = 1,
-      type = "reward"
     },
     {
       id = 60002616,
@@ -25729,6 +25945,16 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
+      id = 60002290,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60002289,
+      show = 1,
+      type = "reward"
+    },
+    {
       body = {10244, 10309},
       itemid = 48627,
       type = "unlockpetwear"
@@ -25747,16 +25973,6 @@ Table_UseItem_t = {
       body = {10244, 10309},
       itemid = 145255,
       type = "unlockpetwear"
-    },
-    {
-      id = 60002290,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 60002289,
-      show = 1,
-      type = "reward"
     },
     {
       id = 60002288,
@@ -25805,12 +26021,12 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 4639,
+      id = 60002207,
       show = 1,
       type = "reward"
     },
     {
-      id = 60002207,
+      id = 4639,
       show = 1,
       type = "reward"
     },
@@ -25830,12 +26046,12 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60002195,
+      id = 60002196,
       show = 1,
       type = "reward"
     },
     {
-      id = 60002156,
+      id = 60002195,
       show = 1,
       type = "reward"
     },
@@ -25900,18 +26116,28 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
-    {id = 9219, type = "menu"},
-    {id = 9220, type = "menu"},
-    {id = 9221, type = "menu"},
     {
       id = 60002014,
       show = 1,
       type = "reward"
     },
+    {id = 9219, type = "menu"},
+    {id = 9220, type = "menu"},
+    {id = 9221, type = "menu"},
     {
       id = 23,
       type = "add_portrait_frame",
       use = 1
+    },
+    {
+      id = 60002006,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60001996,
+      show = 1,
+      type = "reward"
     },
     {
       id = 4808,
@@ -25928,19 +26154,9 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
-    {
-      id = 60002006,
-      show = 1,
-      type = "reward"
-    },
     {id = 9222, type = "menu"},
     {id = 9223, type = "menu"},
     {id = 9224, type = "menu"},
-    {
-      id = 60001996,
-      show = 1,
-      type = "reward"
-    },
     {
       reward = 60002400,
       type = "friendreward"
@@ -25966,9 +26182,6 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
-    {id = 9225, type = "menu"},
-    {id = 9226, type = "menu"},
-    {id = 9227, type = "menu"},
     {
       id = 60002219,
       show = 1,
@@ -25979,6 +26192,9 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
+    {id = 9225, type = "menu"},
+    {id = 9226, type = "menu"},
+    {id = 9227, type = "menu"},
     {
       id = 60001907,
       show = 1,
@@ -26021,13 +26237,13 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
-    {id = 4694, type = "reward"},
     {
       id = 60001816,
       show = 1,
       type = "reward"
     },
     {id = 6766, type = "addbuff"},
+    {id = 4694, type = "reward"},
     {
       id = 16,
       type = "add_portrait_frame",
@@ -26103,6 +26319,17 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
+      id = 22310011,
+      num = 1,
+      questid = 22310011,
+      type = "questitem"
+    },
+    {
+      id = 60001983,
+      show = 1,
+      type = "reward"
+    },
+    {
       body = {10249, 10318},
       itemid = 48001,
       type = "unlockpetwear"
@@ -26116,17 +26343,6 @@ Table_UseItem_t = {
       body = {10249, 10318},
       itemid = 145080,
       type = "unlockpetwear"
-    },
-    {
-      id = 22310011,
-      num = 1,
-      questid = 22310011,
-      type = "questitem"
-    },
-    {
-      id = 60001983,
-      show = 1,
-      type = "reward"
     },
     {
       id = 60001979,
@@ -26233,11 +26449,10 @@ Table_UseItem_t = {
       type = "questitem"
     },
     {
-      item = {
-        {64201, 1},
-        {64203, 1}
-      },
-      type = "selectreward"
+      id = 110761,
+      num = 1,
+      questid = 1107610001,
+      type = "questitem"
     },
     {
       id = 110760,
@@ -26246,9 +26461,11 @@ Table_UseItem_t = {
       type = "questitem"
     },
     {
-      id = 60001441,
-      show = 1,
-      type = "reward"
+      item = {
+        {64201, 1},
+        {64203, 1}
+      },
+      type = "selectreward"
     },
     {
       id = 60001440,
@@ -26386,6 +26603,16 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
+      id = 60001334,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60001378,
+      show = 1,
+      type = "reward"
+    },
+    {
       id = 60002795,
       show = 1,
       type = "reward"
@@ -26406,7 +26633,7 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60001371,
+      id = 60001367,
       show = 1,
       type = "reward"
     },
@@ -26441,6 +26668,11 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
+      id = 60000951,
+      show = 1,
+      type = "reward"
+    },
+    {
       item = {
         {3001437, 1},
         {16119, 1},
@@ -26459,16 +26691,6 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      id = 60000918,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 60000997,
-      show = 1,
-      type = "reward"
-    },
-    {
       id = 40054001,
       type = "client_useskill"
     },
@@ -26478,13 +26700,13 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 3005452,
-      type = "usedepositcard"
-    },
-    {
-      id = 60002827,
+      id = 60000927,
       show = 1,
       type = "reward"
+    },
+    {
+      id = 3005452,
+      type = "usedepositcard"
     },
     {
       id = 60000822,
@@ -26492,7 +26714,7 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      id = 60000821,
+      id = 60002827,
       show = 1,
       type = "reward"
     },
@@ -26505,6 +26727,15 @@ Table_UseItem_t = {
       id = 60000812,
       show = 1,
       type = "reward"
+    },
+    {
+      id = 60000811,
+      show = 1,
+      type = "reward"
+    },
+    {
+      body = {id = 701290, petid = 500130},
+      type = "pet"
     },
     {
       id = 60002828,
@@ -26522,11 +26753,6 @@ Table_UseItem_t = {
     },
     {
       id = 60002832,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 60000797,
       show = 1,
       type = "reward"
     },
@@ -26571,16 +26797,6 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      body = {10236, 10301},
-      itemid = 145080,
-      type = "unlockpetwear"
-    },
-    {
-      body = {10236, 10301},
-      itemid = 48627,
-      type = "unlockpetwear"
-    },
-    {
       id = 60000734,
       show = 1,
       type = "reward"
@@ -26589,6 +26805,16 @@ Table_UseItem_t = {
       id = 60000739,
       show = 1,
       type = "reward"
+    },
+    {
+      body = {10236, 10301},
+      itemid = 145080,
+      type = "unlockpetwear"
+    },
+    {
+      body = {10236, 10301},
+      itemid = 48627,
+      type = "unlockpetwear"
     },
     {
       id = 60000738,
@@ -26643,6 +26869,16 @@ Table_UseItem_t = {
       type = "pet"
     },
     {
+      id = 60000783,
+      show = 1,
+      type = "reward"
+    },
+    {
+      id = 60000774,
+      show = 1,
+      type = "reward"
+    },
+    {
       id = 60002840,
       show = 1,
       type = "reward"
@@ -26663,7 +26899,7 @@ Table_UseItem_t = {
       type = "selectreward"
     },
     {
-      id = 60000661,
+      id = 60002304,
       show = 1,
       type = "reward"
     },
@@ -26671,291 +26907,6 @@ Table_UseItem_t = {
       id = 60002842,
       show = 1,
       type = "reward"
-    },
-    {
-      id = 60002304,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 60002303,
-      show = 1,
-      type = "reward"
-    },
-    {
-      item = {
-        {41205, 1},
-        {41217, 1},
-        {41233, 1},
-        {41221, 1},
-        {41232, 1},
-        {41226, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {42073, 1},
-        {42049, 1},
-        {42046, 1},
-        {42007, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {41237, 1},
-        {41217, 1},
-        {41205, 1},
-        {40716, 1},
-        {40746, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {42007, 1},
-        {42049, 1},
-        {42046, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {40914, 1},
-        {40723, 1},
-        {40715, 1},
-        {40716, 1},
-        {40919, 1},
-        {40738, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {42081, 1},
-        {42043, 1},
-        {42009, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {63417, 1},
-        {63433, 1},
-        {40620, 1},
-        {40621, 1},
-        {40664, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      refine_lv = 1,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 2,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 3,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 4,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 5,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 6,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 7,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 8,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 9,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 10,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 11,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 12,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 13,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 14,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 15,
-      ticket_type = 10003,
-      type = "refine_new_ticket"
-    },
-    {
-      item = {
-        {42043, 1},
-        {42042, 1},
-        {42009, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {40620, 1},
-        {40633, 1},
-        {40622, 1},
-        {40652, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {42077, 1},
-        {42037, 1},
-        {42020, 1},
-        {42007, 1},
-        {42060, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {40011, 1},
-        {40017, 1},
-        {40003, 1},
-        {40038, 1},
-        {40031, 1},
-        {40716, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      item = {
-        {42044, 1},
-        {42007, 1},
-        {42020, 1}
-      },
-      type = "selectreward"
-    },
-    {
-      refine_lv = 1,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 2,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 3,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 4,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 5,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 6,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 7,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 8,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 9,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 10,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 11,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 12,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 13,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 14,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 15,
-      ticket_type = 10005,
-      type = "refine_new_ticket"
-    },
-    {
-      item = {
-        {40319, 1},
-        {40047, 1},
-        {40011, 1},
-        {40310, 1},
-        {40003, 1},
-        {40322, 1},
-        {40308, 1}
-      },
-      type = "selectreward"
     },
     {
       npcid = {10263},
@@ -26972,81 +26923,6 @@ Table_UseItem_t = {
     {
       npcid = {10214},
       type = "catchpet"
-    },
-    {
-      refine_lv = 1,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 2,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 3,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 4,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 5,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 6,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 7,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 8,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 9,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 10,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 11,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 12,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 13,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 14,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
-    },
-    {
-      refine_lv = 15,
-      ticket_type = 10004,
-      type = "refine_new_ticket"
     },
     {id = 5010, type = "addbuff"},
     {
@@ -27069,77 +26945,77 @@ Table_UseItem_t = {
     },
     {
       refine_lv = 1,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 2,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 3,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 4,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 5,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 6,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 7,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 8,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 9,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 10,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 11,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 12,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 13,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 14,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
       refine_lv = 15,
-      ticket_type = 10006,
+      ticket_type = 10003,
       type = "refine_new_ticket"
     },
     {
@@ -27165,93 +27041,78 @@ Table_UseItem_t = {
       type = "usedepositcard"
     },
     {
-      isfashion = 1,
       refine_lv = 1,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 2,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 3,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 4,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 5,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 6,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 7,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 8,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 9,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 10,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 11,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 12,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 13,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 14,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
-      isfashion = 1,
       refine_lv = 15,
-      ticket_type = 10002,
+      ticket_type = 10005,
       type = "refine_new_ticket"
     },
     {
@@ -27276,6 +27137,303 @@ Table_UseItem_t = {
     },
     {
       refine_lv = 1,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 2,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 3,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 4,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 5,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 6,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 7,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 8,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 9,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 10,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 11,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 12,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 13,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 14,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 15,
+      ticket_type = 10004,
+      type = "refine_new_ticket"
+    },
+    {
+      id = 800407,
+      type = "usedepositcard"
+    },
+    {
+      id = 800406,
+      type = "usedepositcard"
+    },
+    {
+      id = 800212,
+      type = "usedepositcard"
+    },
+    {
+      id = 800201,
+      type = "usedepositcard"
+    },
+    {
+      id = 800112,
+      type = "usedepositcard"
+    },
+    {
+      refine_lv = 1,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 2,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 3,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 4,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 5,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 6,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 7,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 8,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 9,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 10,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 11,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 12,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 13,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 14,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      refine_lv = 15,
+      ticket_type = 10006,
+      type = "refine_new_ticket"
+    },
+    {
+      id = 800111,
+      type = "usedepositcard"
+    },
+    {
+      id = 800110,
+      type = "usedepositcard"
+    },
+    {
+      id = 800109,
+      type = "usedepositcard"
+    },
+    {
+      id = 800108,
+      type = "usedepositcard"
+    },
+    {
+      id = 800107,
+      type = "usedepositcard"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 1,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 2,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 3,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 4,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 5,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 6,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 7,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 8,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 9,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 10,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 11,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 12,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 13,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 14,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      isfashion = 1,
+      refine_lv = 15,
+      ticket_type = 10002,
+      type = "refine_new_ticket"
+    },
+    {
+      id = 309,
+      style = 1,
+      type = "addmotion"
+    },
+    {
+      id = 308,
+      style = 1,
+      type = "addmotion"
+    },
+    {id = 3049, type = "reward"},
+    {id = 1076, type = "reward"},
+    {
+      bg = "letter_icon_leo",
+      type = "loveletter",
+      type1 = 2
+    },
+    {
+      refine_lv = 1,
       ticket_type = 10001,
       type = "refine_new_ticket"
     },
@@ -27350,19 +27508,16 @@ Table_UseItem_t = {
       type = "refine_new_ticket"
     },
     {
-      id = 60002898,
-      show = 1,
-      type = "reward"
+      msgid = 43594,
+      skill_index = 2,
+      type = "unlock_limit_master_skill"
     },
     {
-      id = 60002966,
-      show = 1,
-      type = "reward"
+      msgid = 43595,
+      skill_index = 2,
+      type = "unlock_limit_master_skill"
     },
-    {
-      id = 800201,
-      type = "usedepositcard"
-    },
+    {id = 6022, type = "addbuff"},
     {
       id = 60002954,
       show = 1,
@@ -27469,14 +27624,20 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
-      bg = "letter_icon_leo",
-      item = 1768,
-      type = "loveletter",
-      type1 = 4
+      ids = {
+        1213,
+        1214,
+        1215
+      },
+      type = "addbuff"
     },
     {
-      id = 130,
-      type = "unlockrecipe"
+      ids = {
+        1183,
+        1184,
+        1185
+      },
+      type = "addbuff"
     },
     {
       item = {
@@ -27489,64 +27650,6 @@ Table_UseItem_t = {
         {3002010, 1}
       },
       type = "selectreward"
-    },
-    {
-      id = 129,
-      type = "unlockrecipe"
-    },
-    {
-      id = 3135,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 1859,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 1858,
-      show = 1,
-      type = "reward"
-    },
-    {type = "loveletter", type1 = 1},
-    {
-      id = 40020002,
-      type = "client_useskill"
-    },
-    {
-      id = 40020001,
-      type = "client_useskill"
-    },
-    {
-      id = 40019001,
-      type = "client_useskill"
-    },
-    {
-      id = 60002888,
-      show = 1,
-      type = "reward"
-    },
-    {
-      id = 60002883,
-      show = 1,
-      type = "reward"
-    },
-    {
-      ids = {
-        1233,
-        1234,
-        1235
-      },
-      type = "addbuff"
-    },
-    {
-      ids = {
-        1270,
-        1271,
-        1272
-      },
-      type = "addbuff"
     },
     {
       ids = {1250, 1251},
@@ -27585,38 +27688,19 @@ Table_UseItem_t = {
     {id = 6003, type = "addbuff"},
     {id = 6002, type = "addbuff"},
     {
-      action = "fashion",
-      fashion = 145069,
-      id = 4,
-      skillid = 81022,
-      type = "weaponpet"
+      id = 60002888,
+      show = 1,
+      type = "reward"
     },
     {
-      action = "fashion",
-      fashion = 45052,
-      id = 4,
-      skillid = 81022,
-      type = "weaponpet"
-    },
-    {
-      body = {10237, 10302},
-      itemid = 48004,
-      type = "unlockpetwear"
-    },
-    {
-      body = {10237, 10302},
-      itemid = 48595,
-      type = "unlockpetwear"
-    },
-    {
-      body = {10237, 10302},
-      itemid = 47040,
-      type = "unlockpetwear"
+      id = 60002883,
+      show = 1,
+      type = "reward"
     },
     {
       behavior = 3,
       disappeartime = 600,
-      id = 30029,
+      id = 30007,
       life = 1,
       pri_attack_owner = 1,
       search = 10,
@@ -27626,16 +27710,38 @@ Table_UseItem_t = {
     {
       behavior = 3,
       disappeartime = 600,
-      id = 30033,
+      id = 30009,
       life = 1,
       pri_attack_owner = 1,
       search = 10,
       stype = "branch",
       type = "summon"
     },
-    {id = 2185, type = "addbuff"},
-    {id = 2184, type = "addbuff"},
-    {id = 2183, type = "addbuff"},
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 30008,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      body = {10250, 10285},
+      itemid = 48557,
+      type = "unlockpetwear"
+    },
+    {
+      body = {10250, 10285},
+      itemid = 145287,
+      type = "unlockpetwear"
+    },
+    {
+      body = {10250, 10285},
+      itemid = 148610,
+      type = "unlockpetwear"
+    },
     {
       action = "fashion",
       fashion = 48513,
@@ -27671,6 +27777,21 @@ Table_UseItem_t = {
       type = "unlockpetwear"
     },
     {
+      body = {10237, 10302},
+      itemid = 48004,
+      type = "unlockpetwear"
+    },
+    {
+      body = {10237, 10302},
+      itemid = 48595,
+      type = "unlockpetwear"
+    },
+    {
+      body = {10237, 10302},
+      itemid = 47040,
+      type = "unlockpetwear"
+    },
+    {
       body = {
         10184,
         10185,
@@ -27697,6 +27818,40 @@ Table_UseItem_t = {
       type = "unlockpetwear"
     },
     {
+      type = "toy_drawing",
+      unlock_id = 129100
+    },
+    {id = 2085, type = "addbuff"},
+    {id = 2086, type = "addbuff"},
+    {id = 2087, type = "addbuff"},
+    {id = 2088, type = "addbuff"},
+    {id = 2089, type = "addbuff"},
+    {id = 2090, type = "addbuff"},
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 30033,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 30034,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {id = 70000, type = "reward"},
+    {id = 70010, type = "reward"},
+    {id = 70030, type = "reward"},
+    {id = 75105, type = "reward"},
+    {
       action = "fashion",
       fashion = 45064,
       id = 2,
@@ -27716,31 +27871,6 @@ Table_UseItem_t = {
       id = 2,
       skillid = 81012,
       type = "weaponpet"
-    },
-    {id = 2186, type = "addbuff"},
-    {id = 2187, type = "addbuff"},
-    {id = 2188, type = "addbuff"},
-    {id = 2189, type = "addbuff"},
-    {id = 75185, type = "reward"},
-    {id = 75195, type = "reward"},
-    {id = 75205, type = "reward"},
-    {id = 75215, type = "reward"},
-    {id = 4673, type = "reward"},
-    {id = 4695, type = "reward"},
-    {
-      body = {10250, 10285},
-      itemid = 148610,
-      type = "unlockpetwear"
-    },
-    {
-      body = {10250, 10285},
-      itemid = 145287,
-      type = "unlockpetwear"
-    },
-    {
-      body = {10250, 10285},
-      itemid = 48557,
-      type = "unlockpetwear"
     },
     {
       body = {10235, 10300},
@@ -28020,6 +28150,15 @@ Table_UseItem_t = {
     },
     {
       body = {
+        20014,
+        10164,
+        10268
+      },
+      itemid = 48528,
+      type = "unlockpetwear"
+    },
+    {
+      body = {
         10122,
         10163,
         10262,
@@ -28036,6 +28175,11 @@ Table_UseItem_t = {
         10165
       },
       itemid = 45304,
+      type = "unlockpetwear"
+    },
+    {
+      body = {10080, 10161},
+      itemid = 45085,
       type = "unlockpetwear"
     },
     {
@@ -28085,21 +28229,32 @@ Table_UseItem_t = {
     },
     {
       body = {10156, 10157},
-      itemid = 47012,
+      itemid = 48560,
       type = "unlockpetwear"
     },
     {
       body = {10156, 10157},
-      itemid = 48560,
+      itemid = 47095,
       type = "unlockpetwear"
     },
+    {id = 4696, type = "reward"},
+    {id = 4695, type = "reward"},
+    {id = 4673, type = "reward"},
+    {id = 75215, type = "reward"},
+    {id = 75205, type = "reward"},
+    {id = 75195, type = "reward"},
+    {id = 75185, type = "reward"},
+    {id = 75175, type = "reward"},
+    {id = 75165, type = "reward"},
+    {id = 75155, type = "reward"},
+    {id = 75145, type = "reward"},
     {
       id = 60003021,
       show = 1,
       type = "reward"
     },
-    {id = 4697, type = "reward"},
-    {id = 4696, type = "reward"},
+    {id = 75125, type = "reward"},
+    {id = 75115, type = "reward"},
     {
       body = {
         10176,
@@ -28154,15 +28309,16 @@ Table_UseItem_t = {
       itemid = 45101,
       type = "unlockpetwear"
     },
-    {id = 75175, type = "reward"},
-    {id = 75165, type = "reward"},
-    {id = 75155, type = "reward"},
-    {id = 75145, type = "reward"},
-    {id = 75135, type = "reward"},
-    {id = 75125, type = "reward"},
-    {id = 75115, type = "reward"},
-    {id = 75105, type = "reward"},
-    {id = 70030, type = "reward"},
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 30029,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
     {
       id = 60003023,
       show = 1,
@@ -28202,7 +28358,7 @@ Table_UseItem_t = {
     {
       behavior = 3,
       disappeartime = 600,
-      id = 30007,
+      id = 30006,
       life = 1,
       pri_attack_owner = 1,
       search = 10,
@@ -28212,7 +28368,37 @@ Table_UseItem_t = {
     {
       behavior = 3,
       disappeartime = 600,
-      id = 30006,
+      id = 30005,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 30004,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 30003,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 30002,
       life = 1,
       pri_attack_owner = 1,
       search = 10,
@@ -28255,6 +28441,27 @@ Table_UseItem_t = {
       type = "reward"
     },
     {
+      behavior = 3,
+      disappeartime = 600,
+      id = 20002,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {
+      behavior = 3,
+      disappeartime = 600,
+      id = 20001,
+      life = 1,
+      pri_attack_owner = 1,
+      search = 10,
+      stype = "branch",
+      type = "summon"
+    },
+    {id = 4025, type = "addbuff"},
+    {
       id = 60003035,
       show = 1,
       type = "reward",
@@ -28265,6 +28472,7 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
+    {id = 4004, type = "addbuff"},
     {
       item = {
         {3003080, 6},
@@ -28308,37 +28516,6 @@ Table_UseItem_t = {
       show = 1,
       type = "reward"
     },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 20002,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {
-      behavior = 3,
-      disappeartime = 600,
-      id = 20001,
-      life = 1,
-      pri_attack_owner = 1,
-      search = 10,
-      stype = "branch",
-      type = "summon"
-    },
-    {id = 4025, type = "addbuff"},
-    {id = 4023, type = "addbuff"},
-    {id = 4017, type = "addbuff"},
-    {id = 4004, type = "addbuff"},
-    {id = 4002, type = "addbuff"},
-    {id = 2220, type = "addbuff"},
-    {id = 2219, type = "addbuff"},
-    {id = 2218, type = "addbuff"},
-    {id = 2217, type = "addbuff"},
-    {id = 2216, type = "addbuff"},
-    {id = 2215, type = "addbuff"},
     {id = 2214, type = "addbuff"},
     {id = 2213, type = "addbuff"},
     {id = 2212, type = "addbuff"},
@@ -28371,6 +28548,19 @@ Table_UseItem_t = {
     {id = 2192, type = "addbuff"},
     {id = 2191, type = "addbuff"},
     {id = 2190, type = "addbuff"},
+    {id = 2189, type = "addbuff"},
+    {id = 2188, type = "addbuff"},
+    {id = 2187, type = "addbuff"},
+    {id = 2186, type = "addbuff"},
+    {id = 2185, type = "addbuff"},
+    {id = 2184, type = "addbuff"},
+    {id = 2183, type = "addbuff"},
+    {id = 2182, type = "addbuff"},
+    {id = 2181, type = "addbuff"},
+    {id = 2094, type = "addbuff"},
+    {id = 2093, type = "addbuff"},
+    {id = 2092, type = "addbuff"},
+    {id = 2091, type = "addbuff"},
     {
       body = {
         10175,
@@ -28440,21 +28630,6 @@ Table_UseItem_t = {
       },
       itemid = 45006,
       type = "unlockpetwear"
-    },
-    {id = 2182, type = "addbuff"},
-    {id = 2181, type = "addbuff"},
-    {id = 2094, type = "addbuff"},
-    {id = 2093, type = "addbuff"},
-    {id = 2092, type = "addbuff"},
-    {id = 2090, type = "addbuff"},
-    {id = 2089, type = "addbuff"},
-    {id = 2088, type = "addbuff"},
-    {id = 2087, type = "addbuff"},
-    {id = 2086, type = "addbuff"},
-    {id = 2085, type = "addbuff"},
-    {
-      type = "toy_drawing",
-      unlock_id = 129100
     },
     {
       id = 40087001,
@@ -29320,7 +29495,7 @@ Table_UseItem_t = {
       life = 1,
       pri_attack_owner = 1,
       search = 10,
-      stype = "branch",
+      stype = "dead_branch",
       type = "summon"
     },
     {
@@ -29385,6 +29560,11 @@ Table_UseItem_t = {
         }
       },
       type = "multi_gm"
+    }
+  },
+  UseLvLimit = {
+    {
+      [100] = 10
     }
   }
 }
@@ -32135,116 +32315,116 @@ Table_UseItem = {
   },
   [4800] = {
     id = 4800,
-    UseEffect = Table_UseItem_t.UseEffect[3991]
+    UseEffect = Table_UseItem_t.UseEffect[1830]
   },
   [4801] = {
     id = 4801,
-    UseEffect = Table_UseItem_t.UseEffect[3975]
+    UseEffect = Table_UseItem_t.UseEffect[1831]
   },
   [4802] = {
     id = 4802,
-    UseEffect = Table_UseItem_t.UseEffect[3974]
+    UseEffect = Table_UseItem_t.UseEffect[1832]
   },
   [4803] = {
     id = 4803,
-    UseEffect = Table_UseItem_t.UseEffect[3973]
+    UseEffect = Table_UseItem_t.UseEffect[1833]
   },
   [4804] = {
     id = 4804,
-    UseEffect = Table_UseItem_t.UseEffect[3972]
+    UseEffect = Table_UseItem_t.UseEffect[1834]
   },
   [4805] = {
     id = 4805,
-    UseEffect = Table_UseItem_t.UseEffect[3971]
+    UseEffect = Table_UseItem_t.UseEffect[1835]
   },
   [4806] = {
     id = 4806,
-    UseEffect = Table_UseItem_t.UseEffect[3955]
+    UseEffect = Table_UseItem_t.UseEffect[1836]
   },
   [4807] = {
     id = 4807,
-    UseEffect = Table_UseItem_t.UseEffect[3954]
+    UseEffect = Table_UseItem_t.UseEffect[1837]
   },
   [4808] = {
     id = 4808,
-    UseEffect = Table_UseItem_t.UseEffect[3953]
+    UseEffect = Table_UseItem_t.UseEffect[1838]
   },
   [4809] = {
     id = 4809,
-    UseEffect = Table_UseItem_t.UseEffect[3952]
+    UseEffect = Table_UseItem_t.UseEffect[1839]
   },
   [4810] = {
     id = 4810,
-    UseEffect = Table_UseItem_t.UseEffect[3951]
+    UseEffect = Table_UseItem_t.UseEffect[1840]
   },
   [4811] = {
     id = 4811,
-    UseEffect = Table_UseItem_t.UseEffect[3950]
+    UseEffect = Table_UseItem_t.UseEffect[1841]
   },
   [4812] = {
     id = 4812,
-    UseEffect = Table_UseItem_t.UseEffect[3949]
+    UseEffect = Table_UseItem_t.UseEffect[1842]
   },
   [4813] = {
     id = 4813,
-    UseEffect = Table_UseItem_t.UseEffect[1830]
+    UseEffect = Table_UseItem_t.UseEffect[1843]
   },
   [4814] = {
     id = 4814,
-    UseEffect = Table_UseItem_t.UseEffect[1831]
+    UseEffect = Table_UseItem_t.UseEffect[1844]
   },
   [4815] = {
     id = 4815,
-    UseEffect = Table_UseItem_t.UseEffect[1832]
+    UseEffect = Table_UseItem_t.UseEffect[1845]
   },
   [4816] = {
     id = 4816,
-    UseEffect = Table_UseItem_t.UseEffect[1833]
+    UseEffect = Table_UseItem_t.UseEffect[1846]
   },
   [4817] = {
     id = 4817,
-    UseEffect = Table_UseItem_t.UseEffect[1832]
+    UseEffect = Table_UseItem_t.UseEffect[1845]
   },
   [4818] = {
     id = 4818,
-    UseEffect = Table_UseItem_t.UseEffect[1834]
+    UseEffect = Table_UseItem_t.UseEffect[1847]
   },
   [4819] = {
     id = 4819,
-    UseEffect = Table_UseItem_t.UseEffect[1835]
+    UseEffect = Table_UseItem_t.UseEffect[1848]
   },
   [4820] = {
     id = 4820,
-    UseEffect = Table_UseItem_t.UseEffect[1836]
+    UseEffect = Table_UseItem_t.UseEffect[1849]
   },
   [4821] = {
     id = 4821,
-    UseEffect = Table_UseItem_t.UseEffect[1837]
+    UseEffect = Table_UseItem_t.UseEffect[1850]
   },
   [4822] = {
     id = 4822,
-    UseEffect = Table_UseItem_t.UseEffect[1838]
+    UseEffect = Table_UseItem_t.UseEffect[1851]
   },
   [4823] = {
     id = 4823,
-    UseEffect = Table_UseItem_t.UseEffect[1839]
+    UseEffect = Table_UseItem_t.UseEffect[1852]
   },
   [4824] = {
     id = 4824,
-    UseEffect = Table_UseItem_t.UseEffect[1840]
+    UseEffect = Table_UseItem_t.UseEffect[1853]
   },
   [4825] = {
     id = 4825,
-    UseEffect = Table_UseItem_t.UseEffect[1841]
+    UseEffect = Table_UseItem_t.UseEffect[1854]
   },
   [5023] = {
     id = 5023,
-    UseEffect = Table_UseItem_t.UseEffect[1876],
+    UseEffect = Table_UseItem_t.UseEffect[1889],
     UseLimit = 2048
   },
   [5024] = {
     id = 5024,
-    UseEffect = Table_UseItem_t.UseEffect[1877],
+    UseEffect = Table_UseItem_t.UseEffect[1890],
     CDTime = 1,
     CDGroup = 18,
     UseLimit = 1723985,
@@ -32252,447 +32432,447 @@ Table_UseItem = {
   },
   [5032] = {
     id = 5032,
-    UseEffect = Table_UseItem_t.UseEffect[1885],
+    UseEffect = Table_UseItem_t.UseEffect[1898],
     CDTime = 0,
     DailyLimit = 3
   },
   [5033] = {
     id = 5033,
-    UseEffect = Table_UseItem_t.UseEffect[1886],
+    UseEffect = Table_UseItem_t.UseEffect[1899],
     CDTime = 1
   },
   [5037] = {
     id = 5037,
-    UseEffect = Table_UseItem_t.UseEffect[1889],
+    UseEffect = Table_UseItem_t.UseEffect[1902],
     CDTime = 30,
     UseLimit = 19033
   },
   [5039] = {
     id = 5039,
-    UseEffect = Table_UseItem_t.UseEffect[1890],
+    UseEffect = Table_UseItem_t.UseEffect[1903],
     UseMultiple = 99
   },
   [5040] = {
     id = 5040,
-    UseEffect = Table_UseItem_t.UseEffect[1891],
+    UseEffect = Table_UseItem_t.UseEffect[1904],
     CDTime = 1,
     UseMultiple = 99
   },
   [5041] = {
     id = 5041,
-    UseEffect = Table_UseItem_t.UseEffect[1892],
+    UseEffect = Table_UseItem_t.UseEffect[1905],
     CDTime = 1,
     UseMultiple = 99
   },
   [5042] = {
     id = 5042,
-    UseEffect = Table_UseItem_t.UseEffect[1893]
+    UseEffect = Table_UseItem_t.UseEffect[1906]
   },
   [5050] = {
     id = 5050,
     UsingSys = 26015,
-    UseEffect = Table_UseItem_t.UseEffect[1900],
+    UseEffect = Table_UseItem_t.UseEffect[1913],
     CDTime = 1,
     UseMultiple = 1,
     Alert_LimitLevel = 22
   },
   [5110] = {
     id = 5110,
-    UseEffect = Table_UseItem_t.UseEffect[1912],
+    UseEffect = Table_UseItem_t.UseEffect[1925],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5111] = {
     id = 5111,
-    UseEffect = Table_UseItem_t.UseEffect[1913],
+    UseEffect = Table_UseItem_t.UseEffect[1926],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5112] = {
     id = 5112,
-    UseEffect = Table_UseItem_t.UseEffect[1914],
+    UseEffect = Table_UseItem_t.UseEffect[1927],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5113] = {
     id = 5113,
-    UseEffect = Table_UseItem_t.UseEffect[1915],
+    UseEffect = Table_UseItem_t.UseEffect[1928],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5120] = {
     id = 5120,
-    UseEffect = Table_UseItem_t.UseEffect[1916],
+    UseEffect = Table_UseItem_t.UseEffect[1929],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5121] = {
     id = 5121,
-    UseEffect = Table_UseItem_t.UseEffect[1917],
+    UseEffect = Table_UseItem_t.UseEffect[1930],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5122] = {
     id = 5122,
-    UseEffect = Table_UseItem_t.UseEffect[1918],
+    UseEffect = Table_UseItem_t.UseEffect[1931],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5123] = {
     id = 5123,
-    UseEffect = Table_UseItem_t.UseEffect[1919],
+    UseEffect = Table_UseItem_t.UseEffect[1932],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5124] = {
     id = 5124,
-    UseEffect = Table_UseItem_t.UseEffect[1920],
+    UseEffect = Table_UseItem_t.UseEffect[1933],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5125] = {
     id = 5125,
-    UseEffect = Table_UseItem_t.UseEffect[1921],
+    UseEffect = Table_UseItem_t.UseEffect[1934],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5126] = {
     id = 5126,
-    UseEffect = Table_UseItem_t.UseEffect[1922],
+    UseEffect = Table_UseItem_t.UseEffect[1935],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5127] = {
     id = 5127,
-    UseEffect = Table_UseItem_t.UseEffect[1923],
+    UseEffect = Table_UseItem_t.UseEffect[1936],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [5200] = {
     id = 5200,
-    UseEffect = Table_UseItem_t.UseEffect[1976],
+    UseEffect = Table_UseItem_t.UseEffect[1989],
     CDTime = 1
   },
   [5201] = {
     id = 5201,
-    UseEffect = Table_UseItem_t.UseEffect[1977],
+    UseEffect = Table_UseItem_t.UseEffect[1990],
     CDTime = 1
   },
   [5202] = {
     id = 5202,
-    UseEffect = Table_UseItem_t.UseEffect[1978],
+    UseEffect = Table_UseItem_t.UseEffect[1991],
     CDTime = 1
   },
   [5203] = {
     id = 5203,
-    UseEffect = Table_UseItem_t.UseEffect[1979],
+    UseEffect = Table_UseItem_t.UseEffect[1992],
     CDTime = 1
   },
   [5204] = {
     id = 5204,
-    UseEffect = Table_UseItem_t.UseEffect[1980],
+    UseEffect = Table_UseItem_t.UseEffect[1993],
     CDTime = 1
   },
   [5205] = {
     id = 5205,
-    UseEffect = Table_UseItem_t.UseEffect[1981],
+    UseEffect = Table_UseItem_t.UseEffect[1994],
     CDTime = 1
   },
   [5206] = {
     id = 5206,
-    UseEffect = Table_UseItem_t.UseEffect[1982],
+    UseEffect = Table_UseItem_t.UseEffect[1995],
     CDTime = 1
   },
   [5207] = {
     id = 5207,
-    UseEffect = Table_UseItem_t.UseEffect[1983],
+    UseEffect = Table_UseItem_t.UseEffect[1996],
     CDTime = 1
   },
   [5502] = {
     id = 5502,
-    UseEffect = Table_UseItem_t.UseEffect[2084],
+    UseEffect = Table_UseItem_t.UseEffect[2123],
     CDTime = 1,
     UseMultiple = 9999
   },
   [5507] = {
     id = 5507,
-    UseEffect = Table_UseItem_t.UseEffect[2087],
+    UseEffect = Table_UseItem_t.UseEffect[2128],
     CDTime = 10
   },
   [5520] = {
     id = 5520,
-    UseEffect = Table_UseItem_t.UseEffect[2097],
+    UseEffect = Table_UseItem_t.UseEffect[2136],
     CDTime = 1,
     UseMultiple = 99
   },
   [5521] = {
     id = 5521,
-    UseEffect = Table_UseItem_t.UseEffect[2098],
+    UseEffect = Table_UseItem_t.UseEffect[2137],
     CDTime = 1
   },
   [5522] = {
     id = 5522,
-    UseEffect = Table_UseItem_t.UseEffect[2099],
+    UseEffect = Table_UseItem_t.UseEffect[2138],
     CDTime = 1,
     UseMultiple = 99
   },
   [5524] = {
     id = 5524,
-    UseEffect = Table_UseItem_t.UseEffect[2100],
+    UseEffect = Table_UseItem_t.UseEffect[2140],
     CDTime = 1
   },
   [5537] = {
     id = 5537,
-    UseEffect = Table_UseItem_t.UseEffect[2107],
+    UseEffect = Table_UseItem_t.UseEffect[2146],
     CDTime = 1
   },
   [5538] = {
     id = 5538,
-    UseEffect = Table_UseItem_t.UseEffect[2108],
+    UseEffect = Table_UseItem_t.UseEffect[2147],
     CDTime = 1
   },
   [5539] = {
     id = 5539,
-    UseEffect = Table_UseItem_t.UseEffect[2109],
+    UseEffect = Table_UseItem_t.UseEffect[2148],
     CDTime = 1
   },
   [5540] = {
     id = 5540,
-    UseEffect = Table_UseItem_t.UseEffect[2110],
+    UseEffect = Table_UseItem_t.UseEffect[2149],
     CDTime = 1
   },
   [5541] = {
     id = 5541,
-    UseEffect = Table_UseItem_t.UseEffect[2111],
+    UseEffect = Table_UseItem_t.UseEffect[2150],
     CDTime = 1
   },
   [5580] = {
     id = 5580,
-    UseEffect = Table_UseItem_t.UseEffect[2142],
+    UseEffect = Table_UseItem_t.UseEffect[2183],
     CDTime = 1
   },
   [5581] = {
     id = 5581,
-    UseEffect = Table_UseItem_t.UseEffect[2143],
+    UseEffect = Table_UseItem_t.UseEffect[2184],
     CDTime = 1
   },
   [5582] = {
     id = 5582,
-    UseEffect = Table_UseItem_t.UseEffect[2144],
+    UseEffect = Table_UseItem_t.UseEffect[2185],
     CDTime = 1
   },
   [5583] = {
     id = 5583,
-    UseEffect = Table_UseItem_t.UseEffect[2145],
+    UseEffect = Table_UseItem_t.UseEffect[2186],
     CDTime = 1
   },
   [5584] = {
     id = 5584,
-    UseEffect = Table_UseItem_t.UseEffect[2146],
+    UseEffect = Table_UseItem_t.UseEffect[2187],
     CDTime = 1
   },
   [5585] = {
     id = 5585,
-    UseEffect = Table_UseItem_t.UseEffect[2147],
+    UseEffect = Table_UseItem_t.UseEffect[2188],
     CDTime = 1
   },
   [5586] = {
     id = 5586,
-    UseEffect = Table_UseItem_t.UseEffect[2148],
+    UseEffect = Table_UseItem_t.UseEffect[2189],
     CDTime = 1
   },
   [5587] = {
     id = 5587,
-    UseEffect = Table_UseItem_t.UseEffect[2149],
+    UseEffect = Table_UseItem_t.UseEffect[2190],
     CDTime = 1
   },
   [5588] = {
     id = 5588,
-    UseEffect = Table_UseItem_t.UseEffect[2150],
+    UseEffect = Table_UseItem_t.UseEffect[2191],
     CDTime = 1
   },
   [5589] = {
     id = 5589,
-    UseEffect = Table_UseItem_t.UseEffect[2151],
+    UseEffect = Table_UseItem_t.UseEffect[2192],
     CDTime = 1
   },
   [5590] = {
     id = 5590,
-    UseEffect = Table_UseItem_t.UseEffect[2152],
+    UseEffect = Table_UseItem_t.UseEffect[2193],
     CDTime = 1
   },
   [5600] = {
     id = 5600,
-    UseEffect = Table_UseItem_t.UseEffect[2162],
+    UseEffect = Table_UseItem_t.UseEffect[2203],
     CDTime = 1,
     UseMultiple = 99
   },
   [5601] = {
     id = 5601,
-    UseEffect = Table_UseItem_t.UseEffect[2162],
+    UseEffect = Table_UseItem_t.UseEffect[2203],
     CDTime = 1,
     UseMultiple = 99
   },
   [5602] = {
     id = 5602,
-    UseEffect = Table_UseItem_t.UseEffect[2162],
+    UseEffect = Table_UseItem_t.UseEffect[2203],
     CDTime = 1,
     UseMultiple = 99
   },
   [5603] = {
     id = 5603,
-    UseEffect = Table_UseItem_t.UseEffect[2162],
+    UseEffect = Table_UseItem_t.UseEffect[2203],
     CDTime = 1,
     UseMultiple = 99
   },
   [5604] = {
     id = 5604,
-    UseEffect = Table_UseItem_t.UseEffect[2099],
+    UseEffect = Table_UseItem_t.UseEffect[2138],
     CDTime = 1,
     UseMultiple = 99
   },
   [5605] = {
     id = 5605,
-    UseEffect = Table_UseItem_t.UseEffect[2099],
+    UseEffect = Table_UseItem_t.UseEffect[2138],
     CDTime = 1,
     UseMultiple = 99
   },
   [5606] = {
     id = 5606,
-    UseEffect = Table_UseItem_t.UseEffect[2099],
+    UseEffect = Table_UseItem_t.UseEffect[2138],
     CDTime = 1,
     UseMultiple = 99
   },
   [5607] = {
     id = 5607,
-    UseEffect = Table_UseItem_t.UseEffect[2162],
+    UseEffect = Table_UseItem_t.UseEffect[2203],
     CDTime = 1,
     UseMultiple = 99
   },
   [5620] = {
     id = 5620,
-    UseEffect = Table_UseItem_t.UseEffect[2175],
+    UseEffect = Table_UseItem_t.UseEffect[2216],
     CDTime = 1,
     UseMultiple = 99
   },
   [5700] = {
     id = 5700,
-    UseEffect = Table_UseItem_t.UseEffect[2250],
+    UseEffect = Table_UseItem_t.UseEffect[2291],
     CDTime = 1
   },
   [5701] = {
     id = 5701,
-    UseEffect = Table_UseItem_t.UseEffect[2251],
+    UseEffect = Table_UseItem_t.UseEffect[2292],
     CDTime = 1
   },
   [5702] = {
     id = 5702,
-    UseEffect = Table_UseItem_t.UseEffect[2252],
+    UseEffect = Table_UseItem_t.UseEffect[2293],
     CDTime = 1
   },
   [5703] = {
     id = 5703,
-    UseEffect = Table_UseItem_t.UseEffect[2253]
+    UseEffect = Table_UseItem_t.UseEffect[2294]
   },
   [5704] = {
     id = 5704,
-    UseEffect = Table_UseItem_t.UseEffect[2254],
+    UseEffect = Table_UseItem_t.UseEffect[2295],
     CDTime = 1
   },
   [5705] = {
     id = 5705,
-    UseEffect = Table_UseItem_t.UseEffect[2255]
+    UseEffect = Table_UseItem_t.UseEffect[2296]
   },
   [5706] = {
     id = 5706,
-    UseEffect = Table_UseItem_t.UseEffect[2256],
+    UseEffect = Table_UseItem_t.UseEffect[2297],
     CDTime = 1
   },
   [5707] = {
     id = 5707,
-    UseEffect = Table_UseItem_t.UseEffect[2257],
+    UseEffect = Table_UseItem_t.UseEffect[2298],
     CDTime = 1
   },
   [5708] = {
     id = 5708,
-    UseEffect = Table_UseItem_t.UseEffect[2258],
+    UseEffect = Table_UseItem_t.UseEffect[2299],
     CDTime = 1
   },
   [5709] = {
     id = 5709,
-    UseEffect = Table_UseItem_t.UseEffect[2259],
+    UseEffect = Table_UseItem_t.UseEffect[2300],
     CDTime = 1
   },
   [5710] = {
     id = 5710,
-    UseEffect = Table_UseItem_t.UseEffect[2260],
+    UseEffect = Table_UseItem_t.UseEffect[2301],
     CDTime = 1
   },
   [5711] = {
     id = 5711,
-    UseEffect = Table_UseItem_t.UseEffect[2261],
+    UseEffect = Table_UseItem_t.UseEffect[2302],
     CDTime = 1
   },
   [5712] = {
     id = 5712,
-    UseEffect = Table_UseItem_t.UseEffect[2262],
+    UseEffect = Table_UseItem_t.UseEffect[2303],
     CDTime = 1
   },
   [5713] = {
     id = 5713,
-    UseEffect = Table_UseItem_t.UseEffect[2263]
+    UseEffect = Table_UseItem_t.UseEffect[2304]
   },
   [5714] = {
     id = 5714,
-    UseEffect = Table_UseItem_t.UseEffect[2264],
+    UseEffect = Table_UseItem_t.UseEffect[2305],
     CDTime = 1,
     UseMultiple = 99
   },
   [5715] = {
     id = 5715,
-    UseEffect = Table_UseItem_t.UseEffect[2265],
+    UseEffect = Table_UseItem_t.UseEffect[2306],
     CDTime = 1,
     UseMultiple = 99
   },
   [5716] = {
     id = 5716,
-    UseEffect = Table_UseItem_t.UseEffect[2266],
+    UseEffect = Table_UseItem_t.UseEffect[2307],
     CDTime = 1,
     UseMultiple = 99
   },
   [5717] = {
     id = 5717,
-    UseEffect = Table_UseItem_t.UseEffect[2267],
+    UseEffect = Table_UseItem_t.UseEffect[2308],
     CDTime = 1,
     UseMultiple = 99
   },
   [5718] = {
     id = 5718,
-    UseEffect = Table_UseItem_t.UseEffect[2268],
+    UseEffect = Table_UseItem_t.UseEffect[2309],
     CDTime = 1,
     UseMultiple = 99
   },
   [5719] = {
     id = 5719,
-    UseEffect = Table_UseItem_t.UseEffect[2269],
+    UseEffect = Table_UseItem_t.UseEffect[2310],
     CDTime = 1,
     UseMultiple = 99
   },
   [5720] = {
     id = 5720,
-    UseEffect = Table_UseItem_t.UseEffect[2270],
+    UseEffect = Table_UseItem_t.UseEffect[2311],
     CDTime = 1,
     UseMultiple = 99
   },
   [5721] = {
     id = 5721,
-    UseEffect = Table_UseItem_t.UseEffect[2271],
+    UseEffect = Table_UseItem_t.UseEffect[2312],
     CDTime = 1,
     UseMultiple = 99
   },
   [5722] = {
     id = 5722,
-    UseEffect = Table_UseItem_t.UseEffect[2272],
+    UseEffect = Table_UseItem_t.UseEffect[2313],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -32704,245 +32884,245 @@ Table_UseItem = {
   },
   [5724] = {
     id = 5724,
-    UseEffect = Table_UseItem_t.UseEffect[2273],
+    UseEffect = Table_UseItem_t.UseEffect[2314],
     CDTime = 1,
     UseMultiple = 99
   },
   [5750] = {
     id = 5750,
-    UseEffect = Table_UseItem_t.UseEffect[2296],
+    UseEffect = Table_UseItem_t.UseEffect[2337],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5751] = {
     id = 5751,
-    UseEffect = Table_UseItem_t.UseEffect[2297],
+    UseEffect = Table_UseItem_t.UseEffect[2338],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5752] = {
     id = 5752,
-    UseEffect = Table_UseItem_t.UseEffect[2298],
+    UseEffect = Table_UseItem_t.UseEffect[2339],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5753] = {
     id = 5753,
-    UseEffect = Table_UseItem_t.UseEffect[2299],
+    UseEffect = Table_UseItem_t.UseEffect[2340],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5754] = {
     id = 5754,
-    UseEffect = Table_UseItem_t.UseEffect[2300],
+    UseEffect = Table_UseItem_t.UseEffect[2341],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5755] = {
     id = 5755,
-    UseEffect = Table_UseItem_t.UseEffect[2301],
+    UseEffect = Table_UseItem_t.UseEffect[2342],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5756] = {
     id = 5756,
-    UseEffect = Table_UseItem_t.UseEffect[2302],
+    UseEffect = Table_UseItem_t.UseEffect[2343],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5757] = {
     id = 5757,
-    UseEffect = Table_UseItem_t.UseEffect[2303],
+    UseEffect = Table_UseItem_t.UseEffect[2344],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5758] = {
     id = 5758,
-    UseEffect = Table_UseItem_t.UseEffect[2304],
+    UseEffect = Table_UseItem_t.UseEffect[2345],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5759] = {
     id = 5759,
-    UseEffect = Table_UseItem_t.UseEffect[2305],
+    UseEffect = Table_UseItem_t.UseEffect[2346],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5760] = {
     id = 5760,
-    UseEffect = Table_UseItem_t.UseEffect[2306],
+    UseEffect = Table_UseItem_t.UseEffect[2347],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5761] = {
     id = 5761,
-    UseEffect = Table_UseItem_t.UseEffect[2307],
+    UseEffect = Table_UseItem_t.UseEffect[2348],
     CDTime = 1
   },
   [5762] = {
     id = 5762,
-    UseEffect = Table_UseItem_t.UseEffect[2308],
+    UseEffect = Table_UseItem_t.UseEffect[2349],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5763] = {
     id = 5763,
-    UseEffect = Table_UseItem_t.UseEffect[2309],
+    UseEffect = Table_UseItem_t.UseEffect[2350],
     CDTime = 1
   },
   [5764] = {
     id = 5764,
-    UseEffect = Table_UseItem_t.UseEffect[2310],
+    UseEffect = Table_UseItem_t.UseEffect[2351],
     CDTime = 1,
     UseLimitTimes = 11,
     UseInterval = 259200
   },
   [5796] = {
     id = 5796,
-    UseEffect = Table_UseItem_t.UseEffect[2342],
+    UseEffect = Table_UseItem_t.UseEffect[2383],
     CDTime = 1,
     UseMultiple = 99
   },
   [5797] = {
     id = 5797,
-    UseEffect = Table_UseItem_t.UseEffect[2343],
+    UseEffect = Table_UseItem_t.UseEffect[2384],
     CDTime = 1,
     UseMultiple = 99
   },
   [5798] = {
     id = 5798,
-    UseEffect = Table_UseItem_t.UseEffect[2344],
+    UseEffect = Table_UseItem_t.UseEffect[2385],
     CDTime = 1,
     UseMultiple = 99
   },
   [5799] = {
     id = 5799,
-    UseEffect = Table_UseItem_t.UseEffect[2345],
+    UseEffect = Table_UseItem_t.UseEffect[2386],
     CDTime = 1,
     UseMultiple = 99
   },
   [5807] = {
     id = 5807,
-    UseEffect = Table_UseItem_t.UseEffect[2353],
+    UseEffect = Table_UseItem_t.UseEffect[2394],
     CDTime = 1,
     UseMultiple = 99
   },
   [5808] = {
     id = 5808,
-    UseEffect = Table_UseItem_t.UseEffect[2354],
+    UseEffect = Table_UseItem_t.UseEffect[2395],
     CDTime = 1,
     UseMultiple = 99
   },
   [5809] = {
     id = 5809,
-    UseEffect = Table_UseItem_t.UseEffect[2355],
+    UseEffect = Table_UseItem_t.UseEffect[2396],
     CDTime = 1,
     UseMultiple = 99
   },
   [5831] = {
     id = 5831,
-    UseEffect = Table_UseItem_t.UseEffect[2377],
+    UseEffect = Table_UseItem_t.UseEffect[2418],
     CDTime = 1
   },
   [5832] = {
     id = 5832,
-    UseEffect = Table_UseItem_t.UseEffect[2378],
+    UseEffect = Table_UseItem_t.UseEffect[2419],
     UseMultiple = 99
   },
   [5834] = {
     id = 5834,
-    UseEffect = Table_UseItem_t.UseEffect[2380],
+    UseEffect = Table_UseItem_t.UseEffect[2421],
     CDTime = 1,
     UseMultiple = 99
   },
   [5838] = {
     id = 5838,
-    UseEffect = Table_UseItem_t.UseEffect[2384],
+    UseEffect = Table_UseItem_t.UseEffect[2425],
     CDTime = 1,
     UseMultiple = 99
   },
   [5839] = {
     id = 5839,
     UsingSys = 40560,
-    UseEffect = Table_UseItem_t.UseEffect[2385],
+    UseEffect = Table_UseItem_t.UseEffect[2426],
     CDTime = 1
   },
   [5840] = {
     id = 5840,
-    UseEffect = Table_UseItem_t.UseEffect[2386],
+    UseEffect = Table_UseItem_t.UseEffect[2427],
     CDTime = 1,
     MaxLevel = 159
   },
   [5844] = {
     id = 5844,
-    UseEffect = Table_UseItem_t.UseEffect[2390],
+    UseEffect = Table_UseItem_t.UseEffect[2431],
     CDTime = 1,
     UseMultiple = 99
   },
   [5847] = {
     id = 5847,
-    UseEffect = Table_UseItem_t.UseEffect[2393],
+    UseEffect = Table_UseItem_t.UseEffect[2434],
     UseMultiple = 999
   },
   [5848] = {
     id = 5848,
-    UseEffect = Table_UseItem_t.UseEffect[2394],
+    UseEffect = Table_UseItem_t.UseEffect[2435],
     CDTime = 1
   },
   [5849] = {
     id = 5849,
-    UseEffect = Table_UseItem_t.UseEffect[2395],
+    UseEffect = Table_UseItem_t.UseEffect[2436],
     CDTime = 1
   },
   [5850] = {
     id = 5850,
-    UseEffect = Table_UseItem_t.UseEffect[2396],
+    UseEffect = Table_UseItem_t.UseEffect[2437],
     CDTime = 1
   },
   [5852] = {
     id = 5852,
-    UseEffect = Table_UseItem_t.UseEffect[2397],
+    UseEffect = Table_UseItem_t.UseEffect[2438],
     CDTime = 1
   },
   [5863] = {
     id = 5863,
-    UseEffect = Table_UseItem_t.UseEffect[2408],
+    UseEffect = Table_UseItem_t.UseEffect[2449],
     CDTime = 1,
     UseMultiple = 99
   },
   [5864] = {
     id = 5864,
-    UseEffect = Table_UseItem_t.UseEffect[2409],
+    UseEffect = Table_UseItem_t.UseEffect[2450],
     CDTime = 1,
     UseMultiple = 99
   },
   [5865] = {
     id = 5865,
-    UseEffect = Table_UseItem_t.UseEffect[2410],
+    UseEffect = Table_UseItem_t.UseEffect[2451],
     CDTime = 1,
     UseMultiple = 99
   },
   [5866] = {
     id = 5866,
-    UseEffect = Table_UseItem_t.UseEffect[2411],
+    UseEffect = Table_UseItem_t.UseEffect[2452],
     CDTime = 1,
     UseLimit = 18496
   },
   [5867] = {
     id = 5867,
-    UseEffect = Table_UseItem_t.UseEffect[2412],
+    UseEffect = Table_UseItem_t.UseEffect[2453],
     CDTime = 1,
     UseMultiple = 99,
     UseLimit = 18496
@@ -32963,56 +33143,56 @@ Table_UseItem = {
   },
   [5870] = {
     id = 5870,
-    UseEffect = Table_UseItem_t.UseEffect[2413],
+    UseEffect = Table_UseItem_t.UseEffect[2454],
     CDTime = 1,
     UseMultiple = 99
   },
   [5871] = {
     id = 5871,
-    UseEffect = Table_UseItem_t.UseEffect[2414],
+    UseEffect = Table_UseItem_t.UseEffect[2455],
     CDTime = 1,
     UseMultiple = 999
   },
   [5872] = {
     id = 5872,
-    UseEffect = Table_UseItem_t.UseEffect[2415]
+    UseEffect = Table_UseItem_t.UseEffect[2456]
   },
   [5879] = {
     id = 5879,
-    UseEffect = Table_UseItem_t.UseEffect[2422],
+    UseEffect = Table_UseItem_t.UseEffect[2463],
     CDTime = 1,
     UseMultiple = 999
   },
   [5880] = {
     id = 5880,
-    UseEffect = Table_UseItem_t.UseEffect[2423]
+    UseEffect = Table_UseItem_t.UseEffect[2464]
   },
   [5885] = {
     id = 5885,
-    UseEffect = Table_UseItem_t.UseEffect[2428],
+    UseEffect = Table_UseItem_t.UseEffect[2469],
     CDTime = 1,
     UseMultiple = 99
   },
   [5888] = {
     id = 5888,
-    UseEffect = Table_UseItem_t.UseEffect[2431],
+    UseEffect = Table_UseItem_t.UseEffect[2472],
     CDTime = 1,
     UseMultiple = 99
   },
   [5892] = {
     id = 5892,
-    UseEffect = Table_UseItem_t.UseEffect[2435],
+    UseEffect = Table_UseItem_t.UseEffect[2476],
     CDTime = 1,
     UseMultiple = 99
   },
   [5894] = {
     id = 5894,
-    UseEffect = Table_UseItem_t.UseEffect[2437],
+    UseEffect = Table_UseItem_t.UseEffect[2478],
     UseMultiple = 99
   },
   [5895] = {
     id = 5895,
-    UseEffect = Table_UseItem_t.UseEffect[2438],
+    UseEffect = Table_UseItem_t.UseEffect[2479],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -33023,129 +33203,129 @@ Table_UseItem = {
   },
   [5899] = {
     id = 5899,
-    UseEffect = Table_UseItem_t.UseEffect[2441],
+    UseEffect = Table_UseItem_t.UseEffect[2482],
     UseMultiple = 99
   },
   [5951] = {
     id = 5951,
-    UseEffect = Table_UseItem_t.UseEffect[2488],
+    UseEffect = Table_UseItem_t.UseEffect[2529],
     CDTime = 1
   },
   [5952] = {
     id = 5952,
-    UseEffect = Table_UseItem_t.UseEffect[2489],
+    UseEffect = Table_UseItem_t.UseEffect[2530],
     CDTime = 1
   },
   [5953] = {
     id = 5953,
-    UseEffect = Table_UseItem_t.UseEffect[2490],
+    UseEffect = Table_UseItem_t.UseEffect[2531],
     CDTime = 1
   },
   [5954] = {
     id = 5954,
-    UseEffect = Table_UseItem_t.UseEffect[2491],
+    UseEffect = Table_UseItem_t.UseEffect[2532],
     CDTime = 1
   },
   [5955] = {
     id = 5955,
-    UseEffect = Table_UseItem_t.UseEffect[2492],
+    UseEffect = Table_UseItem_t.UseEffect[2533],
     CDTime = 1
   },
   [5956] = {
     id = 5956,
-    UseEffect = Table_UseItem_t.UseEffect[2493],
+    UseEffect = Table_UseItem_t.UseEffect[2534],
     CDTime = 1
   },
   [5957] = {
     id = 5957,
-    UseEffect = Table_UseItem_t.UseEffect[2494],
+    UseEffect = Table_UseItem_t.UseEffect[2535],
     CDTime = 1
   },
   [5966] = {
     id = 5966,
-    UseEffect = Table_UseItem_t.UseEffect[2503],
+    UseEffect = Table_UseItem_t.UseEffect[2544],
     CDTime = 0
   },
   [5972] = {
     id = 5972,
-    UseEffect = Table_UseItem_t.UseEffect[2509],
+    UseEffect = Table_UseItem_t.UseEffect[2550],
     CDTime = 1
   },
   [5991] = {
     id = 5991,
-    UseEffect = Table_UseItem_t.UseEffect[2528],
+    UseEffect = Table_UseItem_t.UseEffect[2569],
     CDTime = 1
   },
   [6010] = {
     id = 6010,
     UsingSys = 1351,
-    UseEffect = Table_UseItem_t.UseEffect[2547],
+    UseEffect = Table_UseItem_t.UseEffect[2588],
     CDTime = 1
   },
   [6011] = {
     id = 6011,
     UsingSys = 1351,
-    UseEffect = Table_UseItem_t.UseEffect[2548],
+    UseEffect = Table_UseItem_t.UseEffect[2589],
     CDTime = 1
   },
   [6012] = {
     id = 6012,
     UsingSys = 1351,
-    UseEffect = Table_UseItem_t.UseEffect[2549],
+    UseEffect = Table_UseItem_t.UseEffect[2590],
     CDTime = 1
   },
   [6013] = {
     id = 6013,
     UsingSys = 1351,
-    UseEffect = Table_UseItem_t.UseEffect[2550],
+    UseEffect = Table_UseItem_t.UseEffect[2591],
     CDTime = 1
   },
   [6014] = {
     id = 6014,
     UsingSys = 1351,
-    UseEffect = Table_UseItem_t.UseEffect[2551],
+    UseEffect = Table_UseItem_t.UseEffect[2592],
     CDTime = 1
   },
   [6015] = {
     id = 6015,
     UsingSys = 1351,
-    UseEffect = Table_UseItem_t.UseEffect[2552],
+    UseEffect = Table_UseItem_t.UseEffect[2593],
     CDTime = 1
   },
   [6020] = {
     id = 6020,
     UsingSys = 1352,
-    UseEffect = Table_UseItem_t.UseEffect[2557],
+    UseEffect = Table_UseItem_t.UseEffect[2598],
     CDTime = 1
   },
   [6021] = {
     id = 6021,
     UsingSys = 1353,
-    UseEffect = Table_UseItem_t.UseEffect[2558],
+    UseEffect = Table_UseItem_t.UseEffect[2599],
     CDTime = 1
   },
   [6022] = {
     id = 6022,
     UsingSys = 1354,
-    UseEffect = Table_UseItem_t.UseEffect[2559],
+    UseEffect = Table_UseItem_t.UseEffect[2600],
     CDTime = 1
   },
   [6023] = {
     id = 6023,
     UsingSys = 1355,
-    UseEffect = Table_UseItem_t.UseEffect[2560],
+    UseEffect = Table_UseItem_t.UseEffect[2601],
     CDTime = 1
   },
   [6024] = {
     id = 6024,
     UsingSys = 1356,
-    UseEffect = Table_UseItem_t.UseEffect[2561],
+    UseEffect = Table_UseItem_t.UseEffect[2602],
     CDTime = 1
   },
   [6025] = {
     id = 6025,
     UsingSys = 1357,
-    UseEffect = Table_UseItem_t.UseEffect[2562],
+    UseEffect = Table_UseItem_t.UseEffect[2603],
     CDTime = 1
   },
   [6030] = {
@@ -33157,7 +33337,7 @@ Table_UseItem = {
   [6031] = {
     id = 6031,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2567],
+    UseEffect = Table_UseItem_t.UseEffect[2608],
     CDTime = 1
   },
   [6032] = {
@@ -33169,7 +33349,7 @@ Table_UseItem = {
   [6033] = {
     id = 6033,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2568],
+    UseEffect = Table_UseItem_t.UseEffect[2609],
     CDTime = 1
   },
   [6034] = {
@@ -33181,19 +33361,19 @@ Table_UseItem = {
   [6035] = {
     id = 6035,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2569],
+    UseEffect = Table_UseItem_t.UseEffect[2610],
     CDTime = 1
   },
   [6036] = {
     id = 6036,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2104],
+    UseEffect = Table_UseItem_t.UseEffect[2143],
     CDTime = 1
   },
   [6037] = {
     id = 6037,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2570],
+    UseEffect = Table_UseItem_t.UseEffect[2611],
     CDTime = 1
   },
   [6038] = {
@@ -33205,55 +33385,55 @@ Table_UseItem = {
   [6039] = {
     id = 6039,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2571],
+    UseEffect = Table_UseItem_t.UseEffect[2612],
     CDTime = 1
   },
   [6040] = {
     id = 6040,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2572],
+    UseEffect = Table_UseItem_t.UseEffect[2074],
     CDTime = 1
   },
   [6041] = {
     id = 6041,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2573],
+    UseEffect = Table_UseItem_t.UseEffect[2613],
     CDTime = 1
   },
   [6042] = {
     id = 6042,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2574],
+    UseEffect = Table_UseItem_t.UseEffect[2614],
     CDTime = 1
   },
   [6043] = {
     id = 6043,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2575],
+    UseEffect = Table_UseItem_t.UseEffect[2615],
     CDTime = 1
   },
   [6044] = {
     id = 6044,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2576],
+    UseEffect = Table_UseItem_t.UseEffect[2616],
     CDTime = 1
   },
   [6045] = {
     id = 6045,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2577],
+    UseEffect = Table_UseItem_t.UseEffect[2617],
     CDTime = 1
   },
   [6046] = {
     id = 6046,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2578],
+    UseEffect = Table_UseItem_t.UseEffect[2618],
     CDTime = 1
   },
   [6047] = {
     id = 6047,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2579],
+    UseEffect = Table_UseItem_t.UseEffect[2619],
     CDTime = 1
   },
   [6048] = {
@@ -33294,59 +33474,59 @@ Table_UseItem = {
   },
   [6054] = {
     id = 6054,
-    UseEffect = Table_UseItem_t.UseEffect[2580]
+    UseEffect = Table_UseItem_t.UseEffect[2620]
   },
   [6062] = {
     id = 6062,
-    UseEffect = Table_UseItem_t.UseEffect[2588]
+    UseEffect = Table_UseItem_t.UseEffect[2628]
   },
   [6064] = {
     id = 6064,
-    UseEffect = Table_UseItem_t.UseEffect[2590]
+    UseEffect = Table_UseItem_t.UseEffect[2630]
   },
   [6065] = {
     id = 6065,
-    UseEffect = Table_UseItem_t.UseEffect[2591]
+    UseEffect = Table_UseItem_t.UseEffect[2631]
   },
   [6068] = {
     id = 6068,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
   [6069] = {
     id = 6069,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
   [6070] = {
     id = 6070,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
   [6071] = {
     id = 6071,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
   [6072] = {
     id = 6072,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
   [6074] = {
     id = 6074,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
   [6079] = {
     id = 6079,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -33358,7 +33538,7 @@ Table_UseItem = {
   },
   [6083] = {
     id = 6083,
-    UseEffect = Table_UseItem_t.UseEffect[2594],
+    UseEffect = Table_UseItem_t.UseEffect[2634],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -33369,14 +33549,14 @@ Table_UseItem = {
   },
   [6101] = {
     id = 6101,
-    UseEffect = Table_UseItem_t.UseEffect[2618],
+    UseEffect = Table_UseItem_t.UseEffect[2658],
     CDTime = 1,
     UseLimit = 18516,
     LimitType = 1
   },
   [6102] = {
     id = 6102,
-    UseEffect = Table_UseItem_t.UseEffect[2619],
+    UseEffect = Table_UseItem_t.UseEffect[2659],
     CDTime = 2,
     CDGroup = 9,
     UseLimit = 18516,
@@ -33384,7 +33564,7 @@ Table_UseItem = {
   },
   [6103] = {
     id = 6103,
-    UseEffect = Table_UseItem_t.UseEffect[2620],
+    UseEffect = Table_UseItem_t.UseEffect[2660],
     CDTime = 4,
     CDGroup = 10,
     UseLimit = 18516,
@@ -33392,14 +33572,14 @@ Table_UseItem = {
   },
   [6104] = {
     id = 6104,
-    UseEffect = Table_UseItem_t.UseEffect[2621],
+    UseEffect = Table_UseItem_t.UseEffect[2661],
     CDTime = 1,
     UseLimit = 18516,
     LimitType = 1
   },
   [6105] = {
     id = 6105,
-    UseEffect = Table_UseItem_t.UseEffect[2622],
+    UseEffect = Table_UseItem_t.UseEffect[2662],
     CDTime = 1.5,
     CDGroup = 11,
     UseLimit = 18516,
@@ -33407,7 +33587,7 @@ Table_UseItem = {
   },
   [6106] = {
     id = 6106,
-    UseEffect = Table_UseItem_t.UseEffect[2623],
+    UseEffect = Table_UseItem_t.UseEffect[2663],
     CDTime = 1.5,
     CDGroup = 11,
     UseLimit = 18516,
@@ -33415,7 +33595,7 @@ Table_UseItem = {
   },
   [6107] = {
     id = 6107,
-    UseEffect = Table_UseItem_t.UseEffect[2624],
+    UseEffect = Table_UseItem_t.UseEffect[2664],
     CDTime = 2,
     CDGroup = 9,
     UseLimit = 18516,
@@ -33423,7 +33603,7 @@ Table_UseItem = {
   },
   [6108] = {
     id = 6108,
-    UseEffect = Table_UseItem_t.UseEffect[2625],
+    UseEffect = Table_UseItem_t.UseEffect[2665],
     CDTime = 4,
     CDGroup = 10,
     UseLimit = 18516,
@@ -33431,14 +33611,14 @@ Table_UseItem = {
   },
   [6109] = {
     id = 6109,
-    UseEffect = Table_UseItem_t.UseEffect[2626],
+    UseEffect = Table_UseItem_t.UseEffect[2666],
     CDTime = 30,
     UseLimit = 18516,
     LimitType = 1
   },
   [6110] = {
     id = 6110,
-    UseEffect = Table_UseItem_t.UseEffect[2627],
+    UseEffect = Table_UseItem_t.UseEffect[2667],
     CDTime = 60,
     CDGroup = 12,
     UseLimit = 18516,
@@ -33446,7 +33626,7 @@ Table_UseItem = {
   },
   [6111] = {
     id = 6111,
-    UseEffect = Table_UseItem_t.UseEffect[2628],
+    UseEffect = Table_UseItem_t.UseEffect[2668],
     CDTime = 60,
     CDGroup = 12,
     UseLimit = 18516,
@@ -33454,7 +33634,7 @@ Table_UseItem = {
   },
   [6112] = {
     id = 6112,
-    UseEffect = Table_UseItem_t.UseEffect[2629],
+    UseEffect = Table_UseItem_t.UseEffect[2669],
     CDTime = 60,
     CDGroup = 12,
     UseLimit = 18516,
@@ -33462,7 +33642,7 @@ Table_UseItem = {
   },
   [6113] = {
     id = 6113,
-    UseEffect = Table_UseItem_t.UseEffect[2630],
+    UseEffect = Table_UseItem_t.UseEffect[2670],
     CDTime = 300,
     CDGroup = 13,
     UseLimit = 18516,
@@ -33470,7 +33650,7 @@ Table_UseItem = {
   },
   [6114] = {
     id = 6114,
-    UseEffect = Table_UseItem_t.UseEffect[2631],
+    UseEffect = Table_UseItem_t.UseEffect[2671],
     CDTime = 300,
     CDGroup = 13,
     UseLimit = 18516,
@@ -33478,7 +33658,7 @@ Table_UseItem = {
   },
   [6115] = {
     id = 6115,
-    UseEffect = Table_UseItem_t.UseEffect[2632],
+    UseEffect = Table_UseItem_t.UseEffect[2672],
     CDTime = 300,
     CDGroup = 13,
     UseLimit = 18516,
@@ -33486,7 +33666,7 @@ Table_UseItem = {
   },
   [6116] = {
     id = 6116,
-    UseEffect = Table_UseItem_t.UseEffect[2633],
+    UseEffect = Table_UseItem_t.UseEffect[2673],
     CDTime = 900,
     CDGroup = 14,
     UseLimit = 18516,
@@ -33494,7 +33674,7 @@ Table_UseItem = {
   },
   [6117] = {
     id = 6117,
-    UseEffect = Table_UseItem_t.UseEffect[2634],
+    UseEffect = Table_UseItem_t.UseEffect[2674],
     CDTime = 900,
     CDGroup = 14,
     UseLimit = 18516,
@@ -33502,7 +33682,7 @@ Table_UseItem = {
   },
   [6118] = {
     id = 6118,
-    UseEffect = Table_UseItem_t.UseEffect[2635],
+    UseEffect = Table_UseItem_t.UseEffect[2675],
     CDTime = 900,
     CDGroup = 14,
     UseLimit = 18516,
@@ -33510,7 +33690,7 @@ Table_UseItem = {
   },
   [6119] = {
     id = 6119,
-    UseEffect = Table_UseItem_t.UseEffect[2636],
+    UseEffect = Table_UseItem_t.UseEffect[2676],
     CDTime = 900,
     CDGroup = 15,
     UseLimit = 18516,
@@ -33518,7 +33698,7 @@ Table_UseItem = {
   },
   [6120] = {
     id = 6120,
-    UseEffect = Table_UseItem_t.UseEffect[2637],
+    UseEffect = Table_UseItem_t.UseEffect[2677],
     CDTime = 900,
     CDGroup = 15,
     UseLimit = 18516,
@@ -33526,7 +33706,7 @@ Table_UseItem = {
   },
   [6121] = {
     id = 6121,
-    UseEffect = Table_UseItem_t.UseEffect[2638],
+    UseEffect = Table_UseItem_t.UseEffect[2678],
     CDTime = 900,
     CDGroup = 15,
     UseLimit = 18516,
@@ -33534,21 +33714,21 @@ Table_UseItem = {
   },
   [6122] = {
     id = 6122,
-    UseEffect = Table_UseItem_t.UseEffect[2639],
+    UseEffect = Table_UseItem_t.UseEffect[2679],
     CDTime = 60,
     UseLimit = 18516,
     LimitType = 1
   },
   [6123] = {
     id = 6123,
-    UseEffect = Table_UseItem_t.UseEffect[2640],
+    UseEffect = Table_UseItem_t.UseEffect[2680],
     CDTime = 180,
     UseLimit = 18516,
     LimitType = 1
   },
   [6124] = {
     id = 6124,
-    UseEffect = Table_UseItem_t.UseEffect[2641],
+    UseEffect = Table_UseItem_t.UseEffect[2681],
     CDTime = 60,
     UseLimit = 18516,
     LimitType = 1
@@ -33565,35 +33745,35 @@ Table_UseItem = {
   },
   [6127] = {
     id = 6127,
-    UseEffect = Table_UseItem_t.UseEffect[2642],
+    UseEffect = Table_UseItem_t.UseEffect[2682],
     CDTime = 120,
     UseLimit = 18516,
     LimitType = 1
   },
   [6128] = {
     id = 6128,
-    UseEffect = Table_UseItem_t.UseEffect[2643],
+    UseEffect = Table_UseItem_t.UseEffect[2683],
     CDTime = 300,
     UseLimit = 18548,
     LimitType = 1
   },
   [6129] = {
     id = 6129,
-    UseEffect = Table_UseItem_t.UseEffect[2644],
+    UseEffect = Table_UseItem_t.UseEffect[2684],
     CDTime = 10,
     UseLimit = 18516,
     LimitType = 1
   },
   [6130] = {
     id = 6130,
-    UseEffect = Table_UseItem_t.UseEffect[2645],
+    UseEffect = Table_UseItem_t.UseEffect[2685],
     CDTime = 60,
     UseLimit = 18516,
     LimitType = 1
   },
   [6131] = {
     id = 6131,
-    UseEffect = Table_UseItem_t.UseEffect[2646],
+    UseEffect = Table_UseItem_t.UseEffect[2686],
     CDTime = 300,
     CDGroup = 16,
     UseLimit = 18516,
@@ -33601,7 +33781,7 @@ Table_UseItem = {
   },
   [6132] = {
     id = 6132,
-    UseEffect = Table_UseItem_t.UseEffect[2647],
+    UseEffect = Table_UseItem_t.UseEffect[2687],
     CDTime = 300,
     CDGroup = 16,
     UseLimit = 18516,
@@ -33609,7 +33789,7 @@ Table_UseItem = {
   },
   [6133] = {
     id = 6133,
-    UseEffect = Table_UseItem_t.UseEffect[2648],
+    UseEffect = Table_UseItem_t.UseEffect[2688],
     CDTime = 300,
     CDGroup = 16,
     UseLimit = 18516,
@@ -33617,7 +33797,7 @@ Table_UseItem = {
   },
   [6134] = {
     id = 6134,
-    UseEffect = Table_UseItem_t.UseEffect[2649],
+    UseEffect = Table_UseItem_t.UseEffect[2689],
     CDTime = 300,
     CDGroup = 16,
     UseLimit = 18516,
@@ -33625,35 +33805,35 @@ Table_UseItem = {
   },
   [6135] = {
     id = 6135,
-    UseEffect = Table_UseItem_t.UseEffect[2650],
+    UseEffect = Table_UseItem_t.UseEffect[2690],
     CDTime = 5,
     UseLimit = 18516,
     LimitType = 1
   },
   [6136] = {
     id = 6136,
-    UseEffect = Table_UseItem_t.UseEffect[2651],
+    UseEffect = Table_UseItem_t.UseEffect[2691],
     CDTime = 5,
     UseLimit = 18516,
     LimitType = 1
   },
   [6137] = {
     id = 6137,
-    UseEffect = Table_UseItem_t.UseEffect[2652],
+    UseEffect = Table_UseItem_t.UseEffect[2692],
     CDTime = 1,
     UseLimit = 18516,
     LimitType = 1
   },
   [6138] = {
     id = 6138,
-    UseEffect = Table_UseItem_t.UseEffect[2653],
+    UseEffect = Table_UseItem_t.UseEffect[2693],
     CDTime = 45,
     UseLimit = 18516,
     LimitType = 1
   },
   [6139] = {
     id = 6139,
-    UseEffect = Table_UseItem_t.UseEffect[2654],
+    UseEffect = Table_UseItem_t.UseEffect[2694],
     CDTime = 60,
     CDGroup = 12,
     UseLimit = 18516,
@@ -33661,7 +33841,7 @@ Table_UseItem = {
   },
   [6140] = {
     id = 6140,
-    UseEffect = Table_UseItem_t.UseEffect[2655],
+    UseEffect = Table_UseItem_t.UseEffect[2695],
     CDTime = 300,
     CDGroup = 13,
     UseLimit = 18516,
@@ -33669,7 +33849,7 @@ Table_UseItem = {
   },
   [6141] = {
     id = 6141,
-    UseEffect = Table_UseItem_t.UseEffect[2656],
+    UseEffect = Table_UseItem_t.UseEffect[2696],
     CDTime = 900,
     CDGroup = 14,
     UseLimit = 18516,
@@ -33677,7 +33857,7 @@ Table_UseItem = {
   },
   [6142] = {
     id = 6142,
-    UseEffect = Table_UseItem_t.UseEffect[2657],
+    UseEffect = Table_UseItem_t.UseEffect[2697],
     CDTime = 900,
     CDGroup = 15,
     UseLimit = 18516,
@@ -33685,212 +33865,212 @@ Table_UseItem = {
   },
   [6143] = {
     id = 6143,
-    UseEffect = Table_UseItem_t.UseEffect[2658],
+    UseEffect = Table_UseItem_t.UseEffect[2698],
     CDTime = 300,
     UseLimit = 18516,
     LimitType = 1
   },
   [6144] = {
     id = 6144,
-    UseEffect = Table_UseItem_t.UseEffect[2659],
+    UseEffect = Table_UseItem_t.UseEffect[2699],
     CDTime = 300,
     UseLimit = 18516,
     LimitType = 1
   },
   [6145] = {
     id = 6145,
-    UseEffect = Table_UseItem_t.UseEffect[2660],
+    UseEffect = Table_UseItem_t.UseEffect[2700],
     CDTime = 600,
     UseLimit = 18516,
     LimitType = 1
   },
   [6147] = {
     id = 6147,
-    UseEffect = Table_UseItem_t.UseEffect[2661],
+    UseEffect = Table_UseItem_t.UseEffect[2701],
     CDTime = 600,
     UseLimit = 18516,
     LimitType = 1
   },
   [6148] = {
     id = 6148,
-    UseEffect = Table_UseItem_t.UseEffect[2662],
+    UseEffect = Table_UseItem_t.UseEffect[2702],
     CDTime = 1800,
     UseLimit = 18516,
     LimitType = 1
   },
   [6308] = {
     id = 6308,
-    UseEffect = Table_UseItem_t.UseEffect[2816],
+    UseEffect = Table_UseItem_t.UseEffect[2856],
     CDTime = 1
   },
   [6309] = {
     id = 6309,
-    UseEffect = Table_UseItem_t.UseEffect[2816],
+    UseEffect = Table_UseItem_t.UseEffect[2856],
     CDTime = 1
   },
   [6310] = {
     id = 6310,
-    UseEffect = Table_UseItem_t.UseEffect[2816],
+    UseEffect = Table_UseItem_t.UseEffect[2856],
     CDTime = 1
   },
   [6311] = {
     id = 6311,
-    UseEffect = Table_UseItem_t.UseEffect[2816],
+    UseEffect = Table_UseItem_t.UseEffect[2856],
     CDTime = 1
   },
   [6312] = {
     id = 6312,
-    UseEffect = Table_UseItem_t.UseEffect[2817],
+    UseEffect = Table_UseItem_t.UseEffect[2857],
     CDTime = 1
   },
   [6313] = {
     id = 6313,
-    UseEffect = Table_UseItem_t.UseEffect[2817],
+    UseEffect = Table_UseItem_t.UseEffect[2857],
     CDTime = 1
   },
   [6400] = {
     id = 6400,
-    UseEffect = Table_UseItem_t.UseEffect[2904],
+    UseEffect = Table_UseItem_t.UseEffect[2943],
     CDTime = 1
   },
   [6401] = {
     id = 6401,
-    UseEffect = Table_UseItem_t.UseEffect[2905],
+    UseEffect = Table_UseItem_t.UseEffect[2944],
     CDTime = 1
   },
   [6402] = {
     id = 6402,
-    UseEffect = Table_UseItem_t.UseEffect[2906],
+    UseEffect = Table_UseItem_t.UseEffect[2945],
     CDTime = 1
   },
   [6403] = {
     id = 6403,
-    UseEffect = Table_UseItem_t.UseEffect[2907],
+    UseEffect = Table_UseItem_t.UseEffect[2946],
     CDTime = 1
   },
   [6404] = {
     id = 6404,
-    UseEffect = Table_UseItem_t.UseEffect[2908],
+    UseEffect = Table_UseItem_t.UseEffect[2947],
     CDTime = 1
   },
   [6405] = {
     id = 6405,
-    UseEffect = Table_UseItem_t.UseEffect[2909],
+    UseEffect = Table_UseItem_t.UseEffect[2948],
     CDTime = 1
   },
   [6406] = {
     id = 6406,
-    UseEffect = Table_UseItem_t.UseEffect[2910],
+    UseEffect = Table_UseItem_t.UseEffect[2949],
     CDTime = 1
   },
   [6407] = {
     id = 6407,
-    UseEffect = Table_UseItem_t.UseEffect[2911],
+    UseEffect = Table_UseItem_t.UseEffect[2950],
     CDTime = 1
   },
   [6408] = {
     id = 6408,
-    UseEffect = Table_UseItem_t.UseEffect[2912],
+    UseEffect = Table_UseItem_t.UseEffect[2951],
     CDTime = 1
   },
   [6409] = {
     id = 6409,
-    UseEffect = Table_UseItem_t.UseEffect[2913],
+    UseEffect = Table_UseItem_t.UseEffect[2952],
     CDTime = 1
   },
   [6410] = {
     id = 6410,
-    UseEffect = Table_UseItem_t.UseEffect[2914],
+    UseEffect = Table_UseItem_t.UseEffect[2953],
     CDTime = 1
   },
   [6411] = {
     id = 6411,
-    UseEffect = Table_UseItem_t.UseEffect[2915],
+    UseEffect = Table_UseItem_t.UseEffect[2954],
     CDTime = 1
   },
   [6412] = {
     id = 6412,
-    UseEffect = Table_UseItem_t.UseEffect[2916],
+    UseEffect = Table_UseItem_t.UseEffect[2955],
     CDTime = 1
   },
   [6413] = {
     id = 6413,
-    UseEffect = Table_UseItem_t.UseEffect[2917],
+    UseEffect = Table_UseItem_t.UseEffect[2956],
     CDTime = 1
   },
   [6414] = {
     id = 6414,
-    UseEffect = Table_UseItem_t.UseEffect[2918],
+    UseEffect = Table_UseItem_t.UseEffect[2957],
     CDTime = 1
   },
   [6415] = {
     id = 6415,
-    UseEffect = Table_UseItem_t.UseEffect[2919],
+    UseEffect = Table_UseItem_t.UseEffect[2958],
     CDTime = 1
   },
   [6416] = {
     id = 6416,
-    UseEffect = Table_UseItem_t.UseEffect[2920],
+    UseEffect = Table_UseItem_t.UseEffect[2959],
     CDTime = 1
   },
   [6417] = {
     id = 6417,
-    UseEffect = Table_UseItem_t.UseEffect[2921],
+    UseEffect = Table_UseItem_t.UseEffect[2960],
     CDTime = 1
   },
   [6418] = {
     id = 6418,
-    UseEffect = Table_UseItem_t.UseEffect[2922],
+    UseEffect = Table_UseItem_t.UseEffect[2961],
     CDTime = 1
   },
   [6419] = {
     id = 6419,
-    UseEffect = Table_UseItem_t.UseEffect[2923],
+    UseEffect = Table_UseItem_t.UseEffect[2962],
     CDTime = 1
   },
   [6420] = {
     id = 6420,
-    UseEffect = Table_UseItem_t.UseEffect[2924],
+    UseEffect = Table_UseItem_t.UseEffect[2963],
     CDTime = 1
   },
   [6421] = {
     id = 6421,
-    UseEffect = Table_UseItem_t.UseEffect[2925],
+    UseEffect = Table_UseItem_t.UseEffect[2964],
     CDTime = 1
   },
   [6422] = {
     id = 6422,
-    UseEffect = Table_UseItem_t.UseEffect[2926],
+    UseEffect = Table_UseItem_t.UseEffect[2965],
     CDTime = 1
   },
   [6423] = {
     id = 6423,
-    UseEffect = Table_UseItem_t.UseEffect[2927],
+    UseEffect = Table_UseItem_t.UseEffect[2966],
     CDTime = 1
   },
   [6424] = {
     id = 6424,
-    UseEffect = Table_UseItem_t.UseEffect[2928],
+    UseEffect = Table_UseItem_t.UseEffect[2967],
     CDTime = 1
   },
   [6425] = {
     id = 6425,
-    UseEffect = Table_UseItem_t.UseEffect[2929],
+    UseEffect = Table_UseItem_t.UseEffect[2968],
     CDTime = 1
   },
   [6426] = {
     id = 6426,
-    UseEffect = Table_UseItem_t.UseEffect[2930],
+    UseEffect = Table_UseItem_t.UseEffect[2969],
     CDTime = 1
   },
   [6427] = {
     id = 6427,
-    UseEffect = Table_UseItem_t.UseEffect[2931],
+    UseEffect = Table_UseItem_t.UseEffect[2970],
     CDTime = 1
   },
   [6500] = {
     id = 6500,
-    UseEffect = Table_UseItem_t.UseEffect[3004],
+    UseEffect = Table_UseItem_t.UseEffect[3043],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -33902,2392 +34082,2407 @@ Table_UseItem = {
   },
   [6502] = {
     id = 6502,
-    UseEffect = Table_UseItem_t.UseEffect[3005],
+    UseEffect = Table_UseItem_t.UseEffect[3044],
     CDTime = 1,
     UseMultiple = 99
   },
   [6503] = {
     id = 6503,
-    UseEffect = Table_UseItem_t.UseEffect[3006],
+    UseEffect = Table_UseItem_t.UseEffect[3045],
     CDTime = 1,
     UseMultiple = 99
   },
   [6504] = {
     id = 6504,
-    UseEffect = Table_UseItem_t.UseEffect[3007],
+    UseEffect = Table_UseItem_t.UseEffect[3046],
     CDTime = 1,
     UseMultiple = 99
   },
   [6505] = {
     id = 6505,
-    UseEffect = Table_UseItem_t.UseEffect[3008],
+    UseEffect = Table_UseItem_t.UseEffect[3047],
     CDTime = 1,
     UseMultiple = 99
   },
   [6506] = {
     id = 6506,
-    UseEffect = Table_UseItem_t.UseEffect[3009],
+    UseEffect = Table_UseItem_t.UseEffect[3048],
     CDTime = 1,
     UseMultiple = 99
   },
   [6507] = {
     id = 6507,
-    UseEffect = Table_UseItem_t.UseEffect[3010],
+    UseEffect = Table_UseItem_t.UseEffect[3049],
     CDTime = 1,
     UseMultiple = 99
   },
   [6509] = {
     id = 6509,
-    UseEffect = Table_UseItem_t.UseEffect[3012],
+    UseEffect = Table_UseItem_t.UseEffect[3051],
     CDTime = 1,
     UseMultiple = 99
   },
   [6510] = {
     id = 6510,
-    UseEffect = Table_UseItem_t.UseEffect[3013],
+    UseEffect = Table_UseItem_t.UseEffect[3052],
     CDTime = 1,
     UseMultiple = 99
   },
   [6512] = {
     id = 6512,
-    UseEffect = Table_UseItem_t.UseEffect[3015],
+    UseEffect = Table_UseItem_t.UseEffect[3054],
     CDTime = 1,
     UseMultiple = 99
   },
   [6513] = {
     id = 6513,
-    UseEffect = Table_UseItem_t.UseEffect[3016],
+    UseEffect = Table_UseItem_t.UseEffect[3055],
     CDTime = 1,
     UseMultiple = 99
   },
   [6514] = {
     id = 6514,
-    UseEffect = Table_UseItem_t.UseEffect[3017],
+    UseEffect = Table_UseItem_t.UseEffect[3056],
     CDTime = 1,
     UseMultiple = 99
   },
   [6515] = {
     id = 6515,
-    UseEffect = Table_UseItem_t.UseEffect[3018],
+    UseEffect = Table_UseItem_t.UseEffect[3057],
     CDTime = 1,
     UseMultiple = 99
   },
   [6516] = {
     id = 6516,
-    UseEffect = Table_UseItem_t.UseEffect[3019],
+    UseEffect = Table_UseItem_t.UseEffect[3058],
     CDTime = 1,
     UseMultiple = 99
   },
   [6517] = {
     id = 6517,
-    UseEffect = Table_UseItem_t.UseEffect[3020],
+    UseEffect = Table_UseItem_t.UseEffect[3059],
     UseMultiple = 99
   },
   [6518] = {
     id = 6518,
-    UseEffect = Table_UseItem_t.UseEffect[3021],
+    UseEffect = Table_UseItem_t.UseEffect[3060],
     CDTime = 1,
     UseMultiple = 99
   },
   [6526] = {
     id = 6526,
-    UseEffect = Table_UseItem_t.UseEffect[3029],
+    UseEffect = Table_UseItem_t.UseEffect[3068],
     CDTime = 1,
     UseMultiple = 99
   },
   [6528] = {
     id = 6528,
-    UseEffect = Table_UseItem_t.UseEffect[3030],
+    UseEffect = Table_UseItem_t.UseEffect[3069],
     CDTime = 1
   },
   [6529] = {
     id = 6529,
-    UseEffect = Table_UseItem_t.UseEffect[3031],
+    UseEffect = Table_UseItem_t.UseEffect[3070],
     CDTime = 1
   },
   [6530] = {
     id = 6530,
-    UseEffect = Table_UseItem_t.UseEffect[3032],
+    UseEffect = Table_UseItem_t.UseEffect[3071],
     CDTime = 1
   },
   [6531] = {
     id = 6531,
-    UseEffect = Table_UseItem_t.UseEffect[3033],
+    UseEffect = Table_UseItem_t.UseEffect[3072],
     CDTime = 1
   },
   [6532] = {
     id = 6532,
-    UseEffect = Table_UseItem_t.UseEffect[3034],
+    UseEffect = Table_UseItem_t.UseEffect[3073],
     CDTime = 1
   },
   [6533] = {
     id = 6533,
-    UseEffect = Table_UseItem_t.UseEffect[3035],
+    UseEffect = Table_UseItem_t.UseEffect[3074],
     CDTime = 1
   },
   [6534] = {
     id = 6534,
-    UseEffect = Table_UseItem_t.UseEffect[3036],
+    UseEffect = Table_UseItem_t.UseEffect[3075],
     CDTime = 1
   },
   [6535] = {
     id = 6535,
-    UseEffect = Table_UseItem_t.UseEffect[3037],
+    UseEffect = Table_UseItem_t.UseEffect[3076],
     CDTime = 1
   },
   [6536] = {
     id = 6536,
-    UseEffect = Table_UseItem_t.UseEffect[3038],
+    UseEffect = Table_UseItem_t.UseEffect[3077],
     CDTime = 1
   },
   [6537] = {
     id = 6537,
-    UseEffect = Table_UseItem_t.UseEffect[3039],
+    UseEffect = Table_UseItem_t.UseEffect[3078],
     CDTime = 1
   },
   [6538] = {
     id = 6538,
-    UseEffect = Table_UseItem_t.UseEffect[3040],
+    UseEffect = Table_UseItem_t.UseEffect[3079],
     CDTime = 1,
     UseMultiple = 99
   },
   [6539] = {
     id = 6539,
-    UseEffect = Table_UseItem_t.UseEffect[3041],
+    UseEffect = Table_UseItem_t.UseEffect[3080],
     CDTime = 1,
     UseMultiple = 99
   },
   [6541] = {
     id = 6541,
-    UseEffect = Table_UseItem_t.UseEffect[3043],
+    UseEffect = Table_UseItem_t.UseEffect[3082],
     CDTime = 1,
     UseMultiple = 99
   },
   [6542] = {
     id = 6542,
-    UseEffect = Table_UseItem_t.UseEffect[3044],
+    UseEffect = Table_UseItem_t.UseEffect[3083],
     CDTime = 1,
     UseMultiple = 99
   },
   [6546] = {
     id = 6546,
-    UseEffect = Table_UseItem_t.UseEffect[3048],
+    UseEffect = Table_UseItem_t.UseEffect[3087],
     CDTime = 1,
     UseMultiple = 99
   },
   [6547] = {
     id = 6547,
-    UseEffect = Table_UseItem_t.UseEffect[3049],
+    UseEffect = Table_UseItem_t.UseEffect[3088],
     CDTime = 1,
     UseMultiple = 99
   },
   [6550] = {
     id = 6550,
-    UseEffect = Table_UseItem_t.UseEffect[3052],
+    UseEffect = Table_UseItem_t.UseEffect[3091],
     CDTime = 1,
     UseStartTime = "2019-02-01 05:00:00",
     UseEndTime = "2020-02-01 05:00:00"
   },
   [6552] = {
     id = 6552,
-    UseEffect = Table_UseItem_t.UseEffect[3054],
+    UseEffect = Table_UseItem_t.UseEffect[3093],
     CDTime = 1,
     UseMultiple = 99
   },
   [6554] = {
     id = 6554,
-    UseEffect = Table_UseItem_t.UseEffect[3056],
+    UseEffect = Table_UseItem_t.UseEffect[3095],
     CDTime = 1,
     UseMultiple = 99
   },
   [6555] = {
     id = 6555,
-    UseEffect = Table_UseItem_t.UseEffect[3057],
+    UseEffect = Table_UseItem_t.UseEffect[3096],
     CDTime = 1,
     UseMultiple = 99
   },
   [6566] = {
     id = 6566,
-    UseEffect = Table_UseItem_t.UseEffect[3068],
+    UseEffect = Table_UseItem_t.UseEffect[3107],
     CDTime = 1
   },
   [6567] = {
     id = 6567,
-    UseEffect = Table_UseItem_t.UseEffect[3069],
+    UseEffect = Table_UseItem_t.UseEffect[3108],
     CDTime = 1,
     UseMultiple = 99
   },
   [6568] = {
     id = 6568,
-    UseEffect = Table_UseItem_t.UseEffect[3070],
+    UseEffect = Table_UseItem_t.UseEffect[3109],
     CDTime = 1,
     UseMultiple = 99
   },
   [6572] = {
     id = 6572,
-    UseEffect = Table_UseItem_t.UseEffect[3074],
+    UseEffect = Table_UseItem_t.UseEffect[3113],
     CDTime = 1
   },
   [6573] = {
     id = 6573,
-    UseEffect = Table_UseItem_t.UseEffect[3075],
+    UseEffect = Table_UseItem_t.UseEffect[3114],
     CDTime = 1
   },
   [6574] = {
     id = 6574,
-    UseEffect = Table_UseItem_t.UseEffect[3076],
+    UseEffect = Table_UseItem_t.UseEffect[3115],
     CDTime = 1
   },
   [6575] = {
     id = 6575,
-    UseEffect = Table_UseItem_t.UseEffect[3077],
+    UseEffect = Table_UseItem_t.UseEffect[3116],
     CDTime = 1
   },
   [6576] = {
     id = 6576,
-    UseEffect = Table_UseItem_t.UseEffect[3078],
+    UseEffect = Table_UseItem_t.UseEffect[3117],
     CDTime = 1
   },
   [6577] = {
     id = 6577,
-    UseEffect = Table_UseItem_t.UseEffect[3079],
+    UseEffect = Table_UseItem_t.UseEffect[3118],
     CDTime = 1
   },
   [6578] = {
     id = 6578,
-    UseEffect = Table_UseItem_t.UseEffect[3080],
+    UseEffect = Table_UseItem_t.UseEffect[3119],
     CDTime = 1
   },
   [6579] = {
     id = 6579,
-    UseEffect = Table_UseItem_t.UseEffect[3081],
+    UseEffect = Table_UseItem_t.UseEffect[3120],
     CDTime = 1
   },
   [6580] = {
     id = 6580,
-    UseEffect = Table_UseItem_t.UseEffect[3082],
+    UseEffect = Table_UseItem_t.UseEffect[3121],
     CDTime = 1
   },
   [6581] = {
     id = 6581,
-    UseEffect = Table_UseItem_t.UseEffect[3083],
+    UseEffect = Table_UseItem_t.UseEffect[3122],
     CDTime = 1
   },
   [6582] = {
     id = 6582,
-    UseEffect = Table_UseItem_t.UseEffect[3084],
+    UseEffect = Table_UseItem_t.UseEffect[3123],
     CDTime = 1
   },
   [6583] = {
     id = 6583,
-    UseEffect = Table_UseItem_t.UseEffect[3085],
+    UseEffect = Table_UseItem_t.UseEffect[3124],
     CDTime = 1
   },
   [6584] = {
     id = 6584,
-    UseEffect = Table_UseItem_t.UseEffect[3086],
+    UseEffect = Table_UseItem_t.UseEffect[3125],
     CDTime = 1
   },
   [6585] = {
     id = 6585,
-    UseEffect = Table_UseItem_t.UseEffect[3087],
+    UseEffect = Table_UseItem_t.UseEffect[3126],
     CDTime = 1
   },
   [6586] = {
     id = 6586,
-    UseEffect = Table_UseItem_t.UseEffect[3088],
+    UseEffect = Table_UseItem_t.UseEffect[3127],
     CDTime = 1
   },
   [6587] = {
     id = 6587,
-    UseEffect = Table_UseItem_t.UseEffect[3089],
+    UseEffect = Table_UseItem_t.UseEffect[3128],
     CDTime = 1
   },
   [6588] = {
     id = 6588,
-    UseEffect = Table_UseItem_t.UseEffect[3090],
+    UseEffect = Table_UseItem_t.UseEffect[3129],
     CDTime = 1
   },
   [6589] = {
     id = 6589,
-    UseEffect = Table_UseItem_t.UseEffect[3091],
+    UseEffect = Table_UseItem_t.UseEffect[3130],
     CDTime = 1
   },
   [6591] = {
     id = 6591,
-    UseEffect = Table_UseItem_t.UseEffect[3093],
+    UseEffect = Table_UseItem_t.UseEffect[3132],
     CDTime = 1,
     UseMultiple = 99
   },
   [6592] = {
     id = 6592,
-    UseEffect = Table_UseItem_t.UseEffect[3094],
+    UseEffect = Table_UseItem_t.UseEffect[3133],
     CDTime = 1,
     UseMultiple = 99
   },
   [6593] = {
     id = 6593,
-    UseEffect = Table_UseItem_t.UseEffect[3095],
+    UseEffect = Table_UseItem_t.UseEffect[3134],
     CDTime = 1,
     UseMultiple = 99
   },
   [6594] = {
     id = 6594,
-    UseEffect = Table_UseItem_t.UseEffect[3096],
+    UseEffect = Table_UseItem_t.UseEffect[3135],
     CDTime = 1,
     UseMultiple = 99
   },
   [6595] = {
     id = 6595,
-    UseEffect = Table_UseItem_t.UseEffect[3097],
+    UseEffect = Table_UseItem_t.UseEffect[3136],
     CDTime = 1,
     UseMultiple = 99
   },
   [6597] = {
     id = 6597,
-    UseEffect = Table_UseItem_t.UseEffect[3099],
+    UseEffect = Table_UseItem_t.UseEffect[3138],
     CDTime = 1,
     UseMultiple = 99
   },
   [6598] = {
     id = 6598,
-    UseEffect = Table_UseItem_t.UseEffect[3100],
+    UseEffect = Table_UseItem_t.UseEffect[3139],
     CDTime = 1,
     UseMultiple = 99
   },
   [6599] = {
     id = 6599,
-    UseEffect = Table_UseItem_t.UseEffect[3101],
+    UseEffect = Table_UseItem_t.UseEffect[3140],
     CDTime = 1,
     UseMultiple = 1
   },
   [6600] = {
     id = 6600,
-    UseEffect = Table_UseItem_t.UseEffect[3102],
+    UseEffect = Table_UseItem_t.UseEffect[3141],
     CDTime = 1,
     UseMultiple = 99
   },
   [6601] = {
     id = 6601,
-    UseEffect = Table_UseItem_t.UseEffect[3103],
+    UseEffect = Table_UseItem_t.UseEffect[3142],
     CDTime = 1,
     UseMultiple = 99
   },
   [6602] = {
     id = 6602,
-    UseEffect = Table_UseItem_t.UseEffect[3104],
+    UseEffect = Table_UseItem_t.UseEffect[3143],
     CDTime = 1,
     UseMultiple = 99
   },
   [6603] = {
     id = 6603,
-    UseEffect = Table_UseItem_t.UseEffect[3105],
+    UseEffect = Table_UseItem_t.UseEffect[3144],
     CDTime = 1,
     UseMultiple = 99
   },
   [6604] = {
     id = 6604,
-    UseEffect = Table_UseItem_t.UseEffect[3106],
+    UseEffect = Table_UseItem_t.UseEffect[3145],
     CDTime = 1,
     UseMultiple = 99
   },
   [6605] = {
     id = 6605,
-    UseEffect = Table_UseItem_t.UseEffect[3107],
+    UseEffect = Table_UseItem_t.UseEffect[3146],
     CDTime = 1,
     UseMultiple = 99
   },
   [6606] = {
     id = 6606,
-    UseEffect = Table_UseItem_t.UseEffect[3108],
+    UseEffect = Table_UseItem_t.UseEffect[3147],
     CDTime = 1
   },
   [6607] = {
     id = 6607,
-    UseEffect = Table_UseItem_t.UseEffect[3109],
+    UseEffect = Table_UseItem_t.UseEffect[3148],
     CDTime = 1
   },
   [6609] = {
     id = 6609,
-    UseEffect = Table_UseItem_t.UseEffect[3111],
+    UseEffect = Table_UseItem_t.UseEffect[3150],
     CDTime = 1
   },
   [6610] = {
     id = 6610,
-    UseEffect = Table_UseItem_t.UseEffect[3112],
+    UseEffect = Table_UseItem_t.UseEffect[3151],
     CDTime = 1,
     UseMultiple = 99
   },
   [6611] = {
     id = 6611,
-    UseEffect = Table_UseItem_t.UseEffect[3113],
+    UseEffect = Table_UseItem_t.UseEffect[3152],
     CDTime = 1,
     UseMultiple = 99
   },
   [6612] = {
     id = 6612,
-    UseEffect = Table_UseItem_t.UseEffect[3114],
+    UseEffect = Table_UseItem_t.UseEffect[3153],
     CDTime = 1,
     UseMultiple = 99
   },
   [6613] = {
     id = 6613,
-    UseEffect = Table_UseItem_t.UseEffect[3115],
+    UseEffect = Table_UseItem_t.UseEffect[3154],
     CDTime = 1,
     UseMultiple = 99
   },
   [6614] = {
     id = 6614,
-    UseEffect = Table_UseItem_t.UseEffect[3116],
+    UseEffect = Table_UseItem_t.UseEffect[3155],
     CDTime = 1
   },
   [6615] = {
     id = 6615,
-    UseEffect = Table_UseItem_t.UseEffect[3117],
+    UseEffect = Table_UseItem_t.UseEffect[3156],
     CDTime = 1
   },
   [6616] = {
     id = 6616,
-    UseEffect = Table_UseItem_t.UseEffect[3118],
+    UseEffect = Table_UseItem_t.UseEffect[3157],
     CDTime = 1
   },
   [6617] = {
     id = 6617,
-    UseEffect = Table_UseItem_t.UseEffect[3119],
+    UseEffect = Table_UseItem_t.UseEffect[3158],
     CDTime = 1
   },
   [6618] = {
     id = 6618,
-    UseEffect = Table_UseItem_t.UseEffect[3120],
+    UseEffect = Table_UseItem_t.UseEffect[3159],
     CDTime = 1
   },
   [6619] = {
     id = 6619,
-    UseEffect = Table_UseItem_t.UseEffect[3121],
+    UseEffect = Table_UseItem_t.UseEffect[3160],
     CDTime = 1
   },
   [6620] = {
     id = 6620,
-    UseEffect = Table_UseItem_t.UseEffect[3122],
+    UseEffect = Table_UseItem_t.UseEffect[3161],
     CDTime = 1
   },
   [6621] = {
     id = 6621,
-    UseEffect = Table_UseItem_t.UseEffect[3123],
+    UseEffect = Table_UseItem_t.UseEffect[3162],
     CDTime = 1
   },
   [6622] = {
     id = 6622,
-    UseEffect = Table_UseItem_t.UseEffect[3124],
+    UseEffect = Table_UseItem_t.UseEffect[3163],
     CDTime = 1
   },
   [6623] = {
     id = 6623,
-    UseEffect = Table_UseItem_t.UseEffect[3125],
+    UseEffect = Table_UseItem_t.UseEffect[3164],
     CDTime = 1
   },
   [6624] = {
     id = 6624,
-    UseEffect = Table_UseItem_t.UseEffect[3126],
+    UseEffect = Table_UseItem_t.UseEffect[3165],
     CDTime = 1
   },
   [6625] = {
     id = 6625,
-    UseEffect = Table_UseItem_t.UseEffect[3127],
+    UseEffect = Table_UseItem_t.UseEffect[3166],
     CDTime = 1
   },
   [6626] = {
     id = 6626,
-    UseEffect = Table_UseItem_t.UseEffect[3128],
+    UseEffect = Table_UseItem_t.UseEffect[3167],
     CDTime = 1
   },
   [6627] = {
     id = 6627,
-    UseEffect = Table_UseItem_t.UseEffect[3129],
+    UseEffect = Table_UseItem_t.UseEffect[3168],
     CDTime = 1
   },
   [6628] = {
     id = 6628,
-    UseEffect = Table_UseItem_t.UseEffect[3130],
+    UseEffect = Table_UseItem_t.UseEffect[3169],
     CDTime = 1
   },
   [6629] = {
     id = 6629,
-    UseEffect = Table_UseItem_t.UseEffect[3131],
+    UseEffect = Table_UseItem_t.UseEffect[3170],
     CDTime = 1
   },
   [6632] = {
     id = 6632,
-    UseEffect = Table_UseItem_t.UseEffect[3134],
+    UseEffect = Table_UseItem_t.UseEffect[3173],
     CDTime = 1
   },
   [6633] = {
     id = 6633,
-    UseEffect = Table_UseItem_t.UseEffect[3135],
+    UseEffect = Table_UseItem_t.UseEffect[3174],
     CDTime = 1
   },
   [6634] = {
     id = 6634,
-    UseEffect = Table_UseItem_t.UseEffect[3136],
+    UseEffect = Table_UseItem_t.UseEffect[3175],
     CDTime = 1,
     UseMultiple = 99
   },
   [6635] = {
     id = 6635,
-    UseEffect = Table_UseItem_t.UseEffect[3137],
+    UseEffect = Table_UseItem_t.UseEffect[3176],
     CDTime = 1,
     UseMultiple = 99
   },
   [6636] = {
     id = 6636,
-    UseEffect = Table_UseItem_t.UseEffect[3138],
+    UseEffect = Table_UseItem_t.UseEffect[3177],
     CDTime = 1,
     UseMultiple = 99
   },
   [6638] = {
     id = 6638,
-    UseEffect = Table_UseItem_t.UseEffect[3140],
+    UseEffect = Table_UseItem_t.UseEffect[3179],
     CDTime = 1,
     UseMultiple = 99
   },
   [6640] = {
     id = 6640,
-    UseEffect = Table_UseItem_t.UseEffect[3142],
+    UseEffect = Table_UseItem_t.UseEffect[3181],
     CDTime = 1,
     UseMultiple = 999
   },
   [6641] = {
     id = 6641,
-    UseEffect = Table_UseItem_t.UseEffect[3143],
+    UseEffect = Table_UseItem_t.UseEffect[3182],
     CDTime = 1,
     UseMultiple = 99
   },
   [6643] = {
     id = 6643,
-    UseEffect = Table_UseItem_t.UseEffect[3145],
+    UseEffect = Table_UseItem_t.UseEffect[3184],
     CDTime = 1,
     UseMultiple = 99
   },
   [6644] = {
     id = 6644,
-    UseEffect = Table_UseItem_t.UseEffect[3146],
+    UseEffect = Table_UseItem_t.UseEffect[3185],
     CDTime = 1,
     UseMultiple = 99
   },
   [6645] = {
     id = 6645,
-    UseEffect = Table_UseItem_t.UseEffect[3147],
+    UseEffect = Table_UseItem_t.UseEffect[3186],
     CDTime = 1,
     UseMultiple = 99
   },
   [6646] = {
     id = 6646,
-    UseEffect = Table_UseItem_t.UseEffect[3148],
+    UseEffect = Table_UseItem_t.UseEffect[3187],
     CDTime = 1,
     UseMultiple = 99
   },
   [6647] = {
     id = 6647,
-    UseEffect = Table_UseItem_t.UseEffect[3149],
+    UseEffect = Table_UseItem_t.UseEffect[3188],
     CDTime = 1,
     UseMultiple = 99
   },
   [6648] = {
     id = 6648,
-    UseEffect = Table_UseItem_t.UseEffect[3150],
+    UseEffect = Table_UseItem_t.UseEffect[3189],
     CDTime = 1,
     UseMultiple = 99
   },
   [6649] = {
     id = 6649,
-    UseEffect = Table_UseItem_t.UseEffect[3151],
+    UseEffect = Table_UseItem_t.UseEffect[3190],
     CDTime = 1,
     UseMultiple = 99
   },
   [6650] = {
     id = 6650,
-    UseEffect = Table_UseItem_t.UseEffect[3152],
+    UseEffect = Table_UseItem_t.UseEffect[3191],
     CDTime = 1,
     UseMultiple = 99
   },
   [6651] = {
     id = 6651,
-    UseEffect = Table_UseItem_t.UseEffect[3153],
+    UseEffect = Table_UseItem_t.UseEffect[3192],
     CDTime = 1,
     UseMultiple = 99
   },
   [6652] = {
     id = 6652,
-    UseEffect = Table_UseItem_t.UseEffect[3154],
+    UseEffect = Table_UseItem_t.UseEffect[3193],
     CDTime = 1,
     UseMultiple = 99
   },
   [6653] = {
     id = 6653,
-    UseEffect = Table_UseItem_t.UseEffect[3155],
+    UseEffect = Table_UseItem_t.UseEffect[3194],
     CDTime = 1,
     UseMultiple = 99
   },
   [6654] = {
     id = 6654,
-    UseEffect = Table_UseItem_t.UseEffect[3156],
+    UseEffect = Table_UseItem_t.UseEffect[3195],
     CDTime = 1
   },
   [6655] = {
     id = 6655,
-    UseEffect = Table_UseItem_t.UseEffect[3157],
+    UseEffect = Table_UseItem_t.UseEffect[3196],
     CDTime = 1,
     UseMultiple = 99
   },
   [6656] = {
     id = 6656,
-    UseEffect = Table_UseItem_t.UseEffect[3158],
+    UseEffect = Table_UseItem_t.UseEffect[3197],
     CDTime = 1,
     UseMultiple = 99
   },
   [6657] = {
     id = 6657,
-    UseEffect = Table_UseItem_t.UseEffect[3159],
+    UseEffect = Table_UseItem_t.UseEffect[3198],
     CDTime = 1,
     UseMultiple = 99
   },
   [6658] = {
     id = 6658,
-    UseEffect = Table_UseItem_t.UseEffect[3160],
+    UseEffect = Table_UseItem_t.UseEffect[3199],
     CDTime = 1,
     UseMultiple = 99
   },
   [6659] = {
     id = 6659,
-    UseEffect = Table_UseItem_t.UseEffect[3161],
+    UseEffect = Table_UseItem_t.UseEffect[3200],
     CDTime = 1,
     UseMultiple = 99
   },
   [6660] = {
     id = 6660,
-    UseEffect = Table_UseItem_t.UseEffect[3162],
+    UseEffect = Table_UseItem_t.UseEffect[3201],
     CDTime = 1,
     UseMultiple = 99
   },
   [6661] = {
     id = 6661,
-    UseEffect = Table_UseItem_t.UseEffect[3163],
+    UseEffect = Table_UseItem_t.UseEffect[3202],
     CDTime = 1,
     UseMultiple = 99
   },
   [6662] = {
     id = 6662,
-    UseEffect = Table_UseItem_t.UseEffect[3164],
+    UseEffect = Table_UseItem_t.UseEffect[3203],
     CDTime = 1,
     UseMultiple = 99
   },
   [6663] = {
     id = 6663,
-    UseEffect = Table_UseItem_t.UseEffect[3165],
+    UseEffect = Table_UseItem_t.UseEffect[3204],
     CDTime = 1,
     UseMultiple = 99
   },
   [6664] = {
     id = 6664,
-    UseEffect = Table_UseItem_t.UseEffect[3166],
+    UseEffect = Table_UseItem_t.UseEffect[3205],
     CDTime = 1,
     UseMultiple = 99
   },
   [6665] = {
     id = 6665,
-    UseEffect = Table_UseItem_t.UseEffect[3167],
+    UseEffect = Table_UseItem_t.UseEffect[3206],
     CDTime = 1,
     UseMultiple = 99
   },
   [6666] = {
     id = 6666,
-    UseEffect = Table_UseItem_t.UseEffect[3168],
+    UseEffect = Table_UseItem_t.UseEffect[3207],
     CDTime = 1,
     UseMultiple = 99
   },
   [6667] = {
     id = 6667,
-    UseEffect = Table_UseItem_t.UseEffect[3169],
+    UseEffect = Table_UseItem_t.UseEffect[3208],
     CDTime = 1,
     UseMultiple = 99
   },
   [6668] = {
     id = 6668,
-    UseEffect = Table_UseItem_t.UseEffect[3170],
+    UseEffect = Table_UseItem_t.UseEffect[3209],
     CDTime = 1,
     UseMultiple = 99
   },
   [6669] = {
     id = 6669,
-    UseEffect = Table_UseItem_t.UseEffect[3171],
+    UseEffect = Table_UseItem_t.UseEffect[3210],
     CDTime = 1,
     UseMultiple = 99
   },
   [6670] = {
     id = 6670,
-    UseEffect = Table_UseItem_t.UseEffect[3172],
+    UseEffect = Table_UseItem_t.UseEffect[3211],
     CDTime = 1,
     UseMultiple = 99
   },
   [6680] = {
     id = 6680,
-    UseEffect = Table_UseItem_t.UseEffect[3182],
+    UseEffect = Table_UseItem_t.UseEffect[3221],
     CDTime = 1,
     UseMultiple = 99
   },
   [6681] = {
     id = 6681,
-    UseEffect = Table_UseItem_t.UseEffect[3183],
+    UseEffect = Table_UseItem_t.UseEffect[3222],
     CDTime = 1,
     UseMultiple = 99
   },
   [6682] = {
     id = 6682,
-    UseEffect = Table_UseItem_t.UseEffect[3184],
+    UseEffect = Table_UseItem_t.UseEffect[3223],
     CDTime = 1,
     UseMultiple = 99
   },
   [6686] = {
     id = 6686,
-    UseEffect = Table_UseItem_t.UseEffect[3188],
+    UseEffect = Table_UseItem_t.UseEffect[3227],
     CDTime = 1,
     UseMultiple = 99
   },
   [6687] = {
     id = 6687,
-    UseEffect = Table_UseItem_t.UseEffect[3189],
+    UseEffect = Table_UseItem_t.UseEffect[3228],
     CDTime = 1,
     UseMultiple = 99
   },
   [6688] = {
     id = 6688,
-    UseEffect = Table_UseItem_t.UseEffect[3190],
+    UseEffect = Table_UseItem_t.UseEffect[3229],
     CDTime = 1,
     UseMultiple = 99
   },
   [6689] = {
     id = 6689,
-    UseEffect = Table_UseItem_t.UseEffect[3191],
+    UseEffect = Table_UseItem_t.UseEffect[3230],
     CDTime = 1,
     UseMultiple = 99
   },
   [6690] = {
     id = 6690,
-    UseEffect = Table_UseItem_t.UseEffect[3192],
+    UseEffect = Table_UseItem_t.UseEffect[3231],
     CDTime = 1,
     UseMultiple = 99
   },
   [6691] = {
     id = 6691,
-    UseEffect = Table_UseItem_t.UseEffect[3193],
+    UseEffect = Table_UseItem_t.UseEffect[3232],
     CDTime = 1,
     UseMultiple = 99
   },
   [6692] = {
     id = 6692,
-    UseEffect = Table_UseItem_t.UseEffect[3194],
+    UseEffect = Table_UseItem_t.UseEffect[3233],
     CDTime = 1,
     UseMultiple = 99
   },
   [6693] = {
     id = 6693,
-    UseEffect = Table_UseItem_t.UseEffect[3195],
+    UseEffect = Table_UseItem_t.UseEffect[3234],
     CDTime = 1
   },
   [6694] = {
     id = 6694,
-    UseEffect = Table_UseItem_t.UseEffect[3196],
+    UseEffect = Table_UseItem_t.UseEffect[3235],
     CDTime = 1
   },
   [6695] = {
     id = 6695,
-    UseEffect = Table_UseItem_t.UseEffect[3197],
+    UseEffect = Table_UseItem_t.UseEffect[3236],
     CDTime = 1
   },
   [6696] = {
     id = 6696,
-    UseEffect = Table_UseItem_t.UseEffect[3198],
+    UseEffect = Table_UseItem_t.UseEffect[3237],
     CDTime = 1,
     UseMultiple = 99
   },
   [6697] = {
     id = 6697,
-    UseEffect = Table_UseItem_t.UseEffect[3199],
+    UseEffect = Table_UseItem_t.UseEffect[3238],
     CDTime = 1,
     UseMultiple = 99
   },
   [6699] = {
     id = 6699,
-    UseEffect = Table_UseItem_t.UseEffect[3201],
+    UseEffect = Table_UseItem_t.UseEffect[3240],
     CDTime = 1
   },
   [6701] = {
     id = 6701,
-    UseEffect = Table_UseItem_t.UseEffect[3203],
+    UseEffect = Table_UseItem_t.UseEffect[3242],
     CDTime = 1
   },
   [6702] = {
     id = 6702,
-    UseEffect = Table_UseItem_t.UseEffect[3204],
+    UseEffect = Table_UseItem_t.UseEffect[3243],
     CDTime = 1
   },
   [6703] = {
     id = 6703,
-    UseEffect = Table_UseItem_t.UseEffect[3205],
+    UseEffect = Table_UseItem_t.UseEffect[3244],
     CDTime = 1
   },
   [6704] = {
     id = 6704,
-    UseEffect = Table_UseItem_t.UseEffect[3206],
+    UseEffect = Table_UseItem_t.UseEffect[3245],
     CDTime = 1
   },
   [6705] = {
     id = 6705,
-    UseEffect = Table_UseItem_t.UseEffect[3207],
+    UseEffect = Table_UseItem_t.UseEffect[3246],
     CDTime = 1,
     UseMultiple = 99
   },
   [6710] = {
     id = 6710,
-    UseEffect = Table_UseItem_t.UseEffect[3212],
+    UseEffect = Table_UseItem_t.UseEffect[3251],
     CDTime = 1
   },
   [6711] = {
     id = 6711,
-    UseEffect = Table_UseItem_t.UseEffect[3213],
+    UseEffect = Table_UseItem_t.UseEffect[3252],
     CDTime = 1
   },
   [6712] = {
     id = 6712,
-    UseEffect = Table_UseItem_t.UseEffect[3214],
+    UseEffect = Table_UseItem_t.UseEffect[3253],
     CDTime = 1
   },
   [6713] = {
     id = 6713,
-    UseEffect = Table_UseItem_t.UseEffect[3206],
+    UseEffect = Table_UseItem_t.UseEffect[3245],
     CDTime = 1
   },
   [6714] = {
     id = 6714,
-    UseEffect = Table_UseItem_t.UseEffect[3215],
+    UseEffect = Table_UseItem_t.UseEffect[3254],
     CDTime = 1
   },
   [6715] = {
     id = 6715,
-    UseEffect = Table_UseItem_t.UseEffect[3216],
+    UseEffect = Table_UseItem_t.UseEffect[3255],
     CDTime = 1
   },
   [6717] = {
     id = 6717,
-    UseEffect = Table_UseItem_t.UseEffect[3218],
+    UseEffect = Table_UseItem_t.UseEffect[3257],
     CDTime = 1,
     MapLimit = Table_UseItem_t.MapLimit[7]
   },
   [6718] = {
     id = 6718,
-    UseEffect = Table_UseItem_t.UseEffect[3218],
+    UseEffect = Table_UseItem_t.UseEffect[3257],
     CDTime = 1,
     MapLimit = Table_UseItem_t.MapLimit[7]
   },
   [6720] = {
     id = 6720,
-    UseEffect = Table_UseItem_t.UseEffect[3220],
+    UseEffect = Table_UseItem_t.UseEffect[3259],
     CDTime = 1,
     UseMultiple = 99
   },
   [6721] = {
     id = 6721,
-    UseEffect = Table_UseItem_t.UseEffect[3221],
+    UseEffect = Table_UseItem_t.UseEffect[3260],
     CDTime = 1
   },
   [6722] = {
     id = 6722,
-    UseEffect = Table_UseItem_t.UseEffect[3222],
+    UseEffect = Table_UseItem_t.UseEffect[3261],
     CDTime = 1
   },
   [6723] = {
     id = 6723,
-    UseEffect = Table_UseItem_t.UseEffect[3223],
+    UseEffect = Table_UseItem_t.UseEffect[3262],
     CDTime = 1
   },
   [6724] = {
     id = 6724,
-    UseEffect = Table_UseItem_t.UseEffect[3224],
+    UseEffect = Table_UseItem_t.UseEffect[3263],
     CDTime = 1
   },
   [6729] = {
     id = 6729,
-    UseEffect = Table_UseItem_t.UseEffect[3229],
+    UseEffect = Table_UseItem_t.UseEffect[3268],
     CDTime = 1
   },
   [6730] = {
     id = 6730,
-    UseEffect = Table_UseItem_t.UseEffect[2083],
+    UseEffect = Table_UseItem_t.UseEffect[2122],
     CDTime = 1
   },
   [6734] = {
     id = 6734,
-    UseEffect = Table_UseItem_t.UseEffect[3233],
+    UseEffect = Table_UseItem_t.UseEffect[3272],
     CDTime = 5,
     CDGroup = 6734
   },
   [6735] = {
     id = 6735,
-    UseEffect = Table_UseItem_t.UseEffect[3234],
+    UseEffect = Table_UseItem_t.UseEffect[3273],
     CDTime = 5,
     CDGroup = 6734
   },
   [6736] = {
     id = 6736,
-    UseEffect = Table_UseItem_t.UseEffect[3235],
+    UseEffect = Table_UseItem_t.UseEffect[3274],
     CDTime = 5,
     CDGroup = 6734
   },
   [6737] = {
     id = 6737,
-    UseEffect = Table_UseItem_t.UseEffect[3236],
+    UseEffect = Table_UseItem_t.UseEffect[3275],
     CDTime = 5,
     CDGroup = 6734
   },
   [6738] = {
     id = 6738,
-    UseEffect = Table_UseItem_t.UseEffect[3237],
+    UseEffect = Table_UseItem_t.UseEffect[3276],
     CDTime = 5,
     CDGroup = 6734
   },
   [6739] = {
     id = 6739,
-    UseEffect = Table_UseItem_t.UseEffect[3238],
+    UseEffect = Table_UseItem_t.UseEffect[3277],
     CDTime = 5,
     CDGroup = 6734
   },
   [6740] = {
     id = 6740,
-    UseEffect = Table_UseItem_t.UseEffect[3239],
+    UseEffect = Table_UseItem_t.UseEffect[3278],
     CDTime = 1
   },
   [6741] = {
     id = 6741,
-    UseEffect = Table_UseItem_t.UseEffect[3240],
+    UseEffect = Table_UseItem_t.UseEffect[3279],
     CDTime = 1
   },
   [6742] = {
     id = 6742,
-    UseEffect = Table_UseItem_t.UseEffect[3241],
+    UseEffect = Table_UseItem_t.UseEffect[3280],
     CDTime = 1
   },
   [6743] = {
     id = 6743,
-    UseEffect = Table_UseItem_t.UseEffect[3242],
+    UseEffect = Table_UseItem_t.UseEffect[3281],
     CDTime = 1,
     UseLimitTimes = 30,
     UseInterval = 86400
   },
   [6744] = {
     id = 6744,
-    UseEffect = Table_UseItem_t.UseEffect[3243],
+    UseEffect = Table_UseItem_t.UseEffect[3282],
     CDTime = 1,
     UseMultiple = 99
   },
   [6745] = {
     id = 6745,
-    UseEffect = Table_UseItem_t.UseEffect[3244],
+    UseEffect = Table_UseItem_t.UseEffect[3283],
     CDTime = 1,
     UseMultiple = 99
   },
   [6746] = {
     id = 6746,
-    UseEffect = Table_UseItem_t.UseEffect[3245],
+    UseEffect = Table_UseItem_t.UseEffect[3284],
     CDTime = 1,
     UseMultiple = 99
   },
   [6747] = {
     id = 6747,
-    UseEffect = Table_UseItem_t.UseEffect[3246],
+    UseEffect = Table_UseItem_t.UseEffect[3285],
     CDTime = 1,
     UseMultiple = 99
   },
   [6748] = {
     id = 6748,
-    UseEffect = Table_UseItem_t.UseEffect[3247],
+    UseEffect = Table_UseItem_t.UseEffect[3286],
     CDTime = 1,
     UseMultiple = 99
   },
   [6749] = {
     id = 6749,
-    UseEffect = Table_UseItem_t.UseEffect[3248],
+    UseEffect = Table_UseItem_t.UseEffect[3287],
     CDTime = 1,
     UseMultiple = 99
   },
   [6757] = {
     id = 6757,
-    UseEffect = Table_UseItem_t.UseEffect[3256],
+    UseEffect = Table_UseItem_t.UseEffect[3295],
     CDTime = 1
   },
   [6758] = {
     id = 6758,
-    UseEffect = Table_UseItem_t.UseEffect[3257],
+    UseEffect = Table_UseItem_t.UseEffect[3296],
     CDTime = 1
   },
   [6759] = {
     id = 6759,
-    UseEffect = Table_UseItem_t.UseEffect[3258],
+    UseEffect = Table_UseItem_t.UseEffect[3297],
     CDTime = 1
   },
   [6760] = {
     id = 6760,
-    UseEffect = Table_UseItem_t.UseEffect[3259],
+    UseEffect = Table_UseItem_t.UseEffect[3298],
     CDTime = 1
   },
   [6761] = {
     id = 6761,
-    UseEffect = Table_UseItem_t.UseEffect[3260],
+    UseEffect = Table_UseItem_t.UseEffect[3299],
     CDTime = 1
   },
   [6762] = {
     id = 6762,
-    UseEffect = Table_UseItem_t.UseEffect[3261],
+    UseEffect = Table_UseItem_t.UseEffect[3300],
     CDTime = 1
   },
   [6763] = {
     id = 6763,
-    UseEffect = Table_UseItem_t.UseEffect[3262],
+    UseEffect = Table_UseItem_t.UseEffect[3301],
     CDTime = 1
   },
   [6764] = {
     id = 6764,
-    UseEffect = Table_UseItem_t.UseEffect[3263],
+    UseEffect = Table_UseItem_t.UseEffect[3302],
     CDTime = 1
   },
   [6765] = {
     id = 6765,
-    UseEffect = Table_UseItem_t.UseEffect[3264],
+    UseEffect = Table_UseItem_t.UseEffect[3303],
     CDTime = 1
   },
   [6773] = {
     id = 6773,
-    UseEffect = Table_UseItem_t.UseEffect[3272],
+    UseEffect = Table_UseItem_t.UseEffect[3311],
     CDTime = 1,
     UseMultiple = 99
   },
   [6793] = {
     id = 6793,
-    UseEffect = Table_UseItem_t.UseEffect[3291],
+    UseEffect = Table_UseItem_t.UseEffect[3330],
     CDTime = 1
   },
   [6794] = {
     id = 6794,
-    UseEffect = Table_UseItem_t.UseEffect[3292],
+    UseEffect = Table_UseItem_t.UseEffect[3331],
     CDTime = 1
   },
   [6795] = {
     id = 6795,
-    UseEffect = Table_UseItem_t.UseEffect[3293],
+    UseEffect = Table_UseItem_t.UseEffect[3332],
     CDTime = 1
   },
   [6796] = {
     id = 6796,
-    UseEffect = Table_UseItem_t.UseEffect[3294],
+    UseEffect = Table_UseItem_t.UseEffect[3333],
     CDTime = 1
   },
   [6797] = {
     id = 6797,
-    UseEffect = Table_UseItem_t.UseEffect[3295],
+    UseEffect = Table_UseItem_t.UseEffect[3334],
     CDTime = 1
   },
   [6798] = {
     id = 6798,
-    UseEffect = Table_UseItem_t.UseEffect[3296],
+    UseEffect = Table_UseItem_t.UseEffect[3335],
     CDTime = 1
   },
   [6799] = {
     id = 6799,
-    UseEffect = Table_UseItem_t.UseEffect[3297],
+    UseEffect = Table_UseItem_t.UseEffect[3336],
     UseMultiple = 99
   },
   [6800] = {
     id = 6800,
-    UseEffect = Table_UseItem_t.UseEffect[3298],
+    UseEffect = Table_UseItem_t.UseEffect[3337],
     UseMultiple = 99
   },
   [6801] = {
     id = 6801,
-    UseEffect = Table_UseItem_t.UseEffect[3299],
+    UseEffect = Table_UseItem_t.UseEffect[3338],
     UseMultiple = 99
   },
   [6802] = {
     id = 6802,
-    UseEffect = Table_UseItem_t.UseEffect[3300],
+    UseEffect = Table_UseItem_t.UseEffect[3339],
     UseMultiple = 99
   },
   [6803] = {
     id = 6803,
-    UseEffect = Table_UseItem_t.UseEffect[3301],
+    UseEffect = Table_UseItem_t.UseEffect[3340],
     UseMultiple = 99
   },
   [6804] = {
     id = 6804,
-    UseEffect = Table_UseItem_t.UseEffect[3302],
+    UseEffect = Table_UseItem_t.UseEffect[3341],
     UseMultiple = 99
   },
   [6805] = {
     id = 6805,
-    UseEffect = Table_UseItem_t.UseEffect[3303],
+    UseEffect = Table_UseItem_t.UseEffect[3342],
     UseMultiple = 99
   },
   [6806] = {
     id = 6806,
-    UseEffect = Table_UseItem_t.UseEffect[3304],
+    UseEffect = Table_UseItem_t.UseEffect[3343],
     UseMultiple = 99
   },
   [6807] = {
     id = 6807,
-    UseEffect = Table_UseItem_t.UseEffect[3305],
+    UseEffect = Table_UseItem_t.UseEffect[3344],
     UseMultiple = 99
   },
   [6808] = {
     id = 6808,
-    UseEffect = Table_UseItem_t.UseEffect[3306],
+    UseEffect = Table_UseItem_t.UseEffect[3345],
     UseMultiple = 99
   },
   [6809] = {
     id = 6809,
-    UseEffect = Table_UseItem_t.UseEffect[3307],
+    UseEffect = Table_UseItem_t.UseEffect[3346],
     UseMultiple = 99
   },
   [6810] = {
     id = 6810,
-    UseEffect = Table_UseItem_t.UseEffect[3308],
+    UseEffect = Table_UseItem_t.UseEffect[3347],
     UseMultiple = 99
   },
   [6811] = {
     id = 6811,
-    UseEffect = Table_UseItem_t.UseEffect[3309],
+    UseEffect = Table_UseItem_t.UseEffect[3348],
     UseMultiple = 99
   },
   [6816] = {
     id = 6816,
-    UseEffect = Table_UseItem_t.UseEffect[3313],
+    UseEffect = Table_UseItem_t.UseEffect[3351],
     CDTime = 1,
     UseMultiple = 99
   },
   [6817] = {
     id = 6817,
-    UseEffect = Table_UseItem_t.UseEffect[3314],
+    UseEffect = Table_UseItem_t.UseEffect[3352],
     CDTime = 5
   },
   [6818] = {
     id = 6818,
-    UseEffect = Table_UseItem_t.UseEffect[3315],
+    UseEffect = Table_UseItem_t.UseEffect[3353],
     CDTime = 5
   },
   [6823] = {
     id = 6823,
-    UseEffect = Table_UseItem_t.UseEffect[3319],
+    UseEffect = Table_UseItem_t.UseEffect[3358],
     CDTime = 1
   },
   [6824] = {
     id = 6824,
-    UseEffect = Table_UseItem_t.UseEffect[3320],
+    UseEffect = Table_UseItem_t.UseEffect[3359],
     CDTime = 1
   },
   [6825] = {
     id = 6825,
-    UseEffect = Table_UseItem_t.UseEffect[3321],
+    UseEffect = Table_UseItem_t.UseEffect[3360],
     CDTime = 1
   },
   [6826] = {
     id = 6826,
-    UseEffect = Table_UseItem_t.UseEffect[3322],
+    UseEffect = Table_UseItem_t.UseEffect[3361],
     CDTime = 1
   },
   [6827] = {
     id = 6827,
-    UseEffect = Table_UseItem_t.UseEffect[3323],
+    UseEffect = Table_UseItem_t.UseEffect[3362],
     CDTime = 1
   },
   [6828] = {
     id = 6828,
-    UseEffect = Table_UseItem_t.UseEffect[3324],
+    UseEffect = Table_UseItem_t.UseEffect[3363],
     CDTime = 1
   },
   [6829] = {
     id = 6829,
-    UseEffect = Table_UseItem_t.UseEffect[3325],
+    UseEffect = Table_UseItem_t.UseEffect[3364],
     CDTime = 1,
     UseMultiple = 99
   },
   [6831] = {
     id = 6831,
-    UseEffect = Table_UseItem_t.UseEffect[3326],
+    UseEffect = Table_UseItem_t.UseEffect[3365],
     CDTime = 1,
     UseMultiple = 99
   },
   [6832] = {
     id = 6832,
-    UseEffect = Table_UseItem_t.UseEffect[3327]
+    UseEffect = Table_UseItem_t.UseEffect[3366]
   },
   [6833] = {
     id = 6833,
-    UseEffect = Table_UseItem_t.UseEffect[3328]
+    UseEffect = Table_UseItem_t.UseEffect[3367]
   },
   [6834] = {
     id = 6834,
-    UseEffect = Table_UseItem_t.UseEffect[3329],
+    UseEffect = Table_UseItem_t.UseEffect[3368],
     CDTime = 1,
     UseMultiple = 99
   },
   [6835] = {
     id = 6835,
-    UseEffect = Table_UseItem_t.UseEffect[3330],
+    UseEffect = Table_UseItem_t.UseEffect[3369],
     CDTime = 1
   },
   [6838] = {
     id = 6838,
-    UseEffect = Table_UseItem_t.UseEffect[3333],
+    UseEffect = Table_UseItem_t.UseEffect[3372],
     CDTime = 1,
     UseMultiple = 99
   },
   [6839] = {
     id = 6839,
-    UseEffect = Table_UseItem_t.UseEffect[3334],
+    UseEffect = Table_UseItem_t.UseEffect[3373],
     CDTime = 1,
     UseMultiple = 99
   },
   [6841] = {
     id = 6841,
-    UseEffect = Table_UseItem_t.UseEffect[3336],
+    UseEffect = Table_UseItem_t.UseEffect[3375],
     CDTime = 1
   },
   [6842] = {
     id = 6842,
-    UseEffect = Table_UseItem_t.UseEffect[3337],
+    UseEffect = Table_UseItem_t.UseEffect[3376],
     CDTime = 1,
     UseMultiple = 99
   },
   [6845] = {
     id = 6845,
-    UseEffect = Table_UseItem_t.UseEffect[3340],
+    UseEffect = Table_UseItem_t.UseEffect[3379],
     CDTime = 1,
     UseMultiple = 99
   },
   [6846] = {
     id = 6846,
-    UseEffect = Table_UseItem_t.UseEffect[3341],
+    UseEffect = Table_UseItem_t.UseEffect[3380],
     UseMultiple = 99
   },
   [6848] = {
     id = 6848,
-    UseEffect = Table_UseItem_t.UseEffect[3343],
+    UseEffect = Table_UseItem_t.UseEffect[3382],
     CDTime = 1,
     UseMultiple = 99
   },
   [6849] = {
     id = 6849,
-    UseEffect = Table_UseItem_t.UseEffect[3344],
+    UseEffect = Table_UseItem_t.UseEffect[3383],
     CDTime = 1,
     UseMultiple = 99
   },
   [6850] = {
     id = 6850,
-    UseEffect = Table_UseItem_t.UseEffect[3345],
+    UseEffect = Table_UseItem_t.UseEffect[3384],
     CDTime = 1,
     UseMultiple = 99
   },
   [6851] = {
     id = 6851,
-    UseEffect = Table_UseItem_t.UseEffect[3346],
+    UseEffect = Table_UseItem_t.UseEffect[3385],
     CDTime = 1
   },
   [6852] = {
     id = 6852,
-    UseEffect = Table_UseItem_t.UseEffect[3347],
+    UseEffect = Table_UseItem_t.UseEffect[3386],
     CDTime = 1
   },
   [6853] = {
     id = 6853,
-    UseEffect = Table_UseItem_t.UseEffect[3348],
+    UseEffect = Table_UseItem_t.UseEffect[3387],
     CDTime = 1
   },
   [6854] = {
     id = 6854,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3349],
+    UseEffect = Table_UseItem_t.UseEffect[3388],
     CDTime = 1
   },
   [6855] = {
     id = 6855,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3350],
+    UseEffect = Table_UseItem_t.UseEffect[3389],
     CDTime = 1
   },
   [6856] = {
     id = 6856,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3351],
+    UseEffect = Table_UseItem_t.UseEffect[3390],
     CDTime = 1
   },
   [6857] = {
     id = 6857,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3352],
+    UseEffect = Table_UseItem_t.UseEffect[3391],
     CDTime = 1
   },
   [6858] = {
     id = 6858,
-    UseEffect = Table_UseItem_t.UseEffect[3353],
+    UseEffect = Table_UseItem_t.UseEffect[3392],
     CDTime = 1
   },
   [6860] = {
     id = 6860,
-    UseEffect = Table_UseItem_t.UseEffect[3355],
+    UseEffect = Table_UseItem_t.UseEffect[3394],
     CDTime = 1,
     UseMultiple = 99
   },
   [6863] = {
     id = 6863,
-    UseEffect = Table_UseItem_t.UseEffect[3357],
+    UseEffect = Table_UseItem_t.UseEffect[3396],
     CDTime = 1,
     UseMultiple = 99
   },
   [6864] = {
     id = 6864,
-    UseEffect = Table_UseItem_t.UseEffect[3358],
+    UseEffect = Table_UseItem_t.UseEffect[3397],
     CDTime = 1
   },
   [6865] = {
     id = 6865,
-    UseEffect = Table_UseItem_t.UseEffect[3359],
+    UseEffect = Table_UseItem_t.UseEffect[3398],
     CDTime = 1
   },
   [6866] = {
     id = 6866,
-    UseEffect = Table_UseItem_t.UseEffect[3360],
+    UseEffect = Table_UseItem_t.UseEffect[3399],
     CDTime = 1
   },
   [6867] = {
     id = 6867,
-    UseEffect = Table_UseItem_t.UseEffect[3361],
+    UseEffect = Table_UseItem_t.UseEffect[3400],
     CDTime = 1
   },
   [6868] = {
     id = 6868,
-    UseEffect = Table_UseItem_t.UseEffect[3362],
+    UseEffect = Table_UseItem_t.UseEffect[3401],
     CDTime = 1
   },
   [6869] = {
     id = 6869,
-    UseEffect = Table_UseItem_t.UseEffect[3363],
+    UseEffect = Table_UseItem_t.UseEffect[3402],
     CDTime = 1
   },
   [6870] = {
     id = 6870,
-    UseEffect = Table_UseItem_t.UseEffect[3364],
+    UseEffect = Table_UseItem_t.UseEffect[3403],
     CDTime = 1
   },
   [6871] = {
     id = 6871,
-    UseEffect = Table_UseItem_t.UseEffect[3365],
+    UseEffect = Table_UseItem_t.UseEffect[3404],
     CDTime = 1
   },
   [6872] = {
     id = 6872,
-    UseEffect = Table_UseItem_t.UseEffect[3366],
+    UseEffect = Table_UseItem_t.UseEffect[3405],
     CDTime = 1
   },
   [6873] = {
     id = 6873,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3367],
+    UseEffect = Table_UseItem_t.UseEffect[3406],
     CDTime = 1
   },
   [6874] = {
     id = 6874,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3368],
+    UseEffect = Table_UseItem_t.UseEffect[3407],
     CDTime = 1
   },
   [6875] = {
     id = 6875,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3369],
+    UseEffect = Table_UseItem_t.UseEffect[3408],
     CDTime = 1
   },
   [6876] = {
     id = 6876,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3370],
+    UseEffect = Table_UseItem_t.UseEffect[3409],
     CDTime = 1
   },
   [6877] = {
     id = 6877,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3371],
+    UseEffect = Table_UseItem_t.UseEffect[3410],
     CDTime = 1
   },
   [6878] = {
     id = 6878,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[3372],
+    UseEffect = Table_UseItem_t.UseEffect[3411],
     CDTime = 1
   },
   [6880] = {
     id = 6880,
-    UseEffect = Table_UseItem_t.UseEffect[3374],
+    UseEffect = Table_UseItem_t.UseEffect[3413],
     CDTime = 1
   },
   [6881] = {
     id = 6881,
-    UseEffect = Table_UseItem_t.UseEffect[3375],
+    UseEffect = Table_UseItem_t.UseEffect[3414],
     CDTime = 1
   },
   [6882] = {
     id = 6882,
-    UseEffect = Table_UseItem_t.UseEffect[3376],
+    UseEffect = Table_UseItem_t.UseEffect[3415],
     CDTime = 1
   },
   [6889] = {
     id = 6889,
-    UseEffect = Table_UseItem_t.UseEffect[3383],
+    UseEffect = Table_UseItem_t.UseEffect[3422],
     CDTime = 1
   },
   [6890] = {
     id = 6890,
-    UseEffect = Table_UseItem_t.UseEffect[3384],
+    UseEffect = Table_UseItem_t.UseEffect[3423],
     CDTime = 1
   },
   [6891] = {
     id = 6891,
-    UseEffect = Table_UseItem_t.UseEffect[3385],
+    UseEffect = Table_UseItem_t.UseEffect[3424],
     CDTime = 1
   },
   [6892] = {
     id = 6892,
-    UseEffect = Table_UseItem_t.UseEffect[3386],
+    UseEffect = Table_UseItem_t.UseEffect[3425],
     CDTime = 1
   },
   [6893] = {
     id = 6893,
-    UseEffect = Table_UseItem_t.UseEffect[3387],
+    UseEffect = Table_UseItem_t.UseEffect[3426],
     CDTime = 1
   },
   [6894] = {
     id = 6894,
-    UseEffect = Table_UseItem_t.UseEffect[3388],
+    UseEffect = Table_UseItem_t.UseEffect[3427],
     CDTime = 1
   },
   [6899] = {
     id = 6899,
-    UseEffect = Table_UseItem_t.UseEffect[3393]
+    UseEffect = Table_UseItem_t.UseEffect[3432]
   },
   [6900] = {
     id = 6900,
-    UseEffect = Table_UseItem_t.UseEffect[3394],
+    UseEffect = Table_UseItem_t.UseEffect[3433],
     CDTime = 1,
     UseMultiple = 99
   },
   [6901] = {
     id = 6901,
-    UseEffect = Table_UseItem_t.UseEffect[3395],
+    UseEffect = Table_UseItem_t.UseEffect[3434],
     CDTime = 1,
     UseMultiple = 99
   },
   [6905] = {
     id = 6905,
-    UseEffect = Table_UseItem_t.UseEffect[3399]
+    UseEffect = Table_UseItem_t.UseEffect[3438]
   },
   [6906] = {
     id = 6906,
-    UseEffect = Table_UseItem_t.UseEffect[3400]
+    UseEffect = Table_UseItem_t.UseEffect[3439]
   },
   [6907] = {
     id = 6907,
-    UseEffect = Table_UseItem_t.UseEffect[3401]
+    UseEffect = Table_UseItem_t.UseEffect[3440]
   },
   [6914] = {
     id = 6914,
-    UseEffect = Table_UseItem_t.UseEffect[3407],
+    UseEffect = Table_UseItem_t.UseEffect[3446],
     CDTime = 1
   },
   [6917] = {
     id = 6917,
-    UseEffect = Table_UseItem_t.UseEffect[3410],
+    UseEffect = Table_UseItem_t.UseEffect[3449],
     CDTime = 1
   },
   [6918] = {
     id = 6918,
-    UseEffect = Table_UseItem_t.UseEffect[3411],
+    UseEffect = Table_UseItem_t.UseEffect[3450],
     CDTime = 1
   },
   [6919] = {
     id = 6919,
-    UseEffect = Table_UseItem_t.UseEffect[3412],
+    UseEffect = Table_UseItem_t.UseEffect[3451],
     CDTime = 1
   },
   [6959] = {
     id = 6959,
-    UseEffect = Table_UseItem_t.UseEffect[3450],
+    UseEffect = Table_UseItem_t.UseEffect[3489],
     CDTime = 1,
-    UseMultiple = 10
+    UseMultiple = 10,
+    UseLvLimit = Table_UseItem_t.UseLvLimit[1]
   },
   [6960] = {
     id = 6960,
-    UseEffect = Table_UseItem_t.UseEffect[3451],
+    UseEffect = Table_UseItem_t.UseEffect[3490],
     CDTime = 1,
     UseMultiple = 99
   },
   [6961] = {
     id = 6961,
-    UseEffect = Table_UseItem_t.UseEffect[3452],
+    UseEffect = Table_UseItem_t.UseEffect[3491],
     CDTime = 1
   },
   [6962] = {
     id = 6962,
-    UseEffect = Table_UseItem_t.UseEffect[3453],
+    UseEffect = Table_UseItem_t.UseEffect[3492],
     CDTime = 1
   },
   [6963] = {
     id = 6963,
-    UseEffect = Table_UseItem_t.UseEffect[3454],
+    UseEffect = Table_UseItem_t.UseEffect[3493],
     CDTime = 1
   },
   [6964] = {
     id = 6964,
-    UseEffect = Table_UseItem_t.UseEffect[3455],
+    UseEffect = Table_UseItem_t.UseEffect[3494],
     CDTime = 1
   },
   [6965] = {
     id = 6965,
-    UseEffect = Table_UseItem_t.UseEffect[3456],
+    UseEffect = Table_UseItem_t.UseEffect[3495],
     CDTime = 1
   },
   [6966] = {
     id = 6966,
-    UseEffect = Table_UseItem_t.UseEffect[3457],
+    UseEffect = Table_UseItem_t.UseEffect[3496],
     CDTime = 1
   },
   [6967] = {
     id = 6967,
-    UseEffect = Table_UseItem_t.UseEffect[3458],
+    UseEffect = Table_UseItem_t.UseEffect[3497],
     CDTime = 1
   },
   [6968] = {
     id = 6968,
-    UseEffect = Table_UseItem_t.UseEffect[3459],
+    UseEffect = Table_UseItem_t.UseEffect[3498],
     CDTime = 1
   },
   [6971] = {
     id = 6971,
-    UseEffect = Table_UseItem_t.UseEffect[3462],
+    UseEffect = Table_UseItem_t.UseEffect[3501],
     CDTime = 1
   },
   [6972] = {
     id = 6972,
-    UseEffect = Table_UseItem_t.UseEffect[3463],
+    UseEffect = Table_UseItem_t.UseEffect[3502],
     CDTime = 1
   },
   [6973] = {
     id = 6973,
-    UseEffect = Table_UseItem_t.UseEffect[3464],
+    UseEffect = Table_UseItem_t.UseEffect[3503],
     CDTime = 1
   },
   [6974] = {
     id = 6974,
-    UseEffect = Table_UseItem_t.UseEffect[3465],
+    UseEffect = Table_UseItem_t.UseEffect[3504],
     CDTime = 1
   },
   [6975] = {
     id = 6975,
-    UseEffect = Table_UseItem_t.UseEffect[3466],
+    UseEffect = Table_UseItem_t.UseEffect[3505],
     CDTime = 1
   },
   [6976] = {
     id = 6976,
-    UseEffect = Table_UseItem_t.UseEffect[3467],
+    UseEffect = Table_UseItem_t.UseEffect[3506],
     CDTime = 1
   },
   [6977] = {
     id = 6977,
-    UseEffect = Table_UseItem_t.UseEffect[3468],
+    UseEffect = Table_UseItem_t.UseEffect[3507],
     CDTime = 1
   },
   [6978] = {
     id = 6978,
-    UseEffect = Table_UseItem_t.UseEffect[3469],
+    UseEffect = Table_UseItem_t.UseEffect[3508],
     CDTime = 1
   },
   [6979] = {
     id = 6979,
-    UseEffect = Table_UseItem_t.UseEffect[3470],
+    UseEffect = Table_UseItem_t.UseEffect[3509],
     CDTime = 1
   },
   [6980] = {
     id = 6980,
-    UseEffect = Table_UseItem_t.UseEffect[3471],
+    UseEffect = Table_UseItem_t.UseEffect[3510],
     CDTime = 1
   },
   [6981] = {
     id = 6981,
-    UseEffect = Table_UseItem_t.UseEffect[3472],
+    UseEffect = Table_UseItem_t.UseEffect[3511],
     CDTime = 1
   },
   [6982] = {
     id = 6982,
-    UseEffect = Table_UseItem_t.UseEffect[3473],
+    UseEffect = Table_UseItem_t.UseEffect[3512],
     CDTime = 1
   },
   [6983] = {
     id = 6983,
-    UseEffect = Table_UseItem_t.UseEffect[3474],
+    UseEffect = Table_UseItem_t.UseEffect[3513],
     CDTime = 1
   },
   [6984] = {
     id = 6984,
-    UseEffect = Table_UseItem_t.UseEffect[3475],
+    UseEffect = Table_UseItem_t.UseEffect[3514],
     CDTime = 1
   },
   [6985] = {
     id = 6985,
-    UseEffect = Table_UseItem_t.UseEffect[3476],
+    UseEffect = Table_UseItem_t.UseEffect[3515],
     CDTime = 1
   },
   [6986] = {
     id = 6986,
-    UseEffect = Table_UseItem_t.UseEffect[3477],
+    UseEffect = Table_UseItem_t.UseEffect[3516],
     CDTime = 1
   },
   [6987] = {
     id = 6987,
-    UseEffect = Table_UseItem_t.UseEffect[3478],
+    UseEffect = Table_UseItem_t.UseEffect[3517],
     CDTime = 1
   },
   [6988] = {
     id = 6988,
-    UseEffect = Table_UseItem_t.UseEffect[3479],
+    UseEffect = Table_UseItem_t.UseEffect[3518],
     CDTime = 1
   },
   [6989] = {
     id = 6989,
-    UseEffect = Table_UseItem_t.UseEffect[3480],
+    UseEffect = Table_UseItem_t.UseEffect[3519],
     CDTime = 1
   },
   [6990] = {
     id = 6990,
-    UseEffect = Table_UseItem_t.UseEffect[3481],
+    UseEffect = Table_UseItem_t.UseEffect[3520],
     CDTime = 1
   },
   [6991] = {
     id = 6991,
-    UseEffect = Table_UseItem_t.UseEffect[3482],
+    UseEffect = Table_UseItem_t.UseEffect[3521],
     CDTime = 1
   },
   [6992] = {
     id = 6992,
-    UseEffect = Table_UseItem_t.UseEffect[3483],
+    UseEffect = Table_UseItem_t.UseEffect[3522],
     CDTime = 1
   },
   [6993] = {
     id = 6993,
-    UseEffect = Table_UseItem_t.UseEffect[3484],
+    UseEffect = Table_UseItem_t.UseEffect[3523],
     CDTime = 1
   },
   [6994] = {
     id = 6994,
-    UseEffect = Table_UseItem_t.UseEffect[3485],
+    UseEffect = Table_UseItem_t.UseEffect[3524],
     CDTime = 1
   },
   [6995] = {
     id = 6995,
-    UseEffect = Table_UseItem_t.UseEffect[3486],
+    UseEffect = Table_UseItem_t.UseEffect[3525],
     CDTime = 1
   },
   [7162] = {
     id = 7162,
-    UseEffect = Table_UseItem_t.UseEffect[3620],
+    UseEffect = Table_UseItem_t.UseEffect[3659],
     CDTime = 1,
     UseMultiple = 99
   },
   [7419] = {
     id = 7419,
-    UseEffect = Table_UseItem_t.UseEffect[3793],
+    UseEffect = Table_UseItem_t.UseEffect[3831],
     CDTime = 1
   },
   [7420] = {
     id = 7420,
-    UseEffect = Table_UseItem_t.UseEffect[3794],
+    UseEffect = Table_UseItem_t.UseEffect[3832],
     CDTime = 1
   },
   [7421] = {
     id = 7421,
-    UseEffect = Table_UseItem_t.UseEffect[3795],
+    UseEffect = Table_UseItem_t.UseEffect[3833],
     CDTime = 1
   },
   [7601] = {
     id = 7601,
-    UseEffect = Table_UseItem_t.UseEffect[3956],
+    UseEffect = Table_UseItem_t.UseEffect[3996],
     CDTime = 1,
     UseMultiple = 1
   },
   [7602] = {
     id = 7602,
-    UseEffect = Table_UseItem_t.UseEffect[3957],
+    UseEffect = Table_UseItem_t.UseEffect[3997],
     CDTime = 1,
     UseMultiple = 1
   },
   [7603] = {
     id = 7603,
-    UseEffect = Table_UseItem_t.UseEffect[3958],
+    UseEffect = Table_UseItem_t.UseEffect[3998],
     CDTime = 1,
     UseMultiple = 1
   },
   [7604] = {
     id = 7604,
-    UseEffect = Table_UseItem_t.UseEffect[3959],
+    UseEffect = Table_UseItem_t.UseEffect[3999],
     CDTime = 1,
     UseMultiple = 1
   },
   [7605] = {
     id = 7605,
-    UseEffect = Table_UseItem_t.UseEffect[3960],
+    UseEffect = Table_UseItem_t.UseEffect[4000],
     CDTime = 1,
     UseMultiple = 1
   },
   [7606] = {
     id = 7606,
-    UseEffect = Table_UseItem_t.UseEffect[3961],
+    UseEffect = Table_UseItem_t.UseEffect[4001],
     CDTime = 1,
     UseMultiple = 1
   },
   [7607] = {
     id = 7607,
-    UseEffect = Table_UseItem_t.UseEffect[3962],
+    UseEffect = Table_UseItem_t.UseEffect[4002],
     CDTime = 1,
     UseMultiple = 1
   },
   [7608] = {
     id = 7608,
-    UseEffect = Table_UseItem_t.UseEffect[3963],
+    UseEffect = Table_UseItem_t.UseEffect[4003],
     CDTime = 1,
     UseMultiple = 1
   },
   [7609] = {
     id = 7609,
-    UseEffect = Table_UseItem_t.UseEffect[3964],
+    UseEffect = Table_UseItem_t.UseEffect[4004],
     CDTime = 1,
     UseMultiple = 1
   },
   [7610] = {
     id = 7610,
-    UseEffect = Table_UseItem_t.UseEffect[3965],
+    UseEffect = Table_UseItem_t.UseEffect[4005],
     CDTime = 1,
     UseMultiple = 1
   },
   [7611] = {
     id = 7611,
-    UseEffect = Table_UseItem_t.UseEffect[3966],
+    UseEffect = Table_UseItem_t.UseEffect[4006],
     CDTime = 1,
     UseMultiple = 1
   },
   [7612] = {
     id = 7612,
-    UseEffect = Table_UseItem_t.UseEffect[3967],
+    UseEffect = Table_UseItem_t.UseEffect[4007],
     CDTime = 1,
     UseMultiple = 1
   },
   [7613] = {
     id = 7613,
-    UseEffect = Table_UseItem_t.UseEffect[3968],
+    UseEffect = Table_UseItem_t.UseEffect[4008],
     CDTime = 1,
     UseMultiple = 1
   },
   [7614] = {
     id = 7614,
-    UseEffect = Table_UseItem_t.UseEffect[3969],
+    UseEffect = Table_UseItem_t.UseEffect[4009],
     CDTime = 1,
     UseMultiple = 1
   },
   [7615] = {
     id = 7615,
-    UseEffect = Table_UseItem_t.UseEffect[3970],
+    UseEffect = Table_UseItem_t.UseEffect[4010],
     CDTime = 1,
     UseMultiple = 1
   },
   [7621] = {
     id = 7621,
-    UseEffect = Table_UseItem_t.UseEffect[3976],
+    UseEffect = Table_UseItem_t.UseEffect[4016],
     CDTime = 1,
     UseMultiple = 1
   },
   [7622] = {
     id = 7622,
-    UseEffect = Table_UseItem_t.UseEffect[3977],
+    UseEffect = Table_UseItem_t.UseEffect[4017],
     CDTime = 1,
     UseMultiple = 1
   },
   [7623] = {
     id = 7623,
-    UseEffect = Table_UseItem_t.UseEffect[3978],
+    UseEffect = Table_UseItem_t.UseEffect[4018],
     CDTime = 1,
     UseMultiple = 1
   },
   [7624] = {
     id = 7624,
-    UseEffect = Table_UseItem_t.UseEffect[3979],
+    UseEffect = Table_UseItem_t.UseEffect[4019],
     CDTime = 1,
     UseMultiple = 1
   },
   [7625] = {
     id = 7625,
-    UseEffect = Table_UseItem_t.UseEffect[3980],
+    UseEffect = Table_UseItem_t.UseEffect[4020],
     CDTime = 1,
     UseMultiple = 1
   },
   [7626] = {
     id = 7626,
-    UseEffect = Table_UseItem_t.UseEffect[3981],
+    UseEffect = Table_UseItem_t.UseEffect[4021],
     CDTime = 1,
     UseMultiple = 1
   },
   [7627] = {
     id = 7627,
-    UseEffect = Table_UseItem_t.UseEffect[3982],
+    UseEffect = Table_UseItem_t.UseEffect[4022],
     CDTime = 1,
     UseMultiple = 1
   },
   [7628] = {
     id = 7628,
-    UseEffect = Table_UseItem_t.UseEffect[3983],
+    UseEffect = Table_UseItem_t.UseEffect[4023],
     CDTime = 1,
     UseMultiple = 1
   },
   [7629] = {
     id = 7629,
-    UseEffect = Table_UseItem_t.UseEffect[3984],
+    UseEffect = Table_UseItem_t.UseEffect[4024],
     CDTime = 1,
     UseMultiple = 1
   },
   [7630] = {
     id = 7630,
-    UseEffect = Table_UseItem_t.UseEffect[3985],
+    UseEffect = Table_UseItem_t.UseEffect[4025],
     CDTime = 1,
     UseMultiple = 1
   },
   [7631] = {
     id = 7631,
-    UseEffect = Table_UseItem_t.UseEffect[3986],
+    UseEffect = Table_UseItem_t.UseEffect[4026],
     CDTime = 1,
     UseMultiple = 1
   },
   [7632] = {
     id = 7632,
-    UseEffect = Table_UseItem_t.UseEffect[3987],
+    UseEffect = Table_UseItem_t.UseEffect[4027],
     CDTime = 1,
     UseMultiple = 1
   },
   [7633] = {
     id = 7633,
-    UseEffect = Table_UseItem_t.UseEffect[3988],
+    UseEffect = Table_UseItem_t.UseEffect[4028],
     CDTime = 1,
     UseMultiple = 1
   },
   [7634] = {
     id = 7634,
-    UseEffect = Table_UseItem_t.UseEffect[3989],
+    UseEffect = Table_UseItem_t.UseEffect[4029],
     CDTime = 1,
     UseMultiple = 1
   },
   [7635] = {
     id = 7635,
-    UseEffect = Table_UseItem_t.UseEffect[3990],
+    UseEffect = Table_UseItem_t.UseEffect[4030],
     CDTime = 1,
     UseMultiple = 1
   },
   [7641] = {
     id = 7641,
-    UseEffect = Table_UseItem_t.UseEffect[3996],
+    UseEffect = Table_UseItem_t.UseEffect[4036],
     CDTime = 1,
     UseMultiple = 1
   },
   [7642] = {
     id = 7642,
-    UseEffect = Table_UseItem_t.UseEffect[3997],
+    UseEffect = Table_UseItem_t.UseEffect[4037],
     CDTime = 1,
     UseMultiple = 1
   },
   [7643] = {
     id = 7643,
-    UseEffect = Table_UseItem_t.UseEffect[3998],
+    UseEffect = Table_UseItem_t.UseEffect[4038],
     CDTime = 1,
     UseMultiple = 1
   },
   [7644] = {
     id = 7644,
-    UseEffect = Table_UseItem_t.UseEffect[3999],
+    UseEffect = Table_UseItem_t.UseEffect[4039],
     CDTime = 1,
     UseMultiple = 1
   },
   [7645] = {
     id = 7645,
-    UseEffect = Table_UseItem_t.UseEffect[4000],
+    UseEffect = Table_UseItem_t.UseEffect[4040],
     CDTime = 1,
     UseMultiple = 1
   },
   [7646] = {
     id = 7646,
-    UseEffect = Table_UseItem_t.UseEffect[4001],
+    UseEffect = Table_UseItem_t.UseEffect[4041],
     CDTime = 1,
     UseMultiple = 1
   },
   [7647] = {
     id = 7647,
-    UseEffect = Table_UseItem_t.UseEffect[4002],
+    UseEffect = Table_UseItem_t.UseEffect[4042],
     CDTime = 1,
     UseMultiple = 1
   },
   [7648] = {
     id = 7648,
-    UseEffect = Table_UseItem_t.UseEffect[4003],
+    UseEffect = Table_UseItem_t.UseEffect[4043],
     CDTime = 1,
     UseMultiple = 1
   },
   [7649] = {
     id = 7649,
-    UseEffect = Table_UseItem_t.UseEffect[4004],
+    UseEffect = Table_UseItem_t.UseEffect[4044],
     CDTime = 1,
     UseMultiple = 1
   },
   [7650] = {
     id = 7650,
-    UseEffect = Table_UseItem_t.UseEffect[4005],
+    UseEffect = Table_UseItem_t.UseEffect[4045],
     CDTime = 1,
     UseMultiple = 1
   },
   [7651] = {
     id = 7651,
-    UseEffect = Table_UseItem_t.UseEffect[4006],
+    UseEffect = Table_UseItem_t.UseEffect[4046],
     CDTime = 1,
     UseMultiple = 1
   },
   [7652] = {
     id = 7652,
-    UseEffect = Table_UseItem_t.UseEffect[4007],
+    UseEffect = Table_UseItem_t.UseEffect[4047],
     CDTime = 1,
     UseMultiple = 1
   },
   [7653] = {
     id = 7653,
-    UseEffect = Table_UseItem_t.UseEffect[4008],
+    UseEffect = Table_UseItem_t.UseEffect[4048],
     CDTime = 1,
     UseMultiple = 1
   },
   [7654] = {
     id = 7654,
-    UseEffect = Table_UseItem_t.UseEffect[4009],
+    UseEffect = Table_UseItem_t.UseEffect[4049],
     CDTime = 1,
     UseMultiple = 1
   },
   [7655] = {
     id = 7655,
-    UseEffect = Table_UseItem_t.UseEffect[4010],
+    UseEffect = Table_UseItem_t.UseEffect[4050],
     CDTime = 1,
     UseMultiple = 1
   },
   [7661] = {
     id = 7661,
-    UseEffect = Table_UseItem_t.UseEffect[4016],
+    UseEffect = Table_UseItem_t.UseEffect[4056],
     CDTime = 1,
     UseMultiple = 1
   },
   [7662] = {
     id = 7662,
-    UseEffect = Table_UseItem_t.UseEffect[4017],
+    UseEffect = Table_UseItem_t.UseEffect[4057],
     CDTime = 1,
     UseMultiple = 1
   },
   [7663] = {
     id = 7663,
-    UseEffect = Table_UseItem_t.UseEffect[4018],
+    UseEffect = Table_UseItem_t.UseEffect[4058],
     CDTime = 1,
     UseMultiple = 1
   },
   [7664] = {
     id = 7664,
-    UseEffect = Table_UseItem_t.UseEffect[4019],
+    UseEffect = Table_UseItem_t.UseEffect[4059],
     CDTime = 1,
     UseMultiple = 1
   },
   [7665] = {
     id = 7665,
-    UseEffect = Table_UseItem_t.UseEffect[4020],
+    UseEffect = Table_UseItem_t.UseEffect[4060],
     CDTime = 1,
     UseMultiple = 1
   },
   [7666] = {
     id = 7666,
-    UseEffect = Table_UseItem_t.UseEffect[4021],
+    UseEffect = Table_UseItem_t.UseEffect[4061],
     CDTime = 1,
     UseMultiple = 1
   },
   [7667] = {
     id = 7667,
-    UseEffect = Table_UseItem_t.UseEffect[4022],
+    UseEffect = Table_UseItem_t.UseEffect[4062],
     CDTime = 1,
     UseMultiple = 1
   },
   [7668] = {
     id = 7668,
-    UseEffect = Table_UseItem_t.UseEffect[4023],
+    UseEffect = Table_UseItem_t.UseEffect[4063],
     CDTime = 1,
     UseMultiple = 1
   },
   [7669] = {
     id = 7669,
-    UseEffect = Table_UseItem_t.UseEffect[4024],
+    UseEffect = Table_UseItem_t.UseEffect[4064],
     CDTime = 1,
     UseMultiple = 1
   },
   [7670] = {
     id = 7670,
-    UseEffect = Table_UseItem_t.UseEffect[4025],
+    UseEffect = Table_UseItem_t.UseEffect[4065],
     CDTime = 1,
     UseMultiple = 1
   },
   [7671] = {
     id = 7671,
-    UseEffect = Table_UseItem_t.UseEffect[4026],
+    UseEffect = Table_UseItem_t.UseEffect[4066],
     CDTime = 1,
     UseMultiple = 1
   },
   [7672] = {
     id = 7672,
-    UseEffect = Table_UseItem_t.UseEffect[4027],
+    UseEffect = Table_UseItem_t.UseEffect[4067],
     CDTime = 1,
     UseMultiple = 1
   },
   [7673] = {
     id = 7673,
-    UseEffect = Table_UseItem_t.UseEffect[4028],
+    UseEffect = Table_UseItem_t.UseEffect[4068],
     CDTime = 1,
     UseMultiple = 1
   },
   [7674] = {
     id = 7674,
-    UseEffect = Table_UseItem_t.UseEffect[4029],
+    UseEffect = Table_UseItem_t.UseEffect[4069],
     CDTime = 1,
     UseMultiple = 1
   },
   [7675] = {
     id = 7675,
-    UseEffect = Table_UseItem_t.UseEffect[4030],
+    UseEffect = Table_UseItem_t.UseEffect[4070],
     CDTime = 1,
     UseMultiple = 1
   },
   [7681] = {
     id = 7681,
-    UseEffect = Table_UseItem_t.UseEffect[4036],
+    UseEffect = Table_UseItem_t.UseEffect[4076],
     CDTime = 1,
     UseMultiple = 1
   },
   [7682] = {
     id = 7682,
-    UseEffect = Table_UseItem_t.UseEffect[4037],
+    UseEffect = Table_UseItem_t.UseEffect[4077],
     CDTime = 1,
     UseMultiple = 1
   },
   [7683] = {
     id = 7683,
-    UseEffect = Table_UseItem_t.UseEffect[4038],
+    UseEffect = Table_UseItem_t.UseEffect[4078],
     CDTime = 1,
     UseMultiple = 1
   },
   [7684] = {
     id = 7684,
-    UseEffect = Table_UseItem_t.UseEffect[4039],
+    UseEffect = Table_UseItem_t.UseEffect[4079],
     CDTime = 1,
     UseMultiple = 1
   },
   [7685] = {
     id = 7685,
-    UseEffect = Table_UseItem_t.UseEffect[4040],
+    UseEffect = Table_UseItem_t.UseEffect[4080],
     CDTime = 1,
     UseMultiple = 1
   },
   [7686] = {
     id = 7686,
-    UseEffect = Table_UseItem_t.UseEffect[4041],
+    UseEffect = Table_UseItem_t.UseEffect[4081],
     CDTime = 1,
     UseMultiple = 1
   },
   [7687] = {
     id = 7687,
-    UseEffect = Table_UseItem_t.UseEffect[4042],
+    UseEffect = Table_UseItem_t.UseEffect[4082],
     CDTime = 1,
     UseMultiple = 1
   },
   [7688] = {
     id = 7688,
-    UseEffect = Table_UseItem_t.UseEffect[4043],
+    UseEffect = Table_UseItem_t.UseEffect[4083],
     CDTime = 1,
     UseMultiple = 1
   },
   [7689] = {
     id = 7689,
-    UseEffect = Table_UseItem_t.UseEffect[4044],
+    UseEffect = Table_UseItem_t.UseEffect[4084],
     CDTime = 1,
     UseMultiple = 1
   },
   [7690] = {
     id = 7690,
-    UseEffect = Table_UseItem_t.UseEffect[4045],
+    UseEffect = Table_UseItem_t.UseEffect[4085],
     CDTime = 1,
     UseMultiple = 1
   },
   [7691] = {
     id = 7691,
-    UseEffect = Table_UseItem_t.UseEffect[4046],
+    UseEffect = Table_UseItem_t.UseEffect[4086],
     CDTime = 1,
     UseMultiple = 1
   },
   [7692] = {
     id = 7692,
-    UseEffect = Table_UseItem_t.UseEffect[4047],
+    UseEffect = Table_UseItem_t.UseEffect[4087],
     CDTime = 1,
     UseMultiple = 1
   },
   [7693] = {
     id = 7693,
-    UseEffect = Table_UseItem_t.UseEffect[4048],
+    UseEffect = Table_UseItem_t.UseEffect[4088],
     CDTime = 1,
     UseMultiple = 1
   },
   [7694] = {
     id = 7694,
-    UseEffect = Table_UseItem_t.UseEffect[4049],
+    UseEffect = Table_UseItem_t.UseEffect[4089],
     CDTime = 1,
     UseMultiple = 1
   },
   [7695] = {
     id = 7695,
-    UseEffect = Table_UseItem_t.UseEffect[4050],
+    UseEffect = Table_UseItem_t.UseEffect[4090],
     CDTime = 1,
     UseMultiple = 1
   },
   [7701] = {
     id = 7701,
-    UseEffect = Table_UseItem_t.UseEffect[4056],
+    UseEffect = Table_UseItem_t.UseEffect[4096],
     CDTime = 1,
     UseMultiple = 1
   },
   [7702] = {
     id = 7702,
-    UseEffect = Table_UseItem_t.UseEffect[4057],
+    UseEffect = Table_UseItem_t.UseEffect[4097],
     CDTime = 1,
     UseMultiple = 1
   },
   [7703] = {
     id = 7703,
-    UseEffect = Table_UseItem_t.UseEffect[4058],
+    UseEffect = Table_UseItem_t.UseEffect[4098],
     CDTime = 1,
     UseMultiple = 1
   },
   [7704] = {
     id = 7704,
-    UseEffect = Table_UseItem_t.UseEffect[4059],
+    UseEffect = Table_UseItem_t.UseEffect[4099],
     CDTime = 1,
     UseMultiple = 1
   },
   [7705] = {
     id = 7705,
-    UseEffect = Table_UseItem_t.UseEffect[4060],
+    UseEffect = Table_UseItem_t.UseEffect[4100],
     CDTime = 1,
     UseMultiple = 1
   },
   [7706] = {
     id = 7706,
-    UseEffect = Table_UseItem_t.UseEffect[4061],
+    UseEffect = Table_UseItem_t.UseEffect[4101],
     CDTime = 1,
     UseMultiple = 1
   },
   [7707] = {
     id = 7707,
-    UseEffect = Table_UseItem_t.UseEffect[4062],
+    UseEffect = Table_UseItem_t.UseEffect[4102],
     CDTime = 1,
     UseMultiple = 1
   },
   [7708] = {
     id = 7708,
-    UseEffect = Table_UseItem_t.UseEffect[4063],
+    UseEffect = Table_UseItem_t.UseEffect[4103],
     CDTime = 1,
     UseMultiple = 1
   },
   [7709] = {
     id = 7709,
-    UseEffect = Table_UseItem_t.UseEffect[4064],
+    UseEffect = Table_UseItem_t.UseEffect[4104],
     CDTime = 1,
     UseMultiple = 1
   },
   [7710] = {
     id = 7710,
-    UseEffect = Table_UseItem_t.UseEffect[4065],
+    UseEffect = Table_UseItem_t.UseEffect[4105],
     CDTime = 1,
     UseMultiple = 1
   },
   [7711] = {
     id = 7711,
-    UseEffect = Table_UseItem_t.UseEffect[4066],
+    UseEffect = Table_UseItem_t.UseEffect[4106],
     CDTime = 1,
     UseMultiple = 1
   },
   [7712] = {
     id = 7712,
-    UseEffect = Table_UseItem_t.UseEffect[4067],
+    UseEffect = Table_UseItem_t.UseEffect[4107],
     CDTime = 1,
     UseMultiple = 1
   },
   [7713] = {
     id = 7713,
-    UseEffect = Table_UseItem_t.UseEffect[4068],
+    UseEffect = Table_UseItem_t.UseEffect[4108],
     CDTime = 1,
     UseMultiple = 1
   },
   [7714] = {
     id = 7714,
-    UseEffect = Table_UseItem_t.UseEffect[4069],
+    UseEffect = Table_UseItem_t.UseEffect[4109],
     CDTime = 1,
     UseMultiple = 1
   },
   [7715] = {
     id = 7715,
-    UseEffect = Table_UseItem_t.UseEffect[4070],
+    UseEffect = Table_UseItem_t.UseEffect[4110],
+    CDTime = 1,
+    UseMultiple = 1
+  },
+  [7716] = {
+    id = 7716,
+    Class = Table_UseItem_t.Class[26],
+    UseEffect = Table_UseItem_t.UseEffect[4111],
+    CDTime = 1,
+    UseMultiple = 1
+  },
+  [7717] = {
+    id = 7717,
+    Class = Table_UseItem_t.Class[27],
+    UseEffect = Table_UseItem_t.UseEffect[4112],
     CDTime = 1,
     UseMultiple = 1
   },
   [8001] = {
     id = 8001,
-    UseEffect = Table_UseItem_t.UseEffect[4329],
+    UseEffect = Table_UseItem_t.UseEffect[4358],
     CDTime = 1
   },
   [8002] = {
     id = 8002,
-    UseEffect = Table_UseItem_t.UseEffect[4330],
+    UseEffect = Table_UseItem_t.UseEffect[4359],
     CDTime = 1
   },
   [8003] = {
     id = 8003,
-    UseEffect = Table_UseItem_t.UseEffect[4331],
+    UseEffect = Table_UseItem_t.UseEffect[4360],
     CDTime = 1
   },
   [8004] = {
     id = 8004,
-    UseEffect = Table_UseItem_t.UseEffect[4332],
+    UseEffect = Table_UseItem_t.UseEffect[4361],
     CDTime = 1
   },
   [8005] = {
     id = 8005,
-    UseEffect = Table_UseItem_t.UseEffect[4333],
+    UseEffect = Table_UseItem_t.UseEffect[4362],
     CDTime = 1
   },
   [8006] = {
     id = 8006,
-    UseEffect = Table_UseItem_t.UseEffect[4334],
+    UseEffect = Table_UseItem_t.UseEffect[4363],
     CDTime = 1
   },
   [8007] = {
     id = 8007,
-    UseEffect = Table_UseItem_t.UseEffect[4335],
+    UseEffect = Table_UseItem_t.UseEffect[4364],
     CDTime = 1
   },
   [8008] = {
     id = 8008,
-    UseEffect = Table_UseItem_t.UseEffect[4336],
+    UseEffect = Table_UseItem_t.UseEffect[4365],
     CDTime = 1
   },
   [8010] = {
     id = 8010,
-    UseEffect = Table_UseItem_t.UseEffect[4337],
+    UseEffect = Table_UseItem_t.UseEffect[4366],
     CDTime = 1
   },
   [8011] = {
     id = 8011,
-    UseEffect = Table_UseItem_t.UseEffect[4338],
+    UseEffect = Table_UseItem_t.UseEffect[4367],
     CDTime = 1
   },
   [8012] = {
     id = 8012,
-    UseEffect = Table_UseItem_t.UseEffect[4339],
+    UseEffect = Table_UseItem_t.UseEffect[4368],
     CDTime = 1
   },
   [8013] = {
     id = 8013,
-    UseEffect = Table_UseItem_t.UseEffect[4340],
+    UseEffect = Table_UseItem_t.UseEffect[4369],
     CDTime = 1,
     MapLimit = Table_UseItem_t.MapLimit[8]
   },
   [8015] = {
     id = 8015,
-    UseEffect = Table_UseItem_t.UseEffect[4341],
+    UseEffect = Table_UseItem_t.UseEffect[4370],
     CDTime = 1
   },
   [8016] = {
     id = 8016,
-    UseEffect = Table_UseItem_t.UseEffect[4342],
+    UseEffect = Table_UseItem_t.UseEffect[4371],
     CDTime = 1
   },
   [8017] = {
     id = 8017,
-    UseEffect = Table_UseItem_t.UseEffect[4343],
+    UseEffect = Table_UseItem_t.UseEffect[4372],
     CDTime = 1
   },
   [8018] = {
     id = 8018,
-    UseEffect = Table_UseItem_t.UseEffect[4344],
+    UseEffect = Table_UseItem_t.UseEffect[4373],
     CDTime = 1
   },
   [8038] = {
     id = 8038,
-    UseEffect = Table_UseItem_t.UseEffect[4347],
+    UseEffect = Table_UseItem_t.UseEffect[4376],
     CDTime = 1
   },
   [8068] = {
     id = 8068,
-    UseEffect = Table_UseItem_t.UseEffect[4348],
+    UseEffect = Table_UseItem_t.UseEffect[4377],
     CDTime = 1,
     UseMultiple = 99
   },
   [8069] = {
     id = 8069,
-    UseEffect = Table_UseItem_t.UseEffect[4349],
+    UseEffect = Table_UseItem_t.UseEffect[4378],
     CDTime = 1
   },
   [8070] = {
     id = 8070,
-    UseEffect = Table_UseItem_t.UseEffect[4350],
+    UseEffect = Table_UseItem_t.UseEffect[4379],
     CDTime = 1
   },
   [8071] = {
     id = 8071,
-    UseEffect = Table_UseItem_t.UseEffect[4351],
+    UseEffect = Table_UseItem_t.UseEffect[4380],
     CDTime = 1
   },
   [8098] = {
     id = 8098,
-    UseEffect = Table_UseItem_t.UseEffect[4358],
+    UseEffect = Table_UseItem_t.UseEffect[4387],
     CDTime = 1,
     UseMultiple = 99
   },
   [8100] = {
     id = 8100,
-    UseEffect = Table_UseItem_t.UseEffect[4360],
+    UseEffect = Table_UseItem_t.UseEffect[4389],
     CDTime = 1
   },
   [8101] = {
     id = 8101,
-    UseEffect = Table_UseItem_t.UseEffect[4361],
+    UseEffect = Table_UseItem_t.UseEffect[4390],
     CDTime = 1
   },
   [8102] = {
     id = 8102,
-    UseEffect = Table_UseItem_t.UseEffect[4362],
+    UseEffect = Table_UseItem_t.UseEffect[4391],
     CDTime = 1
   },
   [8210] = {
@@ -36377,117 +36572,117 @@ Table_UseItem = {
   },
   [12001] = {
     id = 12001,
-    UseEffect = Table_UseItem_t.UseEffect[4401],
+    UseEffect = Table_UseItem_t.UseEffect[4430],
     CDTime = 2,
     CDGroup = 1,
     UseLimit = 18496
   },
   [12002] = {
     id = 12002,
-    UseEffect = Table_UseItem_t.UseEffect[4400],
+    UseEffect = Table_UseItem_t.UseEffect[4429],
     CDTime = 2,
     CDGroup = 1,
     UseLimit = 18496
   },
   [12003] = {
     id = 12003,
-    UseEffect = Table_UseItem_t.UseEffect[4399],
+    UseEffect = Table_UseItem_t.UseEffect[4428],
     CDTime = 2,
     CDGroup = 1,
     UseLimit = 18496
   },
   [12005] = {
     id = 12005,
-    UseEffect = Table_UseItem_t.UseEffect[4398],
+    UseEffect = Table_UseItem_t.UseEffect[4427],
     CDTime = 2,
     CDGroup = 2,
     UseLimit = 18496
   },
   [12006] = {
     id = 12006,
-    UseEffect = Table_UseItem_t.UseEffect[4397],
+    UseEffect = Table_UseItem_t.UseEffect[4426],
     CDTime = 2,
     CDGroup = 2,
     UseLimit = 18496
   },
   [12007] = {
     id = 12007,
-    UseEffect = Table_UseItem_t.UseEffect[4396],
+    UseEffect = Table_UseItem_t.UseEffect[4425],
     CDTime = 2,
     CDGroup = 1,
     UseLimit = 18496
   },
   [12020] = {
     id = 12020,
-    UseEffect = Table_UseItem_t.UseEffect[4395],
+    UseEffect = Table_UseItem_t.UseEffect[4424],
     CDTime = 1,
     UseLimit = 18515
   },
   [12021] = {
     id = 12021,
-    UseEffect = Table_UseItem_t.UseEffect[4394],
+    UseEffect = Table_UseItem_t.UseEffect[4423],
     CDTime = 1,
     UseLimit = 18515
   },
   [12023] = {
     id = 12023,
-    UseEffect = Table_UseItem_t.UseEffect[4393],
+    UseEffect = Table_UseItem_t.UseEffect[4422],
     CDTime = 2,
     CDGroup = 1,
     UseLimit = 18496
   },
   [12024] = {
     id = 12024,
-    UseEffect = Table_UseItem_t.UseEffect[4392],
+    UseEffect = Table_UseItem_t.UseEffect[4421],
     CDTime = 2,
     CDGroup = 2,
     UseLimit = 18496
   },
   [12026] = {
     id = 12026,
-    UseEffect = Table_UseItem_t.UseEffect[4011],
+    UseEffect = Table_UseItem_t.UseEffect[3991],
     CDTime = 0.5,
     UseMultiple = 99
   },
   [12027] = {
     id = 12027,
-    UseEffect = Table_UseItem_t.UseEffect[4390],
+    UseEffect = Table_UseItem_t.UseEffect[4419],
     CDTime = 1,
     UseLimit = 18515
   },
   [12028] = {
     id = 12028,
-    UseEffect = Table_UseItem_t.UseEffect[4389],
+    UseEffect = Table_UseItem_t.UseEffect[4418],
     CDTime = 1,
     UseLimit = 18515
   },
   [12029] = {
     id = 12029,
-    UseEffect = Table_UseItem_t.UseEffect[4388],
+    UseEffect = Table_UseItem_t.UseEffect[4417],
     CDTime = 1,
     UseLimit = 18515
   },
   [12030] = {
     id = 12030,
-    UseEffect = Table_UseItem_t.UseEffect[4387],
+    UseEffect = Table_UseItem_t.UseEffect[4416],
     CDTime = 1,
     UseLimit = 18515
   },
   [12031] = {
     id = 12031,
-    UseEffect = Table_UseItem_t.UseEffect[4386],
+    UseEffect = Table_UseItem_t.UseEffect[4415],
     CDTime = 1,
     UseLimit = 18515
   },
   [12032] = {
     id = 12032,
-    UseEffect = Table_UseItem_t.UseEffect[4385],
+    UseEffect = Table_UseItem_t.UseEffect[4414],
     CDTime = 1,
     UseLimit = 18515
   },
   [12033] = {
     id = 12033,
-    UseEffect = Table_UseItem_t.UseEffect[4384],
+    UseEffect = Table_UseItem_t.UseEffect[4413],
     CDTime = 1,
     UseLimit = 18515
   },
@@ -36499,25 +36694,25 @@ Table_UseItem = {
   },
   [12036] = {
     id = 12036,
-    UseEffect = Table_UseItem_t.UseEffect[4383],
+    UseEffect = Table_UseItem_t.UseEffect[4412],
     CDTime = 1,
     UseLimit = 18515
   },
   [12038] = {
     id = 12038,
-    UseEffect = Table_UseItem_t.UseEffect[2054],
+    UseEffect = Table_UseItem_t.UseEffect[2067],
     CDTime = 1,
     UseLimit = 18515
   },
   [12039] = {
     id = 12039,
-    UseEffect = Table_UseItem_t.UseEffect[4382],
+    UseEffect = Table_UseItem_t.UseEffect[4411],
     CDTime = 1,
     UseLimit = 18515
   },
   [12040] = {
     id = 12040,
-    UseEffect = Table_UseItem_t.UseEffect[4381],
+    UseEffect = Table_UseItem_t.UseEffect[4410],
     CDTime = 1,
     UseLimit = 18515
   },
@@ -36531,7 +36726,7 @@ Table_UseItem = {
   },
   [12119] = {
     id = 12119,
-    UseEffect = Table_UseItem_t.UseEffect[4380],
+    UseEffect = Table_UseItem_t.UseEffect[4409],
     CDTime = 2,
     CDGroup = 3,
     UseLimit = 18496,
@@ -36539,20 +36734,20 @@ Table_UseItem = {
   },
   [12121] = {
     id = 12121,
-    UseEffect = Table_UseItem_t.UseEffect[4379],
+    UseEffect = Table_UseItem_t.UseEffect[4408],
     CDTime = 2,
     CDGroup = 2,
     UseLimit = 18496
   },
   [12122] = {
     id = 12122,
-    UseEffect = Table_UseItem_t.UseEffect[4378],
+    UseEffect = Table_UseItem_t.UseEffect[4407],
     CDTime = 1,
     UseLimit = 18496
   },
   [12123] = {
     id = 12123,
-    UseEffect = Table_UseItem_t.UseEffect[4377],
+    UseEffect = Table_UseItem_t.UseEffect[4406],
     CDTime = 2,
     CDGroup = 2,
     UseLimit = 18496
@@ -37580,13 +37775,13 @@ Table_UseItem = {
   },
   [12800] = {
     id = 12800,
-    UseEffect = Table_UseItem_t.UseEffect[4376],
+    UseEffect = Table_UseItem_t.UseEffect[4405],
     CDTime = 60,
     UseLimit = 256
   },
   [12810] = {
     id = 12810,
-    UseEffect = Table_UseItem_t.UseEffect[4375],
+    UseEffect = Table_UseItem_t.UseEffect[4404],
     CDTime = 60,
     UseLimit = 256
   },
@@ -37829,94 +38024,94 @@ Table_UseItem = {
   },
   [13320] = {
     id = 13320,
-    UseEffect = Table_UseItem_t.UseEffect[1925],
+    UseEffect = Table_UseItem_t.UseEffect[1938],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13321] = {
     id = 13321,
-    UseEffect = Table_UseItem_t.UseEffect[1926],
+    UseEffect = Table_UseItem_t.UseEffect[1939],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13322] = {
     id = 13322,
-    UseEffect = Table_UseItem_t.UseEffect[1927],
+    UseEffect = Table_UseItem_t.UseEffect[1940],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13323] = {
     id = 13323,
-    UseEffect = Table_UseItem_t.UseEffect[1928],
+    UseEffect = Table_UseItem_t.UseEffect[1941],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13325] = {
     id = 13325,
-    UseEffect = Table_UseItem_t.UseEffect[1930],
+    UseEffect = Table_UseItem_t.UseEffect[1943],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13326] = {
     id = 13326,
-    UseEffect = Table_UseItem_t.UseEffect[1931],
+    UseEffect = Table_UseItem_t.UseEffect[1944],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13327] = {
     id = 13327,
-    UseEffect = Table_UseItem_t.UseEffect[1932],
+    UseEffect = Table_UseItem_t.UseEffect[1945],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13328] = {
     id = 13328,
-    UseEffect = Table_UseItem_t.UseEffect[1933],
+    UseEffect = Table_UseItem_t.UseEffect[1946],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13329] = {
     id = 13329,
-    UseEffect = Table_UseItem_t.UseEffect[1934],
+    UseEffect = Table_UseItem_t.UseEffect[1947],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13330] = {
     id = 13330,
-    UseEffect = Table_UseItem_t.UseEffect[1935],
+    UseEffect = Table_UseItem_t.UseEffect[1948],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13331] = {
     id = 13331,
-    UseEffect = Table_UseItem_t.UseEffect[1936],
+    UseEffect = Table_UseItem_t.UseEffect[1949],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13332] = {
     id = 13332,
-    UseEffect = Table_UseItem_t.UseEffect[1937],
+    UseEffect = Table_UseItem_t.UseEffect[1950],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13333] = {
     id = 13333,
-    UseEffect = Table_UseItem_t.UseEffect[1938],
+    UseEffect = Table_UseItem_t.UseEffect[1951],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13334] = {
     id = 13334,
-    UseEffect = Table_UseItem_t.UseEffect[1939],
+    UseEffect = Table_UseItem_t.UseEffect[1952],
     MapLimit = Table_UseItem_t.MapLimit[6]
   },
   [13413] = {
     id = 13413,
-    UseEffect = Table_UseItem_t.UseEffect[1984],
+    UseEffect = Table_UseItem_t.UseEffect[1997],
     CDTime = 1
   },
   [13611] = {
     id = 13611,
-    UseEffect = Table_UseItem_t.UseEffect[2055]
+    UseEffect = Table_UseItem_t.UseEffect[2068]
   },
   [13612] = {
     id = 13612,
-    UseEffect = Table_UseItem_t.UseEffect[2056]
+    UseEffect = Table_UseItem_t.UseEffect[2069]
   },
   [13613] = {
     id = 13613,
-    UseEffect = Table_UseItem_t.UseEffect[2057]
+    UseEffect = Table_UseItem_t.UseEffect[2070]
   },
   [13614] = {
     id = 13614,
-    UseEffect = Table_UseItem_t.UseEffect[2058]
+    UseEffect = Table_UseItem_t.UseEffect[2071]
   },
   [30114] = {
     id = 30114,
@@ -38045,31 +38240,31 @@ Table_UseItem = {
   },
   [30513] = {
     id = 30513,
-    UseEffect = Table_UseItem_t.UseEffect[2477],
+    UseEffect = Table_UseItem_t.UseEffect[2518],
     CDTime = 1,
     UseMultiple = 99
   },
   [30530] = {
     id = 30530,
-    UseEffect = Table_UseItem_t.UseEffect[4373],
+    UseEffect = Table_UseItem_t.UseEffect[4402],
     CDTime = 1,
     UseMultiple = 99
   },
   [30531] = {
     id = 30531,
-    UseEffect = Table_UseItem_t.UseEffect[2495],
+    UseEffect = Table_UseItem_t.UseEffect[2536],
     CDTime = 1,
     UseMultiple = 99
   },
   [30532] = {
     id = 30532,
-    UseEffect = Table_UseItem_t.UseEffect[2496],
+    UseEffect = Table_UseItem_t.UseEffect[2537],
     CDTime = 1,
     UseMultiple = 99
   },
   [30533] = {
     id = 30533,
-    UseEffect = Table_UseItem_t.UseEffect[2497],
+    UseEffect = Table_UseItem_t.UseEffect[2538],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -38155,7 +38350,7 @@ Table_UseItem = {
   },
   [31237] = {
     id = 31237,
-    UseEffect = Table_UseItem_t.UseEffect[4372],
+    UseEffect = Table_UseItem_t.UseEffect[4401],
     CDTime = 1
   },
   [31315] = {
@@ -38230,13 +38425,13 @@ Table_UseItem = {
   },
   [31632] = {
     id = 31632,
-    UseEffect = Table_UseItem_t.UseEffect[3948],
+    UseEffect = Table_UseItem_t.UseEffect[2107],
     CDTime = 1,
     UseMultiple = 99
   },
   [31633] = {
     id = 31633,
-    UseEffect = Table_UseItem_t.UseEffect[3947],
+    UseEffect = Table_UseItem_t.UseEffect[3985],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -38267,7 +38462,7 @@ Table_UseItem = {
   },
   [31815] = {
     id = 31815,
-    UseEffect = Table_UseItem_t.UseEffect[3689],
+    UseEffect = Table_UseItem_t.UseEffect[3727],
     CDTime = 1
   },
   [31919] = {
@@ -38297,7 +38492,7 @@ Table_UseItem = {
   },
   [32021] = {
     id = 32021,
-    UseEffect = Table_UseItem_t.UseEffect[3820],
+    UseEffect = Table_UseItem_t.UseEffect[3858],
     CDTime = 1
   },
   [32032] = {
@@ -38366,18 +38561,18 @@ Table_UseItem = {
   },
   [53006] = {
     id = 53006,
-    UseEffect = Table_UseItem_t.UseEffect[4371]
+    UseEffect = Table_UseItem_t.UseEffect[4400]
   },
   [53056] = {
     id = 53056,
-    Class = Table_UseItem_t.Class[28],
-    UseEffect = Table_UseItem_t.UseEffect[4370],
+    Class = Table_UseItem_t.Class[30],
+    UseEffect = Table_UseItem_t.UseEffect[4399],
     CDTime = 10
   },
   [53093] = {
     id = 53093,
-    Class = Table_UseItem_t.Class[27],
-    UseEffect = Table_UseItem_t.UseEffect[4369],
+    Class = Table_UseItem_t.Class[29],
+    UseEffect = Table_UseItem_t.UseEffect[4398],
     CDTime = 10
   },
   [53167] = {
@@ -40011,7 +40206,7 @@ Table_UseItem = {
   },
   [53887] = {
     id = 53887,
-    UseEffect = Table_UseItem_t.UseEffect[4346],
+    UseEffect = Table_UseItem_t.UseEffect[4375],
     CDTime = 0
   },
   [53888] = {
@@ -40026,7 +40221,7 @@ Table_UseItem = {
   },
   [53891] = {
     id = 53891,
-    UseEffect = Table_UseItem_t.UseEffect[4345],
+    UseEffect = Table_UseItem_t.UseEffect[4374],
     CDTime = 0
   },
   [53892] = {
@@ -40511,723 +40706,723 @@ Table_UseItem = {
   },
   [54899] = {
     id = 54899,
-    UseEffect = Table_UseItem_t.UseEffect[4321],
+    UseEffect = Table_UseItem_t.UseEffect[4350],
     CDTime = 0
   },
   [54900] = {
     id = 54900,
-    UseEffect = Table_UseItem_t.UseEffect[4320],
+    UseEffect = Table_UseItem_t.UseEffect[4349],
     CDTime = 0
   },
   [54901] = {
     id = 54901,
-    UseEffect = Table_UseItem_t.UseEffect[4319],
+    UseEffect = Table_UseItem_t.UseEffect[4348],
     CDTime = 0
   },
   [54902] = {
     id = 54902,
-    UseEffect = Table_UseItem_t.UseEffect[4318],
+    UseEffect = Table_UseItem_t.UseEffect[4347],
     CDTime = 0
   },
   [54903] = {
     id = 54903,
-    UseEffect = Table_UseItem_t.UseEffect[4317],
+    UseEffect = Table_UseItem_t.UseEffect[4346],
     CDTime = 0
   },
   [54913] = {
     id = 54913,
-    UseEffect = Table_UseItem_t.UseEffect[2313],
+    UseEffect = Table_UseItem_t.UseEffect[2354],
     CDTime = 0
   },
   [112910] = {
     id = 112910,
-    UseEffect = Table_UseItem_t.UseEffect[4316]
+    UseEffect = Table_UseItem_t.UseEffect[4163]
   },
   [112911] = {
     id = 112911,
-    UseEffect = Table_UseItem_t.UseEffect[2932]
+    UseEffect = Table_UseItem_t.UseEffect[2971]
   },
   [112912] = {
     id = 112912,
-    UseEffect = Table_UseItem_t.UseEffect[2933]
+    UseEffect = Table_UseItem_t.UseEffect[2972]
   },
   [112913] = {
     id = 112913,
-    UseEffect = Table_UseItem_t.UseEffect[2934]
+    UseEffect = Table_UseItem_t.UseEffect[2973]
   },
   [112914] = {
     id = 112914,
-    UseEffect = Table_UseItem_t.UseEffect[2935]
+    UseEffect = Table_UseItem_t.UseEffect[2974]
   },
   [112915] = {
     id = 112915,
-    UseEffect = Table_UseItem_t.UseEffect[2936]
+    UseEffect = Table_UseItem_t.UseEffect[2975]
   },
   [112916] = {
     id = 112916,
-    UseEffect = Table_UseItem_t.UseEffect[2937]
+    UseEffect = Table_UseItem_t.UseEffect[2976]
   },
   [112917] = {
     id = 112917,
-    UseEffect = Table_UseItem_t.UseEffect[2938]
+    UseEffect = Table_UseItem_t.UseEffect[2977]
   },
   [112918] = {
     id = 112918,
-    UseEffect = Table_UseItem_t.UseEffect[2939]
+    UseEffect = Table_UseItem_t.UseEffect[2978]
   },
   [112919] = {
     id = 112919,
-    UseEffect = Table_UseItem_t.UseEffect[2940]
+    UseEffect = Table_UseItem_t.UseEffect[2979]
   },
   [112920] = {
     id = 112920,
-    UseEffect = Table_UseItem_t.UseEffect[2941]
+    UseEffect = Table_UseItem_t.UseEffect[2980]
   },
   [112921] = {
     id = 112921,
-    UseEffect = Table_UseItem_t.UseEffect[2942]
+    UseEffect = Table_UseItem_t.UseEffect[2981]
   },
   [112922] = {
     id = 112922,
-    UseEffect = Table_UseItem_t.UseEffect[2943]
+    UseEffect = Table_UseItem_t.UseEffect[2982]
   },
   [112923] = {
     id = 112923,
-    UseEffect = Table_UseItem_t.UseEffect[2944]
+    UseEffect = Table_UseItem_t.UseEffect[2983]
   },
   [112924] = {
     id = 112924,
-    UseEffect = Table_UseItem_t.UseEffect[2945]
+    UseEffect = Table_UseItem_t.UseEffect[2984]
   },
   [112925] = {
     id = 112925,
-    UseEffect = Table_UseItem_t.UseEffect[2946]
+    UseEffect = Table_UseItem_t.UseEffect[2985]
   },
   [112926] = {
     id = 112926,
-    UseEffect = Table_UseItem_t.UseEffect[2947]
+    UseEffect = Table_UseItem_t.UseEffect[2986]
   },
   [112927] = {
     id = 112927,
-    UseEffect = Table_UseItem_t.UseEffect[2948]
+    UseEffect = Table_UseItem_t.UseEffect[2987]
   },
   [112928] = {
     id = 112928,
-    UseEffect = Table_UseItem_t.UseEffect[2949]
+    UseEffect = Table_UseItem_t.UseEffect[2988]
   },
   [112929] = {
     id = 112929,
-    UseEffect = Table_UseItem_t.UseEffect[2950]
+    UseEffect = Table_UseItem_t.UseEffect[2989]
   },
   [112930] = {
     id = 112930,
-    UseEffect = Table_UseItem_t.UseEffect[2951]
+    UseEffect = Table_UseItem_t.UseEffect[2990]
   },
   [112931] = {
     id = 112931,
-    UseEffect = Table_UseItem_t.UseEffect[2952]
+    UseEffect = Table_UseItem_t.UseEffect[2991]
   },
   [112932] = {
     id = 112932,
-    UseEffect = Table_UseItem_t.UseEffect[2953]
+    UseEffect = Table_UseItem_t.UseEffect[2992]
   },
   [112933] = {
     id = 112933,
-    UseEffect = Table_UseItem_t.UseEffect[2954]
+    UseEffect = Table_UseItem_t.UseEffect[2993]
   },
   [112934] = {
     id = 112934,
-    UseEffect = Table_UseItem_t.UseEffect[2955]
+    UseEffect = Table_UseItem_t.UseEffect[2994]
   },
   [112935] = {
     id = 112935,
-    UseEffect = Table_UseItem_t.UseEffect[2956]
+    UseEffect = Table_UseItem_t.UseEffect[2995]
   },
   [112936] = {
     id = 112936,
-    UseEffect = Table_UseItem_t.UseEffect[2957]
+    UseEffect = Table_UseItem_t.UseEffect[2996]
   },
   [112937] = {
     id = 112937,
-    UseEffect = Table_UseItem_t.UseEffect[2958]
+    UseEffect = Table_UseItem_t.UseEffect[2997]
   },
   [112938] = {
     id = 112938,
-    UseEffect = Table_UseItem_t.UseEffect[2959]
+    UseEffect = Table_UseItem_t.UseEffect[2998]
   },
   [112939] = {
     id = 112939,
-    UseEffect = Table_UseItem_t.UseEffect[2960]
+    UseEffect = Table_UseItem_t.UseEffect[2999]
   },
   [112940] = {
     id = 112940,
-    UseEffect = Table_UseItem_t.UseEffect[2961]
+    UseEffect = Table_UseItem_t.UseEffect[3000]
   },
   [112941] = {
     id = 112941,
-    UseEffect = Table_UseItem_t.UseEffect[2962]
+    UseEffect = Table_UseItem_t.UseEffect[3001]
   },
   [112942] = {
     id = 112942,
-    UseEffect = Table_UseItem_t.UseEffect[2963]
+    UseEffect = Table_UseItem_t.UseEffect[3002]
   },
   [112943] = {
     id = 112943,
-    UseEffect = Table_UseItem_t.UseEffect[2964]
+    UseEffect = Table_UseItem_t.UseEffect[3003]
   },
   [112944] = {
     id = 112944,
-    UseEffect = Table_UseItem_t.UseEffect[2965]
+    UseEffect = Table_UseItem_t.UseEffect[3004]
   },
   [112945] = {
     id = 112945,
-    UseEffect = Table_UseItem_t.UseEffect[2966]
+    UseEffect = Table_UseItem_t.UseEffect[3005]
   },
   [112946] = {
     id = 112946,
-    UseEffect = Table_UseItem_t.UseEffect[2967]
+    UseEffect = Table_UseItem_t.UseEffect[3006]
   },
   [112947] = {
     id = 112947,
-    UseEffect = Table_UseItem_t.UseEffect[2968]
+    UseEffect = Table_UseItem_t.UseEffect[3007]
   },
   [112948] = {
     id = 112948,
-    UseEffect = Table_UseItem_t.UseEffect[2969]
+    UseEffect = Table_UseItem_t.UseEffect[3008]
   },
   [112949] = {
     id = 112949,
-    UseEffect = Table_UseItem_t.UseEffect[2970]
+    UseEffect = Table_UseItem_t.UseEffect[3009]
   },
   [112950] = {
     id = 112950,
-    UseEffect = Table_UseItem_t.UseEffect[2971]
+    UseEffect = Table_UseItem_t.UseEffect[3010]
   },
   [112951] = {
     id = 112951,
-    UseEffect = Table_UseItem_t.UseEffect[2972]
+    UseEffect = Table_UseItem_t.UseEffect[3011]
   },
   [112952] = {
     id = 112952,
-    UseEffect = Table_UseItem_t.UseEffect[2973]
+    UseEffect = Table_UseItem_t.UseEffect[3012]
   },
   [112953] = {
     id = 112953,
-    UseEffect = Table_UseItem_t.UseEffect[2974]
+    UseEffect = Table_UseItem_t.UseEffect[3013]
   },
   [146500] = {
     id = 146500,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146501] = {
     id = 146501,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146502] = {
     id = 146502,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146503] = {
     id = 146503,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146504] = {
     id = 146504,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146505] = {
     id = 146505,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146506] = {
     id = 146506,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146507] = {
     id = 146507,
-    UseEffect = Table_UseItem_t.UseEffect[3700],
+    UseEffect = Table_UseItem_t.UseEffect[3737],
     CDTime = 1,
     CDGroup = 17
   },
   [146508] = {
     id = 146508,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146509] = {
     id = 146509,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146510] = {
     id = 146510,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146511] = {
     id = 146511,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146512] = {
     id = 146512,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146513] = {
     id = 146513,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146514] = {
     id = 146514,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146515] = {
     id = 146515,
-    UseEffect = Table_UseItem_t.UseEffect[3701],
+    UseEffect = Table_UseItem_t.UseEffect[3738],
     CDTime = 1,
     CDGroup = 17
   },
   [146516] = {
     id = 146516,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146517] = {
     id = 146517,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146518] = {
     id = 146518,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146519] = {
     id = 146519,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146520] = {
     id = 146520,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146521] = {
     id = 146521,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146522] = {
     id = 146522,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146523] = {
     id = 146523,
-    UseEffect = Table_UseItem_t.UseEffect[3702],
+    UseEffect = Table_UseItem_t.UseEffect[3739],
     CDTime = 1,
     CDGroup = 17
   },
   [146524] = {
     id = 146524,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146525] = {
     id = 146525,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146526] = {
     id = 146526,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146527] = {
     id = 146527,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146528] = {
     id = 146528,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146529] = {
     id = 146529,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146530] = {
     id = 146530,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146531] = {
     id = 146531,
-    UseEffect = Table_UseItem_t.UseEffect[3703],
+    UseEffect = Table_UseItem_t.UseEffect[3740],
     CDTime = 1,
     CDGroup = 17
   },
   [146532] = {
     id = 146532,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146533] = {
     id = 146533,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146534] = {
     id = 146534,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146535] = {
     id = 146535,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146536] = {
     id = 146536,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146537] = {
     id = 146537,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146538] = {
     id = 146538,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146539] = {
     id = 146539,
-    UseEffect = Table_UseItem_t.UseEffect[3704],
+    UseEffect = Table_UseItem_t.UseEffect[3741],
     CDTime = 1,
     CDGroup = 17
   },
   [146540] = {
     id = 146540,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146541] = {
     id = 146541,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146542] = {
     id = 146542,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146543] = {
     id = 146543,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146544] = {
     id = 146544,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146545] = {
     id = 146545,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146546] = {
     id = 146546,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146547] = {
     id = 146547,
-    UseEffect = Table_UseItem_t.UseEffect[3705],
+    UseEffect = Table_UseItem_t.UseEffect[3742],
     CDTime = 1,
     CDGroup = 17
   },
   [146548] = {
     id = 146548,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146549] = {
     id = 146549,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146550] = {
     id = 146550,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146551] = {
     id = 146551,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146552] = {
     id = 146552,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146553] = {
     id = 146553,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146554] = {
     id = 146554,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146555] = {
     id = 146555,
-    UseEffect = Table_UseItem_t.UseEffect[3706],
+    UseEffect = Table_UseItem_t.UseEffect[3743],
     CDTime = 1,
     CDGroup = 17
   },
   [146556] = {
     id = 146556,
-    UseEffect = Table_UseItem_t.UseEffect[3707],
+    UseEffect = Table_UseItem_t.UseEffect[3744],
     CDTime = 1,
     CDGroup = 17
   },
   [146557] = {
     id = 146557,
-    UseEffect = Table_UseItem_t.UseEffect[3708],
+    UseEffect = Table_UseItem_t.UseEffect[3745],
     CDTime = 1,
     CDGroup = 17
   },
   [146558] = {
     id = 146558,
-    UseEffect = Table_UseItem_t.UseEffect[3709],
+    UseEffect = Table_UseItem_t.UseEffect[3746],
     CDTime = 1,
     CDGroup = 17
   },
   [146559] = {
     id = 146559,
-    UseEffect = Table_UseItem_t.UseEffect[3710],
+    UseEffect = Table_UseItem_t.UseEffect[3747],
     CDTime = 1,
     CDGroup = 17
   },
   [146560] = {
     id = 146560,
-    UseEffect = Table_UseItem_t.UseEffect[3711],
+    UseEffect = Table_UseItem_t.UseEffect[3748],
     CDTime = 1,
     CDGroup = 17
   },
   [146561] = {
     id = 146561,
-    UseEffect = Table_UseItem_t.UseEffect[3712],
+    UseEffect = Table_UseItem_t.UseEffect[3749],
     CDTime = 1,
     CDGroup = 17
   },
   [146562] = {
     id = 146562,
-    UseEffect = Table_UseItem_t.UseEffect[3712],
+    UseEffect = Table_UseItem_t.UseEffect[3749],
     CDTime = 1,
     CDGroup = 17
   },
   [146563] = {
     id = 146563,
-    UseEffect = Table_UseItem_t.UseEffect[3712],
+    UseEffect = Table_UseItem_t.UseEffect[3749],
     CDTime = 1,
     CDGroup = 17
   },
   [146564] = {
     id = 146564,
-    UseEffect = Table_UseItem_t.UseEffect[3712],
+    UseEffect = Table_UseItem_t.UseEffect[3749],
     CDTime = 1,
     CDGroup = 17
   },
   [146569] = {
     id = 146569,
-    UseEffect = Table_UseItem_t.UseEffect[3716],
+    UseEffect = Table_UseItem_t.UseEffect[3754],
     CDTime = 1,
     CDGroup = 17
   },
   [146570] = {
     id = 146570,
-    UseEffect = Table_UseItem_t.UseEffect[3717],
+    UseEffect = Table_UseItem_t.UseEffect[3755],
     CDTime = 1,
     CDGroup = 17
   },
   [146571] = {
     id = 146571,
-    UseEffect = Table_UseItem_t.UseEffect[3718],
+    UseEffect = Table_UseItem_t.UseEffect[3756],
     CDTime = 1,
     CDGroup = 17
   },
   [146572] = {
     id = 146572,
-    UseEffect = Table_UseItem_t.UseEffect[3719],
+    UseEffect = Table_UseItem_t.UseEffect[3757],
     CDTime = 1,
     CDGroup = 17
   },
   [146573] = {
     id = 146573,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146574] = {
     id = 146574,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146575] = {
     id = 146575,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146576] = {
     id = 146576,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146577] = {
     id = 146577,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146578] = {
     id = 146578,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146579] = {
     id = 146579,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146580] = {
     id = 146580,
-    UseEffect = Table_UseItem_t.UseEffect[3720],
+    UseEffect = Table_UseItem_t.UseEffect[3758],
     CDTime = 1,
     CDGroup = 17
   },
   [146660] = {
     id = 146660,
-    UseEffect = Table_UseItem_t.UseEffect[3788],
+    UseEffect = Table_UseItem_t.UseEffect[3825],
     CDTime = 1,
     CDGroup = 17
   },
   [146661] = {
     id = 146661,
-    UseEffect = Table_UseItem_t.UseEffect[3789],
+    UseEffect = Table_UseItem_t.UseEffect[3826],
     CDTime = 1,
     CDGroup = 17
   },
   [146662] = {
     id = 146662,
-    UseEffect = Table_UseItem_t.UseEffect[3790],
+    UseEffect = Table_UseItem_t.UseEffect[3827],
     CDTime = 1,
     CDGroup = 17
   },
   [146670] = {
     id = 146670,
-    UseEffect = Table_UseItem_t.UseEffect[3797],
+    UseEffect = Table_UseItem_t.UseEffect[3834],
     CDTime = 1,
     CDGroup = 17
   },
   [146671] = {
     id = 146671,
-    UseEffect = Table_UseItem_t.UseEffect[3798],
+    UseEffect = Table_UseItem_t.UseEffect[3835],
     CDTime = 1,
     CDGroup = 17
   },
   [146672] = {
     id = 146672,
-    UseEffect = Table_UseItem_t.UseEffect[3799],
+    UseEffect = Table_UseItem_t.UseEffect[3836],
     CDTime = 1,
     CDGroup = 17
   },
   [146680] = {
     id = 146680,
-    UseEffect = Table_UseItem_t.UseEffect[3805],
+    UseEffect = Table_UseItem_t.UseEffect[3843],
     CDTime = 1,
     CDGroup = 17
   },
   [146681] = {
     id = 146681,
-    UseEffect = Table_UseItem_t.UseEffect[3806],
+    UseEffect = Table_UseItem_t.UseEffect[3844],
     CDTime = 1,
     CDGroup = 17
   },
   [146682] = {
     id = 146682,
-    UseEffect = Table_UseItem_t.UseEffect[3807],
+    UseEffect = Table_UseItem_t.UseEffect[3845],
     CDTime = 1,
     CDGroup = 17
   },
@@ -41737,61 +41932,61 @@ Table_UseItem = {
   },
   [200085] = {
     id = 200085,
-    UseEffect = Table_UseItem_t.UseEffect[4315],
+    UseEffect = Table_UseItem_t.UseEffect[4164],
     CDTime = 5,
     UseLimit = 59993
   },
   [200086] = {
     id = 200086,
-    UseEffect = Table_UseItem_t.UseEffect[4314],
+    UseEffect = Table_UseItem_t.UseEffect[4165],
     CDTime = 5,
     UseLimit = 59993
   },
   [200087] = {
     id = 200087,
-    UseEffect = Table_UseItem_t.UseEffect[4313],
+    UseEffect = Table_UseItem_t.UseEffect[4166],
     CDTime = 5,
     UseLimit = 59993
   },
   [200088] = {
     id = 200088,
-    UseEffect = Table_UseItem_t.UseEffect[4312],
+    UseEffect = Table_UseItem_t.UseEffect[4167],
     CDTime = 5,
     UseLimit = 59993
   },
   [200089] = {
     id = 200089,
-    UseEffect = Table_UseItem_t.UseEffect[4311],
+    UseEffect = Table_UseItem_t.UseEffect[4168],
     CDTime = 5,
     UseLimit = 59993
   },
   [200090] = {
     id = 200090,
-    UseEffect = Table_UseItem_t.UseEffect[4310],
+    UseEffect = Table_UseItem_t.UseEffect[4169],
     CDTime = 5,
     UseLimit = 59993
   },
   [200091] = {
     id = 200091,
-    UseEffect = Table_UseItem_t.UseEffect[3563],
+    UseEffect = Table_UseItem_t.UseEffect[4338],
     CDTime = 5,
     UseLimit = 59993
   },
   [200092] = {
     id = 200092,
-    UseEffect = Table_UseItem_t.UseEffect[4309],
+    UseEffect = Table_UseItem_t.UseEffect[4337],
     CDTime = 5,
     UseLimit = 59993
   },
   [200093] = {
     id = 200093,
-    UseEffect = Table_UseItem_t.UseEffect[4308],
+    UseEffect = Table_UseItem_t.UseEffect[4336],
     CDTime = 5,
     UseLimit = 59993
   },
   [200094] = {
     id = 200094,
-    UseEffect = Table_UseItem_t.UseEffect[4307],
+    UseEffect = Table_UseItem_t.UseEffect[4335],
     CDTime = 5,
     UseLimit = 59993
   },
@@ -42313,1373 +42508,1373 @@ Table_UseItem = {
   },
   [200184] = {
     id = 200184,
-    UseEffect = Table_UseItem_t.UseEffect[4306],
+    UseEffect = Table_UseItem_t.UseEffect[4334],
     CDTime = 5,
     UseLimit = 59993
   },
   [200185] = {
     id = 200185,
-    UseEffect = Table_UseItem_t.UseEffect[4305],
+    UseEffect = Table_UseItem_t.UseEffect[4333],
     CDTime = 5,
     UseLimit = 59993
   },
   [200186] = {
     id = 200186,
-    UseEffect = Table_UseItem_t.UseEffect[4127],
+    UseEffect = Table_UseItem_t.UseEffect[4332],
     CDTime = 5,
     UseLimit = 59993
   },
   [200187] = {
     id = 200187,
-    UseEffect = Table_UseItem_t.UseEffect[4126],
+    UseEffect = Table_UseItem_t.UseEffect[4331],
     CDTime = 5,
     UseLimit = 59993
   },
   [200188] = {
     id = 200188,
-    UseEffect = Table_UseItem_t.UseEffect[4125],
+    UseEffect = Table_UseItem_t.UseEffect[4330],
     CDTime = 5,
     UseLimit = 59993
   },
   [200189] = {
     id = 200189,
-    UseEffect = Table_UseItem_t.UseEffect[4137],
+    UseEffect = Table_UseItem_t.UseEffect[4329],
     CDTime = 5,
     UseLimit = 59993
   },
   [200190] = {
     id = 200190,
-    UseEffect = Table_UseItem_t.UseEffect[4138],
+    UseEffect = Table_UseItem_t.UseEffect[4328],
     CDTime = 5,
     UseLimit = 59993
   },
   [200191] = {
     id = 200191,
-    UseEffect = Table_UseItem_t.UseEffect[4139],
+    UseEffect = Table_UseItem_t.UseEffect[4327],
     CDTime = 5,
     UseLimit = 59993
   },
   [200192] = {
     id = 200192,
-    UseEffect = Table_UseItem_t.UseEffect[4140],
+    UseEffect = Table_UseItem_t.UseEffect[4326],
     CDTime = 5,
     UseLimit = 59993
   },
   [200193] = {
     id = 200193,
-    UseEffect = Table_UseItem_t.UseEffect[4297],
+    UseEffect = Table_UseItem_t.UseEffect[4325],
     CDTime = 5,
     UseLimit = 59993
   },
   [200194] = {
     id = 200194,
-    UseEffect = Table_UseItem_t.UseEffect[4296],
+    UseEffect = Table_UseItem_t.UseEffect[4324],
     CDTime = 5,
     UseLimit = 59993
   },
   [200195] = {
     id = 200195,
-    UseEffect = Table_UseItem_t.UseEffect[4295],
+    UseEffect = Table_UseItem_t.UseEffect[4323],
     CDTime = 5,
     UseLimit = 59993
   },
   [200196] = {
     id = 200196,
-    UseEffect = Table_UseItem_t.UseEffect[4294],
+    UseEffect = Table_UseItem_t.UseEffect[4322],
     CDTime = 5,
     UseLimit = 59993
   },
   [200197] = {
     id = 200197,
-    UseEffect = Table_UseItem_t.UseEffect[4293],
+    UseEffect = Table_UseItem_t.UseEffect[4321],
     CDTime = 5,
     UseLimit = 59993
   },
   [200198] = {
     id = 200198,
-    UseEffect = Table_UseItem_t.UseEffect[4292],
+    UseEffect = Table_UseItem_t.UseEffect[4320],
     CDTime = 5,
     UseLimit = 59993
   },
   [200199] = {
     id = 200199,
-    UseEffect = Table_UseItem_t.UseEffect[4291],
+    UseEffect = Table_UseItem_t.UseEffect[4319],
     CDTime = 5,
     UseLimit = 59993
   },
   [200200] = {
     id = 200200,
-    UseEffect = Table_UseItem_t.UseEffect[4290],
+    UseEffect = Table_UseItem_t.UseEffect[4318],
     CDTime = 5,
     UseLimit = 59993
   },
   [200201] = {
     id = 200201,
-    UseEffect = Table_UseItem_t.UseEffect[4289],
+    UseEffect = Table_UseItem_t.UseEffect[4317],
     CDTime = 5,
     UseLimit = 59993
   },
   [200202] = {
     id = 200202,
-    UseEffect = Table_UseItem_t.UseEffect[4288],
+    UseEffect = Table_UseItem_t.UseEffect[4316],
     CDTime = 5,
     UseLimit = 59993
   },
   [200203] = {
     id = 200203,
-    UseEffect = Table_UseItem_t.UseEffect[4287],
+    UseEffect = Table_UseItem_t.UseEffect[4315],
     CDTime = 5,
     UseLimit = 59993
   },
   [200204] = {
     id = 200204,
-    UseEffect = Table_UseItem_t.UseEffect[4286],
+    UseEffect = Table_UseItem_t.UseEffect[4314],
     CDTime = 5,
     UseLimit = 59993
   },
   [200205] = {
     id = 200205,
-    UseEffect = Table_UseItem_t.UseEffect[4285],
+    UseEffect = Table_UseItem_t.UseEffect[4313],
     CDTime = 5,
     UseLimit = 59993
   },
   [200206] = {
     id = 200206,
-    UseEffect = Table_UseItem_t.UseEffect[4284],
+    UseEffect = Table_UseItem_t.UseEffect[4312],
     CDTime = 5,
     MapLimit = Table_UseItem_t.MapLimit[3]
   },
   [200207] = {
     id = 200207,
-    UseEffect = Table_UseItem_t.UseEffect[4283],
+    UseEffect = Table_UseItem_t.UseEffect[4311],
     CDTime = 5,
     UseLimit = 59993
   },
   [200208] = {
     id = 200208,
-    UseEffect = Table_UseItem_t.UseEffect[4282],
+    UseEffect = Table_UseItem_t.UseEffect[4310],
     CDTime = 5,
     UseLimit = 59993
   },
   [200209] = {
     id = 200209,
-    UseEffect = Table_UseItem_t.UseEffect[4281],
+    UseEffect = Table_UseItem_t.UseEffect[4309],
     CDTime = 5,
     UseLimit = 59993
   },
   [200210] = {
     id = 200210,
-    UseEffect = Table_UseItem_t.UseEffect[4280],
+    UseEffect = Table_UseItem_t.UseEffect[4308],
     CDTime = 5,
     UseLimit = 59993
   },
   [200211] = {
     id = 200211,
-    UseEffect = Table_UseItem_t.UseEffect[4279],
+    UseEffect = Table_UseItem_t.UseEffect[4307],
     CDTime = 5,
     UseLimit = 59993
   },
   [200212] = {
     id = 200212,
-    UseEffect = Table_UseItem_t.UseEffect[4278],
+    UseEffect = Table_UseItem_t.UseEffect[4306],
     CDTime = 5,
     UseLimit = 59993
   },
   [200213] = {
     id = 200213,
-    UseEffect = Table_UseItem_t.UseEffect[4277],
+    UseEffect = Table_UseItem_t.UseEffect[4305],
     CDTime = 5,
     UseLimit = 59993
   },
   [200214] = {
     id = 200214,
-    UseEffect = Table_UseItem_t.UseEffect[4276],
+    UseEffect = Table_UseItem_t.UseEffect[4304],
     CDTime = 5,
     UseLimit = 59993
   },
   [200215] = {
     id = 200215,
-    UseEffect = Table_UseItem_t.UseEffect[4275],
+    UseEffect = Table_UseItem_t.UseEffect[4303],
     CDTime = 5,
     UseLimit = 59993
   },
   [200216] = {
     id = 200216,
-    UseEffect = Table_UseItem_t.UseEffect[4274],
+    UseEffect = Table_UseItem_t.UseEffect[4302],
     CDTime = 5,
     UseLimit = 59993
   },
   [200217] = {
     id = 200217,
-    UseEffect = Table_UseItem_t.UseEffect[4273],
+    UseEffect = Table_UseItem_t.UseEffect[4301],
     CDTime = 5,
     UseLimit = 59993
   },
   [200218] = {
     id = 200218,
-    UseEffect = Table_UseItem_t.UseEffect[4272],
+    UseEffect = Table_UseItem_t.UseEffect[4300],
     CDTime = 5,
     UseLimit = 59993
   },
   [200219] = {
     id = 200219,
-    UseEffect = Table_UseItem_t.UseEffect[4271],
+    UseEffect = Table_UseItem_t.UseEffect[4299],
     CDTime = 5,
     UseLimit = 59993
   },
   [200220] = {
     id = 200220,
-    UseEffect = Table_UseItem_t.UseEffect[4270],
+    UseEffect = Table_UseItem_t.UseEffect[4298],
     CDTime = 5,
     UseLimit = 59993
   },
   [200221] = {
     id = 200221,
-    UseEffect = Table_UseItem_t.UseEffect[4269],
+    UseEffect = Table_UseItem_t.UseEffect[4297],
     CDTime = 5,
     UseLimit = 59993
   },
   [200222] = {
     id = 200222,
-    UseEffect = Table_UseItem_t.UseEffect[4268],
+    UseEffect = Table_UseItem_t.UseEffect[4296],
     CDTime = 5,
     UseLimit = 59993
   },
   [200223] = {
     id = 200223,
-    UseEffect = Table_UseItem_t.UseEffect[4267],
+    UseEffect = Table_UseItem_t.UseEffect[4295],
     CDTime = 5,
     UseLimit = 59993
   },
   [200224] = {
     id = 200224,
-    UseEffect = Table_UseItem_t.UseEffect[4266],
+    UseEffect = Table_UseItem_t.UseEffect[4294],
     CDTime = 5,
     UseLimit = 59993
   },
   [200225] = {
     id = 200225,
-    UseEffect = Table_UseItem_t.UseEffect[4265],
+    UseEffect = Table_UseItem_t.UseEffect[3600],
     CDTime = 5,
     UseLimit = 59993
   },
   [200226] = {
     id = 200226,
-    UseEffect = Table_UseItem_t.UseEffect[4264],
+    UseEffect = Table_UseItem_t.UseEffect[3601],
     CDTime = 5,
     UseLimit = 59993
   },
   [200227] = {
     id = 200227,
-    UseEffect = Table_UseItem_t.UseEffect[4263],
+    UseEffect = Table_UseItem_t.UseEffect[3602],
     CDTime = 5,
     UseLimit = 59993
   },
   [200228] = {
     id = 200228,
-    UseEffect = Table_UseItem_t.UseEffect[4262],
+    UseEffect = Table_UseItem_t.UseEffect[3603],
     CDTime = 5,
     UseLimit = 59993
   },
   [200229] = {
     id = 200229,
-    UseEffect = Table_UseItem_t.UseEffect[4261],
+    UseEffect = Table_UseItem_t.UseEffect[3604],
     CDTime = 5,
     UseLimit = 59993
   },
   [200230] = {
     id = 200230,
-    UseEffect = Table_UseItem_t.UseEffect[4260],
+    UseEffect = Table_UseItem_t.UseEffect[3605],
     CDTime = 5,
     UseLimit = 59993
   },
   [210001] = {
     id = 210001,
-    UseEffect = Table_UseItem_t.UseEffect[1985],
+    UseEffect = Table_UseItem_t.UseEffect[1998],
     CDTime = 5,
     UseLimit = 59993
   },
   [210002] = {
     id = 210002,
-    UseEffect = Table_UseItem_t.UseEffect[1986],
+    UseEffect = Table_UseItem_t.UseEffect[1999],
     CDTime = 5,
     UseLimit = 59993
   },
   [210003] = {
     id = 210003,
-    UseEffect = Table_UseItem_t.UseEffect[1987],
+    UseEffect = Table_UseItem_t.UseEffect[2000],
     CDTime = 5,
     UseLimit = 59993
   },
   [210004] = {
     id = 210004,
-    UseEffect = Table_UseItem_t.UseEffect[1988],
+    UseEffect = Table_UseItem_t.UseEffect[2001],
     CDTime = 5,
     UseLimit = 59993
   },
   [210005] = {
     id = 210005,
-    UseEffect = Table_UseItem_t.UseEffect[1989],
+    UseEffect = Table_UseItem_t.UseEffect[2002],
     CDTime = 5,
     UseLimit = 59993
   },
   [210006] = {
     id = 210006,
-    UseEffect = Table_UseItem_t.UseEffect[1990],
+    UseEffect = Table_UseItem_t.UseEffect[2003],
     CDTime = 5,
     UseLimit = 59993
   },
   [210007] = {
     id = 210007,
-    UseEffect = Table_UseItem_t.UseEffect[1991],
+    UseEffect = Table_UseItem_t.UseEffect[2004],
     CDTime = 5,
     UseLimit = 59993
   },
   [210008] = {
     id = 210008,
-    UseEffect = Table_UseItem_t.UseEffect[1992],
+    UseEffect = Table_UseItem_t.UseEffect[2005],
     CDTime = 5,
     UseLimit = 59993
   },
   [210009] = {
     id = 210009,
-    UseEffect = Table_UseItem_t.UseEffect[1993],
+    UseEffect = Table_UseItem_t.UseEffect[2006],
     CDTime = 5,
     UseLimit = 59993
   },
   [210010] = {
     id = 210010,
-    UseEffect = Table_UseItem_t.UseEffect[1994],
+    UseEffect = Table_UseItem_t.UseEffect[2007],
     CDTime = 5,
     UseLimit = 59993
   },
   [210011] = {
     id = 210011,
-    UseEffect = Table_UseItem_t.UseEffect[1995],
+    UseEffect = Table_UseItem_t.UseEffect[2008],
     CDTime = 5,
     UseLimit = 59993
   },
   [210012] = {
     id = 210012,
-    UseEffect = Table_UseItem_t.UseEffect[1996],
+    UseEffect = Table_UseItem_t.UseEffect[2009],
     CDTime = 5,
     UseLimit = 59993
   },
   [210013] = {
     id = 210013,
-    UseEffect = Table_UseItem_t.UseEffect[1997],
+    UseEffect = Table_UseItem_t.UseEffect[2010],
     CDTime = 5,
     UseLimit = 59993
   },
   [210014] = {
     id = 210014,
-    UseEffect = Table_UseItem_t.UseEffect[1998],
+    UseEffect = Table_UseItem_t.UseEffect[2011],
     CDTime = 5,
     UseLimit = 59993
   },
   [210015] = {
     id = 210015,
-    UseEffect = Table_UseItem_t.UseEffect[1999],
+    UseEffect = Table_UseItem_t.UseEffect[2012],
     CDTime = 5,
     UseLimit = 59993
   },
   [210016] = {
     id = 210016,
-    UseEffect = Table_UseItem_t.UseEffect[2000],
+    UseEffect = Table_UseItem_t.UseEffect[2013],
     CDTime = 5,
     UseLimit = 59993
   },
   [210017] = {
     id = 210017,
-    UseEffect = Table_UseItem_t.UseEffect[2001],
+    UseEffect = Table_UseItem_t.UseEffect[2014],
     CDTime = 5,
     UseLimit = 59993
   },
   [210018] = {
     id = 210018,
-    UseEffect = Table_UseItem_t.UseEffect[2002],
+    UseEffect = Table_UseItem_t.UseEffect[2015],
     CDTime = 5,
     UseLimit = 59993
   },
   [210019] = {
     id = 210019,
-    UseEffect = Table_UseItem_t.UseEffect[2003],
+    UseEffect = Table_UseItem_t.UseEffect[2016],
     CDTime = 5,
     UseLimit = 59993
   },
   [210020] = {
     id = 210020,
-    UseEffect = Table_UseItem_t.UseEffect[2004],
+    UseEffect = Table_UseItem_t.UseEffect[2017],
     CDTime = 5,
     UseLimit = 59993
   },
   [210021] = {
     id = 210021,
-    UseEffect = Table_UseItem_t.UseEffect[2005],
+    UseEffect = Table_UseItem_t.UseEffect[2018],
     CDTime = 5,
     UseLimit = 59993
   },
   [210022] = {
     id = 210022,
-    UseEffect = Table_UseItem_t.UseEffect[2006],
+    UseEffect = Table_UseItem_t.UseEffect[2019],
     CDTime = 5,
     UseLimit = 59993
   },
   [210023] = {
     id = 210023,
-    UseEffect = Table_UseItem_t.UseEffect[2007],
+    UseEffect = Table_UseItem_t.UseEffect[2020],
     CDTime = 5,
     UseLimit = 59993
   },
   [210024] = {
     id = 210024,
-    UseEffect = Table_UseItem_t.UseEffect[2008],
+    UseEffect = Table_UseItem_t.UseEffect[2021],
     CDTime = 5,
     UseLimit = 59993
   },
   [210025] = {
     id = 210025,
-    UseEffect = Table_UseItem_t.UseEffect[2009],
+    UseEffect = Table_UseItem_t.UseEffect[2022],
     CDTime = 5,
     UseLimit = 59993
   },
   [210026] = {
     id = 210026,
-    UseEffect = Table_UseItem_t.UseEffect[2010],
+    UseEffect = Table_UseItem_t.UseEffect[2023],
     CDTime = 5,
     UseLimit = 59993
   },
   [210027] = {
     id = 210027,
-    UseEffect = Table_UseItem_t.UseEffect[2011],
+    UseEffect = Table_UseItem_t.UseEffect[2024],
     CDTime = 5,
     UseLimit = 59993
   },
   [210028] = {
     id = 210028,
-    UseEffect = Table_UseItem_t.UseEffect[2012],
+    UseEffect = Table_UseItem_t.UseEffect[2025],
     CDTime = 5,
     UseLimit = 59993
   },
   [210029] = {
     id = 210029,
-    UseEffect = Table_UseItem_t.UseEffect[2013],
+    UseEffect = Table_UseItem_t.UseEffect[2026],
     CDTime = 5,
     UseLimit = 59993
   },
   [210030] = {
     id = 210030,
-    UseEffect = Table_UseItem_t.UseEffect[2014],
+    UseEffect = Table_UseItem_t.UseEffect[2027],
     CDTime = 5,
     UseLimit = 59993
   },
   [210031] = {
     id = 210031,
-    UseEffect = Table_UseItem_t.UseEffect[2015],
+    UseEffect = Table_UseItem_t.UseEffect[2028],
     CDTime = 5,
     UseLimit = 59993
   },
   [210032] = {
     id = 210032,
-    UseEffect = Table_UseItem_t.UseEffect[2016],
+    UseEffect = Table_UseItem_t.UseEffect[2029],
     CDTime = 5,
     UseLimit = 59993
   },
   [210033] = {
     id = 210033,
-    UseEffect = Table_UseItem_t.UseEffect[2017],
+    UseEffect = Table_UseItem_t.UseEffect[2030],
     CDTime = 5,
     UseLimit = 59993
   },
   [210034] = {
     id = 210034,
-    UseEffect = Table_UseItem_t.UseEffect[2018],
+    UseEffect = Table_UseItem_t.UseEffect[2031],
     CDTime = 5,
     UseLimit = 59993
   },
   [210035] = {
     id = 210035,
-    UseEffect = Table_UseItem_t.UseEffect[2019],
+    UseEffect = Table_UseItem_t.UseEffect[2032],
     CDTime = 5,
     UseLimit = 59993
   },
   [210036] = {
     id = 210036,
-    UseEffect = Table_UseItem_t.UseEffect[2020],
+    UseEffect = Table_UseItem_t.UseEffect[2033],
     CDTime = 5,
     UseLimit = 59993
   },
   [210037] = {
     id = 210037,
-    UseEffect = Table_UseItem_t.UseEffect[2021],
+    UseEffect = Table_UseItem_t.UseEffect[2034],
     CDTime = 5,
     UseLimit = 59993
   },
   [210038] = {
     id = 210038,
-    UseEffect = Table_UseItem_t.UseEffect[2022],
+    UseEffect = Table_UseItem_t.UseEffect[2035],
     CDTime = 5,
     UseLimit = 59993
   },
   [210039] = {
     id = 210039,
-    UseEffect = Table_UseItem_t.UseEffect[2023],
+    UseEffect = Table_UseItem_t.UseEffect[2036],
     CDTime = 5,
     UseLimit = 59993
   },
   [210040] = {
     id = 210040,
-    UseEffect = Table_UseItem_t.UseEffect[2024],
+    UseEffect = Table_UseItem_t.UseEffect[2037],
     CDTime = 5,
     UseLimit = 59993
   },
   [210041] = {
     id = 210041,
-    UseEffect = Table_UseItem_t.UseEffect[2025],
+    UseEffect = Table_UseItem_t.UseEffect[2038],
     CDTime = 5,
     UseLimit = 59993
   },
   [210042] = {
     id = 210042,
-    UseEffect = Table_UseItem_t.UseEffect[2026],
+    UseEffect = Table_UseItem_t.UseEffect[2039],
     CDTime = 5,
     UseLimit = 59993
   },
   [210043] = {
     id = 210043,
-    UseEffect = Table_UseItem_t.UseEffect[2027],
+    UseEffect = Table_UseItem_t.UseEffect[2040],
     CDTime = 5,
     UseLimit = 59993
   },
   [220001] = {
     id = 220001,
-    UseEffect = Table_UseItem_t.UseEffect[3511],
+    UseEffect = Table_UseItem_t.UseEffect[3548],
     CDTime = 5,
     UseLimit = 59993
   },
   [220002] = {
     id = 220002,
-    UseEffect = Table_UseItem_t.UseEffect[4259],
+    UseEffect = Table_UseItem_t.UseEffect[3606],
     CDTime = 5,
     UseLimit = 59993
   },
   [220003] = {
     id = 220003,
-    UseEffect = Table_UseItem_t.UseEffect[3512],
+    UseEffect = Table_UseItem_t.UseEffect[3549],
     CDTime = 5,
     UseLimit = 59993
   },
   [220004] = {
     id = 220004,
-    UseEffect = Table_UseItem_t.UseEffect[4258],
+    UseEffect = Table_UseItem_t.UseEffect[4286],
     CDTime = 5,
     UseLimit = 59993
   },
   [220005] = {
     id = 220005,
-    UseEffect = Table_UseItem_t.UseEffect[3513],
+    UseEffect = Table_UseItem_t.UseEffect[3550],
     CDTime = 5,
     UseLimit = 59993
   },
   [220006] = {
     id = 220006,
-    UseEffect = Table_UseItem_t.UseEffect[3514],
+    UseEffect = Table_UseItem_t.UseEffect[3551],
     CDTime = 5,
     UseLimit = 59993
   },
   [220007] = {
     id = 220007,
-    UseEffect = Table_UseItem_t.UseEffect[3515],
+    UseEffect = Table_UseItem_t.UseEffect[3552],
     CDTime = 5,
     UseLimit = 59993
   },
   [220008] = {
     id = 220008,
-    UseEffect = Table_UseItem_t.UseEffect[3516],
+    UseEffect = Table_UseItem_t.UseEffect[3553],
     CDTime = 5,
     UseLimit = 59993
   },
   [220009] = {
     id = 220009,
-    UseEffect = Table_UseItem_t.UseEffect[3517],
+    UseEffect = Table_UseItem_t.UseEffect[3554],
     CDTime = 5,
     UseLimit = 59993
   },
   [220010] = {
     id = 220010,
-    UseEffect = Table_UseItem_t.UseEffect[3518],
+    UseEffect = Table_UseItem_t.UseEffect[3555],
     CDTime = 5,
     UseLimit = 59993
   },
   [220011] = {
     id = 220011,
-    UseEffect = Table_UseItem_t.UseEffect[3519],
+    UseEffect = Table_UseItem_t.UseEffect[3556],
     CDTime = 5,
     UseLimit = 59993
   },
   [220012] = {
     id = 220012,
-    UseEffect = Table_UseItem_t.UseEffect[3520],
+    UseEffect = Table_UseItem_t.UseEffect[3557],
     CDTime = 5,
     UseLimit = 59993
   },
   [220013] = {
     id = 220013,
-    UseEffect = Table_UseItem_t.UseEffect[3521],
+    UseEffect = Table_UseItem_t.UseEffect[3558],
     CDTime = 5,
     UseLimit = 59993
   },
   [220014] = {
     id = 220014,
-    UseEffect = Table_UseItem_t.UseEffect[3522],
+    UseEffect = Table_UseItem_t.UseEffect[3559],
     CDTime = 5,
     UseLimit = 59993
   },
   [220015] = {
     id = 220015,
-    UseEffect = Table_UseItem_t.UseEffect[3523],
+    UseEffect = Table_UseItem_t.UseEffect[3560],
     CDTime = 5,
     UseLimit = 59993
   },
   [220016] = {
     id = 220016,
-    UseEffect = Table_UseItem_t.UseEffect[3524],
+    UseEffect = Table_UseItem_t.UseEffect[3561],
     CDTime = 5,
     UseLimit = 59993
   },
   [220017] = {
     id = 220017,
-    UseEffect = Table_UseItem_t.UseEffect[4257],
+    UseEffect = Table_UseItem_t.UseEffect[3607],
     CDTime = 5,
     UseLimit = 59993
   },
   [220018] = {
     id = 220018,
-    UseEffect = Table_UseItem_t.UseEffect[3525],
+    UseEffect = Table_UseItem_t.UseEffect[3562],
     CDTime = 5,
     UseLimit = 59993
   },
   [220019] = {
     id = 220019,
-    UseEffect = Table_UseItem_t.UseEffect[3526],
+    UseEffect = Table_UseItem_t.UseEffect[3563],
     CDTime = 5,
     UseLimit = 59993
   },
   [220020] = {
     id = 220020,
-    UseEffect = Table_UseItem_t.UseEffect[3527],
+    UseEffect = Table_UseItem_t.UseEffect[3564],
     CDTime = 5,
     UseLimit = 59993
   },
   [220021] = {
     id = 220021,
-    UseEffect = Table_UseItem_t.UseEffect[3528],
+    UseEffect = Table_UseItem_t.UseEffect[3565],
     CDTime = 5,
     UseLimit = 59993
   },
   [220022] = {
     id = 220022,
-    UseEffect = Table_UseItem_t.UseEffect[3529],
+    UseEffect = Table_UseItem_t.UseEffect[3566],
     CDTime = 5,
     UseLimit = 59993
   },
   [220023] = {
     id = 220023,
-    UseEffect = Table_UseItem_t.UseEffect[4256],
+    UseEffect = Table_UseItem_t.UseEffect[3608],
     CDTime = 5,
     UseLimit = 59993
   },
   [220024] = {
     id = 220024,
-    UseEffect = Table_UseItem_t.UseEffect[4255],
+    UseEffect = Table_UseItem_t.UseEffect[4283],
     CDTime = 5,
     UseLimit = 59993
   },
   [220025] = {
     id = 220025,
-    UseEffect = Table_UseItem_t.UseEffect[3530],
+    UseEffect = Table_UseItem_t.UseEffect[3567],
     CDTime = 5,
     UseLimit = 59993
   },
   [220026] = {
     id = 220026,
-    UseEffect = Table_UseItem_t.UseEffect[3531],
+    UseEffect = Table_UseItem_t.UseEffect[3568],
     CDTime = 5,
     UseLimit = 59993
   },
   [220027] = {
     id = 220027,
-    UseEffect = Table_UseItem_t.UseEffect[3532],
+    UseEffect = Table_UseItem_t.UseEffect[3569],
     CDTime = 5,
     UseLimit = 59993
   },
   [220028] = {
     id = 220028,
-    UseEffect = Table_UseItem_t.UseEffect[3533],
+    UseEffect = Table_UseItem_t.UseEffect[3570],
     CDTime = 5,
     UseLimit = 59993
   },
   [220029] = {
     id = 220029,
-    UseEffect = Table_UseItem_t.UseEffect[3534],
+    UseEffect = Table_UseItem_t.UseEffect[3571],
     CDTime = 5,
     UseLimit = 59993
   },
   [220030] = {
     id = 220030,
-    UseEffect = Table_UseItem_t.UseEffect[3535],
+    UseEffect = Table_UseItem_t.UseEffect[3572],
     CDTime = 5,
     UseLimit = 59993
   },
   [220031] = {
     id = 220031,
-    UseEffect = Table_UseItem_t.UseEffect[3536],
+    UseEffect = Table_UseItem_t.UseEffect[3573],
     CDTime = 5,
     UseLimit = 59993
   },
   [220032] = {
     id = 220032,
-    UseEffect = Table_UseItem_t.UseEffect[3537],
+    UseEffect = Table_UseItem_t.UseEffect[3574],
     CDTime = 5,
     UseLimit = 59993
   },
   [220033] = {
     id = 220033,
-    UseEffect = Table_UseItem_t.UseEffect[3528],
+    UseEffect = Table_UseItem_t.UseEffect[3565],
     CDTime = 5,
     UseLimit = 59993
   },
   [220034] = {
     id = 220034,
-    UseEffect = Table_UseItem_t.UseEffect[3538],
+    UseEffect = Table_UseItem_t.UseEffect[3575],
     CDTime = 5,
     UseLimit = 59993
   },
   [220035] = {
     id = 220035,
-    UseEffect = Table_UseItem_t.UseEffect[3539],
+    UseEffect = Table_UseItem_t.UseEffect[3576],
     CDTime = 5,
     UseLimit = 59993
   },
   [220036] = {
     id = 220036,
-    UseEffect = Table_UseItem_t.UseEffect[3540],
+    UseEffect = Table_UseItem_t.UseEffect[3577],
     CDTime = 5,
     UseLimit = 59993
   },
   [220037] = {
     id = 220037,
-    UseEffect = Table_UseItem_t.UseEffect[3541],
+    UseEffect = Table_UseItem_t.UseEffect[3578],
     CDTime = 5,
     UseLimit = 59993
   },
   [220038] = {
     id = 220038,
-    UseEffect = Table_UseItem_t.UseEffect[3542],
+    UseEffect = Table_UseItem_t.UseEffect[3579],
     CDTime = 5,
     UseLimit = 59993
   },
   [220039] = {
     id = 220039,
-    UseEffect = Table_UseItem_t.UseEffect[3543],
+    UseEffect = Table_UseItem_t.UseEffect[3580],
     CDTime = 5,
     UseLimit = 59993
   },
   [220040] = {
     id = 220040,
-    UseEffect = Table_UseItem_t.UseEffect[3544],
+    UseEffect = Table_UseItem_t.UseEffect[3581],
     CDTime = 5,
     UseLimit = 59993
   },
   [220041] = {
     id = 220041,
-    UseEffect = Table_UseItem_t.UseEffect[3545],
+    UseEffect = Table_UseItem_t.UseEffect[3582],
     CDTime = 5,
     UseLimit = 59993
   },
   [220042] = {
     id = 220042,
-    UseEffect = Table_UseItem_t.UseEffect[3546],
+    UseEffect = Table_UseItem_t.UseEffect[3583],
     CDTime = 5,
     UseLimit = 59993
   },
   [220043] = {
     id = 220043,
-    UseEffect = Table_UseItem_t.UseEffect[3547],
+    UseEffect = Table_UseItem_t.UseEffect[3584],
     CDTime = 5,
     UseLimit = 59993
   },
   [220044] = {
     id = 220044,
-    UseEffect = Table_UseItem_t.UseEffect[3548],
+    UseEffect = Table_UseItem_t.UseEffect[3585],
     CDTime = 5,
     UseLimit = 59993
   },
   [220045] = {
     id = 220045,
-    UseEffect = Table_UseItem_t.UseEffect[3549],
+    UseEffect = Table_UseItem_t.UseEffect[3586],
     CDTime = 5,
     UseLimit = 59993
   },
   [220046] = {
     id = 220046,
-    UseEffect = Table_UseItem_t.UseEffect[3550],
+    UseEffect = Table_UseItem_t.UseEffect[3587],
     CDTime = 5,
     UseLimit = 59993
   },
   [220047] = {
     id = 220047,
-    UseEffect = Table_UseItem_t.UseEffect[3551],
+    UseEffect = Table_UseItem_t.UseEffect[3588],
     CDTime = 5,
     UseLimit = 59993
   },
   [220048] = {
     id = 220048,
-    UseEffect = Table_UseItem_t.UseEffect[3552],
+    UseEffect = Table_UseItem_t.UseEffect[3589],
     CDTime = 5,
     UseLimit = 59993
   },
   [220049] = {
     id = 220049,
-    UseEffect = Table_UseItem_t.UseEffect[3553],
+    UseEffect = Table_UseItem_t.UseEffect[3590],
     CDTime = 5,
     UseLimit = 59993
   },
   [220050] = {
     id = 220050,
-    UseEffect = Table_UseItem_t.UseEffect[3554],
+    UseEffect = Table_UseItem_t.UseEffect[3591],
     CDTime = 5,
     UseLimit = 59993
   },
   [220051] = {
     id = 220051,
-    UseEffect = Table_UseItem_t.UseEffect[3555],
+    UseEffect = Table_UseItem_t.UseEffect[3592],
     CDTime = 5,
     UseLimit = 59993
   },
   [220052] = {
     id = 220052,
-    UseEffect = Table_UseItem_t.UseEffect[3556],
+    UseEffect = Table_UseItem_t.UseEffect[3593],
     CDTime = 5,
     UseLimit = 59993
   },
   [300001] = {
     id = 300001,
-    UseEffect = Table_UseItem_t.UseEffect[4254],
+    UseEffect = Table_UseItem_t.UseEffect[4282],
     CDTime = 1,
     UseLimit = 19035
   },
   [300002] = {
     id = 300002,
-    UseEffect = Table_UseItem_t.UseEffect[4253],
+    UseEffect = Table_UseItem_t.UseEffect[4281],
     CDTime = 1,
     UseLimit = 19035
   },
   [300003] = {
     id = 300003,
-    UseEffect = Table_UseItem_t.UseEffect[3564],
+    UseEffect = Table_UseItem_t.UseEffect[3609],
     CDTime = 1,
     UseLimit = 19035
   },
   [300004] = {
     id = 300004,
-    UseEffect = Table_UseItem_t.UseEffect[1924],
+    UseEffect = Table_UseItem_t.UseEffect[1937],
     CDTime = 1,
     UseLimit = 19035
   },
   [300005] = {
     id = 300005,
-    UseEffect = Table_UseItem_t.UseEffect[3565],
+    UseEffect = Table_UseItem_t.UseEffect[3610],
     CDTime = 1,
     UseLimit = 19035
   },
   [300006] = {
     id = 300006,
-    UseEffect = Table_UseItem_t.UseEffect[3566],
+    UseEffect = Table_UseItem_t.UseEffect[3611],
     CDTime = 1,
     UseLimit = 19035
   },
   [300007] = {
     id = 300007,
-    UseEffect = Table_UseItem_t.UseEffect[3567],
+    UseEffect = Table_UseItem_t.UseEffect[3612],
     CDTime = 1,
     UseLimit = 19035
   },
   [300008] = {
     id = 300008,
-    UseEffect = Table_UseItem_t.UseEffect[3568],
+    UseEffect = Table_UseItem_t.UseEffect[2121],
     CDTime = 1,
     UseLimit = 19035
   },
   [300009] = {
     id = 300009,
-    UseEffect = Table_UseItem_t.UseEffect[1929],
+    UseEffect = Table_UseItem_t.UseEffect[1942],
     CDTime = 1,
     UseLimit = 19035
   },
   [300010] = {
     id = 300010,
-    UseEffect = Table_UseItem_t.UseEffect[3569],
+    UseEffect = Table_UseItem_t.UseEffect[2120],
     CDTime = 1,
     UseLimit = 19035
   },
   [300011] = {
     id = 300011,
-    UseEffect = Table_UseItem_t.UseEffect[2082],
+    UseEffect = Table_UseItem_t.UseEffect[2119],
     CDTime = 1,
     UseLimit = 19035
   },
   [300012] = {
     id = 300012,
-    UseEffect = Table_UseItem_t.UseEffect[2081],
+    UseEffect = Table_UseItem_t.UseEffect[4273],
     CDTime = 1,
     UseLimit = 19035
   },
   [300013] = {
     id = 300013,
-    UseEffect = Table_UseItem_t.UseEffect[2080],
+    UseEffect = Table_UseItem_t.UseEffect[4272],
     CDTime = 1,
     UseLimit = 19035
   },
   [300014] = {
     id = 300014,
-    UseEffect = Table_UseItem_t.UseEffect[3570],
+    UseEffect = Table_UseItem_t.UseEffect[4271],
     CDTime = 1,
     UseLimit = 19035
   },
   [300015] = {
     id = 300015,
-    UseEffect = Table_UseItem_t.UseEffect[3576],
+    UseEffect = Table_UseItem_t.UseEffect[4270],
     CDTime = 1,
     UseLimit = 19035
   },
   [300016] = {
     id = 300016,
-    UseEffect = Table_UseItem_t.UseEffect[4236],
+    UseEffect = Table_UseItem_t.UseEffect[4269],
     CDTime = 1,
     UseLimit = 19035
   },
   [300017] = {
     id = 300017,
-    UseEffect = Table_UseItem_t.UseEffect[4235],
+    UseEffect = Table_UseItem_t.UseEffect[4148],
     CDTime = 1,
     UseLimit = 19035
   },
   [300018] = {
     id = 300018,
-    UseEffect = Table_UseItem_t.UseEffect[3571],
+    UseEffect = Table_UseItem_t.UseEffect[4150],
     CDTime = 1,
     UseLimit = 19035
   },
   [300019] = {
     id = 300019,
-    UseEffect = Table_UseItem_t.UseEffect[3572],
+    UseEffect = Table_UseItem_t.UseEffect[4149],
     CDTime = 1,
     UseLimit = 19035
   },
   [300020] = {
     id = 300020,
-    UseEffect = Table_UseItem_t.UseEffect[1940],
+    UseEffect = Table_UseItem_t.UseEffect[1953],
     CDTime = 1,
     UseLimit = 19035
   },
   [300021] = {
     id = 300021,
-    UseEffect = Table_UseItem_t.UseEffect[1941],
+    UseEffect = Table_UseItem_t.UseEffect[1954],
     CDTime = 1,
     UseLimit = 19035
   },
   [300022] = {
     id = 300022,
-    UseEffect = Table_UseItem_t.UseEffect[1942],
+    UseEffect = Table_UseItem_t.UseEffect[1955],
     CDTime = 1,
     UseLimit = 19035
   },
   [300023] = {
     id = 300023,
-    UseEffect = Table_UseItem_t.UseEffect[1943],
+    UseEffect = Table_UseItem_t.UseEffect[1956],
     CDTime = 1,
     UseLimit = 19035
   },
   [300024] = {
     id = 300024,
-    UseEffect = Table_UseItem_t.UseEffect[1944],
+    UseEffect = Table_UseItem_t.UseEffect[1957],
     CDTime = 1,
     UseLimit = 19035
   },
   [300025] = {
     id = 300025,
-    UseEffect = Table_UseItem_t.UseEffect[1945],
+    UseEffect = Table_UseItem_t.UseEffect[1958],
     CDTime = 1,
     UseLimit = 19035
   },
   [300026] = {
     id = 300026,
-    UseEffect = Table_UseItem_t.UseEffect[1946],
+    UseEffect = Table_UseItem_t.UseEffect[1959],
     CDTime = 1,
     UseLimit = 19035
   },
   [300027] = {
     id = 300027,
-    UseEffect = Table_UseItem_t.UseEffect[1947],
+    UseEffect = Table_UseItem_t.UseEffect[1960],
     CDTime = 1,
     UseLimit = 19035
   },
   [300028] = {
     id = 300028,
-    UseEffect = Table_UseItem_t.UseEffect[1948],
+    UseEffect = Table_UseItem_t.UseEffect[1961],
     CDTime = 1,
     UseLimit = 19035
   },
   [300029] = {
     id = 300029,
-    UseEffect = Table_UseItem_t.UseEffect[1949],
+    UseEffect = Table_UseItem_t.UseEffect[1962],
     CDTime = 1,
     UseLimit = 19035
   },
   [300030] = {
     id = 300030,
-    UseEffect = Table_UseItem_t.UseEffect[1950],
+    UseEffect = Table_UseItem_t.UseEffect[1963],
     CDTime = 1,
     UseLimit = 19035
   },
   [300031] = {
     id = 300031,
-    UseEffect = Table_UseItem_t.UseEffect[1951],
+    UseEffect = Table_UseItem_t.UseEffect[1964],
     CDTime = 1,
     UseLimit = 19035
   },
   [300032] = {
     id = 300032,
-    UseEffect = Table_UseItem_t.UseEffect[1952],
+    UseEffect = Table_UseItem_t.UseEffect[1965],
     CDTime = 1,
     UseLimit = 19035
   },
   [300033] = {
     id = 300033,
-    UseEffect = Table_UseItem_t.UseEffect[1953],
+    UseEffect = Table_UseItem_t.UseEffect[1966],
     CDTime = 1,
     UseLimit = 19035
   },
   [300034] = {
     id = 300034,
-    UseEffect = Table_UseItem_t.UseEffect[1954],
+    UseEffect = Table_UseItem_t.UseEffect[1967],
     CDTime = 1,
     UseLimit = 19035
   },
   [300035] = {
     id = 300035,
-    UseEffect = Table_UseItem_t.UseEffect[1955],
+    UseEffect = Table_UseItem_t.UseEffect[1968],
     CDTime = 1,
     UseLimit = 19035
   },
   [300036] = {
     id = 300036,
-    UseEffect = Table_UseItem_t.UseEffect[1956],
+    UseEffect = Table_UseItem_t.UseEffect[1969],
     CDTime = 1,
     UseLimit = 19035
   },
   [300037] = {
     id = 300037,
-    UseEffect = Table_UseItem_t.UseEffect[1957],
+    UseEffect = Table_UseItem_t.UseEffect[1970],
     CDTime = 1,
     UseLimit = 19035
   },
   [300038] = {
     id = 300038,
-    UseEffect = Table_UseItem_t.UseEffect[1958],
+    UseEffect = Table_UseItem_t.UseEffect[1971],
     CDTime = 1,
     UseLimit = 19035
   },
   [300039] = {
     id = 300039,
-    UseEffect = Table_UseItem_t.UseEffect[1959],
+    UseEffect = Table_UseItem_t.UseEffect[1972],
     CDTime = 1,
     UseLimit = 19035
   },
   [300040] = {
     id = 300040,
-    UseEffect = Table_UseItem_t.UseEffect[1960],
+    UseEffect = Table_UseItem_t.UseEffect[1973],
     CDTime = 1,
     UseLimit = 19035
   },
   [300041] = {
     id = 300041,
-    UseEffect = Table_UseItem_t.UseEffect[1961],
+    UseEffect = Table_UseItem_t.UseEffect[1974],
     CDTime = 1,
     UseLimit = 19035
   },
   [300042] = {
     id = 300042,
-    UseEffect = Table_UseItem_t.UseEffect[1962],
+    UseEffect = Table_UseItem_t.UseEffect[1975],
     CDTime = 1,
     UseLimit = 19035
   },
   [300043] = {
     id = 300043,
-    UseEffect = Table_UseItem_t.UseEffect[1963],
+    UseEffect = Table_UseItem_t.UseEffect[1976],
     CDTime = 1,
     UseLimit = 19035
   },
   [300044] = {
     id = 300044,
-    UseEffect = Table_UseItem_t.UseEffect[1964],
+    UseEffect = Table_UseItem_t.UseEffect[1977],
     CDTime = 1,
     UseLimit = 19035
   },
   [300045] = {
     id = 300045,
-    UseEffect = Table_UseItem_t.UseEffect[1965],
+    UseEffect = Table_UseItem_t.UseEffect[1978],
     CDTime = 1,
     UseLimit = 19035
   },
   [300046] = {
     id = 300046,
-    UseEffect = Table_UseItem_t.UseEffect[1966],
+    UseEffect = Table_UseItem_t.UseEffect[1979],
     CDTime = 1,
     UseLimit = 19035
   },
   [300047] = {
     id = 300047,
-    UseEffect = Table_UseItem_t.UseEffect[1967],
+    UseEffect = Table_UseItem_t.UseEffect[1980],
     CDTime = 1,
     UseLimit = 19035
   },
   [300048] = {
     id = 300048,
-    UseEffect = Table_UseItem_t.UseEffect[1968],
+    UseEffect = Table_UseItem_t.UseEffect[1981],
     CDTime = 1,
     UseLimit = 19035
   },
   [301001] = {
     id = 301001,
-    UseEffect = Table_UseItem_t.UseEffect[2082],
+    UseEffect = Table_UseItem_t.UseEffect[2119],
     CDTime = 1,
     UseLimit = 19035
   },
   [301002] = {
     id = 301002,
-    UseEffect = Table_UseItem_t.UseEffect[2081],
+    UseEffect = Table_UseItem_t.UseEffect[4273],
     CDTime = 1,
     UseLimit = 19035
   },
   [301003] = {
     id = 301003,
-    UseEffect = Table_UseItem_t.UseEffect[2080],
+    UseEffect = Table_UseItem_t.UseEffect[4272],
     CDTime = 1,
     UseLimit = 19035
   },
   [301004] = {
     id = 301004,
-    UseEffect = Table_UseItem_t.UseEffect[3570],
+    UseEffect = Table_UseItem_t.UseEffect[4271],
     CDTime = 1,
     UseLimit = 19035
   },
   [301005] = {
     id = 301005,
-    UseEffect = Table_UseItem_t.UseEffect[3576],
+    UseEffect = Table_UseItem_t.UseEffect[4270],
     CDTime = 1,
     UseLimit = 19035
   },
   [301006] = {
     id = 301006,
-    UseEffect = Table_UseItem_t.UseEffect[4236],
+    UseEffect = Table_UseItem_t.UseEffect[4269],
     CDTime = 1,
     UseLimit = 19035
   },
   [301007] = {
     id = 301007,
-    UseEffect = Table_UseItem_t.UseEffect[4235],
+    UseEffect = Table_UseItem_t.UseEffect[4148],
     CDTime = 1,
     UseLimit = 19035
   },
   [301008] = {
     id = 301008,
-    UseEffect = Table_UseItem_t.UseEffect[3572],
+    UseEffect = Table_UseItem_t.UseEffect[4149],
     CDTime = 1,
     UseLimit = 19035
   },
   [301009] = {
     id = 301009,
-    UseEffect = Table_UseItem_t.UseEffect[3571],
+    UseEffect = Table_UseItem_t.UseEffect[4150],
     CDTime = 1,
     UseLimit = 19035
   },
   [301010] = {
     id = 301010,
-    UseEffect = Table_UseItem_t.UseEffect[1962],
+    UseEffect = Table_UseItem_t.UseEffect[1975],
     CDTime = 1,
     UseLimit = 19035
   },
   [301011] = {
     id = 301011,
-    UseEffect = Table_UseItem_t.UseEffect[1940],
+    UseEffect = Table_UseItem_t.UseEffect[1953],
     CDTime = 1,
     UseLimit = 19035
   },
   [301012] = {
     id = 301012,
-    UseEffect = Table_UseItem_t.UseEffect[1941],
+    UseEffect = Table_UseItem_t.UseEffect[1954],
     CDTime = 1,
     UseLimit = 19035
   },
   [301013] = {
     id = 301013,
-    UseEffect = Table_UseItem_t.UseEffect[1942],
+    UseEffect = Table_UseItem_t.UseEffect[1955],
     CDTime = 1,
     UseLimit = 19035
   },
   [301014] = {
     id = 301014,
-    UseEffect = Table_UseItem_t.UseEffect[1943],
+    UseEffect = Table_UseItem_t.UseEffect[1956],
     CDTime = 1,
     UseLimit = 19035
   },
   [301015] = {
     id = 301015,
-    UseEffect = Table_UseItem_t.UseEffect[1955],
+    UseEffect = Table_UseItem_t.UseEffect[1968],
     CDTime = 1,
     UseLimit = 19035
   },
   [301016] = {
     id = 301016,
-    UseEffect = Table_UseItem_t.UseEffect[1956],
+    UseEffect = Table_UseItem_t.UseEffect[1969],
     CDTime = 1,
     UseLimit = 19035
   },
   [301017] = {
     id = 301017,
-    UseEffect = Table_UseItem_t.UseEffect[1957],
+    UseEffect = Table_UseItem_t.UseEffect[1970],
     CDTime = 1,
     UseLimit = 19035
   },
   [301018] = {
     id = 301018,
-    UseEffect = Table_UseItem_t.UseEffect[1963],
+    UseEffect = Table_UseItem_t.UseEffect[1976],
     CDTime = 1,
     UseLimit = 19035
   },
   [301019] = {
     id = 301019,
-    UseEffect = Table_UseItem_t.UseEffect[1949],
+    UseEffect = Table_UseItem_t.UseEffect[1962],
     CDTime = 1,
     UseLimit = 19035
   },
   [301020] = {
     id = 301020,
-    UseEffect = Table_UseItem_t.UseEffect[4123],
+    UseEffect = Table_UseItem_t.UseEffect[4262],
     CDTime = 1,
     UseLimit = 19035
   },
   [301021] = {
     id = 301021,
-    UseEffect = Table_UseItem_t.UseEffect[1960],
+    UseEffect = Table_UseItem_t.UseEffect[1973],
     CDTime = 1,
     UseLimit = 19035
   },
   [301022] = {
     id = 301022,
-    UseEffect = Table_UseItem_t.UseEffect[1946],
+    UseEffect = Table_UseItem_t.UseEffect[1959],
     CDTime = 1,
     UseLimit = 19035
   },
   [301023] = {
     id = 301023,
-    UseEffect = Table_UseItem_t.UseEffect[4124],
+    UseEffect = Table_UseItem_t.UseEffect[4170],
     CDTime = 1,
     UseLimit = 19035
   },
   [301024] = {
     id = 301024,
-    UseEffect = Table_UseItem_t.UseEffect[2077],
+    UseEffect = Table_UseItem_t.UseEffect[4171],
     CDTime = 1,
     UseLimit = 19035
   },
   [301025] = {
     id = 301025,
-    UseEffect = Table_UseItem_t.UseEffect[2663],
+    UseEffect = Table_UseItem_t.UseEffect[2703],
     CDTime = 1,
     UseLimit = 19035
   },
   [301026] = {
     id = 301026,
-    UseEffect = Table_UseItem_t.UseEffect[2664],
+    UseEffect = Table_UseItem_t.UseEffect[2704],
     CDTime = 1,
     UseLimit = 19035
   },
   [301027] = {
     id = 301027,
-    UseEffect = Table_UseItem_t.UseEffect[2665],
+    UseEffect = Table_UseItem_t.UseEffect[2705],
     CDTime = 1,
     UseLimit = 19035
   },
   [301028] = {
     id = 301028,
-    UseEffect = Table_UseItem_t.UseEffect[2666],
+    UseEffect = Table_UseItem_t.UseEffect[2706],
     CDTime = 1,
     UseLimit = 19035
   },
   [301029] = {
     id = 301029,
-    UseEffect = Table_UseItem_t.UseEffect[2667],
+    UseEffect = Table_UseItem_t.UseEffect[2707],
     CDTime = 1,
     UseLimit = 19035
   },
   [301030] = {
     id = 301030,
-    UseEffect = Table_UseItem_t.UseEffect[2668],
+    UseEffect = Table_UseItem_t.UseEffect[2708],
     CDTime = 1,
     UseLimit = 19035
   },
   [301031] = {
     id = 301031,
-    UseEffect = Table_UseItem_t.UseEffect[2669],
+    UseEffect = Table_UseItem_t.UseEffect[2709],
     CDTime = 1,
     UseLimit = 19035
   },
   [301032] = {
     id = 301032,
-    UseEffect = Table_UseItem_t.UseEffect[2670],
+    UseEffect = Table_UseItem_t.UseEffect[2710],
     CDTime = 1,
     UseLimit = 19035
   },
   [301033] = {
     id = 301033,
-    UseEffect = Table_UseItem_t.UseEffect[2671],
+    UseEffect = Table_UseItem_t.UseEffect[2711],
     CDTime = 1,
     UseLimit = 19035
   },
   [301034] = {
     id = 301034,
-    UseEffect = Table_UseItem_t.UseEffect[2672],
+    UseEffect = Table_UseItem_t.UseEffect[2712],
     CDTime = 1,
     UseLimit = 19035
   },
   [310002] = {
     id = 310002,
-    UseEffect = Table_UseItem_t.UseEffect[3426]
+    UseEffect = Table_UseItem_t.UseEffect[3465]
   },
   [310010] = {
     id = 310010,
-    UseEffect = Table_UseItem_t.UseEffect[3434],
+    UseEffect = Table_UseItem_t.UseEffect[3473],
     CDTime = 1
   },
   [310011] = {
     id = 310011,
-    UseEffect = Table_UseItem_t.UseEffect[3435],
+    UseEffect = Table_UseItem_t.UseEffect[3474],
     CDTime = 1
   },
   [310020] = {
     id = 310020,
-    UseEffect = Table_UseItem_t.UseEffect[3444]
+    UseEffect = Table_UseItem_t.UseEffect[3483]
   },
   [310021] = {
     id = 310021,
-    UseEffect = Table_UseItem_t.UseEffect[3445]
+    UseEffect = Table_UseItem_t.UseEffect[3484]
   },
   [310022] = {
     id = 310022,
-    UseEffect = Table_UseItem_t.UseEffect[3446]
+    UseEffect = Table_UseItem_t.UseEffect[3485]
   },
   [380040] = {
     id = 380040,
@@ -43719,181 +43914,181 @@ Table_UseItem = {
   },
   [390000] = {
     id = 390000,
-    UseEffect = Table_UseItem_t.UseEffect[3579],
+    UseEffect = Table_UseItem_t.UseEffect[4172],
     CDTime = 1,
     UseMultiple = 99
   },
   [390001] = {
     id = 390001,
-    UseEffect = Table_UseItem_t.UseEffect[3580],
+    UseEffect = Table_UseItem_t.UseEffect[4173],
     CDTime = 1,
     UseMultiple = 99
   },
   [390002] = {
     id = 390002,
-    UseEffect = Table_UseItem_t.UseEffect[1878],
+    UseEffect = Table_UseItem_t.UseEffect[1891],
     CDTime = 1,
     UseMultiple = 99
   },
   [390010] = {
     id = 390010,
-    UseEffect = Table_UseItem_t.UseEffect[4228],
+    UseEffect = Table_UseItem_t.UseEffect[4174],
     CDTime = 1,
     UseMultiple = 99
   },
   [390011] = {
     id = 390011,
-    UseEffect = Table_UseItem_t.UseEffect[1887],
+    UseEffect = Table_UseItem_t.UseEffect[1900],
     CDTime = 1,
     UseMultiple = 99
   },
   [390012] = {
     id = 390012,
-    UseEffect = Table_UseItem_t.UseEffect[1888],
+    UseEffect = Table_UseItem_t.UseEffect[1901],
     CDTime = 1,
     UseMultiple = 99
   },
   [390020] = {
     id = 390020,
-    UseEffect = Table_UseItem_t.UseEffect[1894],
+    UseEffect = Table_UseItem_t.UseEffect[1907],
     CDTime = 1,
     UseMultiple = 99
   },
   [390021] = {
     id = 390021,
-    UseEffect = Table_UseItem_t.UseEffect[1895],
+    UseEffect = Table_UseItem_t.UseEffect[1908],
     CDTime = 1,
     UseMultiple = 99
   },
   [390022] = {
     id = 390022,
-    UseEffect = Table_UseItem_t.UseEffect[1896],
+    UseEffect = Table_UseItem_t.UseEffect[1909],
     CDTime = 1,
     UseMultiple = 99
   },
   [390030] = {
     id = 390030,
-    UseEffect = Table_UseItem_t.UseEffect[1903],
+    UseEffect = Table_UseItem_t.UseEffect[1916],
     CDTime = 1,
     UseMultiple = 99
   },
   [390031] = {
     id = 390031,
-    UseEffect = Table_UseItem_t.UseEffect[1904],
+    UseEffect = Table_UseItem_t.UseEffect[1917],
     CDTime = 1,
     UseMultiple = 99
   },
   [390032] = {
     id = 390032,
-    UseEffect = Table_UseItem_t.UseEffect[1905],
+    UseEffect = Table_UseItem_t.UseEffect[1918],
     CDTime = 1,
     UseMultiple = 99
   },
   [390100] = {
     id = 390100,
-    UseEffect = Table_UseItem_t.UseEffect[4227],
+    UseEffect = Table_UseItem_t.UseEffect[4175],
     CDTime = 1,
     UseMultiple = 99
   },
   [390101] = {
     id = 390101,
-    UseEffect = Table_UseItem_t.UseEffect[4226],
+    UseEffect = Table_UseItem_t.UseEffect[4255],
     CDTime = 1,
     UseMultiple = 99
   },
   [390102] = {
     id = 390102,
-    UseEffect = Table_UseItem_t.UseEffect[4225],
+    UseEffect = Table_UseItem_t.UseEffect[4254],
     CDTime = 1,
     UseMultiple = 99
   },
   [390110] = {
     id = 390110,
-    UseEffect = Table_UseItem_t.UseEffect[4224],
+    UseEffect = Table_UseItem_t.UseEffect[3619],
     CDTime = 1,
     UseMultiple = 99
   },
   [390111] = {
     id = 390111,
-    UseEffect = Table_UseItem_t.UseEffect[4223],
+    UseEffect = Table_UseItem_t.UseEffect[4252],
     CDTime = 1,
     UseMultiple = 99
   },
   [390112] = {
     id = 390112,
-    UseEffect = Table_UseItem_t.UseEffect[4222],
+    UseEffect = Table_UseItem_t.UseEffect[4251],
     CDTime = 1,
     UseMultiple = 99
   },
   [390120] = {
     id = 390120,
-    UseEffect = Table_UseItem_t.UseEffect[4221],
+    UseEffect = Table_UseItem_t.UseEffect[4250],
     CDTime = 1,
     UseMultiple = 99
   },
   [390121] = {
     id = 390121,
-    UseEffect = Table_UseItem_t.UseEffect[4220],
+    UseEffect = Table_UseItem_t.UseEffect[4249],
     CDTime = 1,
     UseMultiple = 99
   },
   [390122] = {
     id = 390122,
-    UseEffect = Table_UseItem_t.UseEffect[4141],
+    UseEffect = Table_UseItem_t.UseEffect[4248],
     CDTime = 1,
     UseMultiple = 99
   },
   [390130] = {
     id = 390130,
-    UseEffect = Table_UseItem_t.UseEffect[4142],
+    UseEffect = Table_UseItem_t.UseEffect[4247],
     CDTime = 1,
     UseMultiple = 99
   },
   [390131] = {
     id = 390131,
-    UseEffect = Table_UseItem_t.UseEffect[4143],
+    UseEffect = Table_UseItem_t.UseEffect[4246],
     CDTime = 1,
     UseMultiple = 99
   },
   [390132] = {
     id = 390132,
-    UseEffect = Table_UseItem_t.UseEffect[4144],
+    UseEffect = Table_UseItem_t.UseEffect[4245],
     CDTime = 1,
     UseMultiple = 99
   },
   [391005] = {
     id = 391005,
-    UseEffect = Table_UseItem_t.UseEffect[2565],
+    UseEffect = Table_UseItem_t.UseEffect[2606],
     CDTime = 1,
     UseMultiple = 99
   },
   [391006] = {
     id = 391006,
-    UseEffect = Table_UseItem_t.UseEffect[2566],
+    UseEffect = Table_UseItem_t.UseEffect[2607],
     CDTime = 1,
     UseMultiple = 99
   },
   [391007] = {
     id = 391007,
-    UseEffect = Table_UseItem_t.UseEffect[4145],
+    UseEffect = Table_UseItem_t.UseEffect[4244],
     CDTime = 1,
     UseMultiple = 99
   },
   [391008] = {
     id = 391008,
-    UseEffect = Table_UseItem_t.UseEffect[4146],
+    UseEffect = Table_UseItem_t.UseEffect[4243],
     CDTime = 1,
     UseMultiple = 99
   },
   [391009] = {
     id = 391009,
-    UseEffect = Table_UseItem_t.UseEffect[4213],
+    UseEffect = Table_UseItem_t.UseEffect[4242],
     CDTime = 1,
     UseMultiple = 99
   },
   [391010] = {
     id = 391010,
-    UseEffect = Table_UseItem_t.UseEffect[4212],
+    UseEffect = Table_UseItem_t.UseEffect[3620],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -44139,27 +44334,27 @@ Table_UseItem = {
   },
   [430101] = {
     id = 430101,
-    UseEffect = Table_UseItem_t.UseEffect[3581],
+    UseEffect = Table_UseItem_t.UseEffect[4241],
     CDTime = 1
   },
   [430102] = {
     id = 430102,
-    UseEffect = Table_UseItem_t.UseEffect[4210],
+    UseEffect = Table_UseItem_t.UseEffect[4240],
     CDTime = 1
   },
   [430103] = {
     id = 430103,
-    UseEffect = Table_UseItem_t.UseEffect[4209],
+    UseEffect = Table_UseItem_t.UseEffect[3621],
     CDTime = 1
   },
   [430104] = {
     id = 430104,
-    UseEffect = Table_UseItem_t.UseEffect[4208],
+    UseEffect = Table_UseItem_t.UseEffect[4239],
     CDTime = 1
   },
   [430105] = {
     id = 430105,
-    UseEffect = Table_UseItem_t.UseEffect[4207],
+    UseEffect = Table_UseItem_t.UseEffect[4238],
     CDTime = 1
   },
   [430201] = {
@@ -44189,72 +44384,72 @@ Table_UseItem = {
   },
   [430301] = {
     id = 430301,
-    UseEffect = Table_UseItem_t.UseEffect[4206],
+    UseEffect = Table_UseItem_t.UseEffect[4237],
     CDTime = 1
   },
   [430302] = {
     id = 430302,
-    UseEffect = Table_UseItem_t.UseEffect[4205],
+    UseEffect = Table_UseItem_t.UseEffect[4236],
     CDTime = 1
   },
   [430303] = {
     id = 430303,
-    UseEffect = Table_UseItem_t.UseEffect[4204],
+    UseEffect = Table_UseItem_t.UseEffect[4235],
     CDTime = 1
   },
   [430304] = {
     id = 430304,
-    UseEffect = Table_UseItem_t.UseEffect[4203],
+    UseEffect = Table_UseItem_t.UseEffect[4234],
     CDTime = 1
   },
   [430305] = {
     id = 430305,
-    UseEffect = Table_UseItem_t.UseEffect[4202],
+    UseEffect = Table_UseItem_t.UseEffect[4233],
     CDTime = 1
   },
   [430306] = {
     id = 430306,
-    UseEffect = Table_UseItem_t.UseEffect[4201],
+    UseEffect = Table_UseItem_t.UseEffect[4232],
     CDTime = 1
   },
   [430307] = {
     id = 430307,
-    UseEffect = Table_UseItem_t.UseEffect[4200],
+    UseEffect = Table_UseItem_t.UseEffect[4231],
     CDTime = 1
   },
   [430308] = {
     id = 430308,
-    UseEffect = Table_UseItem_t.UseEffect[3582],
+    UseEffect = Table_UseItem_t.UseEffect[4230],
     CDTime = 1
   },
   [430401] = {
     id = 430401,
-    UseEffect = Table_UseItem_t.UseEffect[4199],
+    UseEffect = Table_UseItem_t.UseEffect[4229],
     CDTime = 1
   },
   [430402] = {
     id = 430402,
-    UseEffect = Table_UseItem_t.UseEffect[4198],
+    UseEffect = Table_UseItem_t.UseEffect[4228],
     CDTime = 1
   },
   [430501] = {
     id = 430501,
-    UseEffect = Table_UseItem_t.UseEffect[3583],
+    UseEffect = Table_UseItem_t.UseEffect[4227],
     CDTime = 1
   },
   [430502] = {
     id = 430502,
-    UseEffect = Table_UseItem_t.UseEffect[4197],
+    UseEffect = Table_UseItem_t.UseEffect[4226],
     CDTime = 1
   },
   [430503] = {
     id = 430503,
-    UseEffect = Table_UseItem_t.UseEffect[4196],
+    UseEffect = Table_UseItem_t.UseEffect[4225],
     CDTime = 1
   },
   [430504] = {
     id = 430504,
-    UseEffect = Table_UseItem_t.UseEffect[4195],
+    UseEffect = Table_UseItem_t.UseEffect[4224],
     CDTime = 1
   },
   [430505] = {
@@ -44274,819 +44469,819 @@ Table_UseItem = {
   },
   [430602] = {
     id = 430602,
-    UseEffect = Table_UseItem_t.UseEffect[4194],
+    UseEffect = Table_UseItem_t.UseEffect[4223],
     CDTime = 1
   },
   [430603] = {
     id = 430603,
-    UseEffect = Table_UseItem_t.UseEffect[4193],
+    UseEffect = Table_UseItem_t.UseEffect[4222],
     CDTime = 1
   },
   [430604] = {
     id = 430604,
-    UseEffect = Table_UseItem_t.UseEffect[4192],
+    UseEffect = Table_UseItem_t.UseEffect[4221],
     CDTime = 1
   },
   [430605] = {
     id = 430605,
-    UseEffect = Table_UseItem_t.UseEffect[4191],
+    UseEffect = Table_UseItem_t.UseEffect[4220],
     CDTime = 1
   },
   [430606] = {
     id = 430606,
-    UseEffect = Table_UseItem_t.UseEffect[4190],
+    UseEffect = Table_UseItem_t.UseEffect[4219],
     CDTime = 1
   },
   [430607] = {
     id = 430607,
-    UseEffect = Table_UseItem_t.UseEffect[4189],
+    UseEffect = Table_UseItem_t.UseEffect[4218],
     CDTime = 1
   },
   [430608] = {
     id = 430608,
-    UseEffect = Table_UseItem_t.UseEffect[4188],
+    UseEffect = Table_UseItem_t.UseEffect[4217],
     CDTime = 1
   },
   [430701] = {
     id = 430701,
-    UseEffect = Table_UseItem_t.UseEffect[4187],
+    UseEffect = Table_UseItem_t.UseEffect[4216],
     CDTime = 1
   },
   [430702] = {
     id = 430702,
-    UseEffect = Table_UseItem_t.UseEffect[4186],
+    UseEffect = Table_UseItem_t.UseEffect[4215],
     CDTime = 1
   },
   [430703] = {
     id = 430703,
-    UseEffect = Table_UseItem_t.UseEffect[4185],
+    UseEffect = Table_UseItem_t.UseEffect[4214],
     CDTime = 1
   },
   [430704] = {
     id = 430704,
-    UseEffect = Table_UseItem_t.UseEffect[4184],
+    UseEffect = Table_UseItem_t.UseEffect[4213],
     CDTime = 1
   },
   [430705] = {
     id = 430705,
-    UseEffect = Table_UseItem_t.UseEffect[4183],
+    UseEffect = Table_UseItem_t.UseEffect[4212],
     CDTime = 1
   },
   [430706] = {
     id = 430706,
-    UseEffect = Table_UseItem_t.UseEffect[4182],
+    UseEffect = Table_UseItem_t.UseEffect[4211],
     CDTime = 1
   },
   [430801] = {
     id = 430801,
-    UseEffect = Table_UseItem_t.UseEffect[1852],
+    UseEffect = Table_UseItem_t.UseEffect[1865],
     CDTime = 1
   },
   [430802] = {
     id = 430802,
-    UseEffect = Table_UseItem_t.UseEffect[1853],
+    UseEffect = Table_UseItem_t.UseEffect[1866],
     CDTime = 1
   },
   [430803] = {
     id = 430803,
-    UseEffect = Table_UseItem_t.UseEffect[1854],
+    UseEffect = Table_UseItem_t.UseEffect[1867],
     CDTime = 1
   },
   [430804] = {
     id = 430804,
-    UseEffect = Table_UseItem_t.UseEffect[1855],
+    UseEffect = Table_UseItem_t.UseEffect[1868],
     CDTime = 1
   },
   [430901] = {
     id = 430901,
-    UseEffect = Table_UseItem_t.UseEffect[1867],
+    UseEffect = Table_UseItem_t.UseEffect[1880],
     CDTime = 1
   },
   [430902] = {
     id = 430902,
-    UseEffect = Table_UseItem_t.UseEffect[1868],
+    UseEffect = Table_UseItem_t.UseEffect[1881],
     CDTime = 1
   },
   [430903] = {
     id = 430903,
-    UseEffect = Table_UseItem_t.UseEffect[1869],
+    UseEffect = Table_UseItem_t.UseEffect[1882],
     CDTime = 1
   },
   [430905] = {
     id = 430905,
-    UseEffect = Table_UseItem_t.UseEffect[1870],
+    UseEffect = Table_UseItem_t.UseEffect[1883],
     CDTime = 1
   },
   [430906] = {
     id = 430906,
-    UseEffect = Table_UseItem_t.UseEffect[1871],
+    UseEffect = Table_UseItem_t.UseEffect[1884],
     CDTime = 1
   },
   [430907] = {
     id = 430907,
-    UseEffect = Table_UseItem_t.UseEffect[1872],
+    UseEffect = Table_UseItem_t.UseEffect[1885],
     CDTime = 1
   },
   [431001] = {
     id = 431001,
-    UseEffect = Table_UseItem_t.UseEffect[1906],
+    UseEffect = Table_UseItem_t.UseEffect[1919],
     CDTime = 1
   },
   [431002] = {
     id = 431002,
-    UseEffect = Table_UseItem_t.UseEffect[1907],
+    UseEffect = Table_UseItem_t.UseEffect[1920],
     CDTime = 1
   },
   [431003] = {
     id = 431003,
-    UseEffect = Table_UseItem_t.UseEffect[1908],
+    UseEffect = Table_UseItem_t.UseEffect[1921],
     CDTime = 1
   },
   [431004] = {
     id = 431004,
-    UseEffect = Table_UseItem_t.UseEffect[1909],
+    UseEffect = Table_UseItem_t.UseEffect[1922],
     CDTime = 1
   },
   [431005] = {
     id = 431005,
-    UseEffect = Table_UseItem_t.UseEffect[1910],
+    UseEffect = Table_UseItem_t.UseEffect[1923],
     CDTime = 1
   },
   [431006] = {
     id = 431006,
-    UseEffect = Table_UseItem_t.UseEffect[1911],
+    UseEffect = Table_UseItem_t.UseEffect[1924],
     CDTime = 1
   },
   [431101] = {
     id = 431101,
-    UseEffect = Table_UseItem_t.UseEffect[4181],
+    UseEffect = Table_UseItem_t.UseEffect[4210],
     CDTime = 1
   },
   [431102] = {
     id = 431102,
-    UseEffect = Table_UseItem_t.UseEffect[4180],
+    UseEffect = Table_UseItem_t.UseEffect[4209],
     CDTime = 1
   },
   [431103] = {
     id = 431103,
-    UseEffect = Table_UseItem_t.UseEffect[4179],
+    UseEffect = Table_UseItem_t.UseEffect[4208],
     CDTime = 1
   },
   [431104] = {
     id = 431104,
-    UseEffect = Table_UseItem_t.UseEffect[4178],
+    UseEffect = Table_UseItem_t.UseEffect[4207],
     CDTime = 1
   },
   [431105] = {
     id = 431105,
-    UseEffect = Table_UseItem_t.UseEffect[1969],
+    UseEffect = Table_UseItem_t.UseEffect[1982],
     CDTime = 1
   },
   [431106] = {
     id = 431106,
-    UseEffect = Table_UseItem_t.UseEffect[1970],
+    UseEffect = Table_UseItem_t.UseEffect[1983],
     CDTime = 1
   },
   [431201] = {
     id = 431201,
-    UseEffect = Table_UseItem_t.UseEffect[2028],
+    UseEffect = Table_UseItem_t.UseEffect[2041],
     CDTime = 1
   },
   [431202] = {
     id = 431202,
-    UseEffect = Table_UseItem_t.UseEffect[2029],
+    UseEffect = Table_UseItem_t.UseEffect[2042],
     CDTime = 1
   },
   [431203] = {
     id = 431203,
-    UseEffect = Table_UseItem_t.UseEffect[2030],
+    UseEffect = Table_UseItem_t.UseEffect[2043],
     CDTime = 1
   },
   [431204] = {
     id = 431204,
-    UseEffect = Table_UseItem_t.UseEffect[2031],
+    UseEffect = Table_UseItem_t.UseEffect[2044],
     CDTime = 1
   },
   [431301] = {
     id = 431301,
-    UseEffect = Table_UseItem_t.UseEffect[2042],
+    UseEffect = Table_UseItem_t.UseEffect[2055],
     CDTime = 1
   },
   [431302] = {
     id = 431302,
-    UseEffect = Table_UseItem_t.UseEffect[2043],
+    UseEffect = Table_UseItem_t.UseEffect[2056],
     CDTime = 1
   },
   [431303] = {
     id = 431303,
-    UseEffect = Table_UseItem_t.UseEffect[2044],
+    UseEffect = Table_UseItem_t.UseEffect[2057],
     CDTime = 1
   },
   [431304] = {
     id = 431304,
-    UseEffect = Table_UseItem_t.UseEffect[2045],
+    UseEffect = Table_UseItem_t.UseEffect[2058],
     CDTime = 1
   },
   [431305] = {
     id = 431305,
-    UseEffect = Table_UseItem_t.UseEffect[2046],
+    UseEffect = Table_UseItem_t.UseEffect[2059],
     CDTime = 1
   },
   [431401] = {
     id = 431401,
-    UseEffect = Table_UseItem_t.UseEffect[2061],
+    UseEffect = Table_UseItem_t.UseEffect[2098],
     CDTime = 1
   },
   [431402] = {
     id = 431402,
-    UseEffect = Table_UseItem_t.UseEffect[2062],
+    UseEffect = Table_UseItem_t.UseEffect[2099],
     CDTime = 1
   },
   [431403] = {
     id = 431403,
-    UseEffect = Table_UseItem_t.UseEffect[2063],
+    UseEffect = Table_UseItem_t.UseEffect[2100],
     CDTime = 1
   },
   [431501] = {
     id = 431501,
-    UseEffect = Table_UseItem_t.UseEffect[2131],
+    UseEffect = Table_UseItem_t.UseEffect[2172],
     CDTime = 1
   },
   [431502] = {
     id = 431502,
-    UseEffect = Table_UseItem_t.UseEffect[2132],
+    UseEffect = Table_UseItem_t.UseEffect[2173],
     CDTime = 1
   },
   [431503] = {
     id = 431503,
-    UseEffect = Table_UseItem_t.UseEffect[2133],
+    UseEffect = Table_UseItem_t.UseEffect[2174],
     CDTime = 1
   },
   [431504] = {
     id = 431504,
-    UseEffect = Table_UseItem_t.UseEffect[2134],
+    UseEffect = Table_UseItem_t.UseEffect[2175],
     CDTime = 1
   },
   [431601] = {
     id = 431601,
-    UseEffect = Table_UseItem_t.UseEffect[2219],
+    UseEffect = Table_UseItem_t.UseEffect[2260],
     CDTime = 1
   },
   [431602] = {
     id = 431602,
-    UseEffect = Table_UseItem_t.UseEffect[2220],
+    UseEffect = Table_UseItem_t.UseEffect[2261],
     CDTime = 1
   },
   [431603] = {
     id = 431603,
-    UseEffect = Table_UseItem_t.UseEffect[2221],
+    UseEffect = Table_UseItem_t.UseEffect[2262],
     CDTime = 1
   },
   [431604] = {
     id = 431604,
-    UseEffect = Table_UseItem_t.UseEffect[2222],
+    UseEffect = Table_UseItem_t.UseEffect[2263],
     CDTime = 1
   },
   [431605] = {
     id = 431605,
-    UseEffect = Table_UseItem_t.UseEffect[2223],
+    UseEffect = Table_UseItem_t.UseEffect[2264],
     CDTime = 1
   },
   [431606] = {
     id = 431606,
-    UseEffect = Table_UseItem_t.UseEffect[2224],
+    UseEffect = Table_UseItem_t.UseEffect[2265],
     CDTime = 1
   },
   [431701] = {
     id = 431701,
-    UseEffect = Table_UseItem_t.UseEffect[2315],
+    UseEffect = Table_UseItem_t.UseEffect[2356],
     CDTime = 1
   },
   [431702] = {
     id = 431702,
-    UseEffect = Table_UseItem_t.UseEffect[2316],
+    UseEffect = Table_UseItem_t.UseEffect[2357],
     CDTime = 1
   },
   [431703] = {
     id = 431703,
-    UseEffect = Table_UseItem_t.UseEffect[2317],
+    UseEffect = Table_UseItem_t.UseEffect[2358],
     CDTime = 1
   },
   [431801] = {
     id = 431801,
-    UseEffect = Table_UseItem_t.UseEffect[4177],
+    UseEffect = Table_UseItem_t.UseEffect[4206],
     CDTime = 1
   },
   [431802] = {
     id = 431802,
-    UseEffect = Table_UseItem_t.UseEffect[4176],
+    UseEffect = Table_UseItem_t.UseEffect[4205],
     CDTime = 1
   },
   [431803] = {
     id = 431803,
-    UseEffect = Table_UseItem_t.UseEffect[4175],
+    UseEffect = Table_UseItem_t.UseEffect[4204],
     CDTime = 1
   },
   [431804] = {
     id = 431804,
-    UseEffect = Table_UseItem_t.UseEffect[4174],
+    UseEffect = Table_UseItem_t.UseEffect[4203],
     CDTime = 1
   },
   [431901] = {
     id = 431901,
-    UseEffect = Table_UseItem_t.UseEffect[2506],
+    UseEffect = Table_UseItem_t.UseEffect[2547],
     CDTime = 1
   },
   [431902] = {
     id = 431902,
-    UseEffect = Table_UseItem_t.UseEffect[2507],
+    UseEffect = Table_UseItem_t.UseEffect[2548],
     CDTime = 1
   },
   [431903] = {
     id = 431903,
-    UseEffect = Table_UseItem_t.UseEffect[2508],
+    UseEffect = Table_UseItem_t.UseEffect[2549],
     CDTime = 1
   },
   [431904] = {
     id = 431904,
-    UseEffect = Table_UseItem_t.UseEffect[4173],
+    UseEffect = Table_UseItem_t.UseEffect[4202],
     CDTime = 1
   },
   [432001] = {
     id = 432001,
-    UseEffect = Table_UseItem_t.UseEffect[4172],
+    UseEffect = Table_UseItem_t.UseEffect[4201],
     CDTime = 1
   },
   [432002] = {
     id = 432002,
-    UseEffect = Table_UseItem_t.UseEffect[4171],
+    UseEffect = Table_UseItem_t.UseEffect[4200],
     CDTime = 1
   },
   [432003] = {
     id = 432003,
-    UseEffect = Table_UseItem_t.UseEffect[4170],
+    UseEffect = Table_UseItem_t.UseEffect[4199],
     CDTime = 1
   },
   [432004] = {
     id = 432004,
-    UseEffect = Table_UseItem_t.UseEffect[4169],
+    UseEffect = Table_UseItem_t.UseEffect[4198],
     CDTime = 1
   },
   [432005] = {
     id = 432005,
-    UseEffect = Table_UseItem_t.UseEffect[2595],
+    UseEffect = Table_UseItem_t.UseEffect[2635],
     CDTime = 1
   },
   [432101] = {
     id = 432101,
-    UseEffect = Table_UseItem_t.UseEffect[2683],
+    UseEffect = Table_UseItem_t.UseEffect[2723],
     CDTime = 1
   },
   [432102] = {
     id = 432102,
-    UseEffect = Table_UseItem_t.UseEffect[2684],
+    UseEffect = Table_UseItem_t.UseEffect[2724],
     CDTime = 1
   },
   [432103] = {
     id = 432103,
-    UseEffect = Table_UseItem_t.UseEffect[2685],
+    UseEffect = Table_UseItem_t.UseEffect[2725],
     CDTime = 1
   },
   [432104] = {
     id = 432104,
-    UseEffect = Table_UseItem_t.UseEffect[2686],
+    UseEffect = Table_UseItem_t.UseEffect[2726],
     CDTime = 1
   },
   [432201] = {
     id = 432201,
-    UseEffect = Table_UseItem_t.UseEffect[2777],
+    UseEffect = Table_UseItem_t.UseEffect[2817],
     CDTime = 1
   },
   [432202] = {
     id = 432202,
-    UseEffect = Table_UseItem_t.UseEffect[2778],
+    UseEffect = Table_UseItem_t.UseEffect[2818],
     CDTime = 1
   },
   [432203] = {
     id = 432203,
-    UseEffect = Table_UseItem_t.UseEffect[2779],
+    UseEffect = Table_UseItem_t.UseEffect[2819],
     CDTime = 1
   },
   [432204] = {
     id = 432204,
-    UseEffect = Table_UseItem_t.UseEffect[2780],
+    UseEffect = Table_UseItem_t.UseEffect[2820],
     CDTime = 1
   },
   [432301] = {
     id = 432301,
-    UseEffect = Table_UseItem_t.UseEffect[2873],
+    UseEffect = Table_UseItem_t.UseEffect[2912],
     CDTime = 1
   },
   [432302] = {
     id = 432302,
-    UseEffect = Table_UseItem_t.UseEffect[2874],
+    UseEffect = Table_UseItem_t.UseEffect[2913],
     CDTime = 1
   },
   [432303] = {
     id = 432303,
-    UseEffect = Table_UseItem_t.UseEffect[2875],
+    UseEffect = Table_UseItem_t.UseEffect[2914],
     CDTime = 1
   },
   [432304] = {
     id = 432304,
-    UseEffect = Table_UseItem_t.UseEffect[2876],
+    UseEffect = Table_UseItem_t.UseEffect[2915],
     CDTime = 1
   },
   [432305] = {
     id = 432305,
-    UseEffect = Table_UseItem_t.UseEffect[2877],
+    UseEffect = Table_UseItem_t.UseEffect[2916],
     CDTime = 1
   },
   [432401] = {
     id = 432401,
-    UseEffect = Table_UseItem_t.UseEffect[4168],
+    UseEffect = Table_UseItem_t.UseEffect[4197],
     CDTime = 1
   },
   [432402] = {
     id = 432402,
-    UseEffect = Table_UseItem_t.UseEffect[4167],
+    UseEffect = Table_UseItem_t.UseEffect[4196],
     CDTime = 1
   },
   [432403] = {
     id = 432403,
-    UseEffect = Table_UseItem_t.UseEffect[2975],
+    UseEffect = Table_UseItem_t.UseEffect[3014],
     CDTime = 1
   },
   [432501] = {
     id = 432501,
-    UseEffect = Table_UseItem_t.UseEffect[3071],
+    UseEffect = Table_UseItem_t.UseEffect[3110],
     CDTime = 1
   },
   [432502] = {
     id = 432502,
-    UseEffect = Table_UseItem_t.UseEffect[3072],
+    UseEffect = Table_UseItem_t.UseEffect[3111],
     CDTime = 1
   },
   [432503] = {
     id = 432503,
-    UseEffect = Table_UseItem_t.UseEffect[3073],
+    UseEffect = Table_UseItem_t.UseEffect[3112],
     CDTime = 1
   },
   [432504] = {
     id = 432504,
-    UseEffect = Table_UseItem_t.UseEffect[4166],
+    UseEffect = Table_UseItem_t.UseEffect[4195],
     CDTime = 1
   },
   [432505] = {
     id = 432505,
-    UseEffect = Table_UseItem_t.UseEffect[4165],
+    UseEffect = Table_UseItem_t.UseEffect[4194],
     CDTime = 1
   },
   [432601] = {
     id = 432601,
-    UseEffect = Table_UseItem_t.UseEffect[4164],
+    UseEffect = Table_UseItem_t.UseEffect[4193],
     CDTime = 1
   },
   [432602] = {
     id = 432602,
-    UseEffect = Table_UseItem_t.UseEffect[4163],
+    UseEffect = Table_UseItem_t.UseEffect[4192],
     CDTime = 1
   },
   [432603] = {
     id = 432603,
-    UseEffect = Table_UseItem_t.UseEffect[3173],
+    UseEffect = Table_UseItem_t.UseEffect[3212],
     CDTime = 1
   },
   [432604] = {
     id = 432604,
-    UseEffect = Table_UseItem_t.UseEffect[3174],
+    UseEffect = Table_UseItem_t.UseEffect[3213],
     CDTime = 1
   },
   [432701] = {
     id = 432701,
-    UseEffect = Table_UseItem_t.UseEffect[3268],
+    UseEffect = Table_UseItem_t.UseEffect[3307],
     CDTime = 1
   },
   [432702] = {
     id = 432702,
-    UseEffect = Table_UseItem_t.UseEffect[3269],
+    UseEffect = Table_UseItem_t.UseEffect[3308],
     CDTime = 1
   },
   [432703] = {
     id = 432703,
-    UseEffect = Table_UseItem_t.UseEffect[3270],
+    UseEffect = Table_UseItem_t.UseEffect[3309],
     CDTime = 1
   },
   [432704] = {
     id = 432704,
-    UseEffect = Table_UseItem_t.UseEffect[3271],
+    UseEffect = Table_UseItem_t.UseEffect[3310],
     CDTime = 1
   },
   [432801] = {
     id = 432801,
-    UseEffect = Table_UseItem_t.UseEffect[4162],
+    UseEffect = Table_UseItem_t.UseEffect[4191],
     CDTime = 1
   },
   [432802] = {
     id = 432802,
-    UseEffect = Table_UseItem_t.UseEffect[4161],
+    UseEffect = Table_UseItem_t.UseEffect[4190],
     CDTime = 1
   },
   [432803] = {
     id = 432803,
-    UseEffect = Table_UseItem_t.UseEffect[4160],
+    UseEffect = Table_UseItem_t.UseEffect[4189],
     CDTime = 1
   },
   [432804] = {
     id = 432804,
-    UseEffect = Table_UseItem_t.UseEffect[4159],
+    UseEffect = Table_UseItem_t.UseEffect[4188],
     CDTime = 1
   },
   [432805] = {
     id = 432805,
-    UseEffect = Table_UseItem_t.UseEffect[4158],
+    UseEffect = Table_UseItem_t.UseEffect[4187],
     CDTime = 1
   },
   [432901] = {
     id = 432901,
-    UseEffect = Table_UseItem_t.UseEffect[3460],
+    UseEffect = Table_UseItem_t.UseEffect[3499],
     CDTime = 1
   },
   [432902] = {
     id = 432902,
-    UseEffect = Table_UseItem_t.UseEffect[3461],
+    UseEffect = Table_UseItem_t.UseEffect[3500],
     CDTime = 1
   },
   [433001] = {
     id = 433001,
-    UseEffect = Table_UseItem_t.UseEffect[4157],
+    UseEffect = Table_UseItem_t.UseEffect[4186],
     CDTime = 1
   },
   [433002] = {
     id = 433002,
-    UseEffect = Table_UseItem_t.UseEffect[4156],
+    UseEffect = Table_UseItem_t.UseEffect[4185],
     CDTime = 1
   },
   [433003] = {
     id = 433003,
-    UseEffect = Table_UseItem_t.UseEffect[4155],
+    UseEffect = Table_UseItem_t.UseEffect[4184],
     CDTime = 1
   },
   [433101] = {
     id = 433101,
-    UseEffect = Table_UseItem_t.UseEffect[3625],
+    UseEffect = Table_UseItem_t.UseEffect[3665],
     CDTime = 1
   },
   [433102] = {
     id = 433102,
-    UseEffect = Table_UseItem_t.UseEffect[3626],
+    UseEffect = Table_UseItem_t.UseEffect[3666],
     CDTime = 1
   },
   [433103] = {
     id = 433103,
-    UseEffect = Table_UseItem_t.UseEffect[3627],
+    UseEffect = Table_UseItem_t.UseEffect[3667],
     CDTime = 1
   },
   [433104] = {
     id = 433104,
-    UseEffect = Table_UseItem_t.UseEffect[3628],
+    UseEffect = Table_UseItem_t.UseEffect[3668],
     CDTime = 1
   },
   [433105] = {
     id = 433105,
-    UseEffect = Table_UseItem_t.UseEffect[3629],
+    UseEffect = Table_UseItem_t.UseEffect[3669],
     CDTime = 1
   },
   [433201] = {
     id = 433201,
-    UseEffect = Table_UseItem_t.UseEffect[4154],
+    UseEffect = Table_UseItem_t.UseEffect[4183],
     CDTime = 1
   },
   [433202] = {
     id = 433202,
-    UseEffect = Table_UseItem_t.UseEffect[4153],
+    UseEffect = Table_UseItem_t.UseEffect[4182],
     CDTime = 1
   },
   [433203] = {
     id = 433203,
-    UseEffect = Table_UseItem_t.UseEffect[4152],
+    UseEffect = Table_UseItem_t.UseEffect[4181],
     CDTime = 1
   },
   [433204] = {
     id = 433204,
-    UseEffect = Table_UseItem_t.UseEffect[4151],
+    UseEffect = Table_UseItem_t.UseEffect[4180],
     CDTime = 1
   },
   [433205] = {
     id = 433205,
-    UseEffect = Table_UseItem_t.UseEffect[4150],
+    UseEffect = Table_UseItem_t.UseEffect[4179],
     CDTime = 1
   },
   [433301] = {
     id = 433301,
-    UseEffect = Table_UseItem_t.UseEffect[3749],
+    UseEffect = Table_UseItem_t.UseEffect[3787],
     CDTime = 1
   },
   [433302] = {
     id = 433302,
-    UseEffect = Table_UseItem_t.UseEffect[3750],
+    UseEffect = Table_UseItem_t.UseEffect[3788],
     CDTime = 1
   },
   [433303] = {
     id = 433303,
-    UseEffect = Table_UseItem_t.UseEffect[3751],
+    UseEffect = Table_UseItem_t.UseEffect[3789],
     CDTime = 1
   },
   [433304] = {
     id = 433304,
-    UseEffect = Table_UseItem_t.UseEffect[3752],
+    UseEffect = Table_UseItem_t.UseEffect[3790],
     CDTime = 1
   },
   [433401] = {
     id = 433401,
-    UseEffect = Table_UseItem_t.UseEffect[3837],
+    UseEffect = Table_UseItem_t.UseEffect[3875],
     CDTime = 1
   },
   [433402] = {
     id = 433402,
-    UseEffect = Table_UseItem_t.UseEffect[3838],
+    UseEffect = Table_UseItem_t.UseEffect[3876],
     CDTime = 1
   },
   [433403] = {
     id = 433403,
-    UseEffect = Table_UseItem_t.UseEffect[3839],
+    UseEffect = Table_UseItem_t.UseEffect[3877],
     CDTime = 1
   },
   [433501] = {
     id = 433501,
-    UseEffect = Table_UseItem_t.UseEffect[3927],
+    UseEffect = Table_UseItem_t.UseEffect[3967],
     CDTime = 1
   },
   [433502] = {
     id = 433502,
-    UseEffect = Table_UseItem_t.UseEffect[3928],
+    UseEffect = Table_UseItem_t.UseEffect[3968],
     CDTime = 1
   },
   [433601] = {
     id = 433601,
-    UseEffect = Table_UseItem_t.UseEffect[4149],
+    UseEffect = Table_UseItem_t.UseEffect[4151],
     CDTime = 1
   },
   [433602] = {
     id = 433602,
-    UseEffect = Table_UseItem_t.UseEffect[4148],
+    UseEffect = Table_UseItem_t.UseEffect[4152],
     CDTime = 1
   },
   [433603] = {
     id = 433603,
-    UseEffect = Table_UseItem_t.UseEffect[4147],
+    UseEffect = Table_UseItem_t.UseEffect[4153],
     CDTime = 1
   },
   [433701] = {
     id = 433701,
-    UseEffect = Table_UseItem_t.UseEffect[4120],
+    UseEffect = Table_UseItem_t.UseEffect[4158],
     CDTime = 1
   },
   [433702] = {
     id = 433702,
-    UseEffect = Table_UseItem_t.UseEffect[4121],
+    UseEffect = Table_UseItem_t.UseEffect[4159],
     CDTime = 1
   },
   [433703] = {
     id = 433703,
-    UseEffect = Table_UseItem_t.UseEffect[4122],
+    UseEffect = Table_UseItem_t.UseEffect[4160],
     CDTime = 1
   },
   [433801] = {
     id = 433801,
-    UseEffect = Table_UseItem_t.UseEffect[4214],
+    UseEffect = Table_UseItem_t.UseEffect[4256],
     CDTime = 1
   },
   [433802] = {
     id = 433802,
-    UseEffect = Table_UseItem_t.UseEffect[4215],
+    UseEffect = Table_UseItem_t.UseEffect[4257],
     CDTime = 1
   },
   [433803] = {
     id = 433803,
-    UseEffect = Table_UseItem_t.UseEffect[4216],
+    UseEffect = Table_UseItem_t.UseEffect[4258],
     CDTime = 1
   },
   [433804] = {
     id = 433804,
-    UseEffect = Table_UseItem_t.UseEffect[4217],
+    UseEffect = Table_UseItem_t.UseEffect[4259],
     CDTime = 1
   },
   [433805] = {
     id = 433805,
-    UseEffect = Table_UseItem_t.UseEffect[4218],
+    UseEffect = Table_UseItem_t.UseEffect[4260],
     CDTime = 1
   },
   [433806] = {
     id = 433806,
-    UseEffect = Table_UseItem_t.UseEffect[4219],
+    UseEffect = Table_UseItem_t.UseEffect[4261],
     CDTime = 1
   },
   [433901] = {
     id = 433901,
-    UseEffect = Table_UseItem_t.UseEffect[4298],
+    UseEffect = Table_UseItem_t.UseEffect[4339],
     CDTime = 1
   },
   [433902] = {
     id = 433902,
-    UseEffect = Table_UseItem_t.UseEffect[4299],
+    UseEffect = Table_UseItem_t.UseEffect[4340],
     CDTime = 1
   },
   [433903] = {
     id = 433903,
-    UseEffect = Table_UseItem_t.UseEffect[4300],
+    UseEffect = Table_UseItem_t.UseEffect[4341],
     CDTime = 1
   },
   [433904] = {
     id = 433904,
-    UseEffect = Table_UseItem_t.UseEffect[4301],
+    UseEffect = Table_UseItem_t.UseEffect[4342],
     CDTime = 1
   },
   [433905] = {
     id = 433905,
-    UseEffect = Table_UseItem_t.UseEffect[4302],
+    UseEffect = Table_UseItem_t.UseEffect[4343],
     CDTime = 1
   },
   [433906] = {
     id = 433906,
-    UseEffect = Table_UseItem_t.UseEffect[4303],
+    UseEffect = Table_UseItem_t.UseEffect[4344],
     CDTime = 1
   },
   [433907] = {
     id = 433907,
-    UseEffect = Table_UseItem_t.UseEffect[4304],
+    UseEffect = Table_UseItem_t.UseEffect[4345],
     CDTime = 1
   },
   [434001] = {
     id = 434001,
-    UseEffect = Table_UseItem_t.UseEffect[4133],
+    UseEffect = Table_UseItem_t.UseEffect[4162],
     CDTime = 1
   },
   [434002] = {
     id = 434002,
-    UseEffect = Table_UseItem_t.UseEffect[4132],
+    UseEffect = Table_UseItem_t.UseEffect[4161],
     CDTime = 1
   },
   [434003] = {
     id = 434003,
-    UseEffect = Table_UseItem_t.UseEffect[4131],
+    UseEffect = Table_UseItem_t.UseEffect[4157],
     CDTime = 1
   },
   [434004] = {
     id = 434004,
-    UseEffect = Table_UseItem_t.UseEffect[4352],
+    UseEffect = Table_UseItem_t.UseEffect[4381],
     CDTime = 1
   },
   [434005] = {
     id = 434005,
-    UseEffect = Table_UseItem_t.UseEffect[4353],
+    UseEffect = Table_UseItem_t.UseEffect[4382],
     CDTime = 1
   },
   [434006] = {
     id = 434006,
-    UseEffect = Table_UseItem_t.UseEffect[4354],
+    UseEffect = Table_UseItem_t.UseEffect[4383],
     CDTime = 1
   },
   [450001] = {
     id = 450001,
-    UseEffect = Table_UseItem_t.UseEffect[4130]
+    UseEffect = Table_UseItem_t.UseEffect[4156]
   },
   [450002] = {
     id = 450002,
-    UseEffect = Table_UseItem_t.UseEffect[4129]
+    UseEffect = Table_UseItem_t.UseEffect[4155]
   },
   [450003] = {
     id = 450003,
-    UseEffect = Table_UseItem_t.UseEffect[4128]
+    UseEffect = Table_UseItem_t.UseEffect[4154]
   },
   [450101] = {
     id = 450101,
-    UseEffect = Table_UseItem_t.UseEffect[4134]
+    UseEffect = Table_UseItem_t.UseEffect[4176]
   },
   [450102] = {
     id = 450102,
-    UseEffect = Table_UseItem_t.UseEffect[4135]
+    UseEffect = Table_UseItem_t.UseEffect[4177]
   },
   [450103] = {
     id = 450103,
-    UseEffect = Table_UseItem_t.UseEffect[4136]
+    UseEffect = Table_UseItem_t.UseEffect[4178]
   },
   [450201] = {
     id = 450201,
-    UseEffect = Table_UseItem_t.UseEffect[4232]
+    UseEffect = Table_UseItem_t.UseEffect[4266]
   },
   [450202] = {
     id = 450202,
-    UseEffect = Table_UseItem_t.UseEffect[4233]
+    UseEffect = Table_UseItem_t.UseEffect[4267]
   },
   [450203] = {
     id = 450203,
-    UseEffect = Table_UseItem_t.UseEffect[4234]
+    UseEffect = Table_UseItem_t.UseEffect[4268]
   },
   [451001] = {
     id = 451001,
@@ -45102,11 +45297,11 @@ Table_UseItem = {
   },
   [451101] = {
     id = 451101,
-    UseEffect = Table_UseItem_t.UseEffect[4119]
+    UseEffect = Table_UseItem_t.UseEffect[3622]
   },
   [451102] = {
     id = 451102,
-    UseEffect = Table_UseItem_t.UseEffect[4118]
+    UseEffect = Table_UseItem_t.UseEffect[3623]
   },
   [451103] = {
     id = 451103,
@@ -45203,12 +45398,12 @@ Table_UseItem = {
   },
   [500200] = {
     id = 500200,
-    UseEffect = Table_UseItem_t.UseEffect[4117],
+    UseEffect = Table_UseItem_t.UseEffect[4145],
     CDTime = 5
   },
   [500201] = {
     id = 500201,
-    UseEffect = Table_UseItem_t.UseEffect[4116],
+    UseEffect = Table_UseItem_t.UseEffect[4144],
     CDTime = 5
   },
   [500400] = {
@@ -45268,7 +45463,7 @@ Table_UseItem = {
   },
   [500506] = {
     id = 500506,
-    UseEffect = Table_UseItem_t.UseEffect[4115],
+    UseEffect = Table_UseItem_t.UseEffect[4143],
     CDTime = 5,
     UseLimit = 4213337
   },
@@ -45807,43 +46002,43 @@ Table_UseItem = {
   },
   [551801] = {
     id = 551801,
-    UseEffect = Table_UseItem_t.UseEffect[4114],
+    UseEffect = Table_UseItem_t.UseEffect[4142],
     CDTime = 0.1
   },
   [551802] = {
     id = 551802,
-    UseEffect = Table_UseItem_t.UseEffect[4113],
+    UseEffect = Table_UseItem_t.UseEffect[4141],
     CDTime = 0.1
   },
   [551803] = {
     id = 551803,
-    UseEffect = Table_UseItem_t.UseEffect[4112],
+    UseEffect = Table_UseItem_t.UseEffect[4140],
     CDTime = 0.1
   },
   [551804] = {
     id = 551804,
-    UseEffect = Table_UseItem_t.UseEffect[4111],
+    UseEffect = Table_UseItem_t.UseEffect[4139],
     CDTime = 0.1
   },
   [551805] = {
     id = 551805,
-    UseEffect = Table_UseItem_t.UseEffect[4110],
+    UseEffect = Table_UseItem_t.UseEffect[4138],
     CDTime = 0.1
   },
   [551806] = {
     id = 551806,
-    UseEffect = Table_UseItem_t.UseEffect[4109],
+    UseEffect = Table_UseItem_t.UseEffect[3624],
     CDTime = 0.1
   },
   [551807] = {
     id = 551807,
-    UseEffect = Table_UseItem_t.UseEffect[4108],
+    UseEffect = Table_UseItem_t.UseEffect[3625],
     CDTime = 1,
     UseMultiple = 99
   },
   [551808] = {
     id = 551808,
-    UseEffect = Table_UseItem_t.UseEffect[3584],
+    UseEffect = Table_UseItem_t.UseEffect[4136],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -45867,7 +46062,7 @@ Table_UseItem = {
   },
   [551812] = {
     id = 551812,
-    UseEffect = Table_UseItem_t.UseEffect[3585],
+    UseEffect = Table_UseItem_t.UseEffect[4135],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -45903,52 +46098,52 @@ Table_UseItem = {
   },
   [555020] = {
     id = 555020,
-    UseEffect = Table_UseItem_t.UseEffect[2737],
+    UseEffect = Table_UseItem_t.UseEffect[2777],
     CDTime = 1
   },
   [555021] = {
     id = 555021,
-    UseEffect = Table_UseItem_t.UseEffect[2738],
+    UseEffect = Table_UseItem_t.UseEffect[2778],
     CDTime = 1
   },
   [555022] = {
     id = 555022,
-    UseEffect = Table_UseItem_t.UseEffect[2739],
+    UseEffect = Table_UseItem_t.UseEffect[2779],
     CDTime = 1
   },
   [555023] = {
     id = 555023,
-    UseEffect = Table_UseItem_t.UseEffect[2740],
+    UseEffect = Table_UseItem_t.UseEffect[2780],
     CDTime = 1
   },
   [555024] = {
     id = 555024,
-    UseEffect = Table_UseItem_t.UseEffect[2741],
+    UseEffect = Table_UseItem_t.UseEffect[2781],
     CDTime = 1
   },
   [555025] = {
     id = 555025,
-    UseEffect = Table_UseItem_t.UseEffect[2742],
+    UseEffect = Table_UseItem_t.UseEffect[2782],
     CDTime = 1
   },
   [555026] = {
     id = 555026,
-    UseEffect = Table_UseItem_t.UseEffect[2743],
+    UseEffect = Table_UseItem_t.UseEffect[2783],
     CDTime = 1
   },
   [555027] = {
     id = 555027,
-    UseEffect = Table_UseItem_t.UseEffect[2744],
+    UseEffect = Table_UseItem_t.UseEffect[2784],
     CDTime = 1
   },
   [555028] = {
     id = 555028,
-    UseEffect = Table_UseItem_t.UseEffect[2745],
+    UseEffect = Table_UseItem_t.UseEffect[2785],
     CDTime = 1
   },
   [555029] = {
     id = 555029,
-    UseEffect = Table_UseItem_t.UseEffect[2746],
+    UseEffect = Table_UseItem_t.UseEffect[2786],
     CDTime = 1
   },
   [600001] = {
@@ -45996,86 +46191,86 @@ Table_UseItem = {
   },
   [700005] = {
     id = 700005,
-    UseEffect = Table_UseItem_t.UseEffect[4105],
+    UseEffect = Table_UseItem_t.UseEffect[3626],
     CDTime = 5,
     UseLimit = 2048
   },
   [700006] = {
     id = 700006,
-    UseEffect = Table_UseItem_t.UseEffect[4104],
+    UseEffect = Table_UseItem_t.UseEffect[3627],
     CDTime = 5,
     UseLimit = 2048
   },
   [700010] = {
     id = 700010,
-    UseEffect = Table_UseItem_t.UseEffect[4103],
+    UseEffect = Table_UseItem_t.UseEffect[3628],
     CDTime = 5,
     UseLimit = 2048
   },
   [700012] = {
     id = 700012,
-    UseEffect = Table_UseItem_t.UseEffect[4102],
+    UseEffect = Table_UseItem_t.UseEffect[3629],
     CDTime = 5,
     UseLimit = 18513
   },
   [700019] = {
     id = 700019,
-    UseEffect = Table_UseItem_t.UseEffect[4101],
+    UseEffect = Table_UseItem_t.UseEffect[3630],
     CDTime = 1
   },
   [700020] = {
     id = 700020,
-    UseEffect = Table_UseItem_t.UseEffect[4100],
+    UseEffect = Table_UseItem_t.UseEffect[3631],
     CDTime = 1
   },
   [700106] = {
     id = 700106,
-    UseEffect = Table_UseItem_t.UseEffect[3590],
+    UseEffect = Table_UseItem_t.UseEffect[3632],
     CDTime = 2,
     UseLimit = 18496
   },
   [700108] = {
     id = 700108,
-    UseEffect = Table_UseItem_t.UseEffect[4099],
+    UseEffect = Table_UseItem_t.UseEffect[3633],
     CDTime = 1
   },
   [700110] = {
     id = 700110,
-    UseEffect = Table_UseItem_t.UseEffect[4098],
+    UseEffect = Table_UseItem_t.UseEffect[3634],
     CDTime = 1
   },
   [700114] = {
     id = 700114,
-    UseEffect = Table_UseItem_t.UseEffect[3586],
+    UseEffect = Table_UseItem_t.UseEffect[3635],
     CDTime = 1,
     UseLimit = 18513
   },
   [700115] = {
     id = 700115,
-    UseEffect = Table_UseItem_t.UseEffect[3587],
+    UseEffect = Table_UseItem_t.UseEffect[3636],
     CDTime = 1,
     UseLimit = 18513
   },
   [700116] = {
     id = 700116,
-    UseEffect = Table_UseItem_t.UseEffect[4096],
+    UseEffect = Table_UseItem_t.UseEffect[3637],
     CDTime = 1
   },
   [700117] = {
     id = 700117,
-    UseEffect = Table_UseItem_t.UseEffect[4095],
+    UseEffect = Table_UseItem_t.UseEffect[3638],
     CDTime = 1,
     UseLimit = 18513
   },
   [700118] = {
     id = 700118,
-    UseEffect = Table_UseItem_t.UseEffect[3588],
+    UseEffect = Table_UseItem_t.UseEffect[3639],
     CDTime = 1,
     UseLimit = 18513
   },
   [700120] = {
     id = 700120,
-    UseEffect = Table_UseItem_t.UseEffect[3589],
+    UseEffect = Table_UseItem_t.UseEffect[3640],
     CDTime = 1
   },
   [700131] = {
@@ -46085,7 +46280,7 @@ Table_UseItem = {
   },
   [700142] = {
     id = 700142,
-    UseEffect = Table_UseItem_t.UseEffect[3590],
+    UseEffect = Table_UseItem_t.UseEffect[3632],
     CDTime = 2,
     UseLimit = 18496
   },
@@ -46109,7 +46304,7 @@ Table_UseItem = {
   },
   [700171] = {
     id = 700171,
-    UseEffect = Table_UseItem_t.UseEffect[3591],
+    UseEffect = Table_UseItem_t.UseEffect[3641],
     CDTime = 60
   },
   [700172] = {
@@ -46126,764 +46321,764 @@ Table_UseItem = {
   },
   [710014] = {
     id = 710014,
-    UseEffect = Table_UseItem_t.UseEffect[3592],
+    UseEffect = Table_UseItem_t.UseEffect[3642],
     CDTime = 1
   },
   [710015] = {
     id = 710015,
-    UseEffect = Table_UseItem_t.UseEffect[3593],
+    UseEffect = Table_UseItem_t.UseEffect[4113],
     CDTime = 1
   },
   [710016] = {
     id = 710016,
-    UseEffect = Table_UseItem_t.UseEffect[3594],
+    UseEffect = Table_UseItem_t.UseEffect[3643],
     CDTime = 1
   },
   [710017] = {
     id = 710017,
-    UseEffect = Table_UseItem_t.UseEffect[2153],
+    UseEffect = Table_UseItem_t.UseEffect[2194],
     CDTime = 1
   },
   [710018] = {
     id = 710018,
-    UseEffect = Table_UseItem_t.UseEffect[2154],
+    UseEffect = Table_UseItem_t.UseEffect[2195],
     CDTime = 1
   },
   [710019] = {
     id = 710019,
-    UseEffect = Table_UseItem_t.UseEffect[2155],
+    UseEffect = Table_UseItem_t.UseEffect[2196],
     CDTime = 1
   },
   [710020] = {
     id = 710020,
-    UseEffect = Table_UseItem_t.UseEffect[2156],
+    UseEffect = Table_UseItem_t.UseEffect[2197],
     CDTime = 1
   },
   [710021] = {
     id = 710021,
-    UseEffect = Table_UseItem_t.UseEffect[2157],
+    UseEffect = Table_UseItem_t.UseEffect[2198],
     CDTime = 1
   },
   [710022] = {
     id = 710022,
-    UseEffect = Table_UseItem_t.UseEffect[2158],
+    UseEffect = Table_UseItem_t.UseEffect[2199],
     CDTime = 1
   },
   [710023] = {
     id = 710023,
-    UseEffect = Table_UseItem_t.UseEffect[2159],
+    UseEffect = Table_UseItem_t.UseEffect[2200],
     CDTime = 1
   },
   [710024] = {
     id = 710024,
-    UseEffect = Table_UseItem_t.UseEffect[2160],
+    UseEffect = Table_UseItem_t.UseEffect[2201],
     CDTime = 1
   },
   [710025] = {
     id = 710025,
-    UseEffect = Table_UseItem_t.UseEffect[2161],
+    UseEffect = Table_UseItem_t.UseEffect[2202],
     CDTime = 1
   },
   [710026] = {
     id = 710026,
-    UseEffect = Table_UseItem_t.UseEffect[3595],
+    UseEffect = Table_UseItem_t.UseEffect[4095],
     UseLimit = 2129
   },
   [710028] = {
     id = 710028,
-    UseEffect = Table_UseItem_t.UseEffect[3596]
+    UseEffect = Table_UseItem_t.UseEffect[4094]
   },
   [710029] = {
     id = 710029,
-    UseEffect = Table_UseItem_t.UseEffect[3597]
+    UseEffect = Table_UseItem_t.UseEffect[4093]
   },
   [710032] = {
     id = 710032,
-    UseEffect = Table_UseItem_t.UseEffect[3598]
+    UseEffect = Table_UseItem_t.UseEffect[4092]
   },
   [710033] = {
     id = 710033,
-    UseEffect = Table_UseItem_t.UseEffect[3599]
+    UseEffect = Table_UseItem_t.UseEffect[4091]
   },
   [710034] = {
     id = 710034,
-    UseEffect = Table_UseItem_t.UseEffect[2163]
+    UseEffect = Table_UseItem_t.UseEffect[2204]
   },
   [710035] = {
     id = 710035,
-    UseEffect = Table_UseItem_t.UseEffect[2164]
+    UseEffect = Table_UseItem_t.UseEffect[2205]
   },
   [710036] = {
     id = 710036,
-    UseEffect = Table_UseItem_t.UseEffect[2165]
+    UseEffect = Table_UseItem_t.UseEffect[2206]
   },
   [710037] = {
     id = 710037,
-    UseEffect = Table_UseItem_t.UseEffect[2166]
+    UseEffect = Table_UseItem_t.UseEffect[2207]
   },
   [710038] = {
     id = 710038,
-    UseEffect = Table_UseItem_t.UseEffect[2167]
+    UseEffect = Table_UseItem_t.UseEffect[2208]
   },
   [710039] = {
     id = 710039,
-    UseEffect = Table_UseItem_t.UseEffect[2168]
+    UseEffect = Table_UseItem_t.UseEffect[2209]
   },
   [710040] = {
     id = 710040,
-    UseEffect = Table_UseItem_t.UseEffect[2169]
+    UseEffect = Table_UseItem_t.UseEffect[2210]
   },
   [710041] = {
     id = 710041,
-    UseEffect = Table_UseItem_t.UseEffect[2170]
+    UseEffect = Table_UseItem_t.UseEffect[2211]
   },
   [710042] = {
     id = 710042,
-    UseEffect = Table_UseItem_t.UseEffect[2171]
+    UseEffect = Table_UseItem_t.UseEffect[2212]
   },
   [710043] = {
     id = 710043,
-    UseEffect = Table_UseItem_t.UseEffect[2172]
+    UseEffect = Table_UseItem_t.UseEffect[2213]
   },
   [710044] = {
     id = 710044,
-    UseEffect = Table_UseItem_t.UseEffect[2173],
+    UseEffect = Table_UseItem_t.UseEffect[2214],
     CDTime = 1
   },
   [710045] = {
     id = 710045,
-    UseEffect = Table_UseItem_t.UseEffect[2174],
+    UseEffect = Table_UseItem_t.UseEffect[2215],
     CDTime = 1
   },
   [710111] = {
     id = 710111,
-    UseEffect = Table_UseItem_t.UseEffect[2235]
+    UseEffect = Table_UseItem_t.UseEffect[2276]
   },
   [710112] = {
     id = 710112,
-    UseEffect = Table_UseItem_t.UseEffect[2236]
+    UseEffect = Table_UseItem_t.UseEffect[2277]
   },
   [710113] = {
     id = 710113,
-    UseEffect = Table_UseItem_t.UseEffect[2237]
+    UseEffect = Table_UseItem_t.UseEffect[2278]
   },
   [710114] = {
     id = 710114,
-    UseEffect = Table_UseItem_t.UseEffect[2238]
+    UseEffect = Table_UseItem_t.UseEffect[2279]
   },
   [710115] = {
     id = 710115,
-    UseEffect = Table_UseItem_t.UseEffect[2239]
+    UseEffect = Table_UseItem_t.UseEffect[2280]
   },
   [710116] = {
     id = 710116,
-    UseEffect = Table_UseItem_t.UseEffect[2240]
+    UseEffect = Table_UseItem_t.UseEffect[2281]
   },
   [710117] = {
     id = 710117,
-    UseEffect = Table_UseItem_t.UseEffect[2241]
+    UseEffect = Table_UseItem_t.UseEffect[2282]
   },
   [710118] = {
     id = 710118,
-    UseEffect = Table_UseItem_t.UseEffect[2242]
+    UseEffect = Table_UseItem_t.UseEffect[2283]
   },
   [710119] = {
     id = 710119,
-    UseEffect = Table_UseItem_t.UseEffect[2243]
+    UseEffect = Table_UseItem_t.UseEffect[2284]
   },
   [710120] = {
     id = 710120,
-    UseEffect = Table_UseItem_t.UseEffect[2244]
+    UseEffect = Table_UseItem_t.UseEffect[2285]
   },
   [720000] = {
     id = 720000,
-    UseEffect = Table_UseItem_t.UseEffect[3763],
+    UseEffect = Table_UseItem_t.UseEffect[3800],
     CDTime = 1,
     UseMultiple = 99
   },
   [720001] = {
     id = 720001,
-    UseEffect = Table_UseItem_t.UseEffect[3763],
+    UseEffect = Table_UseItem_t.UseEffect[3800],
     CDTime = 1,
     UseMultiple = 99
   },
   [720002] = {
     id = 720002,
-    UseEffect = Table_UseItem_t.UseEffect[3763],
+    UseEffect = Table_UseItem_t.UseEffect[3800],
     CDTime = 1,
     UseMultiple = 99
   },
   [800101] = {
     id = 800101,
-    UseEffect = Table_UseItem_t.UseEffect[2136]
+    UseEffect = Table_UseItem_t.UseEffect[2177]
   },
   [800102] = {
     id = 800102,
-    UseEffect = Table_UseItem_t.UseEffect[2137]
+    UseEffect = Table_UseItem_t.UseEffect[2178]
   },
   [800103] = {
     id = 800103,
-    UseEffect = Table_UseItem_t.UseEffect[2138]
+    UseEffect = Table_UseItem_t.UseEffect[2179]
   },
   [800104] = {
     id = 800104,
-    UseEffect = Table_UseItem_t.UseEffect[2139]
+    UseEffect = Table_UseItem_t.UseEffect[2180]
   },
   [800105] = {
     id = 800105,
-    UseEffect = Table_UseItem_t.UseEffect[2140]
+    UseEffect = Table_UseItem_t.UseEffect[2181]
   },
   [800106] = {
     id = 800106,
-    UseEffect = Table_UseItem_t.UseEffect[2141]
+    UseEffect = Table_UseItem_t.UseEffect[2182]
   },
   [800107] = {
     id = 800107,
-    UseEffect = Table_UseItem_t.UseEffect[3600]
+    UseEffect = Table_UseItem_t.UseEffect[4075]
   },
   [800108] = {
     id = 800108,
-    UseEffect = Table_UseItem_t.UseEffect[3601]
+    UseEffect = Table_UseItem_t.UseEffect[4074]
   },
   [800109] = {
     id = 800109,
-    UseEffect = Table_UseItem_t.UseEffect[3602]
+    UseEffect = Table_UseItem_t.UseEffect[4073]
   },
   [800110] = {
     id = 800110,
-    UseEffect = Table_UseItem_t.UseEffect[3603]
+    UseEffect = Table_UseItem_t.UseEffect[4072]
   },
   [800111] = {
     id = 800111,
-    UseEffect = Table_UseItem_t.UseEffect[3604]
+    UseEffect = Table_UseItem_t.UseEffect[4071]
   },
   [800112] = {
     id = 800112,
-    UseEffect = Table_UseItem_t.UseEffect[3605]
+    UseEffect = Table_UseItem_t.UseEffect[4055]
   },
   [800201] = {
     id = 800201,
-    UseEffect = Table_UseItem_t.UseEffect[4073]
+    UseEffect = Table_UseItem_t.UseEffect[4054]
   },
   [800202] = {
     id = 800202,
-    UseEffect = Table_UseItem_t.UseEffect[2225]
+    UseEffect = Table_UseItem_t.UseEffect[2266]
   },
   [800203] = {
     id = 800203,
-    UseEffect = Table_UseItem_t.UseEffect[2226]
+    UseEffect = Table_UseItem_t.UseEffect[2267]
   },
   [800204] = {
     id = 800204,
-    UseEffect = Table_UseItem_t.UseEffect[2227]
+    UseEffect = Table_UseItem_t.UseEffect[2268]
   },
   [800205] = {
     id = 800205,
-    UseEffect = Table_UseItem_t.UseEffect[2228]
+    UseEffect = Table_UseItem_t.UseEffect[2269]
   },
   [800206] = {
     id = 800206,
-    UseEffect = Table_UseItem_t.UseEffect[2229]
+    UseEffect = Table_UseItem_t.UseEffect[2270]
   },
   [800207] = {
     id = 800207,
-    UseEffect = Table_UseItem_t.UseEffect[2230]
+    UseEffect = Table_UseItem_t.UseEffect[2271]
   },
   [800208] = {
     id = 800208,
-    UseEffect = Table_UseItem_t.UseEffect[2231]
+    UseEffect = Table_UseItem_t.UseEffect[2272]
   },
   [800209] = {
     id = 800209,
-    UseEffect = Table_UseItem_t.UseEffect[2232]
+    UseEffect = Table_UseItem_t.UseEffect[2273]
   },
   [800210] = {
     id = 800210,
-    UseEffect = Table_UseItem_t.UseEffect[2233]
+    UseEffect = Table_UseItem_t.UseEffect[2274]
   },
   [800211] = {
     id = 800211,
-    UseEffect = Table_UseItem_t.UseEffect[2234]
+    UseEffect = Table_UseItem_t.UseEffect[2275]
   },
   [800212] = {
     id = 800212,
-    UseEffect = Table_UseItem_t.UseEffect[2076]
+    UseEffect = Table_UseItem_t.UseEffect[4053]
   },
   [800301] = {
     id = 800301,
-    UseEffect = Table_UseItem_t.UseEffect[2320]
+    UseEffect = Table_UseItem_t.UseEffect[2361]
   },
   [800302] = {
     id = 800302,
-    UseEffect = Table_UseItem_t.UseEffect[2321]
+    UseEffect = Table_UseItem_t.UseEffect[2362]
   },
   [800303] = {
     id = 800303,
-    UseEffect = Table_UseItem_t.UseEffect[2322]
+    UseEffect = Table_UseItem_t.UseEffect[2363]
   },
   [800304] = {
     id = 800304,
-    UseEffect = Table_UseItem_t.UseEffect[2323]
+    UseEffect = Table_UseItem_t.UseEffect[2364]
   },
   [800305] = {
     id = 800305,
-    UseEffect = Table_UseItem_t.UseEffect[2324]
+    UseEffect = Table_UseItem_t.UseEffect[2365]
   },
   [800306] = {
     id = 800306,
-    UseEffect = Table_UseItem_t.UseEffect[2325]
+    UseEffect = Table_UseItem_t.UseEffect[2366]
   },
   [800307] = {
     id = 800307,
-    UseEffect = Table_UseItem_t.UseEffect[2326]
+    UseEffect = Table_UseItem_t.UseEffect[2367]
   },
   [800308] = {
     id = 800308,
-    UseEffect = Table_UseItem_t.UseEffect[2327]
+    UseEffect = Table_UseItem_t.UseEffect[2368]
   },
   [800309] = {
     id = 800309,
-    UseEffect = Table_UseItem_t.UseEffect[2328]
+    UseEffect = Table_UseItem_t.UseEffect[2369]
   },
   [800310] = {
     id = 800310,
-    UseEffect = Table_UseItem_t.UseEffect[2329]
+    UseEffect = Table_UseItem_t.UseEffect[2370]
   },
   [800311] = {
     id = 800311,
-    UseEffect = Table_UseItem_t.UseEffect[2330]
+    UseEffect = Table_UseItem_t.UseEffect[2371]
   },
   [800312] = {
     id = 800312,
-    UseEffect = Table_UseItem_t.UseEffect[2331]
+    UseEffect = Table_UseItem_t.UseEffect[2372]
   },
   [800313] = {
     id = 800313,
-    UseEffect = Table_UseItem_t.UseEffect[2332]
+    UseEffect = Table_UseItem_t.UseEffect[2373]
   },
   [800402] = {
     id = 800402,
-    UseEffect = Table_UseItem_t.UseEffect[2418]
+    UseEffect = Table_UseItem_t.UseEffect[2459]
   },
   [800403] = {
     id = 800403,
-    UseEffect = Table_UseItem_t.UseEffect[2419]
+    UseEffect = Table_UseItem_t.UseEffect[2460]
   },
   [800404] = {
     id = 800404,
-    UseEffect = Table_UseItem_t.UseEffect[2420]
+    UseEffect = Table_UseItem_t.UseEffect[2461]
   },
   [800405] = {
     id = 800405,
-    UseEffect = Table_UseItem_t.UseEffect[2421]
+    UseEffect = Table_UseItem_t.UseEffect[2462]
   },
   [800406] = {
     id = 800406,
-    UseEffect = Table_UseItem_t.UseEffect[2075]
+    UseEffect = Table_UseItem_t.UseEffect[4052]
   },
   [800407] = {
     id = 800407,
-    UseEffect = Table_UseItem_t.UseEffect[2074]
+    UseEffect = Table_UseItem_t.UseEffect[4051]
   },
   [800408] = {
     id = 800408,
-    UseEffect = Table_UseItem_t.UseEffect[2424]
+    UseEffect = Table_UseItem_t.UseEffect[2465]
   },
   [800409] = {
     id = 800409,
-    UseEffect = Table_UseItem_t.UseEffect[2425]
+    UseEffect = Table_UseItem_t.UseEffect[2466]
   },
   [800410] = {
     id = 800410,
-    UseEffect = Table_UseItem_t.UseEffect[2426]
+    UseEffect = Table_UseItem_t.UseEffect[2467]
   },
   [800411] = {
     id = 800411,
-    UseEffect = Table_UseItem_t.UseEffect[2427]
+    UseEffect = Table_UseItem_t.UseEffect[2468]
   },
   [800412] = {
     id = 800412,
-    UseEffect = Table_UseItem_t.UseEffect[4055]
+    UseEffect = Table_UseItem_t.UseEffect[4035]
   },
   [800501] = {
     id = 800501,
-    UseEffect = Table_UseItem_t.UseEffect[2511]
+    UseEffect = Table_UseItem_t.UseEffect[2552]
   },
   [800502] = {
     id = 800502,
-    UseEffect = Table_UseItem_t.UseEffect[2512]
+    UseEffect = Table_UseItem_t.UseEffect[2553]
   },
   [800503] = {
     id = 800503,
-    UseEffect = Table_UseItem_t.UseEffect[2513]
+    UseEffect = Table_UseItem_t.UseEffect[2554]
   },
   [800504] = {
     id = 800504,
-    UseEffect = Table_UseItem_t.UseEffect[2514]
+    UseEffect = Table_UseItem_t.UseEffect[2555]
   },
   [800505] = {
     id = 800505,
-    UseEffect = Table_UseItem_t.UseEffect[2515]
+    UseEffect = Table_UseItem_t.UseEffect[2556]
   },
   [800506] = {
     id = 800506,
-    UseEffect = Table_UseItem_t.UseEffect[2516]
+    UseEffect = Table_UseItem_t.UseEffect[2557]
   },
   [800507] = {
     id = 800507,
-    UseEffect = Table_UseItem_t.UseEffect[2517]
+    UseEffect = Table_UseItem_t.UseEffect[2558]
   },
   [800508] = {
     id = 800508,
-    UseEffect = Table_UseItem_t.UseEffect[2518]
+    UseEffect = Table_UseItem_t.UseEffect[2559]
   },
   [800509] = {
     id = 800509,
-    UseEffect = Table_UseItem_t.UseEffect[2519]
+    UseEffect = Table_UseItem_t.UseEffect[2560]
   },
   [800510] = {
     id = 800510,
-    UseEffect = Table_UseItem_t.UseEffect[2520]
+    UseEffect = Table_UseItem_t.UseEffect[2561]
   },
   [800511] = {
     id = 800511,
-    UseEffect = Table_UseItem_t.UseEffect[2521]
+    UseEffect = Table_UseItem_t.UseEffect[2562]
   },
   [800512] = {
     id = 800512,
-    UseEffect = Table_UseItem_t.UseEffect[2522]
+    UseEffect = Table_UseItem_t.UseEffect[2563]
   },
   [800601] = {
     id = 800601,
-    UseEffect = Table_UseItem_t.UseEffect[4054]
+    UseEffect = Table_UseItem_t.UseEffect[4034]
   },
   [800602] = {
     id = 800602,
-    UseEffect = Table_UseItem_t.UseEffect[2596]
+    UseEffect = Table_UseItem_t.UseEffect[2636]
   },
   [800603] = {
     id = 800603,
-    UseEffect = Table_UseItem_t.UseEffect[2597]
+    UseEffect = Table_UseItem_t.UseEffect[2637]
   },
   [800604] = {
     id = 800604,
-    UseEffect = Table_UseItem_t.UseEffect[2598]
+    UseEffect = Table_UseItem_t.UseEffect[2638]
   },
   [800605] = {
     id = 800605,
-    UseEffect = Table_UseItem_t.UseEffect[2599]
+    UseEffect = Table_UseItem_t.UseEffect[2639]
   },
   [800606] = {
     id = 800606,
-    UseEffect = Table_UseItem_t.UseEffect[4053]
+    UseEffect = Table_UseItem_t.UseEffect[4033]
   },
   [800607] = {
     id = 800607,
-    UseEffect = Table_UseItem_t.UseEffect[2600]
+    UseEffect = Table_UseItem_t.UseEffect[2640]
   },
   [800608] = {
     id = 800608,
-    UseEffect = Table_UseItem_t.UseEffect[4052]
+    UseEffect = Table_UseItem_t.UseEffect[4032]
   },
   [800609] = {
     id = 800609,
-    UseEffect = Table_UseItem_t.UseEffect[2601]
+    UseEffect = Table_UseItem_t.UseEffect[2641]
   },
   [800610] = {
     id = 800610,
-    UseEffect = Table_UseItem_t.UseEffect[4051]
+    UseEffect = Table_UseItem_t.UseEffect[4031]
   },
   [800611] = {
     id = 800611,
-    UseEffect = Table_UseItem_t.UseEffect[2602]
+    UseEffect = Table_UseItem_t.UseEffect[2642]
   },
   [800612] = {
     id = 800612,
-    UseEffect = Table_UseItem_t.UseEffect[2603]
+    UseEffect = Table_UseItem_t.UseEffect[2643]
   },
   [800701] = {
     id = 800701,
-    UseEffect = Table_UseItem_t.UseEffect[2688]
+    UseEffect = Table_UseItem_t.UseEffect[2728]
   },
   [800702] = {
     id = 800702,
-    UseEffect = Table_UseItem_t.UseEffect[2689]
+    UseEffect = Table_UseItem_t.UseEffect[2729]
   },
   [800703] = {
     id = 800703,
-    UseEffect = Table_UseItem_t.UseEffect[2690]
+    UseEffect = Table_UseItem_t.UseEffect[2730]
   },
   [800704] = {
     id = 800704,
-    UseEffect = Table_UseItem_t.UseEffect[2691]
+    UseEffect = Table_UseItem_t.UseEffect[2731]
   },
   [800705] = {
     id = 800705,
-    UseEffect = Table_UseItem_t.UseEffect[2692]
+    UseEffect = Table_UseItem_t.UseEffect[2732]
   },
   [800706] = {
     id = 800706,
-    UseEffect = Table_UseItem_t.UseEffect[2693]
+    UseEffect = Table_UseItem_t.UseEffect[2733]
   },
   [800707] = {
     id = 800707,
-    UseEffect = Table_UseItem_t.UseEffect[2694]
+    UseEffect = Table_UseItem_t.UseEffect[2734]
   },
   [800708] = {
     id = 800708,
-    UseEffect = Table_UseItem_t.UseEffect[2695]
+    UseEffect = Table_UseItem_t.UseEffect[2735]
   },
   [800709] = {
     id = 800709,
-    UseEffect = Table_UseItem_t.UseEffect[2696]
+    UseEffect = Table_UseItem_t.UseEffect[2736]
   },
   [800710] = {
     id = 800710,
-    UseEffect = Table_UseItem_t.UseEffect[2697]
+    UseEffect = Table_UseItem_t.UseEffect[2737]
   },
   [800711] = {
     id = 800711,
-    UseEffect = Table_UseItem_t.UseEffect[2698]
+    UseEffect = Table_UseItem_t.UseEffect[2738]
   },
   [800712] = {
     id = 800712,
-    UseEffect = Table_UseItem_t.UseEffect[2699]
+    UseEffect = Table_UseItem_t.UseEffect[2739]
   },
   [800801] = {
     id = 800801,
-    UseEffect = Table_UseItem_t.UseEffect[2782]
+    UseEffect = Table_UseItem_t.UseEffect[2822]
   },
   [810001] = {
     id = 810001,
-    UseEffect = Table_UseItem_t.UseEffect[4035]
+    UseEffect = Table_UseItem_t.UseEffect[4015]
   },
   [810002] = {
     id = 810002,
-    UseEffect = Table_UseItem_t.UseEffect[4034]
+    UseEffect = Table_UseItem_t.UseEffect[4014]
   },
   [810003] = {
     id = 810003,
-    UseEffect = Table_UseItem_t.UseEffect[4033],
+    UseEffect = Table_UseItem_t.UseEffect[4013],
     CDTime = 1
   },
   [810004] = {
     id = 810004,
-    UseEffect = Table_UseItem_t.UseEffect[4032],
+    UseEffect = Table_UseItem_t.UseEffect[4012],
     CDTime = 1
   },
   [810005] = {
     id = 810005,
-    UseEffect = Table_UseItem_t.UseEffect[4031]
+    UseEffect = Table_UseItem_t.UseEffect[4011]
   },
   [810006] = {
     id = 810006,
-    UseEffect = Table_UseItem_t.UseEffect[4015]
+    UseEffect = Table_UseItem_t.UseEffect[3995]
   },
   [810007] = {
     id = 810007,
-    UseEffect = Table_UseItem_t.UseEffect[4014]
+    UseEffect = Table_UseItem_t.UseEffect[3994]
   },
   [810008] = {
     id = 810008,
-    UseEffect = Table_UseItem_t.UseEffect[4013]
+    UseEffect = Table_UseItem_t.UseEffect[3993]
   },
   [810009] = {
     id = 810009,
-    UseEffect = Table_UseItem_t.UseEffect[4012]
+    UseEffect = Table_UseItem_t.UseEffect[3992]
   },
   [900001] = {
     id = 900001,
-    UseEffect = Table_UseItem_t.UseEffect[3636],
+    UseEffect = Table_UseItem_t.UseEffect[3676],
     CDTime = 1
   },
   [900002] = {
     id = 900002,
-    UseEffect = Table_UseItem_t.UseEffect[3637],
+    UseEffect = Table_UseItem_t.UseEffect[3677],
     CDTime = 1
   },
   [900003] = {
     id = 900003,
-    UseEffect = Table_UseItem_t.UseEffect[3638],
+    UseEffect = Table_UseItem_t.UseEffect[3678],
     CDTime = 1
   },
   [900004] = {
     id = 900004,
-    UseEffect = Table_UseItem_t.UseEffect[3639],
+    UseEffect = Table_UseItem_t.UseEffect[3679],
     CDTime = 1
   },
   [900005] = {
     id = 900005,
-    UseEffect = Table_UseItem_t.UseEffect[3640],
+    UseEffect = Table_UseItem_t.UseEffect[3680],
     CDTime = 1
   },
   [900006] = {
     id = 900006,
-    UseEffect = Table_UseItem_t.UseEffect[3641],
+    UseEffect = Table_UseItem_t.UseEffect[3681],
     CDTime = 1
   },
   [900007] = {
     id = 900007,
-    UseEffect = Table_UseItem_t.UseEffect[3642],
+    UseEffect = Table_UseItem_t.UseEffect[3682],
     CDTime = 1
   },
   [900008] = {
     id = 900008,
-    UseEffect = Table_UseItem_t.UseEffect[3643],
+    UseEffect = Table_UseItem_t.UseEffect[3683],
     CDTime = 1
   },
   [900009] = {
     id = 900009,
-    UseEffect = Table_UseItem_t.UseEffect[3644],
+    UseEffect = Table_UseItem_t.UseEffect[3684],
     CDTime = 1
   },
   [900010] = {
     id = 900010,
-    UseEffect = Table_UseItem_t.UseEffect[3645],
+    UseEffect = Table_UseItem_t.UseEffect[3685],
     CDTime = 1
   },
   [900011] = {
     id = 900011,
-    UseEffect = Table_UseItem_t.UseEffect[3646],
+    UseEffect = Table_UseItem_t.UseEffect[3686],
     CDTime = 1
   },
   [900012] = {
     id = 900012,
-    UseEffect = Table_UseItem_t.UseEffect[3647],
+    UseEffect = Table_UseItem_t.UseEffect[3687],
     CDTime = 1
   },
   [900017] = {
     id = 900017,
-    UseEffect = Table_UseItem_t.UseEffect[3651],
+    UseEffect = Table_UseItem_t.UseEffect[3690],
     CDTime = 1
   },
   [900018] = {
     id = 900018,
-    UseEffect = Table_UseItem_t.UseEffect[3652],
+    UseEffect = Table_UseItem_t.UseEffect[3691],
     CDTime = 1
   },
   [900019] = {
     id = 900019,
-    UseEffect = Table_UseItem_t.UseEffect[3653],
+    UseEffect = Table_UseItem_t.UseEffect[3692],
     CDTime = 1
   },
   [900020] = {
     id = 900020,
-    UseEffect = Table_UseItem_t.UseEffect[3654],
+    UseEffect = Table_UseItem_t.UseEffect[3693],
     CDTime = 1
   },
   [900021] = {
     id = 900021,
-    UseEffect = Table_UseItem_t.UseEffect[3655],
+    UseEffect = Table_UseItem_t.UseEffect[3694],
     CDTime = 1
   },
   [900022] = {
     id = 900022,
-    UseEffect = Table_UseItem_t.UseEffect[3656],
+    UseEffect = Table_UseItem_t.UseEffect[3695],
     CDTime = 1
   },
   [900023] = {
     id = 900023,
-    UseEffect = Table_UseItem_t.UseEffect[3657],
+    UseEffect = Table_UseItem_t.UseEffect[3696],
     CDTime = 1
   },
   [900024] = {
     id = 900024,
-    UseEffect = Table_UseItem_t.UseEffect[3658],
+    UseEffect = Table_UseItem_t.UseEffect[3697],
     CDTime = 1
   },
   [900025] = {
     id = 900025,
-    UseEffect = Table_UseItem_t.UseEffect[3659],
+    UseEffect = Table_UseItem_t.UseEffect[3698],
     CDTime = 1
   },
   [900026] = {
     id = 900026,
-    UseEffect = Table_UseItem_t.UseEffect[3660],
+    UseEffect = Table_UseItem_t.UseEffect[3699],
     CDTime = 1
   },
   [900027] = {
     id = 900027,
-    UseEffect = Table_UseItem_t.UseEffect[3661],
+    UseEffect = Table_UseItem_t.UseEffect[3700],
     CDTime = 1
   },
   [900028] = {
     id = 900028,
-    UseEffect = Table_UseItem_t.UseEffect[3662],
+    UseEffect = Table_UseItem_t.UseEffect[3701],
     CDTime = 1
   },
   [900029] = {
     id = 900029,
-    UseEffect = Table_UseItem_t.UseEffect[3663],
+    UseEffect = Table_UseItem_t.UseEffect[3702],
     CDTime = 1
   },
   [900030] = {
     id = 900030,
-    UseEffect = Table_UseItem_t.UseEffect[3664],
+    UseEffect = Table_UseItem_t.UseEffect[3703],
     CDTime = 1
   },
   [900031] = {
     id = 900031,
-    UseEffect = Table_UseItem_t.UseEffect[3665],
+    UseEffect = Table_UseItem_t.UseEffect[3704],
     CDTime = 1
   },
   [900032] = {
     id = 900032,
-    UseEffect = Table_UseItem_t.UseEffect[3666],
+    UseEffect = Table_UseItem_t.UseEffect[3705],
     CDTime = 1
   },
   [900033] = {
     id = 900033,
-    UseEffect = Table_UseItem_t.UseEffect[3667],
+    UseEffect = Table_UseItem_t.UseEffect[3706],
     CDTime = 1
   },
   [900034] = {
     id = 900034,
-    UseEffect = Table_UseItem_t.UseEffect[3668],
+    UseEffect = Table_UseItem_t.UseEffect[3707],
     CDTime = 1
   },
   [900035] = {
     id = 900035,
-    UseEffect = Table_UseItem_t.UseEffect[3669],
+    UseEffect = Table_UseItem_t.UseEffect[3708],
     CDTime = 1
   },
   [900041] = {
     id = 900041,
-    UseEffect = Table_UseItem_t.UseEffect[3674],
+    UseEffect = Table_UseItem_t.UseEffect[3713],
     CDTime = 1
   },
   [900042] = {
     id = 900042,
-    UseEffect = Table_UseItem_t.UseEffect[3675],
+    UseEffect = Table_UseItem_t.UseEffect[3714],
     CDTime = 1
   },
   [900043] = {
     id = 900043,
-    UseEffect = Table_UseItem_t.UseEffect[3676],
+    UseEffect = Table_UseItem_t.UseEffect[3715],
     CDTime = 1
   },
   [900044] = {
     id = 900044,
-    UseEffect = Table_UseItem_t.UseEffect[3677],
+    UseEffect = Table_UseItem_t.UseEffect[3716],
     CDTime = 1
   },
   [900045] = {
     id = 900045,
-    UseEffect = Table_UseItem_t.UseEffect[3678],
+    UseEffect = Table_UseItem_t.UseEffect[3717],
     CDTime = 1
   },
   [900046] = {
     id = 900046,
-    UseEffect = Table_UseItem_t.UseEffect[3679],
+    UseEffect = Table_UseItem_t.UseEffect[3718],
     CDTime = 1
   },
   [900047] = {
     id = 900047,
-    UseEffect = Table_UseItem_t.UseEffect[3680],
+    UseEffect = Table_UseItem_t.UseEffect[3719],
     CDTime = 1
   },
   [901000] = {
     id = 901000,
-    UseEffect = Table_UseItem_t.UseEffect[4391]
+    UseEffect = Table_UseItem_t.UseEffect[4420]
   },
   [901010] = {
     UseEffect = Table_UseItem_t.UseEffect[1]
@@ -46990,22 +47185,22 @@ Table_UseItem = {
   },
   [902002] = {
     id = 902002,
-    UseEffect = Table_UseItem_t.UseEffect[3995],
+    UseEffect = Table_UseItem_t.UseEffect[3990],
     CDTime = 1
   },
   [902003] = {
     id = 902003,
-    UseEffect = Table_UseItem_t.UseEffect[3994],
+    UseEffect = Table_UseItem_t.UseEffect[3989],
     CDTime = 1
   },
   [902011] = {
     id = 902011,
-    UseEffect = Table_UseItem_t.UseEffect[3993],
+    UseEffect = Table_UseItem_t.UseEffect[3988],
     CDTime = 1
   },
   [902012] = {
     id = 902012,
-    UseEffect = Table_UseItem_t.UseEffect[3992],
+    UseEffect = Table_UseItem_t.UseEffect[3987],
     CDTime = 1
   },
   [902033] = {
@@ -47448,13 +47643,13 @@ Table_UseItem = {
   },
   [3001030] = {
     id = 3001030,
-    UseEffect = Table_UseItem_t.UseEffect[3945],
+    UseEffect = Table_UseItem_t.UseEffect[3660],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001031] = {
     id = 3001031,
-    UseEffect = Table_UseItem_t.UseEffect[3621],
+    UseEffect = Table_UseItem_t.UseEffect[3661],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -47478,7 +47673,7 @@ Table_UseItem = {
   },
   [3001035] = {
     id = 3001035,
-    UseEffect = Table_UseItem_t.UseEffect[3622],
+    UseEffect = Table_UseItem_t.UseEffect[2104],
     CDTime = 300,
     CDGroup = 3001035,
     UseLimit = 50777
@@ -47653,89 +47848,89 @@ Table_UseItem = {
   },
   [3001423] = {
     id = 3001423,
-    UseEffect = Table_UseItem_t.UseEffect[3623],
+    UseEffect = Table_UseItem_t.UseEffect[3663],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001424] = {
     id = 3001424,
-    UseEffect = Table_UseItem_t.UseEffect[3624],
+    UseEffect = Table_UseItem_t.UseEffect[3981],
     CDTime = 1,
     CDGroup = 3001424,
     UseMultiple = 99
   },
   [3001426] = {
     id = 3001426,
-    UseEffect = Table_UseItem_t.UseEffect[3630],
+    UseEffect = Table_UseItem_t.UseEffect[3980],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001428] = {
     id = 3001428,
-    UseEffect = Table_UseItem_t.UseEffect[3941]
+    UseEffect = Table_UseItem_t.UseEffect[3979]
   },
   [3001429] = {
     id = 3001429,
-    UseEffect = Table_UseItem_t.UseEffect[3940]
+    UseEffect = Table_UseItem_t.UseEffect[3978]
   },
   [3001430] = {
     id = 3001430,
-    UseEffect = Table_UseItem_t.UseEffect[3939]
+    UseEffect = Table_UseItem_t.UseEffect[3977]
   },
   [3001431] = {
     id = 3001431,
-    UseEffect = Table_UseItem_t.UseEffect[3938],
+    UseEffect = Table_UseItem_t.UseEffect[3976],
     CDTime = 1,
     CDGroup = 3001431,
     UseMultiple = 99
   },
   [3001432] = {
     id = 3001432,
-    UseEffect = Table_UseItem_t.UseEffect[3937],
+    UseEffect = Table_UseItem_t.UseEffect[3975],
     CDTime = 1,
     CDGroup = 3001432,
     UseMultiple = 99
   },
   [3001433] = {
     id = 3001433,
-    UseEffect = Table_UseItem_t.UseEffect[3936],
+    UseEffect = Table_UseItem_t.UseEffect[3974],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001439] = {
     id = 3001439,
-    UseEffect = Table_UseItem_t.UseEffect[3935],
+    UseEffect = Table_UseItem_t.UseEffect[3973],
     CDTime = 1,
     CDGroup = 3001439,
     UseMultiple = 99
   },
   [3001474] = {
     id = 3001474,
-    UseEffect = Table_UseItem_t.UseEffect[3934],
+    UseEffect = Table_UseItem_t.UseEffect[3972],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001475] = {
     id = 3001475,
-    UseEffect = Table_UseItem_t.UseEffect[3933],
+    UseEffect = Table_UseItem_t.UseEffect[3971],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001476] = {
     id = 3001476,
-    UseEffect = Table_UseItem_t.UseEffect[3932],
+    UseEffect = Table_UseItem_t.UseEffect[3970],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001477] = {
     id = 3001477,
-    UseEffect = Table_UseItem_t.UseEffect[3931],
+    UseEffect = Table_UseItem_t.UseEffect[3969],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001478] = {
     id = 3001478,
-    UseEffect = Table_UseItem_t.UseEffect[3930],
+    UseEffect = Table_UseItem_t.UseEffect[3966],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -47747,59 +47942,59 @@ Table_UseItem = {
   },
   [3001480] = {
     id = 3001480,
-    UseEffect = Table_UseItem_t.UseEffect[3929],
+    UseEffect = Table_UseItem_t.UseEffect[3965],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001481] = {
     id = 3001481,
-    UseEffect = Table_UseItem_t.UseEffect[3926],
+    UseEffect = Table_UseItem_t.UseEffect[3964],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001483] = {
     id = 3001483,
-    UseEffect = Table_UseItem_t.UseEffect[3925],
+    UseEffect = Table_UseItem_t.UseEffect[3963],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001484] = {
     id = 3001484,
-    UseEffect = Table_UseItem_t.UseEffect[3924],
+    UseEffect = Table_UseItem_t.UseEffect[3962],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001491] = {
     id = 3001491,
-    UseEffect = Table_UseItem_t.UseEffect[3923]
+    UseEffect = Table_UseItem_t.UseEffect[3961]
   },
   [3001511] = {
     id = 3001511,
-    UseEffect = Table_UseItem_t.UseEffect[3922],
+    UseEffect = Table_UseItem_t.UseEffect[3960],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001512] = {
     id = 3001512,
-    UseEffect = Table_UseItem_t.UseEffect[3921],
+    UseEffect = Table_UseItem_t.UseEffect[3959],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001513] = {
     id = 3001513,
-    UseEffect = Table_UseItem_t.UseEffect[3920],
+    UseEffect = Table_UseItem_t.UseEffect[3958],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001514] = {
     id = 3001514,
-    UseEffect = Table_UseItem_t.UseEffect[3919],
+    UseEffect = Table_UseItem_t.UseEffect[3957],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001515] = {
     id = 3001515,
-    UseEffect = Table_UseItem_t.UseEffect[3918],
+    UseEffect = Table_UseItem_t.UseEffect[3664],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -47817,53 +48012,53 @@ Table_UseItem = {
   },
   [3001604] = {
     id = 3001604,
-    UseEffect = Table_UseItem_t.UseEffect[3631],
+    UseEffect = Table_UseItem_t.UseEffect[3671],
     CDTime = 1,
     UseMultiple = 99999
   },
   [3001605] = {
     id = 3001605,
-    UseEffect = Table_UseItem_t.UseEffect[3632],
+    UseEffect = Table_UseItem_t.UseEffect[2097],
     CDTime = 1,
     UseMultiple = 99999
   },
   [3001606] = {
     id = 3001606,
-    UseEffect = Table_UseItem_t.UseEffect[3633],
+    UseEffect = Table_UseItem_t.UseEffect[2096],
     CDTime = 1,
     UseMultiple = 99999
   },
   [3001608] = {
     id = 3001608,
-    UseEffect = Table_UseItem_t.UseEffect[3634]
+    UseEffect = Table_UseItem_t.UseEffect[3952]
   },
   [3001609] = {
     id = 3001609,
-    UseEffect = Table_UseItem_t.UseEffect[3635],
+    UseEffect = Table_UseItem_t.UseEffect[3951],
     CDTime = 1,
     UseMultiple = 99999
   },
   [3001610] = {
     id = 3001610,
-    UseEffect = Table_UseItem_t.UseEffect[3913],
+    UseEffect = Table_UseItem_t.UseEffect[3950],
     CDTime = 1,
     UseMultiple = 99999
   },
   [3001741] = {
     id = 3001741,
-    UseEffect = Table_UseItem_t.UseEffect[3912],
+    UseEffect = Table_UseItem_t.UseEffect[3949],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001743] = {
     id = 3001743,
-    UseEffect = Table_UseItem_t.UseEffect[3911],
+    UseEffect = Table_UseItem_t.UseEffect[3674],
     CDTime = 1,
     UseMultiple = 999
   },
   [3001744] = {
     id = 3001744,
-    UseEffect = Table_UseItem_t.UseEffect[3910],
+    UseEffect = Table_UseItem_t.UseEffect[3947],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -47875,13 +48070,13 @@ Table_UseItem = {
   },
   [3001762] = {
     id = 3001762,
-    UseEffect = Table_UseItem_t.UseEffect[3648],
+    UseEffect = Table_UseItem_t.UseEffect[3675],
     CDTime = 1,
     UseMultiple = 9999
   },
   [3001763] = {
     id = 3001763,
-    UseEffect = Table_UseItem_t.UseEffect[3648],
+    UseEffect = Table_UseItem_t.UseEffect[3675],
     CDTime = 1,
     UseMultiple = 9999
   },
@@ -47892,13 +48087,13 @@ Table_UseItem = {
   },
   [3001766] = {
     id = 3001766,
-    UseEffect = Table_UseItem_t.UseEffect[3649],
+    UseEffect = Table_UseItem_t.UseEffect[3945],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001767] = {
     id = 3001767,
-    UseEffect = Table_UseItem_t.UseEffect[3907],
+    UseEffect = Table_UseItem_t.UseEffect[3944],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -47916,25 +48111,25 @@ Table_UseItem = {
   },
   [3001770] = {
     id = 3001770,
-    UseEffect = Table_UseItem_t.UseEffect[3631],
+    UseEffect = Table_UseItem_t.UseEffect[3671],
     CDTime = 1,
     UseMultiple = 99999
   },
   [3001771] = {
     id = 3001771,
-    UseEffect = Table_UseItem_t.UseEffect[3906],
+    UseEffect = Table_UseItem_t.UseEffect[3943],
     CDTime = 10,
     UseLimit = 2649
   },
   [3001772] = {
     id = 3001772,
-    UseEffect = Table_UseItem_t.UseEffect[3905],
+    UseEffect = Table_UseItem_t.UseEffect[3688],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001781] = {
     id = 3001781,
-    UseEffect = Table_UseItem_t.UseEffect[3904],
+    UseEffect = Table_UseItem_t.UseEffect[3689],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -47946,13 +48141,13 @@ Table_UseItem = {
   },
   [3001867] = {
     id = 3001867,
-    UseEffect = Table_UseItem_t.UseEffect[3650],
+    UseEffect = Table_UseItem_t.UseEffect[3940],
     CDTime = 1,
     UseMultiple = 99999
   },
   [3001868] = {
     id = 3001868,
-    UseEffect = Table_UseItem_t.UseEffect[3901],
+    UseEffect = Table_UseItem_t.UseEffect[3939],
     CDTime = 1,
     UseMultiple = 99999
   },
@@ -47970,7 +48165,7 @@ Table_UseItem = {
   },
   [3001875] = {
     id = 3001875,
-    UseEffect = Table_UseItem_t.UseEffect[3631],
+    UseEffect = Table_UseItem_t.UseEffect[3671],
     CDTime = 1,
     UseMultiple = 99999
   },
@@ -47984,7 +48179,7 @@ Table_UseItem = {
   },
   [3001882] = {
     id = 3001882,
-    UseEffect = Table_UseItem_t.UseEffect[3670],
+    UseEffect = Table_UseItem_t.UseEffect[3709],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -47996,19 +48191,19 @@ Table_UseItem = {
   },
   [3001890] = {
     id = 3001890,
-    UseEffect = Table_UseItem_t.UseEffect[3671],
+    UseEffect = Table_UseItem_t.UseEffect[3710],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001893] = {
     id = 3001893,
-    UseEffect = Table_UseItem_t.UseEffect[3672],
+    UseEffect = Table_UseItem_t.UseEffect[3933],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001894] = {
     id = 3001894,
-    UseEffect = Table_UseItem_t.UseEffect[3673],
+    UseEffect = Table_UseItem_t.UseEffect[3711],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -48020,25 +48215,25 @@ Table_UseItem = {
   },
   [3001896] = {
     id = 3001896,
-    UseEffect = Table_UseItem_t.UseEffect[3895],
+    UseEffect = Table_UseItem_t.UseEffect[3712],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001897] = {
     id = 3001897,
-    UseEffect = Table_UseItem_t.UseEffect[3681],
+    UseEffect = Table_UseItem_t.UseEffect[2082],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001898] = {
     id = 3001898,
-    UseEffect = Table_UseItem_t.UseEffect[3682],
+    UseEffect = Table_UseItem_t.UseEffect[2081],
     CDTime = 1,
     UseMultiple = 99
   },
   [3001899] = {
     id = 3001899,
-    UseEffect = Table_UseItem_t.UseEffect[3683],
+    UseEffect = Table_UseItem_t.UseEffect[3928],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -48145,43 +48340,43 @@ Table_UseItem = {
   },
   [3002015] = {
     id = 3002015,
-    UseEffect = Table_UseItem_t.UseEffect[3684],
+    UseEffect = Table_UseItem_t.UseEffect[3927],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002016] = {
     id = 3002016,
-    UseEffect = Table_UseItem_t.UseEffect[3890],
+    UseEffect = Table_UseItem_t.UseEffect[3926],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002031] = {
     id = 3002031,
-    UseEffect = Table_UseItem_t.UseEffect[3889],
+    UseEffect = Table_UseItem_t.UseEffect[3925],
     CDTime = 1,
     UseMultiple = 1
   },
   [3002040] = {
     id = 3002040,
-    UseEffect = Table_UseItem_t.UseEffect[3888],
+    UseEffect = Table_UseItem_t.UseEffect[3924],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002041] = {
     id = 3002041,
-    UseEffect = Table_UseItem_t.UseEffect[3887],
+    UseEffect = Table_UseItem_t.UseEffect[3923],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002044] = {
     id = 3002044,
-    UseEffect = Table_UseItem_t.UseEffect[3886],
+    UseEffect = Table_UseItem_t.UseEffect[3922],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002045] = {
     id = 3002045,
-    UseEffect = Table_UseItem_t.UseEffect[3885],
+    UseEffect = Table_UseItem_t.UseEffect[3921],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -48265,102 +48460,102 @@ Table_UseItem = {
   },
   [3002287] = {
     id = 3002287,
-    UseEffect = Table_UseItem_t.UseEffect[3884],
+    UseEffect = Table_UseItem_t.UseEffect[3920],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002288] = {
     id = 3002288,
-    UseEffect = Table_UseItem_t.UseEffect[3883],
+    UseEffect = Table_UseItem_t.UseEffect[3919],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002289] = {
     id = 3002289,
-    UseEffect = Table_UseItem_t.UseEffect[3882],
+    UseEffect = Table_UseItem_t.UseEffect[3918],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002293] = {
     id = 3002293,
-    UseEffect = Table_UseItem_t.UseEffect[3881],
+    UseEffect = Table_UseItem_t.UseEffect[3917],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002294] = {
     id = 3002294,
-    UseEffect = Table_UseItem_t.UseEffect[3880],
+    UseEffect = Table_UseItem_t.UseEffect[3916],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002295] = {
     id = 3002295,
-    UseEffect = Table_UseItem_t.UseEffect[3879],
+    UseEffect = Table_UseItem_t.UseEffect[3915],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002296] = {
     id = 3002296,
-    UseEffect = Table_UseItem_t.UseEffect[3878],
+    UseEffect = Table_UseItem_t.UseEffect[3914],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002297] = {
     id = 3002297,
-    UseEffect = Table_UseItem_t.UseEffect[3877],
+    UseEffect = Table_UseItem_t.UseEffect[3913],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002301] = {
     id = 3002301,
-    UseEffect = Table_UseItem_t.UseEffect[3876],
+    UseEffect = Table_UseItem_t.UseEffect[3912],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002302] = {
     id = 3002302,
-    UseEffect = Table_UseItem_t.UseEffect[3875],
+    UseEffect = Table_UseItem_t.UseEffect[3911],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002305] = {
     id = 3002305,
-    UseEffect = Table_UseItem_t.UseEffect[3874],
+    UseEffect = Table_UseItem_t.UseEffect[3910],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002308] = {
     id = 3002308,
-    UseEffect = Table_UseItem_t.UseEffect[3873],
+    UseEffect = Table_UseItem_t.UseEffect[3909],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002311] = {
     id = 3002311,
-    UseEffect = Table_UseItem_t.UseEffect[3872],
+    UseEffect = Table_UseItem_t.UseEffect[3908],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002312] = {
     id = 3002312,
-    UseEffect = Table_UseItem_t.UseEffect[3871],
+    UseEffect = Table_UseItem_t.UseEffect[3907],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002315] = {
     id = 3002315,
-    UseEffect = Table_UseItem_t.UseEffect[3870],
+    UseEffect = Table_UseItem_t.UseEffect[3906],
     CDTime = 1
   },
   [3002316] = {
     id = 3002316,
-    UseEffect = Table_UseItem_t.UseEffect[3869],
+    UseEffect = Table_UseItem_t.UseEffect[3905],
     CDTime = 0,
     UseMultiple = 999
   },
   [3002317] = {
     id = 3002317,
-    UseEffect = Table_UseItem_t.UseEffect[3868],
+    UseEffect = Table_UseItem_t.UseEffect[3904],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -48371,108 +48566,108 @@ Table_UseItem = {
   },
   [3002341] = {
     id = 3002341,
-    UseEffect = Table_UseItem_t.UseEffect[3867],
+    UseEffect = Table_UseItem_t.UseEffect[3903],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002347] = {
     id = 3002347,
-    UseEffect = Table_UseItem_t.UseEffect[3866],
+    UseEffect = Table_UseItem_t.UseEffect[3902],
     CDTime = 1
   },
   [3002348] = {
     id = 3002348,
-    UseEffect = Table_UseItem_t.UseEffect[3865],
+    UseEffect = Table_UseItem_t.UseEffect[3901],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002349] = {
     id = 3002349,
-    UseEffect = Table_UseItem_t.UseEffect[3864],
+    UseEffect = Table_UseItem_t.UseEffect[2080],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002350] = {
     id = 3002350,
-    UseEffect = Table_UseItem_t.UseEffect[3863],
+    UseEffect = Table_UseItem_t.UseEffect[3899],
     CDTime = 1
   },
   [3002351] = {
     id = 3002351,
-    UseEffect = Table_UseItem_t.UseEffect[3685],
+    UseEffect = Table_UseItem_t.UseEffect[3898],
     CDTime = 1
   },
   [3002352] = {
     id = 3002352,
-    UseEffect = Table_UseItem_t.UseEffect[3861],
+    UseEffect = Table_UseItem_t.UseEffect[3897],
     CDTime = 1
   },
   [3002353] = {
     id = 3002353,
-    UseEffect = Table_UseItem_t.UseEffect[3860],
+    UseEffect = Table_UseItem_t.UseEffect[3896],
     CDTime = 1
   },
   [3002354] = {
     id = 3002354,
-    UseEffect = Table_UseItem_t.UseEffect[3859],
+    UseEffect = Table_UseItem_t.UseEffect[3895],
     CDTime = 1
   },
   [3002355] = {
     id = 3002355,
-    UseEffect = Table_UseItem_t.UseEffect[3858],
+    UseEffect = Table_UseItem_t.UseEffect[3894],
     CDTime = 1
   },
   [3002356] = {
     id = 3002356,
-    UseEffect = Table_UseItem_t.UseEffect[3857],
+    UseEffect = Table_UseItem_t.UseEffect[3893],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002359] = {
     id = 3002359,
-    UseEffect = Table_UseItem_t.UseEffect[3856],
+    UseEffect = Table_UseItem_t.UseEffect[3892],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002366] = {
     id = 3002366,
-    UseEffect = Table_UseItem_t.UseEffect[3855],
+    UseEffect = Table_UseItem_t.UseEffect[3891],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002367] = {
     id = 3002367,
-    UseEffect = Table_UseItem_t.UseEffect[3854],
+    UseEffect = Table_UseItem_t.UseEffect[3890],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002368] = {
     id = 3002368,
-    UseEffect = Table_UseItem_t.UseEffect[3853],
+    UseEffect = Table_UseItem_t.UseEffect[3889],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002369] = {
     id = 3002369,
-    UseEffect = Table_UseItem_t.UseEffect[3852],
+    UseEffect = Table_UseItem_t.UseEffect[3888],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002399] = {
     id = 3002399,
-    UseEffect = Table_UseItem_t.UseEffect[3851],
+    UseEffect = Table_UseItem_t.UseEffect[3887],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002400] = {
     id = 3002400,
-    UseEffect = Table_UseItem_t.UseEffect[3850],
+    UseEffect = Table_UseItem_t.UseEffect[3886],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002401] = {
     id = 3002401,
-    UseEffect = Table_UseItem_t.UseEffect[3849],
+    UseEffect = Table_UseItem_t.UseEffect[3885],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -48484,26 +48679,26 @@ Table_UseItem = {
   },
   [3002419] = {
     id = 3002419,
-    UseEffect = Table_UseItem_t.UseEffect[3848],
+    UseEffect = Table_UseItem_t.UseEffect[3884],
     CDTime = 3600,
     CDGroup = 3002419,
     UseLimit = 19033
   },
   [3002521] = {
     id = 3002521,
-    UseEffect = Table_UseItem_t.UseEffect[3847],
+    UseEffect = Table_UseItem_t.UseEffect[3883],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002522] = {
     id = 3002522,
-    UseEffect = Table_UseItem_t.UseEffect[3846],
+    UseEffect = Table_UseItem_t.UseEffect[3882],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002544] = {
     id = 3002544,
-    UseEffect = Table_UseItem_t.UseEffect[3845],
+    UseEffect = Table_UseItem_t.UseEffect[3881],
     CDTime = 43200,
     CDGroup = 3002544,
     UseLimit = 4312,
@@ -48511,31 +48706,31 @@ Table_UseItem = {
   },
   [3002553] = {
     id = 3002553,
-    UseEffect = Table_UseItem_t.UseEffect[3844],
+    UseEffect = Table_UseItem_t.UseEffect[3880],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002554] = {
     id = 3002554,
-    UseEffect = Table_UseItem_t.UseEffect[3843],
+    UseEffect = Table_UseItem_t.UseEffect[3879],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002555] = {
     id = 3002555,
-    UseEffect = Table_UseItem_t.UseEffect[3842],
+    UseEffect = Table_UseItem_t.UseEffect[3878],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002556] = {
     id = 3002556,
-    UseEffect = Table_UseItem_t.UseEffect[3841],
+    UseEffect = Table_UseItem_t.UseEffect[3874],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002584] = {
     id = 3002584,
-    UseEffect = Table_UseItem_t.UseEffect[3840],
+    UseEffect = Table_UseItem_t.UseEffect[3873],
     CDTime = 1
   },
   [3002600] = {
@@ -48570,383 +48765,383 @@ Table_UseItem = {
   },
   [3002700] = {
     id = 3002700,
-    UseEffect = Table_UseItem_t.UseEffect[3836],
+    UseEffect = Table_UseItem_t.UseEffect[3872],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002701] = {
     id = 3002701,
-    UseEffect = Table_UseItem_t.UseEffect[3835],
+    UseEffect = Table_UseItem_t.UseEffect[3871],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002702] = {
     id = 3002702,
-    UseEffect = Table_UseItem_t.UseEffect[3834],
+    UseEffect = Table_UseItem_t.UseEffect[3870],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002703] = {
     id = 3002703,
-    UseEffect = Table_UseItem_t.UseEffect[3833],
+    UseEffect = Table_UseItem_t.UseEffect[3869],
     CDTime = 180,
     CDGroup = 3002703,
     UseLimit = 19033
   },
   [3002705] = {
     id = 3002705,
-    UseEffect = Table_UseItem_t.UseEffect[3832],
+    UseEffect = Table_UseItem_t.UseEffect[3868],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002706] = {
     id = 3002706,
-    UseEffect = Table_UseItem_t.UseEffect[3831],
+    UseEffect = Table_UseItem_t.UseEffect[3867],
     CDTime = 1
   },
   [3002707] = {
     id = 3002707,
-    UseEffect = Table_UseItem_t.UseEffect[3830],
+    UseEffect = Table_UseItem_t.UseEffect[3866],
     CDTime = 1
   },
   [3002708] = {
     id = 3002708,
-    UseEffect = Table_UseItem_t.UseEffect[3829],
+    UseEffect = Table_UseItem_t.UseEffect[3865],
     CDTime = 1
   },
   [3002709] = {
     id = 3002709,
-    UseEffect = Table_UseItem_t.UseEffect[3828],
+    UseEffect = Table_UseItem_t.UseEffect[3864],
     CDTime = 1
   },
   [3002710] = {
     id = 3002710,
-    UseEffect = Table_UseItem_t.UseEffect[3827]
+    UseEffect = Table_UseItem_t.UseEffect[3863]
   },
   [3002711] = {
     id = 3002711,
-    UseEffect = Table_UseItem_t.UseEffect[3826],
+    UseEffect = Table_UseItem_t.UseEffect[3862],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002713] = {
     id = 3002713,
-    UseEffect = Table_UseItem_t.UseEffect[3825]
+    UseEffect = Table_UseItem_t.UseEffect[3861]
   },
   [3002714] = {
     id = 3002714,
-    UseEffect = Table_UseItem_t.UseEffect[3824],
+    UseEffect = Table_UseItem_t.UseEffect[3860],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002715] = {
     id = 3002715,
-    UseEffect = Table_UseItem_t.UseEffect[3823]
+    UseEffect = Table_UseItem_t.UseEffect[3859]
   },
   [3002716] = {
     id = 3002716,
-    UseEffect = Table_UseItem_t.UseEffect[3822],
+    UseEffect = Table_UseItem_t.UseEffect[3857],
     CDTime = 180,
     CDGroup = 3002716,
     UseLimit = 19033
   },
   [3002731] = {
     id = 3002731,
-    UseEffect = Table_UseItem_t.UseEffect[3821],
+    UseEffect = Table_UseItem_t.UseEffect[3856],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002735] = {
     id = 3002735,
-    UseEffect = Table_UseItem_t.UseEffect[1842],
+    UseEffect = Table_UseItem_t.UseEffect[1855],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002741] = {
     id = 3002741,
-    UseEffect = Table_UseItem_t.UseEffect[1843],
+    UseEffect = Table_UseItem_t.UseEffect[1856],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002744] = {
     id = 3002744,
-    UseEffect = Table_UseItem_t.UseEffect[1844],
+    UseEffect = Table_UseItem_t.UseEffect[1857],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002745] = {
     id = 3002745,
-    UseEffect = Table_UseItem_t.UseEffect[1845],
+    UseEffect = Table_UseItem_t.UseEffect[1858],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002746] = {
     id = 3002746,
-    UseEffect = Table_UseItem_t.UseEffect[1846],
+    UseEffect = Table_UseItem_t.UseEffect[1859],
     CDTime = 600,
     UseLimit = 19033
   },
   [3002747] = {
     id = 3002747,
-    UseEffect = Table_UseItem_t.UseEffect[1847],
+    UseEffect = Table_UseItem_t.UseEffect[1860],
     CDTime = 600,
     UseLimit = 19033
   },
   [3002750] = {
     id = 3002750,
-    UseEffect = Table_UseItem_t.UseEffect[1848],
+    UseEffect = Table_UseItem_t.UseEffect[1861],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002751] = {
     id = 3002751,
-    UseEffect = Table_UseItem_t.UseEffect[1849],
+    UseEffect = Table_UseItem_t.UseEffect[1862],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002752] = {
     id = 3002752,
-    UseEffect = Table_UseItem_t.UseEffect[1850],
+    UseEffect = Table_UseItem_t.UseEffect[1863],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002753] = {
     id = 3002753,
-    UseEffect = Table_UseItem_t.UseEffect[1851],
+    UseEffect = Table_UseItem_t.UseEffect[1864],
     CDTime = 0,
     UseMultiple = 999
   },
   [3002780] = {
     id = 3002780,
-    UseEffect = Table_UseItem_t.UseEffect[1856],
+    UseEffect = Table_UseItem_t.UseEffect[1869],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002781] = {
     id = 3002781,
-    UseEffect = Table_UseItem_t.UseEffect[1857],
+    UseEffect = Table_UseItem_t.UseEffect[1870],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002782] = {
     id = 3002782,
     Class = Table_UseItem_t.Class[22],
-    UseEffect = Table_UseItem_t.UseEffect[1858],
+    UseEffect = Table_UseItem_t.UseEffect[1871],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002783] = {
     id = 3002783,
-    UseEffect = Table_UseItem_t.UseEffect[1859],
+    UseEffect = Table_UseItem_t.UseEffect[1872],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002802] = {
     id = 3002802,
-    UseEffect = Table_UseItem_t.UseEffect[1860],
+    UseEffect = Table_UseItem_t.UseEffect[1873],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002803] = {
     id = 3002803,
-    UseEffect = Table_UseItem_t.UseEffect[1861],
+    UseEffect = Table_UseItem_t.UseEffect[1874],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002804] = {
     id = 3002804,
-    UseEffect = Table_UseItem_t.UseEffect[1862],
+    UseEffect = Table_UseItem_t.UseEffect[1875],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002812] = {
     id = 3002812,
-    UseEffect = Table_UseItem_t.UseEffect[3819],
+    UseEffect = Table_UseItem_t.UseEffect[3855],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002813] = {
     id = 3002813,
-    UseEffect = Table_UseItem_t.UseEffect[3818],
+    UseEffect = Table_UseItem_t.UseEffect[3854],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002814] = {
     id = 3002814,
-    UseEffect = Table_UseItem_t.UseEffect[3817],
+    UseEffect = Table_UseItem_t.UseEffect[3853],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002815] = {
     id = 3002815,
-    UseEffect = Table_UseItem_t.UseEffect[3816],
+    UseEffect = Table_UseItem_t.UseEffect[3852],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002816] = {
     id = 3002816,
-    UseEffect = Table_UseItem_t.UseEffect[3815],
+    UseEffect = Table_UseItem_t.UseEffect[3851],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002828] = {
     id = 3002828,
-    UseEffect = Table_UseItem_t.UseEffect[1863],
+    UseEffect = Table_UseItem_t.UseEffect[1876],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002831] = {
     id = 3002831,
-    UseEffect = Table_UseItem_t.UseEffect[1864],
+    UseEffect = Table_UseItem_t.UseEffect[1877],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002891] = {
     id = 3002891,
-    UseEffect = Table_UseItem_t.UseEffect[1873],
+    UseEffect = Table_UseItem_t.UseEffect[1886],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002892] = {
     id = 3002892,
-    UseEffect = Table_UseItem_t.UseEffect[1874],
+    UseEffect = Table_UseItem_t.UseEffect[1887],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002895] = {
     id = 3002895,
-    UseEffect = Table_UseItem_t.UseEffect[1875],
+    UseEffect = Table_UseItem_t.UseEffect[1888],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002932] = {
     id = 3002932,
-    UseEffect = Table_UseItem_t.UseEffect[1879],
+    UseEffect = Table_UseItem_t.UseEffect[1892],
     CDTime = 1
   },
   [3002933] = {
     id = 3002933,
-    UseEffect = Table_UseItem_t.UseEffect[1880],
+    UseEffect = Table_UseItem_t.UseEffect[1893],
     CDTime = 1
   },
   [3002934] = {
     id = 3002934,
-    UseEffect = Table_UseItem_t.UseEffect[1881],
+    UseEffect = Table_UseItem_t.UseEffect[1894],
     CDTime = 1
   },
   [3002935] = {
     id = 3002935,
-    UseEffect = Table_UseItem_t.UseEffect[1882],
+    UseEffect = Table_UseItem_t.UseEffect[1895],
     CDTime = 1
   },
   [3002936] = {
     id = 3002936,
-    UseEffect = Table_UseItem_t.UseEffect[1883],
+    UseEffect = Table_UseItem_t.UseEffect[1896],
     CDTime = 1
   },
   [3002937] = {
     id = 3002937,
-    UseEffect = Table_UseItem_t.UseEffect[1884],
+    UseEffect = Table_UseItem_t.UseEffect[1897],
     CDTime = 1
   },
   [3002938] = {
     id = 3002938,
-    UseEffect = Table_UseItem_t.UseEffect[3814],
+    UseEffect = Table_UseItem_t.UseEffect[3850],
     CDTime = 1
   },
   [3002939] = {
     id = 3002939,
-    UseEffect = Table_UseItem_t.UseEffect[3813],
+    UseEffect = Table_UseItem_t.UseEffect[3849],
     CDTime = 1
   },
   [3002940] = {
     id = 3002940,
-    UseEffect = Table_UseItem_t.UseEffect[3812],
+    UseEffect = Table_UseItem_t.UseEffect[3848],
     CDTime = 1,
     UseMultiple = 99
   },
   [3002951] = {
     id = 3002951,
-    UseEffect = Table_UseItem_t.UseEffect[3811],
+    UseEffect = Table_UseItem_t.UseEffect[3847],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002952] = {
     id = 3002952,
-    UseEffect = Table_UseItem_t.UseEffect[1897],
+    UseEffect = Table_UseItem_t.UseEffect[1910],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002953] = {
     id = 3002953,
-    UseEffect = Table_UseItem_t.UseEffect[1898],
+    UseEffect = Table_UseItem_t.UseEffect[1911],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002954] = {
     id = 3002954,
-    UseEffect = Table_UseItem_t.UseEffect[1899],
+    UseEffect = Table_UseItem_t.UseEffect[1912],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002955] = {
     id = 3002955,
-    UseEffect = Table_UseItem_t.UseEffect[1862],
+    UseEffect = Table_UseItem_t.UseEffect[1875],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002956] = {
     id = 3002956,
-    UseEffect = Table_UseItem_t.UseEffect[3810],
+    UseEffect = Table_UseItem_t.UseEffect[3846],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002957] = {
     id = 3002957,
-    UseEffect = Table_UseItem_t.UseEffect[1901],
+    UseEffect = Table_UseItem_t.UseEffect[1914],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002958] = {
     id = 3002958,
-    UseEffect = Table_UseItem_t.UseEffect[1902],
+    UseEffect = Table_UseItem_t.UseEffect[1915],
     CDTime = 1,
     UseMultiple = 999
   },
   [3002959] = {
     id = 3002959,
-    UseEffect = Table_UseItem_t.UseEffect[3809],
+    UseEffect = Table_UseItem_t.UseEffect[3842],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003042] = {
     id = 3003042,
-    UseEffect = Table_UseItem_t.UseEffect[3808],
+    UseEffect = Table_UseItem_t.UseEffect[3841],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003043] = {
     id = 3003043,
-    UseEffect = Table_UseItem_t.UseEffect[3804],
+    UseEffect = Table_UseItem_t.UseEffect[3840],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003044] = {
     id = 3003044,
-    UseEffect = Table_UseItem_t.UseEffect[3803],
+    UseEffect = Table_UseItem_t.UseEffect[3839],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003046] = {
     id = 3003046,
-    UseEffect = Table_UseItem_t.UseEffect[3802],
+    UseEffect = Table_UseItem_t.UseEffect[3838],
     CDTime = 1,
     UseMultiple = 999,
     UseLimit = 65536
   },
   [3003047] = {
     id = 3003047,
-    UseEffect = Table_UseItem_t.UseEffect[3801],
+    UseEffect = Table_UseItem_t.UseEffect[3837],
     CDTime = 1
   },
   [3003070] = {
@@ -48956,12 +49151,12 @@ Table_UseItem = {
   },
   [3003080] = {
     id = 3003080,
-    UseEffect = Table_UseItem_t.UseEffect[3419],
+    UseEffect = Table_UseItem_t.UseEffect[3458],
     UseMultiple = 99
   },
   [3003081] = {
     id = 3003081,
-    UseEffect = Table_UseItem_t.UseEffect[1971],
+    UseEffect = Table_UseItem_t.UseEffect[1984],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -48972,43 +49167,43 @@ Table_UseItem = {
   },
   [3003083] = {
     id = 3003083,
-    UseEffect = Table_UseItem_t.UseEffect[1972]
+    UseEffect = Table_UseItem_t.UseEffect[1985]
   },
   [3003084] = {
     id = 3003084,
-    UseEffect = Table_UseItem_t.UseEffect[1973],
+    UseEffect = Table_UseItem_t.UseEffect[1986],
     UseMultiple = 99
   },
   [3003085] = {
     id = 3003085,
-    UseEffect = Table_UseItem_t.UseEffect[1974],
+    UseEffect = Table_UseItem_t.UseEffect[1987],
     UseMultiple = 99
   },
   [3003087] = {
     id = 3003087,
-    UseEffect = Table_UseItem_t.UseEffect[1975],
+    UseEffect = Table_UseItem_t.UseEffect[1988],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003110] = {
     id = 3003110,
-    UseEffect = Table_UseItem_t.UseEffect[3800],
+    UseEffect = Table_UseItem_t.UseEffect[3830],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003134] = {
     id = 3003134,
-    UseEffect = Table_UseItem_t.UseEffect[3796],
+    UseEffect = Table_UseItem_t.UseEffect[3829],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003136] = {
     id = 3003136,
-    UseEffect = Table_UseItem_t.UseEffect[3792]
+    UseEffect = Table_UseItem_t.UseEffect[3828]
   },
   [3003137] = {
     id = 3003137,
-    UseEffect = Table_UseItem_t.UseEffect[3791],
+    UseEffect = Table_UseItem_t.UseEffect[3824],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -49019,7 +49214,7 @@ Table_UseItem = {
   },
   [3003139] = {
     id = 3003139,
-    UseEffect = Table_UseItem_t.UseEffect[3787],
+    UseEffect = Table_UseItem_t.UseEffect[3823],
     CDTime = 1,
     UseMultiple = 99,
     UseStartTime = "2021-02-12 05:00:00",
@@ -49027,7 +49222,7 @@ Table_UseItem = {
   },
   [3003140] = {
     id = 3003140,
-    UseEffect = Table_UseItem_t.UseEffect[3786],
+    UseEffect = Table_UseItem_t.UseEffect[3822],
     CDTime = 1,
     UseMultiple = 99,
     UseStartTime = "2021-02-01 05:00:00",
@@ -49035,30 +49230,30 @@ Table_UseItem = {
   },
   [3003141] = {
     id = 3003141,
-    UseEffect = Table_UseItem_t.UseEffect[3785],
+    UseEffect = Table_UseItem_t.UseEffect[3821],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003142] = {
     id = 3003142,
-    UseEffect = Table_UseItem_t.UseEffect[3784],
+    UseEffect = Table_UseItem_t.UseEffect[3820],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003143] = {
     id = 3003143,
-    UseEffect = Table_UseItem_t.UseEffect[2560],
+    UseEffect = Table_UseItem_t.UseEffect[2601],
     CDTime = 1
   },
   [3003253] = {
     id = 3003253,
-    UseEffect = Table_UseItem_t.UseEffect[2032],
+    UseEffect = Table_UseItem_t.UseEffect[2045],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003260] = {
     id = 3003260,
-    UseEffect = Table_UseItem_t.UseEffect[2033],
+    UseEffect = Table_UseItem_t.UseEffect[2046],
     CDTime = 300,
     CDGroup = 3003260,
     UseLimit = 4096,
@@ -49066,13 +49261,13 @@ Table_UseItem = {
   },
   [3003262] = {
     id = 3003262,
-    UseEffect = Table_UseItem_t.UseEffect[2034],
+    UseEffect = Table_UseItem_t.UseEffect[2047],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003264] = {
     id = 3003264,
-    UseEffect = Table_UseItem_t.UseEffect[2035],
+    UseEffect = Table_UseItem_t.UseEffect[2048],
     CDTime = 1,
     UseMultiple = 999,
     UseStartTime = "2021-03-01 05:00:00",
@@ -49080,25 +49275,25 @@ Table_UseItem = {
   },
   [3003267] = {
     id = 3003267,
-    UseEffect = Table_UseItem_t.UseEffect[2036],
+    UseEffect = Table_UseItem_t.UseEffect[2049],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003268] = {
     id = 3003268,
-    UseEffect = Table_UseItem_t.UseEffect[2037],
+    UseEffect = Table_UseItem_t.UseEffect[2050],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003269] = {
     id = 3003269,
-    UseEffect = Table_UseItem_t.UseEffect[2038],
+    UseEffect = Table_UseItem_t.UseEffect[2051],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003270] = {
     id = 3003270,
-    UseEffect = Table_UseItem_t.UseEffect[2039],
+    UseEffect = Table_UseItem_t.UseEffect[2052],
     CDTime = 300,
     UseLimit = 19033
   },
@@ -49109,49 +49304,49 @@ Table_UseItem = {
   },
   [3003273] = {
     id = 3003273,
-    UseEffect = Table_UseItem_t.UseEffect[2040],
+    UseEffect = Table_UseItem_t.UseEffect[2053],
     CDTime = 10,
     UseLimit = 2649
   },
   [3003274] = {
     id = 3003274,
-    UseEffect = Table_UseItem_t.UseEffect[2041],
+    UseEffect = Table_UseItem_t.UseEffect[2054],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003275] = {
     id = 3003275,
-    UseEffect = Table_UseItem_t.UseEffect[3783],
+    UseEffect = Table_UseItem_t.UseEffect[3819],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003276] = {
     id = 3003276,
-    UseEffect = Table_UseItem_t.UseEffect[3782],
+    UseEffect = Table_UseItem_t.UseEffect[3818],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003277] = {
     id = 3003277,
-    UseEffect = Table_UseItem_t.UseEffect[3781],
+    UseEffect = Table_UseItem_t.UseEffect[3817],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003300] = {
     id = 3003300,
-    UseEffect = Table_UseItem_t.UseEffect[2047],
+    UseEffect = Table_UseItem_t.UseEffect[2060],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003301] = {
     id = 3003301,
-    UseEffect = Table_UseItem_t.UseEffect[2048],
+    UseEffect = Table_UseItem_t.UseEffect[2061],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003302] = {
     id = 3003302,
-    UseEffect = Table_UseItem_t.UseEffect[2049],
+    UseEffect = Table_UseItem_t.UseEffect[2062],
     UseMultiple = 99
   },
   [3003303] = {
@@ -49161,222 +49356,222 @@ Table_UseItem = {
   },
   [3003304] = {
     id = 3003304,
-    UseEffect = Table_UseItem_t.UseEffect[2050],
+    UseEffect = Table_UseItem_t.UseEffect[2063],
     UseMultiple = 99
   },
   [3003305] = {
     id = 3003305,
-    UseEffect = Table_UseItem_t.UseEffect[2051],
+    UseEffect = Table_UseItem_t.UseEffect[2064],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003306] = {
     id = 3003306,
-    UseEffect = Table_UseItem_t.UseEffect[2052],
+    UseEffect = Table_UseItem_t.UseEffect[2065],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003307] = {
     id = 3003307,
-    UseEffect = Table_UseItem_t.UseEffect[2053],
+    UseEffect = Table_UseItem_t.UseEffect[2066],
     CDTime = 1,
     UseLimit = 18515
   },
   [3003308] = {
     id = 3003308,
-    UseEffect = Table_UseItem_t.UseEffect[2054],
+    UseEffect = Table_UseItem_t.UseEffect[2067],
     CDTime = 1,
     UseLimit = 18515
   },
   [3003359] = {
     id = 3003359,
-    UseEffect = Table_UseItem_t.UseEffect[2059],
+    UseEffect = Table_UseItem_t.UseEffect[2083],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003360] = {
     id = 3003360,
-    UseEffect = Table_UseItem_t.UseEffect[2060],
+    UseEffect = Table_UseItem_t.UseEffect[2084],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003543] = {
     id = 3003543,
-    UseEffect = Table_UseItem_t.UseEffect[2192],
+    UseEffect = Table_UseItem_t.UseEffect[2233],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003546] = {
     id = 3003546,
-    UseEffect = Table_UseItem_t.UseEffect[2195],
+    UseEffect = Table_UseItem_t.UseEffect[2236],
     CDTime = 1,
     UseMultiple = 999,
     UseLimit = 65536
   },
   [3003547] = {
     id = 3003547,
-    UseEffect = Table_UseItem_t.UseEffect[3780],
+    UseEffect = Table_UseItem_t.UseEffect[3816],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003548] = {
     id = 3003548,
-    UseEffect = Table_UseItem_t.UseEffect[2196],
+    UseEffect = Table_UseItem_t.UseEffect[2237],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003549] = {
     id = 3003549,
-    UseEffect = Table_UseItem_t.UseEffect[3779],
+    UseEffect = Table_UseItem_t.UseEffect[3815],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003550] = {
     id = 3003550,
-    UseEffect = Table_UseItem_t.UseEffect[3778],
+    UseEffect = Table_UseItem_t.UseEffect[3814],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003552] = {
     id = 3003552,
-    UseEffect = Table_UseItem_t.UseEffect[3777],
+    UseEffect = Table_UseItem_t.UseEffect[3813],
     CDTime = 1,
     UseMultiple = 999
   },
   [3003620] = {
     id = 3003620,
-    UseEffect = Table_UseItem_t.UseEffect[3776],
+    UseEffect = Table_UseItem_t.UseEffect[3812],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003621] = {
     id = 3003621,
-    UseEffect = Table_UseItem_t.UseEffect[3775],
+    UseEffect = Table_UseItem_t.UseEffect[3811],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003622] = {
     id = 3003622,
-    UseEffect = Table_UseItem_t.UseEffect[3774],
+    UseEffect = Table_UseItem_t.UseEffect[3810],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003623] = {
     id = 3003623,
-    UseEffect = Table_UseItem_t.UseEffect[3773],
+    UseEffect = Table_UseItem_t.UseEffect[3809],
     CDTime = 1
   },
   [3003624] = {
     id = 3003624,
-    UseEffect = Table_UseItem_t.UseEffect[3772],
+    UseEffect = Table_UseItem_t.UseEffect[3808],
     CDTime = 1
   },
   [3003625] = {
     id = 3003625,
-    UseEffect = Table_UseItem_t.UseEffect[3771],
+    UseEffect = Table_UseItem_t.UseEffect[3807],
     CDTime = 1
   },
   [3003626] = {
     id = 3003626,
-    UseEffect = Table_UseItem_t.UseEffect[3770],
+    UseEffect = Table_UseItem_t.UseEffect[3806],
     CDTime = 1
   },
   [3003627] = {
     id = 3003627,
-    UseEffect = Table_UseItem_t.UseEffect[3769],
+    UseEffect = Table_UseItem_t.UseEffect[2079],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003633] = {
     id = 3003633,
-    UseEffect = Table_UseItem_t.UseEffect[2276],
+    UseEffect = Table_UseItem_t.UseEffect[2317],
     CDTime = 1
   },
   [3003636] = {
     id = 3003636,
-    UseEffect = Table_UseItem_t.UseEffect[2279],
+    UseEffect = Table_UseItem_t.UseEffect[2320],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003655] = {
     id = 3003655,
-    UseEffect = Table_UseItem_t.UseEffect[3768],
+    UseEffect = Table_UseItem_t.UseEffect[3805],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003656] = {
     id = 3003656,
-    UseEffect = Table_UseItem_t.UseEffect[3686],
+    UseEffect = Table_UseItem_t.UseEffect[3804],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003657] = {
     id = 3003657,
-    UseEffect = Table_UseItem_t.UseEffect[3767],
+    UseEffect = Table_UseItem_t.UseEffect[3803],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003659] = {
     id = 3003659,
-    UseEffect = Table_UseItem_t.UseEffect[3766],
+    UseEffect = Table_UseItem_t.UseEffect[3802],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003661] = {
     id = 3003661,
-    UseEffect = Table_UseItem_t.UseEffect[3765],
+    UseEffect = Table_UseItem_t.UseEffect[3801],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003667] = {
     id = 3003667,
-    UseEffect = Table_UseItem_t.UseEffect[3764],
+    UseEffect = Table_UseItem_t.UseEffect[3799],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003728] = {
     id = 3003728,
-    UseEffect = Table_UseItem_t.UseEffect[2368],
+    UseEffect = Table_UseItem_t.UseEffect[2409],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003729] = {
     id = 3003729,
-    UseEffect = Table_UseItem_t.UseEffect[2369]
+    UseEffect = Table_UseItem_t.UseEffect[2410]
   },
   [3003730] = {
     id = 3003730,
-    UseEffect = Table_UseItem_t.UseEffect[2370],
+    UseEffect = Table_UseItem_t.UseEffect[2411],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003731] = {
     id = 3003731,
-    UseEffect = Table_UseItem_t.UseEffect[2371],
+    UseEffect = Table_UseItem_t.UseEffect[2412],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003732] = {
     id = 3003732,
-    UseEffect = Table_UseItem_t.UseEffect[2372],
+    UseEffect = Table_UseItem_t.UseEffect[2413],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003733] = {
     id = 3003733,
-    UseEffect = Table_UseItem_t.UseEffect[2373],
+    UseEffect = Table_UseItem_t.UseEffect[2414],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003734] = {
     id = 3003734,
-    UseEffect = Table_UseItem_t.UseEffect[2374],
+    UseEffect = Table_UseItem_t.UseEffect[2415],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003735] = {
     id = 3003735,
-    UseEffect = Table_UseItem_t.UseEffect[2375],
+    UseEffect = Table_UseItem_t.UseEffect[2416],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -49388,154 +49583,154 @@ Table_UseItem = {
   },
   [3003760] = {
     id = 3003760,
-    UseEffect = Table_UseItem_t.UseEffect[2399],
+    UseEffect = Table_UseItem_t.UseEffect[2440],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003766] = {
     id = 3003766,
-    UseEffect = Table_UseItem_t.UseEffect[2405],
+    UseEffect = Table_UseItem_t.UseEffect[2446],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003767] = {
     id = 3003767,
-    UseEffect = Table_UseItem_t.UseEffect[2406],
+    UseEffect = Table_UseItem_t.UseEffect[2447],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003768] = {
     id = 3003768,
-    UseEffect = Table_UseItem_t.UseEffect[2407],
+    UseEffect = Table_UseItem_t.UseEffect[2448],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003769] = {
     id = 3003769,
-    UseEffect = Table_UseItem_t.UseEffect[3762],
+    UseEffect = Table_UseItem_t.UseEffect[3798],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003771] = {
     id = 3003771,
-    UseEffect = Table_UseItem_t.UseEffect[3761],
+    UseEffect = Table_UseItem_t.UseEffect[3797],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003772] = {
     id = 3003772,
-    UseEffect = Table_UseItem_t.UseEffect[3760],
+    UseEffect = Table_UseItem_t.UseEffect[3796],
     UseMultiple = 99
   },
   [3003775] = {
     id = 3003775,
-    UseEffect = Table_UseItem_t.UseEffect[3759],
+    UseEffect = Table_UseItem_t.UseEffect[3795],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003776] = {
     id = 3003776,
-    UseEffect = Table_UseItem_t.UseEffect[3758],
+    UseEffect = Table_UseItem_t.UseEffect[3794],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003777] = {
     id = 3003777,
-    UseEffect = Table_UseItem_t.UseEffect[3757],
+    UseEffect = Table_UseItem_t.UseEffect[3793],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003778] = {
     id = 3003778,
-    UseEffect = Table_UseItem_t.UseEffect[3756],
+    UseEffect = Table_UseItem_t.UseEffect[3792],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003779] = {
     id = 3003779,
-    UseEffect = Table_UseItem_t.UseEffect[2416],
+    UseEffect = Table_UseItem_t.UseEffect[2457],
     CDTime = 1,
     UseMultiple = 1
   },
   [3003780] = {
     id = 3003780,
-    UseEffect = Table_UseItem_t.UseEffect[2417],
+    UseEffect = Table_UseItem_t.UseEffect[2458],
     CDTime = 1,
     UseMultiple = 99
   },
   [3003870] = {
     id = 3003870,
-    UseEffect = Table_UseItem_t.UseEffect[2501],
+    UseEffect = Table_UseItem_t.UseEffect[2542],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004070] = {
     id = 3004070,
-    UseEffect = Table_UseItem_t.UseEffect[2678],
+    UseEffect = Table_UseItem_t.UseEffect[2718],
     UseMultiple = 99
   },
   [3004071] = {
     id = 3004071,
-    UseEffect = Table_UseItem_t.UseEffect[2679],
+    UseEffect = Table_UseItem_t.UseEffect[2719],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004072] = {
     id = 3004072,
-    UseEffect = Table_UseItem_t.UseEffect[2680],
+    UseEffect = Table_UseItem_t.UseEffect[2720],
     UseMultiple = 99
   },
   [3004073] = {
     id = 3004073,
-    UseEffect = Table_UseItem_t.UseEffect[2681],
+    UseEffect = Table_UseItem_t.UseEffect[2721],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004074] = {
     id = 3004074,
-    UseEffect = Table_UseItem_t.UseEffect[2682],
+    UseEffect = Table_UseItem_t.UseEffect[2722],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004075] = {
     id = 3004075,
-    UseEffect = Table_UseItem_t.UseEffect[3755],
+    UseEffect = Table_UseItem_t.UseEffect[3791],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004076] = {
     id = 3004076,
-    UseEffect = Table_UseItem_t.UseEffect[3754],
+    UseEffect = Table_UseItem_t.UseEffect[3786],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004077] = {
     id = 3004077,
-    UseEffect = Table_UseItem_t.UseEffect[3753],
+    UseEffect = Table_UseItem_t.UseEffect[3785],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004078] = {
     id = 3004078,
-    UseEffect = Table_UseItem_t.UseEffect[3748],
+    UseEffect = Table_UseItem_t.UseEffect[3784],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004079] = {
     id = 3004079,
-    UseEffect = Table_UseItem_t.UseEffect[2687],
+    UseEffect = Table_UseItem_t.UseEffect[2727],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004081] = {
     id = 3004081,
-    UseEffect = Table_UseItem_t.UseEffect[3747],
+    UseEffect = Table_UseItem_t.UseEffect[3783],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004082] = {
     id = 3004082,
-    UseEffect = Table_UseItem_t.UseEffect[3746],
+    UseEffect = Table_UseItem_t.UseEffect[3782],
     UseMultiple = 99
   },
   [3004150] = {
@@ -49547,164 +49742,164 @@ Table_UseItem = {
   },
   [3004151] = {
     id = 3004151,
-    UseEffect = Table_UseItem_t.UseEffect[2758],
+    UseEffect = Table_UseItem_t.UseEffect[2798],
     CDTime = 150,
     UseLimit = 18496,
     PVPCDtime = 200
   },
   [3004172] = {
     id = 3004172,
-    UseEffect = Table_UseItem_t.UseEffect[2774],
+    UseEffect = Table_UseItem_t.UseEffect[2814],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004173] = {
     id = 3004173,
-    UseEffect = Table_UseItem_t.UseEffect[2775],
+    UseEffect = Table_UseItem_t.UseEffect[2815],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004174] = {
     id = 3004174,
-    UseEffect = Table_UseItem_t.UseEffect[2776],
+    UseEffect = Table_UseItem_t.UseEffect[2816],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004175] = {
     id = 3004175,
-    UseEffect = Table_UseItem_t.UseEffect[3745],
+    UseEffect = Table_UseItem_t.UseEffect[3781],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004176] = {
     id = 3004176,
-    UseEffect = Table_UseItem_t.UseEffect[3744],
+    UseEffect = Table_UseItem_t.UseEffect[3780],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004177] = {
     id = 3004177,
-    UseEffect = Table_UseItem_t.UseEffect[3743],
+    UseEffect = Table_UseItem_t.UseEffect[3779],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004189] = {
     id = 3004189,
-    UseEffect = Table_UseItem_t.UseEffect[2791],
+    UseEffect = Table_UseItem_t.UseEffect[2831],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004222] = {
     id = 3004222,
-    UseEffect = Table_UseItem_t.UseEffect[2820],
+    UseEffect = Table_UseItem_t.UseEffect[2860],
     UseMultiple = 99
   },
   [3004223] = {
     id = 3004223,
-    UseEffect = Table_UseItem_t.UseEffect[2821],
+    UseEffect = Table_UseItem_t.UseEffect[2861],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004224] = {
     id = 3004224,
-    UseEffect = Table_UseItem_t.UseEffect[2822],
+    UseEffect = Table_UseItem_t.UseEffect[2862],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004225] = {
     id = 3004225,
-    UseEffect = Table_UseItem_t.UseEffect[2823],
+    UseEffect = Table_UseItem_t.UseEffect[2863],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004226] = {
     id = 3004226,
-    UseEffect = Table_UseItem_t.UseEffect[2824],
+    UseEffect = Table_UseItem_t.UseEffect[2864],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004227] = {
     id = 3004227,
-    UseEffect = Table_UseItem_t.UseEffect[2825],
+    UseEffect = Table_UseItem_t.UseEffect[2865],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004228] = {
     id = 3004228,
-    UseEffect = Table_UseItem_t.UseEffect[2826],
+    UseEffect = Table_UseItem_t.UseEffect[2866],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004229] = {
     id = 3004229,
-    UseEffect = Table_UseItem_t.UseEffect[2827],
+    UseEffect = Table_UseItem_t.UseEffect[2867],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004230] = {
     id = 3004230,
-    UseEffect = Table_UseItem_t.UseEffect[2828],
+    UseEffect = Table_UseItem_t.UseEffect[2868],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004238] = {
     id = 3004238,
-    UseEffect = Table_UseItem_t.UseEffect[2836],
+    UseEffect = Table_UseItem_t.UseEffect[2876],
     CDTime = 1,
     UseMultiple = 999
   },
   [3004254] = {
     id = 3004254,
-    UseEffect = Table_UseItem_t.UseEffect[2852],
+    UseEffect = Table_UseItem_t.UseEffect[2892],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004256] = {
     id = 3004256,
-    UseEffect = Table_UseItem_t.UseEffect[2854],
+    UseEffect = Table_UseItem_t.UseEffect[2894],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004257] = {
     id = 3004257,
-    UseEffect = Table_UseItem_t.UseEffect[2855],
+    UseEffect = Table_UseItem_t.UseEffect[2895],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004258] = {
     id = 3004258,
-    UseEffect = Table_UseItem_t.UseEffect[2856],
+    UseEffect = Table_UseItem_t.UseEffect[2896],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004264] = {
     id = 3004264,
-    UseEffect = Table_UseItem_t.UseEffect[2862],
+    UseEffect = Table_UseItem_t.UseEffect[2902],
     CDTime = 1
   },
   [3004265] = {
     id = 3004265,
-    UseEffect = Table_UseItem_t.UseEffect[2863],
+    UseEffect = Table_UseItem_t.UseEffect[2903],
     CDTime = 1
   },
   [3004266] = {
     id = 3004266,
-    UseEffect = Table_UseItem_t.UseEffect[2864],
+    UseEffect = Table_UseItem_t.UseEffect[2904],
     CDTime = 1
   },
   [3004267] = {
     id = 3004267,
-    UseEffect = Table_UseItem_t.UseEffect[2865],
+    UseEffect = Table_UseItem_t.UseEffect[2905],
     CDTime = 1
   },
   [3004268] = {
     id = 3004268,
-    UseEffect = Table_UseItem_t.UseEffect[2866],
+    UseEffect = Table_UseItem_t.UseEffect[2906],
     CDTime = 1
   },
   [3004269] = {
     id = 3004269,
-    UseEffect = Table_UseItem_t.UseEffect[2867],
+    UseEffect = Table_UseItem_t.UseEffect[2907],
     CDTime = 1
   },
   [3004310] = {
@@ -49714,54 +49909,54 @@ Table_UseItem = {
   },
   [3004500] = {
     id = 3004500,
-    UseEffect = Table_UseItem_t.UseEffect[3742],
+    UseEffect = Table_UseItem_t.UseEffect[3778],
     CDTime = 1
   },
   [3004605] = {
     id = 3004605,
-    UseEffect = Table_UseItem_t.UseEffect[3741],
+    UseEffect = Table_UseItem_t.UseEffect[3777],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004606] = {
     id = 3004606,
-    UseEffect = Table_UseItem_t.UseEffect[3202],
+    UseEffect = Table_UseItem_t.UseEffect[3241],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004607] = {
     id = 3004607,
-    UseEffect = Table_UseItem_t.UseEffect[3740],
+    UseEffect = Table_UseItem_t.UseEffect[3776],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004608] = {
     id = 3004608,
-    UseEffect = Table_UseItem_t.UseEffect[3739],
+    UseEffect = Table_UseItem_t.UseEffect[3775],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004609] = {
     id = 3004609,
-    UseEffect = Table_UseItem_t.UseEffect[3738],
+    UseEffect = Table_UseItem_t.UseEffect[3774],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004610] = {
     id = 3004610,
-    UseEffect = Table_UseItem_t.UseEffect[3737],
+    UseEffect = Table_UseItem_t.UseEffect[3773],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004611] = {
     id = 3004611,
-    UseEffect = Table_UseItem_t.UseEffect[3736],
+    UseEffect = Table_UseItem_t.UseEffect[3772],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004612] = {
     id = 3004612,
-    UseEffect = Table_UseItem_t.UseEffect[3208],
+    UseEffect = Table_UseItem_t.UseEffect[3247],
     UseMultiple = 99
   },
   [3004677] = {
@@ -49772,92 +49967,92 @@ Table_UseItem = {
   },
   [3004678] = {
     id = 3004678,
-    UseEffect = Table_UseItem_t.UseEffect[3735],
+    UseEffect = Table_UseItem_t.UseEffect[3771],
     CDTime = 1,
     UseMultiple = 999
   },
   [3004681] = {
     id = 3004681,
-    UseEffect = Table_UseItem_t.UseEffect[3274],
+    UseEffect = Table_UseItem_t.UseEffect[3313],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004682] = {
     id = 3004682,
-    UseEffect = Table_UseItem_t.UseEffect[3275],
+    UseEffect = Table_UseItem_t.UseEffect[3314],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004683] = {
     id = 3004683,
-    UseEffect = Table_UseItem_t.UseEffect[3276],
+    UseEffect = Table_UseItem_t.UseEffect[3315],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004684] = {
     id = 3004684,
-    UseEffect = Table_UseItem_t.UseEffect[3277],
+    UseEffect = Table_UseItem_t.UseEffect[3316],
     UseMultiple = 99
   },
   [3004685] = {
     id = 3004685,
-    UseEffect = Table_UseItem_t.UseEffect[3278],
+    UseEffect = Table_UseItem_t.UseEffect[3317],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004688] = {
     id = 3004688,
-    UseEffect = Table_UseItem_t.UseEffect[3281],
+    UseEffect = Table_UseItem_t.UseEffect[3319],
     CDTime = 1
   },
   [3004700] = {
     id = 3004700,
-    UseEffect = Table_UseItem_t.UseEffect[3734],
+    UseEffect = Table_UseItem_t.UseEffect[3770],
     CDTime = 0,
     UseMultiple = 99
   },
   [3004708] = {
     id = 3004708,
-    UseEffect = Table_UseItem_t.UseEffect[3733],
+    UseEffect = Table_UseItem_t.UseEffect[3769],
     CDTime = 1
   },
   [3004709] = {
     id = 3004709,
-    UseEffect = Table_UseItem_t.UseEffect[3732],
+    UseEffect = Table_UseItem_t.UseEffect[3768],
     CDTime = 1
   },
   [3004710] = {
     id = 3004710,
-    UseEffect = Table_UseItem_t.UseEffect[3731],
+    UseEffect = Table_UseItem_t.UseEffect[3767],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004711] = {
     id = 3004711,
-    UseEffect = Table_UseItem_t.UseEffect[3730],
+    UseEffect = Table_UseItem_t.UseEffect[3766],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004712] = {
     id = 3004712,
-    UseEffect = Table_UseItem_t.UseEffect[3729],
+    UseEffect = Table_UseItem_t.UseEffect[2078],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004713] = {
     id = 3004713,
-    UseEffect = Table_UseItem_t.UseEffect[3728],
+    UseEffect = Table_UseItem_t.UseEffect[2077],
     UseMultiple = 99
   },
   [3004715] = {
     id = 3004715,
-    UseEffect = Table_UseItem_t.UseEffect[3687],
+    UseEffect = Table_UseItem_t.UseEffect[2073],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004716] = {
     id = 3004716,
-    UseEffect = Table_UseItem_t.UseEffect[3688],
+    UseEffect = Table_UseItem_t.UseEffect[2072],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -49869,116 +50064,116 @@ Table_UseItem = {
   },
   [3004772] = {
     id = 3004772,
-    UseEffect = Table_UseItem_t.UseEffect[3690],
+    UseEffect = Table_UseItem_t.UseEffect[3728],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004773] = {
     id = 3004773,
-    UseEffect = Table_UseItem_t.UseEffect[3691],
+    UseEffect = Table_UseItem_t.UseEffect[3729],
     UseMultiple = 99
   },
   [3004774] = {
     id = 3004774,
-    UseEffect = Table_UseItem_t.UseEffect[3692],
+    UseEffect = Table_UseItem_t.UseEffect[3730],
     UseMultiple = 99
   },
   [3004780] = {
     id = 3004780,
-    UseEffect = Table_UseItem_t.UseEffect[3693],
+    UseEffect = Table_UseItem_t.UseEffect[3753],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004813] = {
     id = 3004813,
-    UseEffect = Table_UseItem_t.UseEffect[3694],
+    UseEffect = Table_UseItem_t.UseEffect[3752],
     UseMultiple = 99
   },
   [3004814] = {
     id = 3004814,
-    UseEffect = Table_UseItem_t.UseEffect[3402],
+    UseEffect = Table_UseItem_t.UseEffect[3441],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004815] = {
     id = 3004815,
-    UseEffect = Table_UseItem_t.UseEffect[2828],
+    UseEffect = Table_UseItem_t.UseEffect[2868],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004816] = {
     id = 3004816,
-    UseEffect = Table_UseItem_t.UseEffect[3403],
+    UseEffect = Table_UseItem_t.UseEffect[3442],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004817] = {
     id = 3004817,
-    UseEffect = Table_UseItem_t.UseEffect[3404],
+    UseEffect = Table_UseItem_t.UseEffect[3443],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004818] = {
     id = 3004818,
-    UseEffect = Table_UseItem_t.UseEffect[3405],
+    UseEffect = Table_UseItem_t.UseEffect[3444],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004819] = {
     id = 3004819,
-    UseEffect = Table_UseItem_t.UseEffect[3406],
+    UseEffect = Table_UseItem_t.UseEffect[3445],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004820] = {
     id = 3004820,
-    UseEffect = Table_UseItem_t.UseEffect[3715],
+    UseEffect = Table_UseItem_t.UseEffect[3751],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004822] = {
     id = 3004822,
-    UseEffect = Table_UseItem_t.UseEffect[3409],
+    UseEffect = Table_UseItem_t.UseEffect[3448],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004823] = {
     id = 3004823,
-    UseEffect = Table_UseItem_t.UseEffect[3714],
+    UseEffect = Table_UseItem_t.UseEffect[3750],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004824] = {
     id = 3004824,
-    UseEffect = Table_UseItem_t.UseEffect[3713],
+    UseEffect = Table_UseItem_t.UseEffect[3736],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004826] = {
     id = 3004826,
-    UseEffect = Table_UseItem_t.UseEffect[3413],
+    UseEffect = Table_UseItem_t.UseEffect[3452],
     UseMultiple = 99
   },
   [3004827] = {
     id = 3004827,
-    UseEffect = Table_UseItem_t.UseEffect[3414],
+    UseEffect = Table_UseItem_t.UseEffect[3453],
     CDTime = 1,
     UseMultiple = 99
   },
   [3004828] = {
     id = 3004828,
-    UseEffect = Table_UseItem_t.UseEffect[3415],
+    UseEffect = Table_UseItem_t.UseEffect[3454],
     UseMultiple = 99
   },
   [3004832] = {
     id = 3004832,
-    UseEffect = Table_UseItem_t.UseEffect[3419],
+    UseEffect = Table_UseItem_t.UseEffect[3458],
     UseMultiple = 99
   },
   [3004930] = {
     id = 3004930,
     Class = Table_UseItem_t.Class[24],
-    UseEffect = Table_UseItem_t.UseEffect[3508],
+    UseEffect = Table_UseItem_t.UseEffect[3545],
     UseMultiple = 99
   },
   [3004940] = {
@@ -49988,7 +50183,7 @@ Table_UseItem = {
   },
   [3005157] = {
     id = 3005157,
-    UseEffect = Table_UseItem_t.UseEffect[3698],
+    UseEffect = Table_UseItem_t.UseEffect[3735],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -49999,7 +50194,7 @@ Table_UseItem = {
   },
   [3005176] = {
     id = 3005176,
-    UseEffect = Table_UseItem_t.UseEffect[3699],
+    UseEffect = Table_UseItem_t.UseEffect[3734],
     CDTime = 1,
     UseMultiple = 99,
     UseStartTime = "2021-12-29 05:00:00",
@@ -50007,59 +50202,59 @@ Table_UseItem = {
   },
   [3005177] = {
     id = 3005177,
-    UseEffect = Table_UseItem_t.UseEffect[3697],
+    UseEffect = Table_UseItem_t.UseEffect[3733],
     UseMultiple = 99
   },
   [3005185] = {
     id = 3005185,
-    UseEffect = Table_UseItem_t.UseEffect[3696],
+    UseEffect = Table_UseItem_t.UseEffect[3732],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005186] = {
     id = 3005186,
-    UseEffect = Table_UseItem_t.UseEffect[3695],
+    UseEffect = Table_UseItem_t.UseEffect[3731],
     UseMultiple = 99
   },
   [3005240] = {
     id = 3005240,
-    UseEffect = Table_UseItem_t.UseEffect[3721],
+    UseEffect = Table_UseItem_t.UseEffect[3759],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005241] = {
     id = 3005241,
-    UseEffect = Table_UseItem_t.UseEffect[3722],
+    UseEffect = Table_UseItem_t.UseEffect[3760],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005242] = {
     id = 3005242,
-    UseEffect = Table_UseItem_t.UseEffect[3723],
+    UseEffect = Table_UseItem_t.UseEffect[3761],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005243] = {
     id = 3005243,
-    UseEffect = Table_UseItem_t.UseEffect[3724],
+    UseEffect = Table_UseItem_t.UseEffect[3762],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005244] = {
     id = 3005244,
-    UseEffect = Table_UseItem_t.UseEffect[3725],
+    UseEffect = Table_UseItem_t.UseEffect[3763],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005245] = {
     id = 3005245,
-    UseEffect = Table_UseItem_t.UseEffect[3726],
+    UseEffect = Table_UseItem_t.UseEffect[3764],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005246] = {
     id = 3005246,
-    UseEffect = Table_UseItem_t.UseEffect[3727],
+    UseEffect = Table_UseItem_t.UseEffect[3765],
     UseMultiple = 99
   },
   [3005297] = {
@@ -50070,71 +50265,71 @@ Table_UseItem = {
   },
   [3005400] = {
     id = 3005400,
-    UseEffect = Table_UseItem_t.UseEffect[3862],
+    UseEffect = Table_UseItem_t.UseEffect[3900],
     UseMultiple = 99
   },
   [3005430] = {
     id = 3005430,
-    UseEffect = Table_UseItem_t.UseEffect[3891],
+    UseEffect = Table_UseItem_t.UseEffect[3929],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005431] = {
     id = 3005431,
-    UseEffect = Table_UseItem_t.UseEffect[3892],
+    UseEffect = Table_UseItem_t.UseEffect[3930],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005432] = {
     id = 3005432,
-    UseEffect = Table_UseItem_t.UseEffect[3893],
+    UseEffect = Table_UseItem_t.UseEffect[3931],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005433] = {
     id = 3005433,
-    UseEffect = Table_UseItem_t.UseEffect[3894],
+    UseEffect = Table_UseItem_t.UseEffect[3932],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005435] = {
     id = 3005435,
-    UseEffect = Table_UseItem_t.UseEffect[3896],
+    UseEffect = Table_UseItem_t.UseEffect[3934],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005436] = {
     id = 3005436,
-    UseEffect = Table_UseItem_t.UseEffect[3897],
+    UseEffect = Table_UseItem_t.UseEffect[3935],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005437] = {
     id = 3005437,
-    UseEffect = Table_UseItem_t.UseEffect[3898],
+    UseEffect = Table_UseItem_t.UseEffect[3936],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005438] = {
     id = 3005438,
-    UseEffect = Table_UseItem_t.UseEffect[3899],
+    UseEffect = Table_UseItem_t.UseEffect[3937],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005439] = {
     id = 3005439,
-    UseEffect = Table_UseItem_t.UseEffect[3900],
+    UseEffect = Table_UseItem_t.UseEffect[3938],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005443] = {
     id = 3005443,
-    UseEffect = Table_UseItem_t.UseEffect[3902],
+    UseEffect = Table_UseItem_t.UseEffect[3941],
     UseMultiple = 99
   },
   [3005444] = {
     id = 3005444,
-    UseEffect = Table_UseItem_t.UseEffect[3903],
+    UseEffect = Table_UseItem_t.UseEffect[3942],
     UseMultiple = 99
   },
   [3005451] = {
@@ -50143,11 +50338,11 @@ Table_UseItem = {
   },
   [3005452] = {
     id = 3005452,
-    UseEffect = Table_UseItem_t.UseEffect[3908]
+    UseEffect = Table_UseItem_t.UseEffect[3946]
   },
   [3005454] = {
     id = 3005454,
-    UseEffect = Table_UseItem_t.UseEffect[3909],
+    UseEffect = Table_UseItem_t.UseEffect[3948],
     CDTime = 1,
     UseMultiple = 1,
     UseLimitTimes = 7,
@@ -50155,18 +50350,18 @@ Table_UseItem = {
   },
   [3005459] = {
     id = 3005459,
-    UseEffect = Table_UseItem_t.UseEffect[3914],
+    UseEffect = Table_UseItem_t.UseEffect[3953],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005460] = {
     id = 3005460,
-    UseEffect = Table_UseItem_t.UseEffect[3903],
+    UseEffect = Table_UseItem_t.UseEffect[3942],
     UseMultiple = 99
   },
   [3005461] = {
     id = 3005461,
-    UseEffect = Table_UseItem_t.UseEffect[3915],
+    UseEffect = Table_UseItem_t.UseEffect[3954],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -50177,54 +50372,54 @@ Table_UseItem = {
   },
   [3005463] = {
     id = 3005463,
-    UseEffect = Table_UseItem_t.UseEffect[3916],
+    UseEffect = Table_UseItem_t.UseEffect[3955],
     CDTime = 1
   },
   [3005464] = {
     id = 3005464,
-    UseEffect = Table_UseItem_t.UseEffect[3917],
+    UseEffect = Table_UseItem_t.UseEffect[3956],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005490] = {
     id = 3005490,
     UsingSys = 1355,
-    UseEffect = Table_UseItem_t.UseEffect[2560],
+    UseEffect = Table_UseItem_t.UseEffect[2601],
     CDTime = 1
   },
   [3005491] = {
     id = 3005491,
     UsingSys = 1356,
-    UseEffect = Table_UseItem_t.UseEffect[2561],
+    UseEffect = Table_UseItem_t.UseEffect[2602],
     CDTime = 1
   },
   [3005492] = {
     id = 3005492,
-    UseEffect = Table_UseItem_t.UseEffect[3942],
+    UseEffect = Table_UseItem_t.UseEffect[3982],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005493] = {
     id = 3005493,
-    UseEffect = Table_UseItem_t.UseEffect[3943],
+    UseEffect = Table_UseItem_t.UseEffect[3983],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005494] = {
     id = 3005494,
-    UseEffect = Table_UseItem_t.UseEffect[3944],
+    UseEffect = Table_UseItem_t.UseEffect[3984],
     UseMultiple = 99
   },
   [3005495] = {
     id = 3005495,
     Class = Table_UseItem_t.Class[25],
-    UseEffect = Table_UseItem_t.UseEffect[1858],
+    UseEffect = Table_UseItem_t.UseEffect[1871],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005497] = {
     id = 3005497,
-    UseEffect = Table_UseItem_t.UseEffect[3946],
+    UseEffect = Table_UseItem_t.UseEffect[3986],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -50235,60 +50430,60 @@ Table_UseItem = {
   },
   [3005607] = {
     id = 3005607,
-    UseEffect = Table_UseItem_t.UseEffect[2065],
+    UseEffect = Table_UseItem_t.UseEffect[2108],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005609] = {
     id = 3005609,
-    UseEffect = Table_UseItem_t.UseEffect[2066],
+    UseEffect = Table_UseItem_t.UseEffect[2109],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005611] = {
     id = 3005611,
-    UseEffect = Table_UseItem_t.UseEffect[2067],
+    UseEffect = Table_UseItem_t.UseEffect[2110],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005612] = {
     id = 3005612,
-    UseEffect = Table_UseItem_t.UseEffect[2068],
+    UseEffect = Table_UseItem_t.UseEffect[2111],
     UseMultiple = 999
   },
   [3005613] = {
     id = 3005613,
-    UseEffect = Table_UseItem_t.UseEffect[2069],
+    UseEffect = Table_UseItem_t.UseEffect[2112],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005614] = {
     id = 3005614,
-    UseEffect = Table_UseItem_t.UseEffect[2070],
+    UseEffect = Table_UseItem_t.UseEffect[2106],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005615] = {
     id = 3005615,
-    UseEffect = Table_UseItem_t.UseEffect[2071],
+    UseEffect = Table_UseItem_t.UseEffect[2113],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005616] = {
     id = 3005616,
-    UseEffect = Table_UseItem_t.UseEffect[2064],
+    UseEffect = Table_UseItem_t.UseEffect[2114],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005617] = {
     id = 3005617,
-    UseEffect = Table_UseItem_t.UseEffect[2072],
+    UseEffect = Table_UseItem_t.UseEffect[2115],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005618] = {
     id = 3005618,
-    UseEffect = Table_UseItem_t.UseEffect[2073],
+    UseEffect = Table_UseItem_t.UseEffect[2116],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -50299,7 +50494,7 @@ Table_UseItem = {
   },
   [3005622] = {
     id = 3005622,
-    UseEffect = Table_UseItem_t.UseEffect[4071],
+    UseEffect = Table_UseItem_t.UseEffect[2117],
     CDTime = 1,
     UseMultiple = 999,
     UseStartTime = "2022-02-14 05:00:00",
@@ -50307,7 +50502,7 @@ Table_UseItem = {
   },
   [3005623] = {
     id = 3005623,
-    UseEffect = Table_UseItem_t.UseEffect[4072],
+    UseEffect = Table_UseItem_t.UseEffect[3644],
     CDTime = 1,
     UseMultiple = 999,
     UseStartTime = "2022-02-01 05:00:00",
@@ -50320,127 +50515,127 @@ Table_UseItem = {
   },
   [3005626] = {
     id = 3005626,
-    UseEffect = Table_UseItem_t.UseEffect[4074],
+    UseEffect = Table_UseItem_t.UseEffect[4114],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005627] = {
     id = 3005627,
-    UseEffect = Table_UseItem_t.UseEffect[4075],
+    UseEffect = Table_UseItem_t.UseEffect[4115],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005628] = {
     id = 3005628,
-    UseEffect = Table_UseItem_t.UseEffect[4076],
+    UseEffect = Table_UseItem_t.UseEffect[4116],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005629] = {
     id = 3005629,
-    UseEffect = Table_UseItem_t.UseEffect[4077],
+    UseEffect = Table_UseItem_t.UseEffect[4117],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005630] = {
     id = 3005630,
-    UseEffect = Table_UseItem_t.UseEffect[4078],
+    UseEffect = Table_UseItem_t.UseEffect[4118],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005631] = {
     id = 3005631,
-    UseEffect = Table_UseItem_t.UseEffect[4079],
+    UseEffect = Table_UseItem_t.UseEffect[4119],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005632] = {
     id = 3005632,
-    UseEffect = Table_UseItem_t.UseEffect[4080],
+    UseEffect = Table_UseItem_t.UseEffect[4120],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005633] = {
     id = 3005633,
-    UseEffect = Table_UseItem_t.UseEffect[4081],
+    UseEffect = Table_UseItem_t.UseEffect[4121],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005634] = {
     id = 3005634,
-    UseEffect = Table_UseItem_t.UseEffect[4082],
+    UseEffect = Table_UseItem_t.UseEffect[4122],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005635] = {
     id = 3005635,
-    UseEffect = Table_UseItem_t.UseEffect[4083],
+    UseEffect = Table_UseItem_t.UseEffect[4123],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005636] = {
     id = 3005636,
-    UseEffect = Table_UseItem_t.UseEffect[4084],
+    UseEffect = Table_UseItem_t.UseEffect[4124],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005637] = {
     id = 3005637,
-    UseEffect = Table_UseItem_t.UseEffect[4085],
+    UseEffect = Table_UseItem_t.UseEffect[4125],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005638] = {
     id = 3005638,
-    UseEffect = Table_UseItem_t.UseEffect[4086],
+    UseEffect = Table_UseItem_t.UseEffect[4126],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005639] = {
     id = 3005639,
-    UseEffect = Table_UseItem_t.UseEffect[4087],
+    UseEffect = Table_UseItem_t.UseEffect[4127],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005640] = {
     id = 3005640,
-    UseEffect = Table_UseItem_t.UseEffect[4088],
+    UseEffect = Table_UseItem_t.UseEffect[4128],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005641] = {
     id = 3005641,
-    UseEffect = Table_UseItem_t.UseEffect[4089],
+    UseEffect = Table_UseItem_t.UseEffect[4129],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005642] = {
     id = 3005642,
-    UseEffect = Table_UseItem_t.UseEffect[4090],
+    UseEffect = Table_UseItem_t.UseEffect[4130],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005643] = {
     id = 3005643,
-    UseEffect = Table_UseItem_t.UseEffect[4091],
+    UseEffect = Table_UseItem_t.UseEffect[4131],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005644] = {
     id = 3005644,
-    UseEffect = Table_UseItem_t.UseEffect[4092],
+    UseEffect = Table_UseItem_t.UseEffect[4132],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005645] = {
     id = 3005645,
-    UseEffect = Table_UseItem_t.UseEffect[4093],
+    UseEffect = Table_UseItem_t.UseEffect[4133],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005646] = {
     id = 3005646,
-    UseEffect = Table_UseItem_t.UseEffect[4094],
+    UseEffect = Table_UseItem_t.UseEffect[4134],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -50452,18 +50647,18 @@ Table_UseItem = {
   },
   [3005650] = {
     id = 3005650,
-    UseEffect = Table_UseItem_t.UseEffect[4097],
+    UseEffect = Table_UseItem_t.UseEffect[4137],
     UseMultiple = 999
   },
   [3005660] = {
     id = 3005660,
-    UseEffect = Table_UseItem_t.UseEffect[4106],
+    UseEffect = Table_UseItem_t.UseEffect[4146],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005661] = {
     id = 3005661,
-    UseEffect = Table_UseItem_t.UseEffect[4107],
+    UseEffect = Table_UseItem_t.UseEffect[4147],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -50480,126 +50675,126 @@ Table_UseItem = {
   },
   [3005772] = {
     id = 3005772,
-    Class = Table_UseItem_t.Class[26],
-    UseEffect = Table_UseItem_t.UseEffect[4211],
+    Class = Table_UseItem_t.Class[28],
+    UseEffect = Table_UseItem_t.UseEffect[4253],
     UseMultiple = 99
   },
   [3005790] = {
     id = 3005790,
-    UseEffect = Table_UseItem_t.UseEffect[4229],
+    UseEffect = Table_UseItem_t.UseEffect[4263],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005791] = {
     id = 3005791,
-    UseEffect = Table_UseItem_t.UseEffect[4230],
+    UseEffect = Table_UseItem_t.UseEffect[4264],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005792] = {
     id = 3005792,
-    UseEffect = Table_UseItem_t.UseEffect[4231],
+    UseEffect = Table_UseItem_t.UseEffect[4265],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005794] = {
     id = 3005794,
-    UseEffect = Table_UseItem_t.UseEffect[2078],
+    UseEffect = Table_UseItem_t.UseEffect[3616],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005810] = {
     id = 3005810,
-    UseEffect = Table_UseItem_t.UseEffect[4237],
+    UseEffect = Table_UseItem_t.UseEffect[4274],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005811] = {
     id = 3005811,
-    UseEffect = Table_UseItem_t.UseEffect[4238],
+    UseEffect = Table_UseItem_t.UseEffect[4275],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005812] = {
     id = 3005812,
-    UseEffect = Table_UseItem_t.UseEffect[4239],
+    UseEffect = Table_UseItem_t.UseEffect[4276],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005813] = {
     id = 3005813,
-    UseEffect = Table_UseItem_t.UseEffect[4240],
+    UseEffect = Table_UseItem_t.UseEffect[4277],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005814] = {
     id = 3005814,
-    UseEffect = Table_UseItem_t.UseEffect[4241],
+    UseEffect = Table_UseItem_t.UseEffect[4278],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005815] = {
     id = 3005815,
-    UseEffect = Table_UseItem_t.UseEffect[4242],
+    UseEffect = Table_UseItem_t.UseEffect[4279],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005816] = {
     id = 3005816,
-    UseEffect = Table_UseItem_t.UseEffect[4243],
+    UseEffect = Table_UseItem_t.UseEffect[4280],
     CDTime = 1,
     UseMultiple = 99
   },
   [3005820] = {
     id = 3005820,
-    UseEffect = Table_UseItem_t.UseEffect[4244],
+    UseEffect = Table_UseItem_t.UseEffect[4284],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005821] = {
     id = 3005821,
-    UseEffect = Table_UseItem_t.UseEffect[4245],
+    UseEffect = Table_UseItem_t.UseEffect[4285],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005823] = {
     id = 3005823,
-    UseEffect = Table_UseItem_t.UseEffect[4246],
+    UseEffect = Table_UseItem_t.UseEffect[4287],
     UseMultiple = 99
   },
   [3005824] = {
     id = 3005824,
-    UseEffect = Table_UseItem_t.UseEffect[4247],
+    UseEffect = Table_UseItem_t.UseEffect[4288],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005825] = {
     id = 3005825,
-    UseEffect = Table_UseItem_t.UseEffect[4248],
+    UseEffect = Table_UseItem_t.UseEffect[4289],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005826] = {
     id = 3005826,
-    UseEffect = Table_UseItem_t.UseEffect[4249],
+    UseEffect = Table_UseItem_t.UseEffect[4290],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005827] = {
     id = 3005827,
-    UseEffect = Table_UseItem_t.UseEffect[4250],
+    UseEffect = Table_UseItem_t.UseEffect[4291],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005828] = {
     id = 3005828,
-    UseEffect = Table_UseItem_t.UseEffect[4251],
+    UseEffect = Table_UseItem_t.UseEffect[4292],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005829] = {
     id = 3005829,
-    UseEffect = Table_UseItem_t.UseEffect[4252],
+    UseEffect = Table_UseItem_t.UseEffect[4293],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -50611,53 +50806,53 @@ Table_UseItem = {
   },
   [3005900] = {
     id = 3005900,
-    UseEffect = Table_UseItem_t.UseEffect[4322],
+    UseEffect = Table_UseItem_t.UseEffect[4351],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005901] = {
     id = 3005901,
-    UseEffect = Table_UseItem_t.UseEffect[4323],
+    UseEffect = Table_UseItem_t.UseEffect[4352],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005902] = {
     id = 3005902,
-    UseEffect = Table_UseItem_t.UseEffect[4324],
+    UseEffect = Table_UseItem_t.UseEffect[4353],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005903] = {
     id = 3005903,
-    UseEffect = Table_UseItem_t.UseEffect[4325],
+    UseEffect = Table_UseItem_t.UseEffect[4354],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005904] = {
     id = 3005904,
-    UseEffect = Table_UseItem_t.UseEffect[4326],
+    UseEffect = Table_UseItem_t.UseEffect[4355],
     UseMultiple = 999
   },
   [3005905] = {
     id = 3005905,
-    UseEffect = Table_UseItem_t.UseEffect[4327],
+    UseEffect = Table_UseItem_t.UseEffect[4356],
     UseMultiple = 999
   },
   [3005906] = {
     id = 3005906,
-    UseEffect = Table_UseItem_t.UseEffect[4328],
+    UseEffect = Table_UseItem_t.UseEffect[4357],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005907] = {
     id = 3005907,
-    UseEffect = Table_UseItem_t.UseEffect[2085],
+    UseEffect = Table_UseItem_t.UseEffect[2124],
     CDTime = 1,
     UseMultiple = 999
   },
   [3005908] = {
     id = 3005908,
-    UseEffect = Table_UseItem_t.UseEffect[2086],
+    UseEffect = Table_UseItem_t.UseEffect[2125],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -50668,78 +50863,78 @@ Table_UseItem = {
   },
   [3006000] = {
     id = 3006000,
-    UseEffect = Table_UseItem_t.UseEffect[4355],
+    UseEffect = Table_UseItem_t.UseEffect[4384],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006001] = {
     id = 3006001,
-    UseEffect = Table_UseItem_t.UseEffect[4356],
+    UseEffect = Table_UseItem_t.UseEffect[4385],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006002] = {
     id = 3006002,
-    UseEffect = Table_UseItem_t.UseEffect[4357],
+    UseEffect = Table_UseItem_t.UseEffect[4386],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006005] = {
     id = 3006005,
-    UseEffect = Table_UseItem_t.UseEffect[4359],
+    UseEffect = Table_UseItem_t.UseEffect[4388],
     UseMultiple = 999
   },
   [3006006] = {
     id = 3006006,
-    UseEffect = Table_UseItem_t.UseEffect[3510],
+    UseEffect = Table_UseItem_t.UseEffect[3547],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006008] = {
     id = 3006008,
-    UseEffect = Table_UseItem_t.UseEffect[3509],
+    UseEffect = Table_UseItem_t.UseEffect[3546],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006009] = {
     id = 3006009,
-    UseEffect = Table_UseItem_t.UseEffect[4363],
+    UseEffect = Table_UseItem_t.UseEffect[4392],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006020] = {
     id = 3006020,
-    UseEffect = Table_UseItem_t.UseEffect[4364],
+    UseEffect = Table_UseItem_t.UseEffect[4393],
     UseMultiple = 999
   },
   [3006021] = {
     id = 3006021,
     Class = Table_UseItem_t.Class[6],
-    UseEffect = Table_UseItem_t.UseEffect[4365],
+    UseEffect = Table_UseItem_t.UseEffect[4394],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006022] = {
     id = 3006022,
-    UseEffect = Table_UseItem_t.UseEffect[4366],
+    UseEffect = Table_UseItem_t.UseEffect[4395],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006023] = {
     id = 3006023,
-    UseEffect = Table_UseItem_t.UseEffect[4367],
+    UseEffect = Table_UseItem_t.UseEffect[4396],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006024] = {
     id = 3006024,
-    UseEffect = Table_UseItem_t.UseEffect[4368],
+    UseEffect = Table_UseItem_t.UseEffect[4397],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006063] = {
     id = 3006063,
-    UseEffect = Table_UseItem_t.UseEffect[4374],
+    UseEffect = Table_UseItem_t.UseEffect[4403],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -50857,7 +51052,7 @@ Table_UseItem = {
   },
   [3006297] = {
     id = 3006297,
-    UseEffect = Table_UseItem_t.UseEffect[3507],
+    UseEffect = Table_UseItem_t.UseEffect[3544],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -50899,7 +51094,7 @@ Table_UseItem = {
   },
   [3006357] = {
     id = 3006357,
-    UseEffect = Table_UseItem_t.UseEffect[3506],
+    UseEffect = Table_UseItem_t.UseEffect[3543],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -50991,7 +51186,7 @@ Table_UseItem = {
   },
   [3006477] = {
     id = 3006477,
-    UseEffect = Table_UseItem_t.UseEffect[3505],
+    UseEffect = Table_UseItem_t.UseEffect[3542],
     CDTime = 1
   },
   [3006478] = {
@@ -51084,63 +51279,67 @@ Table_UseItem = {
   },
   [3006620] = {
     id = 3006620,
-    UseEffect = Table_UseItem_t.UseEffect[3504],
+    UseEffect = Table_UseItem_t.UseEffect[3541],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006621] = {
     id = 3006621,
-    UseEffect = Table_UseItem_t.UseEffect[3503],
+    UseEffect = Table_UseItem_t.UseEffect[3540],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006622] = {
     id = 3006622,
-    UseEffect = Table_UseItem_t.UseEffect[3502],
+    UseEffect = Table_UseItem_t.UseEffect[3539],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006623] = {
     id = 3006623,
-    UseEffect = Table_UseItem_t.UseEffect[3501],
+    UseEffect = Table_UseItem_t.UseEffect[3538],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006624] = {
     id = 3006624,
-    UseEffect = Table_UseItem_t.UseEffect[3500],
+    UseEffect = Table_UseItem_t.UseEffect[3537],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006627] = {
     id = 3006627,
-    UseEffect = Table_UseItem_t.UseEffect[3499],
+    UseEffect = Table_UseItem_t.UseEffect[3536],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006630] = {
     id = 3006630,
-    UseEffect = Table_UseItem_t.UseEffect[3498]
+    UseEffect = Table_UseItem_t.UseEffect[3535]
+  },
+  [3006632] = {
+    id = 3006632,
+    UseEffect = Table_UseItem_t.UseEffect[2101]
   },
   [3006650] = {
     id = 3006650,
-    UseEffect = Table_UseItem_t.UseEffect[3497],
+    UseEffect = Table_UseItem_t.UseEffect[3534],
     UseMultiple = 999
   },
   [3006651] = {
     id = 3006651,
-    UseEffect = Table_UseItem_t.UseEffect[3496],
+    UseEffect = Table_UseItem_t.UseEffect[3533],
     UseMultiple = 999
   },
   [3006652] = {
     id = 3006652,
-    UseEffect = Table_UseItem_t.UseEffect[3495],
+    UseEffect = Table_UseItem_t.UseEffect[3532],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006653] = {
     id = 3006653,
-    UseEffect = Table_UseItem_t.UseEffect[3494],
+    UseEffect = Table_UseItem_t.UseEffect[3531],
     UseMultiple = 999
   },
   [3006654] = {
@@ -51149,24 +51348,24 @@ Table_UseItem = {
   },
   [3006655] = {
     id = 3006655,
-    UseEffect = Table_UseItem_t.UseEffect[3493],
+    UseEffect = Table_UseItem_t.UseEffect[3530],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006656] = {
     id = 3006656,
-    UseEffect = Table_UseItem_t.UseEffect[3492],
+    UseEffect = Table_UseItem_t.UseEffect[3529],
     UseMultiple = 999
   },
   [3006657] = {
     id = 3006657,
-    UseEffect = Table_UseItem_t.UseEffect[3491],
+    UseEffect = Table_UseItem_t.UseEffect[3528],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006658] = {
     id = 3006658,
-    UseEffect = Table_UseItem_t.UseEffect[3490],
+    UseEffect = Table_UseItem_t.UseEffect[3527],
     UseMultiple = 999
   },
   [3006659] = {
@@ -51176,7 +51375,7 @@ Table_UseItem = {
   },
   [3006660] = {
     id = 3006660,
-    UseEffect = Table_UseItem_t.UseEffect[3489],
+    UseEffect = Table_UseItem_t.UseEffect[3526],
     UseMultiple = 999
   },
   [3006661] = {
@@ -51191,35 +51390,35 @@ Table_UseItem = {
   },
   [3006663] = {
     id = 3006663,
-    UseEffect = Table_UseItem_t.UseEffect[3449],
+    UseEffect = Table_UseItem_t.UseEffect[3486],
     UseMultiple = 999
   },
   [3006664] = {
     id = 3006664,
-    UseEffect = Table_UseItem_t.UseEffect[3448],
+    UseEffect = Table_UseItem_t.UseEffect[3482],
     UseMultiple = 999
   },
   [3006672] = {
     id = 3006672,
-    UseEffect = Table_UseItem_t.UseEffect[3447],
+    UseEffect = Table_UseItem_t.UseEffect[3481],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006673] = {
     id = 3006673,
-    UseEffect = Table_UseItem_t.UseEffect[3443],
+    UseEffect = Table_UseItem_t.UseEffect[3480],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006675] = {
     id = 3006675,
-    UseEffect = Table_UseItem_t.UseEffect[3442],
+    UseEffect = Table_UseItem_t.UseEffect[3479],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006676] = {
     id = 3006676,
-    UseEffect = Table_UseItem_t.UseEffect[3441],
+    UseEffect = Table_UseItem_t.UseEffect[3478],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -51320,24 +51519,24 @@ Table_UseItem = {
   },
   [3006903] = {
     id = 3006903,
-    UseEffect = Table_UseItem_t.UseEffect[3440],
+    UseEffect = Table_UseItem_t.UseEffect[3477],
     CDTime = 1,
     UseMultiple = 99
   },
   [3006907] = {
     id = 3006907,
-    UseEffect = Table_UseItem_t.UseEffect[3439],
+    UseEffect = Table_UseItem_t.UseEffect[3476],
     UseMultiple = 999
   },
   [3006910] = {
     id = 3006910,
-    UseEffect = Table_UseItem_t.UseEffect[3438],
+    UseEffect = Table_UseItem_t.UseEffect[3475],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006911] = {
     id = 3006911,
-    UseEffect = Table_UseItem_t.UseEffect[3437],
+    UseEffect = Table_UseItem_t.UseEffect[3472],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -51349,77 +51548,77 @@ Table_UseItem = {
   },
   [3006913] = {
     id = 3006913,
-    UseEffect = Table_UseItem_t.UseEffect[3436],
+    UseEffect = Table_UseItem_t.UseEffect[3471],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006916] = {
     id = 3006916,
-    UseEffect = Table_UseItem_t.UseEffect[3433],
+    UseEffect = Table_UseItem_t.UseEffect[3470],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006917] = {
     id = 3006917,
-    UseEffect = Table_UseItem_t.UseEffect[3432],
+    UseEffect = Table_UseItem_t.UseEffect[3469],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006918] = {
     id = 3006918,
-    UseEffect = Table_UseItem_t.UseEffect[3431],
+    UseEffect = Table_UseItem_t.UseEffect[3468],
     UseMultiple = 999
   },
   [3006919] = {
     id = 3006919,
-    UseEffect = Table_UseItem_t.UseEffect[3430],
+    UseEffect = Table_UseItem_t.UseEffect[3467],
     UseMultiple = 999
   },
   [3006920] = {
     id = 3006920,
-    UseEffect = Table_UseItem_t.UseEffect[3429],
+    UseEffect = Table_UseItem_t.UseEffect[3466],
     UseMultiple = 999
   },
   [3006922] = {
     id = 3006922,
-    UseEffect = Table_UseItem_t.UseEffect[3428],
+    UseEffect = Table_UseItem_t.UseEffect[3464],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006923] = {
     id = 3006923,
-    UseEffect = Table_UseItem_t.UseEffect[3427],
+    UseEffect = Table_UseItem_t.UseEffect[3463],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006924] = {
     id = 3006924,
-    UseEffect = Table_UseItem_t.UseEffect[3425],
+    UseEffect = Table_UseItem_t.UseEffect[3462],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006929] = {
     id = 3006929,
-    UseEffect = Table_UseItem_t.UseEffect[3420],
+    UseEffect = Table_UseItem_t.UseEffect[3456],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006930] = {
     id = 3006930,
     Class = Table_UseItem_t.Class[23],
-    UseEffect = Table_UseItem_t.UseEffect[1858],
+    UseEffect = Table_UseItem_t.UseEffect[1871],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006932] = {
     id = 3006932,
-    UseEffect = Table_UseItem_t.UseEffect[3424],
+    UseEffect = Table_UseItem_t.UseEffect[3461],
     CDTime = 1,
     UseMultiple = 999
   },
   [3006933] = {
     id = 3006933,
-    UseEffect = Table_UseItem_t.UseEffect[3423]
+    UseEffect = Table_UseItem_t.UseEffect[3460]
   },
   [3006997] = {
     id = 3006997,
@@ -51429,33 +51628,33 @@ Table_UseItem = {
   },
   [3007082] = {
     id = 3007082,
-    UseEffect = Table_UseItem_t.UseEffect[3422],
+    UseEffect = Table_UseItem_t.UseEffect[3459],
     UseMultiple = 999
   },
   [3007083] = {
     id = 3007083,
-    UseEffect = Table_UseItem_t.UseEffect[3421],
+    UseEffect = Table_UseItem_t.UseEffect[3457],
     UseMultiple = 999
   },
   [3007084] = {
     id = 3007084,
-    UseEffect = Table_UseItem_t.UseEffect[3420],
+    UseEffect = Table_UseItem_t.UseEffect[3456],
     UseMultiple = 999
   },
   [3007086] = {
     id = 3007086,
-    UseEffect = Table_UseItem_t.UseEffect[3418],
+    UseEffect = Table_UseItem_t.UseEffect[3455],
     CDTime = 0,
     UseMultiple = 999
   },
   [3007087] = {
     id = 3007087,
-    UseEffect = Table_UseItem_t.UseEffect[3417],
+    UseEffect = Table_UseItem_t.UseEffect[3447],
     UseMultiple = 999
   },
   [3007089] = {
     id = 3007089,
-    UseEffect = Table_UseItem_t.UseEffect[3416]
+    UseEffect = Table_UseItem_t.UseEffect[3437]
   },
   [3007170] = {
     id = 3007170,
@@ -52484,7 +52683,7 @@ Table_UseItem = {
   },
   [3008356] = {
     id = 3008356,
-    UseEffect = Table_UseItem_t.UseEffect[3408]
+    UseEffect = Table_UseItem_t.UseEffect[3436]
   },
   [3008357] = {
     id = 3008357,
@@ -52508,27 +52707,27 @@ Table_UseItem = {
   },
   [3008361] = {
     id = 3008361,
-    UseEffect = Table_UseItem_t.UseEffect[3398],
+    UseEffect = Table_UseItem_t.UseEffect[3435],
     UseMultiple = 999
   },
   [3008362] = {
     id = 3008362,
-    UseEffect = Table_UseItem_t.UseEffect[3397],
+    UseEffect = Table_UseItem_t.UseEffect[3431],
     UseMultiple = 999
   },
   [3008363] = {
     id = 3008363,
-    UseEffect = Table_UseItem_t.UseEffect[3396],
+    UseEffect = Table_UseItem_t.UseEffect[3430],
     UseMultiple = 999
   },
   [3008364] = {
     id = 3008364,
-    UseEffect = Table_UseItem_t.UseEffect[3392],
+    UseEffect = Table_UseItem_t.UseEffect[3429],
     UseMultiple = 999
   },
   [3008365] = {
     id = 3008365,
-    UseEffect = Table_UseItem_t.UseEffect[3391],
+    UseEffect = Table_UseItem_t.UseEffect[3428],
     UseMultiple = 999
   },
   [3008366] = {
@@ -52669,32 +52868,32 @@ Table_UseItem = {
   },
   [3008426] = {
     id = 3008426,
-    UseEffect = Table_UseItem_t.UseEffect[3390],
+    UseEffect = Table_UseItem_t.UseEffect[3421],
     UseMultiple = 999
   },
   [3008427] = {
     id = 3008427,
-    UseEffect = Table_UseItem_t.UseEffect[3389],
+    UseEffect = Table_UseItem_t.UseEffect[3420],
     UseMultiple = 999
   },
   [3008428] = {
     id = 3008428,
-    UseEffect = Table_UseItem_t.UseEffect[3382],
+    UseEffect = Table_UseItem_t.UseEffect[3419],
     UseMultiple = 999
   },
   [3008429] = {
     id = 3008429,
-    UseEffect = Table_UseItem_t.UseEffect[3381],
+    UseEffect = Table_UseItem_t.UseEffect[3418],
     UseMultiple = 999
   },
   [3008430] = {
     id = 3008430,
-    UseEffect = Table_UseItem_t.UseEffect[3380],
+    UseEffect = Table_UseItem_t.UseEffect[3417],
     UseMultiple = 999
   },
   [3008431] = {
     id = 3008431,
-    UseEffect = Table_UseItem_t.UseEffect[3379],
+    UseEffect = Table_UseItem_t.UseEffect[3416],
     UseMultiple = 999
   },
   [3008432] = {
@@ -52734,7 +52933,7 @@ Table_UseItem = {
   },
   [3008439] = {
     id = 3008439,
-    UseEffect = Table_UseItem_t.UseEffect[3378],
+    UseEffect = Table_UseItem_t.UseEffect[3412],
     UseMultiple = 999
   },
   [3008453] = {
@@ -52745,7 +52944,7 @@ Table_UseItem = {
   },
   [3008454] = {
     id = 3008454,
-    UseEffect = Table_UseItem_t.UseEffect[3377],
+    UseEffect = Table_UseItem_t.UseEffect[3395],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -52763,13 +52962,13 @@ Table_UseItem = {
   },
   [3008457] = {
     id = 3008457,
-    UseEffect = Table_UseItem_t.UseEffect[3373],
+    UseEffect = Table_UseItem_t.UseEffect[3393],
     CDTime = 1,
     UseMultiple = 999
   },
   [3008460] = {
     id = 3008460,
-    UseEffect = Table_UseItem_t.UseEffect[3356],
+    UseEffect = Table_UseItem_t.UseEffect[3381],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -53290,7 +53489,7 @@ Table_UseItem = {
   },
   [3009023] = {
     id = 3009023,
-    UseEffect = Table_UseItem_t.UseEffect[3354],
+    UseEffect = Table_UseItem_t.UseEffect[3378],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -53307,11 +53506,11 @@ Table_UseItem = {
   },
   [3009033] = {
     id = 3009033,
-    UseEffect = Table_UseItem_t.UseEffect[3342]
+    UseEffect = Table_UseItem_t.UseEffect[3377]
   },
   [3009034] = {
     id = 3009034,
-    UseEffect = Table_UseItem_t.UseEffect[3339]
+    UseEffect = Table_UseItem_t.UseEffect[3374]
   },
   [3009035] = {
     id = 3009035,
@@ -53347,7 +53546,7 @@ Table_UseItem = {
   },
   [3009043] = {
     id = 3009043,
-    UseEffect = Table_UseItem_t.UseEffect[3338]
+    UseEffect = Table_UseItem_t.UseEffect[3371]
   },
   [3009044] = {
     id = 3009044,
@@ -53359,13 +53558,13 @@ Table_UseItem = {
   [3009045] = {
     id = 3009045,
     Class = Table_UseItem_t.Class[14],
-    UseEffect = Table_UseItem_t.UseEffect[3335],
+    UseEffect = Table_UseItem_t.UseEffect[3370],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009046] = {
     id = 3009046,
-    UseEffect = Table_UseItem_t.UseEffect[3332],
+    UseEffect = Table_UseItem_t.UseEffect[3357],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -53401,19 +53600,19 @@ Table_UseItem = {
   },
   [3009099] = {
     id = 3009099,
-    UseEffect = Table_UseItem_t.UseEffect[3331],
+    UseEffect = Table_UseItem_t.UseEffect[3356],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009100] = {
     id = 3009100,
-    UseEffect = Table_UseItem_t.UseEffect[3318],
+    UseEffect = Table_UseItem_t.UseEffect[3355],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009101] = {
     id = 3009101,
-    UseEffect = Table_UseItem_t.UseEffect[3317],
+    UseEffect = Table_UseItem_t.UseEffect[3354],
     CDTime = 1
   },
   [3009104] = {
@@ -53424,13 +53623,13 @@ Table_UseItem = {
   },
   [3009111] = {
     id = 3009111,
-    UseEffect = Table_UseItem_t.UseEffect[3316],
+    UseEffect = Table_UseItem_t.UseEffect[3350],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009241] = {
     id = 3009241,
-    UseEffect = Table_UseItem_t.UseEffect[3312],
+    UseEffect = Table_UseItem_t.UseEffect[3349],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -53605,15 +53804,15 @@ Table_UseItem = {
   },
   [3009392] = {
     id = 3009392,
-    UseEffect = Table_UseItem_t.UseEffect[3311]
+    UseEffect = Table_UseItem_t.UseEffect[3329]
   },
   [3009393] = {
     id = 3009393,
-    UseEffect = Table_UseItem_t.UseEffect[3310]
+    UseEffect = Table_UseItem_t.UseEffect[3328]
   },
   [3009394] = {
     id = 3009394,
-    UseEffect = Table_UseItem_t.UseEffect[3290]
+    UseEffect = Table_UseItem_t.UseEffect[3327]
   },
   [3009395] = {
     id = 3009395,
@@ -53621,35 +53820,35 @@ Table_UseItem = {
   },
   [3009396] = {
     id = 3009396,
-    UseEffect = Table_UseItem_t.UseEffect[3289]
+    UseEffect = Table_UseItem_t.UseEffect[3326]
   },
   [3009397] = {
     id = 3009397,
-    UseEffect = Table_UseItem_t.UseEffect[3288]
+    UseEffect = Table_UseItem_t.UseEffect[3325]
   },
   [3009398] = {
     id = 3009398,
-    UseEffect = Table_UseItem_t.UseEffect[3287]
+    UseEffect = Table_UseItem_t.UseEffect[3324]
   },
   [3009399] = {
     id = 3009399,
-    UseEffect = Table_UseItem_t.UseEffect[3286]
+    UseEffect = Table_UseItem_t.UseEffect[3323]
   },
   [3009400] = {
     id = 3009400,
-    UseEffect = Table_UseItem_t.UseEffect[3285]
+    UseEffect = Table_UseItem_t.UseEffect[3322]
   },
   [3009401] = {
     id = 3009401,
-    UseEffect = Table_UseItem_t.UseEffect[3284]
+    UseEffect = Table_UseItem_t.UseEffect[3321]
   },
   [3009402] = {
     id = 3009402,
-    UseEffect = Table_UseItem_t.UseEffect[3283]
+    UseEffect = Table_UseItem_t.UseEffect[3320]
   },
   [3009403] = {
     id = 3009403,
-    UseEffect = Table_UseItem_t.UseEffect[3282]
+    UseEffect = Table_UseItem_t.UseEffect[3318]
   },
   [3009404] = {
     id = 3009404,
@@ -53798,409 +53997,409 @@ Table_UseItem = {
   },
   [3009517] = {
     id = 3009517,
-    UseEffect = Table_UseItem_t.UseEffect[3280],
+    UseEffect = Table_UseItem_t.UseEffect[3312],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009518] = {
     id = 3009518,
-    UseEffect = Table_UseItem_t.UseEffect[3279],
+    UseEffect = Table_UseItem_t.UseEffect[3306],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009520] = {
     id = 3009520,
-    UseEffect = Table_UseItem_t.UseEffect[3273],
+    UseEffect = Table_UseItem_t.UseEffect[3305],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009521] = {
     id = 3009521,
-    UseEffect = Table_UseItem_t.UseEffect[3267],
+    UseEffect = Table_UseItem_t.UseEffect[3304],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009522] = {
     id = 3009522,
-    UseEffect = Table_UseItem_t.UseEffect[3266],
+    UseEffect = Table_UseItem_t.UseEffect[3294],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009542] = {
     id = 3009542,
-    UseEffect = Table_UseItem_t.UseEffect[3265],
+    UseEffect = Table_UseItem_t.UseEffect[3293],
     UseMultiple = 999
   },
   [3009543] = {
     id = 3009543,
-    UseEffect = Table_UseItem_t.UseEffect[3255],
+    UseEffect = Table_UseItem_t.UseEffect[3292],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009544] = {
     id = 3009544,
-    UseEffect = Table_UseItem_t.UseEffect[3254],
+    UseEffect = Table_UseItem_t.UseEffect[3291],
     CDTime = 1,
     UseMultiple = 999
   },
   [3009570] = {
     id = 3009570,
-    UseEffect = Table_UseItem_t.UseEffect[3253],
+    UseEffect = Table_UseItem_t.UseEffect[3290],
     UseMultiple = 999
   },
   [3009571] = {
     id = 3009571,
-    UseEffect = Table_UseItem_t.UseEffect[3252],
+    UseEffect = Table_UseItem_t.UseEffect[3289],
     UseMultiple = 999
   },
   [3009572] = {
     id = 3009572,
-    UseEffect = Table_UseItem_t.UseEffect[3251],
+    UseEffect = Table_UseItem_t.UseEffect[3288],
     UseMultiple = 999
   },
   [3009573] = {
     id = 3009573,
-    UseEffect = Table_UseItem_t.UseEffect[3250],
+    UseEffect = Table_UseItem_t.UseEffect[3271],
     UseMultiple = 999
   },
   [3009574] = {
     id = 3009574,
-    UseEffect = Table_UseItem_t.UseEffect[3249],
+    UseEffect = Table_UseItem_t.UseEffect[3270],
     UseMultiple = 999
   },
   [3009575] = {
     id = 3009575,
-    UseEffect = Table_UseItem_t.UseEffect[3232],
+    UseEffect = Table_UseItem_t.UseEffect[3269],
     UseMultiple = 999
   },
   [3009576] = {
     id = 3009576,
-    UseEffect = Table_UseItem_t.UseEffect[3231],
+    UseEffect = Table_UseItem_t.UseEffect[3267],
     UseMultiple = 999
   },
   [3009577] = {
     id = 3009577,
-    UseEffect = Table_UseItem_t.UseEffect[3230],
+    UseEffect = Table_UseItem_t.UseEffect[3266],
     UseMultiple = 999
   },
   [3009578] = {
     id = 3009578,
-    UseEffect = Table_UseItem_t.UseEffect[3228],
+    UseEffect = Table_UseItem_t.UseEffect[3265],
     UseMultiple = 999
   },
   [3009580] = {
     id = 3009580,
-    UseEffect = Table_UseItem_t.UseEffect[3227],
+    UseEffect = Table_UseItem_t.UseEffect[3264],
     UseMultiple = 999
   },
   [3009581] = {
     id = 3009581,
-    UseEffect = Table_UseItem_t.UseEffect[3226],
+    UseEffect = Table_UseItem_t.UseEffect[3258],
     UseMultiple = 999
   },
   [3009582] = {
     id = 3009582,
-    UseEffect = Table_UseItem_t.UseEffect[3225],
+    UseEffect = Table_UseItem_t.UseEffect[3256],
     UseMultiple = 999
   },
   [3009583] = {
     id = 3009583,
-    UseEffect = Table_UseItem_t.UseEffect[3219],
+    UseEffect = Table_UseItem_t.UseEffect[3250],
     UseMultiple = 999
   },
   [3009584] = {
     id = 3009584,
-    UseEffect = Table_UseItem_t.UseEffect[3217],
+    UseEffect = Table_UseItem_t.UseEffect[3249],
     UseMultiple = 999
   },
   [3009585] = {
     id = 3009585,
-    UseEffect = Table_UseItem_t.UseEffect[3211],
+    UseEffect = Table_UseItem_t.UseEffect[3248],
     UseMultiple = 999
   },
   [3009586] = {
     id = 3009586,
-    UseEffect = Table_UseItem_t.UseEffect[3210],
+    UseEffect = Table_UseItem_t.UseEffect[3239],
     UseMultiple = 999
   },
   [3009587] = {
     id = 3009587,
-    UseEffect = Table_UseItem_t.UseEffect[3209],
+    UseEffect = Table_UseItem_t.UseEffect[3226],
     UseMultiple = 999
   },
   [3009588] = {
     id = 3009588,
-    UseEffect = Table_UseItem_t.UseEffect[3200],
+    UseEffect = Table_UseItem_t.UseEffect[3225],
     UseMultiple = 999
   },
   [3009590] = {
     id = 3009590,
-    UseEffect = Table_UseItem_t.UseEffect[3187],
+    UseEffect = Table_UseItem_t.UseEffect[3224],
     UseMultiple = 999
   },
   [3009591] = {
     id = 3009591,
-    UseEffect = Table_UseItem_t.UseEffect[3186],
+    UseEffect = Table_UseItem_t.UseEffect[3220],
     UseMultiple = 999
   },
   [3009592] = {
     id = 3009592,
-    UseEffect = Table_UseItem_t.UseEffect[3185],
+    UseEffect = Table_UseItem_t.UseEffect[3219],
     UseMultiple = 999
   },
   [3009593] = {
     id = 3009593,
-    UseEffect = Table_UseItem_t.UseEffect[3181],
+    UseEffect = Table_UseItem_t.UseEffect[3218],
     UseMultiple = 999
   },
   [3009594] = {
     id = 3009594,
-    UseEffect = Table_UseItem_t.UseEffect[3180],
+    UseEffect = Table_UseItem_t.UseEffect[3217],
     UseMultiple = 999
   },
   [3009595] = {
     id = 3009595,
-    UseEffect = Table_UseItem_t.UseEffect[3179],
+    UseEffect = Table_UseItem_t.UseEffect[3216],
     UseMultiple = 999
   },
   [3009596] = {
     id = 3009596,
-    UseEffect = Table_UseItem_t.UseEffect[3178],
+    UseEffect = Table_UseItem_t.UseEffect[3215],
     UseMultiple = 999
   },
   [3009597] = {
     id = 3009597,
-    UseEffect = Table_UseItem_t.UseEffect[3177],
+    UseEffect = Table_UseItem_t.UseEffect[3214],
     UseMultiple = 999
   },
   [3009598] = {
     id = 3009598,
-    UseEffect = Table_UseItem_t.UseEffect[3176],
+    UseEffect = Table_UseItem_t.UseEffect[3183],
     UseMultiple = 999
   },
   [3009600] = {
     id = 3009600,
-    UseEffect = Table_UseItem_t.UseEffect[3175],
+    UseEffect = Table_UseItem_t.UseEffect[3180],
     UseMultiple = 999
   },
   [3009601] = {
     id = 3009601,
-    UseEffect = Table_UseItem_t.UseEffect[3144],
+    UseEffect = Table_UseItem_t.UseEffect[3178],
     UseMultiple = 999
   },
   [3009602] = {
     id = 3009602,
-    UseEffect = Table_UseItem_t.UseEffect[3141],
+    UseEffect = Table_UseItem_t.UseEffect[3172],
     UseMultiple = 999
   },
   [3009603] = {
     id = 3009603,
-    UseEffect = Table_UseItem_t.UseEffect[3139],
+    UseEffect = Table_UseItem_t.UseEffect[3171],
     UseMultiple = 999
   },
   [3009604] = {
     id = 3009604,
-    UseEffect = Table_UseItem_t.UseEffect[3133],
+    UseEffect = Table_UseItem_t.UseEffect[3149],
     UseMultiple = 999
   },
   [3009605] = {
     id = 3009605,
-    UseEffect = Table_UseItem_t.UseEffect[3132],
+    UseEffect = Table_UseItem_t.UseEffect[3137],
     UseMultiple = 999
   },
   [3009606] = {
     id = 3009606,
-    UseEffect = Table_UseItem_t.UseEffect[3110],
+    UseEffect = Table_UseItem_t.UseEffect[3131],
     UseMultiple = 999
   },
   [3009607] = {
     id = 3009607,
-    UseEffect = Table_UseItem_t.UseEffect[3098],
+    UseEffect = Table_UseItem_t.UseEffect[3106],
     UseMultiple = 999
   },
   [3009608] = {
     id = 3009608,
-    UseEffect = Table_UseItem_t.UseEffect[3092],
+    UseEffect = Table_UseItem_t.UseEffect[3105],
     UseMultiple = 999
   },
   [3009610] = {
     id = 3009610,
-    UseEffect = Table_UseItem_t.UseEffect[3067],
+    UseEffect = Table_UseItem_t.UseEffect[3104],
     UseMultiple = 999
   },
   [3009611] = {
     id = 3009611,
-    UseEffect = Table_UseItem_t.UseEffect[3066],
+    UseEffect = Table_UseItem_t.UseEffect[3103],
     UseMultiple = 999
   },
   [3009612] = {
     id = 3009612,
-    UseEffect = Table_UseItem_t.UseEffect[3065],
+    UseEffect = Table_UseItem_t.UseEffect[3102],
     UseMultiple = 999
   },
   [3009613] = {
     id = 3009613,
-    UseEffect = Table_UseItem_t.UseEffect[3064],
+    UseEffect = Table_UseItem_t.UseEffect[3101],
     UseMultiple = 999
   },
   [3009614] = {
     id = 3009614,
-    UseEffect = Table_UseItem_t.UseEffect[3063],
+    UseEffect = Table_UseItem_t.UseEffect[3100],
     UseMultiple = 999
   },
   [3009615] = {
     id = 3009615,
-    UseEffect = Table_UseItem_t.UseEffect[3062],
+    UseEffect = Table_UseItem_t.UseEffect[3099],
     UseMultiple = 999
   },
   [3009616] = {
     id = 3009616,
-    UseEffect = Table_UseItem_t.UseEffect[3061],
+    UseEffect = Table_UseItem_t.UseEffect[3098],
     UseMultiple = 999
   },
   [3009617] = {
     id = 3009617,
-    UseEffect = Table_UseItem_t.UseEffect[3060],
+    UseEffect = Table_UseItem_t.UseEffect[3097],
     UseMultiple = 999
   },
   [3009618] = {
     id = 3009618,
-    UseEffect = Table_UseItem_t.UseEffect[3059],
+    UseEffect = Table_UseItem_t.UseEffect[3094],
     UseMultiple = 999
   },
   [3009620] = {
     id = 3009620,
-    UseEffect = Table_UseItem_t.UseEffect[3058],
+    UseEffect = Table_UseItem_t.UseEffect[3092],
     UseMultiple = 999
   },
   [3009621] = {
     id = 3009621,
-    UseEffect = Table_UseItem_t.UseEffect[3055],
+    UseEffect = Table_UseItem_t.UseEffect[3090],
     UseMultiple = 999
   },
   [3009622] = {
     id = 3009622,
-    UseEffect = Table_UseItem_t.UseEffect[3053],
+    UseEffect = Table_UseItem_t.UseEffect[3089],
     UseMultiple = 999
   },
   [3009623] = {
     id = 3009623,
-    UseEffect = Table_UseItem_t.UseEffect[3051],
+    UseEffect = Table_UseItem_t.UseEffect[3086],
     UseMultiple = 999
   },
   [3009624] = {
     id = 3009624,
-    UseEffect = Table_UseItem_t.UseEffect[3050],
+    UseEffect = Table_UseItem_t.UseEffect[3085],
     UseMultiple = 999
   },
   [3009625] = {
     id = 3009625,
-    UseEffect = Table_UseItem_t.UseEffect[3047],
+    UseEffect = Table_UseItem_t.UseEffect[3084],
     UseMultiple = 999
   },
   [3009626] = {
     id = 3009626,
-    UseEffect = Table_UseItem_t.UseEffect[3046],
+    UseEffect = Table_UseItem_t.UseEffect[3081],
     UseMultiple = 999
   },
   [3009627] = {
     id = 3009627,
-    UseEffect = Table_UseItem_t.UseEffect[3045],
+    UseEffect = Table_UseItem_t.UseEffect[3067],
     UseMultiple = 999
   },
   [3009628] = {
     id = 3009628,
-    UseEffect = Table_UseItem_t.UseEffect[3042],
+    UseEffect = Table_UseItem_t.UseEffect[3066],
     UseMultiple = 999
   },
   [3009630] = {
     id = 3009630,
-    UseEffect = Table_UseItem_t.UseEffect[3028],
+    UseEffect = Table_UseItem_t.UseEffect[3065],
     UseMultiple = 999
   },
   [3009631] = {
     id = 3009631,
-    UseEffect = Table_UseItem_t.UseEffect[3027],
+    UseEffect = Table_UseItem_t.UseEffect[3064],
     UseMultiple = 999
   },
   [3009632] = {
     id = 3009632,
-    UseEffect = Table_UseItem_t.UseEffect[3026],
+    UseEffect = Table_UseItem_t.UseEffect[3063],
     UseMultiple = 999
   },
   [3009633] = {
     id = 3009633,
-    UseEffect = Table_UseItem_t.UseEffect[3025],
+    UseEffect = Table_UseItem_t.UseEffect[3062],
     UseMultiple = 999
   },
   [3009634] = {
     id = 3009634,
-    UseEffect = Table_UseItem_t.UseEffect[3024],
+    UseEffect = Table_UseItem_t.UseEffect[3061],
     UseMultiple = 999
   },
   [3009635] = {
     id = 3009635,
-    UseEffect = Table_UseItem_t.UseEffect[3023],
+    UseEffect = Table_UseItem_t.UseEffect[3053],
     UseMultiple = 999
   },
   [3009636] = {
     id = 3009636,
-    UseEffect = Table_UseItem_t.UseEffect[3022],
+    UseEffect = Table_UseItem_t.UseEffect[3050],
     UseMultiple = 999
   },
   [3009637] = {
     id = 3009637,
-    UseEffect = Table_UseItem_t.UseEffect[3014],
+    UseEffect = Table_UseItem_t.UseEffect[3042],
     UseMultiple = 999
   },
   [3009638] = {
     id = 3009638,
-    UseEffect = Table_UseItem_t.UseEffect[3011],
+    UseEffect = Table_UseItem_t.UseEffect[3041],
     UseMultiple = 999
   },
   [3009640] = {
     id = 3009640,
-    UseEffect = Table_UseItem_t.UseEffect[3003],
+    UseEffect = Table_UseItem_t.UseEffect[3040],
     UseMultiple = 999
   },
   [3009641] = {
     id = 3009641,
-    UseEffect = Table_UseItem_t.UseEffect[3002],
+    UseEffect = Table_UseItem_t.UseEffect[3039],
     UseMultiple = 999
   },
   [3009642] = {
     id = 3009642,
-    UseEffect = Table_UseItem_t.UseEffect[3001],
+    UseEffect = Table_UseItem_t.UseEffect[3038],
     UseMultiple = 999
   },
   [3009643] = {
     id = 3009643,
-    UseEffect = Table_UseItem_t.UseEffect[3000],
+    UseEffect = Table_UseItem_t.UseEffect[3037],
     UseMultiple = 999
   },
   [3009644] = {
     id = 3009644,
-    UseEffect = Table_UseItem_t.UseEffect[2999],
+    UseEffect = Table_UseItem_t.UseEffect[3036],
     UseMultiple = 999
   },
   [3009645] = {
     id = 3009645,
-    UseEffect = Table_UseItem_t.UseEffect[2998],
+    UseEffect = Table_UseItem_t.UseEffect[3035],
     UseMultiple = 999
   },
   [3009646] = {
     id = 3009646,
-    UseEffect = Table_UseItem_t.UseEffect[2997],
+    UseEffect = Table_UseItem_t.UseEffect[3034],
     UseMultiple = 999
   },
   [3009647] = {
     id = 3009647,
-    UseEffect = Table_UseItem_t.UseEffect[2996],
+    UseEffect = Table_UseItem_t.UseEffect[3033],
     UseMultiple = 999
   },
   [3009648] = {
     id = 3009648,
-    UseEffect = Table_UseItem_t.UseEffect[2995],
+    UseEffect = Table_UseItem_t.UseEffect[3032],
     UseMultiple = 999
   },
   [3009650] = {
@@ -54215,497 +54414,497 @@ Table_UseItem = {
   },
   [3009652] = {
     id = 3009652,
-    UseEffect = Table_UseItem_t.UseEffect[2994],
+    UseEffect = Table_UseItem_t.UseEffect[3031],
     UseMultiple = 999
   },
   [3009653] = {
     id = 3009653,
-    UseEffect = Table_UseItem_t.UseEffect[2993],
+    UseEffect = Table_UseItem_t.UseEffect[3030],
     UseMultiple = 999
   },
   [3009654] = {
     id = 3009654,
-    UseEffect = Table_UseItem_t.UseEffect[2992],
+    UseEffect = Table_UseItem_t.UseEffect[3029],
     UseMultiple = 999
   },
   [3009655] = {
     id = 3009655,
-    UseEffect = Table_UseItem_t.UseEffect[2991],
+    UseEffect = Table_UseItem_t.UseEffect[3028],
     UseMultiple = 999
   },
   [3009656] = {
     id = 3009656,
-    UseEffect = Table_UseItem_t.UseEffect[2990],
+    UseEffect = Table_UseItem_t.UseEffect[3027],
     UseMultiple = 999
   },
   [3009657] = {
     id = 3009657,
-    UseEffect = Table_UseItem_t.UseEffect[2989],
+    UseEffect = Table_UseItem_t.UseEffect[3026],
     UseMultiple = 999
   },
   [3009658] = {
     id = 3009658,
-    UseEffect = Table_UseItem_t.UseEffect[2988],
+    UseEffect = Table_UseItem_t.UseEffect[3025],
     UseMultiple = 999
   },
   [3009660] = {
     id = 3009660,
-    UseEffect = Table_UseItem_t.UseEffect[2987],
+    UseEffect = Table_UseItem_t.UseEffect[3024],
     UseMultiple = 999
   },
   [3009661] = {
     id = 3009661,
-    UseEffect = Table_UseItem_t.UseEffect[2986],
+    UseEffect = Table_UseItem_t.UseEffect[3023],
     UseMultiple = 999
   },
   [3009662] = {
     id = 3009662,
-    UseEffect = Table_UseItem_t.UseEffect[2985],
+    UseEffect = Table_UseItem_t.UseEffect[3022],
     UseMultiple = 999
   },
   [3009663] = {
     id = 3009663,
-    UseEffect = Table_UseItem_t.UseEffect[2984],
+    UseEffect = Table_UseItem_t.UseEffect[3021],
     UseMultiple = 999
   },
   [3009664] = {
     id = 3009664,
-    UseEffect = Table_UseItem_t.UseEffect[2983],
+    UseEffect = Table_UseItem_t.UseEffect[3020],
     UseMultiple = 999
   },
   [3009665] = {
     id = 3009665,
-    UseEffect = Table_UseItem_t.UseEffect[2982],
+    UseEffect = Table_UseItem_t.UseEffect[3019],
     UseMultiple = 999
   },
   [3009666] = {
     id = 3009666,
-    UseEffect = Table_UseItem_t.UseEffect[2981],
+    UseEffect = Table_UseItem_t.UseEffect[3018],
     UseMultiple = 999
   },
   [3009667] = {
     id = 3009667,
-    UseEffect = Table_UseItem_t.UseEffect[2980],
+    UseEffect = Table_UseItem_t.UseEffect[3017],
     UseMultiple = 999
   },
   [3009668] = {
     id = 3009668,
-    UseEffect = Table_UseItem_t.UseEffect[2979],
+    UseEffect = Table_UseItem_t.UseEffect[3016],
     UseMultiple = 999
   },
   [3009670] = {
     id = 3009670,
-    UseEffect = Table_UseItem_t.UseEffect[2978],
+    UseEffect = Table_UseItem_t.UseEffect[3015],
     UseMultiple = 999
   },
   [3009671] = {
     id = 3009671,
-    UseEffect = Table_UseItem_t.UseEffect[2977],
+    UseEffect = Table_UseItem_t.UseEffect[2942],
     UseMultiple = 999
   },
   [3009672] = {
     id = 3009672,
-    UseEffect = Table_UseItem_t.UseEffect[2976],
+    UseEffect = Table_UseItem_t.UseEffect[2941],
     UseMultiple = 999
   },
   [3009673] = {
     id = 3009673,
-    UseEffect = Table_UseItem_t.UseEffect[2903],
+    UseEffect = Table_UseItem_t.UseEffect[2940],
     UseMultiple = 999
   },
   [3009674] = {
     id = 3009674,
-    UseEffect = Table_UseItem_t.UseEffect[2902],
+    UseEffect = Table_UseItem_t.UseEffect[2939],
     UseMultiple = 999
   },
   [3009675] = {
     id = 3009675,
-    UseEffect = Table_UseItem_t.UseEffect[2901],
+    UseEffect = Table_UseItem_t.UseEffect[2938],
     UseMultiple = 999
   },
   [3009676] = {
     id = 3009676,
-    UseEffect = Table_UseItem_t.UseEffect[2900],
+    UseEffect = Table_UseItem_t.UseEffect[2937],
     UseMultiple = 999
   },
   [3009677] = {
     id = 3009677,
-    UseEffect = Table_UseItem_t.UseEffect[2899],
+    UseEffect = Table_UseItem_t.UseEffect[2936],
     UseMultiple = 999
   },
   [3009678] = {
     id = 3009678,
-    UseEffect = Table_UseItem_t.UseEffect[2898],
+    UseEffect = Table_UseItem_t.UseEffect[2935],
     UseMultiple = 999
   },
   [3009680] = {
     id = 3009680,
-    UseEffect = Table_UseItem_t.UseEffect[2897],
+    UseEffect = Table_UseItem_t.UseEffect[2934],
     UseMultiple = 999
   },
   [3009681] = {
     id = 3009681,
-    UseEffect = Table_UseItem_t.UseEffect[2896],
+    UseEffect = Table_UseItem_t.UseEffect[2933],
     UseMultiple = 999
   },
   [3009682] = {
     id = 3009682,
-    UseEffect = Table_UseItem_t.UseEffect[2895],
+    UseEffect = Table_UseItem_t.UseEffect[2932],
     UseMultiple = 999
   },
   [3009683] = {
     id = 3009683,
-    UseEffect = Table_UseItem_t.UseEffect[2894],
+    UseEffect = Table_UseItem_t.UseEffect[2931],
     UseMultiple = 999
   },
   [3009684] = {
     id = 3009684,
-    UseEffect = Table_UseItem_t.UseEffect[2893],
+    UseEffect = Table_UseItem_t.UseEffect[2930],
     UseMultiple = 999
   },
   [3009685] = {
     id = 3009685,
-    UseEffect = Table_UseItem_t.UseEffect[2892],
+    UseEffect = Table_UseItem_t.UseEffect[2929],
     UseMultiple = 999
   },
   [3009686] = {
     id = 3009686,
-    UseEffect = Table_UseItem_t.UseEffect[2891],
+    UseEffect = Table_UseItem_t.UseEffect[2928],
     UseMultiple = 999
   },
   [3009687] = {
     id = 3009687,
-    UseEffect = Table_UseItem_t.UseEffect[2890],
+    UseEffect = Table_UseItem_t.UseEffect[2927],
     UseMultiple = 999
   },
   [3009688] = {
     id = 3009688,
-    UseEffect = Table_UseItem_t.UseEffect[2889],
+    UseEffect = Table_UseItem_t.UseEffect[2926],
     UseMultiple = 999
   },
   [3009690] = {
     id = 3009690,
-    UseEffect = Table_UseItem_t.UseEffect[2888],
+    UseEffect = Table_UseItem_t.UseEffect[2925],
     UseMultiple = 999
   },
   [3009691] = {
     id = 3009691,
-    UseEffect = Table_UseItem_t.UseEffect[2887],
+    UseEffect = Table_UseItem_t.UseEffect[2924],
     UseMultiple = 999
   },
   [3009692] = {
     id = 3009692,
-    UseEffect = Table_UseItem_t.UseEffect[2886],
+    UseEffect = Table_UseItem_t.UseEffect[2923],
     UseMultiple = 999
   },
   [3009693] = {
     id = 3009693,
-    UseEffect = Table_UseItem_t.UseEffect[2885],
+    UseEffect = Table_UseItem_t.UseEffect[2922],
     UseMultiple = 999
   },
   [3009694] = {
     id = 3009694,
-    UseEffect = Table_UseItem_t.UseEffect[2884],
+    UseEffect = Table_UseItem_t.UseEffect[2921],
     UseMultiple = 999
   },
   [3009695] = {
     id = 3009695,
-    UseEffect = Table_UseItem_t.UseEffect[2883],
+    UseEffect = Table_UseItem_t.UseEffect[2920],
     UseMultiple = 999
   },
   [3009696] = {
     id = 3009696,
-    UseEffect = Table_UseItem_t.UseEffect[2882],
+    UseEffect = Table_UseItem_t.UseEffect[2919],
     UseMultiple = 999
   },
   [3009697] = {
     id = 3009697,
-    UseEffect = Table_UseItem_t.UseEffect[2881],
+    UseEffect = Table_UseItem_t.UseEffect[2102],
     UseMultiple = 999
   },
   [3009698] = {
     id = 3009698,
-    UseEffect = Table_UseItem_t.UseEffect[2880],
+    UseEffect = Table_UseItem_t.UseEffect[2917],
     UseMultiple = 999
   },
   [3009700] = {
     id = 3009700,
-    UseEffect = Table_UseItem_t.UseEffect[2879],
+    UseEffect = Table_UseItem_t.UseEffect[2911],
     UseMultiple = 999
   },
   [3009701] = {
     id = 3009701,
-    UseEffect = Table_UseItem_t.UseEffect[2878],
+    UseEffect = Table_UseItem_t.UseEffect[2910],
     UseMultiple = 999
   },
   [3009702] = {
     id = 3009702,
-    UseEffect = Table_UseItem_t.UseEffect[2872],
+    UseEffect = Table_UseItem_t.UseEffect[2909],
     UseMultiple = 999
   },
   [3009703] = {
     id = 3009703,
-    UseEffect = Table_UseItem_t.UseEffect[2871],
+    UseEffect = Table_UseItem_t.UseEffect[2908],
     UseMultiple = 999
   },
   [3009704] = {
     id = 3009704,
-    UseEffect = Table_UseItem_t.UseEffect[2870],
+    UseEffect = Table_UseItem_t.UseEffect[2103],
     UseMultiple = 999
   },
   [3009705] = {
     id = 3009705,
-    UseEffect = Table_UseItem_t.UseEffect[2869],
+    UseEffect = Table_UseItem_t.UseEffect[2901],
     UseMultiple = 999
   },
   [3009706] = {
     id = 3009706,
-    UseEffect = Table_UseItem_t.UseEffect[2868],
+    UseEffect = Table_UseItem_t.UseEffect[2900],
     UseMultiple = 999
   },
   [3009707] = {
     id = 3009707,
-    UseEffect = Table_UseItem_t.UseEffect[2861],
+    UseEffect = Table_UseItem_t.UseEffect[2899],
     UseMultiple = 999
   },
   [3009708] = {
     id = 3009708,
-    UseEffect = Table_UseItem_t.UseEffect[2860],
+    UseEffect = Table_UseItem_t.UseEffect[2898],
     UseMultiple = 999
   },
   [3009710] = {
     id = 3009710,
-    UseEffect = Table_UseItem_t.UseEffect[2859],
+    UseEffect = Table_UseItem_t.UseEffect[2897],
     UseMultiple = 999
   },
   [3009711] = {
     id = 3009711,
-    UseEffect = Table_UseItem_t.UseEffect[2858],
+    UseEffect = Table_UseItem_t.UseEffect[2893],
     UseMultiple = 999
   },
   [3009712] = {
     id = 3009712,
-    UseEffect = Table_UseItem_t.UseEffect[2857],
+    UseEffect = Table_UseItem_t.UseEffect[2891],
     UseMultiple = 999
   },
   [3009713] = {
     id = 3009713,
-    UseEffect = Table_UseItem_t.UseEffect[2853],
+    UseEffect = Table_UseItem_t.UseEffect[2890],
     UseMultiple = 999
   },
   [3009714] = {
     id = 3009714,
-    UseEffect = Table_UseItem_t.UseEffect[2851],
+    UseEffect = Table_UseItem_t.UseEffect[2889],
     UseMultiple = 999
   },
   [3009715] = {
     id = 3009715,
-    UseEffect = Table_UseItem_t.UseEffect[2850],
+    UseEffect = Table_UseItem_t.UseEffect[2888],
     UseMultiple = 999
   },
   [3009716] = {
     id = 3009716,
-    UseEffect = Table_UseItem_t.UseEffect[2849],
+    UseEffect = Table_UseItem_t.UseEffect[2887],
     UseMultiple = 999
   },
   [3009717] = {
     id = 3009717,
-    UseEffect = Table_UseItem_t.UseEffect[2848],
+    UseEffect = Table_UseItem_t.UseEffect[2886],
     UseMultiple = 999
   },
   [3009718] = {
     id = 3009718,
-    UseEffect = Table_UseItem_t.UseEffect[2847],
+    UseEffect = Table_UseItem_t.UseEffect[2885],
     UseMultiple = 999
   },
   [3009720] = {
     id = 3009720,
-    UseEffect = Table_UseItem_t.UseEffect[2846],
+    UseEffect = Table_UseItem_t.UseEffect[2884],
     UseMultiple = 999
   },
   [3009721] = {
     id = 3009721,
-    UseEffect = Table_UseItem_t.UseEffect[2845],
+    UseEffect = Table_UseItem_t.UseEffect[2883],
     UseMultiple = 999
   },
   [3009722] = {
     id = 3009722,
-    UseEffect = Table_UseItem_t.UseEffect[2844],
+    UseEffect = Table_UseItem_t.UseEffect[2882],
     UseMultiple = 999
   },
   [3009723] = {
     id = 3009723,
-    UseEffect = Table_UseItem_t.UseEffect[2843],
+    UseEffect = Table_UseItem_t.UseEffect[2881],
     UseMultiple = 999
   },
   [3009724] = {
     id = 3009724,
-    UseEffect = Table_UseItem_t.UseEffect[2842],
+    UseEffect = Table_UseItem_t.UseEffect[2880],
     UseMultiple = 999
   },
   [3009725] = {
     id = 3009725,
-    UseEffect = Table_UseItem_t.UseEffect[2841],
+    UseEffect = Table_UseItem_t.UseEffect[2879],
     UseMultiple = 999
   },
   [3009726] = {
     id = 3009726,
-    UseEffect = Table_UseItem_t.UseEffect[2840],
+    UseEffect = Table_UseItem_t.UseEffect[2878],
     UseMultiple = 999
   },
   [3009727] = {
     id = 3009727,
-    UseEffect = Table_UseItem_t.UseEffect[2839],
+    UseEffect = Table_UseItem_t.UseEffect[2877],
     UseMultiple = 999
   },
   [3009728] = {
     id = 3009728,
-    UseEffect = Table_UseItem_t.UseEffect[2838],
+    UseEffect = Table_UseItem_t.UseEffect[2875],
     UseMultiple = 999
   },
   [3009730] = {
     id = 3009730,
-    UseEffect = Table_UseItem_t.UseEffect[2837],
+    UseEffect = Table_UseItem_t.UseEffect[2874],
     UseMultiple = 999
   },
   [3009731] = {
     id = 3009731,
-    UseEffect = Table_UseItem_t.UseEffect[2835],
+    UseEffect = Table_UseItem_t.UseEffect[2873],
     UseMultiple = 999
   },
   [3009732] = {
     id = 3009732,
-    UseEffect = Table_UseItem_t.UseEffect[2834],
+    UseEffect = Table_UseItem_t.UseEffect[2872],
     UseMultiple = 999
   },
   [3009733] = {
     id = 3009733,
-    UseEffect = Table_UseItem_t.UseEffect[2833],
+    UseEffect = Table_UseItem_t.UseEffect[2871],
     UseMultiple = 999
   },
   [3009734] = {
     id = 3009734,
-    UseEffect = Table_UseItem_t.UseEffect[2832],
+    UseEffect = Table_UseItem_t.UseEffect[2870],
     UseMultiple = 999
   },
   [3009735] = {
     id = 3009735,
-    UseEffect = Table_UseItem_t.UseEffect[2831],
+    UseEffect = Table_UseItem_t.UseEffect[2869],
     UseMultiple = 999
   },
   [3009736] = {
     id = 3009736,
-    UseEffect = Table_UseItem_t.UseEffect[2830],
+    UseEffect = Table_UseItem_t.UseEffect[2859],
     UseMultiple = 999
   },
   [3009737] = {
     id = 3009737,
-    UseEffect = Table_UseItem_t.UseEffect[2829],
+    UseEffect = Table_UseItem_t.UseEffect[2858],
     UseMultiple = 999
   },
   [3009738] = {
     id = 3009738,
-    UseEffect = Table_UseItem_t.UseEffect[2819],
+    UseEffect = Table_UseItem_t.UseEffect[2855],
     UseMultiple = 999
   },
   [3009740] = {
     id = 3009740,
-    UseEffect = Table_UseItem_t.UseEffect[2818],
+    UseEffect = Table_UseItem_t.UseEffect[2854],
     UseMultiple = 999
   },
   [3009741] = {
     id = 3009741,
-    UseEffect = Table_UseItem_t.UseEffect[2815],
+    UseEffect = Table_UseItem_t.UseEffect[2853],
     UseMultiple = 999
   },
   [3009742] = {
     id = 3009742,
-    UseEffect = Table_UseItem_t.UseEffect[2814],
+    UseEffect = Table_UseItem_t.UseEffect[2852],
     UseMultiple = 999
   },
   [3009743] = {
     id = 3009743,
-    UseEffect = Table_UseItem_t.UseEffect[2813],
+    UseEffect = Table_UseItem_t.UseEffect[2851],
     UseMultiple = 999
   },
   [3009744] = {
     id = 3009744,
-    UseEffect = Table_UseItem_t.UseEffect[2812],
+    UseEffect = Table_UseItem_t.UseEffect[2850],
     UseMultiple = 999
   },
   [3009745] = {
     id = 3009745,
-    UseEffect = Table_UseItem_t.UseEffect[2811],
+    UseEffect = Table_UseItem_t.UseEffect[2849],
     UseMultiple = 999
   },
   [3009746] = {
     id = 3009746,
-    UseEffect = Table_UseItem_t.UseEffect[2810],
+    UseEffect = Table_UseItem_t.UseEffect[2848],
     UseMultiple = 999
   },
   [3009747] = {
     id = 3009747,
-    UseEffect = Table_UseItem_t.UseEffect[2809],
+    UseEffect = Table_UseItem_t.UseEffect[2847],
     UseMultiple = 999
   },
   [3009748] = {
     id = 3009748,
-    UseEffect = Table_UseItem_t.UseEffect[2808],
+    UseEffect = Table_UseItem_t.UseEffect[2846],
     UseMultiple = 999
   },
   [3009750] = {
     id = 3009750,
-    UseEffect = Table_UseItem_t.UseEffect[2807],
+    UseEffect = Table_UseItem_t.UseEffect[2845],
     UseMultiple = 999
   },
   [3009751] = {
     id = 3009751,
-    UseEffect = Table_UseItem_t.UseEffect[2806],
+    UseEffect = Table_UseItem_t.UseEffect[2844],
     UseMultiple = 999
   },
   [3009752] = {
     id = 3009752,
-    UseEffect = Table_UseItem_t.UseEffect[2805],
+    UseEffect = Table_UseItem_t.UseEffect[2843],
     UseMultiple = 999
   },
   [3009753] = {
     id = 3009753,
-    UseEffect = Table_UseItem_t.UseEffect[2804],
+    UseEffect = Table_UseItem_t.UseEffect[2842],
     UseMultiple = 999
   },
   [3009754] = {
     id = 3009754,
-    UseEffect = Table_UseItem_t.UseEffect[2803],
+    UseEffect = Table_UseItem_t.UseEffect[2841],
     UseMultiple = 999
   },
   [3009755] = {
     id = 3009755,
-    UseEffect = Table_UseItem_t.UseEffect[2802],
+    UseEffect = Table_UseItem_t.UseEffect[2840],
     UseMultiple = 999
   },
   [3009756] = {
     id = 3009756,
-    UseEffect = Table_UseItem_t.UseEffect[2801],
+    UseEffect = Table_UseItem_t.UseEffect[2839],
     UseMultiple = 999
   },
   [3009757] = {
     id = 3009757,
-    UseEffect = Table_UseItem_t.UseEffect[2800],
+    UseEffect = Table_UseItem_t.UseEffect[2838],
     UseMultiple = 999
   },
   [3009758] = {
     id = 3009758,
-    UseEffect = Table_UseItem_t.UseEffect[2799],
+    UseEffect = Table_UseItem_t.UseEffect[2837],
     UseMultiple = 999
   },
   [3009760] = {
     id = 3009760,
-    UseEffect = Table_UseItem_t.UseEffect[2798],
+    UseEffect = Table_UseItem_t.UseEffect[2836],
     UseMultiple = 999
   },
   [3009761] = {
     id = 3009761,
-    UseEffect = Table_UseItem_t.UseEffect[2797],
+    UseEffect = Table_UseItem_t.UseEffect[2835],
     UseMultiple = 999
   },
   [3009762] = {
@@ -54715,32 +54914,32 @@ Table_UseItem = {
   },
   [3009763] = {
     id = 3009763,
-    UseEffect = Table_UseItem_t.UseEffect[2796],
+    UseEffect = Table_UseItem_t.UseEffect[2834],
     UseMultiple = 999
   },
   [3009764] = {
     id = 3009764,
-    UseEffect = Table_UseItem_t.UseEffect[2795],
+    UseEffect = Table_UseItem_t.UseEffect[2833],
     UseMultiple = 999
   },
   [3009765] = {
     id = 3009765,
-    UseEffect = Table_UseItem_t.UseEffect[2794],
+    UseEffect = Table_UseItem_t.UseEffect[2832],
     UseMultiple = 999
   },
   [3009766] = {
     id = 3009766,
-    UseEffect = Table_UseItem_t.UseEffect[2793],
+    UseEffect = Table_UseItem_t.UseEffect[2830],
     UseMultiple = 999
   },
   [3009767] = {
     id = 3009767,
-    UseEffect = Table_UseItem_t.UseEffect[2792],
+    UseEffect = Table_UseItem_t.UseEffect[2829],
     UseMultiple = 999
   },
   [3009768] = {
     id = 3009768,
-    UseEffect = Table_UseItem_t.UseEffect[2790],
+    UseEffect = Table_UseItem_t.UseEffect[2828],
     UseMultiple = 999
   },
   [3009770] = {
@@ -54755,32 +54954,32 @@ Table_UseItem = {
   },
   [3009772] = {
     id = 3009772,
-    UseEffect = Table_UseItem_t.UseEffect[2789],
+    UseEffect = Table_UseItem_t.UseEffect[2827],
     UseMultiple = 999
   },
   [3009773] = {
     id = 3009773,
-    UseEffect = Table_UseItem_t.UseEffect[2788],
+    UseEffect = Table_UseItem_t.UseEffect[2826],
     UseMultiple = 999
   },
   [3009774] = {
     id = 3009774,
-    UseEffect = Table_UseItem_t.UseEffect[2787],
+    UseEffect = Table_UseItem_t.UseEffect[2825],
     UseMultiple = 999
   },
   [3009775] = {
     id = 3009775,
-    UseEffect = Table_UseItem_t.UseEffect[2786],
+    UseEffect = Table_UseItem_t.UseEffect[2824],
     UseMultiple = 999
   },
   [3009776] = {
     id = 3009776,
-    UseEffect = Table_UseItem_t.UseEffect[2785],
+    UseEffect = Table_UseItem_t.UseEffect[2823],
     UseMultiple = 999
   },
   [3009777] = {
     id = 3009777,
-    UseEffect = Table_UseItem_t.UseEffect[2784],
+    UseEffect = Table_UseItem_t.UseEffect[2821],
     UseMultiple = 999
   },
   [3009778] = {
@@ -54790,17 +54989,17 @@ Table_UseItem = {
   },
   [3009780] = {
     id = 3009780,
-    UseEffect = Table_UseItem_t.UseEffect[2783],
+    UseEffect = Table_UseItem_t.UseEffect[2813],
     UseMultiple = 999
   },
   [3009781] = {
     id = 3009781,
-    UseEffect = Table_UseItem_t.UseEffect[2781],
+    UseEffect = Table_UseItem_t.UseEffect[2812],
     UseMultiple = 999
   },
   [3009782] = {
     id = 3009782,
-    UseEffect = Table_UseItem_t.UseEffect[2773],
+    UseEffect = Table_UseItem_t.UseEffect[2811],
     UseMultiple = 999
   },
   [3009783] = {
@@ -54810,7 +55009,7 @@ Table_UseItem = {
   },
   [3009784] = {
     id = 3009784,
-    UseEffect = Table_UseItem_t.UseEffect[2772],
+    UseEffect = Table_UseItem_t.UseEffect[2810],
     UseMultiple = 999
   },
   [3009785] = {
@@ -54820,82 +55019,82 @@ Table_UseItem = {
   },
   [3009786] = {
     id = 3009786,
-    UseEffect = Table_UseItem_t.UseEffect[2771],
+    UseEffect = Table_UseItem_t.UseEffect[2809],
     UseMultiple = 999
   },
   [3009787] = {
     id = 3009787,
-    UseEffect = Table_UseItem_t.UseEffect[2770],
+    UseEffect = Table_UseItem_t.UseEffect[2808],
     UseMultiple = 999
   },
   [3009788] = {
     id = 3009788,
-    UseEffect = Table_UseItem_t.UseEffect[2769],
+    UseEffect = Table_UseItem_t.UseEffect[2807],
     UseMultiple = 999
   },
   [3009790] = {
     id = 3009790,
-    UseEffect = Table_UseItem_t.UseEffect[2768],
+    UseEffect = Table_UseItem_t.UseEffect[2806],
     UseMultiple = 999
   },
   [3009791] = {
     id = 3009791,
-    UseEffect = Table_UseItem_t.UseEffect[2767],
+    UseEffect = Table_UseItem_t.UseEffect[2805],
     UseMultiple = 999
   },
   [3009792] = {
     id = 3009792,
-    UseEffect = Table_UseItem_t.UseEffect[2766],
+    UseEffect = Table_UseItem_t.UseEffect[2804],
     UseMultiple = 999
   },
   [3009793] = {
     id = 3009793,
-    UseEffect = Table_UseItem_t.UseEffect[2765],
+    UseEffect = Table_UseItem_t.UseEffect[2803],
     UseMultiple = 999
   },
   [3009794] = {
     id = 3009794,
-    UseEffect = Table_UseItem_t.UseEffect[2764],
+    UseEffect = Table_UseItem_t.UseEffect[2802],
     UseMultiple = 999
   },
   [3009795] = {
     id = 3009795,
-    UseEffect = Table_UseItem_t.UseEffect[2763],
+    UseEffect = Table_UseItem_t.UseEffect[2801],
     UseMultiple = 999
   },
   [3009796] = {
     id = 3009796,
-    UseEffect = Table_UseItem_t.UseEffect[2762],
+    UseEffect = Table_UseItem_t.UseEffect[2800],
     UseMultiple = 999
   },
   [3009797] = {
     id = 3009797,
-    UseEffect = Table_UseItem_t.UseEffect[2761],
+    UseEffect = Table_UseItem_t.UseEffect[2799],
     UseMultiple = 999
   },
   [3009798] = {
     id = 3009798,
-    UseEffect = Table_UseItem_t.UseEffect[2760],
+    UseEffect = Table_UseItem_t.UseEffect[2797],
     UseMultiple = 999
   },
   [3009800] = {
     id = 3009800,
-    UseEffect = Table_UseItem_t.UseEffect[2759],
+    UseEffect = Table_UseItem_t.UseEffect[2796],
     UseMultiple = 999
   },
   [3009801] = {
     id = 3009801,
-    UseEffect = Table_UseItem_t.UseEffect[2757],
+    UseEffect = Table_UseItem_t.UseEffect[2795],
     UseMultiple = 999
   },
   [3009802] = {
     id = 3009802,
-    UseEffect = Table_UseItem_t.UseEffect[2756],
+    UseEffect = Table_UseItem_t.UseEffect[2794],
     UseMultiple = 999
   },
   [3009803] = {
     id = 3009803,
-    UseEffect = Table_UseItem_t.UseEffect[2755],
+    UseEffect = Table_UseItem_t.UseEffect[2793],
     UseMultiple = 999
   },
   [3009804] = {
@@ -54905,12 +55104,12 @@ Table_UseItem = {
   },
   [3009805] = {
     id = 3009805,
-    UseEffect = Table_UseItem_t.UseEffect[2754],
+    UseEffect = Table_UseItem_t.UseEffect[2792],
     UseMultiple = 999
   },
   [3009806] = {
     id = 3009806,
-    UseEffect = Table_UseItem_t.UseEffect[2753],
+    UseEffect = Table_UseItem_t.UseEffect[2791],
     UseMultiple = 999
   },
   [3009807] = {
@@ -54925,42 +55124,42 @@ Table_UseItem = {
   },
   [3009810] = {
     id = 3009810,
-    UseEffect = Table_UseItem_t.UseEffect[2752],
+    UseEffect = Table_UseItem_t.UseEffect[2790],
     UseMultiple = 999
   },
   [3009811] = {
     id = 3009811,
-    UseEffect = Table_UseItem_t.UseEffect[2751],
+    UseEffect = Table_UseItem_t.UseEffect[2789],
     UseMultiple = 999
   },
   [3009812] = {
     id = 3009812,
-    UseEffect = Table_UseItem_t.UseEffect[2750],
+    UseEffect = Table_UseItem_t.UseEffect[2788],
     UseMultiple = 999
   },
   [3009813] = {
     id = 3009813,
-    UseEffect = Table_UseItem_t.UseEffect[2749],
+    UseEffect = Table_UseItem_t.UseEffect[2787],
     UseMultiple = 999
   },
   [3009814] = {
     id = 3009814,
-    UseEffect = Table_UseItem_t.UseEffect[2748],
+    UseEffect = Table_UseItem_t.UseEffect[2776],
     UseMultiple = 999
   },
   [3009815] = {
     id = 3009815,
-    UseEffect = Table_UseItem_t.UseEffect[2747],
+    UseEffect = Table_UseItem_t.UseEffect[2775],
     UseMultiple = 999
   },
   [3009816] = {
     id = 3009816,
-    UseEffect = Table_UseItem_t.UseEffect[2736],
+    UseEffect = Table_UseItem_t.UseEffect[2774],
     UseMultiple = 999
   },
   [3009817] = {
     id = 3009817,
-    UseEffect = Table_UseItem_t.UseEffect[2735],
+    UseEffect = Table_UseItem_t.UseEffect[2773],
     UseMultiple = 999
   },
   [3009818] = {
@@ -54970,22 +55169,22 @@ Table_UseItem = {
   },
   [3009820] = {
     id = 3009820,
-    UseEffect = Table_UseItem_t.UseEffect[2734],
+    UseEffect = Table_UseItem_t.UseEffect[2772],
     UseMultiple = 999
   },
   [3009821] = {
     id = 3009821,
-    UseEffect = Table_UseItem_t.UseEffect[2733],
+    UseEffect = Table_UseItem_t.UseEffect[2771],
     UseMultiple = 999
   },
   [3009822] = {
     id = 3009822,
-    UseEffect = Table_UseItem_t.UseEffect[2732],
+    UseEffect = Table_UseItem_t.UseEffect[2770],
     UseMultiple = 999
   },
   [3009823] = {
     id = 3009823,
-    UseEffect = Table_UseItem_t.UseEffect[2731],
+    UseEffect = Table_UseItem_t.UseEffect[2769],
     UseMultiple = 999
   },
   [3009824] = {
@@ -54995,47 +55194,47 @@ Table_UseItem = {
   },
   [3009825] = {
     id = 3009825,
-    UseEffect = Table_UseItem_t.UseEffect[2730],
+    UseEffect = Table_UseItem_t.UseEffect[2768],
     UseMultiple = 999
   },
   [3009826] = {
     id = 3009826,
-    UseEffect = Table_UseItem_t.UseEffect[2729],
+    UseEffect = Table_UseItem_t.UseEffect[2767],
     UseMultiple = 999
   },
   [3009827] = {
     id = 3009827,
-    UseEffect = Table_UseItem_t.UseEffect[2728],
+    UseEffect = Table_UseItem_t.UseEffect[2766],
     UseMultiple = 999
   },
   [3009828] = {
     id = 3009828,
-    UseEffect = Table_UseItem_t.UseEffect[2727],
+    UseEffect = Table_UseItem_t.UseEffect[2765],
     UseMultiple = 999
   },
   [3009830] = {
     id = 3009830,
-    UseEffect = Table_UseItem_t.UseEffect[2726],
+    UseEffect = Table_UseItem_t.UseEffect[2764],
     UseMultiple = 999
   },
   [3009831] = {
     id = 3009831,
-    UseEffect = Table_UseItem_t.UseEffect[2725],
+    UseEffect = Table_UseItem_t.UseEffect[2763],
     UseMultiple = 999
   },
   [3009832] = {
     id = 3009832,
-    UseEffect = Table_UseItem_t.UseEffect[2724],
+    UseEffect = Table_UseItem_t.UseEffect[2762],
     UseMultiple = 999
   },
   [3009833] = {
     id = 3009833,
-    UseEffect = Table_UseItem_t.UseEffect[2723],
+    UseEffect = Table_UseItem_t.UseEffect[2761],
     UseMultiple = 999
   },
   [3009834] = {
     id = 3009834,
-    UseEffect = Table_UseItem_t.UseEffect[2722],
+    UseEffect = Table_UseItem_t.UseEffect[2760],
     UseMultiple = 999
   },
   [3009835] = {
@@ -55050,7 +55249,7 @@ Table_UseItem = {
   },
   [3009837] = {
     id = 3009837,
-    UseEffect = Table_UseItem_t.UseEffect[2721],
+    UseEffect = Table_UseItem_t.UseEffect[2759],
     UseMultiple = 999
   },
   [3009838] = {
@@ -55095,7 +55294,7 @@ Table_UseItem = {
   },
   [3009847] = {
     id = 3009847,
-    UseEffect = Table_UseItem_t.UseEffect[2720],
+    UseEffect = Table_UseItem_t.UseEffect[2758],
     UseMultiple = 999
   },
   [3009848] = {
@@ -55140,7 +55339,7 @@ Table_UseItem = {
   },
   [3009857] = {
     id = 3009857,
-    UseEffect = Table_UseItem_t.UseEffect[2719],
+    UseEffect = Table_UseItem_t.UseEffect[2757],
     UseMultiple = 999
   },
   [3009858] = {
@@ -55160,42 +55359,42 @@ Table_UseItem = {
   },
   [3009862] = {
     id = 3009862,
-    UseEffect = Table_UseItem_t.UseEffect[2718],
+    UseEffect = Table_UseItem_t.UseEffect[2756],
     UseMultiple = 999
   },
   [3009863] = {
     id = 3009863,
-    UseEffect = Table_UseItem_t.UseEffect[2717],
+    UseEffect = Table_UseItem_t.UseEffect[2755],
     UseMultiple = 999
   },
   [3009864] = {
     id = 3009864,
-    UseEffect = Table_UseItem_t.UseEffect[2716],
+    UseEffect = Table_UseItem_t.UseEffect[2754],
     UseMultiple = 999
   },
   [3009865] = {
     id = 3009865,
-    UseEffect = Table_UseItem_t.UseEffect[2715],
+    UseEffect = Table_UseItem_t.UseEffect[2753],
     UseMultiple = 999
   },
   [3009866] = {
     id = 3009866,
-    UseEffect = Table_UseItem_t.UseEffect[2714],
+    UseEffect = Table_UseItem_t.UseEffect[2752],
     UseMultiple = 999
   },
   [3009867] = {
     id = 3009867,
-    UseEffect = Table_UseItem_t.UseEffect[2713],
+    UseEffect = Table_UseItem_t.UseEffect[2751],
     UseMultiple = 999
   },
   [3009868] = {
     id = 3009868,
-    UseEffect = Table_UseItem_t.UseEffect[2712],
+    UseEffect = Table_UseItem_t.UseEffect[2750],
     UseMultiple = 999
   },
   [3009870] = {
     id = 3009870,
-    UseEffect = Table_UseItem_t.UseEffect[2711],
+    UseEffect = Table_UseItem_t.UseEffect[2749],
     UseMultiple = 999
   },
   [3009871] = {
@@ -55205,22 +55404,22 @@ Table_UseItem = {
   },
   [3009872] = {
     id = 3009872,
-    UseEffect = Table_UseItem_t.UseEffect[2710],
+    UseEffect = Table_UseItem_t.UseEffect[2748],
     UseMultiple = 999
   },
   [3009873] = {
     id = 3009873,
-    UseEffect = Table_UseItem_t.UseEffect[2709],
+    UseEffect = Table_UseItem_t.UseEffect[2747],
     UseMultiple = 999
   },
   [3009874] = {
     id = 3009874,
-    UseEffect = Table_UseItem_t.UseEffect[2708],
+    UseEffect = Table_UseItem_t.UseEffect[2746],
     UseMultiple = 999
   },
   [3009875] = {
     id = 3009875,
-    UseEffect = Table_UseItem_t.UseEffect[2707],
+    UseEffect = Table_UseItem_t.UseEffect[2745],
     UseMultiple = 999
   },
   [3009876] = {
@@ -55230,282 +55429,282 @@ Table_UseItem = {
   },
   [3009877] = {
     id = 3009877,
-    UseEffect = Table_UseItem_t.UseEffect[2706],
+    UseEffect = Table_UseItem_t.UseEffect[2744],
     UseMultiple = 999
   },
   [3009878] = {
     id = 3009878,
-    UseEffect = Table_UseItem_t.UseEffect[2705],
+    UseEffect = Table_UseItem_t.UseEffect[2743],
     UseMultiple = 999
   },
   [3009880] = {
     id = 3009880,
-    UseEffect = Table_UseItem_t.UseEffect[2704],
+    UseEffect = Table_UseItem_t.UseEffect[2742],
     UseMultiple = 999
   },
   [3009881] = {
     id = 3009881,
-    UseEffect = Table_UseItem_t.UseEffect[2703],
+    UseEffect = Table_UseItem_t.UseEffect[2741],
     UseMultiple = 999
   },
   [3009882] = {
     id = 3009882,
-    UseEffect = Table_UseItem_t.UseEffect[2702],
+    UseEffect = Table_UseItem_t.UseEffect[2740],
     UseMultiple = 999
   },
   [3009883] = {
     id = 3009883,
-    UseEffect = Table_UseItem_t.UseEffect[2701],
+    UseEffect = Table_UseItem_t.UseEffect[2717],
     UseMultiple = 999
   },
   [3009884] = {
     id = 3009884,
-    UseEffect = Table_UseItem_t.UseEffect[2700],
+    UseEffect = Table_UseItem_t.UseEffect[2716],
     UseMultiple = 999
   },
   [3009885] = {
     id = 3009885,
-    UseEffect = Table_UseItem_t.UseEffect[2677],
+    UseEffect = Table_UseItem_t.UseEffect[2715],
     UseMultiple = 999
   },
   [3009886] = {
     id = 3009886,
-    UseEffect = Table_UseItem_t.UseEffect[2676],
+    UseEffect = Table_UseItem_t.UseEffect[2714],
     UseMultiple = 999
   },
   [3009887] = {
     id = 3009887,
-    UseEffect = Table_UseItem_t.UseEffect[2675],
+    UseEffect = Table_UseItem_t.UseEffect[2713],
     UseMultiple = 999
   },
   [3009888] = {
     id = 3009888,
-    UseEffect = Table_UseItem_t.UseEffect[2674],
+    UseEffect = Table_UseItem_t.UseEffect[2657],
     UseMultiple = 999
   },
   [3009890] = {
     id = 3009890,
-    UseEffect = Table_UseItem_t.UseEffect[2673],
+    UseEffect = Table_UseItem_t.UseEffect[2656],
     UseMultiple = 999
   },
   [3009891] = {
     id = 3009891,
-    UseEffect = Table_UseItem_t.UseEffect[2617],
+    UseEffect = Table_UseItem_t.UseEffect[2655],
     UseMultiple = 999
   },
   [3009892] = {
     id = 3009892,
-    UseEffect = Table_UseItem_t.UseEffect[2616],
+    UseEffect = Table_UseItem_t.UseEffect[2654],
     UseMultiple = 999
   },
   [3009893] = {
     id = 3009893,
-    UseEffect = Table_UseItem_t.UseEffect[2615],
+    UseEffect = Table_UseItem_t.UseEffect[2653],
     UseMultiple = 999
   },
   [3009894] = {
     id = 3009894,
-    UseEffect = Table_UseItem_t.UseEffect[2614],
+    UseEffect = Table_UseItem_t.UseEffect[2652],
     UseMultiple = 999
   },
   [3009895] = {
     id = 3009895,
-    UseEffect = Table_UseItem_t.UseEffect[2613],
+    UseEffect = Table_UseItem_t.UseEffect[2651],
     UseMultiple = 999
   },
   [3009896] = {
     id = 3009896,
-    UseEffect = Table_UseItem_t.UseEffect[2612],
+    UseEffect = Table_UseItem_t.UseEffect[2650],
     UseMultiple = 999
   },
   [3009897] = {
     id = 3009897,
-    UseEffect = Table_UseItem_t.UseEffect[2611],
+    UseEffect = Table_UseItem_t.UseEffect[2649],
     UseMultiple = 999
   },
   [3009898] = {
     id = 3009898,
-    UseEffect = Table_UseItem_t.UseEffect[2610],
+    UseEffect = Table_UseItem_t.UseEffect[2648],
     UseMultiple = 999
   },
   [3009900] = {
     id = 3009900,
-    UseEffect = Table_UseItem_t.UseEffect[2609],
+    UseEffect = Table_UseItem_t.UseEffect[2647],
     UseMultiple = 999
   },
   [3009901] = {
     id = 3009901,
-    UseEffect = Table_UseItem_t.UseEffect[2608],
+    UseEffect = Table_UseItem_t.UseEffect[2646],
     UseMultiple = 999
   },
   [3009902] = {
     id = 3009902,
-    UseEffect = Table_UseItem_t.UseEffect[2607],
+    UseEffect = Table_UseItem_t.UseEffect[2645],
     UseMultiple = 999
   },
   [3009903] = {
     id = 3009903,
-    UseEffect = Table_UseItem_t.UseEffect[2606],
+    UseEffect = Table_UseItem_t.UseEffect[2644],
     UseMultiple = 999
   },
   [3009904] = {
     id = 3009904,
-    UseEffect = Table_UseItem_t.UseEffect[2605],
+    UseEffect = Table_UseItem_t.UseEffect[2633],
     UseMultiple = 999
   },
   [3009905] = {
     id = 3009905,
-    UseEffect = Table_UseItem_t.UseEffect[2604],
+    UseEffect = Table_UseItem_t.UseEffect[2632],
     UseMultiple = 999
   },
   [3009906] = {
     id = 3009906,
-    UseEffect = Table_UseItem_t.UseEffect[2593],
+    UseEffect = Table_UseItem_t.UseEffect[2629],
     UseMultiple = 999
   },
   [3009907] = {
     id = 3009907,
-    UseEffect = Table_UseItem_t.UseEffect[2592],
+    UseEffect = Table_UseItem_t.UseEffect[2627],
     UseMultiple = 999
   },
   [3009908] = {
     id = 3009908,
-    UseEffect = Table_UseItem_t.UseEffect[2589],
+    UseEffect = Table_UseItem_t.UseEffect[2626],
     UseMultiple = 999
   },
   [3009910] = {
     id = 3009910,
-    UseEffect = Table_UseItem_t.UseEffect[2587],
+    UseEffect = Table_UseItem_t.UseEffect[2625],
     UseMultiple = 999
   },
   [3009911] = {
     id = 3009911,
-    UseEffect = Table_UseItem_t.UseEffect[2586],
+    UseEffect = Table_UseItem_t.UseEffect[2624],
     UseMultiple = 999
   },
   [3009912] = {
     id = 3009912,
-    UseEffect = Table_UseItem_t.UseEffect[2585],
+    UseEffect = Table_UseItem_t.UseEffect[2623],
     UseMultiple = 999
   },
   [3009913] = {
     id = 3009913,
-    UseEffect = Table_UseItem_t.UseEffect[2584],
+    UseEffect = Table_UseItem_t.UseEffect[2622],
     UseMultiple = 999
   },
   [3009914] = {
     id = 3009914,
-    UseEffect = Table_UseItem_t.UseEffect[2583],
+    UseEffect = Table_UseItem_t.UseEffect[2621],
     UseMultiple = 999
   },
   [3009915] = {
     id = 3009915,
-    UseEffect = Table_UseItem_t.UseEffect[2582],
+    UseEffect = Table_UseItem_t.UseEffect[2605],
     UseMultiple = 999
   },
   [3009916] = {
     id = 3009916,
-    UseEffect = Table_UseItem_t.UseEffect[2581],
+    UseEffect = Table_UseItem_t.UseEffect[2604],
     UseMultiple = 999
   },
   [3009917] = {
     id = 3009917,
-    UseEffect = Table_UseItem_t.UseEffect[2564],
+    UseEffect = Table_UseItem_t.UseEffect[2597],
     UseMultiple = 999
   },
   [3009918] = {
     id = 3009918,
-    UseEffect = Table_UseItem_t.UseEffect[2563],
+    UseEffect = Table_UseItem_t.UseEffect[2596],
     UseMultiple = 999
   },
   [3009920] = {
     id = 3009920,
-    UseEffect = Table_UseItem_t.UseEffect[2556],
+    UseEffect = Table_UseItem_t.UseEffect[2595],
     UseMultiple = 999
   },
   [3009921] = {
     id = 3009921,
-    UseEffect = Table_UseItem_t.UseEffect[2555],
+    UseEffect = Table_UseItem_t.UseEffect[2594],
     UseMultiple = 999
   },
   [3009922] = {
     id = 3009922,
-    UseEffect = Table_UseItem_t.UseEffect[2554],
+    UseEffect = Table_UseItem_t.UseEffect[2587],
     UseMultiple = 999
   },
   [3009923] = {
     id = 3009923,
-    UseEffect = Table_UseItem_t.UseEffect[2553],
+    UseEffect = Table_UseItem_t.UseEffect[2586],
     UseMultiple = 999
   },
   [3009924] = {
     id = 3009924,
-    UseEffect = Table_UseItem_t.UseEffect[2546],
+    UseEffect = Table_UseItem_t.UseEffect[2585],
     UseMultiple = 999
   },
   [3009925] = {
     id = 3009925,
-    UseEffect = Table_UseItem_t.UseEffect[2545],
+    UseEffect = Table_UseItem_t.UseEffect[2584],
     UseMultiple = 999
   },
   [3009926] = {
     id = 3009926,
-    UseEffect = Table_UseItem_t.UseEffect[2544],
+    UseEffect = Table_UseItem_t.UseEffect[2583],
     UseMultiple = 999
   },
   [3009927] = {
     id = 3009927,
-    UseEffect = Table_UseItem_t.UseEffect[2543],
+    UseEffect = Table_UseItem_t.UseEffect[2582],
     UseMultiple = 999
   },
   [3009928] = {
     id = 3009928,
-    UseEffect = Table_UseItem_t.UseEffect[2542],
+    UseEffect = Table_UseItem_t.UseEffect[2581],
     UseMultiple = 999
   },
   [3009930] = {
     id = 3009930,
-    UseEffect = Table_UseItem_t.UseEffect[2541],
+    UseEffect = Table_UseItem_t.UseEffect[2580],
     UseMultiple = 999
   },
   [3009931] = {
     id = 3009931,
-    UseEffect = Table_UseItem_t.UseEffect[2540],
+    UseEffect = Table_UseItem_t.UseEffect[2579],
     UseMultiple = 999
   },
   [3009932] = {
     id = 3009932,
-    UseEffect = Table_UseItem_t.UseEffect[2539],
+    UseEffect = Table_UseItem_t.UseEffect[2578],
     UseMultiple = 999
   },
   [3009933] = {
     id = 3009933,
-    UseEffect = Table_UseItem_t.UseEffect[2538],
+    UseEffect = Table_UseItem_t.UseEffect[2577],
     UseMultiple = 999
   },
   [3009934] = {
     id = 3009934,
-    UseEffect = Table_UseItem_t.UseEffect[2537],
+    UseEffect = Table_UseItem_t.UseEffect[2576],
     UseMultiple = 999
   },
   [3009935] = {
     id = 3009935,
-    UseEffect = Table_UseItem_t.UseEffect[2536],
+    UseEffect = Table_UseItem_t.UseEffect[2575],
     UseMultiple = 999
   },
   [3009936] = {
     id = 3009936,
-    UseEffect = Table_UseItem_t.UseEffect[2535],
+    UseEffect = Table_UseItem_t.UseEffect[2574],
     UseMultiple = 999
   },
   [3009937] = {
     id = 3009937,
-    UseEffect = Table_UseItem_t.UseEffect[2534],
+    UseEffect = Table_UseItem_t.UseEffect[2573],
     UseMultiple = 999
   },
   [3009938] = {
     id = 3009938,
-    UseEffect = Table_UseItem_t.UseEffect[2533],
+    UseEffect = Table_UseItem_t.UseEffect[2572],
     UseMultiple = 999
   },
   [3009940] = {
@@ -55515,182 +55714,182 @@ Table_UseItem = {
   },
   [3009941] = {
     id = 3009941,
-    UseEffect = Table_UseItem_t.UseEffect[2532],
+    UseEffect = Table_UseItem_t.UseEffect[2571],
     UseMultiple = 999
   },
   [3009942] = {
     id = 3009942,
-    UseEffect = Table_UseItem_t.UseEffect[2531],
+    UseEffect = Table_UseItem_t.UseEffect[2570],
     UseMultiple = 999
   },
   [3009943] = {
     id = 3009943,
-    UseEffect = Table_UseItem_t.UseEffect[2530],
+    UseEffect = Table_UseItem_t.UseEffect[2568],
     UseMultiple = 999
   },
   [3009944] = {
     id = 3009944,
-    UseEffect = Table_UseItem_t.UseEffect[2529],
+    UseEffect = Table_UseItem_t.UseEffect[2567],
     UseMultiple = 999
   },
   [3009945] = {
     id = 3009945,
-    UseEffect = Table_UseItem_t.UseEffect[2527],
+    UseEffect = Table_UseItem_t.UseEffect[2566],
     UseMultiple = 999
   },
   [3009946] = {
     id = 3009946,
-    UseEffect = Table_UseItem_t.UseEffect[2526],
+    UseEffect = Table_UseItem_t.UseEffect[2565],
     UseMultiple = 999
   },
   [3009947] = {
     id = 3009947,
-    UseEffect = Table_UseItem_t.UseEffect[2525],
+    UseEffect = Table_UseItem_t.UseEffect[2564],
     UseMultiple = 999
   },
   [3009948] = {
     id = 3009948,
-    UseEffect = Table_UseItem_t.UseEffect[2524],
+    UseEffect = Table_UseItem_t.UseEffect[2551],
     UseMultiple = 999
   },
   [3009950] = {
     id = 3009950,
-    UseEffect = Table_UseItem_t.UseEffect[2523],
+    UseEffect = Table_UseItem_t.UseEffect[2546],
     UseMultiple = 999
   },
   [3009951] = {
     id = 3009951,
-    UseEffect = Table_UseItem_t.UseEffect[2510],
+    UseEffect = Table_UseItem_t.UseEffect[2545],
     UseMultiple = 999
   },
   [3009952] = {
     id = 3009952,
-    UseEffect = Table_UseItem_t.UseEffect[2505],
+    UseEffect = Table_UseItem_t.UseEffect[2543],
     UseMultiple = 999
   },
   [3009953] = {
     id = 3009953,
-    UseEffect = Table_UseItem_t.UseEffect[2504],
+    UseEffect = Table_UseItem_t.UseEffect[2541],
     UseMultiple = 999
   },
   [3009954] = {
     id = 3009954,
-    UseEffect = Table_UseItem_t.UseEffect[2502],
+    UseEffect = Table_UseItem_t.UseEffect[2540],
     UseMultiple = 999
   },
   [3009955] = {
     id = 3009955,
-    UseEffect = Table_UseItem_t.UseEffect[2500],
+    UseEffect = Table_UseItem_t.UseEffect[2539],
     UseMultiple = 999
   },
   [3009956] = {
     id = 3009956,
-    UseEffect = Table_UseItem_t.UseEffect[2499],
+    UseEffect = Table_UseItem_t.UseEffect[2528],
     UseMultiple = 999
   },
   [3009957] = {
     id = 3009957,
-    UseEffect = Table_UseItem_t.UseEffect[2498],
+    UseEffect = Table_UseItem_t.UseEffect[2527],
     UseMultiple = 999
   },
   [3009958] = {
     id = 3009958,
-    UseEffect = Table_UseItem_t.UseEffect[2487],
+    UseEffect = Table_UseItem_t.UseEffect[2526],
     UseMultiple = 999
   },
   [3009960] = {
     id = 3009960,
-    UseEffect = Table_UseItem_t.UseEffect[2486],
+    UseEffect = Table_UseItem_t.UseEffect[2525],
     UseMultiple = 999
   },
   [3009961] = {
     id = 3009961,
-    UseEffect = Table_UseItem_t.UseEffect[2485],
+    UseEffect = Table_UseItem_t.UseEffect[2524],
     UseMultiple = 999
   },
   [3009962] = {
     id = 3009962,
-    UseEffect = Table_UseItem_t.UseEffect[2484],
+    UseEffect = Table_UseItem_t.UseEffect[2523],
     UseMultiple = 999
   },
   [3009963] = {
     id = 3009963,
-    UseEffect = Table_UseItem_t.UseEffect[2483],
+    UseEffect = Table_UseItem_t.UseEffect[2522],
     UseMultiple = 999
   },
   [3009964] = {
     id = 3009964,
-    UseEffect = Table_UseItem_t.UseEffect[2482],
+    UseEffect = Table_UseItem_t.UseEffect[2521],
     UseMultiple = 999
   },
   [3009965] = {
     id = 3009965,
-    UseEffect = Table_UseItem_t.UseEffect[2481],
+    UseEffect = Table_UseItem_t.UseEffect[2520],
     UseMultiple = 999
   },
   [3009966] = {
     id = 3009966,
-    UseEffect = Table_UseItem_t.UseEffect[2480],
+    UseEffect = Table_UseItem_t.UseEffect[2519],
     UseMultiple = 999
   },
   [3009967] = {
     id = 3009967,
-    UseEffect = Table_UseItem_t.UseEffect[2479],
+    UseEffect = Table_UseItem_t.UseEffect[2517],
     UseMultiple = 999
   },
   [3009968] = {
     id = 3009968,
-    UseEffect = Table_UseItem_t.UseEffect[2478],
+    UseEffect = Table_UseItem_t.UseEffect[2516],
     UseMultiple = 999
   },
   [3009970] = {
     id = 3009970,
-    UseEffect = Table_UseItem_t.UseEffect[2476],
+    UseEffect = Table_UseItem_t.UseEffect[2515],
     UseMultiple = 999
   },
   [3009971] = {
     id = 3009971,
-    UseEffect = Table_UseItem_t.UseEffect[2475],
+    UseEffect = Table_UseItem_t.UseEffect[2514],
     UseMultiple = 999
   },
   [3009972] = {
     id = 3009972,
-    UseEffect = Table_UseItem_t.UseEffect[2474],
+    UseEffect = Table_UseItem_t.UseEffect[2513],
     UseMultiple = 999
   },
   [3009973] = {
     id = 3009973,
-    UseEffect = Table_UseItem_t.UseEffect[2473],
+    UseEffect = Table_UseItem_t.UseEffect[2512],
     UseMultiple = 999
   },
   [3009974] = {
     id = 3009974,
-    UseEffect = Table_UseItem_t.UseEffect[2472],
+    UseEffect = Table_UseItem_t.UseEffect[2511],
     UseMultiple = 999
   },
   [3009975] = {
     id = 3009975,
-    UseEffect = Table_UseItem_t.UseEffect[2471],
+    UseEffect = Table_UseItem_t.UseEffect[2510],
     UseMultiple = 999
   },
   [3009976] = {
     id = 3009976,
-    UseEffect = Table_UseItem_t.UseEffect[2470],
+    UseEffect = Table_UseItem_t.UseEffect[2509],
     UseMultiple = 999
   },
   [3009977] = {
     id = 3009977,
-    UseEffect = Table_UseItem_t.UseEffect[2469],
+    UseEffect = Table_UseItem_t.UseEffect[2508],
     UseMultiple = 999
   },
   [3009978] = {
     id = 3009978,
-    UseEffect = Table_UseItem_t.UseEffect[2468],
+    UseEffect = Table_UseItem_t.UseEffect[2507],
     UseMultiple = 999
   },
   [3009980] = {
     id = 3009980,
-    UseEffect = Table_UseItem_t.UseEffect[2467],
+    UseEffect = Table_UseItem_t.UseEffect[2506],
     UseMultiple = 999
   },
   [3009981] = {
@@ -55700,37 +55899,37 @@ Table_UseItem = {
   },
   [3009982] = {
     id = 3009982,
-    UseEffect = Table_UseItem_t.UseEffect[2466],
+    UseEffect = Table_UseItem_t.UseEffect[2505],
     UseMultiple = 999
   },
   [3009983] = {
     id = 3009983,
-    UseEffect = Table_UseItem_t.UseEffect[2465],
+    UseEffect = Table_UseItem_t.UseEffect[2504],
     UseMultiple = 999
   },
   [3009984] = {
     id = 3009984,
-    UseEffect = Table_UseItem_t.UseEffect[2464],
+    UseEffect = Table_UseItem_t.UseEffect[2503],
     UseMultiple = 999
   },
   [3009985] = {
     id = 3009985,
-    UseEffect = Table_UseItem_t.UseEffect[2463],
+    UseEffect = Table_UseItem_t.UseEffect[2502],
     UseMultiple = 999
   },
   [3009986] = {
     id = 3009986,
-    UseEffect = Table_UseItem_t.UseEffect[2462],
+    UseEffect = Table_UseItem_t.UseEffect[2501],
     UseMultiple = 999
   },
   [3009987] = {
     id = 3009987,
-    UseEffect = Table_UseItem_t.UseEffect[2461],
+    UseEffect = Table_UseItem_t.UseEffect[2500],
     UseMultiple = 999
   },
   [3009988] = {
     id = 3009988,
-    UseEffect = Table_UseItem_t.UseEffect[2460],
+    UseEffect = Table_UseItem_t.UseEffect[2499],
     UseMultiple = 999
   },
   [3009990] = {
@@ -55750,12 +55949,12 @@ Table_UseItem = {
   },
   [3009993] = {
     id = 3009993,
-    UseEffect = Table_UseItem_t.UseEffect[2459],
+    UseEffect = Table_UseItem_t.UseEffect[2498],
     UseMultiple = 999
   },
   [3009994] = {
     id = 3009994,
-    UseEffect = Table_UseItem_t.UseEffect[2458],
+    UseEffect = Table_UseItem_t.UseEffect[2497],
     UseMultiple = 999
   },
   [3009995] = {
@@ -55770,97 +55969,97 @@ Table_UseItem = {
   },
   [3009997] = {
     id = 3009997,
-    UseEffect = Table_UseItem_t.UseEffect[2457],
+    UseEffect = Table_UseItem_t.UseEffect[2496],
     UseMultiple = 999
   },
   [3009998] = {
     id = 3009998,
-    UseEffect = Table_UseItem_t.UseEffect[2456],
+    UseEffect = Table_UseItem_t.UseEffect[2495],
     UseMultiple = 999
   },
   [3010000] = {
     id = 3010000,
-    UseEffect = Table_UseItem_t.UseEffect[2455],
+    UseEffect = Table_UseItem_t.UseEffect[2494],
     UseMultiple = 999
   },
   [3010001] = {
     id = 3010001,
-    UseEffect = Table_UseItem_t.UseEffect[2454],
+    UseEffect = Table_UseItem_t.UseEffect[2493],
     UseMultiple = 999
   },
   [3010002] = {
     id = 3010002,
-    UseEffect = Table_UseItem_t.UseEffect[2453],
+    UseEffect = Table_UseItem_t.UseEffect[2492],
     UseMultiple = 999
   },
   [3010003] = {
     id = 3010003,
-    UseEffect = Table_UseItem_t.UseEffect[2452],
+    UseEffect = Table_UseItem_t.UseEffect[2491],
     UseMultiple = 999
   },
   [3010004] = {
     id = 3010004,
-    UseEffect = Table_UseItem_t.UseEffect[2451],
+    UseEffect = Table_UseItem_t.UseEffect[2490],
     UseMultiple = 999
   },
   [3010005] = {
     id = 3010005,
-    UseEffect = Table_UseItem_t.UseEffect[2450],
+    UseEffect = Table_UseItem_t.UseEffect[2489],
     UseMultiple = 999
   },
   [3010006] = {
     id = 3010006,
-    UseEffect = Table_UseItem_t.UseEffect[2449],
+    UseEffect = Table_UseItem_t.UseEffect[2488],
     UseMultiple = 999
   },
   [3010007] = {
     id = 3010007,
-    UseEffect = Table_UseItem_t.UseEffect[2448],
+    UseEffect = Table_UseItem_t.UseEffect[2487],
     UseMultiple = 999
   },
   [3010008] = {
     id = 3010008,
-    UseEffect = Table_UseItem_t.UseEffect[2447],
+    UseEffect = Table_UseItem_t.UseEffect[2486],
     UseMultiple = 999
   },
   [3010010] = {
     id = 3010010,
-    UseEffect = Table_UseItem_t.UseEffect[2446],
+    UseEffect = Table_UseItem_t.UseEffect[2485],
     UseMultiple = 999
   },
   [3010011] = {
     id = 3010011,
-    UseEffect = Table_UseItem_t.UseEffect[2445],
+    UseEffect = Table_UseItem_t.UseEffect[2484],
     UseMultiple = 999
   },
   [3010012] = {
     id = 3010012,
-    UseEffect = Table_UseItem_t.UseEffect[2444],
+    UseEffect = Table_UseItem_t.UseEffect[2483],
     UseMultiple = 999
   },
   [3010013] = {
     id = 3010013,
-    UseEffect = Table_UseItem_t.UseEffect[2443],
+    UseEffect = Table_UseItem_t.UseEffect[2481],
     UseMultiple = 999
   },
   [3010014] = {
     id = 3010014,
-    UseEffect = Table_UseItem_t.UseEffect[2442],
+    UseEffect = Table_UseItem_t.UseEffect[2480],
     UseMultiple = 999
   },
   [3010015] = {
     id = 3010015,
-    UseEffect = Table_UseItem_t.UseEffect[2440],
+    UseEffect = Table_UseItem_t.UseEffect[2477],
     UseMultiple = 999
   },
   [3010016] = {
     id = 3010016,
-    UseEffect = Table_UseItem_t.UseEffect[2439],
+    UseEffect = Table_UseItem_t.UseEffect[2475],
     UseMultiple = 999
   },
   [3010017] = {
     id = 3010017,
-    UseEffect = Table_UseItem_t.UseEffect[2436],
+    UseEffect = Table_UseItem_t.UseEffect[2474],
     UseMultiple = 999
   },
   [3010018] = {
@@ -55875,7 +56074,7 @@ Table_UseItem = {
   },
   [3010021] = {
     id = 3010021,
-    UseEffect = Table_UseItem_t.UseEffect[2434],
+    UseEffect = Table_UseItem_t.UseEffect[2473],
     UseMultiple = 999
   },
   [3010022] = {
@@ -55885,7 +56084,7 @@ Table_UseItem = {
   },
   [3010023] = {
     id = 3010023,
-    UseEffect = Table_UseItem_t.UseEffect[2433],
+    UseEffect = Table_UseItem_t.UseEffect[2471],
     UseMultiple = 999
   },
   [3010024] = {
@@ -55895,77 +56094,77 @@ Table_UseItem = {
   },
   [3010025] = {
     id = 3010025,
-    UseEffect = Table_UseItem_t.UseEffect[2432],
+    UseEffect = Table_UseItem_t.UseEffect[2470],
     UseMultiple = 999
   },
   [3010026] = {
     id = 3010026,
-    UseEffect = Table_UseItem_t.UseEffect[2430],
+    UseEffect = Table_UseItem_t.UseEffect[2445],
     UseMultiple = 999
   },
   [3010027] = {
     id = 3010027,
-    UseEffect = Table_UseItem_t.UseEffect[2429],
+    UseEffect = Table_UseItem_t.UseEffect[2444],
     UseMultiple = 999
   },
   [3010028] = {
     id = 3010028,
-    UseEffect = Table_UseItem_t.UseEffect[2404],
+    UseEffect = Table_UseItem_t.UseEffect[2443],
     UseMultiple = 999
   },
   [3010030] = {
     id = 3010030,
-    UseEffect = Table_UseItem_t.UseEffect[2403],
+    UseEffect = Table_UseItem_t.UseEffect[2442],
     UseMultiple = 999
   },
   [3010031] = {
     id = 3010031,
-    UseEffect = Table_UseItem_t.UseEffect[2402],
+    UseEffect = Table_UseItem_t.UseEffect[2441],
     UseMultiple = 999
   },
   [3010032] = {
     id = 3010032,
-    UseEffect = Table_UseItem_t.UseEffect[2401],
+    UseEffect = Table_UseItem_t.UseEffect[2439],
     UseMultiple = 999
   },
   [3010033] = {
     id = 3010033,
-    UseEffect = Table_UseItem_t.UseEffect[2400],
+    UseEffect = Table_UseItem_t.UseEffect[2433],
     UseMultiple = 999
   },
   [3010034] = {
     id = 3010034,
-    UseEffect = Table_UseItem_t.UseEffect[2398],
+    UseEffect = Table_UseItem_t.UseEffect[2432],
     UseMultiple = 999
   },
   [3010035] = {
     id = 3010035,
-    UseEffect = Table_UseItem_t.UseEffect[2392],
+    UseEffect = Table_UseItem_t.UseEffect[2430],
     UseMultiple = 999
   },
   [3010036] = {
     id = 3010036,
-    UseEffect = Table_UseItem_t.UseEffect[2391],
+    UseEffect = Table_UseItem_t.UseEffect[2429],
     UseMultiple = 999
   },
   [3010037] = {
     id = 3010037,
-    UseEffect = Table_UseItem_t.UseEffect[2389],
+    UseEffect = Table_UseItem_t.UseEffect[2428],
     UseMultiple = 999
   },
   [3010038] = {
     id = 3010038,
-    UseEffect = Table_UseItem_t.UseEffect[2388],
+    UseEffect = Table_UseItem_t.UseEffect[2424],
     UseMultiple = 999
   },
   [3010040] = {
     id = 3010040,
-    UseEffect = Table_UseItem_t.UseEffect[2387],
+    UseEffect = Table_UseItem_t.UseEffect[2423],
     UseMultiple = 999
   },
   [3010041] = {
     id = 3010041,
-    UseEffect = Table_UseItem_t.UseEffect[2383],
+    UseEffect = Table_UseItem_t.UseEffect[2422],
     UseMultiple = 999
   },
   [3010042] = {
@@ -55975,127 +56174,127 @@ Table_UseItem = {
   },
   [3010043] = {
     id = 3010043,
-    UseEffect = Table_UseItem_t.UseEffect[2382],
+    UseEffect = Table_UseItem_t.UseEffect[2420],
     UseMultiple = 999
   },
   [3010044] = {
     id = 3010044,
-    UseEffect = Table_UseItem_t.UseEffect[2381],
+    UseEffect = Table_UseItem_t.UseEffect[2417],
     UseMultiple = 999
   },
   [3010045] = {
     id = 3010045,
-    UseEffect = Table_UseItem_t.UseEffect[2379],
+    UseEffect = Table_UseItem_t.UseEffect[2408],
     UseMultiple = 999
   },
   [3010046] = {
     id = 3010046,
-    UseEffect = Table_UseItem_t.UseEffect[2376],
+    UseEffect = Table_UseItem_t.UseEffect[2407],
     UseMultiple = 999
   },
   [3010047] = {
     id = 3010047,
-    UseEffect = Table_UseItem_t.UseEffect[2367],
+    UseEffect = Table_UseItem_t.UseEffect[2406],
     UseMultiple = 999
   },
   [3010048] = {
     id = 3010048,
-    UseEffect = Table_UseItem_t.UseEffect[2366],
+    UseEffect = Table_UseItem_t.UseEffect[2405],
     UseMultiple = 999
   },
   [3010050] = {
     id = 3010050,
-    UseEffect = Table_UseItem_t.UseEffect[2365],
+    UseEffect = Table_UseItem_t.UseEffect[2404],
     UseMultiple = 999
   },
   [3010051] = {
     id = 3010051,
-    UseEffect = Table_UseItem_t.UseEffect[2364],
+    UseEffect = Table_UseItem_t.UseEffect[2403],
     UseMultiple = 999
   },
   [3010052] = {
     id = 3010052,
-    UseEffect = Table_UseItem_t.UseEffect[2363],
+    UseEffect = Table_UseItem_t.UseEffect[2402],
     UseMultiple = 999
   },
   [3010053] = {
     id = 3010053,
-    UseEffect = Table_UseItem_t.UseEffect[2362],
+    UseEffect = Table_UseItem_t.UseEffect[2401],
     UseMultiple = 999
   },
   [3010054] = {
     id = 3010054,
-    UseEffect = Table_UseItem_t.UseEffect[2361],
+    UseEffect = Table_UseItem_t.UseEffect[2400],
     UseMultiple = 999
   },
   [3010055] = {
     id = 3010055,
-    UseEffect = Table_UseItem_t.UseEffect[2360],
+    UseEffect = Table_UseItem_t.UseEffect[2399],
     UseMultiple = 999
   },
   [3010056] = {
     id = 3010056,
-    UseEffect = Table_UseItem_t.UseEffect[2359],
+    UseEffect = Table_UseItem_t.UseEffect[2398],
     UseMultiple = 999
   },
   [3010057] = {
     id = 3010057,
-    UseEffect = Table_UseItem_t.UseEffect[2358],
+    UseEffect = Table_UseItem_t.UseEffect[2397],
     UseMultiple = 999
   },
   [3010058] = {
     id = 3010058,
-    UseEffect = Table_UseItem_t.UseEffect[2357],
+    UseEffect = Table_UseItem_t.UseEffect[2393],
     UseMultiple = 999
   },
   [3010060] = {
     id = 3010060,
-    UseEffect = Table_UseItem_t.UseEffect[2356],
+    UseEffect = Table_UseItem_t.UseEffect[2392],
     UseMultiple = 999
   },
   [3010061] = {
     id = 3010061,
-    UseEffect = Table_UseItem_t.UseEffect[2352],
+    UseEffect = Table_UseItem_t.UseEffect[2391],
     UseMultiple = 999
   },
   [3010062] = {
     id = 3010062,
-    UseEffect = Table_UseItem_t.UseEffect[2351],
+    UseEffect = Table_UseItem_t.UseEffect[2390],
     UseMultiple = 999
   },
   [3010063] = {
     id = 3010063,
-    UseEffect = Table_UseItem_t.UseEffect[2350],
+    UseEffect = Table_UseItem_t.UseEffect[2389],
     UseMultiple = 999
   },
   [3010064] = {
     id = 3010064,
-    UseEffect = Table_UseItem_t.UseEffect[2349],
+    UseEffect = Table_UseItem_t.UseEffect[2388],
     UseMultiple = 999
   },
   [3010065] = {
     id = 3010065,
-    UseEffect = Table_UseItem_t.UseEffect[2348],
+    UseEffect = Table_UseItem_t.UseEffect[2387],
     UseMultiple = 999
   },
   [3010066] = {
     id = 3010066,
-    UseEffect = Table_UseItem_t.UseEffect[2347],
+    UseEffect = Table_UseItem_t.UseEffect[2382],
     UseMultiple = 999
   },
   [3010067] = {
     id = 3010067,
-    UseEffect = Table_UseItem_t.UseEffect[2346],
+    UseEffect = Table_UseItem_t.UseEffect[2381],
     UseMultiple = 999
   },
   [3010068] = {
     id = 3010068,
-    UseEffect = Table_UseItem_t.UseEffect[2341],
+    UseEffect = Table_UseItem_t.UseEffect[2380],
     UseMultiple = 999
   },
   [3010070] = {
     id = 3010070,
-    UseEffect = Table_UseItem_t.UseEffect[2340],
+    UseEffect = Table_UseItem_t.UseEffect[2379],
     UseMultiple = 999
   },
   [3010071] = {
@@ -56105,22 +56304,22 @@ Table_UseItem = {
   },
   [3010072] = {
     id = 3010072,
-    UseEffect = Table_UseItem_t.UseEffect[2339],
+    UseEffect = Table_UseItem_t.UseEffect[2378],
     UseMultiple = 999
   },
   [3010073] = {
     id = 3010073,
-    UseEffect = Table_UseItem_t.UseEffect[2338],
+    UseEffect = Table_UseItem_t.UseEffect[2377],
     UseMultiple = 999
   },
   [3010074] = {
     id = 3010074,
-    UseEffect = Table_UseItem_t.UseEffect[2337],
+    UseEffect = Table_UseItem_t.UseEffect[2376],
     UseMultiple = 999
   },
   [3010075] = {
     id = 3010075,
-    UseEffect = Table_UseItem_t.UseEffect[2336],
+    UseEffect = Table_UseItem_t.UseEffect[2375],
     UseMultiple = 999
   },
   [3010076] = {
@@ -56130,92 +56329,92 @@ Table_UseItem = {
   },
   [3010077] = {
     id = 3010077,
-    UseEffect = Table_UseItem_t.UseEffect[2335],
+    UseEffect = Table_UseItem_t.UseEffect[2374],
     UseMultiple = 999
   },
   [3010078] = {
     id = 3010078,
-    UseEffect = Table_UseItem_t.UseEffect[2334],
+    UseEffect = Table_UseItem_t.UseEffect[2360],
     UseMultiple = 999
   },
   [3010080] = {
     id = 3010080,
-    UseEffect = Table_UseItem_t.UseEffect[2333],
+    UseEffect = Table_UseItem_t.UseEffect[2359],
     UseMultiple = 999
   },
   [3010081] = {
     id = 3010081,
-    UseEffect = Table_UseItem_t.UseEffect[2319],
+    UseEffect = Table_UseItem_t.UseEffect[2355],
     UseMultiple = 999
   },
   [3010082] = {
     id = 3010082,
-    UseEffect = Table_UseItem_t.UseEffect[2318],
+    UseEffect = Table_UseItem_t.UseEffect[2353],
     UseMultiple = 999
   },
   [3010083] = {
     id = 3010083,
-    UseEffect = Table_UseItem_t.UseEffect[2314],
+    UseEffect = Table_UseItem_t.UseEffect[2352],
     UseMultiple = 999
   },
   [3010084] = {
     id = 3010084,
-    UseEffect = Table_UseItem_t.UseEffect[2312],
+    UseEffect = Table_UseItem_t.UseEffect[2336],
     UseMultiple = 999
   },
   [3010085] = {
     id = 3010085,
-    UseEffect = Table_UseItem_t.UseEffect[2311],
+    UseEffect = Table_UseItem_t.UseEffect[2335],
     UseMultiple = 999
   },
   [3010086] = {
     id = 3010086,
-    UseEffect = Table_UseItem_t.UseEffect[2295],
+    UseEffect = Table_UseItem_t.UseEffect[2334],
     UseMultiple = 999
   },
   [3010087] = {
     id = 3010087,
-    UseEffect = Table_UseItem_t.UseEffect[2294],
+    UseEffect = Table_UseItem_t.UseEffect[2333],
     UseMultiple = 999
   },
   [3010088] = {
     id = 3010088,
-    UseEffect = Table_UseItem_t.UseEffect[2293],
+    UseEffect = Table_UseItem_t.UseEffect[2332],
     UseMultiple = 999
   },
   [3010090] = {
     id = 3010090,
-    UseEffect = Table_UseItem_t.UseEffect[2292],
+    UseEffect = Table_UseItem_t.UseEffect[2331],
     UseMultiple = 999
   },
   [3010091] = {
     id = 3010091,
-    UseEffect = Table_UseItem_t.UseEffect[2291],
+    UseEffect = Table_UseItem_t.UseEffect[2330],
     UseMultiple = 999
   },
   [3010092] = {
     id = 3010092,
-    UseEffect = Table_UseItem_t.UseEffect[2290],
+    UseEffect = Table_UseItem_t.UseEffect[2329],
     UseMultiple = 999
   },
   [3010093] = {
     id = 3010093,
-    UseEffect = Table_UseItem_t.UseEffect[2289],
+    UseEffect = Table_UseItem_t.UseEffect[2328],
     UseMultiple = 999
   },
   [3010094] = {
     id = 3010094,
-    UseEffect = Table_UseItem_t.UseEffect[2288],
+    UseEffect = Table_UseItem_t.UseEffect[2327],
     UseMultiple = 999
   },
   [3010095] = {
     id = 3010095,
-    UseEffect = Table_UseItem_t.UseEffect[2287],
+    UseEffect = Table_UseItem_t.UseEffect[2326],
     UseMultiple = 999
   },
   [3010096] = {
     id = 3010096,
-    UseEffect = Table_UseItem_t.UseEffect[2286],
+    UseEffect = Table_UseItem_t.UseEffect[2325],
     UseMultiple = 999
   },
   [3010097] = {
@@ -56260,7 +56459,7 @@ Table_UseItem = {
   },
   [3010106] = {
     id = 3010106,
-    UseEffect = Table_UseItem_t.UseEffect[2285],
+    UseEffect = Table_UseItem_t.UseEffect[2324],
     UseMultiple = 999
   },
   [3010107] = {
@@ -56315,7 +56514,7 @@ Table_UseItem = {
   },
   [3010118] = {
     id = 3010118,
-    UseEffect = Table_UseItem_t.UseEffect[2284],
+    UseEffect = Table_UseItem_t.UseEffect[2323],
     UseMultiple = 999
   },
   [3010120] = {
@@ -56375,27 +56574,27 @@ Table_UseItem = {
   },
   [3010132] = {
     id = 3010132,
-    UseEffect = Table_UseItem_t.UseEffect[2283],
+    UseEffect = Table_UseItem_t.UseEffect[2322],
     UseMultiple = 999
   },
   [3010133] = {
     id = 3010133,
-    UseEffect = Table_UseItem_t.UseEffect[2282],
+    UseEffect = Table_UseItem_t.UseEffect[2321],
     UseMultiple = 999
   },
   [3010134] = {
     id = 3010134,
-    UseEffect = Table_UseItem_t.UseEffect[2281],
+    UseEffect = Table_UseItem_t.UseEffect[2319],
     UseMultiple = 999
   },
   [3010135] = {
     id = 3010135,
-    UseEffect = Table_UseItem_t.UseEffect[2280],
+    UseEffect = Table_UseItem_t.UseEffect[2318],
     UseMultiple = 999
   },
   [3010136] = {
     id = 3010136,
-    UseEffect = Table_UseItem_t.UseEffect[2278],
+    UseEffect = Table_UseItem_t.UseEffect[2316],
     UseMultiple = 999
   },
   [3010137] = {
@@ -56405,7 +56604,7 @@ Table_UseItem = {
   },
   [3010138] = {
     id = 3010138,
-    UseEffect = Table_UseItem_t.UseEffect[2277],
+    UseEffect = Table_UseItem_t.UseEffect[2315],
     UseMultiple = 999
   },
   [3010140] = {
@@ -56440,12 +56639,12 @@ Table_UseItem = {
   },
   [3010146] = {
     id = 3010146,
-    UseEffect = Table_UseItem_t.UseEffect[2275],
+    UseEffect = Table_UseItem_t.UseEffect[2290],
     UseMultiple = 999
   },
   [3010147] = {
     id = 3010147,
-    UseEffect = Table_UseItem_t.UseEffect[2274],
+    UseEffect = Table_UseItem_t.UseEffect[2289],
     UseMultiple = 999
   },
   [3010148] = {
@@ -56530,27 +56729,27 @@ Table_UseItem = {
   },
   [3010166] = {
     id = 3010166,
-    UseEffect = Table_UseItem_t.UseEffect[2249],
+    UseEffect = Table_UseItem_t.UseEffect[2288],
     UseMultiple = 999
   },
   [3010167] = {
     id = 3010167,
-    UseEffect = Table_UseItem_t.UseEffect[2248],
+    UseEffect = Table_UseItem_t.UseEffect[2287],
     UseMultiple = 999
   },
   [3010168] = {
     id = 3010168,
-    UseEffect = Table_UseItem_t.UseEffect[2247],
+    UseEffect = Table_UseItem_t.UseEffect[2286],
     UseMultiple = 999
   },
   [3010170] = {
     id = 3010170,
-    UseEffect = Table_UseItem_t.UseEffect[2246],
+    UseEffect = Table_UseItem_t.UseEffect[2259],
     UseMultiple = 999
   },
   [3010171] = {
     id = 3010171,
-    UseEffect = Table_UseItem_t.UseEffect[2245],
+    UseEffect = Table_UseItem_t.UseEffect[2258],
     UseMultiple = 999
   },
   [3010172] = {
@@ -56640,32 +56839,32 @@ Table_UseItem = {
   },
   [3010191] = {
     id = 3010191,
-    UseEffect = Table_UseItem_t.UseEffect[2218],
+    UseEffect = Table_UseItem_t.UseEffect[2257],
     UseMultiple = 999
   },
   [3010192] = {
     id = 3010192,
-    UseEffect = Table_UseItem_t.UseEffect[2217],
+    UseEffect = Table_UseItem_t.UseEffect[2256],
     UseMultiple = 999
   },
   [3010193] = {
     id = 3010193,
-    UseEffect = Table_UseItem_t.UseEffect[2216],
+    UseEffect = Table_UseItem_t.UseEffect[2255],
     UseMultiple = 999
   },
   [3010194] = {
     id = 3010194,
-    UseEffect = Table_UseItem_t.UseEffect[2215],
+    UseEffect = Table_UseItem_t.UseEffect[2254],
     UseMultiple = 999
   },
   [3010195] = {
     id = 3010195,
-    UseEffect = Table_UseItem_t.UseEffect[2214],
+    UseEffect = Table_UseItem_t.UseEffect[2253],
     UseMultiple = 999
   },
   [3010196] = {
     id = 3010196,
-    UseEffect = Table_UseItem_t.UseEffect[2213],
+    UseEffect = Table_UseItem_t.UseEffect[2252],
     UseMultiple = 999
   },
   [3010197] = {
@@ -56680,7 +56879,7 @@ Table_UseItem = {
   },
   [3010200] = {
     id = 3010200,
-    UseEffect = Table_UseItem_t.UseEffect[2212],
+    UseEffect = Table_UseItem_t.UseEffect[2251],
     UseMultiple = 999
   },
   [3010201] = {
@@ -56690,268 +56889,273 @@ Table_UseItem = {
   },
   [3010202] = {
     id = 3010202,
-    UseEffect = Table_UseItem_t.UseEffect[2211],
+    UseEffect = Table_UseItem_t.UseEffect[2250],
     UseMultiple = 999
   },
   [3010203] = {
     id = 3010203,
-    UseEffect = Table_UseItem_t.UseEffect[2210],
+    UseEffect = Table_UseItem_t.UseEffect[2249],
     UseMultiple = 999
   },
   [3010204] = {
     id = 3010204,
-    UseEffect = Table_UseItem_t.UseEffect[2209],
+    UseEffect = Table_UseItem_t.UseEffect[2248],
     UseMultiple = 999
   },
   [3010205] = {
     id = 3010205,
-    UseEffect = Table_UseItem_t.UseEffect[2208],
+    UseEffect = Table_UseItem_t.UseEffect[2247],
     UseMultiple = 999
   },
   [3010206] = {
     id = 3010206,
-    UseEffect = Table_UseItem_t.UseEffect[2207],
+    UseEffect = Table_UseItem_t.UseEffect[2246],
     UseMultiple = 999
   },
   [3010207] = {
     id = 3010207,
-    UseEffect = Table_UseItem_t.UseEffect[2206],
+    UseEffect = Table_UseItem_t.UseEffect[2245],
     UseMultiple = 999
   },
   [3010208] = {
     id = 3010208,
-    UseEffect = Table_UseItem_t.UseEffect[2205],
+    UseEffect = Table_UseItem_t.UseEffect[2244],
     UseMultiple = 999
   },
   [3010210] = {
     id = 3010210,
-    UseEffect = Table_UseItem_t.UseEffect[2204],
+    UseEffect = Table_UseItem_t.UseEffect[2243],
     UseMultiple = 999
   },
   [3010211] = {
     id = 3010211,
-    UseEffect = Table_UseItem_t.UseEffect[2203],
+    UseEffect = Table_UseItem_t.UseEffect[2242],
     UseMultiple = 999
   },
   [3010212] = {
     id = 3010212,
-    UseEffect = Table_UseItem_t.UseEffect[2202],
+    UseEffect = Table_UseItem_t.UseEffect[2241],
     UseMultiple = 999
   },
   [3010213] = {
     id = 3010213,
-    UseEffect = Table_UseItem_t.UseEffect[2201],
+    UseEffect = Table_UseItem_t.UseEffect[2240],
     UseMultiple = 999
   },
   [3010214] = {
     id = 3010214,
-    UseEffect = Table_UseItem_t.UseEffect[2200],
+    UseEffect = Table_UseItem_t.UseEffect[2239],
     UseMultiple = 999
   },
   [3010215] = {
     id = 3010215,
-    UseEffect = Table_UseItem_t.UseEffect[2199],
+    UseEffect = Table_UseItem_t.UseEffect[2238],
     UseMultiple = 999
   },
   [3010216] = {
     id = 3010216,
-    UseEffect = Table_UseItem_t.UseEffect[2198],
+    UseEffect = Table_UseItem_t.UseEffect[2235],
     UseMultiple = 999
   },
   [3010217] = {
     id = 3010217,
-    UseEffect = Table_UseItem_t.UseEffect[2197],
+    UseEffect = Table_UseItem_t.UseEffect[2234],
     UseMultiple = 999
   },
   [3010218] = {
     id = 3010218,
-    UseEffect = Table_UseItem_t.UseEffect[2194],
+    UseEffect = Table_UseItem_t.UseEffect[2232],
     UseMultiple = 999
   },
   [3010220] = {
     id = 3010220,
-    UseEffect = Table_UseItem_t.UseEffect[2193],
+    UseEffect = Table_UseItem_t.UseEffect[2231],
     UseMultiple = 999
   },
   [3010221] = {
     id = 3010221,
-    UseEffect = Table_UseItem_t.UseEffect[2191],
+    UseEffect = Table_UseItem_t.UseEffect[2230],
     UseMultiple = 999
   },
   [3010222] = {
     id = 3010222,
-    UseEffect = Table_UseItem_t.UseEffect[2190],
+    UseEffect = Table_UseItem_t.UseEffect[2229],
     UseMultiple = 999
   },
   [3010223] = {
     id = 3010223,
-    UseEffect = Table_UseItem_t.UseEffect[2189],
+    UseEffect = Table_UseItem_t.UseEffect[2228],
     UseMultiple = 999
   },
   [3010224] = {
     id = 3010224,
-    UseEffect = Table_UseItem_t.UseEffect[2188],
+    UseEffect = Table_UseItem_t.UseEffect[2227],
     UseMultiple = 999
   },
   [3010225] = {
     id = 3010225,
-    UseEffect = Table_UseItem_t.UseEffect[2187],
+    UseEffect = Table_UseItem_t.UseEffect[2226],
     UseMultiple = 999
   },
   [3010226] = {
     id = 3010226,
-    UseEffect = Table_UseItem_t.UseEffect[2186],
+    UseEffect = Table_UseItem_t.UseEffect[2225],
     UseMultiple = 999
   },
   [3010227] = {
     id = 3010227,
-    UseEffect = Table_UseItem_t.UseEffect[2185],
+    UseEffect = Table_UseItem_t.UseEffect[2224],
     UseMultiple = 999
   },
   [3010228] = {
     id = 3010228,
-    UseEffect = Table_UseItem_t.UseEffect[2184],
+    UseEffect = Table_UseItem_t.UseEffect[2223],
     UseMultiple = 999
   },
   [3010230] = {
     id = 3010230,
-    UseEffect = Table_UseItem_t.UseEffect[2183],
+    UseEffect = Table_UseItem_t.UseEffect[2222],
     UseMultiple = 999
   },
   [3010231] = {
     id = 3010231,
-    UseEffect = Table_UseItem_t.UseEffect[2182],
+    UseEffect = Table_UseItem_t.UseEffect[2221],
     UseMultiple = 999
   },
   [3010232] = {
     id = 3010232,
-    UseEffect = Table_UseItem_t.UseEffect[2181],
+    UseEffect = Table_UseItem_t.UseEffect[2220],
     UseMultiple = 999
   },
   [3010233] = {
     id = 3010233,
-    UseEffect = Table_UseItem_t.UseEffect[2180],
+    UseEffect = Table_UseItem_t.UseEffect[2219],
     UseMultiple = 999
   },
   [3010234] = {
     id = 3010234,
-    UseEffect = Table_UseItem_t.UseEffect[2179],
+    UseEffect = Table_UseItem_t.UseEffect[2218],
     UseMultiple = 999
   },
   [3010235] = {
     id = 3010235,
-    UseEffect = Table_UseItem_t.UseEffect[2178],
+    UseEffect = Table_UseItem_t.UseEffect[2217],
     UseMultiple = 999
   },
   [3010236] = {
     id = 3010236,
-    UseEffect = Table_UseItem_t.UseEffect[2177],
+    UseEffect = Table_UseItem_t.UseEffect[2176],
     UseMultiple = 999
   },
   [3010237] = {
     id = 3010237,
-    UseEffect = Table_UseItem_t.UseEffect[2176],
+    UseEffect = Table_UseItem_t.UseEffect[2171],
     UseMultiple = 999
   },
   [3010238] = {
     id = 3010238,
-    UseEffect = Table_UseItem_t.UseEffect[2135],
+    UseEffect = Table_UseItem_t.UseEffect[2170],
     UseMultiple = 999
   },
   [3010240] = {
     id = 3010240,
-    UseEffect = Table_UseItem_t.UseEffect[2130],
+    UseEffect = Table_UseItem_t.UseEffect[2169],
     UseMultiple = 999
   },
   [3010241] = {
     id = 3010241,
-    UseEffect = Table_UseItem_t.UseEffect[2129],
+    UseEffect = Table_UseItem_t.UseEffect[2168],
     UseMultiple = 999
   },
   [3010242] = {
     id = 3010242,
-    UseEffect = Table_UseItem_t.UseEffect[2128],
+    UseEffect = Table_UseItem_t.UseEffect[2167],
     UseMultiple = 999
   },
   [3010243] = {
     id = 3010243,
-    UseEffect = Table_UseItem_t.UseEffect[2127],
+    UseEffect = Table_UseItem_t.UseEffect[2166],
     UseMultiple = 999
   },
   [3010244] = {
     id = 3010244,
-    UseEffect = Table_UseItem_t.UseEffect[2126],
+    UseEffect = Table_UseItem_t.UseEffect[2165],
     UseMultiple = 999
   },
   [3010245] = {
     id = 3010245,
-    UseEffect = Table_UseItem_t.UseEffect[2125],
+    UseEffect = Table_UseItem_t.UseEffect[2164],
     UseMultiple = 999
   },
   [3010246] = {
     id = 3010246,
-    UseEffect = Table_UseItem_t.UseEffect[2124],
+    UseEffect = Table_UseItem_t.UseEffect[2163],
     UseMultiple = 999
   },
   [3010247] = {
     id = 3010247,
-    UseEffect = Table_UseItem_t.UseEffect[2123],
+    UseEffect = Table_UseItem_t.UseEffect[2162],
     UseMultiple = 999
   },
   [3010248] = {
     id = 3010248,
-    UseEffect = Table_UseItem_t.UseEffect[2122],
+    UseEffect = Table_UseItem_t.UseEffect[2161],
     UseMultiple = 999
   },
   [3010250] = {
     id = 3010250,
-    UseEffect = Table_UseItem_t.UseEffect[2121],
+    UseEffect = Table_UseItem_t.UseEffect[2160],
     UseMultiple = 999
   },
   [3010251] = {
     id = 3010251,
-    UseEffect = Table_UseItem_t.UseEffect[2120],
+    UseEffect = Table_UseItem_t.UseEffect[2159],
     UseMultiple = 999
   },
   [3010252] = {
     id = 3010252,
-    UseEffect = Table_UseItem_t.UseEffect[2119],
+    UseEffect = Table_UseItem_t.UseEffect[2158],
     UseMultiple = 999
   },
   [3010253] = {
     id = 3010253,
-    UseEffect = Table_UseItem_t.UseEffect[2118],
+    UseEffect = Table_UseItem_t.UseEffect[2157],
     UseMultiple = 999
   },
   [3010254] = {
     id = 3010254,
-    UseEffect = Table_UseItem_t.UseEffect[2117],
+    UseEffect = Table_UseItem_t.UseEffect[2156],
     UseMultiple = 999
   },
   [3010255] = {
     id = 3010255,
-    UseEffect = Table_UseItem_t.UseEffect[2116],
+    UseEffect = Table_UseItem_t.UseEffect[2155],
     UseMultiple = 999
   },
   [3010256] = {
     id = 3010256,
-    UseEffect = Table_UseItem_t.UseEffect[2115],
+    UseEffect = Table_UseItem_t.UseEffect[2154],
     UseMultiple = 999
   },
   [3010257] = {
     id = 3010257,
-    UseEffect = Table_UseItem_t.UseEffect[2114],
+    UseEffect = Table_UseItem_t.UseEffect[2153],
     UseMultiple = 999
   },
   [3010258] = {
     id = 3010258,
-    UseEffect = Table_UseItem_t.UseEffect[2113],
+    UseEffect = Table_UseItem_t.UseEffect[2152],
     UseMultiple = 999
   },
   [3010350] = {
     id = 3010350,
     UseEffect = Table_UseItem_t.UseEffect[1652],
     CDTime = 1,
+    UseMultiple = 999
+  },
+  [3010756] = {
+    id = 3010756,
+    UseEffect = Table_UseItem_t.UseEffect[2105],
     UseMultiple = 999
   },
   [3010801] = {
@@ -56999,13 +57203,13 @@ Table_UseItem = {
   },
   [3010851] = {
     id = 3010851,
-    UseEffect = Table_UseItem_t.UseEffect[2106],
+    UseEffect = Table_UseItem_t.UseEffect[2145],
     CDTime = 1,
     UseMultiple = 999
   },
   [3010852] = {
     id = 3010852,
-    UseEffect = Table_UseItem_t.UseEffect[2105],
+    UseEffect = Table_UseItem_t.UseEffect[2144],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -57018,16 +57222,16 @@ Table_UseItem = {
   [3010854] = {
     id = 3010854,
     UsingSys = 1359,
-    UseEffect = Table_UseItem_t.UseEffect[2104],
+    UseEffect = Table_UseItem_t.UseEffect[2143],
     CDTime = 1
   },
   [3010855] = {
     id = 3010855,
-    UseEffect = Table_UseItem_t.UseEffect[2103]
+    UseEffect = Table_UseItem_t.UseEffect[2142]
   },
   [3010856] = {
     id = 3010856,
-    UseEffect = Table_UseItem_t.UseEffect[2102]
+    UseEffect = Table_UseItem_t.UseEffect[2141]
   },
   [3010857] = {
     id = 3010857,
@@ -57037,7 +57241,7 @@ Table_UseItem = {
   },
   [3010858] = {
     id = 3010858,
-    UseEffect = Table_UseItem_t.UseEffect[2101]
+    UseEffect = Table_UseItem_t.UseEffect[2139]
   },
   [3010859] = {
     id = 3010859,
@@ -57071,27 +57275,45 @@ Table_UseItem = {
   },
   [3010864] = {
     id = 3010864,
-    UseEffect = Table_UseItem_t.UseEffect[2096],
+    UseEffect = Table_UseItem_t.UseEffect[2135],
     CDTime = 1,
     UseMultiple = 999
   },
   [3011022] = {
     id = 3011022,
-    UseEffect = Table_UseItem_t.UseEffect[2095],
+    UseEffect = Table_UseItem_t.UseEffect[2134],
     CDTime = 1,
     UseMultiple = 999
   },
   [3011023] = {
     id = 3011023,
-    UseEffect = Table_UseItem_t.UseEffect[1865]
+    UseEffect = Table_UseItem_t.UseEffect[1878]
   },
   [3011024] = {
     id = 3011024,
-    UseEffect = Table_UseItem_t.UseEffect[1866]
+    UseEffect = Table_UseItem_t.UseEffect[1879]
   },
   [3011496] = {
     id = 3011496,
-    UseEffect = Table_UseItem_t.UseEffect[2079],
+    UseEffect = Table_UseItem_t.UseEffect[2118],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [3012461] = {
+    id = 3012461,
+    UseEffect = Table_UseItem_t.UseEffect[407],
+    CDTime = 1,
+    UseMultiple = 1
+  },
+  [3012472] = {
+    id = 3012472,
+    UseEffect = Table_UseItem_t.UseEffect[2918],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [3012713] = {
+    id = 3012713,
+    UseEffect = Table_UseItem_t.UseEffect[2094],
     CDTime = 1,
     UseMultiple = 999
   },
@@ -57226,7 +57448,7 @@ Table_UseItem = {
   },
   [3033800] = {
     id = 3033800,
-    UseEffect = Table_UseItem_t.UseEffect[2112],
+    UseEffect = Table_UseItem_t.UseEffect[2151],
     CDTime = 1,
     UseMultiple = 99
   },
@@ -57237,170 +57459,322 @@ Table_UseItem = {
   },
   [10000000] = {
     id = 10000000,
-    UseEffect = Table_UseItem_t.UseEffect[2094],
+    UseEffect = Table_UseItem_t.UseEffect[2133],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000100] = {
     id = 10000100,
-    UseEffect = Table_UseItem_t.UseEffect[2083],
+    UseEffect = Table_UseItem_t.UseEffect[2122],
     CDTime = 1
   },
   [10000101] = {
     id = 10000101,
-    UseEffect = Table_UseItem_t.UseEffect[2093]
+    UseEffect = Table_UseItem_t.UseEffect[2132]
   },
   [10000102] = {
     id = 10000102,
-    UseEffect = Table_UseItem_t.UseEffect[2092]
+    UseEffect = Table_UseItem_t.UseEffect[2131]
   },
   [10000103] = {
     id = 10000103,
-    UseEffect = Table_UseItem_t.UseEffect[2091]
+    UseEffect = Table_UseItem_t.UseEffect[2130]
   },
   [10000104] = {
     id = 10000104,
-    UseEffect = Table_UseItem_t.UseEffect[2090]
+    UseEffect = Table_UseItem_t.UseEffect[2129]
   },
   [10000105] = {
     id = 10000105,
-    UseEffect = Table_UseItem_t.UseEffect[2089]
+    UseEffect = Table_UseItem_t.UseEffect[2127]
   },
   [10000106] = {
     id = 10000106,
-    UseEffect = Table_UseItem_t.UseEffect[2088]
+    UseEffect = Table_UseItem_t.UseEffect[2126]
   },
   [10000107] = {
     id = 10000107,
-    UseEffect = Table_UseItem_t.UseEffect[3557]
+    UseEffect = Table_UseItem_t.UseEffect[3594]
   },
   [10000108] = {
     id = 10000108,
-    UseEffect = Table_UseItem_t.UseEffect[3558]
+    UseEffect = Table_UseItem_t.UseEffect[3595]
   },
   [10000109] = {
     id = 10000109,
-    UseEffect = Table_UseItem_t.UseEffect[3559]
+    UseEffect = Table_UseItem_t.UseEffect[3596]
   },
   [10000110] = {
     id = 10000110,
-    UseEffect = Table_UseItem_t.UseEffect[3560]
+    UseEffect = Table_UseItem_t.UseEffect[3597]
   },
   [10000111] = {
     id = 10000111,
-    UseEffect = Table_UseItem_t.UseEffect[3561]
+    UseEffect = Table_UseItem_t.UseEffect[3598]
   },
   [10000112] = {
     id = 10000112,
-    UseEffect = Table_UseItem_t.UseEffect[3562]
+    UseEffect = Table_UseItem_t.UseEffect[3599]
   },
   [10000130] = {
     id = 10000130,
-    UseEffect = Table_UseItem_t.UseEffect[3573],
+    UseEffect = Table_UseItem_t.UseEffect[3613],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000131] = {
     id = 10000131,
-    UseEffect = Table_UseItem_t.UseEffect[3574],
+    UseEffect = Table_UseItem_t.UseEffect[3614],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000132] = {
     id = 10000132,
-    UseEffect = Table_UseItem_t.UseEffect[3575],
+    UseEffect = Table_UseItem_t.UseEffect[3615],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000135] = {
     id = 10000135,
-    UseEffect = Table_UseItem_t.UseEffect[3577]
+    UseEffect = Table_UseItem_t.UseEffect[3617]
   },
   [10000136] = {
     id = 10000136,
-    UseEffect = Table_UseItem_t.UseEffect[3578],
+    UseEffect = Table_UseItem_t.UseEffect[3618],
     CDTime = 1,
     UseMultiple = 1
   },
   [10000167] = {
     id = 10000167,
-    UseEffect = Table_UseItem_t.UseEffect[3606],
+    UseEffect = Table_UseItem_t.UseEffect[3645],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000168] = {
     id = 10000168,
-    UseEffect = Table_UseItem_t.UseEffect[3607],
+    UseEffect = Table_UseItem_t.UseEffect[3646],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000169] = {
     id = 10000169,
-    UseEffect = Table_UseItem_t.UseEffect[3608],
+    UseEffect = Table_UseItem_t.UseEffect[3647],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000170] = {
     id = 10000170,
-    UseEffect = Table_UseItem_t.UseEffect[3609],
+    UseEffect = Table_UseItem_t.UseEffect[3648],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000171] = {
     id = 10000171,
-    UseEffect = Table_UseItem_t.UseEffect[3610],
+    UseEffect = Table_UseItem_t.UseEffect[3649],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000172] = {
     id = 10000172,
-    UseEffect = Table_UseItem_t.UseEffect[3611],
+    UseEffect = Table_UseItem_t.UseEffect[3650],
     UseMultiple = 999
   },
   [10000173] = {
     id = 10000173,
-    UseEffect = Table_UseItem_t.UseEffect[3612],
+    UseEffect = Table_UseItem_t.UseEffect[3651],
     UseMultiple = 999
   },
   [10000174] = {
     id = 10000174,
-    UseEffect = Table_UseItem_t.UseEffect[3613],
+    UseEffect = Table_UseItem_t.UseEffect[3652],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000175] = {
     id = 10000175,
-    UseEffect = Table_UseItem_t.UseEffect[3614],
+    UseEffect = Table_UseItem_t.UseEffect[3653],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000176] = {
     id = 10000176,
-    UseEffect = Table_UseItem_t.UseEffect[3615],
+    UseEffect = Table_UseItem_t.UseEffect[3654],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000177] = {
     id = 10000177,
-    UseEffect = Table_UseItem_t.UseEffect[3616],
+    UseEffect = Table_UseItem_t.UseEffect[3655],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000178] = {
     id = 10000178,
-    UseEffect = Table_UseItem_t.UseEffect[3617],
+    UseEffect = Table_UseItem_t.UseEffect[3656],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000179] = {
     id = 10000179,
-    UseEffect = Table_UseItem_t.UseEffect[3618],
+    UseEffect = Table_UseItem_t.UseEffect[3657],
     CDTime = 1,
     UseMultiple = 999
   },
   [10000180] = {
     id = 10000180,
-    UseEffect = Table_UseItem_t.UseEffect[3619],
+    UseEffect = Table_UseItem_t.UseEffect[3658],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000185] = {
+    id = 10000185,
+    UseEffect = Table_UseItem_t.UseEffect[3662]
+  },
+  [10000194] = {
+    id = 10000194,
+    UseEffect = Table_UseItem_t.UseEffect[3670],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000197] = {
+    id = 10000197,
+    UseEffect = Table_UseItem_t.UseEffect[3672],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000198] = {
+    id = 10000198,
+    UseEffect = Table_UseItem_t.UseEffect[3673],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000202] = {
+    id = 10000202,
+    UseEffect = Table_UseItem_t.UseEffect[2095],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000206] = {
+    id = 10000206,
+    UseEffect = Table_UseItem_t.UseEffect[2093],
+    UseMultiple = 999
+  },
+  [10000207] = {
+    id = 10000207,
+    UseEffect = Table_UseItem_t.UseEffect[2092],
+    UseMultiple = 999
+  },
+  [10000242] = {
+    id = 10000242,
+    UseEffect = Table_UseItem_t.UseEffect[2091],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000243] = {
+    id = 10000243,
+    UseEffect = Table_UseItem_t.UseEffect[2090],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000244] = {
+    id = 10000244,
+    UseEffect = Table_UseItem_t.UseEffect[2089],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000245] = {
+    id = 10000245,
+    UseEffect = Table_UseItem_t.UseEffect[2088],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000246] = {
+    id = 10000246,
+    UseEffect = Table_UseItem_t.UseEffect[2087],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000247] = {
+    id = 10000247,
+    UseEffect = Table_UseItem_t.UseEffect[2086],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000248] = {
+    id = 10000248,
+    UseEffect = Table_UseItem_t.UseEffect[2085],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000249] = {
+    id = 10000249,
+    UseEffect = Table_UseItem_t.UseEffect[3720],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000250] = {
+    id = 10000250,
+    UseEffect = Table_UseItem_t.UseEffect[3721],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000251] = {
+    id = 10000251,
+    UseEffect = Table_UseItem_t.UseEffect[3722],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000252] = {
+    id = 10000252,
+    UseEffect = Table_UseItem_t.UseEffect[3723],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000253] = {
+    id = 10000253,
+    UseEffect = Table_UseItem_t.UseEffect[3724],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000254] = {
+    id = 10000254,
+    UseEffect = Table_UseItem_t.UseEffect[3725],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000255] = {
+    id = 10000255,
+    UseEffect = Table_UseItem_t.UseEffect[2076],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000256] = {
+    id = 10000256,
+    UseEffect = Table_UseItem_t.UseEffect[2075],
+    CDTime = 1,
+    UseMultiple = 999
+  },
+  [10000257] = {
+    id = 10000257,
+    UseEffect = Table_UseItem_t.UseEffect[409],
+    CDTime = 1,
+    UseMultiple = 1
+  },
+  [10000258] = {
+    id = 10000258,
+    UsingSys = 1359,
+    UseEffect = Table_UseItem_t.UseEffect[2074],
+    CDTime = 1
+  },
+  [10000259] = {
+    id = 10000259,
+    UsingSys = 1359,
+    UseEffect = Table_UseItem_t.UseEffect[2613],
+    CDTime = 1
+  },
+  [10000260] = {
+    id = 10000260,
+    UseEffect = Table_UseItem_t.UseEffect[3726],
     CDTime = 1,
     UseMultiple = 999
   }
@@ -57412,6 +57786,7 @@ local cell_mt = {
     TipsInfo = _EmptyTable,
     UseEffect = _EmptyTable,
     UseEndTime = "",
+    UseLvLimit = _EmptyTable,
     UseStartTime = "",
     id = 901010
   }

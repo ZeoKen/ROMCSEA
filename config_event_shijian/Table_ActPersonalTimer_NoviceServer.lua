@@ -193,6 +193,84 @@ Table_ActPersonalTimer = {
     Cycle = "",
     Name = "共享盛宴",
     Misc = {ExchangeNumPerDay = 10}
+  },
+  [106202] = {
+    id = 106202,
+    Type = "mission_reward",
+    Servers = _EmptyTable,
+    TfStartTime = "2023-09-29 05:00:00",
+    TfEndTime = "2029-09-25 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2023-10-16 05:00:00",
+    EndTime = "2029-10-07 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "黑色派对",
+    Misc = {
+      Texture = "Limitedtime_bg_nfhm"
+    },
+    OpenOnMenuUnlock = 10000010,
+    LastDayAfterMenuUnlock = 90
+  },
+  [107004] = {
+    id = 107004,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2024-11-18 05:00:00",
+    TfEndTime = "2024-11-24 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2024-11-25 05:00:00",
+    EndTime = "2024-12-01 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "交换礼物",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [107005] = {
+    id = 107005,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2024-12-09 05:00:00",
+    TfEndTime = "2024-12-16 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2024-12-16 05:00:00",
+    EndTime = "2024-12-23 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "雪人的心愿",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [107006] = {
+    id = 107006,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-01-13 05:00:00",
+    TfEndTime = "2025-01-20 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-01-20 05:00:00",
+    EndTime = "2025-01-27 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "庆典助力",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [106203] = {
+    id = 106203,
+    Type = "mission_reward",
+    Servers = _EmptyTable,
+    TfStartTime = "2023-09-29 05:00:00",
+    TfEndTime = "2029-09-25 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2023-10-16 05:00:00",
+    EndTime = "2029-10-07 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "光影之都",
+    Misc = {
+      Texture = "Limitedtime_bg_lxtl"
+    },
+    OpenOnMenuUnlock = 10000011,
+    LastDayAfterMenuUnlock = 90
   }
 }
 Table_ActPersonalTimer_fields = {

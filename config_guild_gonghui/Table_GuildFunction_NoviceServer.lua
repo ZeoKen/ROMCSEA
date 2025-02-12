@@ -390,6 +390,21 @@ Table_GuildFunction = {
     Icon = "",
     HelpID = _EmptyTable
   },
+  [91] = {
+    id = 91,
+    DisGuildLevel = 999,
+    PanelId = 526,
+    BuildingParam = _EmptyTable,
+    Display = 1,
+    Name = "公会大厅",
+    Content = "查看其它的公会详细信息",
+    QuestID = _EmptyTable,
+    AppearTime = "2016-07-07 00:00:00",
+    FinishTime = "2030-07-07 00:00:00",
+    AppearTimeRange = _EmptyTable,
+    Icon = "GuildHall",
+    HelpID = _EmptyTable
+  },
   [99] = {
     id = 99,
     DisGuildLevel = 999,
@@ -599,6 +614,21 @@ Table_GuildFunction = {
     HelpID = _EmptyTable,
     FuncState = 4,
     GuideQuest = 1005350001
+  },
+  [108] = {
+    id = 108,
+    DisGuildLevel = 999,
+    PanelId = 1838,
+    BuildingParam = _EmptyTable,
+    Display = 1,
+    Name = "公会约战",
+    Content = "发出约战，查看约战记录",
+    QuestID = _EmptyTable,
+    AppearTime = "2016-07-07 00:00:00",
+    FinishTime = "2030-07-07 00:00:00",
+    AppearTimeRange = _EmptyTable,
+    Icon = "",
+    HelpID = _EmptyTable
   },
   [110] = {
     id = 110,
@@ -1108,17 +1138,21 @@ Table_GuildFunction = {
   [234] = {
     id = 234,
     DisGuildLevel = 528,
-    PanelId = 528,
+    PanelId = 553,
     BuildingParam = _EmptyTable,
     Display = 1,
-    Name = "公会战状态",
+    Name = "公会战",
     Content = "查看公会战战况，城池占领情况",
     QuestID = _EmptyTable,
     AppearTime = "2016-07-07 00:00:00",
     FinishTime = "2030-07-07 00:00:00",
     AppearTimeRange = _EmptyTable,
     Icon = "GVG",
-    HelpID = {35290, 35245},
+    HelpID = {
+      35290,
+      35245,
+      32624
+    },
     FuncState = 4
   },
   [235] = {
@@ -1143,6 +1177,7 @@ Table_GuildFunction = {
   [236] = {
     id = 236,
     DisGuildLevel = 999,
+    PanelId = 1630,
     BuildingParam = _EmptyTable,
     UniqueID = 7713,
     Display = 1,
@@ -1199,21 +1234,6 @@ Table_GuildFunction = {
     FinishTime = "2030-07-07 00:00:00",
     AppearTimeRange = _EmptyTable,
     Icon = "",
-    HelpID = _EmptyTable
-  },
-  [91] = {
-    id = 91,
-    DisGuildLevel = 999,
-    PanelId = 526,
-    BuildingParam = _EmptyTable,
-    Display = 1,
-    Name = "公会大厅",
-    Content = "查看其它的公会详细信息",
-    QuestID = _EmptyTable,
-    AppearTime = "2016-07-07 00:00:00",
-    FinishTime = "2030-07-07 00:00:00",
-    AppearTimeRange = _EmptyTable,
-    Icon = "GuildHall",
     HelpID = _EmptyTable
   },
   [239] = {
@@ -1278,6 +1298,22 @@ Table_GuildFunction = {
     AppearTimeRange = _EmptyTable,
     Icon = "",
     HelpID = _EmptyTable
+  },
+  [243] = {
+    id = 243,
+    DisGuildLevel = 999,
+    BuildingParam = _EmptyTable,
+    UniqueID = 7713,
+    Display = 0,
+    Name = "公会战决战",
+    Content = "跨线匹配四方竞赛，赢取头饰神器碎片",
+    QuestID = _EmptyTable,
+    AppearTime = "2016-07-07 00:00:00",
+    FinishTime = "2030-07-07 00:00:00",
+    AppearTimeRange = _EmptyTable,
+    Icon = "GVGDroiyan",
+    HelpID = {1630},
+    FuncState = 6
   }
 }
 Table_GuildFunction_fields = {

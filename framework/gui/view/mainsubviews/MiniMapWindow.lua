@@ -63,7 +63,8 @@ MiniMapWindow.Type = {
   Yahaha = 36,
   TrainEscort = 37,
   TripleTeams = 38,
-  EBFEventArea = 39
+  EBFEventArea = 39,
+  Astral = 40
 }
 local Type = MiniMapWindow.Type
 local MiniMapDataRemoveFunc = function(data)
@@ -136,6 +137,7 @@ function MiniMapWindow:RegisterAllMapInfos()
   self:RegisterMapInfo(Type.CIRCLE, MiniMapWindow._CreateMapCircleArea, nil, MiniMapWindow._RemoveMapCircleArea)
   self:RegisterMapInfo(Type.TrainEscort, MiniMapWindow._CreateMapTrainEscort)
   self:RegisterMapInfo(Type.EBFEventArea, MiniMapWindow._CreateEBFEventAreaSymbol, MiniMapWindow._UpdateEBFEventAreaSymbol, MiniMapWindow._RemoveEBFEventAreaSymbol)
+  self:RegisterMapInfo(Type.Astral)
   self:RegisterMapInfo(Type.GvgStrongHold, MiniMapWindow._CreateGvgStrongHold, MiniMapWindow._UpdateGvgStrongHold, MiniMapWindow._RemoveGvgStrongHold)
   self:RegisterMapInfo(Type.MetalGvg_MetalIcon, MiniMapWindow._CreateMetalIconInfos)
   self:RegisterMapInfo(Type.WildMvp, MiniMapWindow._CreateWildMvpSymbol, MiniMapWindow._UpdateWildMvpSymbol, MiniMapWindow._RemoveWildMvpSymbol)
@@ -3182,4 +3184,8 @@ function MiniMapWindow:DestroyEBFEventAreaEffect(id)
     effect:Destroy()
     self.ebfEventAreaEffectMap[id] = nil
   end
+end
+
+function MiniMapWindow:UpdateAstralTowerSymbol(datas, isRemoveOther)
+  self:UpdateMapSymbolDatas(Type.Astral, datas, isRemoveOther)
 end

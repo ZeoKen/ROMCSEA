@@ -58,6 +58,8 @@ function PveDifficultyCell:SetData(data)
   local server_challengeCount = data:GetPassTime()
   if isPveCard or entranceData:IsElement() or entranceData:IsStarArk() then
     self.finishGo:SetActive(data:GetQuick())
+  elseif entranceData:IsAstral() then
+    self.finishGo:SetActive(data:CheckAccPass() or false)
   else
     self.finishGo:SetActive(max_challengeCount == server_challengeCount)
   end

@@ -23,8 +23,8 @@ end
 function EquipRecommendNewView:FindObjs()
   self.jobClassScrollView = self:FindComponent("JobClassScrollView", UIScrollView)
   self.jobClassPanel = self:FindComponent("JobClassScrollView", UIPanel)
-  local jobClassTable = self:FindComponent("JobClassTable", UITable, self.jobClassScrollView.gameObject)
-  self.goalListCtl = ListCtrl.new(jobClassTable, TeamGoalCombineCellForER, "TeamGoalCombineCellForER")
+  local grid = self:FindComponent("JobClassGrid", UIGrid, self.jobClassScrollView.gameObject)
+  self.goalListCtl = UIGridListCtrl.new(grid, TeamGoalCellForER, "TeamGoalCellForER")
   self.goalListCtl:AddEventListener(MouseEvent.MouseClick, self.OnClickJob, self)
   self.equipScroll = self:FindGO("EquipScroll")
   local equipGrid = self:FindComponent("Grid", UIGrid, self.equipScroll)
@@ -99,8 +99,8 @@ function EquipRecommendNewView:FindObjs()
 end
 
 function EquipRecommendNewView:OnEnter()
-  local branches = self:GetFatherTable()
-  self.goalListCtl:ResetDatas(branches)
+  local branches, childGoals = self:GetFatherTable()
+  self.goalListCtl:ResetDatas(childGoals)
   EventManager.Me():AddEventListener(EquipRecommendMainNewEvent.RecvProfessionQueryUserCmd, self.RecvProfessionQueryUserCmd, self)
   ServiceNUserProxy.Instance:CallProfessionQueryUserCmd()
 end
@@ -195,48 +195,16 @@ function EquipRecommendNewView:TrySyncPassUserInfo(branch)
   end
 end
 
-function EquipRecommendNewView:OnClickJob(param, isNotPlayAnim)
-  if "Father" == param.type then
-    if self.maxProfessionDepth < midDepth then
-      local combine = param.combine
-      if combine == self.combineGoal then
-        return nil
-      end
-      self:_resetCurCombine()
-      self.combineGoal = combine
-      self.fatherGoalId = combine.data.fatherGoal.id
-      self.goal = self.fatherGoalId
-      self.curProfessionId = self.goal
-      local typeBranch = combine.data.fatherGoal.TypeBranch
-      self:TrySyncPassUserInfo(typeBranch)
-      self.typeBranch = typeBranch
-    else
-      local combine = param.combine
-      if combine == self.combineGoal then
-        if not isNotPlayAnim then
-          combine:PlayReverseAnimation()
-        end
-        return
-      end
-      self:_resetCurCombine()
-      self.combineGoal = combine
-      self.combineGoal:PlayReverseAnimation()
-      self.fatherGoalId = combine.data.fatherGoal.id
-      self.goal = self.fatherGoalId
-    end
-  elseif param.child and param.child.data then
-    self.goal = param.child.data.id
-    self.curProfessionId = self.goal
-    self.chooseJob = param.child.data.id
-    local typeBranch = param.child.data.TypeBranch
-    self:TrySyncPassUserInfo(typeBranch)
-    self.typeBranch = typeBranch
-  else
-    self.goal = self.fatherGoalId
+function EquipRecommendNewView:OnClickJob(cell)
+  if not cell or not cell.data then
+    return
   end
-  if param then
-    self.clickParama = param
-  end
+  self.goal = cell.data.id
+  self.curProfessionId = self.goal
+  self.chooseJob = cell.data.id
+  local typeBranch = cell.data.TypeBranch
+  self:TrySyncPassUserInfo(typeBranch)
+  self.typeBranch = typeBranch
 end
 
 function EquipRecommendNewView:SetJobChoose()
@@ -246,10 +214,8 @@ function EquipRecommendNewView:SetJobChoose()
   local goalCells = self.goalListCtl:GetCells()
   local count, childCtls = #goalCells
   for i = 1, count do
-    childCtls = goalCells[i].childCtl:GetCells()
-    for k = 1, #childCtls do
-      childCtls[k]:SetChoose(childCtls[k].data.id == self.chooseJob)
-    end
+    childCtls = goalCells[i]
+    childCtls:SetChoose(childCtls.data.id == self.chooseJob)
   end
   self.chooseJob = nil
 end
@@ -271,6 +237,7 @@ function EquipRecommendNewView:GetFatherTable()
     end
   end
   local fatherTable = {}
+  local childGoals = {}
   local branchTypeTable = {}
   for k, v in pairs(branchTable) do
     local branchType = self:GetTableClassTypeFromBranch(v)
@@ -282,26 +249,28 @@ function EquipRecommendNewView:GetFatherTable()
     for m, n in pairs(Table_Class) do
       if (n.id % 10 == 1 or TableUtility.ArrayFindIndex(ProfessionProxy.specialDepthJobs, n.id) > 0) and EquipRecommendNewView.IsSameClassType(n.Type, v) then
         table.insert(fatherTable, {
-          fatherGoal = Table_Class[n.id],
-          childGoals = {}
+          fatherGoal = Table_Class[n.id]
         })
-      end
-    end
-  end
-  for k, v in pairs(branchTable) do
-    for m, n in pairs(fatherTable) do
-      if EquipRecommendNewView.IsSameClassType(n.fatherGoal.Type, self:GetTableClassTypeFromBranch(v)) then
-        local cData = self:GetClassDataToShow(v)
-        if cData ~= nil and cData ~= _EmptyTable then
-          table.insert(n.childGoals, cData)
-        end
       end
     end
   end
   table.sort(fatherTable, function(a, b)
     return a.fatherGoal.id < b.fatherGoal.id
   end)
-  return fatherTable
+  local sortFunc = function(a, b)
+    return a.TypeBranch > b.TypeBranch
+  end
+  for m, n in ipairs(fatherTable) do
+    for k, v in pairs(branchTable) do
+      if EquipRecommendNewView.IsSameClassType(n.fatherGoal.Type, self:GetTableClassTypeFromBranch(v)) then
+        local cData = self:GetClassDataToShow(v)
+        if cData ~= nil and cData ~= _EmptyTable then
+          TableUtility.InsertSort(childGoals, cData, sortFunc)
+        end
+      end
+    end
+  end
+  return fatherTable, childGoals
 end
 
 function EquipRecommendNewView:GetTableClassTypeFromBranch(branchId)
@@ -350,56 +319,12 @@ end
 function EquipRecommendNewView:TrySelectFirstProfession()
   local professionId = MyselfProxy.Instance:GetMyProfession()
   local goalCells, clicked, goalData = self.goalListCtl:GetCells()
-  if goalCells and 0 < #goalCells then
-    for i = 1, #goalCells do
-      goalData = goalCells[i].data
-      if goalData and firstProfessionPredicate(goalData.fatherGoal) then
-        if self.maxProfessionDepth < midDepth then
-          if self.curProfessionDepth == 0 then
-            goalCells[i]:SetFolderState(false)
-            goalCells[i]:ClickFather()
-            self:JobClassScrollTowardsIndex(i)
-            clicked = true
-            break
-          elseif goalCells[i].data.fatherGoal.id == professionId then
-            goalCells[i]:SetFolderState(false)
-            goalCells[i]:ClickFather()
-            self:JobClassScrollTowardsIndex(i)
-            clicked = true
-            break
-          end
-        else
-          goalCells[i]:SetFolderState(false)
-          goalCells[i]:ClickFather()
-          self:JobClassScrollTowardsIndex(i)
-          if ProfessionProxy.GetJobDepth() < 2 then
-            goalCells[i]:ClickChild()
-            clicked = true
-            break
-          end
-          do
-            local childCells = goalCells[i].childCtl:GetCells()
-            for j = 1, #childCells do
-              if professionId == childCells[j].data.id then
-                goalCells[i]:ClickChild(childCells[j])
-                clicked = true
-                break
-              end
-            end
-          end
-          break
-        end
-      end
+  for i = 1, #goalCells do
+    if professionId == goalCells[i].data.id then
+      self:OnClickJob(goalCells[i])
+      self.goalListCtl:ScrollToIndex(i)
+      break
     end
-    local showArrow = not (self.maxProfessionDepth < midDepth)
-    for i = 1, #goalCells do
-      goalCells[i]:ShowArrow(showArrow)
-    end
-  end
-  if not clicked then
-    goalCells[1]:SetFolderState(false)
-    goalCells[1]:ClickFather()
-    goalCells[1]:ClickChild()
   end
 end
 
@@ -411,7 +336,7 @@ function EquipRecommendNewView:JobClassScrollTowardsIndex(index)
     return
   end
   local targetX, targetY, targetZ = LuaGameObject.GetLocalPosition(self.jobClassScrollView.transform)
-  targetY = targetY + 70 * math.clamp(index - 2, 0, 99999)
+  targetY = targetY + 50 * math.clamp(index - 2, 0, 99999)
   SpringPanel.Begin(self.jobClassScrollView.gameObject, LuaGeometry.GetTempVector3(targetX, targetY, targetZ), 30)
 end
 

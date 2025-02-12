@@ -79,7 +79,7 @@ function CoinPopView:SetData(data)
     else
       self:Hide(self.uiEquipIcon.gameObject)
       self:Show(self.TitleEffectContanter)
-      self:TrySetServerTitleIcon("item_100")
+      self:TrySetServerTitleIcon(Table_Item[100].Icon)
     end
   else
     self:Show(self.TitleEffectContanter)

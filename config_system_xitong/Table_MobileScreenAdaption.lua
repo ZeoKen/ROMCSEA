@@ -1052,6 +1052,174 @@ Table_MobileScreenAdaption = {
   [51] = {
     id = 51,
     IsValid = 1,
+    DeviceInfo = "iPhone17,3",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 1,
+    offset_top = 0,
+    offset_left = 140,
+    offset_bottom = 0,
+    offset_right = 100
+  },
+  [52] = {
+    id = 52,
+    IsValid = 1,
+    DeviceInfo = "iPhone17,3",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 2,
+    offset_top = 0,
+    offset_left = 100,
+    offset_bottom = 0,
+    offset_right = 140
+  },
+  [53] = {
+    id = 53,
+    IsValid = 1,
+    DeviceInfo = "iPhone17,4",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 1,
+    offset_top = 0,
+    offset_left = 153,
+    offset_bottom = 0,
+    offset_right = 100
+  },
+  [54] = {
+    id = 54,
+    IsValid = 1,
+    DeviceInfo = "iPhone17,4",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 2,
+    offset_top = 0,
+    offset_left = 100,
+    offset_bottom = 0,
+    offset_right = 153
+  },
+  [55] = {
+    id = 55,
+    IsValid = 1,
+    DeviceInfo = "iPhone17,1",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 1,
+    offset_top = 0,
+    offset_left = 153,
+    offset_bottom = 0,
+    offset_right = 100
+  },
+  [56] = {
+    id = 56,
+    IsValid = 1,
+    DeviceInfo = "iPhone17,1",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 2,
+    offset_top = 0,
+    offset_left = 100,
+    offset_bottom = 0,
+    offset_right = 153
+  },
+  [57] = {
+    id = 57,
+    IsValid = 1,
+    DeviceInfo = "iPhone17,2",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 1,
+    offset_top = 0,
+    offset_left = 153,
+    offset_bottom = 0,
+    offset_right = 100
+  },
+  [58] = {
+    id = 58,
+    IsValid = 1,
+    DeviceInfo = "iPhone17,2",
+    SpecialView = {
+      WebviewPanel = {
+        SavedInsets = {
+          40,
+          80,
+          20,
+          80
+        }
+      },
+      GuildBuildingMatSubmitCell = {InfoPosY = 20}
+    },
+    RotationType = 2,
+    offset_top = 0,
+    offset_left = 100,
+    offset_bottom = 0,
+    offset_right = 153
+  },
+  [59] = {
+    id = 59,
+    IsValid = 1,
     DeviceInfo = "@xiaomi",
     SpecialView = {
       WebviewPanel = {
@@ -1070,8 +1238,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 80
   },
-  [52] = {
-    id = 52,
+  [60] = {
+    id = 60,
     IsValid = 1,
     DeviceInfo = "@samsung",
     SpecialView = {
@@ -1091,8 +1259,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 80
   },
-  [53] = {
-    id = 53,
+  [61] = {
+    id = 61,
     IsValid = 1,
     DeviceInfo = "@huawei",
     SpecialView = {
@@ -1112,8 +1280,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 80
   },
-  [54] = {
-    id = 54,
+  [62] = {
+    id = 62,
     IsValid = 1,
     DeviceInfo = "@oneplus",
     SpecialView = {
@@ -1133,8 +1301,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 80
   },
-  [55] = {
-    id = 55,
+  [63] = {
+    id = 63,
     IsValid = 1,
     DeviceInfo = "@vivo",
     SpecialView = {
@@ -1154,8 +1322,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 80
   },
-  [56] = {
-    id = 56,
+  [64] = {
+    id = 64,
     IsValid = 1,
     DeviceInfo = "@google",
     SpecialView = {
@@ -1175,8 +1343,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 80
   },
-  [57] = {
-    id = 57,
+  [65] = {
+    id = 65,
     IsValid = 1,
     DeviceInfo = "LGE LM-G710N",
     SpecialView = {
@@ -1196,8 +1364,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 50
   },
-  [58] = {
-    id = 58,
+  [66] = {
+    id = 66,
     IsValid = 1,
     DeviceInfo = "LGE LM-G710N",
     SpecialView = {
@@ -1217,8 +1385,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 0
   },
-  [59] = {
-    id = 59,
+  [67] = {
+    id = 67,
     IsValid = 1,
     DeviceInfo = "LGE LM-G820N",
     SpecialView = {
@@ -1238,8 +1406,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 50
   },
-  [60] = {
-    id = 60,
+  [68] = {
+    id = 68,
     IsValid = 1,
     DeviceInfo = "LGE LM-G820N",
     SpecialView = {
@@ -1259,8 +1427,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 0
   },
-  [61] = {
-    id = 61,
+  [69] = {
+    id = 69,
     IsValid = 1,
     DeviceInfo = "ASUS ROG",
     SpecialView = {
@@ -1280,8 +1448,8 @@ Table_MobileScreenAdaption = {
     offset_bottom = 0,
     offset_right = 51
   },
-  [62] = {
-    id = 62,
+  [70] = {
+    id = 70,
     IsValid = 1,
     DeviceInfo = "ASUS ROG",
     SpecialView = {

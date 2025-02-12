@@ -1637,3 +1637,23 @@ end
 function ItemData:IsAnonymousItem()
   return self.staticData and self.staticData.Type == 557 or false
 end
+
+function ItemData:GetComposeFashionTarget()
+  if not self.composeFashionTarget then
+    if not Table_AstralSeason then
+      return
+    end
+    for _, _info in pairs(Table_AstralSeason) do
+      local _fashionReward = _info.FashionReward
+      if _fashionReward then
+        for _diff, _reward in pairs(_fashionReward) do
+          if _reward and _reward[1] == self.staticData.id then
+            self.composeFashionTarget = _info.FashionEquip
+            break
+          end
+        end
+      end
+    end
+  end
+  return self.composeFashionTarget
+end

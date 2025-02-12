@@ -19,7 +19,7 @@ function SkillLogic_TargetCreature:Cast(creature)
     return false
   end
   local skillInfo = self.info
-  if not skillInfo:CheckTarget(creature, targetCreature) then
+  if not creature.data:IsMonster() and not skillInfo:CheckTarget(creature, targetCreature) then
     return false
   end
   if SuperClass.Cast(self, creature) then

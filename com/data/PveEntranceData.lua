@@ -1,4 +1,3 @@
-local _Config = GameConfig.Pve
 local daySeconds = 86400
 local _DifficultyDescType_Roman = 9
 PveEntranceData = class("PveEntranceData")
@@ -10,7 +9,7 @@ function PveEntranceData:ctor(id)
     redlog("Table_PveRaidEntrance 未配置id： ", id)
   end
   self.raidType = self.staticData.RaidType
-  self.feature = _Config.RaidFeatureDesc and _Config.RaidFeatureDesc[self.raidType] or ""
+  self.feature = GameConfig.Pve.RaidFeatureDesc and GameConfig.Pve.RaidFeatureDesc[self.raidType] or ""
   self.lv = self.staticData.RecommendLv
   self.name = self.staticData.Name
   if self:HasShopConfig() then
@@ -27,13 +26,13 @@ function PveEntranceData:ctor(id)
   end
   self.unlockMsgId = self.staticData.UnlockMsgId
   self.groupid = self.staticData.GroupId
-  if nil == _Config.RaidType[self.groupid] then
+  if nil == GameConfig.Pve.RaidType[self.groupid] then
     redlog("GameConfig未配置groupid: ", self.groupid)
   end
-  self.configSortID = _Config.RaidType[self.groupid].sortID
+  self.configSortID = GameConfig.Pve.RaidType[self.groupid] and GameConfig.Pve.RaidType[self.groupid].sortID
   self.UnlockLv = self.staticData.UnlockLv
   if nil == self.configSortID then
-    redlog("策划未配置GameConfig.Pve.RaidType 对应的sortID。错误GroupId k值: ", self.groupid)
+    redlog("策划未配置GameConfig.Pve.RaidType 对应的sortID。错误GroupId | ID : ", self.groupid, self.id)
     self.configSortID = 1
   end
   self.difficultyRaid = self.staticData.Difficulty
@@ -142,8 +141,12 @@ function PveEntranceData:IsRoadOfHero()
   return self.raidType == PveRaidType.RoadOfHero
 end
 
+function PveEntranceData:IsMemoryRaid()
+  return self.raidType == PveRaidType.MemoryRaid
+end
+
 function PveEntranceData:IsNew()
-  local openTime = self.groupid and _Config.RaidType[self.groupid] and _Config.RaidType[self.groupid].openTime
+  local openTime = self.groupid and GameConfig.Pve.RaidType[self.groupid] and GameConfig.Pve.RaidType[self.groupid].openTime
   if not openTime then
     return false
   end
@@ -151,7 +154,7 @@ function PveEntranceData:IsNew()
     local dateTime = ClientTimeUtil.GetOSDateTime(openTime)
     local curServerTime = ServerTime.CurServerTime() / 1000
     local delta = curServerTime - dateTime
-    if 0 < delta and delta < _Config.NewRaidInterval * daySeconds then
+    if 0 < delta and delta < GameConfig.Pve.NewRaidInterval * daySeconds then
       return true
     end
   end
@@ -173,4 +176,8 @@ end
 
 function PveEntranceData:IsNormalMaterials()
   return self.raidType == PveRaidType.NormalMaterials
+end
+
+function PveEntranceData:IsAstral()
+  return self.raidType == PveRaidType.Astral
 end

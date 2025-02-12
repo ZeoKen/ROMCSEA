@@ -79,6 +79,8 @@ function ItemHandleCommand:ReInit(note)
       EventManager.Me():PassEvent(ItemEvent.PersonalArtifactUpdate, recordMap)
     elseif PackageItem.type == SceneItem_pb.EPACKTYPE_MEMORY then
       self.facade:sendNotification(ItemEvent.MemoryUpdate, recordMap)
+    elseif PackageItem.type == SceneItem_pb.EPACKTYPE_SPECIAL_FASHION then
+      self.facade:sendNotification(ItemEvent.SpecialFashionUpdate, recordMap)
     end
     if self.betterEquipChanged then
       self.facade:sendNotification(ItemEvent.BetterEquipAdd, recordMap)
@@ -157,6 +159,8 @@ function ItemHandleCommand:Update(note)
       EventManager.Me():PassEvent(ItemEvent.PersonalArtifactUpdate, recordMap)
     elseif PackageItem.type == SceneItem_pb.EPACKTYPE_MEMORY then
       self.facade:sendNotification(ItemEvent.MemoryUpdate, recordMap)
+    elseif PackageItem.type == SceneItem_pb.EPACKTYPE_SPECIAL_FASHION then
+      self.facade:sendNotification(ItemEvent.SpecialFashionUpdate, recordMap)
     end
     if self.betterEquipChanged then
       self.facade:sendNotification(ItemEvent.BetterEquipAdd, recordMap)
@@ -194,6 +198,7 @@ function ItemHandleCommand:AddItemHandle(bagData, item, sItem)
   self:CheckQuickUseItem(bagData.type, item.staticData.id)
   self:_TryCheckEquipTypeIsChanged(bagData.type, item.staticData.id)
   self:TryAddSelectRewardCheck(bagData, item)
+  self:TryAddSpecialFashionCheck(bagData, item)
   item.bagtype = bagData.type
 end
 
@@ -397,6 +402,16 @@ function ItemHandleCommand:AddTempItemDelCheck(bagData, item)
       FunctionTempItem.Me():AddUseIntervalCheck(item, interval)
     end
   end
+end
+
+function ItemHandleCommand:TryAddSpecialFashionCheck(bagData, item)
+  if bagData.type ~= BagProxy.BagType.SpecialFashion then
+    return
+  end
+  GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+    view = PanelConfig.Bag,
+    viewdata = {leftState = "Fashion", item = item}
+  })
 end
 
 function ItemHandleCommand:NewAddCompare(item)

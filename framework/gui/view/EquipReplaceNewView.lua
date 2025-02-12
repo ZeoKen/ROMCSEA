@@ -91,7 +91,7 @@ function EquipReplaceNewView:InitView()
   self.multiChooseBord:AddEventListener(EquipChooseCellEvent.CountChooseChange, self.OnCountChooseChange, self)
   self.askBuyCtrl = ListCtrl.new(self.askBuyGrid, MaterialItemNewCell, "MaterialItemNewCell")
   self.askBuyCtrl:AddEventListener(MouseEvent.MouseClick, self.OnClickAskBuyItemCell, self)
-  IconManager:SetItemIcon("item_100", self.coinIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.coinIcon)
   self:AddButtonEvent("TargetCell", function()
     self:OnClickTargetCell()
   end)
@@ -398,7 +398,7 @@ local replaceablePredicate = function(item)
     return false
   end
   local equipInfo = item.equipInfo
-  if equipInfo.strengthlv2 > 0 or equipInfo.damage then
+  if equipInfo.damage then
     return false
   end
   return true
@@ -431,7 +431,7 @@ local lastGenReplaceMatPredicate = function(item)
     return false
   end
   local equipInfo = item.equipInfo
-  if equipInfo.strengthlv > 0 or 0 < equipInfo.strengthlv2 or equipInfo.damage then
+  if equipInfo.damage then
     return false
   end
   if equipInfo.refinelv > GameConfig.Item.material_max_refine then

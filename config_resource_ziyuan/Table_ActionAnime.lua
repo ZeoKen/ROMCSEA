@@ -10131,6 +10131,227 @@ Table_ActionAnime = {
     ShowWeapon_4 = 1,
     ShowWeapon_5 = 1,
     ShowWeapon_6 = 1
+  },
+  [1404] = {
+    id = 1404,
+    Name = "attack_morocc",
+    Type = 2,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1,
+    Expression = 5
+  },
+  [1405] = {
+    id = 1405,
+    Name = "attack_wait_morocc",
+    Type = 2,
+    RestoreType = 2,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1406] = {
+    id = 1406,
+    Name = "skill_ready_morocc",
+    Type = 1,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1407] = {
+    id = 1407,
+    Name = "use_skill_morocc",
+    Type = 1,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1408] = {
+    id = 1408,
+    Name = "use_skill2_morocc",
+    Type = 1,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1409] = {
+    id = 1409,
+    Name = "use_skill3_morocc",
+    Type = 2,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1410] = {
+    id = 1410,
+    Name = "use_skill4_morocc",
+    Type = 1,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1411] = {
+    id = 1411,
+    Name = "use_skill5_morocc",
+    Type = 2,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1412] = {
+    id = 1412,
+    Name = "use_skill6_morocc",
+    Type = 1,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1413] = {
+    id = 1413,
+    Name = "die_morocc",
+    Type = 2,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1414] = {
+    id = 1414,
+    Name = "hit_morocc",
+    Type = 2,
+    RestoreType = 1,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1415] = {
+    id = 1415,
+    Name = "walk_morocc",
+    Type = 1,
+    RestoreType = 2,
+    CheckMatching = 1,
+    ShowWeapon_1 = 1,
+    ShowWeapon_2 = 1,
+    ShowWeapon_3 = 1,
+    ShowWeapon_4 = 1,
+    ShowWeapon_5 = 1,
+    ShowWeapon_6 = 1
+  },
+  [1416] = {
+    id = 1416,
+    Name = "attack_sunshinehero",
+    Type = 2,
+    RestoreType = 1
+  },
+  [1417] = {
+    id = 1417,
+    Name = "attack_wait_sunshinehero",
+    Type = 2,
+    RestoreType = 2,
+    CheckMatching = 1
+  },
+  [1418] = {
+    id = 1418,
+    Name = "use_skill_sunshinehero",
+    Type = 1,
+    RestoreType = 1
+  },
+  [1419] = {
+    id = 1419,
+    Name = "use_skill2_sunshinehero",
+    Type = 1,
+    RestoreType = 1
+  },
+  [1420] = {
+    id = 1420,
+    Name = "use_skill3_sunshinehero",
+    Type = 2,
+    RestoreType = 1
+  },
+  [1421] = {
+    id = 1421,
+    Name = "use_skill4_sunshinehero",
+    Type = 1,
+    RestoreType = 1
+  },
+  [1422] = {
+    id = 1422,
+    Name = "use_skill5_sunshinehero",
+    Type = 2,
+    RestoreType = 1
+  },
+  [1423] = {
+    id = 1423,
+    Name = "die_sunshinehero",
+    Type = 2,
+    RestoreType = 1,
+    CheckMatching = 1
+  },
+  [1424] = {
+    id = 1424,
+    Name = "hit_sunshinehero",
+    Type = 2,
+    RestoreType = 1,
+    CheckMatching = 1
+  },
+  [1425] = {
+    id = 1425,
+    Name = "walk_sunshinehero",
+    Type = 1,
+    RestoreType = 2,
+    CheckMatching = 1
   }
 }
 Table_ActionAnime_fields = {

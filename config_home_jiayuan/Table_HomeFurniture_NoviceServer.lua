@@ -2655,7 +2655,6 @@ Table_HomeFurniture = {
   },
   [30612] = {
     id = 30612,
-    Name = "Museum_02_Art",
     NameZh = "裁决骑士雕像",
     Row = 3,
     EndHeight = 4,
@@ -5371,6 +5370,7 @@ Table_HomeFurniture = {
   },
   [31906] = {
     id = 31906,
+    Name = "Royal_01_Carpet",
     NameZh = "地毯·君临之地",
     Row = 8,
     Col = 5,
@@ -7878,7 +7878,7 @@ local cell_mt = {
     FurnitureFunction = _EmptyTable,
     HomeScore = 65,
     LoadShowPosition = _EmptyTable,
-    Name = "Royal_01_Carpet",
+    Name = "Museum_02_Art",
     NameZh = "南瓜马车",
     NormalType = 1,
     Npc = _EmptyTable,

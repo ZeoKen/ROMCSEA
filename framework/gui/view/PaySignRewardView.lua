@@ -439,14 +439,14 @@ function PaySignRewardView:HandleClickDepositItem(cellctl)
     redlog("no info")
     return
   end
-  local cbfunc = function()
-    self:PurchaseDeposit(info)
+  local cbfunc = function(count)
+    self:PurchaseDeposit(info, count)
   end
-  local m_funcRmbBuy = function()
+  local m_funcRmbBuy = function(count)
     if BranchMgr.IsJapan() or BranchMgr.IsKorea() then
       self:Invoke_DepositConfirmPanel(cbfunc)
     else
-      cbfunc()
+      cbfunc(count)
     end
   end
   local tbItem = Table_Item[info.itemID]
@@ -459,7 +459,7 @@ function PaySignRewardView:HandleClickDepositItem(cellctl)
   end
 end
 
-function PaySignRewardView:PurchaseDeposit(info)
+function PaySignRewardView:PurchaseDeposit(info, count)
   if not info then
     redlog("Purchase no info")
     return
@@ -515,7 +515,7 @@ function PaySignRewardView:PurchaseDeposit(info)
       local strResult = str_result or "nil"
       LogUtility.Info("NewRechargeRecommendTShopGoodsCell:OnPayPaying, " .. strResult)
     end
-    FuncPurchase.Instance():Purchase(productConf.id, callbacks)
+    FuncPurchase.Instance():Purchase(productConf.id, callbacks, count)
     local interval = GameConfig.PurchaseMonthlyVIP.interval / 1000
     PurchaseDeltaTimeLimit.Instance():Start(productID, interval)
     return true

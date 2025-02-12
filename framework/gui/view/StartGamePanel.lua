@@ -52,7 +52,9 @@ end
 
 function StartGamePanel:OnEnter()
   CurrentServerType = nil
-  ISNoviceServerType = false
+  if not BranchMgr.IsNO() and not BranchMgr.IsNOTW() then
+    ISNoviceServerType = false
+  end
   if BranchMgr.IsJapan() then
     OverseaHostHelper:AFRenewTrack()
   end

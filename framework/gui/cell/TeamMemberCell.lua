@@ -426,7 +426,11 @@ function TeamMemberCell:UpdateRoleTexture()
   end
   UIModelUtil.Instance:ResetTexture(self.roleTexture)
   local suffixMap = class and Table_Class[class] and Table_Class[class].ActionSuffixMap
-  UIModelUtil.Instance:SetRoleModelTexture(self.roleTexture, self.parts, self.modelCameraConfig, nil, nil, TeamMemberListPopUp.ShowStaticPicture, suffixMap)
+  self.model = UIModelUtil.Instance:SetRoleModelTexture(self.roleTexture, self.parts, self.modelCameraConfig, nil, nil, TeamMemberListPopUp.ShowStaticPicture, suffixMap, function(obj)
+    self.model = obj
+    self.uiModelCell = UIModelUtil.Instance:GetUIModelCell(self.roleTexture)
+    self:RefreshBuffState()
+  end)
 end
 
 function TeamMemberCell:UpdateRestTip()
@@ -586,4 +590,57 @@ function TeamMemberCell:OnDestroy()
   end
   EventManager.Me():RemoveEventListener(TeamEvent.TeamOption_SelectRole, self.HandleSwitchRole, self)
   self:RemoveRestTimeTick()
+  self.buffEffects = nil
+end
+
+function TeamMemberCell:RefreshBuffState()
+  if not self.buffEffects then
+    self.buffEffects = {}
+  end
+  if not self.containBuffPart then
+    self.containBuffPart = {}
+  end
+  local hasBuffEffect = false
+  local parts = self.parts
+  for _partType, _index in pairs(Asset_Role.PartIndex) do
+    local _id = parts and parts[_index] or 0
+    if _id and self.containBuffPart[_index] and self.containBuffPart[_index] ~= _id then
+      xdlog("移除特效")
+      local effList = self.buffEffects[_index] or {}
+      for i = #effList, 1, -1 do
+        effList[i]:Destroy()
+        effList[i] = nil
+      end
+    end
+    if 0 < _id and (not self.containBuffPart[_index] or self.containBuffPart[_index] ~= _id) then
+      hasBuffEffect = true
+      local equipData = Table_Equip[_id]
+      local fashionBuff = equipData and equipData.FashionBuff
+      if fashionBuff and 0 < #fashionBuff then
+        self.containBuffPart[_index] = _id
+        for i = 1, #fashionBuff do
+          local buffData = Table_Buffer[fashionBuff[i]]
+          local buffStateID = buffData and buffData.BuffStateID
+          if buffStateID then
+            local buffStateData = Table_BuffState[buffStateID]
+            local path = buffStateData.Effect
+            local eff = self.model:PlayEffectOn(path, buffStateData.EP)
+            if not self.buffEffects[_index] then
+              self.buffEffects[_index] = {}
+            end
+            xdlog("添加特效", _index, path)
+            table.insert(self.buffEffects[_index], eff)
+          end
+        end
+      end
+    end
+  end
+  if hasBuffEffect then
+    self.uiModelCell:SetCameraCulling({
+      LayerMask.NameToLayer("UIModel"),
+      LayerMask.NameToLayer("UIModelOutline"),
+      LayerMask.NameToLayer("Outline"),
+      LayerMask.NameToLayer("Default")
+    })
+  end
 end

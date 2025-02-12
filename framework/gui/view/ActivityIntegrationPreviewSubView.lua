@@ -15,6 +15,14 @@ local decorateTextureNameMap = {
   },
   [4] = {
     Bg_title = "paidactivity_bg_title_02"
+  },
+  [6] = {
+    Gift_01 = "activityintegration_bg_gift_01",
+    Gift_02 = "activityintegration_bg_gift_02",
+    Gift_03 = "activityintegration_bg_gift_03",
+    Ornament = "activityintegration_bg_ornament",
+    Bg_title = "activityintegration_bg_title",
+    Bg_01 = "activityintegration_bg_01"
   }
 }
 
@@ -43,7 +51,7 @@ function ActivityIntegrationPreviewSubView:LoadCellPfb(cName, parent)
 end
 
 function ActivityIntegrationPreviewSubView:FindObjs()
-  for i = 1, 5 do
+  for i = 1, 6 do
     self["Root" .. i] = self:FindGO("Root" .. i, self.gameObject)
     self["Root" .. i]:SetActive(self.showType == i)
   end
@@ -111,6 +119,28 @@ function ActivityIntegrationPreviewSubView:FindObjs()
       end
     end
   end
+  self.infoLists = {}
+  self.itemAndNameContainer = self:FindGO("IconNameContainer", self.curRoot)
+  if self.itemAndNameContainer then
+    local childCount = self.itemAndNameContainer and self.itemAndNameContainer.gameObject.transform.childCount or 0
+    if 0 < childCount then
+      for i = 1, childCount do
+        local bgGO = self:FindGO("Icon" .. i, self.itemAndNameContainer)
+        if bgGO then
+          local singleInfo = self.infoLists[i]
+          if not singleInfo then
+            singleInfo = {
+              go = bgGO,
+              bg = bgGO:GetComponent(UISprite),
+              icon = self:FindGO("Icon", bgGO):GetComponent(UISprite),
+              label = self:FindGO("Label", bgGO):GetComponent(UILabel)
+            }
+            self.infoLists[i] = singleInfo
+          end
+        end
+      end
+    end
+  end
   if decorateTextureNameMap and decorateTextureNameMap[self.showType] then
     for objName, _ in pairs(decorateTextureNameMap[self.showType]) do
       self[objName] = self:FindComponent(objName, UITexture, self.curRoot)
@@ -166,6 +196,7 @@ function ActivityIntegrationPreviewSubView:RefreshPage()
     end
   end
   self:UpdateTimeLabels()
+  self:UpdateInfos()
   local helpID = self.staticData.HelpID
   if self.helpBtn then
     self.helpBtn:SetActive(helpID ~= nil or false)
@@ -182,6 +213,11 @@ function ActivityIntegrationPreviewSubView:UpdateTimeLabels()
   local params = self.staticData.Params
   local shortCutGroup = params and params.ShortCut or {}
   local isTF = EnvChannel.IsTFBranch()
+  local textColor
+  if params.TextColor then
+    local _, _textColor = ColorUtil.TryParseHexString(params.TextColor)
+    textColor = _textColor
+  end
   if shortCutGroup and 0 < #shortCutGroup then
     for i = 1, #shortCutGroup do
       local data = shortCutGroup[i]
@@ -200,14 +236,53 @@ function ActivityIntegrationPreviewSubView:UpdateTimeLabels()
           if self.timeLabels[i] then
             self.timeLabels[i].gameObject:SetActive(true)
             self.timeLabels[i].text = str
+            if textColor then
+              self.timeLabels[i].color = textColor
+            end
           end
         end
       end
     end
   end
-  for i = 5, #shortCutGroup + 1, -1 do
+  for i = 8, #shortCutGroup + 1, -1 do
     if self.timeLabels[i] then
       self.timeLabels[i].gameObject:SetActive(false)
+    end
+  end
+end
+
+function ActivityIntegrationPreviewSubView:UpdateInfos()
+  if not self.itemAndNameContainer then
+    return
+  end
+  local params = self.staticData.Params
+  local shortCutGroup = params and params.ShortCut or {}
+  if shortCutGroup and 0 < #shortCutGroup then
+    local _, textColor = ColorUtil.TryParseHexString(params.TextColor)
+    local _, bgColor = ColorUtil.TryParseHexString(params.ItemBgColor)
+    for i = 1, 8 do
+      if shortCutGroup[i] then
+        self.infoLists[i].go:SetActive(true)
+        self.infoLists[i].bg.color = bgColor
+        self.infoLists[i].label.color = textColor
+        self.infoLists[i].label.text = shortCutGroup[i].Desc or ""
+        local setSuc, setFaceSuc = false, false
+        local itemid = shortCutGroup[i].Item or 151
+        local staticData = Table_Item[itemid]
+        if staticData and staticData.Type == 1200 then
+          setFaceSuc = IconManager:SetFaceIcon(staticData.Icon, self.infoLists[i].icon)
+          if not setFaceSuc then
+            setFaceSuc = IconManager:SetFaceIcon("boli", self.infoLists[i].icon)
+          end
+        else
+          setSuc = IconManager:SetItemIcon(staticData.Icon, self.infoLists[i].icon)
+          setSuc = setSuc or IconManager:SetItemIcon("item_45001", self.infoLists[i].icon)
+        end
+        self.infoLists[i].icon:MakePixelPerfect()
+        self.infoLists[i].icon.gameObject.transform.localScale = LuaGeometry.GetTempVector3(0.8, 0.8, 0.8)
+      else
+        self.infoLists[i].go:SetActive(false)
+      end
     end
   end
 end

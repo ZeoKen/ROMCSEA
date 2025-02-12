@@ -89,7 +89,7 @@ end
 
 function AudioUtility:PlayOneShotOn(path, audioSource, audioSourceType, skipCount)
   local clip = AudioUtility.GetAudioClip(path, audioSourceType, skipCount)
-  if clip then
+  if clip and audioSource then
     return AudioHelper.PlayOneShotOn(clip, audioSource, audioSourceType)
   end
 end

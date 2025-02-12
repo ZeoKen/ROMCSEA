@@ -52,14 +52,12 @@ function LimitTimeQuestProxy:RecvMissionRewardInfoSyncCmd(data)
       local index = questrewards[i].index
       local status = questrewards[i].status
       self.missionStatusMap[actid].rewards[index] = status
-      xdlog("进度同步", actid, index, status)
     end
   end
   local isAllFinish = data.is_all_mission_finish
   self.missionStatusMap[actid].allFinish = isAllFinish
   self.missionStatusMap[actid].end_time = data.end_time
-  xdlog("RecvMissionRewardInfoSyncCmd", actid, isAllFinish)
-  self:RefreshManualRedTips(actid)
+  self:RefreshManualRedTips()
 end
 
 function LimitTimeQuestProxy:CheckActIsValid(actid)
@@ -209,44 +207,40 @@ LimitTimeQuestProxy.QuestTypeMap = {
   Collection = 3
 }
 
-function LimitTimeQuestProxy:RefreshManualRedTips(actid)
-  if not self.missionStatusMap[actid] then
+function LimitTimeQuestProxy:RefreshManualRedTips()
+  if not self.missionStatusMap then
     return
   end
-  local entranceConfig = GameConfig.LimitTimeQuestReward and GameConfig.LimitTimeQuestReward[actid]
-  if not entranceConfig then
-    return
-  end
-  local menuUnlock = ActivityIntegrationProxy.Instance:CheckMenuUnlock(actid)
-  if not menuUnlock then
-    return
-  end
-  local timeValid = self:CheckActIsValid(actid)
-  if not timeValid then
-    return
-  end
-  if self.missionStatusMap[actid].allFinish then
-    RedTipProxy.Instance:RemoveWholeTip(redtipid)
-    return
-  end
-  local reward = self.missionStatusMap[actid].rewards
-  local groupData = self:GetMissionStaticData(actid)
   local _subtipID = {}
-  for _type, _indexMap in pairs(groupData) do
-    for _index, _staticID in pairs(_indexMap) do
-      local questInfo = self:GetQuestStatusInfo(_staticID)
-      if questInfo and questInfo.cellStatus == 2 then
-        local pageIndex = LimitTimeQuestProxy.QuestTypeMap[_type]
-        if pageIndex and TableUtility.ArrayFindIndex(_subtipID, pageIndex) == 0 then
-          table.insert(_subtipID, pageIndex)
+  for _actid, _info in pairs(self.missionStatusMap) do
+    local entranceConfig = GameConfig.LimitTimeQuestReward and GameConfig.LimitTimeQuestReward[_actid]
+    local menuUnlock = ActivityIntegrationProxy.Instance:CheckMenuUnlock(_actid)
+    local timeValid = self:CheckActIsValid(_actid)
+    if entranceConfig ~= nil and menuUnlock and timeValid then
+      local reward = _info.rewards
+      local groupData = self:GetMissionStaticData(_actid)
+      local _mainActidActive = false
+      for _type, _indexMap in pairs(groupData) do
+        for _index, _staticID in pairs(_indexMap) do
+          local questInfo = self:GetQuestStatusInfo(_staticID)
+          if questInfo and questInfo.cellStatus == 2 then
+            local pageIndex = LimitTimeQuestProxy.QuestTypeMap[_type]
+            if pageIndex and TableUtility.ArrayFindIndex(_subtipID, pageIndex) == 0 then
+              _mainActidActive = true
+              table.insert(_subtipID, _actid * 100 + pageIndex)
+            end
+          end
         end
       end
+      local process, total = self:GetTotalProcessByActID(_actid)
+      if process == total and not self.missionStatusMap[_actid].allFinish then
+        _mainActidActive = true
+        table.insert(_subtipID, _actid * 100 + 99)
+      end
+      if _mainActidActive then
+        table.insert(_subtipID, _actid)
+      end
     end
-  end
-  local process, total = self:GetTotalProcessByActID(actid)
-  xdlog("进度", process, total)
-  if process == total and not self.missionStatusMap[actid].allFinish then
-    table.insert(_subtipID, 100)
   end
   if 0 < #_subtipID then
     RedTipProxy.Instance:UpdateRedTip(redtipid, _subtipID)

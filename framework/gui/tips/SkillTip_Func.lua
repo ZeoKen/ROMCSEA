@@ -572,6 +572,17 @@ function SkillTip:_SelectFunc(bgHeight)
         datas[#datas + 1] = data
       end
     end
+    skill = logicParam.companion_skill_ids
+    if skill then
+      self.funcOptions_opt = _OptionEnum.Companion_Skill
+      for i = 1, #skill do
+        local data = {
+          id = skill[i]
+        }
+        data.RuneName = Table_Skill[data.id * 1000 + 1].NameZh
+        datas[#datas + 1] = data
+      end
+    end
     tip:UpdateTip(datas)
     self:_SelectOptions(datas)
     bgHeight = tip:GetRealBgHeight() + bgHeight
@@ -607,7 +618,7 @@ function SkillTip:_SelectOptions(datas)
   else
     local selectID = Game.SkillOptionManager:GetSkillOption(opt)
     if selectID == 0 then
-      selectID = datas[1].id
+      selectID = opt ~= SkillOptionManager.OptionEnum.Companion_Skill and datas[1].id or datas[2].id
     end
     self:_SelectOption(selectID)
   end

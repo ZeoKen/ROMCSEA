@@ -5,6 +5,7 @@ autoImport("SceneStarMap")
 autoImport("SceneFeatherGrid")
 autoImport("SceneEnergyGrid")
 autoImport("SceneBalanceBar")
+autoImport("SceneSolarEnergy")
 SceneBottomHpSpCell.resId = ResourcePathHelper.UIPrefab_Cell("SceneBottomHpSpCell")
 local tempVector3 = LuaVector3.Zero()
 SceneBottomHpSpCell.PoolSize = 30
@@ -1351,5 +1352,44 @@ function SceneBottomHpSpCell:SetPvpCamp()
         end
       end
     end
+  end
+end
+
+function SceneBottomHpSpCell:InitSolarEnergy()
+  if not self.sceneSolarEnergy then
+    self.frenzyContainer = self:FindGO("FrenzyContainer")
+    if not self.frenzyContainer or self:ObjIsNil(self.frenzyContainer) then
+      return
+    end
+    local args = ReusableTable.CreateArray()
+    args[1] = self.frenzyContainer
+    self.sceneSolarEnergy = SceneSolarEnergy.CreateAsArray(args)
+    ReusableTable.DestroyAndClearArray(args)
+  end
+end
+
+function SceneBottomHpSpCell:UpdateSolarEnergy(bufflayer, maxLayer)
+  if not self.sceneSolarEnergy then
+    self:InitSolarEnergy()
+  end
+  self.sceneSolarEnergy:UpdateSolarEnergy(bufflayer, maxLayer)
+end
+
+function SceneBottomHpSpCell:RemoveSolarEnergy()
+  if self.sceneSolarEnergy then
+    self.sceneSolarEnergy:Destroy()
+    self.sceneSolarEnergy = nil
+  end
+end
+
+function SceneBottomHpSpCell:ShowSolarEnergy(value)
+  if self.frenzyContainer then
+    if value and not self.frenzyContainer.activeSelf then
+      self.frenzyContainer:SetActive(true)
+    elseif false == value and self.frenzyContainer.activeSelf then
+      self.frenzyContainer:SetActive(false)
+    end
+  else
+    self:InitSolarEnergy()
   end
 end

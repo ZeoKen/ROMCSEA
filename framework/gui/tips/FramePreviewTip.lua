@@ -29,10 +29,11 @@ function FramePreviewTip:ctor(parent)
   self.headframePart = self:FindGO("ChatframePart")
   self.myselfChatCell = self:FindGO("ChatRoomMySelfCell")
   self.myselfChatBG = self:FindGO("contentSpriteBg", self.myselfChatCell):GetComponent(UISprite)
+  self.myselfChatBG = self:FindGO("contentSpriteBg", self.myselfChatCell):GetComponent(UITexture)
   for i = 1, 4 do
     self["myselfBgDecorate" .. i] = self:FindGO("bgDecorate" .. i, self.myselfChatCell)
     if self["myselfBgDecorate" .. i] then
-      self["myselfBgDecorate" .. i .. "_Icon"] = self["myselfBgDecorate" .. i]:GetComponent(UISprite)
+      self["myselfBgDecorate" .. i .. "_Icon"] = self["myselfBgDecorate" .. i]:GetComponent(UITexture)
     end
   end
   self.myselfName = self:FindGO("name", self.myselfChatCell):GetComponent(UILabel)
@@ -43,13 +44,13 @@ function FramePreviewTip:ctor(parent)
   self.myselfHeadIconCell:CreateSelf(self.myselfHeadObj)
   self.myselfHeadIconCell:SetMinDepth(4)
   self.someoneChatCell = self:FindGO("ChatRoomSomeoneCell")
-  self.someoneChatBG = self:FindGO("contentSpriteBg", self.someoneChatCell):GetComponent(UISprite)
+  self.someoneChatBG = self:FindGO("contentSpriteBg", self.someoneChatCell):GetComponent(UITexture)
   self.someoneChatContent = self:FindGO("chatContent", self.someoneChatCell):GetComponent(UILabel)
   self.someoneChatContent.text = ZhString.Chat_Hello
   for i = 1, 4 do
     self["someoneBgDecorate" .. i] = self:FindGO("bgDecorate" .. i, self.someoneChatCell)
     if self["someoneBgDecorate" .. i] then
-      self["someoneBgDecorate" .. i .. "_Icon"] = self["someoneBgDecorate" .. i]:GetComponent(UISprite)
+      self["someoneBgDecorate" .. i .. "_Icon"] = self["someoneBgDecorate" .. i]:GetComponent(UITexture)
     end
   end
 end
@@ -96,18 +97,18 @@ function FramePreviewTip:SetChatframe(id)
     redlog("Table_UserChatFrame缺少ID", id)
     return
   end
-  self.myselfChatBG.spriteName = config.BubbleName
+  PictureManager.Instance:SetChatRoomTexture(config.BubbleName, self.myselfChatBG)
   self.myselfChatBG.flip = 1
-  self.someoneChatBG.spriteName = config.BubbleName
+  PictureManager.Instance:SetChatRoomTexture(config.BubbleName, self.someoneChatBG)
   local decorateNameRoot = config.IconName
   for i = 1, 4 do
     self["myselfBgDecorate" .. i .. "_Icon"].gameObject:SetActive(true)
-    self["myselfBgDecorate" .. i .. "_Icon"].spriteName = decorateNameRoot .. "_" .. i
+    PictureManager.Instance:SetChatRoomTexture(decorateNameRoot .. "_" .. i, self["myselfBgDecorate" .. i .. "_Icon"])
     self["myselfBgDecorate" .. i .. "_Icon"]:MakePixelPerfect()
   end
   for i = 1, 4 do
     self["someoneBgDecorate" .. i .. "_Icon"].gameObject:SetActive(true)
-    self["someoneBgDecorate" .. i .. "_Icon"].spriteName = decorateNameRoot .. "_" .. i
+    PictureManager.Instance:SetChatRoomTexture(decorateNameRoot .. "_" .. i, self["someoneBgDecorate" .. i .. "_Icon"])
     self["someoneBgDecorate" .. i .. "_Icon"]:MakePixelPerfect()
   end
   if config.TextColor and config.TextColor ~= "" then

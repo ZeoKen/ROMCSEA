@@ -3,7 +3,7 @@ autoImport("GVGStatCell")
 GVGStatView = class("GVGStatView", ContainerView)
 GVGStatView.ViewType = UIViewType.PopUpLayer
 GVGStatView.BrotherView = GVGRedPacketSendView
-local GvgStatkeyStr = {
+GVGStatView.GvgStatkeyStr = {
   [1] = ZhString.GVGStat_Kill,
   [2] = ZhString.GVGStat_Assist,
   [3] = ZhString.GVGStat_Death,
@@ -29,10 +29,7 @@ end
 
 function GVGStatView:FindObjs()
   self:AddButtonEvent("HelpBtn", function()
-    local helpData = Table_Help[PanelConfig.GVGStatView.id]
-    if helpData then
-      TipsView.Me():ShowGeneralHelp(helpData.Desc)
-    end
+    self:OnClickHelp()
   end)
   self.emptyGO = self:FindGO("EmptyIcon")
   self.topTitleScrollView = self:FindComponent("TopTitlePanel", UIScrollView)
@@ -77,7 +74,7 @@ function GVGStatView:FindObjs()
       self:OnSortBtnClicked(i)
     end)
     self.sortTitles[i] = self:FindComponent("DataName_" .. i + 1, UILabel, titleGrid)
-    self.sortTitles[i].text = GvgStatkeyStr[i] or ""
+    self.sortTitles[i].text = GVGStatView.GvgStatkeyStr[i] or ""
   end
   self.myselfStatGO = self:FindGO("MyselfStat")
   self.myselfStatOwner = GVGStatCell.new(self.myselfStatGO)
@@ -96,7 +93,19 @@ function GVGStatView:FindObjs()
   end
 end
 
-function GVGStatView:InitView()
+function GVGStatView:OnClickHelp()
+  local helpid = self:GetHelpId()
+  local helpData = Table_Help[helpid]
+  if helpData then
+    TipsView.Me():ShowGeneralHelp(helpData.Desc)
+  end
+end
+
+function GVGStatView:GetHelpId()
+  return PanelConfig.GVGStatView.id
+end
+
+function GVGStatView:SetDate()
   local statTime = SuperGvgProxy.Instance:GetLastGvgStatsTime()
   if statTime then
     self.dateLab.text = ClientTimeUtil.FormatTimeTick(statTime)
@@ -119,7 +128,7 @@ function GVGStatView:QueryStat()
 end
 
 function GVGStatView:OnQueryStatCmd()
-  self:InitView()
+  self:SetDate()
   SuperGvgProxy.Instance:SortLastGvgStatsByKey(GvgStatData.SortableKeys[1])
   self:RefreshView()
   self:UpdateMyselfData()
@@ -153,10 +162,10 @@ end
 function GVGStatView:OnSortBtnClicked(i)
   if self.lastSelectedSortIndex ~= i then
     if self.lastSelectedSortIndex then
-      self.sortTitles[self.lastSelectedSortIndex].text = GvgStatkeyStr[self.lastSelectedSortIndex]
+      self.sortTitles[self.lastSelectedSortIndex].text = GVGStatView.GvgStatkeyStr[self.lastSelectedSortIndex]
     end
     self.lastSelectedSortIndex = i
-    self.sortTitles[i].text = GvgStatkeyStr[i] .. ArrowText
+    self.sortTitles[i].text = GVGStatView.GvgStatkeyStr[i] .. ArrowText
     SuperGvgProxy.Instance:SortLastGvgStatsByKey(GvgStatData.SortableKeys[i])
     self:RefreshView()
   end

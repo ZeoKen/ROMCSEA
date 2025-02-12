@@ -1782,7 +1782,6 @@ Table_PoemStep = {
   [8] = {
     id = 8,
     Questid = 600130004,
-    name = "施密特王·故事四",
     step = 2,
     Descrip = Table_PoemStep_t.Descrip[8],
     TraceInfo = "封印--黑暗之王"
@@ -1845,7 +1844,8 @@ Table_PoemStep = {
     id = 16,
     Questid = 600540002,
     name = "月狼传说·故事一",
-    Descrip = Table_PoemStep_t.Descrip[16]
+    Descrip = Table_PoemStep_t.Descrip[16],
+    TraceInfo = "灾祸的代名词--芬里尔"
   },
   [17] = {
     id = 17,
@@ -1905,8 +1905,7 @@ Table_PoemStep = {
     Questid = 601540003,
     name = "圣诞传说·故事三",
     step = 8,
-    Descrip = Table_PoemStep_t.Descrip[24],
-    TraceInfo = "挂满礼物的圣诞树"
+    Descrip = Table_PoemStep_t.Descrip[24]
   },
   [25] = {
     id = 25,
@@ -1948,6 +1947,7 @@ Table_PoemStep = {
   [30] = {
     id = 30,
     Questid = 601700003,
+    name = "欢乐马戏团·故事二",
     Descrip = Table_PoemStep_t.Descrip[30],
     TraceInfo = "拉链熊的告诫"
   },
@@ -2796,9 +2796,9 @@ local cell_mt = {
   __index = {
     Descrip = _EmptyTable,
     Questid = 311150001,
-    TraceInfo = "灾祸的代名词--芬里尔",
+    TraceInfo = "挂满礼物的圣诞树",
     id = 1,
-    name = "欢乐马戏团·故事二",
+    name = "施密特王·故事四",
     step = 0
   }
 }

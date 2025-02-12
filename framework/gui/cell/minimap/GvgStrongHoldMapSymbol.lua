@@ -9,7 +9,7 @@ function GvgStrongHoldMapSymbol:ctor(obj, data, clickCallback, alwaysShowProgres
   GvgStrongHoldMapSymbol.super.ctor(self, obj)
   self.clickCallback = clickCallback
   self.alwaysShowProgress = alwaysShowProgress
-  self.usePointScore = usePointScore
+  self.usePointScore = usePointScore and not GuildDateBattleProxy.Instance:IsOpen()
   self.guildHeadData = GuildHeadData.new()
   self:FindObjs()
   self:SetData(data)
@@ -72,12 +72,15 @@ function GvgStrongHoldMapSymbol:SetData(data)
     self.indexLab.depth = depth + 3
     self.battleIcon.depth = depth + 2
   end
-  if data:IsActive() then
-    self.activeIcon.gameObject:SetActive(true)
-    self.deactiveIcon.gameObject:SetActive(false)
+  if data.ForceHideIcon and data:ForceHideIcon() then
+    self:Hide(self.activeIcon)
+    self:Hide(self.deactiveIcon)
+  elseif data:IsActive() then
+    self:Show(self.activeIcon)
+    self:Hide(self.deactiveIcon)
   else
-    self.activeIcon.gameObject:SetActive(false)
-    self.deactiveIcon.gameObject:SetActive(true)
+    self:Hide(self.activeIcon)
+    self:Show(self.deactiveIcon)
   end
   self.indexLab.text = data:GetIndex()
   if data:IsOccupied() then

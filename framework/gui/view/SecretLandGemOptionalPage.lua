@@ -83,6 +83,7 @@ function SecretLandGemOptionalPage:SetEmpty(empty)
     self:Hide(self.lvlab)
     self:Hide(self.itemContainer)
     self:Hide(self.costRoot)
+    self:Hide(self.resetBtn)
   else
     self:Hide(self.emptyRoot)
     self:Show(self.exp_Tab)
@@ -91,6 +92,7 @@ function SecretLandGemOptionalPage:SetEmpty(empty)
     self:Show(self.lvlab)
     self:Show(self.itemContainer)
     self:Show(self.costRoot)
+    self:Show(self.resetBtn)
   end
 end
 
@@ -228,6 +230,10 @@ function SecretLandGemOptionalPage:FindObjs()
   self.btn = self:FindComponent("Btn", UISprite)
   self:AddClickEvent(self.btn.gameObject, function(go)
     self:OnClickBtn()
+  end)
+  self.resetBtn = self:FindGO("ResetBtn")
+  self:AddClickEvent(self.resetBtn, function(go)
+    self:OnClickResetBtn()
   end)
   self.btnLab = self:FindComponent("Label", UILabel, self.btn.gameObject)
   self.btnLab.text = ZhString.Gem_SecretLand_OptionalView_Btn
@@ -658,6 +664,25 @@ function SecretLandGemOptionalPage:SetBtnState()
   self.valid = valid
 end
 
+function SecretLandGemOptionalPage:OnClickResetBtn()
+  local data = self.data
+  if not data then
+    return
+  end
+  if data.lv <= 1 then
+    MsgManager.ShowMsgByID(43583)
+    return
+  end
+  if GemProxy.Instance:CheckSecretLandIsEmbedded(data:GetPos()) then
+    MsgManager.ShowMsgByID(43580)
+    return
+  end
+  GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+    view = PanelConfig.ResetSecretLandGemPopUp,
+    viewdata = data
+  })
+end
+
 function SecretLandGemOptionalPage:OnClickBtn()
   if not self.data then
     return
@@ -696,7 +721,13 @@ local result_color = {success = "DABE69", failed = "879FC0"}
 function SecretLandGemOptionalPage:UpdateResult(note)
   local data = note.body
   local is_success = data.success
+  local type = data.type
   if nil == is_success then
+    return
+  end
+  if type == SceneItem_pb.ESECRETLANDGEMCMD_RESET then
+    local msg_str = is_success and ZhString.Gem_SecretLand_OptionalView_Success_Reset or ZhString.Gem_SecretLand_OptionalView_Failed_Reset
+    MsgManager.FloatMsg(nil, msg_str)
     return
   end
   local color = is_success and result_color.success or result_color.failed

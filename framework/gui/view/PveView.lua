@@ -235,6 +235,46 @@ function PveView:FindObj()
   self:InitDifficultyMode()
   self:InitContentFunc()
   self.heroRoadViewRoot = self:FindGO("HeroRoadRoot")
+  self.astralGraphBtn = self:FindGO("AstralGraphBtn")
+  self:AddClickEvent(self.astralGraphBtn, function()
+    if AstralProxy.Instance:IsSeasonNotOpen() then
+      MsgManager.ShowMsgByID(43581)
+      return
+    end
+    local config = GameConfig.Astral
+    local menuId = config and config.GraphMenuID
+    if FunctionUnLockFunc.Me():CheckCanOpen(menuId, true) then
+      self:sendNotification(UIEvent.JumpPanel, {
+        view = PanelConfig.AstralDestinyGraphView
+      })
+    end
+  end)
+  self:RegisterRedTipCheck(10771, self.astralGraphBtn, 8)
+  self:RegisterRedTipCheck(10772, self.astralGraphBtn, 8)
+  self.astralPrayBtn = self:FindGO("AstralPrayBtn")
+  self:AddClickEvent(self.astralPrayBtn, function()
+    if AstralProxy.Instance:IsSeasonEnd() then
+      MsgManager.ShowMsgByID(43567)
+      return
+    end
+    self:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.AstralPrayPopUp,
+      viewdata = self.curData.staticEntranceData.groupid
+    })
+  end)
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_ASTRAL_NEW_SEASON_PRAY, self.astralPrayBtn, 8)
+  self.gotoBtn = self:FindGO("GotoBtn")
+  self:AddClickEvent(self.gotoBtn, function()
+    if AstralProxy.Instance:IsSeasonEnd() then
+      MsgManager.ShowMsgByID(43567)
+      return
+    end
+    local shortcutId = GameConfig.Astral and GameConfig.Astral.LevelGroupShortcut and GameConfig.Astral.LevelGroupShortcut[self.curData.staticEntranceData.groupid]
+    if shortcutId then
+      FuncShortCutFunc.Me():CallByID(shortcutId)
+      self:CloseSelf()
+    end
+  end)
 end
 
 function PveView:InitContentFunc()
@@ -726,6 +766,10 @@ function PveView:AddUIEvts()
     self:OnClickShopBtn()
   end)
   self:AddClickEvent(self.matchBtn, function()
+    if self.curData.staticEntranceData:IsAstral() and AstralProxy.Instance:IsSeasonEnd() then
+      MsgManager.ShowMsgByID(43567)
+      return
+    end
     if not self.curIsOpen then
       self:ShowUnlockMsg()
       return
@@ -1021,6 +1065,7 @@ function PveView:UpdateViewData(data)
     self:UpdateRewardMonster()
     self:UpdateAchieve()
     self:UpdateCurRaidRoot()
+    self:UpdateAstral()
   end
 end
 
@@ -1383,7 +1428,7 @@ function PveView:OnClickRaidTypeCell(cell, auto)
     return
   end
   local entranceData = pveData.staticEntranceData
-  local isGridType = entranceData:IsCrack() or entranceData:IsBoss() or entranceData:IsRoadOfHero()
+  local isGridType = entranceData:IsCrack() or entranceData:IsBoss() or entranceData:IsRoadOfHero() or entranceData:IsAstral() or entranceData:IsMemoryRaid()
   local clickSameTypeCell = self.curData and self.curData.staticEntranceData.groupid == entranceData.groupid
   local clickDiffRaid = self.curData and self.curData.staticEntranceData.raidType ~= entranceData.raidType
   if clickSameTypeCell or clickDiffRaid then
@@ -1467,7 +1512,7 @@ function PveView:ChooseBestFit(diffs)
   self.difficultyCtl:ResetPosition()
   local diffCells = self.difficultyCtl:GetCells()
   for i = #diffs, 1, -1 do
-    if type(diffs[i]) == "table" and diffs[i]:CheckPass() and diffs[i].open then
+    if self.initialEntranceData and self.initialEntranceData.id == diffs[i].id or type(diffs[i]) == "table" and diffs[i]:CheckPass() and diffs[i].open or type(diffs[i]) == "table" and diffs[i]:CheckAccPass() then
       if 4 < i then
         local diffScrollView = self.difficultyCtl.scrollView
         local panel = diffScrollView.panel
@@ -1476,7 +1521,12 @@ function PveView:ChooseBestFit(diffs)
         offset = Vector3(offset.x, 0, 0)
         diffScrollView:MoveRelative(offset)
       end
-      self:UpdateViewData(diffs[i])
+      if self.curData.staticEntranceData:IsAstral() then
+        local diff = i < #diffs and diffs[i + 1] ~= PveEntranceProxy.EmptyDiff and diffs[i + 1] or diffs[i]
+        self:UpdateViewData(diff)
+      else
+        self:UpdateViewData(diffs[i])
+      end
       return true
     end
   end
@@ -1550,9 +1600,7 @@ function PveView:UpdateMonsterModel()
     return
   end
   local count = #self.monstersData
-  if 0 < count then
-    self:SetMonsterData()
-  end
+  self:SetMonsterData()
   self.nextMonsterBtn:SetActive(1 < count)
   self.preMonsterBtn:SetActive(1 < count)
 end
@@ -1563,14 +1611,13 @@ function PveView:SetMonsterData()
   end
   self.curMonsterId = self.monstersData[self.monsterIndex]
   self.monsterDetailBtn:SetActive(nil ~= Table_PveMonsterPreview[self.curMonsterId])
-  if not self.curMonsterId then
-    return
-  end
   local modelTex = GameConfig.Pve.RaidType[self.curData.staticEntranceData.groupid].modelTexture
   local name = Table_Monster[self.curMonsterId] and Table_Monster[self.curMonsterId].NameZh or ""
   local natureIcon = Table_Monster[self.curMonsterId] and Table_Monster[self.curMonsterId].Nature or ""
   self.monsterNameLab.text = string.format(ZhString.Pve_MonsterIndex, self.monsterIndex, #self.monstersData, name)
   IconManager:SetUIIcon(natureIcon, self.monsterNature)
+  self.monsterNameLab.gameObject:SetActive(self.curMonsterId ~= nil)
+  self.monsterNature.gameObject:SetActive(self.curMonsterId ~= nil)
   self.modelTexture:SetData(self.curMonsterId, modelTex)
 end
 
@@ -1797,4 +1844,12 @@ function PveView:HandleQueryShopConfig()
   if self.heroRoadSubView then
     self.heroRoadSubView:HandleQueryShopConfig()
   end
+end
+
+function PveView:UpdateAstral()
+  local isAstral = self.curData.staticEntranceData:IsAstral()
+  self.astralGraphBtn:SetActive(isAstral)
+  self.astralPrayBtn:SetActive(isAstral)
+  self.challengeBtn:SetActive(not isAstral)
+  self.gotoBtn:SetActive(isAstral)
 end

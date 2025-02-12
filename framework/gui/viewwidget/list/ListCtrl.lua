@@ -254,6 +254,7 @@ function ListCtrl:Destroy()
       if cell.OnCellDestroy and type(cell.OnCellDestroy) == "function" then
         cell:OnCellDestroy()
       end
+      GameObject.DestroyImmediate(cell.gameObject)
       TableUtility.TableClear(cell)
     end
   end

@@ -66,8 +66,8 @@ local HandleNpcsGVG = function(roles, isGVGStart, includeMercenary)
         role.data:Camp_SetIsInMyGuild(false)
       end
     end
-    if gvgProxy:CheckMetalNpcBornHide(role.data.id) then
-      role:Hide()
+    if role.assetRole then
+      role.assetRole:SetInvisible(gvgProxy:CheckMetalNpcBornHide(role.data.id) == true)
     end
     local npcid = role.data:GetNpcID()
     if npcid == GvgProxy.MetalID then
@@ -431,6 +431,27 @@ end
 function GuildMetalGVG:Update()
 end
 
+local GuildDateBattle = class("GuildDateBattle", GuildMetalGVG)
+
+function GuildDateBattle:ctor()
+  self.isGuildDateBattle = true
+  self.calmDown = true
+  self.pointTriggers = {}
+end
+
+function GuildDateBattle:HandleAddRoles(roles)
+  HandleRolesGVG(roles, not self.calmDown, nil, false)
+end
+
+function GuildDateBattle:HandleAddNpcs(roles)
+  HandleNpcsGVG(roles, not self.calmDown, false)
+end
+
+function GuildDateBattle:HandleSomeGuildChange(note)
+  local roles = NSceneNpcProxy.Instance.userMap
+  HandleNpcsGVG(roles, not self.calmDown, false)
+end
+
 autoImport("PoringFightTipView")
 local PoringFight = class("PoringFight")
 
@@ -459,7 +480,7 @@ function PoringFight:Launch()
   self.beforeSetting = {}
   self.beforeSetting[1] = cacheSetting.screenCount
   setting:SetBegin()
-  setting:SetScreenCount(GameConfig.Setting.ScreenCountHigh)
+  setting:SetScreenCount(FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High))
   setting:SetEnd()
   Game.GameHealthProtector:SetForceMinPlayerCount(100)
   EventManager.Me():AddEventListener(MyselfEvent.TransformChange, self.OnTransformChangeHandler, self)
@@ -620,6 +641,10 @@ function PVPFactory.GetGuildMetalGVG()
   return GuildMetalGVG.new()
 end
 
+function PVPFactory.GetGuildDateBattle()
+  return GuildDateBattle.new()
+end
+
 function PVPFactory.GetPoringFight()
   return PoringFight.new()
 end
@@ -757,7 +782,7 @@ function TeamPws:Launch()
   self.beforeSetting[2] = cacheSetting.skillEffect
   self.beforeSetting[3] = cacheSetting.showPeak
   setting:SetBegin()
-  setting:SetScreenCount(GameConfig.Setting.ScreenCountHigh)
+  setting:SetScreenCount(FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High))
   setting:SetSkillEffect(true)
   setting:SetPeak(false)
   setting:SetEnd()
@@ -829,7 +854,7 @@ function TeamPwsOthello:Launch()
   self.beforeSetting[2] = cacheSetting.skillEffect
   self.beforeSetting[3] = cacheSetting.showPeak
   setting:SetBegin()
-  setting:SetScreenCount(GameConfig.Setting.ScreenCountHigh)
+  setting:SetScreenCount(FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High))
   setting:SetSkillEffect(true)
   setting:SetPeak(false)
   setting:SetEnd()
@@ -992,7 +1017,7 @@ function TeamTwelve:Launch()
   self.beforeSetting[2] = cacheSetting.screenCount
   setting:SetBegin()
   setting:SetPeak(false)
-  setting:SetScreenCount(GameConfig.Setting.ScreenCountHigh)
+  setting:SetScreenCount(FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High))
   if self.isOb then
     self.beforeSetting[3] = cacheSetting.qualityLevel
     self.beforeSetting[4] = cacheSetting.targetFrameRate

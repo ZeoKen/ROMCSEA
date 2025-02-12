@@ -444,6 +444,9 @@ function ServiceFuBenCmdAutoProxy:onRegister()
   self:Listen(11, 162, function(data)
     self:RecvEBFEventAreaUpdateCmd(data)
   end)
+  self:Listen(11, 163, function(data)
+    self:RecvAstralInfoSyncCmd(data)
+  end)
 end
 
 function ServiceFuBenCmdAutoProxy:CallTrackFuBenUserCmd(data, dmapid, endtime)
@@ -4945,7 +4948,7 @@ function ServiceFuBenCmdAutoProxy:CallRaidKillNumSyncCmd(kill_nums)
   end
 end
 
-function ServiceFuBenCmdAutoProxy:CallSyncPvePassInfoFubenCmd(passinfos, battletime, totalbattletime, playtime, totalplaytime, lastinfo, affixids, quick_boss, endlessrewardlayer, all_crack_non_first)
+function ServiceFuBenCmdAutoProxy:CallSyncPvePassInfoFubenCmd(passinfos, battletime, totalbattletime, playtime, totalplaytime, lastinfo, affixids, quick_boss, endlessrewardlayer, all_crack_non_first, astral_season, astral_gotten_reward, astral_pass_num)
   if not NetConfig.PBC then
     local msg = FuBenCmd_pb.SyncPvePassInfoFubenCmd()
     if passinfos ~= nil then
@@ -5016,6 +5019,23 @@ function ServiceFuBenCmdAutoProxy:CallSyncPvePassInfoFubenCmd(passinfos, battlet
     end
     if all_crack_non_first ~= nil then
       msg.all_crack_non_first = all_crack_non_first
+    end
+    if astral_season ~= nil then
+      msg.astral_season = astral_season
+    end
+    if astral_gotten_reward ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.astral_gotten_reward == nil then
+        msg.astral_gotten_reward = {}
+      end
+      for i = 1, #astral_gotten_reward do
+        table.insert(msg.astral_gotten_reward, astral_gotten_reward[i])
+      end
+    end
+    if astral_pass_num ~= nil then
+      msg.astral_pass_num = astral_pass_num
     end
     self:SendProto(msg)
   else
@@ -5089,6 +5109,23 @@ function ServiceFuBenCmdAutoProxy:CallSyncPvePassInfoFubenCmd(passinfos, battlet
     end
     if all_crack_non_first ~= nil then
       msgParam.all_crack_non_first = all_crack_non_first
+    end
+    if astral_season ~= nil then
+      msgParam.astral_season = astral_season
+    end
+    if astral_gotten_reward ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.astral_gotten_reward == nil then
+        msgParam.astral_gotten_reward = {}
+      end
+      for i = 1, #astral_gotten_reward do
+        table.insert(msgParam.astral_gotten_reward, astral_gotten_reward[i])
+      end
+    end
+    if astral_pass_num ~= nil then
+      msgParam.astral_pass_num = astral_pass_num
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -7543,6 +7580,81 @@ function ServiceFuBenCmdAutoProxy:CallEBFEventAreaUpdateCmd(is_enter, event_id)
   end
 end
 
+function ServiceFuBenCmdAutoProxy:CallAstralInfoSyncCmd(kill_limit_time, round, total_monster, left_monster, pray_profession_num, pray_profession_group, pray_id, boss_ids)
+  if not NetConfig.PBC then
+    local msg = FuBenCmd_pb.AstralInfoSyncCmd()
+    if kill_limit_time ~= nil then
+      msg.kill_limit_time = kill_limit_time
+    end
+    if round ~= nil then
+      msg.round = round
+    end
+    if total_monster ~= nil then
+      msg.total_monster = total_monster
+    end
+    if left_monster ~= nil then
+      msg.left_monster = left_monster
+    end
+    if pray_profession_num ~= nil then
+      msg.pray_profession_num = pray_profession_num
+    end
+    if pray_profession_group ~= nil then
+      msg.pray_profession_group = pray_profession_group
+    end
+    if pray_id ~= nil then
+      msg.pray_id = pray_id
+    end
+    if boss_ids ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.boss_ids == nil then
+        msg.boss_ids = {}
+      end
+      for i = 1, #boss_ids do
+        table.insert(msg.boss_ids, boss_ids[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.AstralInfoSyncCmd.id
+    local msgParam = {}
+    if kill_limit_time ~= nil then
+      msgParam.kill_limit_time = kill_limit_time
+    end
+    if round ~= nil then
+      msgParam.round = round
+    end
+    if total_monster ~= nil then
+      msgParam.total_monster = total_monster
+    end
+    if left_monster ~= nil then
+      msgParam.left_monster = left_monster
+    end
+    if pray_profession_num ~= nil then
+      msgParam.pray_profession_num = pray_profession_num
+    end
+    if pray_profession_group ~= nil then
+      msgParam.pray_profession_group = pray_profession_group
+    end
+    if pray_id ~= nil then
+      msgParam.pray_id = pray_id
+    end
+    if boss_ids ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.boss_ids == nil then
+        msgParam.boss_ids = {}
+      end
+      for i = 1, #boss_ids do
+        table.insert(msgParam.boss_ids, boss_ids[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceFuBenCmdAutoProxy:RecvTrackFuBenUserCmd(data)
   self:Notify(ServiceEvent.FuBenCmdTrackFuBenUserCmd, data)
 end
@@ -8115,6 +8227,10 @@ function ServiceFuBenCmdAutoProxy:RecvEBFEventAreaUpdateCmd(data)
   self:Notify(ServiceEvent.FuBenCmdEBFEventAreaUpdateCmd, data)
 end
 
+function ServiceFuBenCmdAutoProxy:RecvAstralInfoSyncCmd(data)
+  self:Notify(ServiceEvent.FuBenCmdAstralInfoSyncCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.FuBenCmdTrackFuBenUserCmd = "ServiceEvent_FuBenCmdTrackFuBenUserCmd"
 ServiceEvent.FuBenCmdFailFuBenUserCmd = "ServiceEvent_FuBenCmdFailFuBenUserCmd"
@@ -8259,3 +8375,4 @@ ServiceEvent.FuBenCmdQueryPvpStatCmd = "ServiceEvent_FuBenCmdQueryPvpStatCmd"
 ServiceEvent.FuBenCmdEBFKickTimeCmd = "ServiceEvent_FuBenCmdEBFKickTimeCmd"
 ServiceEvent.FuBenCmdEBFContinueCmd = "ServiceEvent_FuBenCmdEBFContinueCmd"
 ServiceEvent.FuBenCmdEBFEventAreaUpdateCmd = "ServiceEvent_FuBenCmdEBFEventAreaUpdateCmd"
+ServiceEvent.FuBenCmdAstralInfoSyncCmd = "ServiceEvent_FuBenCmdAstralInfoSyncCmd"

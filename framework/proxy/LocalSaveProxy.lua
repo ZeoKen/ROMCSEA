@@ -47,7 +47,8 @@ LocalSaveProxy.SAVE_KEY = {
   AssistantInvite_RefuseCount = "AssistantInvite_RefuseCount",
   AssistantInvite_RefuseTime = "AssistantInvite_RefuseTime",
   RechargeHero_New = "RechargeHero_New",
-  MountFashion = "MountFashion"
+  MountFashion = "MountFashion",
+  GLandChallenge_LastExcellentNum = "LastExcellentNum"
 }
 
 function LocalSaveProxy:ctor(proxyName, data)

@@ -72,7 +72,10 @@ PictureManager.Config = {
     ClassPic = "GUI/pic/class/",
     EquipRecommend = "GUI/pic/EquipRecommend/",
     SelfChoose = "GUI/pic/SelfChoose/",
-    HeroRoad = "GUI/pic/HeroRoad/"
+    HeroRoad = "GUI/pic/HeroRoad/",
+    Astral = "GUI/pic/Astral/",
+    ChatRoom = "GUI/pic/ChatRoom/",
+    MasterSkill = "GUI/pic/MasterSkill/"
   }
 }
 PictureManager.Instance = nil
@@ -150,6 +153,9 @@ function PictureManager:ctor()
   self.equipRecommendCache = {}
   self.selfChooseCache = {}
   self.heroRoadCache = {}
+  self.astralCache = {}
+  self.chatRoomCache = {}
+  self.masterSkillCache = {}
   PictureManager.Instance = self
 end
 
@@ -442,6 +448,18 @@ end
 
 function PictureManager:SetHeroRoadTexture(sName, uiTexture)
   return self:SetTexture(sName, uiTexture, PictureManager.Config.Pic.HeroRoad, self.heroRoadCache)
+end
+
+function PictureManager:SetAstralTexture(sName, uiTexture)
+  return self:SetTexture(sName, uiTexture, PictureManager.Config.Pic.Astral, self.astralCache)
+end
+
+function PictureManager:SetChatRoomTexture(sName, uiTexture)
+  return self:SetTexture(sName, uiTexture, PictureManager.Config.Pic.ChatRoom, self.chatRoomCache)
+end
+
+function PictureManager:SetMasterSkillTexture(sName, uiTexture)
+  return self:SetTexture(sName, uiTexture, PictureManager.Config.Pic.MasterSkill, self.masterSkillCache)
 end
 
 function PictureManager:SetTexture(sName, uiTexture, path, cache)
@@ -778,6 +796,18 @@ end
 
 function PictureManager:UnloadHeroRoadTexture(sName, uiTexture)
   self:UnLoadTexture(self.heroRoadCache, sName, uiTexture)
+end
+
+function PictureManager:UnloadAstralTexture(sName, uiTexture)
+  self:UnLoadTexture(self.astralCache, sName, uiTexture)
+end
+
+function PictureManager:UnloadChatRoomTexture(sName, uiTexture)
+  self:UnLoadTexture(self.chatRoomCache, sName, uiTexture)
+end
+
+function PictureManager:UnloadMasterSkillTexture(sName, uiTexture)
+  self:UnLoadTexture(self.masterSkillCache, sName, uiTexture)
 end
 
 function PictureManager:UnLoadTexture(cache, sName, uiTexture)

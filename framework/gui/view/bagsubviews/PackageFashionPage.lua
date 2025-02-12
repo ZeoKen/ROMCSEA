@@ -125,7 +125,42 @@ function PackageFashionPage:InitFashionPage()
   end
   self:InitFashionTabNameTip()
   self.itemlist:UpdateTabList(ItemNormalList.TabType.FashionPage, Fashion2AdvFashionTab, true)
+  self:UpdateTabRedTips()
   self:ResetFashionSet()
+end
+
+function PackageFashionPage:UpdateTabRedTips()
+  local tabCells = self.itemlist.tabCtl:GetCells()
+  local hasSpecialFashion = false
+  for i = 1, #tabCells do
+    local index = tabCells[i].data and tabCells[i].data.index
+    if index then
+      local cfg = Fashion2AdvFashionTab[index]
+      local subids = {}
+      local _validTypes = {}
+      for _itemType, _info in pairs(Table_ItemType) do
+        if _info.AdventureLogGroup and _info.AdventureLogGroup == cfg[2] then
+          table.insert(_validTypes, _itemType)
+        end
+      end
+      if 0 < #_validTypes then
+        local spFashionItems = BagProxy.Instance:GetBagItemsByTypes(_validTypes, BagProxy.BagType.SpecialFashion)
+        for j = 1, #spFashionItems do
+          table.insert(subids, spFashionItems[j].staticData.id)
+          hasSpecialFashion = true
+        end
+      end
+      if subids and 0 < #subids then
+        self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, tabCells[i].sp1)
+      else
+        self:UnRegisterSingleRedTipCheck(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, tabCells[i].sp1)
+      end
+    end
+  end
+  if not hasSpecialFashion then
+    xdlog("无限时外观装备  强制移除红点")
+    ServiceSceneTipProxy.Instance:CallBrowseRedTipCmd(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION)
+  end
 end
 
 function PackageFashionPage:FindObjs()
@@ -338,6 +373,18 @@ function PackageFashionPage.GetTabDatas(itemTabConfig, tabData)
       end
     end
   end
+  local _validTypes = {}
+  for _itemType, _info in pairs(Table_ItemType) do
+    if _info.AdventureLogGroup and _info.AdventureLogGroup == cfg[2] then
+      table.insert(_validTypes, _itemType)
+    end
+  end
+  if 0 < #_validTypes then
+    local spFashionItems = BagProxy.Instance:GetBagItemsByTypes(_validTypes, BagProxy.BagType.SpecialFashion)
+    for i = 1, #spFashionItems do
+      table.insert(tabDatas, spFashionItems[i])
+    end
+  end
   for i = 1, #unEquipedDatas do
     unEquipedDatas[i].forcePos = cfg.forcePos
     table.insert(tabDatas, unEquipedDatas[i])
@@ -402,6 +449,7 @@ function PackageFashionPage:OnEquipUpdate()
   end
   self:UpdateList()
   self:RefreshItemStatus()
+  self:UpdateTabRedTips()
   if self:GetAdvFashionOfCurrentTab(true) == 1055 then
     self:RefreshMyselfBarrow()
   end
@@ -417,6 +465,7 @@ function PackageFashionPage:RefreshItemStatus()
   self.itemlist:UpdateTabList(ItemNormalList.TabType.FashionPage, Fashion2AdvFashionTab, false)
   for _, cell in pairs(self.itemCells) do
     cell:RefreshStatus()
+    cell:CheckRedTip()
   end
   local groupItemCells = self.listGroupFashion:GetCells()
   for _, cell in pairs(groupItemCells) do
@@ -637,10 +686,53 @@ function PackageFashionPage:RefreshMyselfRole()
   Game.Myself.data:SpecialProcessPart_Sheath(parts)
   Game.Myself.data:SetMountFashionParts(parts, userdata)
   self.role:Redress(parts, true)
+  self:RefreshBuffState(parts)
   Asset_Role.DestroyPartArray(parts)
   self.role:SetMountDisplay(self.showRoleMount == true)
   self.role:SetEpNodesDisplay(true)
   self:CheckUpdateEmojiData()
+end
+
+function PackageFashionPage:RefreshBuffState(parts)
+  if not self.buffEffects then
+    self.buffEffects = {}
+  end
+  if not self.containBuffPart then
+    self.containBuffPart = {}
+  end
+  for _partType, _index in pairs(Asset_Role.PartIndex) do
+    local _id = parts and parts[_index] or 0
+    if _id and self.containBuffPart[_index] and self.containBuffPart[_index] ~= _id then
+      xdlog("移除特效")
+      self.containBuffPart[_index] = nil
+      local effList = self.buffEffects[_index] or {}
+      for i = #effList, 1, -1 do
+        effList[i]:Destroy()
+        effList[i] = nil
+      end
+    end
+    if 0 < _id and (not self.containBuffPart[_index] or self.containBuffPart[_index] ~= _id) then
+      local equipData = Table_Equip[_id]
+      local fashionBuff = equipData and equipData.FashionBuff
+      if fashionBuff and 0 < #fashionBuff then
+        self.containBuffPart[_index] = _id
+        for i = 1, #fashionBuff do
+          local buffData = Table_Buffer[fashionBuff[i]]
+          local buffStateID = buffData and buffData.BuffStateID
+          if buffStateID then
+            local buffStateData = Table_BuffState[buffStateID]
+            local path = buffStateData.Effect
+            local eff = self.role:PlayEffectOn(path, buffStateData.EP)
+            if not self.buffEffects[_index] then
+              self.buffEffects[_index] = {}
+            end
+            xdlog("添加特效", _index, path)
+            table.insert(self.buffEffects[_index], eff)
+          end
+        end
+      end
+    end
+  end
 end
 
 function PackageFashionPage:ActiveAssetMount(b)
@@ -1051,7 +1143,22 @@ function PackageFashionPage:Switch(isShow)
   self.objRotateRoleArrows:SetActive(false)
   self.objSelectColorMsg:SetActive(false)
   self:ShowEmojiPanel(false)
-  self.itemlist:ChooseTab(1, true)
+  local initTab = 1
+  if self.container.viewdata and self.container.viewdata.viewdata and self.container.viewdata.viewdata.item then
+    local item = self.container.viewdata.viewdata.item
+    local itemType = item and item.staticData and item.staticData.Type
+    local adventureLogGroup = Table_ItemType[itemType].AdventureLogGroup
+    for index, info in pairs(Fashion2AdvFashionTab) do
+      if info[2] == adventureLogGroup then
+        initTab = index
+        xdlog("初始页签", initTab)
+        break
+      end
+    end
+    xdlog("初始页签", item.staticData.id, initTab)
+  end
+  self.itemlist:ChooseTab(initTab, true)
+  self.itemlist.tabCtl:ScrollToIndex(initTab)
   self.gameObject:SetActive(isShow)
   self.isCurrentShow = isShow
 end
@@ -1185,6 +1292,8 @@ function PackageFashionPage:OnExit()
     self:ClearEmojiData()
     self.emojiPanelShow = nil
   end
+  self.buffEffects = nil
+  self.containBuffPart = nil
   if self.objSceneModelRoot then
     LuaGameObject.DestroyObject(self.objSceneModelRoot)
     self.objSceneModelRoot = nil

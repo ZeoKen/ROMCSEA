@@ -127,6 +127,7 @@ function MainViewMenuPage:InitUI()
   Game.HotKeyTipManager:RegisterHotKeyTip(37, bagBtnSp, NGUIUtil.AnchorSide.TopLeft, {12, -12})
   self:RegisterGuideTarget(ClientGuide.TargetType.mainview_bagbutton, self.bagBtn)
   self.bagBtnSprite = self:FindGO("Sprite", self.bagBtn):GetComponent(GradientUISprite)
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, self.bagBtn, 42)
   self.autoBattleButton = self:FindGO("AutoBattleButton")
   self.glandStatusButton = self:FindGO("GlandStatusButton")
   self.glandStatusButtonLab = self:FindComponent("Label", UILabel, self.glandStatusButton)
@@ -134,9 +135,17 @@ function MainViewMenuPage:InitUI()
     if GvgProxy.Instance:CheckInSettleTime() then
       ServiceGuildCmdProxy.Instance:CallGvgSettleReqGuildCmd()
     else
-      self:ToView(PanelConfig.GLandStatusListView)
+      RedTipProxy.Instance:RemoveWholeTip(10773)
+      self:ToView(PanelConfig.GLandStatusCombineView, {index = 2})
     end
   end)
+  self.guildDateBattleBtn = self:FindGO("GuildDateBattleBtn")
+  self.guildDateBattleLab = self:FindComponent("Label", UILabel, self.guildDateBattleBtn)
+  self:AddClickEvent(self.guildDateBattleBtn, function(go)
+    GuildDateBattleProxy.Instance:TryOpenEntrance()
+  end)
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_GVG_FIRE, self.glandStatusButton, 42)
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_EXCELLENT_REWARD, self.glandStatusButton, 42)
   self.button2Grid = self:FindGO("Button2Grid")
   self.addCreditButton = self.container.activityPage.addCreditButton
   self.addCreditNode = self.container.activityPage.addCreditNode
@@ -191,6 +200,10 @@ function MainViewMenuPage:InitUI()
   self:AddButtonEvent("BagButton", function()
     self:PlayUISound(GameConfig.UIAudio.Package)
     if not SgAIManager.Me().m_isInBattle then
+      if Game.Myself.forbidUseItem then
+        MsgManager.ShowMsgByID(43578)
+        return
+      end
       self:ToView(PanelConfig.Bag)
     else
       MsgManager.ShowMsgByID(42084)
@@ -1744,6 +1757,16 @@ function MainViewMenuPage:DoMoreButtonByData(data)
         else
           self:ToView(FunctionUnLockFunc.Me():GetPanelConfigById(sData.panelid), {ButtonConfig = sData})
         end
+      elseif sData.panelid == PanelConfig.AstralDestinyGraphView.id then
+        local config = GameConfig.Astral
+        local menuId = config and config.GraphMenuID
+        if FunctionUnLockFunc.Me():CheckCanOpen(menuId, true) then
+          if AstralProxy.Instance:IsSeasonNotOpen() then
+            MsgManager.ShowMsgByID(43581)
+            return
+          end
+          self:ToView(FunctionUnLockFunc.Me():GetPanelConfigById(sData.panelid), {ButtonConfig = sData})
+        end
       else
         self:ToView(FunctionUnLockFunc.Me():GetPanelConfigById(sData.panelid), {ButtonConfig = sData})
       end
@@ -1907,6 +1930,9 @@ function MainViewMenuPage:MapViewInterests()
   self:AddListenEvt(ServiceEvent.SceneManualUpdateSolvedPhotoManualCmd, self.HandleUpdatetemScene)
   self:AddListenEvt(UIMenuEvent.UnRegisitButton, self.UnLockMenuButton)
   self:AddListenEvt(ServiceEvent.NUserNewMenu, self.HandleNewMenu)
+  self:AddListenEvt(ServiceEvent.GuildCmdDateBattleOpenGuildCmd, self.UpdateGuildDateBattleBtn)
+  self:AddListenEvt(ServiceEvent.GuildCmdEnterGuildGuildCmd, self.UpdateGuildDateBattleBtn)
+  self:AddListenEvt(ServiceEvent.GuildCmdExitGuildGuildCmd, self.UpdateGuildDateBattleBtn)
   self:AddListenEvt(ItemEvent.TempBagUpdate, self.UpdateTempBagButton)
   self:AddListenEvt(TempItemEvent.TempWarnning, self.UpdateTempBagButton)
   self:AddListenEvt(ItemEvent.ItemUpdate, self.UpdateBagNum)
@@ -2005,6 +2031,8 @@ function MainViewMenuPage:MapViewInterests()
   self:AddListenEvt(ServiceEvent.NoviceBattlePassNoviceBPTargetUpdateCmd, self.UpdateNoviceBattlePassBtn)
   self:AddListenEvt(ServiceEvent.QuestQueryQuestHeroQuestCmd, self.PreviewSaleRole)
   self:AddListenEvt(ServiceEvent.QuestUpdateQuestHeroQuestCmd, self.PreviewSaleRole)
+  self:AddListenEvt(ServiceEvent.ActivityCmdMissionRewardInfoSyncCmd, self.UpdateTimeLimitQuestReward, self)
+  self:AddListenEvt(ServiceEvent.QuestUpdateQuestStoryIndexQuestCmd, self.UpdateTimeLimitQuestReward, self)
 end
 
 function MainViewMenuPage:HandleRedTipUpdate(note)
@@ -2308,6 +2336,7 @@ function MainViewMenuPage:HandleMapLoaded(note)
   self:UpdateTutorMatchInfo()
   self:UpdateBoothInfo()
   self:CheckDelayJump()
+  self:UpdateGuildDateBattleBtn()
   self:RefreshDepositRedTip()
   self:RefreshPeddlerShopRedTip()
   self:RefreshHitPolly()
@@ -2321,7 +2350,7 @@ function MainViewMenuPage:HandleMapLoaded(note)
 end
 
 function MainViewMenuPage:UpdateNewPveInvite()
-  self.pveInviteBtn:SetActive(FunctionPve.Me():IsInivteing())
+  self.pveInviteBtn:SetActive(FunctionPve.Me():IsInviting())
   self:RepositionTopRFuncGrid2()
 end
 
@@ -2366,6 +2395,73 @@ function MainViewMenuPage:_UpdateGvgMetalTick()
   local leftTime = settleTime - ServerTime.CurServerTime() / 1000
   local min, sec = ClientTimeUtil.GetFormatSecTimeStr(leftTime)
   self.glandStatusButtonLab.text = string.format(ZhString.GvgFlagNameTimeFormat, min, sec)
+end
+
+function MainViewMenuPage:UpdateGuildDateBattleBtn()
+  local hasGuild = GuildProxy.Instance:IHaveGuild()
+  if hasGuild and GuildDateBattleProxy.Instance:NeedShow() then
+    self:Show(self.guildDateBattleBtn)
+    self:AddGuildDateTick()
+  else
+    self:RemoveGuildDateTick()
+    self:Hide(self.guildDateBattleBtn)
+  end
+  self.topRFuncGrid2:Reposition()
+end
+
+function MainViewMenuPage:AddGuildDateTick()
+  if self.guildDateTick then
+    return
+  end
+  self.guildDateTick = TimeTickManager.Me():CreateTick(0, 1000, self._UpdateGuildDateTick, self, 54)
+end
+
+function MainViewMenuPage:_UpdateGuildDateTick_Preview()
+  local start_time = GuildDateBattleProxy.Instance:GetStartTime()
+  if not start_time then
+    self:RemoveGuildDateTick()
+    return
+  end
+  local cur_time = ServerTime.CurServerTime() / 1000
+  local leftTime = start_time - cur_time
+  if 0 < leftTime then
+    local min, sec = ClientTimeUtil.GetFormatSecTimeStr(leftTime)
+    self.guildDateBattleLab.text = string.format(ZhString.GuildDateFormat_Preview, min, sec)
+  else
+    self:RemoveGuildDateTick()
+  end
+end
+
+function MainViewMenuPage:_UpdateGuildDateTick_Open()
+  local end_time = GuildDateBattleProxy.Instance:GetEndTime()
+  if not end_time then
+    self:RemoveGuildDateTick()
+    return
+  end
+  local cur_time = ServerTime.CurServerTime() / 1000
+  local leftTime = end_time - cur_time
+  if 0 < leftTime then
+    local min, sec = ClientTimeUtil.GetFormatSecTimeStr(leftTime)
+    self.guildDateBattleLab.text = string.format(ZhString.GuildDateFormat, min, sec)
+  else
+    self:RemoveGuildDateTick()
+  end
+end
+
+function MainViewMenuPage:_UpdateGuildDateTick()
+  if GuildDateBattleProxy.Instance:IsInPreview() then
+    self:_UpdateGuildDateTick_Preview()
+  else
+    self:_UpdateGuildDateTick_Open()
+  end
+end
+
+function MainViewMenuPage:RemoveGuildDateTick()
+  if not self.guildDateTick then
+    return
+  end
+  TimeTickManager.Me():ClearTick(self, 54)
+  self.guildDateTick = nil
 end
 
 local tempV3 = LuaVector3()
@@ -4210,6 +4306,7 @@ end
 function MainViewMenuPage:UpdateActivityEvent()
   self:UpdateQuestionnaireBtn()
   self:UpdateAntiAddiction()
+  self:UpdateTimeLimitQuestReward()
 end
 
 function MainViewMenuPage:RefreshLotteryBannerBtn()
@@ -4536,13 +4633,13 @@ function MainViewMenuPage:UpdateTimeLimitQuestReward()
           self.addCreditGrid:Reposition()
         end
         self.timeLimitsQuestBtn[actid]:SetActive(true)
-        self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MISSION_REWARD, self.timeLimitsQuestBtn[actid], 39)
+        self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MISSION_REWARD, self.timeLimitsQuestBtn[actid], 39, nil, nil, actid)
       end
     elseif self.timeLimitsQuestBtn[actid] then
       self.timeLimitsQuestBtn[actid]:SetActive(false)
     end
-    LimitTimeQuestProxy.Instance:RefreshManualRedTips(actid)
   end
+  LimitTimeQuestProxy.Instance:RefreshManualRedTips()
 end
 
 function MainViewMenuPage:_onClickTimeLimitQuestReward(actid)
@@ -4745,6 +4842,21 @@ end
 local _matchFormat = "(%d+):(%d+):(%d+)"
 
 function MainViewMenuPage:_CheckTripleTeamPwsMatchOpen()
+  local curTime = ServerTime.CurServerTime() / 1000
+  local abortTimeFormat = GameConfig.Triple and GameConfig.Triple.AbortTime
+  local abortTime = ClientTimeUtil.GetOSDateTime(abortTimeFormat)
+  if abortTime and curTime >= abortTime then
+    return false
+  end
+  local matchid = GameConfig.Triple and GameConfig.Triple.SeasonMatchid
+  local raidConfig = Table_MatchRaid[matchid]
+  if raidConfig then
+    local enterLv = raidConfig.EnterLevel
+    local myLv = Game.Myself.data.userdata:Get(UDEnum.ROLELEVEL)
+    if enterLv > myLv then
+      return false
+    end
+  end
   local firstSeasonStartTimeFormat
   if EnvChannel.IsTFBranch() then
     firstSeasonStartTimeFormat = GameConfig.Triple and GameConfig.Triple.TfFirstSeasonTime
@@ -4752,8 +4864,7 @@ function MainViewMenuPage:_CheckTripleTeamPwsMatchOpen()
     firstSeasonStartTimeFormat = GameConfig.Triple and GameConfig.Triple.FirstSeasonTime
   end
   local firstSeasonStartTime = ClientTimeUtil.GetOSDateTime(firstSeasonStartTimeFormat)
-  local curTime = ServerTime.CurServerTime() / 1000
-  if firstSeasonStartTime and firstSeasonStartTime > curTime then
+  if firstSeasonStartTime and curTime < firstSeasonStartTime then
     return false
   end
   local dayTime = GameConfig.Triple and GameConfig.Triple.DayTime

@@ -2,6 +2,7 @@ autoImport("GuildHeadCell")
 GuildFindPage = class("GuildFindPage", SubView)
 autoImport("GuildCell")
 autoImport("GuildRecruitCell")
+autoImport("GuildDateBattleRecordData")
 local GvgDroiyanReward_Config = GameConfig.GvgDroiyan.GvgDroiyanReward
 local HEAD_TEX = "shop_bg_05"
 local GRAY_LABEL_COLOR = Color(0.5764705882352941, 0.5686274509803921, 0.5686274509803921, 1)
@@ -9,6 +10,7 @@ local Line_Color_Normal = Color(0.2784313725490196, 0.5764705882352941, 0.878431
 local Line_Color_Selected = Color(1, 1, 1, 1)
 
 function GuildFindPage:Init(parent)
+  self.isGuildDate = self.container.isGuildDate == true
   local GuildFindPage = self:FindGO("GuildFindPage")
   if GuildFindPage ~= nil then
     GuildFindPage:SetActive(false)
@@ -121,6 +123,34 @@ function GuildFindPage:InitUI()
   self.applyBtnTitle = self:FindComponent("ApplyBtnTitle", UILabel, self.applyBtn.gameObject)
   self.applyBtnTitle.text = ZhString.GuildFindPage_ApplyGuild
   self:ApplyBtnStateOn(false)
+  self.guildDateBtn = self:FindGO("GuildDateBtn", self.recruitPos)
+  self.guildDateLab = self:FindComponent("Label", UILabel, self.guildDateBtn)
+  self.guildDateLab.text = ZhString.GuildDateBattle_InviteTitle
+  self.guildDateBtn:SetActive(self.isGuildDate)
+  self:AddClickEvent(self.guildDateBtn, function()
+    if not self.selectedGuildData then
+      return
+    end
+    local myGuildData = GuildProxy.Instance.myGuildData
+    local client_data = {}
+    client_data.id = 0
+    client_data.mode = E_GuildDateBattle_Mode.Base
+    client_data.atk_guildid = myGuildData.id
+    client_data.atk_guildname = myGuildData.name
+    client_data.atk_guildportrait = myGuildData.portrait
+    client_data.atkServerId = myGuildData.serverid
+    client_data.def_guildid = self.selectedGuildData.id
+    client_data.def_guildname = self.selectedGuildData.guildname
+    client_data.def_guildportrait = self.selectedGuildData.portrait
+    client_data.def_serverid = self.selectedGuildData.serverid
+    client_data.atk_chairmanid = Game.Myself.data.id
+    client_data.def_chairmanid = self.selectedGuildData:GetChairManId()
+    local record_data = GuildDateBattleRecordData.new(client_data)
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.GuildDateBattleInviteView,
+      viewdata = {data = record_data}
+    })
+  end)
   local guildHeadCellGO = self:FindGO("GuildHeadCell")
   self.headCell = GuildHeadCell.new(guildHeadCellGO)
   self.headCell:SetCallIndex(UnionLogo.CallerIndex.UnionList)
@@ -152,6 +182,8 @@ function GuildFindPage:InitUI()
   self:AddClickEvent(self.applyMercenaryBtn.gameObject, function()
     self:OnMercenaryBtnClicked()
   end)
+  self.guildDateBattleTitle = self:FindComponent("GuildDateBattleTitle", UILabel, self.parent)
+  self:Hide(self.guildDateBattleTitle)
   self.condTable = self:FindComponent("CondTable", UITable, self.parent)
   self.condToggle_1 = self:FindComponent("CondToggle_1", UIToggle, self.condTable.gameObject)
   self.condLab_1 = self:FindComponent("CondLab", UILabel, self.condToggle_1.gameObject)
@@ -179,6 +211,7 @@ function GuildFindPage:InitUI()
       self:ClearAndDoSearch()
     end
   end)
+  self.condTable.gameObject:SetActive(not self.isGuildDate)
   self.cityFilterPopup = self:FindComponent("CityFilterPopup", UIPopupList)
   EventDelegate.Add(self.cityFilterPopup.onChange, function()
     if not self.cityFilterPopup.data then
@@ -281,6 +314,19 @@ function GuildFindPage:UpdateLineTabs()
       self:RemoveSearchCond(tab.searchCond)
     end
   end
+end
+
+function GuildFindPage:HandleGuildDataUpdate()
+  self:UpdateMyLineTab()
+end
+
+function GuildFindPage:UpdateDateBattleCount()
+  if not self.isGuildDate then
+    return
+  end
+  local max = GameConfig.GuildDateBattle and GameConfig.GuildDateBattle.max_count or 12
+  local cur = GuildDateBattleProxy.Instance:GetCurDateCount()
+  self.guildDateBattleTitle.text = string.format(ZhString.GuildDateBattle_GuildFind, cur, max)
 end
 
 function GuildFindPage:UpdateMyLineTab()
@@ -433,6 +479,11 @@ function GuildFindPage:UpdateRecruitPanel()
 end
 
 function GuildFindPage:ApplyBtnStateOn(on)
+  if self.isGuildDate then
+    self:Hide(self.applyBtn)
+    return
+  end
+  self:Show(self.applyBtn)
   if on then
     self.applyBtnTitle.effectColor = ColorUtil.ButtonLabelOrange
     self.applyBtn.spriteName = "com_btn_2s"
@@ -514,7 +565,7 @@ function GuildFindPage:MapListenEvt()
   self:AddListenEvt(GuildEvent.ExitMercenary, self.OnExitMercenary)
   self:AddListenEvt(GuildEvent.EnterMercenary, self.OnEnterMercenary)
   self:AddListenEvt(ServiceEvent.GuildCmdEnterGuildGuildCmd, self.OnEnterGuild)
-  self:AddListenEvt(ServiceEvent.GuildCmdGuildDataUpdateGuildCmd, self.UpdateMyLineTab)
+  self:AddListenEvt(ServiceEvent.GuildCmdGuildDataUpdateGuildCmd, self.HandleGuildDataUpdate)
 end
 
 function GuildFindPage:OnEnterGuild()
@@ -613,6 +664,11 @@ function GuildFindPage:OnExit()
 end
 
 function GuildFindPage:UpdateMercenaryBtn()
+  if self.isGuildDate then
+    self:Hide(self.applyMercenaryBtn)
+    return
+  end
+  self:Show(self.applyMercenaryBtn)
   local proxy = GuildProxy.Instance
   local myMercenaryGuildData = proxy:GetMyMercenaryGuildData()
   local isMyMercenaryGuild = proxy:IsMyMercenaryGuild(self.selectedGuildData and self.selectedGuildData.id)

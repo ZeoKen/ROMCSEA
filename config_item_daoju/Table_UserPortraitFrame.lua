@@ -584,6 +584,42 @@ Table_UserPortraitFrame = {
     GroupEffect = "",
     Condition = _EmptyTable
   },
+  [68] = {
+    id = 68,
+    ItemID = 624,
+    Name = "##3490090",
+    Icon = "Avatarbox_S24_Lv1",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [69] = {
+    id = 69,
+    ItemID = 625,
+    Name = "##3490091",
+    Icon = "Avatarbox_S24_Lv2",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [70] = {
+    id = 70,
+    ItemID = 626,
+    Name = "##3490092",
+    Icon = "Avatarbox_S24_Lv3",
+    Effect = "Eff_S24_Frame_Lv3",
+    GroupEffect = "Eff_S24_Frame_Lv3_V12",
+    Condition = _EmptyTable
+  },
+  [71] = {
+    id = 71,
+    ItemID = 3012378,
+    Name = "##42535820",
+    Icon = "Avatarbox_3012378",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
   [1001] = {
     id = 1001,
     ItemID = 1500,

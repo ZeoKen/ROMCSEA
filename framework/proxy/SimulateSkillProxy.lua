@@ -14,6 +14,7 @@ end
 function SimulateSkillProxy:Reset()
   self.simulateSkillID = {}
   self.simulateProfessSkillTab = {}
+  self.masterProfessData = nil
 end
 
 function SimulateSkillProxy:RollBack()
@@ -45,6 +46,7 @@ function SimulateSkillProxy:ReInit()
   self.totalUsedPoint = 0
   self.totalUsedBasePoint = 0
   local professes = SkillProxy.Instance.professionSkills
+  local masterProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
   local rootClass = ProfessionProxy.RootClass
   local commonClass = ProfessionProxy.CommonClass
   local p, skill, data, cacheSkill, previousProfess, basePoints
@@ -80,6 +82,28 @@ function SimulateSkillProxy:ReInit()
         data.active = true
       end
     end
+  end
+  self.masterProfessData = nil
+  if masterProfessData then
+    needReset = true
+    data = {
+      id = "master",
+      points = masterProfessData.points
+    }
+    self.masterProfessData = data
+    local skills = {}
+    for i = 1, #masterProfessData.skills do
+      skill = masterProfessData.skills[i]
+      cacheSkill = self.simulateSkillID[skill.sortID]
+      if cacheSkill == nil then
+        cacheSkill = SkillSimulateData.new(skill, true)
+        self.simulateSkillID[skill.sortID] = cacheSkill
+      else
+        cacheSkill:ResetSource(skill)
+      end
+      skills[#skills + 1] = cacheSkill
+    end
+    data.skills = skills
   end
   for k, v in pairs(rootClass) do
     local professRoot = self:GetSimulateProfessNext(k)
@@ -172,11 +196,21 @@ function SimulateSkillProxy:RefreshProfessPoints(pro, delta, recursive, baseDelt
   end
 end
 
+function SimulateSkillProxy:RefreshMasterProfessPoints(delta)
+  if self.masterProfessData then
+    self.masterProfessData.points = self.masterProfessData.points + delta
+  end
+end
+
 function SimulateSkillProxy:UpgradeSkillBySortID(sortID, delta)
   local simulateData = self.simulateSkillID[sortID]
   local changed, delta, baseDelta = simulateData:Upgrade(delta)
   if changed then
-    self:RefreshProfessPoints(simulateData.profession, delta, true, baseDelta)
+    if simulateData.isMaster then
+      self:RefreshMasterProfessPoints(delta)
+    else
+      self:RefreshProfessPoints(simulateData.profession, delta, true, baseDelta)
+    end
   end
   return changed, delta
 end
@@ -266,6 +300,43 @@ function SimulateSkillProxy:GetSkillCanExtraWithoutExtraskill()
     local config = GameConfig.ExtraSkill
     local point = config.point[MyselfProxy.Instance:GetMyProfessionTypeBranch()] or config.defaultPoint
     return point <= self.totalUsedPoint - self:GetExtraSkillUsedPoints()
+  end
+  return false
+end
+
+function SimulateSkillProxy:GetMasterSimulateProfess()
+  return self.masterProfessData
+end
+
+function SimulateSkillProxy:IsMasterSkill(skillId)
+  local sortID = skillId // 1000
+  local skill = self.simulateSkillID[sortID]
+  local config = skill and Table_Class[skill.profession]
+  if config then
+    if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
+      for i = 1, #config.MasterSkills do
+        local skillIds = config.MasterSkills[i]
+        for j = 1, #skillIds do
+          if skillIds[j] // 1000 == sortID then
+            return true
+          end
+        end
+      end
+    end
+    local masterProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
+    local unlockSkillIndex = masterProfessData and masterProfessData:GetUnlockLimitSkillIndex()
+    if unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
+      for i = 1, #unlockSkillIndex do
+        local skillIds = config.LimitMasterSkills[unlockSkillIndex[i]]
+        if skillIds then
+          for j = 1, #skillIds do
+            if skillIds[j] // 1000 == sortID then
+              return true
+            end
+          end
+        end
+      end
+    end
   end
   return false
 end

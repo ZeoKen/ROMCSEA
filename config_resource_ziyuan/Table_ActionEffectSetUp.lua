@@ -2420,6 +2420,104 @@ Table_ActionEffectSetUp = {
     EPID = 2,
     EPFollow = 1,
     Loop = 1
+  },
+  [358] = {
+    id = 358,
+    Path = "Common/cfx_morocc_playshow_01_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [359] = {
+    id = 359,
+    Path = "Common/cfx_heartfeltarsonist_001_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [360] = {
+    id = 360,
+    Path = "Common/cfx_heartfeltarsonist_002_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [361] = {
+    id = 361,
+    Path = "Common/cfx_heartfeltarsonist_003_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [362] = {
+    id = 362,
+    Path = "Common/cfx_heartfeltarsonist_004_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [364] = {
+    id = 364,
+    Path = "Common/cfx_p_mermaid_001_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [365] = {
+    id = 365,
+    Path = "Common/cfx_p_mermaid_002_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [366] = {
+    id = 366,
+    Path = "Common/cfx_p_mermaid_003_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [367] = {
+    id = 367,
+    Path = "Common/cfx_p_mermaid_004_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [368] = {
+    id = 368,
+    Path = "Common/cfx_p_springouting_001_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [369] = {
+    id = 369,
+    Path = "Common/cfx_p_springouting_002_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [370] = {
+    id = 370,
+    Path = "Common/cfx_p_springouting_003_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [371] = {
+    id = 371,
+    Path = "Common/cfx_p_springouting_004_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [372] = {
+    id = 372,
+    Path = "Common/cfx_p_ultramanarc_001_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
   }
 }
 Table_ActionEffectSetUp_fields = {

@@ -77,7 +77,10 @@ Table_MainViewButton = {
       41,
       42,
       43,
-      46
+      46,
+      10767,
+      10768,
+      10773
     },
     Enterhide = _EmptyTable,
     guideiconID = 1007,
@@ -191,6 +194,17 @@ Table_MainViewButton = {
     sortid = 2,
     panelid = 128,
     redtiptype = {10738, 10745},
+    Enterhide = _EmptyTable,
+    GroupID = _EmptyTable,
+    Sound = "UI/UI_fun_skills"
+  },
+  [18] = {
+    id = 18,
+    name = "星座图谱",
+    icon = "tab_icon_164",
+    sortid = 18,
+    panelid = 4203,
+    redtiptype = {10771, 10772},
     Enterhide = _EmptyTable,
     GroupID = _EmptyTable,
     Sound = "UI/UI_fun_skills"

@@ -83,7 +83,7 @@ function MountDressingView:FindObjs()
   self.goLabZenyBalance = self:FindGO("Lab", self.goZenyBalance)
   self.labZenyBalance = self.goLabZenyBalance:GetComponent(UILabel)
   self.spZeny = self:FindGO("Icon", self.goZenyBalance):GetComponent(UISprite)
-  IconManager:SetItemIcon("item_100", self.spZeny)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.spZeny)
 end
 
 function MountDressingView:InitView()

@@ -32,6 +32,7 @@ function TriplePlayerPvpWaittingView:OnEnter()
   self:LoadTexture()
   self:UpdateView()
   EventManager.Me():AddEventListener(ServiceEvent.ConnReconnect, self.OnReconnect, self)
+  UIManagerProxy.Instance:NeedEnableAndroidKey(false)
 end
 
 function TriplePlayerPvpWaittingView:OnExit()
@@ -40,6 +41,7 @@ function TriplePlayerPvpWaittingView:OnExit()
   self:_stopTick()
   self:DestroyTimeEffect()
   self.playerList:Destroy()
+  UIManagerProxy.Instance:NeedEnableAndroidKey(true, UIManagerProxy.GetDefaultNeedEnableAndroidKeyCallback())
   TriplePlayerPvpWaittingView.super.OnExit(self)
 end
 

@@ -9,7 +9,8 @@ PUIVisibleReason = {
   Lock = 999993,
   LowFps = 999992,
   OB = 999991,
-  SettingBlock = 999990
+  SettingBlock = 999990,
+  GVGNPC = 999989
 }
 
 function FunctionPlayerUI.Me()

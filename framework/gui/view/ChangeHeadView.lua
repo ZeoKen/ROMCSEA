@@ -21,6 +21,7 @@ function ChangeHeadView:OnExit()
   end
   RedTipProxy.Instance:SeenNew(SceneTip_pb.EREDSYS_MONSTER_IMG)
   ChangeHeadView.super.OnExit(self)
+  TimeTickManager.Me():ClearTick(self)
 end
 
 function ChangeHeadView:Init()
@@ -38,6 +39,7 @@ function ChangeHeadView:AddEvts()
   self.portraitTab = self:FindGO("PortraitTab"):GetComponent(UIToggle)
   self.frameTab = self:FindGO("FrameTab"):GetComponent(UIToggle)
   self.chatframeTab = self:FindGO("ChatFrameTab"):GetComponent(UIToggle)
+  self.timeLeftLabel = self:FindGO("LeftTimeLabel"):GetComponent(UILabel)
   EventDelegate.Set(self.avatarTab.onChange, function()
     self.headCellObj:SetActive(self.avatarTab.value)
     self.BackgroundContainer:SetActive(not self.avatarTab.value)
@@ -46,6 +48,11 @@ function ChangeHeadView:AddEvts()
       self:ClearView()
       self:SetUpAvatarList()
       self:SwitchBG(1)
+      if not self.choosePortrait then
+        self.choosePortrait = Game.Myself.data.userdata:Get(UDEnum.PORTRAIT)
+      end
+      self:SetChooseCell(true, self.choosePortrait)
+      self:SetChooseData(ChangeHeadData.HeadCellType.Avatar, true, self.choosePortrait)
     end
   end)
   EventDelegate.Set(self.portraitTab.onChange, function()
@@ -60,9 +67,11 @@ function ChangeHeadView:AddEvts()
       self:ClearView()
       self:SetUpFrameList()
       self:SetPortraitPreview()
-      self.choosePortraitFrame = Game.Myself.data.userdata:Get(UDEnum.PORTRAIT_FRAME) or 0
+      if not self.choosePortraitFrame then
+        self.choosePortraitFrame = Game.Myself.data.userdata:Get(UDEnum.PORTRAIT_FRAME) or 0
+      end
       self:SetChooseCell(true, self.choosePortraitFrame)
-      self:SetChooseData(true, self.choosePortraitFrame)
+      self:SetChooseData(ChangeHeadData.HeadCellType.Portrait, true, self.choosePortraitFrame)
     end
   end)
   EventDelegate.Set(self.frameTab.onChange, function()
@@ -77,9 +86,11 @@ function ChangeHeadView:AddEvts()
       self:ClearView()
       self:SetUpBackgroundList()
       self:SetFramePreview()
-      self.chooseBackground = Game.Myself.data.userdata:Get(UDEnum.BACKGROUND) or 0
+      if not self.chooseBackground then
+        self.chooseBackground = Game.Myself.data.userdata:Get(UDEnum.BACKGROUND) or 0
+      end
       self:SetChooseCell(true, self.chooseBackground)
-      self:SetChooseData(true, self.chooseBackground)
+      self:SetChooseData(ChangeHeadData.HeadCellType.Frame, true, self.chooseBackground)
     end
   end)
   EventDelegate.Set(self.chatframeTab.onChange, function()
@@ -90,9 +101,12 @@ function ChangeHeadView:AddEvts()
       self:SwitchBG(1)
       self:ClearView()
       self:SetUpChatframeList()
-      self.chooseChatframe = Game.Myself.data.userdata:Get(UDEnum.CHAT_FRAME) or 0
+      if not self.chooseChatframe then
+        self.chooseChatframe = Game.Myself.data.userdata:Get(UDEnum.CHAT_FRAME) or 0
+      end
       xdlog("chatframe值", self.chooseChatframe)
       self:SetChooseCell(true, self.chooseChatframe)
+      self:SetChooseData(ChangeHeadData.HeadCellType.ChatFrame, true, self.chooseChatframe)
       self:SetChatFramePreviewPart(self.chooseChatframe)
     end
   end)
@@ -100,6 +114,7 @@ function ChangeHeadView:AddEvts()
   self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MONSTER_IMG, self.avatarTab, nil, {-15, -15})
   self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_PORTRAIT_FRAME, self.portraitTab, nil, {-15, -15})
   self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_BACKGROUND_FRAME, self.frameTab, nil, {-15, -15})
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_CHAT_FRAME, self.chatframeTab, nil, {-15, -15})
   self.emptyTip = self:FindGO("Empty"):GetComponent(UILabel)
   self.emptyTip.text = ZhString.ChangeHeadView_EmptyTip
 end
@@ -135,7 +150,7 @@ function ChangeHeadView:InitView()
   if self.originalHeadData.iconData.type == HeadImageIconType.Simple then
     self.choosePortrait = Game.Myself.data.userdata:Get(UDEnum.PORTRAIT)
     self:SetChooseCell(true, self.choosePortrait)
-    self:SetChooseData(true, self.choosePortrait)
+    self:SetChooseData(ChangeHeadData.HeadCellType.Avatar, true, self.choosePortrait)
   end
   self.BackgroundContainer = self:FindGO("BackgroundContainer")
   self.backgroundPreviewCell = TeamMemberPreviewCell.new(self.BackgroundContainer)
@@ -144,21 +159,21 @@ function ChangeHeadView:InitView()
   self.myChatframe = userData:Get(UDEnum.CHAT_FRAME) or 0
   self.chatframeContainer = self:FindGO("ChatframeContainer")
   local myselfChat = self:FindGO("MyselfChat")
-  self.myselfChatBG = myselfChat:GetComponent(UISprite)
+  self.myselfChatBG = myselfChat:GetComponent(UITexture)
   self.myselfChatContent = self:FindGO("chatContent", myselfChat):GetComponent(UILabel)
   for i = 1, 4 do
     self["myselfBgDecorate" .. i] = self:FindGO("bgDecorate" .. i, myselfChat)
     if self["myselfBgDecorate" .. i] then
-      self["myselfBgDecorate" .. i .. "_Icon"] = self["myselfBgDecorate" .. i]:GetComponent(UISprite)
+      self["myselfBgDecorate" .. i .. "_Icon"] = self["myselfBgDecorate" .. i]:GetComponent(UITexture)
     end
   end
   local someoneChat = self:FindGO("SomeoneChat")
-  self.someoneChatBG = someoneChat:GetComponent(UISprite)
+  self.someoneChatBG = someoneChat:GetComponent(UITexture)
   self.someoneChatContent = self:FindGO("chatContent", someoneChat):GetComponent(UILabel)
   for i = 1, 4 do
     self["someoneBgDecorate" .. i] = self:FindGO("bgDecorate" .. i, someoneChat)
     if self["someoneBgDecorate" .. i] then
-      self["someoneBgDecorate" .. i .. "_Icon"] = self["someoneBgDecorate" .. i]:GetComponent(UISprite)
+      self["someoneBgDecorate" .. i .. "_Icon"] = self["someoneBgDecorate" .. i]:GetComponent(UITexture)
     end
   end
   self.bgType1 = self:FindGO("BgType1")
@@ -167,10 +182,10 @@ function ChangeHeadView:InitView()
 end
 
 function ChangeHeadView:Revert()
-  self:SetChooseData(false, self.choosePortrait)
-  self:SetChooseCell(false, self.choosePortrait)
   self:RevertMyselfHead()
   self.choosePortrait = 0
+  self:SetChooseCell(true, self.choosePortrait)
+  self:SetChooseData(ChangeHeadData.HeadCellType.Avatar, true, self.choosePortrait)
 end
 
 function ChangeHeadView:HandleClickItem(cellctl)
@@ -194,32 +209,32 @@ function ChangeHeadView:SetAvatorPreview(cellctl)
   end
   self:LockCall()
   local staticData = Table_HeadImage[id]
-  if staticData and staticData.Picture then
-    self.mainHeadCell.headIconCell:SetSimpleIcon(staticData.Picture, staticData.frameType)
-    self:SetChooseData(false, self.choosePortrait)
-    self:SetChooseCell(false, self.choosePortrait)
+  if cellctl then
+    if staticData and staticData.Picture then
+      self.mainHeadCell.headIconCell:SetSimpleIcon(staticData.Picture, staticData.frameType)
+    elseif id ~= 0 then
+      errorLog(string.format("id : %s is not found in Table_HeadImage", tostring(id)))
+    end
     self.choosePortrait = id
-    self:SetChooseData(true, self.choosePortrait)
-    cellctl:SetChoose(true)
-  elseif id == 0 then
-    self:Revert()
+    self:SetChooseData(ChangeHeadData.HeadCellType.Avatar, true, self.choosePortrait)
+    self:SetChooseCell(true, self.choosePortrait)
+    self:SetTimeLeft(cellctl)
   else
     errorLog(string.format("id : %s is not found in Table_HeadImage", tostring(id)))
   end
 end
 
 function ChangeHeadView:SetPortraitPreview(cellctl)
-  local id = cellctl and cellctl.data and cellctl.data.id or self.myPortraitFrame
+  local id = cellctl and cellctl.data and cellctl.data.id or self.choosePortraitFrame or self.myPortraitFrame
   if self.choosePortraitFrame and self.choosePortraitFrame == id then
     return
   end
   self:LockCall()
   if cellctl then
-    self:SetChooseData(false, self.choosePortraitFrame)
-    self:SetChooseCell(false, self.choosePortraitFrame)
     self.choosePortraitFrame = id
-    self:SetChooseData(true, self.choosePortraitFrame)
-    cellctl:SetChoose(true)
+    self:SetChooseData(ChangeHeadData.HeadCellType.Portrait, true, self.choosePortraitFrame)
+    self:SetChooseCell(true, self.choosePortraitFrame)
+    self:SetTimeLeft(cellctl)
   end
   RedTipProxy.Instance:SeenNew(SceneTip_pb.EREDSYS_PORTRAIT_FRAME, id)
   self.mainHeadCell.headIconCell:ResetPortraitFrame()
@@ -227,14 +242,13 @@ function ChangeHeadView:SetPortraitPreview(cellctl)
 end
 
 function ChangeHeadView:SetFramePreview(cellctl)
-  local id = cellctl and cellctl.data and cellctl.data.id or self.myBackground
+  local id = cellctl and cellctl.data and cellctl.data.id or self.chooseBackground or self.myBackground
   self:LockCall()
   if cellctl then
-    self:SetChooseData(false, self.chooseBackground)
-    self:SetChooseCell(false, self.chooseBackground)
     self.chooseBackground = id
-    self:SetChooseData(true, self.chooseBackground)
-    cellctl:SetChoose(true)
+    self:SetChooseData(ChangeHeadData.HeadCellType.Frame, true, self.chooseBackground)
+    self:SetChooseCell(true, self.chooseBackground)
+    self:SetTimeLeft(cellctl)
   end
   RedTipProxy.Instance:SeenNew(SceneTip_pb.EREDSYS_BACKGROUND_FRAME, id)
   self.backgroundPreviewCell:ResetPortraitFrame()
@@ -242,17 +256,18 @@ function ChangeHeadView:SetFramePreview(cellctl)
 end
 
 function ChangeHeadView:SetChatframePreview(cellctl)
-  local id = cellctl and cellctl.data and cellctl.data.id or self.myChatframe
+  local id = cellctl and cellctl.data and cellctl.data.id or self.chooseChatframe or self.myChatframe
   if self.chooseChatframe and self.chooseChatframe == id then
     return
   end
   self:LockCall()
   if cellctl then
-    self:SetChooseData(false, self.chooseChatframe)
-    self:SetChooseCell(false, self.chooseChatframe)
     self.chooseChatframe = id
-    cellctl:SetChoose(true)
+    self:SetChooseData(ChangeHeadData.HeadCellType.ChatFrame, true, self.chooseChatframe)
+    self:SetChooseCell(true, self.chooseChatframe)
+    self:SetTimeLeft(cellctl)
   end
+  RedTipProxy.Instance:SeenNew(SceneTip_pb.EREDSYS_CHAT_FRAME, id)
   self:SetChatFramePreviewPart(id)
 end
 
@@ -290,14 +305,8 @@ function ChangeHeadView:RevertMyselfHead()
   end
 end
 
-function ChangeHeadView:SetChooseData(isChoose, choosedata)
-  local data = ChangeHeadProxy.Instance:GetPortraitList()
-  for i = 1, #data do
-    if data[i].id == choosedata then
-      data[i]:SetChoose(isChoose)
-      break
-    end
-  end
+function ChangeHeadView:SetChooseData(type, isChoose, choosedata)
+  ChangeHeadProxy.Instance:SetChooseData(type, isChoose, choosedata)
 end
 
 function ChangeHeadView:SetChooseCell(isChoose, chooseid)
@@ -306,9 +315,13 @@ function ChangeHeadView:SetChooseCell(isChoose, chooseid)
     local cell = cells[i]
     for j = 1, #cell.childrenObjs do
       local child = cell.childrenObjs[j]
-      if child.data and child.data.id == chooseid then
-        child:SetChoose(isChoose)
-        break
+      if child.data then
+        if child.data.id == chooseid then
+          child:SetChoose(true)
+          self:SetTimeLeft(child)
+        else
+          child:SetChoose(false)
+        end
       end
     end
   end
@@ -327,6 +340,8 @@ function ChangeHeadView:ReUniteCellData(datas, perRowNum)
         ERedSys = SceneTip_pb.EREDSYS_PORTRAIT_FRAME
       elseif type == ChangeHeadData.HeadCellType.Frame then
         ERedSys = SceneTip_pb.EREDSYS_BACKGROUND_FRAME
+      elseif type == ChangeHeadData.HeadCellType.ChatFrame then
+        ERedSys = SceneTip_pb.EREDSYS_CHAT_FRAME
       end
       local isNew_a = false
       local isNew_b = false
@@ -407,30 +422,28 @@ function ChangeHeadView:SetChatFramePreviewPart(id)
   local config = Table_UserChatFrame[id]
   if not config then
     xdlog("default")
-    self.myselfChatBG.spriteName = "new-chatroom_bg_2"
+    PictureManager.Instance:SetChatRoomTexture("new-chatroom_bg_2", self.myselfChatBG)
     for i = 1, 4 do
       self["myselfBgDecorate" .. i .. "_Icon"].gameObject:SetActive(false)
     end
-    self.myselfChatBG.flip = 0
-    self.someoneChatBG.spriteName = "chatroom_bg_1"
+    PictureManager.Instance:SetChatRoomTexture("chatroom_bg_1", self.someoneChatBG)
     for i = 1, 4 do
       self["someoneBgDecorate" .. i .. "_Icon"].gameObject:SetActive(false)
     end
     self.myselfChatContent.color = LuaColor.black
     self.someoneChatContent.color = LuaColor.black
   else
-    self.myselfChatBG.spriteName = config.BubbleName
-    self.myselfChatBG.flip = 1
+    PictureManager.Instance:SetChatRoomTexture(config.BubbleName, self.myselfChatBG)
     local decorateNameRoot = config.IconName
     for i = 1, 4 do
       self["myselfBgDecorate" .. i .. "_Icon"].gameObject:SetActive(true)
-      self["myselfBgDecorate" .. i .. "_Icon"].spriteName = decorateNameRoot .. "_" .. i
+      PictureManager.Instance:SetChatRoomTexture(decorateNameRoot .. "_" .. i, self["myselfBgDecorate" .. i .. "_Icon"])
       self["myselfBgDecorate" .. i .. "_Icon"]:MakePixelPerfect()
     end
-    self.someoneChatBG.spriteName = config.BubbleName
+    PictureManager.Instance:SetChatRoomTexture(config.BubbleName, self.someoneChatBG)
     for i = 1, 4 do
       self["someoneBgDecorate" .. i .. "_Icon"].gameObject:SetActive(true)
-      self["someoneBgDecorate" .. i .. "_Icon"].spriteName = decorateNameRoot .. "_" .. i
+      PictureManager.Instance:SetChatRoomTexture(decorateNameRoot .. "_" .. i, self["someoneBgDecorate" .. i .. "_Icon"])
       self["someoneBgDecorate" .. i .. "_Icon"]:MakePixelPerfect()
     end
     if config.TextColor and config.TextColor ~= "" then
@@ -504,5 +517,37 @@ function ChangeHeadView:CancelLockCall()
   if self.lock_lt then
     self.lock_lt:Destroy()
     self.lock_lt = nil
+  end
+end
+
+function ChangeHeadView:SetTimeLeft(cellCtrl)
+  if not cellCtrl then
+    self.timeLeftLabel.text = ""
+    return
+  end
+  local data = cellCtrl.data
+  local endTime = data and data.endTime
+  if endTime and 0 < endTime then
+    self.endTime = endTime
+    TimeTickManager.Me():ClearTick(self, 1)
+    TimeTickManager.Me():CreateTick(0, 20000, self.UpdateTimeLeft, self, 1)
+  else
+    TimeTickManager.Me():ClearTick(self, 1)
+    self.timeLeftLabel.text = ""
+  end
+end
+
+function ChangeHeadView:UpdateTimeLeft()
+  local leftTime = self.endTime - ServerTime.CurServerTime() / 1000
+  if leftTime < 0 then
+    redlog("过期应该移除")
+    self.timeLeftLabel.text = ""
+  else
+    local day, hour, min, sec = ClientTimeUtil.FormatTimeBySec(leftTime)
+    if 0 < day then
+      self.timeLeftLabel.text = string.format(ZhString.ChangeHeadView_TimeLimitDay, day, hour)
+    else
+      self.timeLeftLabel.text = string.format(ZhString.ChangeHeadView_TimeLimitHour, hour, min)
+    end
   end
 end

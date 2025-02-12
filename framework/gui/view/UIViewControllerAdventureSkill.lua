@@ -38,7 +38,7 @@ function UIViewControllerAdventureSkill:GetGameObjects()
   self.uiGridList:AddEventListener(MouseEvent.MouseClick, self.ShowTipHandler, self)
   self.goCurrency = self:FindGO("Currency")
   self.IconSp = self:FindComponent("Icon", UISprite, self.goCurrency)
-  IconManager:SetItemIcon("item_100", self.IconSp)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.IconSp)
   self.goCurrencyValue = self:FindGO("Lab", self.goCurrency)
   self.labCurrencyValue = self.goCurrencyValue:GetComponent(UILabel)
   self.getGameObjectsComplete = true

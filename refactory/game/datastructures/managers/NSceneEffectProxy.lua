@@ -29,6 +29,9 @@ function NSceneEffectProxy:Add(data)
   local effectPath = data.effect
   local effectPaths = Game.PreprocessEffectPaths(StringUtil.Split(data.effect, ","))
   local creature = SceneCreatureProxy.FindCreature(data.charid)
+  if creature ~= nil and not creature:IsDressEnable() then
+    return
+  end
   data.effectType = Asset_Effect.EffectTypes.Other
   data.priority = SkillInfo.GetEffectPriority(creature, data.effectType)
   effectPath, data.lodLevel = Game.EffectManager:GetEffectPath(effectPaths, data.priority, data.effectType)

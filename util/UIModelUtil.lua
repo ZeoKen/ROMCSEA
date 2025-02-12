@@ -282,6 +282,13 @@ function UIModelUtil:SetNpcModelTexture(uiTexture, npcid, cameraConfig, callBack
 end
 
 function UIModelUtil:SetMonsterModelTexture(uiTexture, monsterid, cameraConfig, setConfigTrans, callBack, autoAdjust, disablePostProcessing)
+  if not monsterid then
+    local cell = self:GetUIModelCell(uiTexture)
+    if cell then
+      cell:ClearModel()
+      return
+    end
+  end
   local parts = Asset_RoleUtility.CreateMonsterRoleParts(monsterid)
   if parts == nil then
     parts = Asset_RoleUtility.CreateMonsterRoleParts(10001)
@@ -385,5 +392,12 @@ function UIModelUtil:SetCellCameraBgColor(uiTexture, col)
   local cell = self:GetUIModelCell(uiTexture)
   if cell then
     cell:SetCameraBgColor(col)
+  end
+end
+
+function UIModelUtil:ResetCameraCulling(uiTexture)
+  local cell = self:GetUIModelCell(uiTexture)
+  if cell then
+    cell:ResetCameraCulling()
   end
 end

@@ -471,7 +471,7 @@ end
 
 function GameHealthProtector:RefreshCheckGameFrameRateStatus()
   self.checkFrameRate = GameConfig.CheckFrameRate and not GameConfig.SystemForbid.CheckFrame and LocalSaveProxy.Instance:IsCheckFrameRateOpen()
-  self.checkFrameRate = self.checkFrameRate and FunctionPerformanceSetting.Me():GetSetting().screenCount > GameConfig.Setting.ScreenCountLow
+  self.checkFrameRate = self.checkFrameRate and FunctionPerformanceSetting.Me():GetSetting().screenCount > FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
   if GameConfig.CheckFrameRate and GameConfig.CheckFrameRate.DurationTime then
     local curFrameRateCheckDutation = LocalSaveProxy.Instance:GetCheckFrameRateTime()
     local timeNotEnough = curFrameRateCheckDutation < GameConfig.CheckFrameRate.DurationTime
@@ -731,7 +731,8 @@ function GameHealthProtector:CheckGameFrameRate(time, deltaTime)
     if self.checkFrameTime > self.checkFrameDuration then
       if self.frameCount < self.checkFrameMinCount then
         MsgManager.ConfirmMsgByID(27181, function()
-          FunctionPerformanceSetting.Me():SetScreenCount(GameConfig.Setting.ScreenCountLow)
+          local low = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
+          FunctionPerformanceSetting.Me():SetScreenCount(low)
         end)
         LocalSaveProxy.Instance:SetCheckFrameRateOpenClose()
         self.checkFrameRate = false

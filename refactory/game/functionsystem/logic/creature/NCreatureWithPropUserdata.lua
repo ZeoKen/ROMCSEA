@@ -664,6 +664,20 @@ function NCreatureWithPropUserdata:TryUpdateSpecialBuff(buffInfo, active, fromID
     end
   elseif buffType == BuffType.IgnoreNoEnemyLocked then
     self.data:SetIgnoreNoEnemyLocked(active)
+  elseif buffType == BuffType.Transform then
+    self.forbidUseItem = active and buffeffect.forbidUseItem and buffeffect.forbidUseItem == 1
+  elseif buffType == BuffType.ShadowViel then
+    self.data:SetShadowViel(active)
+  elseif buffType == BuffType.RegardAsEquip then
+    if not self.asEquipMap then
+      self.asEquipMap = {}
+    end
+    if not self.asEquipSite then
+      self.asEquipSite = {}
+    end
+    self.asEquipMap[buffeffect.typeID] = active and buffeffect.site
+    self.asEquipSite[buffeffect.site] = active and buffeffect.typeID
+    EventManager.Me():PassEvent(MyselfEvent.AsEquipChange)
   end
 end
 
@@ -838,6 +852,12 @@ function NCreatureWithPropUserdata:DoDeconstruct(asArray)
   self:ClearBuff()
   self.playWalkEffect = false
   self.playWalkEffect_path = nil
+  self.forbidUseItem = nil
+  if self.asEquipMap then
+    for k, _ in pairs(self.asEquipMap) do
+      self.asEquipMap[k] = nil
+    end
+  end
 end
 
 function NCreatureWithPropUserdata:Client_StopNotifyServerAngleY()
@@ -947,7 +967,7 @@ function NCreatureWithPropUserdata:UpdatePlayerRider_Up()
   end
 end
 
-function NCreatureWithPropUserdata:UpdatePlayerRider_Down()
+function NCreatureWithPropUserdata:UpdatePlayerRider_Down(syncPos)
   if self == Game.Myself then
     EventManager.Me():DispatchEvent(MyselfEvent.RidePlayerChange)
   end
@@ -990,7 +1010,7 @@ function NCreatureWithPropUserdata:UpdatePlayerRider_Down()
         Game.DisableJoyStick = false
         self:SwitchCamera(self)
       end
-      local realPos = down_role:GetRealPosition()
+      local realPos = syncPos and down_role:GetRealPosition() or self:GetPosition()
       if VectorUtility.AlmostEqual_3(LuaVector3.Zero(), realPos) then
         realPos = self:GetPosition()
       end
@@ -1078,4 +1098,19 @@ function NCreatureWithPropUserdata:ResetCamera(creature)
   if cInfo then
     cInfo.focus = focusTrans
   end
+end
+
+function NCreatureWithPropUserdata:GetAsEquipSite(itemtype)
+  if not self.asEquipMap then
+    return false
+  end
+  return self.asEquipMap[itemtype]
+end
+
+function NCreatureWithPropUserdata:GetAsEquip(site)
+  if not self.asEquipSite then
+    redlog("GetAsEquip false", self)
+    return false
+  end
+  return self.asEquipSite[site]
 end

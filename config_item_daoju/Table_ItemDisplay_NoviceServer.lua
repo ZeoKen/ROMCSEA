@@ -1018,6 +1018,16 @@ Table_ItemDisplay = {
     id = 4624,
     Type = 2,
     NoDisplay = _EmptyTable
+  },
+  [3012452] = {
+    id = 3012452,
+    Type = 1,
+    NoDisplay = _EmptyTable
+  },
+  [10000193] = {
+    id = 10000193,
+    Type = 1,
+    NoDisplay = _EmptyTable
   }
 }
 Table_ItemDisplay_fields = {

@@ -36,9 +36,9 @@ function UIViewControllerMiyinStrengthen:GetGameObjects()
   self.goZenyBalance = self:FindGO("ZenyBalance")
   self.labZenyBalance = self:FindGO("Lab", self.goZenyBalance):GetComponent(UILabel)
   self.zenyIcon = self:FindGO("Icon", self.goZenyBalance):GetComponent(UISprite)
-  IconManager:SetItemIcon("item_100", self.zenyIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.zenyIcon)
   self.spZeny = self:FindGO("Icon", self.goZenyBalance):GetComponent(UISprite)
-  IconManager:SetItemIcon("item_100", self.spZeny)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.spZeny)
   self.goTip = self:FindGO("Tip")
 end
 

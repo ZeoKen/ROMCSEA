@@ -34,7 +34,8 @@ PvpProxy.Type = {
   NormalMaterials = MatchCCmd_pb.EPVPTYPE_COMMON_MATERIALS,
   Triple = MatchCCmd_pb.EPVPTYPE_TRIPLE,
   TripleRelax = MatchCCmd_pb.EPVPTYPE_TRIPLE_RELAX,
-  MemoryPalace = MatchCCmd_pb.EPVPTYPE_MEMORY_PALACE
+  MemoryPalace = MatchCCmd_pb.EPVPTYPE_MEMORY_PALACE,
+  MemoryRaid = MatchCCmd_pb.ERAIDTYPE_MEMORY_RAID
 }
 PvpProxy.PvpType2RaidType = {
   [MatchCCmd_pb.EPVPTYPE_LLH] = FuBenCmd_pb.ERAIDTYPE_PVP_LLH,
@@ -59,7 +60,8 @@ PvpProxy.PvpType2RaidType = {
   [MatchCCmd_pb.EPVPTYPE_ELEMENT] = FuBenCmd_pb.ERAIDTYPE_ELEMENT,
   [MatchCCmd_pb.EPVPTYPE_CRACK] = FuBenCmd_pb.ERAIDTYPE_CRACK,
   [MatchCCmd_pb.EPVPTYPE_COMMON_MATERIALS] = FuBenCmd_pb.ERAIDTYPE_COMMON_MATERIALS,
-  [MatchCCmd_pb.EPVPTYPE_MEMORY_PALACE] = FuBenCmd_pb.ERAIDTYPE_MEMORY_PALACE
+  [MatchCCmd_pb.EPVPTYPE_MEMORY_PALACE] = FuBenCmd_pb.ERAIDTYPE_MEMORY_PALACE,
+  [MatchCCmd_pb.EPVPTYPE_MEMORY_RAID] = FuBenCmd_pb.ERAIDTYPE_MEMORY_RAID
 }
 PvpProxy.RaidType2PvpType = {
   [FuBenCmd_pb.ERAIDTYPE_LABORATORY] = MatchCCmd_pb.EPVPTYPE_LABORATORY,
@@ -83,7 +85,8 @@ PvpProxy.RaidType2PvpType = {
   [FuBenCmd_pb.ERAIDTYPE_BOSS] = MatchCCmd_pb.EPVPTYPE_BOSS,
   [FuBenCmd_pb.ERAIDTYPE_CRACK] = MatchCCmd_pb.EPVPTYPE_CRACK,
   [FuBenCmd_pb.ERAIDTYPE_COMMON_MATERIALS] = MatchCCmd_pb.EPVPTYPE_COMMON_MATERIALS,
-  [FuBenCmd_pb.ERAIDTYPE_MEMORY_PALACE] = MatchCCmd_pb.EPVPTYPE_MEMORY_PALACE
+  [FuBenCmd_pb.ERAIDTYPE_MEMORY_PALACE] = MatchCCmd_pb.EPVPTYPE_MEMORY_PALACE,
+  [FuBenCmd_pb.EPVPTYPE_MEMORY_RAID] = MatchCCmd_pb.ERAIDTYPE_MEMORY_RAID
 }
 PvpProxy.RoomStatus = {
   WaitJoin = MatchCCmd_pb.EROOMSTATE_WAIT_JOIN,

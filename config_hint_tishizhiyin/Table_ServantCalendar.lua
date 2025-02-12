@@ -10,7 +10,7 @@ Table_ServantCalendar = {
     },
     TimeUnit = 2,
     StartTime = "21:00",
-    EndTime = "21:30",
+    EndTime = "22:00",
     Wday = "Thu",
     GotoMode = {5039},
     Location = "##1266799",

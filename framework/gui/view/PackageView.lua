@@ -76,11 +76,12 @@ function PackageView:OnEnter()
   self:UpdateCameraViewPort()
   self.autoClickID = self.viewdata.viewdata and self.viewdata.viewdata.autoClickID
   self.isPreload = self.viewdata.viewdata and self.viewdata.viewdata.isPreload
+  local targetViewState = self.viewdata.viewdata and self.viewdata.viewdata.leftState and PackageView.LeftViewState[self.viewdata.viewdata.leftState] or PackageView.LeftViewState.Default
   if self.isPreload then
     return
   end
   FunctionCameraEffect.Me():ResetFreeCameraScreenSplitPercent(1)
-  self:SetLeftViewState(PackageView.LeftViewState.Default)
+  self:SetLeftViewState(targetViewState)
   self:ActiveSetShortCut(false)
   self.mainPage:SetItemDragEnabled(true)
   EventManager.Me():AddEventListener(PackageEvent.ActivateSetShortCut, self.ActivateSetShortCut, self)
@@ -170,6 +171,7 @@ function PackageView:InitUI()
   self.objBagTab = self:FindGO("BagTab")
   self:AddTabChangeEvent(self.objBagTab, self.itemBord, PanelConfig.Bag)
   RedTipProxy.Instance:RegisterUI(SceneTip_pb.EREDSYS_PET_ADVENTURE, self.objBagTab)
+  RedTipProxy.Instance:RegisterUI(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, self.onFashionBtn)
   local strengthTab = self:FindGO("StrengthTab")
   self:RegisterGuideTarget(ClientGuide.TargetType.packageview_strengthtab, strengthTab)
   self:AddOrRemoveGuideId(strengthTab, 35)

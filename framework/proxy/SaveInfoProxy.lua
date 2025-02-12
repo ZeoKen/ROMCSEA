@@ -252,3 +252,19 @@ function SaveInfoProxy:GetMultiSkillInvalidOption(id, type, opts, skillid)
     return _MultiProfessionSaveProxy.Instance:GetMultiSkillInvalidOption(id, opts, skillid)
   end
 end
+
+function SaveInfoProxy:GetMasterSkillProfessData(id, type)
+  if type == SaveInfoEnum.Branch then
+    return _BranchInfoSaveProxy.Instance:GetMasterSkillProfessData(id)
+  elseif type == SaveInfoEnum.Record then
+    return _MultiProfessionSaveProxy.Instance:GetMasterSkillProfessData(id)
+  end
+end
+
+function SaveInfoProxy:GetEquipMasterSkillFamilyId(id, type)
+  if type == SaveInfoEnum.Branch then
+    return _BranchInfoSaveProxy.Instance:GetEquipMasterSkillFamilyId(id)
+  elseif type == SaveInfoEnum.Record then
+    return _MultiProfessionSaveProxy.Instance:GetEquipMasterSkillFamilyId(id)
+  end
+end

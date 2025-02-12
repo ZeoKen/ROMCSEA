@@ -14,7 +14,8 @@ SkillType = {
   ElementTrap = "ElementTrap",
   DirectSpurt = "DirectSpurt",
   SpaceLeap = "SpaceLeap",
-  RideShoulder = "RideShoulder"
+  RideShoulder = "RideShoulder",
+  EnsembleDouble = "EnsembleDouble"
 }
 BuffType = {
   LimitSkill = "LimitSkill",
@@ -78,7 +79,11 @@ BuffType = {
   WalkEffect = "WalkEffect",
   MultiShieldHp = "MultiShieldHp",
   DropItem = "DropItem",
-  IgnoreNoEnemyLocked = "IgnoreNoEnemyLocked"
+  IgnoreNoEnemyLocked = "IgnoreNoEnemyLocked",
+  Transform = "Transform",
+  ShadowViel = "ShadowViel",
+  RegardAsEquip = "RegardAsEquip",
+  SkillWeather = "SkillWeather"
 }
 SkillTargetType = {
   None = 1,

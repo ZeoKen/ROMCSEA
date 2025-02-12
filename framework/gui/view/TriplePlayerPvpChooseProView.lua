@@ -152,6 +152,7 @@ function TriplePlayerPvpChooseProView:OnEnter()
   _PicMgr:SetTriplePvpTexture(_WhiteLineTextureName, self.bgLineTexture)
   self:_updateCampGroup()
   self:UpdateTime()
+  UIManagerProxy.Instance:NeedEnableAndroidKey(false)
 end
 
 function TriplePlayerPvpChooseProView:OnExit()
@@ -159,6 +160,7 @@ function TriplePlayerPvpChooseProView:OnExit()
   self:_unLoadTexture()
   self:DestroyVSEffect()
   EventManager.Me():RemoveEventListener(ServiceEvent.ConnReconnect, self.OnReconnect, self)
+  UIManagerProxy.Instance:NeedEnableAndroidKey(true, UIManagerProxy.GetDefaultNeedEnableAndroidKeyCallback())
   TriplePlayerPvpChooseProView.super.OnExit(self)
 end
 

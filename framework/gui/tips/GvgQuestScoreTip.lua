@@ -32,27 +32,22 @@ function GvgQuestScoreTip:FindQuestObj()
   self.questSeparator = self:FindGO("Separator", self.questRootTableObj)
   self.group = self:FindGO("Group", self.questRootTableObj)
   local groupTitle = self:FindGO("Title", self.group):GetComponent(UILabel)
-  groupTitle.text = ZhString.MainViewGvgPage_GvgQuestTip_Group
+  groupTitle.text = ZhString.MainViewGvgPage_GvgQuestTip_TargetPreview
   local groupGrid = self:FindGO("QuestTable", self.group):GetComponent(UITable)
-  self.groupQuestList = UIGridListCtrl.new(groupGrid, GvgGroupQuestTableCell, "GvgQuestTableCell")
-  self.personal = self:FindGO("Personal", self.questRootTableObj)
-  local personalTitle = self:FindGO("Title", self.personal):GetComponent(UILabel)
-  personalTitle.text = ZhString.MainViewGvgPage_GvgQuestTip_Personal
-  self.personalRate = self:FindGO("Rate", self.personal):GetComponent(UILabel)
+  self.groupQuestList = UIGridListCtrl.new(groupGrid, GvgQuestTableCell, "GvgQuestTableCell")
+  self.rate = self:FindGO("Rate", self.group):GetComponent(UILabel)
   local citytype = GvgProxy.Instance.cityType
   local config = GameConfig.GVGConfig.citytype_data[citytype]
   if config then
     local rate = config.user_task_rate - 1
     if 0 < rate then
-      self.personalRate.text = string.format(ZhString.MainViewGvgPage_GvgQuestTip_PersonalRate, rate * 100)
+      self.rate.text = string.format(ZhString.MainViewGvgPage_GvgQuestTip_PersonalRate, rate * 100)
     else
-      self.personalRate.gameObject:SetActive(false)
+      self.rate.gameObject:SetActive(false)
     end
   else
-    self.personalRate.gameObject:SetActive(false)
+    self.rate.gameObject:SetActive(false)
   end
-  local personalGrid = self:FindGO("QuestTable", self.personal):GetComponent(UITable)
-  self.personalQuestList = UIGridListCtrl.new(personalGrid, GvgQuestTableCell, "GvgQuestTableCell")
 end
 
 function GvgQuestScoreTip:FindScoreObj()
@@ -114,39 +109,45 @@ function GvgQuestScoreTip:SetData()
 end
 
 function GvgQuestScoreTip:UpdateQuest()
-  local isEmpty = true
-  local needSeparator = false
-  local groupList = {}
-  local groupTaskID = GvgProxy.Instance:GetGroupTaskID()
-  if groupTaskID ~= nil then
-    isEmpty = false
-    self:Show(self.group)
-    groupList[#groupList + 1] = {
-      taskid = groupTaskID,
-      progress = GvgProxy.Instance:GetGroupTaskProgress()
+  local result = {}
+  local tasks = GvgProxy.Instance:GetGroupTasks() or {}
+  local isInLeisure = GvgProxy.Instance:IsGvgInLeisureMode() or false
+  local groupTask = GameConfig.GVGConfig and GameConfig.GVGConfig.GvgTask
+  for _, _taskInfo in pairs(groupTask) do
+    local isFinish = GvgProxy.Instance:CheckGroupTaskIsFinish(_taskInfo.taskid)
+    result[#result + 1] = {
+      type = 2,
+      taskid = _taskInfo.taskid,
+      progress = tasks[_taskInfo.taskid] or 0,
+      isFinish = isFinish,
+      isInLeisure = isInLeisure
     }
-  else
-    self:Hide(self.group)
   end
-  self.groupQuestList:ResetDatas(groupList)
-  local personalList = {}
   local infoDatas = GvgProxy.Instance.questInfoData
   for i = 1, #GvgProxy.GvgQuestListp do
     local single = GvgProxy.GvgQuestListp[i]
-    personalList[#personalList + 1] = {
+    local isFinish = GvgProxy.Instance:CheckPersonalTaskIsFinish(single)
+    result[#result + 1] = {
+      type = 1,
       key = single,
-      value = infoDatas[single] or 0
+      value = infoDatas[single] or 0,
+      isFinish = isFinish,
+      isInLeisure = isInLeisure
     }
   end
-  if 0 < #personalList then
-    isEmpty = false
-    self:Show(self.personal)
-  else
-    self:Hide(self.personal)
-  end
-  self.personalQuestList:ResetDatas(personalList)
-  self.empty:SetActive(isEmpty)
-  self.questSeparator:SetActive(needSeparator)
+  table.sort(result, function(l, r)
+    local l_isFinish = l.isFinish and 1 or 0
+    local r_isFinish = r.isFinish and 1 or 0
+    if l_isFinish ~= r_isFinish then
+      return l_isFinish < r_isFinish
+    end
+    local l_isGroup = l.type == 2 and 1 or 0
+    local r_isGroup = r.type == 2 and 1 or 0
+    if l_isGroup ~= r_isGroup then
+      return l_isGroup > r_isGroup
+    end
+  end)
+  self.groupQuestList:ResetDatas(result)
 end
 
 function GvgQuestScoreTip:UpdateScore()

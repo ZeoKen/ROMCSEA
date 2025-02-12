@@ -19,7 +19,8 @@ SkillOptionManager.OptionEnum = {
   AbyssContract = SceneSkill_pb.ESKILLOPTION_ABYSS_CONTRACT,
   SwitchSkill = SceneSkill_pb.ESKILLOPTION_SKILL_SWITCH,
   SuperPositionSkill = SceneSkill_pb.ESKILLOPTION_SUPERPOSITION_SKILL,
-  DelMultiTrap = SceneSkill_pb.ESKILLOPTION_DEL_MULTI_TRAP
+  DelMultiTrap = SceneSkill_pb.ESKILLOPTION_DEL_MULTI_TRAP,
+  Companion_Skill = SceneSkill_pb.ESKILLOPTION_COMPANION_SKILLLIST
 }
 local StringData = {
   [SkillOptionManager.OptionEnum.SelectMount] = 1

@@ -207,12 +207,18 @@ end
 
 local the_ext = "_thumb.astc"
 local full_ext = ".astc"
+local the_ext_pc = "_thumb.png"
+local full_ext_pc = ".png"
 
 function PhotoStandPicData:GetPhotoUrl(highRes)
   if not PhotoStandPicData.PhotoUrlPath then
     PhotoStandPicData.PhotoUrlPath = FunctionPhotoStorage.Me():GetPhotoUrlPath(FunctionPhotoStorage.PhotoType.PhotoBoard, true)
   end
-  return PhotoStandPicData.PhotoUrlPath .. self.id .. (highRes and full_ext or the_ext)
+  if ApplicationInfo.GetRunPlatform() == RuntimePlatform.WindowsPlayer then
+    return PhotoStandPicData.PhotoUrlPath .. self.id .. (highRes and full_ext_pc or the_ext_pc)
+  else
+    return PhotoStandPicData.PhotoUrlPath .. self.id .. (highRes and full_ext or the_ext)
+  end
 end
 
 function PhotoStandPicData:GetLocalResPath(highRes)

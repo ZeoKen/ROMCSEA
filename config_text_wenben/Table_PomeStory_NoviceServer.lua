@@ -1715,7 +1715,6 @@ Table_PomeStory = {
   [1] = {
     QuestID = Table_PomeStory_t.QuestID[1],
     version = Table_PomeStory_t.version[1],
-    QuestName = "黑暗降临",
     Pstory = Table_PomeStory_t.Pstory[1]
   },
   [2] = {
@@ -1971,6 +1970,7 @@ Table_PomeStory = {
     id = 32,
     QuestID = Table_PomeStory_t.QuestID[32],
     version = Table_PomeStory_t.version[6],
+    QuestName = "雷藏",
     Npcid = 1321,
     Pstory = Table_PomeStory_t.Pstory[32],
     NpcSpace = 8
@@ -2119,7 +2119,7 @@ local cell_mt = {
     Npcid = 1595,
     Pstory = _EmptyTable,
     QuestID = _EmptyTable,
-    QuestName = "雷藏",
+    QuestName = "黑暗降临",
     id = 1,
     version = _EmptyTable
   }

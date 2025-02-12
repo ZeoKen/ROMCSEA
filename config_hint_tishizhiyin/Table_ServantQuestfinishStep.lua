@@ -1027,6 +1027,7 @@ Table_ServantQuestfinishStep = {
   },
   [12020002] = {
     id = 12020002,
+    maintitle = "##143735",
     subtitle = "##2837546",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[25]
   },
@@ -1056,7 +1057,6 @@ Table_ServantQuestfinishStep = {
   },
   [12070012] = {
     id = 12070012,
-    maintitle = "##145941",
     subtitle = "##2837551",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[120]
   },
@@ -1103,6 +1103,7 @@ Table_ServantQuestfinishStep = {
   },
   [13020012] = {
     id = 13020012,
+    maintitle = "##143735",
     subtitle = "##2837559",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[110]
   },
@@ -1132,7 +1133,6 @@ Table_ServantQuestfinishStep = {
   },
   [13070012] = {
     id = 13070012,
-    maintitle = "##145941",
     subtitle = "##2837564",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[105]
   },
@@ -1161,6 +1161,7 @@ Table_ServantQuestfinishStep = {
   },
   [20020002] = {
     id = 20020002,
+    maintitle = "##143735",
     subtitle = "##2837577",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[129]
   },
@@ -1178,7 +1179,6 @@ Table_ServantQuestfinishStep = {
   },
   [20060005] = {
     id = 20060005,
-    maintitle = "##145941",
     subtitle = "##2837582",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[71]
   },
@@ -1328,6 +1328,7 @@ Table_ServantQuestfinishStep = {
   },
   [21000001] = {
     id = 21000001,
+    maintitle = "##143735",
     subtitle = "##2837522",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[163]
   },
@@ -1339,7 +1340,6 @@ Table_ServantQuestfinishStep = {
   },
   [21060012] = {
     id = 21060012,
-    maintitle = "##145941",
     subtitle = "##2837521",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[29]
   },
@@ -1394,7 +1394,6 @@ Table_ServantQuestfinishStep = {
   [22030010] = {
     id = 22030010,
     maintitle = "##282644",
-    subtitle = "##1270989",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[19]
   },
   [22040001] = {
@@ -1430,7 +1429,6 @@ Table_ServantQuestfinishStep = {
   [22260010] = {
     id = 22260010,
     maintitle = "##304093",
-    subtitle = "##1270989",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[15]
   },
   [22280001] = {
@@ -1448,7 +1446,6 @@ Table_ServantQuestfinishStep = {
   [22320010] = {
     id = 22320010,
     maintitle = "##1270985",
-    subtitle = "##1270989",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[57]
   },
   [22330001] = {
@@ -1628,16 +1625,19 @@ Table_ServantQuestfinishStep = {
   [206830001] = {
     id = 206830001,
     maintitle = "##172400",
+    subtitle = "##1056882",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[170]
   },
   [206850001] = {
     id = 206850001,
     maintitle = "##172337",
+    subtitle = "##1056882",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[49]
   },
   [206910005] = {
     id = 206910005,
     maintitle = "##172430",
+    subtitle = "##1056882",
     QuestStep = Table_ServantQuestfinishStep_t.QuestStep[122]
   },
   [210810003] = {
@@ -2017,8 +2017,8 @@ local cell_mt = {
   __index = {
     QuestStep = _EmptyTable,
     id = 12240002,
-    maintitle = "##143735",
-    subtitle = "##1056882"
+    maintitle = "##145941",
+    subtitle = "##1270989"
   }
 }
 for _, d in pairs(Table_ServantQuestfinishStep) do

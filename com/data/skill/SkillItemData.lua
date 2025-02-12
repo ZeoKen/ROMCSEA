@@ -19,6 +19,7 @@ SkillItemData.FuncType = {
   Option = 3
 }
 SkillItemData.ConditionSkillCount = 5
+SkillItemData.Empty = "SkillItemData_Empty"
 
 function SkillItemData:ctor(id, pos, autopos, profession, sourceId, extendpos, shortcuts, extramaxlv, ignoreCondition, skipLeftCD)
   self.shortcuts = {}
@@ -103,13 +104,7 @@ function SkillItemData:Reset(id, pos, autopos, cd, sourceId, extendpos, shortcut
   else
     self.breakNewMaxLevel = 0
   end
-  if shortcuts ~= nil then
-    TableUtility.TableClear(self.shortcuts)
-    for i = 1, #shortcuts do
-      local shortcut = shortcuts[i]
-      self.shortcuts[shortcut.type] = shortcut.pos
-    end
-  end
+  self:UpdateShortcuts(shortcuts)
   local maxCDTimes = self:GetMaxCDTimes()
   if not skipLeftCD and maxCDTimes and 0 < maxCDTimes then
     SkillProxy.Instance:InitSkillLeftCD(self.sortID, maxCDTimes)
@@ -494,6 +489,9 @@ function SkillItemData:CheckFuncOpen(funcType)
       if self.id == GameConfig.SkillFakeDead.ID then
         return true
       end
+      if self:_CheckOptionOpen(logicParam.companion_skill_ids) then
+        return true
+      end
     end
     return false
   end
@@ -751,4 +749,14 @@ end
 
 function SkillItemData:IgnoreNormalTip()
   return self.staticData.Logic_Param.ignore_normalTip == 1
+end
+
+function SkillItemData:UpdateShortcuts(shortcuts)
+  if shortcuts ~= nil then
+    TableUtility.TableClear(self.shortcuts)
+    for i = 1, #shortcuts do
+      local shortcut = shortcuts[i]
+      self.shortcuts[shortcut.type] = shortcut.pos
+    end
+  end
 end

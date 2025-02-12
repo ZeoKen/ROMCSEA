@@ -183,6 +183,14 @@ function GuideMaskView:OnExit()
   self:sendNotification(GuideEvent.OnGuideEnd)
   self:restoreMask()
   self:clearWaitTick()
+  if self.needRestoreHotKey then
+    self.needRestoreHotKey = nil
+    if Game.HotKeyManager.SetEnable then
+      Game.HotKeyManager:SetEnable(true)
+    else
+      Game.HotKeyManager.Running = true
+    end
+  end
   GuideMaskView.super.OnExit(self)
 end
 
@@ -418,6 +426,7 @@ function GuideMaskView:showGuide()
   end
   self:setTalkText(origin)
   self:Show(self.hlightGo)
+  local needForbidHotKey = false
   if guideType == QuestDataGuideType.QuestDataGuideType_unforce then
     self:HideMask()
     if showGirl then
@@ -428,6 +437,7 @@ function GuideMaskView:showGuide()
   elseif guideType == QuestDataGuideType.QuestDataGuideType_force then
     self:ShowMask()
     Game.AutoBattleManager:AutoBattleOff()
+    needForbidHotKey = true
   elseif guideType == QuestDataGuideType.QuestDataGuideType_force_with_arrow then
     self:ShowMask()
     self:SetMaskAlpha(0.4)
@@ -446,6 +456,14 @@ function GuideMaskView:showGuide()
     self.currentGuideId
   })
   redlog("引导任务", guideType, showGirl, self.obj)
+  if Game.HotKeyManager.Running and needForbidHotKey then
+    self.needRestoreHotKey = true
+    if Game.HotKeyManager.SetEnable then
+      Game.HotKeyManager:SetEnable(false)
+    else
+      Game.HotKeyManager.Running = false
+    end
+  end
   return true
 end
 

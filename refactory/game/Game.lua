@@ -594,14 +594,7 @@ function Game:BackToSwitchRole()
 end
 
 function Game:BackToLogo(toScene)
-  if CameraController.Instance ~= nil and CameraController.Instance.monoGameObject ~= nil then
-    CameraController.Instance.monoGameObject:SetActive(false)
-  end
-  EventManager.Me():DispatchEvent(AppStateEvent.BackToLogo)
-  self:End(toScene)
-end
-
-function Game:BackToLogo(toScene)
+  FunctionChangeScene.Me():SendTMCR()
   if CameraController.Instance ~= nil and CameraController.Instance.monoGameObject ~= nil then
     CameraController.Instance.monoGameObject:SetActive(false)
   end

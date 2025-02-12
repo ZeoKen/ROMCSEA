@@ -162,11 +162,11 @@ function SmilingLadyShop:HandleShopSoldCountCmd(note)
 end
 
 function SmilingLadyShop:OnManualUpdated()
-  self:UpdateView(true)
+  self:UpdateView()
 end
 
 function SmilingLadyShop:RecvQueryShopConfig()
-  self:UpdateView()
+  self:UpdateView(true)
 end
 
 function SmilingLadyShop:RecvShopDataUpdate(note)
@@ -191,14 +191,14 @@ function SmilingLadyShop:OverseaAndroidBack()
   end
 end
 
-function SmilingLadyShop:UpdateView()
-  self:UpdateTabVisiblity()
+function SmilingLadyShop:UpdateView(force)
+  self:UpdateTabVisiblity(force)
   self:UpdatePrestigeInfo()
   self:UpdateMoney()
   self:UpdateDialog()
 end
 
-function SmilingLadyShop:UpdateTabVisiblity()
+function SmilingLadyShop:UpdateTabVisiblity(force)
   local proxy = HappyShopProxy.Instance
   local datas, firstVisibleTabIndex
   for i, tab in ipairs(self.tabs) do
@@ -218,7 +218,7 @@ function SmilingLadyShop:UpdateTabVisiblity()
     end
   end
   self.tabTable:Reposition()
-  self:SwitchToTab(self.selectedTab or firstVisibleTabIndex or 1, true)
+  self:SwitchToTab(self.selectedTab or firstVisibleTabIndex or 1, force)
 end
 
 function SmilingLadyShop:CameraFocusToNpc()
@@ -312,7 +312,7 @@ function SmilingLadyShop:UpdateShopItems(reset)
   if self.noneTipGO then
     self.noneTipGO:SetActive(datas and #datas == 0 or false)
   end
-  if reset then
+  if reset == true then
     self.itemWrapper:ResetPosition()
   end
   self.buyCell.gameObject:SetActive(false)

@@ -1156,13 +1156,13 @@ Table_Artifact = {
   },
   [41552] = {
     id = 41552,
-    Name = "雷神之锤II",
     NextLevelID = 41553,
     Level = 2,
     Material = Table_Artifact_t.Material[10]
   },
   [41553] = {
     id = 41553,
+    Name = "雷神之锤III",
     NextLevelID = 41596,
     Level = 3,
     Material = Table_Artifact_t.Material[11]
@@ -1480,7 +1480,7 @@ local cell_mt = {
     DistributeCount = 2,
     Level = 1,
     Material = _EmptyTable,
-    Name = "雷神之锤III",
+    Name = "雷神之锤II",
     NextLevelID = 0,
     Type = 1,
     id = 40644

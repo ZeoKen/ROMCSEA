@@ -43,6 +43,7 @@ function LogicManager_Creature_Userdata:ctor()
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_SHIELD, self.RefreshNormalShield)
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_UP_CHARID, self.UpdatePlayerRider_Up)
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_DOWN_CHARID, self.UpdatePlayerRider_Down)
+  self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_DOWN_CHARID_RIDE, self.UpdatePlayerRider_DownRide)
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_PVP_CAMP, self.UpdatePvpCamp)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_DIR, self.UpdateDir)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_NAME, self.UpdateName)
@@ -70,8 +71,10 @@ function LogicManager_Creature_Userdata:ctor()
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_SHIELD, self.RefreshNormalShield)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_UP_CHARID, self.UpdatePlayerRider_Up)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_DOWN_CHARID, self.UpdatePlayerRider_Down)
+  self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_DOWN_CHARID_RIDE, self.UpdatePlayerRider_DownRide)
   self:AddDirtyCall(ProtoCommon_pb.EUSERDATATYPE_UP_CHARID, self.UpdatePlayerRider_Up)
   self:AddDirtyCall(ProtoCommon_pb.EUSERDATATYPE_DOWN_CHARID, self.UpdatePlayerRider_Down)
+  self:AddDirtyCall(ProtoCommon_pb.EUSERDATATYPE_DOWN_CHARID_RIDE, self.UpdatePlayerRider_DownRide)
   for i = 1, #ChangeDressData do
     self:AddDirtyCall(ChangeDressData[i], self.SetChangeDressDirty)
   end
@@ -410,8 +413,16 @@ end
 
 function LogicManager_Creature_Userdata:UpdatePlayerRider_Down(ncreature, userDataID, oldValue, newValue)
   redlog("UpdatePlayerRider_Down", oldValue, newValue)
+  ncreature.data:SetDownID(newValue)
   self:SetChangeDressDirty(ncreature, userDataID, oldValue, newValue)
-  ncreature:UpdatePlayerRider_Down(newValue)
+  ncreature:UpdatePlayerRider_Down(false)
+end
+
+function LogicManager_Creature_Userdata:UpdatePlayerRider_DownRide(ncreature, userDataID, oldValue, newValue)
+  redlog("UpdatePlayerRider_DownRide", oldValue, newValue)
+  ncreature.data:SetDownID(newValue)
+  self:SetChangeDressDirty(ncreature, userDataID, oldValue, newValue)
+  ncreature:UpdatePlayerRider_Down(true)
 end
 
 function LogicManager_Creature_Userdata:UpdatePvpCamp(ncreature, userDataID, oldValue, newValue)

@@ -2232,7 +2232,8 @@ GameConfig.Pve = {
     [69] = "装备升级",
     [71] = "奥秘符文",
     [73] = "素材",
-    [74] = "装备记忆"
+    [80] = "装备记忆",
+    [79] = "星座徽章"
   },
   SweepInvalidMsg = {
     [43] = 43456,
@@ -2256,7 +2257,8 @@ GameConfig.Pve = {
     [1] = "装备",
     [2] = "头饰卡片",
     [3] = "制作材料",
-    [4] = "附魔道具"
+    [4] = "附魔道具",
+    [5] = "赛季"
   },
   NewRaidInterval = 30,
   InvitePrepareTime = 60,
@@ -2505,6 +2507,41 @@ GameConfig.Pve = {
       typeIcon = "raidbg_mvp01",
       detailIcon = "raidbgicon_mvp01",
       openTime = "2022-01-07 05:00:00"
+    },
+    [36] = {
+      modelTexture = "PveModel_luoyang_fb3",
+      sortID = 2710,
+      typeIcon = "xingzuozhita",
+      detailIcon = "raidbgicon_liexi06",
+      openTime = "2023-06-13 05:00:00"
+    },
+    [37] = {
+      modelTexture = "PveModel_luoyang_fb3",
+      sortID = 2720,
+      typeIcon = "xingzuozhita",
+      detailIcon = "raidbgicon_liexi06",
+      openTime = "2023-06-13 05:00:00"
+    },
+    [38] = {
+      modelTexture = "PveModel_luoyang_fb3",
+      sortID = 2730,
+      typeIcon = "xingzuozhita",
+      detailIcon = "raidbgicon_liexi06",
+      openTime = "2023-06-13 05:00:00"
+    },
+    [39] = {
+      modelTexture = "PveModel_luoyang_fb3",
+      sortID = 2740,
+      typeIcon = "xingzuozhita",
+      detailIcon = "raidbgicon_liexi06",
+      openTime = "2023-06-13 05:00:00"
+    },
+    [40] = {
+      modelTexture = "PveModel_xygfb",
+      sortID = 2610,
+      typeIcon = "zuzhoujianshi",
+      detailIcon = "raidbgicon_liexi06",
+      openTime = "2023-06-13 05:00:00"
     }
   },
   Difficulty = {
@@ -2622,6 +2659,13 @@ GameConfig.Pve = {
     },
     [19] = {
       [1] = "110级"
+    },
+    [20] = {
+      [1] = "Ⅰ",
+      [2] = "Ⅱ",
+      [3] = "Ⅲ",
+      [4] = "Ⅳ",
+      [5] = "Ⅴ"
     }
   },
   special_icon_bg = {
@@ -2635,7 +2679,8 @@ GameConfig.Pve = {
     [43] = 1,
     [65] = 1,
     [68] = 1,
-    [73] = 1
+    [73] = 1,
+    [80] = 1
   }
 }
 GameConfig.ElementRaid = {
@@ -3851,7 +3896,8 @@ GameConfig.ServerMerge = {
     [68] = 1,
     [70] = 1,
     [69] = 1,
-    [71] = 1
+    [71] = 1,
+    [79] = 1
   }
 }
 GameConfig.SkillCommon = {
@@ -9300,6 +9346,112 @@ GameConfig.Afk = {
     "因服务器异常，已退出离线战斗"
   }
 }
+GameConfig.Astral = {
+  StatCount = 10,
+  CountDownMsgTime = 10,
+  NewMedalID = 913101,
+  OldMedalID = 913102,
+  TimeOutRestartTime = 5,
+  TowerIndex2Raids = {
+    [1] = {
+      [1] = 7501,
+      [2] = 7502,
+      [3] = 7503,
+      [4] = 7504,
+      [5] = 7505
+    },
+    [2] = {
+      [1] = 7506,
+      [2] = 7507,
+      [3] = 7508,
+      [4] = 7509,
+      [5] = 7510
+    },
+    [3] = {
+      [1] = 7511,
+      [2] = 7512,
+      [3] = 7513,
+      [4] = 7514,
+      [5] = 7515
+    },
+    [4] = {
+      [1] = 7516,
+      [2] = 7517,
+      [3] = 7518,
+      [4] = 7519,
+      [5] = 7520
+    }
+  },
+  DiscountInfos = {
+    [3] = 0.8,
+    [6] = 0.6,
+    [9] = 0.4
+  },
+  FashionStaticMap = {31},
+  LevelCondition = {
+    [1] = 0,
+    [2] = 2,
+    [3] = 3,
+    [4] = 5
+  },
+  LevelGroupShortcut = {
+    [36] = 8349,
+    [37] = 8350,
+    [38] = 8351,
+    [39] = 8352
+  },
+  StatFilterConfig = {
+    [1] = "第一关",
+    [2] = "第二关",
+    [3] = "第三关",
+    [4] = "第四关",
+    [5] = "第五关"
+  },
+  MiniMapArea = {
+    pos = {
+      -63.9515,
+      2.279416,
+      -17.24393
+    },
+    mapSymbol = "map_ConstellationTower",
+    mapId = 31
+  },
+  GraphMenuID = 100098,
+  GraphBtnName = "星座图谱",
+  GraphBtnIcon = "tab_icon_164",
+  GraphPointAttrOrder = {
+    Atk = 1,
+    MAtk = 2,
+    Def = 3,
+    MDef = 4,
+    MaxHp = 5
+  },
+  TowerEffects = {
+    [36] = "mfx_endless_shengming_prf",
+    [37] = "mfx_endless_zhire_prf",
+    [38] = "mfx_endless_shikong_prf",
+    [39] = "mfx_endless_siwang_prf"
+  }
+}
+GameConfig.PurifyProducts = {
+  OutLimitMsgID = 43569,
+  OutDailyMsgID = 43572,
+  SeasonItem = {
+    [913101] = "星座之塔新赛季开启后开放"
+  },
+  SeasonEndMsgID = {
+    [913101] = 43570
+  },
+  ConfirmMsg = {
+    [913101] = 43571
+  },
+  QualityZeny = {
+    [1] = {step_length = 10, step_max = 220},
+    [2] = {step_length = 10, step_max = 500},
+    [3] = {step_length = 100, step_max = 26000},
+    [4] = {step_length = 500, step_max = 46000}
+  }
+}
 GameConfig.Astrolabe = {
   Activate = {
     [1] = {
@@ -13109,6 +13261,13 @@ GameConfig.EquipPromote = {
   }
 }
 GameConfig.Equip = {
+  HeadWearSet = {
+    800,
+    810,
+    830,
+    840,
+    850
+  },
   EquipDecomposeZenyCost = 10000,
   EnchantTransferItemCost = {
     {135, 400}
@@ -13125,6 +13284,64 @@ GameConfig.Equip = {
     },
     [4] = {
       {100, 250000}
+    }
+  },
+  HeadWearRefineTransferCost = {
+    [1] = {
+      {100, 500000}
+    },
+    [2] = {
+      {100, 500000}
+    },
+    [3] = {
+      {100, 500000}
+    },
+    [4] = {
+      {100, 500000}
+    },
+    [5] = {
+      {100, 500000},
+      {12618, 1}
+    },
+    [6] = {
+      {100, 500000},
+      {12618, 2}
+    },
+    [7] = {
+      {100, 500000},
+      {12618, 3}
+    },
+    [8] = {
+      {100, 500000},
+      {12618, 4}
+    },
+    [9] = {
+      {100, 500000},
+      {12618, 6}
+    },
+    [10] = {
+      {100, 500000},
+      {12618, 8}
+    },
+    [11] = {
+      {100, 500000},
+      {12618, 10}
+    },
+    [12] = {
+      {100, 500000},
+      {12618, 12}
+    },
+    [13] = {
+      {100, 500000},
+      {12618, 13}
+    },
+    [14] = {
+      {100, 500000},
+      {12618, 14}
+    },
+    [15] = {
+      {100, 500000},
+      {12618, 15}
     }
   },
   EquipTransferType = {
@@ -13152,7 +13369,12 @@ GameConfig.Equip = {
     [290] = 18,
     [300] = 19,
     [310] = 20,
-    [320] = 21
+    [320] = 21,
+    [800] = 22,
+    [810] = 23,
+    [830] = 24,
+    [840] = 25,
+    [850] = 26
   },
   AncientEquipItemType = {
     [500] = "远古盔甲",
@@ -13558,7 +13780,23 @@ GameConfig.PackageMaterialCheck = {
     17
   },
   lottery_headwear = {1, 13},
-  EquipMemory_levelup = {1, 22}
+  EquipMemory_levelup = {1, 22},
+  purify_products = {
+    1,
+    7,
+    8,
+    9,
+    11,
+    17,
+    19
+  },
+  destiny_graph = {
+    1,
+    6,
+    7,
+    8,
+    9
+  }
 }
 GameConfig.PostFilter = {
   [0] = "全部",
@@ -13571,7 +13809,12 @@ GameConfig.PostDelPriority = {
   4,
   0
 }
-GameConfig.MiscSetting = {tipsUnionEdge = 20}
+GameConfig.MiscSetting = {
+  tipsUnionEdge = 20,
+  EnsembleDoubleReplace = {
+    [1005580] = 1005581
+  }
+}
 GameConfig.Item2Npc = {
   [25300] = 4425,
   [25301] = 1705,
@@ -14134,9 +14377,9 @@ GameConfig.BattlePassServerVersion = {
 GameConfig.BattlePassVersion = {
   [1] = {
     TFVersionStartTime = "2024-01-01 05:00:00",
-    TFVersionEndTime = "2030-01-01 05:00:00",
+    TFVersionEndTime = "2025-01-01 05:00:00",
     ReleaseVersionStartTime = "2024-01-01 05:00:00",
-    ReleaseVersionEndTime = "2030-01-01 05:00:00",
+    ReleaseVersionEndTime = "2025-01-01 05:00:00",
     BattlePass_Icon = "battlePass_14",
     IdOffset = 12000,
     MaxLevel = 50,
@@ -14182,6 +14425,66 @@ GameConfig.BattlePassVersion = {
         [12] = {
           Text = "自选武器箱"
         },
+        [13] = {Text = "时装"},
+        [2] = {
+          Text = "每周经验上限提升至30%"
+        },
+        [3] = {
+          Text = "任务额外经验提升至20%"
+        }
+      }
+    }
+  },
+  [2] = {
+    TFVersionStartTime = "2025-01-01 05:00:00",
+    TFVersionEndTime = "2030-01-01 05:00:00",
+    ReleaseVersionStartTime = "2025-01-01 05:00:00",
+    ReleaseVersionEndTime = "2030-01-01 05:00:00",
+    BattlePass_Icon = "battlePass_14",
+    IdOffset = 13000,
+    MaxLevel = 50,
+    UpgradeDepositItem = {
+      [1] = {
+        DepositeId = 300022,
+        Show = 1,
+        Name = "进阶版·卡普拉冒险录",
+        AdvLevel = 50,
+        Desc = 1
+      },
+      [2] = {
+        DepositeId = 300023,
+        Show = 2,
+        Name = "典藏版·卡普拉冒险录",
+        SuLevel = 50,
+        Condition = {AdvLevel = 50, Index = 1},
+        Desc = 2
+      }
+    },
+    UpgradeDesc = {
+      [1] = {
+        [1] = {
+          Text = "解锁50级的进阶奖励"
+        },
+        [11] = {Text = "头饰"},
+        [12] = {
+          Text = "精炼+6头饰券"
+        },
+        [13] = {Text = "大量Zeny"},
+        [2] = {
+          Text = "每周经验上限+20%"
+        },
+        [3] = {
+          Text = "完成任务额外经验+10%"
+        }
+      },
+      [2] = {
+        [1] = {
+          Text = "解锁50级的典藏奖励"
+        },
+        [11] = {
+          Text = "卡普拉心动礼盒"
+        },
+        [12] = {Text = "头饰"},
         [13] = {Text = "时装"},
         [2] = {
           Text = "每周经验上限提升至30%"
@@ -20563,9 +20866,20 @@ GameConfig.HolyPray = {
     5551
   }
 }
+GameConfig.ExcellentRankName = {
+  [1] = {name = "青铜"},
+  [2] = {name = "白银"},
+  [3] = {name = "黄金"},
+  [4] = {name = "白金"},
+  [5] = {name = "钻石"},
+  [6] = {name = "王者"}
+}
 GameConfig.GVGConfig = {
   danger_time = 60,
   danger_success_time = 840,
+  preparation_time = 300,
+  countdown_time = 48,
+  season_excellect_mail = 12718,
   start_time = {
     {
       day = 4,
@@ -20580,7 +20894,7 @@ GameConfig.GVGConfig = {
     }
   },
   partin_buff = 120,
-  last_time = 1800,
+  last_time = 3600,
   msg_map = {
     2,
     5,
@@ -20609,7 +20923,8 @@ GameConfig.GVGConfig = {
         times = 5,
         items = {
           {156, 200},
-          {5897, 20}
+          {5897, 20},
+          {913000, 50}
         },
         desc = "GVG参战时间达到%s/5分钟"
       },
@@ -20617,7 +20932,8 @@ GameConfig.GVGConfig = {
         times = 10,
         items = {
           {156, 200},
-          {5897, 20}
+          {5897, 20},
+          {913000, 100}
         },
         desc = "GVG参战时间达到%s/10分钟"
       },
@@ -20625,7 +20941,8 @@ GameConfig.GVGConfig = {
         times = 15,
         items = {
           {156, 200},
-          {5897, 20}
+          {5897, 20},
+          {913000, 150}
         },
         desc = "GVG参战时间达到%s/15分钟"
       },
@@ -20636,7 +20953,8 @@ GameConfig.GVGConfig = {
         times = 6,
         items = {
           {156, 400},
-          {5897, 40}
+          {5897, 40},
+          {913000, 10}
         },
         desc = "累计复活友方冒险者%s/6人"
       },
@@ -20644,7 +20962,8 @@ GameConfig.GVGConfig = {
         times = 12,
         items = {
           {156, 600},
-          {5897, 60}
+          {5897, 60},
+          {913000, 10}
         },
         desc = "累计复活友方冒险者%s/12人"
       },
@@ -20652,7 +20971,8 @@ GameConfig.GVGConfig = {
         times = 18,
         items = {
           {156, 800},
-          {5897, 80}
+          {5897, 80},
+          {913000, 10}
         },
         desc = "累计复活友方冒险者%s/18人"
       },
@@ -20663,7 +20983,8 @@ GameConfig.GVGConfig = {
         times = 3,
         items = {
           {156, 200},
-          {5897, 20}
+          {5897, 20},
+          {913000, 10}
         },
         desc = "驱逐%s/3名敌方冒险者"
       },
@@ -20671,7 +20992,8 @@ GameConfig.GVGConfig = {
         times = 6,
         items = {
           {156, 200},
-          {5897, 20}
+          {5897, 20},
+          {913000, 10}
         },
         desc = "驱逐%s/6名敌方冒险者"
       },
@@ -20679,7 +21001,8 @@ GameConfig.GVGConfig = {
         times = 12,
         items = {
           {156, 200},
-          {5897, 20}
+          {5897, 20},
+          {913000, 10}
         },
         desc = "驱逐%s/12名敌方冒险者"
       },
@@ -20690,7 +21013,8 @@ GameConfig.GVGConfig = {
         times = 10,
         items = {
           {156, 400},
-          {5897, 40}
+          {5897, 40},
+          {913000, 10}
         },
         desc = "对华丽水晶造成%s/10%%伤害"
       },
@@ -20698,7 +21022,8 @@ GameConfig.GVGConfig = {
         times = 25,
         items = {
           {156, 400},
-          {5897, 40}
+          {5897, 40},
+          {913000, 10}
         },
         desc = "对华丽水晶造成%s/25%%伤害"
       },
@@ -20709,7 +21034,8 @@ GameConfig.GVGConfig = {
         times = 1,
         items = {
           {156, 1600},
-          {5897, 160}
+          {5897, 160},
+          {913000, 10}
         },
         desc = "成功击破%s/1个华丽水晶"
       },
@@ -20720,7 +21046,8 @@ GameConfig.GVGConfig = {
         times = 1,
         items = {
           {156, 1000},
-          {5897, 100}
+          {5897, 100},
+          {913000, 10}
         },
         desc = "华丽水晶由己方玩家击破时处于水晶房内%s/1次"
       },
@@ -20731,7 +21058,8 @@ GameConfig.GVGConfig = {
         times = 1,
         items = {
           {156, 800},
-          {5897, 80}
+          {5897, 80},
+          {913000, 50}
         },
         desc = "参与占领%s/1个据点"
       },
@@ -20739,7 +21067,8 @@ GameConfig.GVGConfig = {
         times = 2,
         items = {
           {156, 800},
-          {5897, 80}
+          {5897, 80},
+          {913000, 100}
         },
         desc = "参与占领%s/2个据点"
       },
@@ -20747,7 +21076,8 @@ GameConfig.GVGConfig = {
         times = 3,
         items = {
           {156, 800},
-          {5897, 80}
+          {5897, 80},
+          {913000, 150}
         },
         desc = "参与占领%s/3个据点"
       },
@@ -20758,7 +21088,8 @@ GameConfig.GVGConfig = {
         times = 5,
         items = {
           {156, 400},
-          {5897, 40}
+          {5897, 40},
+          {913000, 10}
         },
         desc = "参与据点防守时长达到%s/5分钟"
       },
@@ -20766,7 +21097,8 @@ GameConfig.GVGConfig = {
         times = 10,
         items = {
           {156, 400},
-          {5897, 40}
+          {5897, 40},
+          {913000, 10}
         },
         desc = "参与据点防守时长达到%s/10分钟"
       },
@@ -20774,7 +21106,8 @@ GameConfig.GVGConfig = {
         times = 15,
         items = {
           {156, 400},
-          {5897, 40}
+          {5897, 40},
+          {913000, 10}
         },
         desc = "参与据点防守时长达到%s/15分钟"
       },
@@ -20788,18 +21121,20 @@ GameConfig.GVGConfig = {
       [1] = {
         times = 1000,
         items = {
-          {3720, 2}
+          {3720, 2},
+          {913000, 50}
         },
         desc = "本场个人目标基础荣誉值达到%s/1000"
       },
       [2] = {
         times = 2000,
         items = {
-          {3720, 2}
+          {3720, 2},
+          {913000, 100}
         },
         desc = "本场个人目标基础荣誉值达到%s/2000"
       },
-      desc = "本场个人目标基础荣誉值（%s）"
+      desc = "本场个人目标荣誉值（%s）"
     },
     gvg_coin_id = 5897,
     valid_partin_time = 300,
@@ -20992,9 +21327,16 @@ GameConfig.GVGConfig = {
   go_point_cd_buff = 10022,
   NpcMapSymbols = {
     pos = {
-      0.31,
-      2.41,
-      60.45
+      [1] = {
+        0.31,
+        2.41,
+        60.45
+      },
+      [2] = {
+        -14.61,
+        -1.18,
+        141.9
+      }
     },
     icon = "item_5500"
   },
@@ -21295,250 +21637,47 @@ GameConfig.GVGConfig = {
   GvgTask = {
     [1] = {
       taskid = 1,
-      task_type = 2,
-      need_count = 6,
+      task_type = 4,
+      need_count = 3,
       reward = {
-        {3720, 4}
+        {3720, 1}
       },
-      city_type = 3,
-      title = "防守据点",
-      desc = "GVG结束时获得6个防守据点华丽金属",
-      no_use = 1
+      city_type = 0,
+      title = "占领据点",
+      desc = "占领据点时长%s/3分钟"
     },
     [2] = {
       taskid = 2,
-      task_type = 3,
-      need_count = 50,
+      task_type = 6,
+      need_count = 1,
       reward = {
-        {3720, 4}
+        {3720, 1}
       },
-      city_type = 3,
-      title = "击杀",
-      desc = "击杀冒险者%s/50人"
+      city_type = 0,
+      title = "累计占领据点",
+      desc = "累计占领%s/1次进攻据点"
     },
     [3] = {
       taskid = 3,
-      task_type = 5,
-      need_count = 10,
+      task_type = 9,
+      need_count = 5,
       reward = {
-        {3720, 4}
+        {3720, 1}
       },
-      city_type = 3,
-      title = "同时占领",
-      desc = "同时占领%s/10个据点"
+      city_type = 0,
+      title = "参与争夺据点",
+      desc = "参与据点争夺%s/5分钟"
     },
     [4] = {
       taskid = 4,
       task_type = 7,
-      need_count = 25,
+      need_count = 20,
       reward = {
-        {3720, 4}
-      },
-      city_type = 3,
-      title = "驱逐",
-      desc = "驱逐敌方冒险者%s/25人"
-    },
-    [16] = {
-      taskid = 16,
-      task_type = 6,
-      need_count = 6,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 3,
-      title = "累积占领",
-      desc = "累计占领%s/6次进攻据点"
-    },
-    [17] = {
-      taskid = 17,
-      task_type = 8,
-      need_count = 15,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 3,
-      title = "完美防守",
-      desc = "15分钟达成完美防守"
-    },
-    [5] = {
-      taskid = 5,
-      task_type = 1,
-      need_count = 2,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 2,
-      title = "进攻据点",
-      desc = "获得%s/2个进攻据点华丽金属",
-      no_use = 1
-    },
-    [6] = {
-      taskid = 6,
-      task_type = 3,
-      need_count = 16,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 2,
-      title = "击杀",
-      desc = "击杀冒险者%s/16人"
-    },
-    [7] = {
-      taskid = 7,
-      task_type = 4,
-      need_count = 8,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 2,
-      title = "占领据点",
-      desc = "占领据点时长%s/8分钟"
-    },
-    [8] = {
-      taskid = 8,
-      task_type = 6,
-      need_count = 3,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 2,
-      title = "累积占领",
-      desc = "累计占领%s/3次进攻据点"
-    },
-    [19] = {
-      taskid = 19,
-      task_type = 7,
-      need_count = 8,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 2,
-      title = "驱逐",
-      desc = "驱逐敌方冒险者%s/8人"
-    },
-    [20] = {
-      taskid = 20,
-      task_type = 8,
-      need_count = 30,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 2,
-      title = "完美防守",
-      desc = "30分钟内达成完美防守"
-    },
-    [9] = {
-      taskid = 9,
-      task_type = 1,
-      need_count = 1,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 1,
-      title = "进攻据点",
-      desc = "获得%s/1个进攻据点华丽金属",
-      no_use = 1
-    },
-    [10] = {
-      taskid = 10,
-      task_type = 3,
-      need_count = 8,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 1,
-      title = "击杀",
-      desc = "击杀冒险者%s/8人"
-    },
-    [11] = {
-      taskid = 11,
-      task_type = 4,
-      need_count = 5,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 1,
-      title = "占领据点",
-      desc = "占领据点时长%s/5分钟"
-    },
-    [12] = {
-      taskid = 12,
-      task_type = 6,
-      need_count = 2,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 1,
-      title = "累积占领",
-      desc = "累计占领%s/2次进攻据点"
-    },
-    [21] = {
-      taskid = 21,
-      task_type = 7,
-      need_count = 3,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 1,
-      title = "驱逐",
-      desc = "驱逐敌方冒险者%s/3人"
-    },
-    [22] = {
-      taskid = 22,
-      task_type = 9,
-      need_count = 10,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 1,
-      title = "争夺据点",
-      desc = "参与据点争夺%s/10分钟"
-    },
-    [13] = {
-      taskid = 13,
-      task_type = 3,
-      need_count = 4,
-      reward = {
-        {3720, 4}
+        {3720, 1}
       },
       city_type = 0,
-      title = "击杀",
-      desc = "击杀冒险者%s/4人"
-    },
-    [14] = {
-      taskid = 14,
-      task_type = 4,
-      need_count = 3,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 0,
-      title = "占领据点",
-      desc = "占领据点时长%s/3分钟",
-      no_use = 1
-    },
-    [15] = {
-      taskid = 15,
-      task_type = 6,
-      need_count = 1,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 0,
-      title = "累积占领",
-      desc = "累计占领%s/1次进攻据点",
-      no_use = 1
-    },
-    [23] = {
-      taskid = 23,
-      task_type = 9,
-      need_count = 5,
-      reward = {
-        {3720, 4}
-      },
-      city_type = 0,
-      title = "争夺据点",
-      desc = "参与据点争夺%s/5分钟"
+      title = "驱逐敌人",
+      desc = "驱逐敌方冒险者%s/20人"
     }
   },
   StatuePose = {
@@ -21592,7 +21731,17 @@ GameConfig.GVGConfig = {
     "枫",
     "狼牙",
     "小光",
-    "苍雪"
+    "苍雪",
+    "夜影",
+    "雪狼",
+    "星辰",
+    "苍鹰",
+    "月影",
+    "白狼",
+    "霜火",
+    "雷鸣",
+    "影刃",
+    "灵狐"
   }
 }
 GameConfig.GvgNewConfig = {
@@ -21602,9 +21751,10 @@ GameConfig.GvgNewConfig = {
   perfect_time = 900,
   max_attack_score = 4,
   settle_score_time = 600,
-  score_fire_count = 3,
+  score_fire_count = 4,
   continue_score = 2,
   transport_interval = 5,
+  point_total_score = 3,
   score_points = {
     1,
     2,
@@ -21613,6 +21763,7 @@ GameConfig.GvgNewConfig = {
   unactive_buffid = 951,
   unactive_addbuff_time = 180,
   unactive_kick_time = 180,
+  help_time = 15,
   blind_box_id = 8018,
   red_packet_mail = 12596,
   red_packet_invalid_mail = 12660,
@@ -21703,6 +21854,12 @@ GameConfig.GvgNewConfig = {
   change_group_time = 7200,
   change_group_cost = {
     {5500, 20}
+  },
+  flag_map = {
+    [1] = 1,
+    [13] = 1,
+    [18] = 1,
+    [43] = 1
   }
 }
 GameConfig.GVGSandTable = {
@@ -21716,50 +21873,64 @@ GameConfig.GVGSandTable = {
     Icon_DefendererFlag = "attendant_bg_bottom_02",
     Icon_UnoccupiedFlag = "SandTable_bg_flag_green",
     NodePos = {
-      [0] = {
-        -200,
-        50,
-        0
-      },
       [1] = {
-        -350,
-        -55,
-        0
+        [0] = {
+          -200,
+          50,
+          0
+        },
+        [1] = {
+          -350,
+          -55,
+          0
+        },
+        [2] = {
+          -15,
+          95,
+          0
+        },
+        [3] = {
+          60,
+          -45,
+          0
+        },
+        [4] = {
+          -160,
+          -190,
+          0
+        },
+        [5] = {
+          180,
+          -10,
+          0
+        },
+        [6] = {
+          270,
+          -190,
+          0
+        },
+        [7] = {
+          -50,
+          -310,
+          0
+        },
+        [8] = {
+          440,
+          5,
+          0
+        }
       },
       [2] = {
-        -15,
-        95,
-        0
-      },
-      [3] = {
-        60,
-        -45,
-        0
-      },
-      [4] = {
-        -160,
-        -190,
-        0
-      },
-      [5] = {
-        180,
-        -10,
-        0
-      },
-      [6] = {
-        270,
-        -190,
-        0
-      },
-      [7] = {
-        -50,
-        -310,
-        0
-      },
-      [8] = {
-        440,
-        5,
-        0
+        [0] = {
+          -200,
+          50,
+          0
+        },
+        [1] = {
+          60,
+          -45,
+          0
+        }
       }
     }
   }
@@ -21853,7 +22024,19 @@ GameConfig.GvgRimConfig = {
     9022,
     9024,
     9026,
-    9028
+    9028,
+    9105,
+    9107,
+    9109,
+    9111,
+    9113,
+    9115,
+    9117,
+    9119,
+    9122,
+    9124,
+    9126,
+    9128
   },
   pos = {
     60.88,
@@ -21875,6 +22058,43 @@ GameConfig.GvgRimConfig = {
   eat_success_msg = 43185,
   eat_begin_time = 1800,
   max_record_count = 50
+}
+GameConfig.GuildDateBattle = {
+  ready_time = 600,
+  max_count = 12,
+  last_approval_time = 600,
+  longest_approval_time = 259200,
+  schedule = {begin_hour = 12, end_hour = 23},
+  date_range = 7,
+  min_second = 600,
+  mode = {
+    [1] = {
+      open = true,
+      name = "约战·据点模式",
+      client_desc = "争夺华丽水晶",
+      duration = 1800,
+      perfect_time = 600,
+      end_kick_time = 30,
+      city_id = 10001
+    },
+    [2] = {
+      open = true,
+      name = "约战·经典模式",
+      client_desc = "争夺华丽水晶",
+      duration = 1800,
+      perfect_time = 600,
+      end_kick_time = 30,
+      city_id = 20001
+    }
+  },
+  gear_npcid = 7702,
+  win_gear_id = 200,
+  loss_gear_id = 201,
+  gear_last_time = 604800,
+  mapflag = {
+    [1] = 10,
+    [7] = 10
+  }
 }
 GameConfig.Gem = {
   Page = {
@@ -21993,7 +22213,7 @@ GameConfig.Guild = {
   dismisstime = 172800,
   chairoffline = 1296000,
   maxapplycount = 50,
-  MaxMercenaryMemberCount = 10,
+  MaxMercenaryMemberCount = 20,
   MaxMercenaryApplyCount = 30,
   freezepercent = 5000,
   territory = 10001,
@@ -22219,7 +22439,13 @@ GameConfig.Guild = {
   },
   all_open_guild_create_time = "2022-05-06 05:00:00",
   gvg_buy_buildings = {2},
-  no_attack_metal_cd = 120
+  no_attack_metal_cd = 120,
+  artifact_decompose_ratio = {
+    [1] = 0.8,
+    [2] = 0.8,
+    [3] = 1.2000000000000002,
+    [4] = 1.6
+  }
 }
 GameConfig.GuildRaid = {
   [1548] = {
@@ -26320,23 +26546,8 @@ GameConfig.MultiBoss = {
         [4] = "总计"
       }
     },
-    [74] = {
-      Levellimit = 150,
-      EnterDialogId = 854441,
-      Diff = {
-        [1] = {
-          name = "初心难度",
-          raidID = 7210
-        },
-        [2] = {
-          name = "勇士难度",
-          raidID = 7211
-        },
-        [3] = {
-          name = "英灵难度",
-          raidID = 7212
-        }
-      },
+    [80] = {
+      Levellimit = 90,
       StatisticFilterConfig = {
         [1] = "造成伤害",
         [2] = "承受伤害",
@@ -26357,10 +26568,6 @@ GameConfig.MultiBoss = {
         2,
         3,
         4
-      },
-      BossFilterConfig = {
-        [1] = "该隐",
-        [4] = "总计"
       }
     }
   },
@@ -26522,6 +26729,42 @@ GameConfig.MultiBoss = {
             11560,
             11600,
             11610
+          }
+        }
+      }
+    },
+    [7220] = {
+      Stages = {
+        [1] = {
+          bossid = {276430},
+          buffs = {11702}
+        },
+        [2] = {
+          bossid = {276500},
+          buffs = {
+            11680,
+            11690,
+            11692,
+            11695,
+            11696
+          }
+        }
+      }
+    },
+    [7221] = {
+      Stages = {
+        [1] = {
+          bossid = {276450},
+          buffs = {11702}
+        },
+        [2] = {
+          bossid = {276510},
+          buffs = {
+            11680,
+            11690,
+            11692,
+            11695,
+            11696
           }
         }
       }
@@ -28747,6 +28990,70 @@ GameConfig.PioneerMasterAttr = {
 GameConfig.PioneerBuffs = {
   buffIDs = {132330, 132311}
 }
+GameConfig.MonsterMasterAttr = {
+  NpcAttribute = {
+    [580500] = {
+      Attrs = {
+        [100] = 1,
+        [101] = 1,
+        [102] = 1,
+        [103] = 1,
+        [104] = 1,
+        [105] = 1,
+        [200] = 1,
+        [201] = 1,
+        [202] = 1,
+        [203] = 1,
+        [206] = 1,
+        [207] = 1,
+        [208] = 5,
+        [209] = 1,
+        [214] = 1,
+        [215] = 1,
+        [216] = 1,
+        [217] = 1,
+        [218] = 1,
+        [219] = 1,
+        [300] = 1,
+        [302] = 1,
+        [414] = 1,
+        [415] = 1,
+        [416] = 1,
+        [417] = 1,
+        [418] = 1,
+        [419] = 1,
+        [420] = 1,
+        [421] = 1,
+        [427] = 1,
+        [428] = 1,
+        [432] = 1,
+        [433] = 1,
+        [434] = 1,
+        [435] = 1,
+        [451] = 1,
+        [453] = 1,
+        [712] = 1,
+        [713] = 1,
+        [714] = 1,
+        [715] = 1,
+        [716] = 1,
+        [717] = 1,
+        [718] = 1,
+        [719] = 1,
+        [721] = 1,
+        [722] = 1,
+        [726] = 1,
+        [801] = 1,
+        [811] = 1,
+        [902] = 1,
+        [903] = 1,
+        [904] = 1,
+        [906] = 1
+      },
+      Buffs = {1006010}
+    }
+  }
+}
 GameConfig.SoulMasterAttr = {
   Attrs = {
     [100] = 1,
@@ -28925,7 +29232,11 @@ GameConfig.BeingMasterAttr = {
   }
 }
 GameConfig.BeingBuffs = {
-  buffIDs = {48601, 116340}
+  buffIDs = {
+    48601,
+    116340,
+    1003030
+  }
 }
 GameConfig.PioneerDefine = {
   male = {
@@ -29581,9 +29892,9 @@ GameConfig.PVPConfig = {
     PeopleLimit = 30,
     Time = 0,
     RaidMap = {
-      {9001, 20},
-      {9002, 20},
-      {9003, 20}
+      {9001, 40},
+      {9002, 40},
+      {9003, 40}
     },
     Refresh = 5
   },
@@ -35603,6 +35914,505 @@ GameConfig.FurnitureShop = {
 GameConfig.ShopNetDelay = 60
 GameConfig.ChainBuff = {exchange_from = 8002, exchange_to = 8011}
 GameConfig.SmilingLadyShop = {ShopType = 800}
+GameConfig.ShortcutFuncParam = {
+  [8019] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8020] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8021] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8022] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8023] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8024] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8025] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8026] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8027] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8028] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8029] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8030] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8031] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8032] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8033] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8034] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8035] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8039] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8040] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8041] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8042] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8043] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8044] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8045] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8046] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8047] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8048] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8049] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8050] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8051] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8052] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8053] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8054] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8055] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [54970] = {comicID = 54970},
+  [3002740] = {journalId = 101601},
+  [3002756] = {journalId = 101601},
+  [3003727] = {comicID = 3003727},
+  [3003753] = {comicID = 3003753},
+  [3003754] = {comicID = 3003754},
+  [3005316] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3005317] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3005318] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3005319] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3005320] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3005321] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3005458] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3005700] = {comicID = 3005700},
+  [3006061] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3006062] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3006412] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3006413] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3006414] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3006901] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3006902] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007523] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007524] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007730] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007731] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007732] = {
+    channel = 4,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007733] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007734] = {
+    channel = 2,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007735] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007736] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007737] = {
+    channel = 4,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007738] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007739] = {
+    channel = 2,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007744] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007745] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007746] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007991] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007992] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007997] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3007998] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8106] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8107] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8108] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8109] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8110] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8111] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8112] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8113] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8114] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8115] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8116] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8117] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8281] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8282] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8283] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8284] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8285] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8286] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [8327] = {
+    channel = 13,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [10000133] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [10000134] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012620] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012621] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012622] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012623] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012624] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012625] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012711] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012714] = {
+    channel = 5,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012712] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012715] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  }
+}
 GameConfig.ShowZoneid = {
   [1] = {
     "",
@@ -36028,6 +36838,22 @@ GameConfig.SkillType = {
   },
   AngelCome = {
     type = "AngelCome",
+    name = "主动技能"
+  },
+  AddBuffForBuff = {
+    type = "AddBuffForBuff",
+    name = "主动技能"
+  },
+  AddBuffWithPriority = {
+    type = "AddBuffWithPriority",
+    name = "主动技能"
+  },
+  EnsembleDouble = {
+    type = "EnsembleDouble",
+    name = "主动技能"
+  },
+  SummonCompanion = {
+    type = "SummonCompanion",
     name = "主动技能"
   }
 }
@@ -36583,6 +37409,13 @@ GameConfig.MutexSkill = {
   [2443] = 2435,
   [2435] = 2443
 }
+GameConfig.GoToEffect = {
+  [1] = {
+    effectPath = "Skill/sfx_uncleerufu_jfby_bullet_prf",
+    speed = 20,
+    epID = 3
+  }
+}
 GameConfig.SkillView_SkillCell_GuideId = {
   [422] = 15001,
   [423] = 76001,
@@ -36736,6 +37569,7 @@ GameConfig.System = {
   music_status_stop = 1001,
   namesize_min = 2,
   namesize_max = 8,
+  battle_time_cd = 300,
   battle_status_time = 3,
   barragemap = {2},
   guildname_max = 8,
@@ -36874,7 +37708,12 @@ GameConfig.System = {
       {100, 300000}
     }
   },
-  birthday_resetcd = 3
+  birthday_resetcd = 3,
+  UserScopeMaxNum = {
+    [1] = 100,
+    [2] = 150,
+    [3] = 200
+  }
 }
 GameConfig.SystemMenu = {
   Charactor = 1,
@@ -37237,7 +38076,8 @@ GameConfig.BattleTime = {
   killCountEachRound = 500,
   MaxMonsterRewardUser = 2,
   DamageOverTime = 180,
-  MaxBattleCountResetCount = 3
+  MaxBattleCountResetCount = 3,
+  MaxMonsterRewardGuild = 1000
 }
 GameConfig.Team = {
   max_req_help = 60,
@@ -37367,7 +38207,8 @@ GameConfig.Team = {
     [1] = "裂隙",
     [2] = "周常",
     [3] = "PVP",
-    [4] = "自定义"
+    [4] = "自定义",
+    [5] = "赛季"
   },
   RefuseInterval = {
     [0] = 300,
@@ -38999,6 +39840,12 @@ GameConfig.SpecialItemFunction = {
   [5003] = {50},
   [5004] = {50},
   [5029] = {50},
+  [920001] = {50},
+  [920002] = {50},
+  [920003] = {50},
+  [920004] = {50},
+  [920005] = {50},
+  [920006] = {50},
   [5030] = {50},
   [5100] = {50},
   [5101] = {50},
@@ -49332,6 +50179,21 @@ GameConfig.ActivityIntegration = {
     ActivityIcon = "tab_icon_100",
     ActivityName = "美味嘉年华",
     MenuID = 6104
+  },
+  [38] = {
+    ActivityIcon = "tab_icon_100",
+    ActivityName = "购物节",
+    MenuID = 6104
+  },
+  [39] = {
+    ActivityIcon = "tab_icon_100",
+    ActivityName = "雪境追忆",
+    MenuID = 6104
+  },
+  [43] = {
+    ActivityIcon = "tab_icon_100",
+    ActivityName = "皇家庆典",
+    MenuID = 6104
   }
 }
 GameConfig.Altman = {
@@ -50482,6 +51344,16 @@ GameConfig.LimitTimeQuestReward = {
     ActivityIcon = "tab_icon_102",
     ActivityName = "朱诺黎明",
     Desc = "朱诺任务开启\n限时完成领绝版武器外观！"
+  },
+  [106202] = {
+    ActivityIcon = "tab_icon_106",
+    ActivityName = "黑色派对",
+    Desc = "尼夫海姆任务开启\n限时完成领绝版坐骑！"
+  },
+  [106203] = {
+    ActivityIcon = "tab_icon_102",
+    ActivityName = "光影之都",
+    Desc = "里希塔乐任务开启\n限时完成领绝版武器外观！"
   }
 }
 GameConfig.Scenery = {
@@ -51507,6 +52379,28 @@ GameConfig.PaySign = {
     entryDesc2 = "",
     entryDesc3 = "仅需%s，立即拥有限定萌宠！",
     entryBgTexture = "recall_bg_bottom"
+  },
+  [12006] = {
+    activityIcon = "tab_icon_122",
+    activityName = "雷神宝库",
+    noviceMode = false,
+    entryDesc1 = "雷神宝库",
+    entryDesc2 = "",
+    entryDesc3 = "累积登录领好礼",
+    entryBgTexture = "recall_bg_bottom",
+    isfree = 1,
+    ShopInfo = {DepositID = 400001}
+  },
+  [12007] = {
+    activityIcon = "tab_icon_122",
+    activityName = "萌宠宝藏库",
+    noviceMode = false,
+    entryDesc1 = "萌宠宝藏库",
+    entryDesc2 = "",
+    entryDesc3 = "累积登录领好礼！",
+    entryBgTexture = "recall_bg_bottom",
+    isfree = 1,
+    ShopInfo = {DepositID = 400002}
   }
 }
 GameConfig.Doll = {
@@ -55841,6 +56735,33 @@ GameConfig.ActivityBattlePass = {
     UpgradePrice = 6800000,
     ShopId = 3126660,
     ExpItem = 3011611
+  },
+  [105621] = {
+    Title = "购物节冒险录",
+    TaskTitle = "购物节冒险录",
+    UpgradeTitle = "购物节冒险录",
+    UpgradeItem = 151,
+    UpgradePrice = 68,
+    ShopId = 3126971,
+    ExpItem = 3041201
+  },
+  [105622] = {
+    Title = "圣诞冒险录",
+    TaskTitle = "圣诞冒险录",
+    UpgradeTitle = "圣诞冒险录",
+    UpgradeItem = 151,
+    UpgradePrice = 68,
+    ShopId = 3127250,
+    ExpItem = 3011891
+  },
+  [105623] = {
+    Title = "庆典冒险录",
+    TaskTitle = "庆典冒险录",
+    UpgradeTitle = "庆典冒险录",
+    UpgradeItem = 151,
+    UpgradePrice = 68,
+    ShopId = 3127410,
+    ExpItem = 3012450
   }
 }
 GameConfig.ActivityPuzzle = {
@@ -56200,8 +57121,8 @@ GameConfig.ActivityPuzzle = {
       }
     }
   },
-  labelText = "魔神坛斗士",
-  iconSprite = "tab_icon_kaizhuan_1"
+  labelText = "活动拼图",
+  iconSprite = "tab_icon_70"
 }
 GameConfig.ActivitySignIn = {
   [1] = {
@@ -58070,6 +58991,70 @@ GameConfig.FestivalSignin = {
         }
       }
     }
+  },
+  [104314] = {
+    ShowTime = 1,
+    HelpID = 35209,
+    MenuID = 10000008,
+    ActivityName = "感恩回馈",
+    Newbie = 0,
+    ActivityIcon = "tab_icon_124",
+    SigninReward = {
+      [1] = {
+        Item = {
+          {140, 100},
+          {5261, 2},
+          {135, 20}
+        }
+      },
+      [2] = {
+        Item = {
+          {3720, 2},
+          {110, 500},
+          {12571, 10}
+        }
+      },
+      [3] = {
+        Item = {
+          {140, 100},
+          {5261, 2},
+          {12572, 10}
+        }
+      },
+      [4] = {
+        Item = {
+          {3720, 2},
+          {110, 500},
+          {7300, 10}
+        }
+      },
+      [5] = {
+        Item = {
+          {140, 100},
+          {5261, 2},
+          {52836, 50}
+        }
+      },
+      [6] = {
+        Item = {
+          {3720, 2},
+          {110, 500},
+          {3006025, 1}
+        }
+      },
+      [7] = {
+        Item = {
+          {140, 300},
+          {5261, 3},
+          {6997, 1}
+        },
+        FemaleItem = {
+          {140, 300},
+          {5261, 3},
+          {6997, 1}
+        }
+      }
+    }
   }
 }
 GameConfig.HitPollyActivity = {
@@ -59754,7 +60739,7 @@ GameConfig.Monopoly = {
           2556,
           2557
         },
-        param = {60003623},
+        param = {61001011},
         type = "faq"
       }
     }
@@ -59870,6 +60855,25 @@ GameConfig.Monopoly = {
         [2] = {60002257},
         [3] = {60002258}
       },
+      activityIcon = "tab_icon_84"
+    },
+    [101305] = {
+      circleRewards = {
+        [1] = {61000998},
+        [2] = {61000999},
+        [3] = {61001000},
+        [4] = {61001001},
+        [5] = {61001002},
+        [6] = {61001003}
+      },
+      diceItem = {
+        advance = 3012489,
+        advanceMax = 50,
+        normal = 3012488,
+        normalMax = 99
+      },
+      freedice = {max = 5, interval = 21600},
+      activityName = "波利大富翁",
       activityIcon = "tab_icon_84"
     }
   }
@@ -60002,6 +61006,822 @@ GameConfig.Postcard = {
   Anim2Duration = 0.9,
   Anim3Duration = 0.4,
   Anim4Duration = 0.4
+}
+GameConfig.Return = {
+  Common = {
+    BaseLv = 80,
+    FirstAFKDay = 30,
+    NormalAFKDay = 45,
+    ActivityIcon = "tab_icon_113",
+    ActivityName = "旅途再续",
+    Duration = 2592000,
+    ChatRoomText = {
+      [1] = "从今天开始回归，有要一起组队冒险的吗？",
+      [2] = "纯萌新，有人一起开荒吗？",
+      [3] = "求一个稳定队"
+    },
+    GuildJoinText = "「回归玩家」加入了本公会",
+    GuildLoginText = "「回归玩家」上线了！快来一起组队，完成周常副本，领取额外奖励！",
+    PveNpc = 893124,
+    PveNpcType = {
+      13,
+      28,
+      51,
+      40,
+      59,
+      62,
+      4,
+      46,
+      68,
+      69,
+      70,
+      71,
+      80
+    }
+  },
+  Feature = {
+    [104101] = {
+      TFOfflineCompareDate = "2021-12-15 05:00:00",
+      ReleaseOfflineCompareDate = "2021-12-22 05:00:00",
+      QuestID = 1114430001,
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {5516, 30},
+            {5800, 60}
+          }
+        },
+        [3] = {
+          Item = {
+            {6768, 60},
+            {6771, 6}
+          }
+        },
+        [4] = {
+          Item = {
+            {5868, 200},
+            {100, 3000000}
+          }
+        },
+        [5] = {
+          Item = {
+            {5516, 60},
+            {5800, 90}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1}
+          }
+        },
+        [7] = {
+          Item = {
+            {3005455, 1}
+          }
+        }
+      },
+      BuffID = 4431,
+      BuffDesc_1 = "组队加成：完成周常副本，为队员激活额外奖励",
+      BuffDesc_2 = "专属标识：聊天频道将有专属身份标识",
+      BuffDesc_3 = "经验加成：野外击杀魔物获得Base经验和Job经验+50%",
+      ShopType = 20262,
+      ShopID = 1,
+      ShopItemID = 3005457,
+      ReturnRewardID = 60002830,
+      ActivityRewardID = 60002831,
+      BindReward = {
+        {3004072, 2},
+        {3004074, 1},
+        {7117, 3}
+      }
+    },
+    [104102] = {
+      TFOfflineCompareDate = "2022-03-24 05:00:00",
+      ReleaseOfflineCompareDate = "2022-04-07 05:00:00",
+      QuestID = 1114430001,
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {5516, 30},
+            {5800, 60}
+          }
+        },
+        [3] = {
+          Item = {
+            {6768, 60},
+            {6771, 6}
+          }
+        },
+        [4] = {
+          Item = {
+            {5868, 200},
+            {100, 3000000}
+          }
+        },
+        [5] = {
+          Item = {
+            {5516, 60},
+            {5800, 90}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1}
+          }
+        },
+        [7] = {
+          Item = {
+            {3005455, 1}
+          }
+        }
+      },
+      BuffID = 4431,
+      BuffDesc_1 = "组队加成：完成周常副本，为队员激活额外奖励",
+      BuffDesc_2 = "专属标识：聊天频道将有专属身份标识",
+      BuffDesc_3 = "经验加成：野外击杀魔物获得Base经验和Job经验+50%",
+      ShopType = 20304,
+      ShopID = 1,
+      ShopItemID = 3006060,
+      ReturnRewardID = 60002830,
+      ActivityRewardID = 60003222,
+      BindReward = {
+        {6768, 30},
+        {380030, 3},
+        {6087, 5}
+      }
+    },
+    [104103] = {
+      TFOfflineCompareDate = "2022-06-30 05:00:00",
+      ReleaseOfflineCompareDate = "2022-07-13 05:00:00",
+      QuestID = 1114430001,
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {5516, 30},
+            {5800, 60}
+          }
+        },
+        [3] = {
+          Item = {
+            {6768, 60},
+            {6771, 6}
+          }
+        },
+        [4] = {
+          Item = {
+            {5868, 200},
+            {100, 3000000}
+          }
+        },
+        [5] = {
+          Item = {
+            {5516, 60},
+            {5800, 90}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1}
+          }
+        },
+        [7] = {
+          Item = {
+            {3005455, 1}
+          }
+        }
+      },
+      BuffID = 4431,
+      BuffDesc_1 = "组队加成：完成周常副本，为队员激活额外奖励",
+      BuffDesc_2 = "专属标识：聊天频道将有专属身份标识",
+      BuffDesc_3 = "经验加成：野外击杀魔物获得Base经验和Job经验+50%",
+      ShopType = 20334,
+      ShopID = 1,
+      ShopItemID = 3006900,
+      ReturnRewardID = 60002830,
+      ActivityRewardID = 60003488,
+      BindReward = {
+        {6768, 60},
+        {380030, 6},
+        {6087, 10}
+      }
+    },
+    [104104] = {
+      TFOfflineCompareDate = "2022-10-25 05:00:00",
+      ReleaseOfflineCompareDate = "2022-11-01 05:00:00",
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {5516, 30},
+            {5800, 60}
+          }
+        },
+        [3] = {
+          Item = {
+            {6768, 60},
+            {6771, 6}
+          }
+        },
+        [4] = {
+          Item = {
+            {5868, 200},
+            {100, 3000000}
+          }
+        },
+        [5] = {
+          Item = {
+            {5516, 60},
+            {5800, 90}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1}
+          }
+        },
+        [7] = {
+          Item = {
+            {3005455, 1}
+          }
+        }
+      },
+      BuffID = 4431,
+      BuffDesc_1 = "组队加成：完成周常副本，为队员激活额外奖励",
+      BuffDesc_2 = "专属标识：聊天频道将有专属身份标识",
+      BuffDesc_3 = "经验加成：野外击杀魔物获得Base经验和Job经验+50%",
+      ShopType = 20367,
+      ShopID = 1,
+      ShopItemID = 3007522,
+      ReturnRewardID = 60002830,
+      ActivityRewardID = 60003696,
+      BindReward = {
+        {6768, 60},
+        {380030, 6},
+        {6087, 10}
+      }
+    },
+    [104105] = {
+      TFOfflineCompareDate = "2022-12-25 05:00:00",
+      ReleaseOfflineCompareDate = "2023-01-01 05:00:00",
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {5516, 30},
+            {5800, 60}
+          }
+        },
+        [3] = {
+          Item = {
+            {6768, 60},
+            {6771, 6}
+          }
+        },
+        [4] = {
+          Item = {
+            {5868, 200},
+            {100, 3000000}
+          }
+        },
+        [5] = {
+          Item = {
+            {5516, 60},
+            {5800, 90}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1},
+            {5690, 30}
+          }
+        },
+        [7] = {
+          Item = {
+            {3007994, 1}
+          }
+        }
+      },
+      BuffID = 4454,
+      BuffDesc_1 = "组队加成：完成周常副本，为队员激活额外奖励",
+      BuffDesc_2 = "专属标识：聊天频道将有专属身份标识",
+      BuffDesc_3 = "经验加成：野外击杀魔物获得Base经验和Job经验+100%",
+      ShopType = 20390,
+      ShopID = 1,
+      ShopItemID = 3007990,
+      ReturnRewardID = 60002830,
+      ActivityRewardID = 60005883,
+      BindReward = {
+        {6768, 60},
+        {380030, 6},
+        {5868, 10}
+      }
+    },
+    [104106] = {
+      TFOfflineCompareDate = "2023-03-01 05:00:00",
+      ReleaseOfflineCompareDate = "2023-03-22 05:00:00",
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {5516, 30},
+            {5800, 60}
+          }
+        },
+        [3] = {
+          Item = {
+            {6768, 60},
+            {6771, 6}
+          }
+        },
+        [4] = {
+          Item = {
+            {5868, 200},
+            {100, 3000000}
+          }
+        },
+        [5] = {
+          Item = {
+            {5516, 60},
+            {5800, 90}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1},
+            {5690, 30}
+          }
+        },
+        [7] = {
+          Item = {
+            {3007994, 1}
+          }
+        }
+      },
+      BuffID = 4454,
+      BuffDesc_1 = "组队加成：完成周常副本，为队员激活额外奖励",
+      BuffDesc_2 = "专属标识：聊天频道将有专属身份标识",
+      BuffDesc_3 = "经验加成：野外击杀魔物获得Base经验和Job经验+100%",
+      ShopType = 20405,
+      ShopID = 1,
+      ShopItemID = 3008290,
+      ReturnRewardID = 60002830,
+      ActivityRewardID = 60005923,
+      BindReward = {
+        {6768, 60},
+        {380030, 6},
+        {5868, 10}
+      }
+    },
+    [104107] = {
+      TFOfflineCompareDate = "2023-08-31 05:00:00",
+      ReleaseOfflineCompareDate = "2023-09-20 05:00:00",
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {3009377, 1}
+          }
+        },
+        [3] = {
+          Item = {
+            {5800, 60},
+            {100, 1000000}
+          }
+        },
+        [4] = {
+          Item = {
+            {3009378, 1}
+          }
+        },
+        [5] = {
+          Item = {
+            {5800, 90},
+            {100, 2000000}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1},
+            {5690, 30}
+          }
+        },
+        [7] = {
+          Item = {
+            {3007994, 1}
+          }
+        }
+      },
+      BuffID = 4454,
+      RecallBuffID = 6942,
+      ActiveBuffID = 6943,
+      ShopType = 20463,
+      ShopID = 1,
+      ShopItemID = 3009370,
+      ShopType2 = 20472,
+      ShopItemID2 = 151,
+      ReturnRewardID = 61000280,
+      ActivityRewardID = 61000238,
+      BindReward = {
+        {6768, 60},
+        {3009541, 1},
+        {7463, 1}
+      }
+    },
+    [104108] = {
+      TFOfflineCompareDate = "2024-08-08 05:00:00",
+      ReleaseOfflineCompareDate = "2024-08-21 05:00:00",
+      SigninReward = {
+        [1] = {
+          Item = {
+            {3005462, 1},
+            {3005451, 1}
+          }
+        },
+        [2] = {
+          Item = {
+            {3009377, 1}
+          }
+        },
+        [3] = {
+          Item = {
+            {5800, 60},
+            {100, 1000000}
+          }
+        },
+        [4] = {
+          Item = {
+            {3009378, 1}
+          }
+        },
+        [5] = {
+          Item = {
+            {5800, 90},
+            {100, 2000000}
+          }
+        },
+        [6] = {
+          Item = {
+            {3005454, 1},
+            {5690, 30}
+          }
+        },
+        [7] = {
+          Item = {
+            {3011840, 1}
+          }
+        }
+      },
+      BuffID = 4454,
+      RecallBuffID = 6942,
+      ActiveBuffID = 6943,
+      ShopType = 20615,
+      ShopID = 1,
+      ShopItemID = 3011830,
+      ShopType2 = 20619,
+      ShopItemID2 = 151,
+      ReturnRewardID = 61000280,
+      ActivityRewardID = 61000861,
+      BindReward = {
+        {6768, 60},
+        {3009541, 1},
+        {7463, 1}
+      }
+    },
+    [104109] = {
+      TFOfflineCompareDate = "2024-12-26 05:00:00",
+      ReleaseOfflineCompareDate = "2025-01-08 05:00:00",
+      SigninReward = {
+        [1] = {
+          Item = {
+            {10000206, 1},
+            {140, 200}
+          }
+        },
+        [2] = {
+          Item = {
+            {6959, 1},
+            {5263, 10}
+          }
+        },
+        [3] = {
+          Item = {
+            {4617, 1},
+            {3720, 5}
+          }
+        },
+        [4] = {
+          Item = {
+            {3003080, 5},
+            {140, 200}
+          }
+        },
+        [5] = {
+          Item = {
+            {3006025, 1},
+            {5263, 10}
+          }
+        },
+        [6] = {
+          Item = {
+            {174, 5},
+            {3720, 5}
+          }
+        },
+        [7] = {
+          Item = {
+            {10000207, 1},
+            {52836, 200}
+          }
+        }
+      },
+      RecallBuffID = 6942,
+      ActiveBuffID = 6943,
+      ShopType = 20664,
+      ShopID = 1,
+      ShopItemID = 3012710,
+      ShopType2 = 20665,
+      ShopItemID2 = 100,
+      ReturnRewardID = 61000280,
+      ActivityRewardID = 61001152,
+      BindReward = {
+        {52836, 200},
+        {4832, 1},
+        {7463, 1}
+      }
+    }
+  }
+}
+GameConfig.Invitation = {
+  [104801] = {
+    ReturnActivityId = 104102,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {135, 15}
+    },
+    InvitationReward = {
+      [1] = {
+        {5690, 3},
+        {5868, 10}
+      },
+      [2] = {
+        {12308, 2},
+        {3004828, 15}
+      },
+      [3] = {
+        {380050, 1}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "    倾城之战再燃",
+    ShareActivityInfo = "回归者填写邀请码可领取【拾光邀请函】x30、【闪耀的符文石】x3、【料理兑换券】x5",
+    logo = "reflux_bg_logo5"
+  },
+  [104802] = {
+    ReturnActivityId = 104103,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {135, 15}
+    },
+    InvitationReward = {
+      [1] = {
+        {5690, 6},
+        {5868, 20}
+      },
+      [2] = {
+        {12308, 2},
+        {3004828, 30}
+      },
+      [3] = {
+        {380050, 2}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "嘿！我们游戏里见！",
+    ShareActivityInfo = "我有一份好友专属礼包要给你！填写邀请码可领取【拾光邀请函】x60、【闪耀的符文石】x6、【星降花蕊】x10（回归玩家限定）",
+    logo = "reflux_bg_logo"
+  },
+  [104803] = {
+    ReturnActivityId = 104104,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {135, 15}
+    },
+    InvitationReward = {
+      [1] = {
+        {5690, 6},
+        {5868, 20}
+      },
+      [2] = {
+        {12308, 2},
+        {3004828, 30}
+      },
+      [3] = {
+        {380050, 2}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "不负英雄之名",
+    ShareActivityInfo = "我有一份好友专属礼包要给你！填写邀请码可领取【拾光邀请函】x60、【闪耀的符文石】x6、【料理兑换券】x10（回归玩家限定）",
+    logo = "reflux_bg_logo"
+  },
+  [104805] = {
+    ReturnActivityId = 104105,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {7300, 10}
+    },
+    InvitationReward = {
+      [1] = {
+        {5690, 15},
+        {5868, 50}
+      },
+      [2] = {
+        {12308, 5},
+        {380030, 3}
+      },
+      [3] = {
+        {380050, 3}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "     六周年庆典",
+    ShareActivityInfo = "我有一份好友专属礼包要给你！填写邀请码可领取【拾光邀请函】x60、【闪耀的符文石】x6、【星降花蕊】x10（回归玩家限定）",
+    logo = "reflux_bg_logo"
+  },
+  [104806] = {
+    ReturnActivityId = 104106,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {7300, 10}
+    },
+    InvitationReward = {
+      [1] = {
+        {5690, 15},
+        {5868, 50}
+      },
+      [2] = {
+        {12308, 5},
+        {380030, 3}
+      },
+      [3] = {
+        {380050, 3}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "     嘿！我们游戏里见！",
+    ShareActivityInfo = "我有一份好友专属礼包要给你！填写邀请码可领取【拾光邀请函】x60、【闪耀的符文石】x6、【星降花蕊】x10（回归玩家限定）",
+    logo = "reflux_bg_logo"
+  },
+  [104807] = {
+    ReturnActivityId = 104107,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {7300, 10}
+    },
+    InvitationReward = {
+      [1] = {
+        {5690, 15},
+        {6914, 10}
+      },
+      [2] = {
+        {12308, 5},
+        {380030, 3}
+      },
+      [3] = {
+        {380050, 3}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "穿越历史尘埃 探寻古城真相",
+    ShareActivityInfo = "回归即可领取【拾光邀请函】x60、【武器部位自选礼盒】x1、【初级武器词条券】x1",
+    logo = "reflux_bg_logo"
+  },
+  [104808] = {
+    ReturnActivityId = 104108,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {7300, 10}
+    },
+    InvitationReward = {
+      [1] = {
+        {5690, 15},
+        {6914, 10}
+      },
+      [2] = {
+        {12308, 5},
+        {380030, 3}
+      },
+      [3] = {
+        {380050, 3}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "野外对决开启 联动职业降临",
+    ShareActivityInfo = "回归即可领取【拾光邀请函】x60、【武器部位自选礼盒】x1、【初级武器词条券】x1",
+    logo = "reflux_bg_logo"
+  },
+  [104809] = {
+    ReturnActivityId = 104109,
+    ActivityIcon = "tab_icon_111",
+    ActivityName = "呼朋唤友",
+    ShareReward = {
+      {7300, 10}
+    },
+    InvitationReward = {
+      [1] = {
+        {7300, 15},
+        {6914, 10}
+      },
+      [2] = {
+        {12308, 5},
+        {6959, 1}
+      },
+      [3] = {
+        {3003080, 5}
+      }
+    },
+    Sns_platform = {
+      [1] = "Wechat",
+      [2] = "QQ",
+      [3] = "Sina"
+    },
+    ShareActivityName = "周年庆进行中 +15券免费送",
+    ShareActivityInfo = "回归即可领取【诺伦卡片】x200、【武器部位自选礼盒】x1、【初级武器词条券】x1",
+    logo = "reflux_bg_logo"
+  }
 }
 GameConfig.ShortcutFuncParam = {
   [8019] = {
@@ -60440,6 +62260,46 @@ GameConfig.ShortcutFuncParam = {
     channel = 13,
     key = "Channel",
     chatFunctionIndex = 6
+  },
+  [10000133] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [10000134] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012620] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012621] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012622] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012623] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012624] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
+  },
+  [3012625] = {
+    channel = 3,
+    key = "Channel",
+    chatFunctionIndex = 6
   }
 }
 GameConfig.WishingTree = {
@@ -60548,6 +62408,36 @@ GameConfig.WishingTree = {
       [7] = {
         NpcName = "犬妖首领",
         TextWish = "知道单身狗是怎么叫的吗？——大概你已经知道了吧"
+      }
+    }
+  },
+  [104406] = {
+    InputDefault = "许下心愿，1月19日周年直播将抽取愿望，为你实现",
+    Reward = 61001045,
+    NpcWish = {
+      [1] = {
+        NpcName = "卡普拉服务人员",
+        TextWish = "卡普拉在未来也会提供最全面的服务！请以后也要继续支持卡普拉公司哦！"
+      },
+      [2] = {
+        NpcName = "国王波利",
+        TextWish = "希望本王的命运合成能让各位冒险者一夜暴富！"
+      },
+      [3] = {
+        NpcName = "忽克连",
+        TextWish = "想放个长假~锤子都冒火了！"
+      },
+      [4] = {
+        NpcName = "猫小友",
+        TextWish = "我的愿望就是努力实现冒险者的愿望喵~"
+      },
+      [5] = {
+        NpcName = "艾莉儿",
+        TextWish = "希望未来能认识更多的冒险者呢！"
+      },
+      [6] = {
+        NpcName = "B格猫星人",
+        TextWish = "祝交易所生意越来越火爆，我已经准备好开分店啦"
       }
     }
   }

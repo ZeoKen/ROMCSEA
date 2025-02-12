@@ -1,4 +1,30 @@
 Table_FuncState = {
+  [16] = {
+    id = 16,
+    Type = "monengguanzhu",
+    Param = _EmptyTable,
+    TimeID = 132,
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
+    NpcFunction = _EmptyTable,
+    NpcID = _EmptyTable,
+    QuestID = _EmptyTable,
+    ShopItemID = _EmptyTable,
+    ItemID = {
+      62570,
+      62571,
+      62572,
+      62573
+    },
+    MapID = _EmptyTable,
+    MenuID = _EmptyTable
+  },
   [17] = {
     id = 17,
     Type = "polly",
@@ -221,20 +247,6 @@ Table_FuncState = {
     MapID = _EmptyTable,
     MenuID = {6210}
   },
-  [1006] = {
-    id = 1006,
-    Type = "refine_transfer_forbidden",
-    Param = _EmptyTable,
-    TimeID = 101,
-    ServerID = {1},
-    NpcFunction = _EmptyTable,
-    NpcID = _EmptyTable,
-    QuestID = _EmptyTable,
-    ShopItemID = _EmptyTable,
-    ItemID = _EmptyTable,
-    MapID = _EmptyTable,
-    MenuID = _EmptyTable
-  },
   [1007] = {
     id = 1007,
     Type = "enchant_transfer_forbidden",
@@ -267,15 +279,10 @@ Table_FuncState = {
     id = 1009,
     Type = "equip_compose_forbidden",
     Param = _EmptyTable,
-    TimeID = 101,
+    TimeID = 175,
     ServerID = {1},
-    NpcFunction = {10013},
-    NpcID = {
-      4865,
-      826609,
-      805185,
-      4864
-    },
+    NpcFunction = _EmptyTable,
+    NpcID = _EmptyTable,
     QuestID = _EmptyTable,
     ShopItemID = _EmptyTable,
     ItemID = {
@@ -539,6 +546,25 @@ Table_FuncState = {
     ServerID = {1},
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
+    QuestID = _EmptyTable,
+    ShopItemID = _EmptyTable,
+    ItemID = _EmptyTable,
+    MapID = _EmptyTable,
+    MenuID = _EmptyTable
+  },
+  [1023] = {
+    id = 1023,
+    Type = "monengguanzhu_novice_npc",
+    Param = _EmptyTable,
+    TimeID = 101,
+    ServerID = {1},
+    NpcFunction = _EmptyTable,
+    NpcID = {
+      4865,
+      826609,
+      805185,
+      4864
+    },
     QuestID = _EmptyTable,
     ShopItemID = _EmptyTable,
     ItemID = _EmptyTable,

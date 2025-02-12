@@ -65,7 +65,7 @@ end
 
 function GVGRedPacketSendView:InitData()
   GVGRedPacketSendView.super.InitData(self)
-  local config = Table_Guild_StrongHold[self.data.gvg_cityid]
+  local config = GvgProxy.GetStrongHoldStaticData(self.data.gvg_cityid)
   local cityType = config and config.CityType or 0
   local cityData = GameConfig.GvgNewConfig.citytype_data[cityType]
   self.maxBlessNum = cityData and cityData.praise_red_packet_cnt or 0

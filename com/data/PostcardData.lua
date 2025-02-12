@@ -1,5 +1,4 @@
 PostcardData = class("PostcardData")
-autoImport("Table_QuestPostcard")
 
 function PostcardData:ctor(style)
   self.style = style or 1

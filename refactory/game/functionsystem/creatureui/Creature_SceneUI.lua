@@ -93,7 +93,6 @@ function Creature_SceneUI:DoConstruct(asArray, creature)
   creature.sceneui = self
   self.roleTopUI = Creature_SceneTopUI.CreateAsTable(creature)
   self.roleBottomUI = Creature_SceneBottomUI.CreateAsTable(creature)
-  self.roleBottomUI:checkCreateNameFaction(creature)
 end
 
 function Creature_SceneUI:DoDeconstruct(asArray)

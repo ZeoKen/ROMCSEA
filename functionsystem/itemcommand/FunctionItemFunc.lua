@@ -314,7 +314,17 @@ function FunctionItemFunc.OffEquip_Fashion(data, pos)
   if not data:CanIOffEquip() then
     return
   end
-  ServiceItemProxy.Instance:CallEquip(SceneItem_pb.EEQUIPOPER_OFFFASHION, pos, data.staticData.id)
+  if data.deltime and data.deltime > 0 then
+    Game.LogicManager_Myself_Userdata:SetChangeDressDirty()
+    local site = RoleEquipBagData.GetEquipSiteByItemid(data.staticData.id)
+    local siteEquip = BagProxy.Instance.fashionEquipBag:GetEquipBySite(site)
+    xdlog("set dirty manual", data.id)
+    if siteEquip and siteEquip.id then
+      ServiceItemProxy.Instance:CallEquip(SceneItem_pb.EEQUIPOPER_OFFFASHION, pos, siteEquip.id)
+    end
+  else
+    ServiceItemProxy.Instance:CallEquip(SceneItem_pb.EEQUIPOPER_OFFFASHION, pos, data.staticData.id)
+  end
 end
 
 function FunctionItemFunc.DepositRepositoryEvt(data, count)
@@ -1238,40 +1248,68 @@ function FunctionItemFunc.TryUseItem(data, target, count)
         MsgManager.ShowMsgByID(43052)
       end
       return
-    elseif useEffect.type == "multi_gm" and (sdata.id == 12946 or sdata.id == 12983) then
-      count = count or 1
-      local subEffects = useEffect.effect
-      if subEffects then
-        for _, sub in pairs(subEffects) do
-          local items = ItemUtil.GetRewardItemIdsByTeamId(sub.id)
-          for _, item in pairs(items) do
-            if item.id == 300 then
-              local tempExpNeed = MyselfProxy.Instance:GetTotalNeedBaseExp()
-              local speedUpRatio = MyselfProxy.Instance:GetSpeedUpRatioByWhereAndType(4, 1)
-              local rawItemNum = (speedUpRatio / 100 + 1) * item.num
-              if tempExpNeed < rawItemNum * count then
-                MsgManager.ConfirmMsgByID(3399, function()
-                  FunctionItemFunc.DoUseItem(data, target, count)
-                end)
-                return
+    elseif useEffect.type == "multi_gm" then
+      if sdata.id == 12946 or sdata.id == 12983 then
+        count = count or 1
+        local subEffects = useEffect.effect
+        if subEffects then
+          for _, sub in pairs(subEffects) do
+            local items = ItemUtil.GetRewardItemIdsByTeamId(sub.id)
+            for _, item in pairs(items) do
+              if item.id == 300 then
+                local tempExpNeed = MyselfProxy.Instance:GetTotalNeedBaseExp()
+                local speedUpRatio = MyselfProxy.Instance:GetSpeedUpRatioByWhereAndType(4, 1)
+                local rawItemNum = (speedUpRatio / 100 + 1) * item.num
+                if tempExpNeed < rawItemNum * count then
+                  MsgManager.ConfirmMsgByID(3399, function()
+                    FunctionItemFunc.DoUseItem(data, target, count)
+                  end)
+                  return
+                end
               end
-            end
-            if item.id == 400 then
-              local tempJobExpNeed = MyselfProxy.Instance:GetTotalNeedJobExp()
-              speedUpRatio = MyselfProxy.Instance:GetSpeedUpRatioByWhereAndType(4, 2)
-              rawItemNum = (speedUpRatio / 100 + 1) * item.num
-              if tempJobExpNeed < rawItemNum * count then
-                MsgManager.ConfirmMsgByID(3399, function()
-                  FunctionItemFunc.DoUseItem(data, target, count)
-                end)
-                return
+              if item.id == 400 then
+                local tempJobExpNeed = MyselfProxy.Instance:GetTotalNeedJobExp()
+                speedUpRatio = MyselfProxy.Instance:GetSpeedUpRatioByWhereAndType(4, 2)
+                rawItemNum = (speedUpRatio / 100 + 1) * item.num
+                if tempJobExpNeed < rawItemNum * count then
+                  MsgManager.ConfirmMsgByID(3399, function()
+                    FunctionItemFunc.DoUseItem(data, target, count)
+                  end)
+                  return
+                end
               end
+              FunctionItemFunc.DoUseItem(data, target, count)
+              return
             end
-            FunctionItemFunc.DoUseItem(data, target, count)
-            return
           end
         end
       end
+    elseif useEffect.type == "add_portrait_frame" or useEffect.type == "add_background" or useEffect.type == "add_chat_frame" or useEffect.type == "add_portrait" then
+      local checkList
+      if useEffect.type == "add_portrait_frame" then
+        checkList = ChangeHeadProxy.Instance:GetFrameList()
+      elseif useEffect.type == "add_background" then
+        checkList = ChangeHeadProxy.Instance:GetBackgroundList()
+      elseif useEffect.type == "add_chat_frame" then
+        checkList = ChangeHeadProxy.Instance:GetChatframeList()
+      elseif useEffect.type == "add_portrait" then
+        checkList = ChangeHeadProxy.Instance:GetPortraitList()
+      end
+      if checkList and TableUtility.ArrayFindByPredicate(checkList, function(v, args)
+        return v.id == args
+      end, useItem.UseEffect.id) then
+        local isTimeLimit = useItem.UseEffect.valid_date ~= nil or useItem.UseEffect.triple_pvp_time ~= nil
+        if isTimeLimit then
+          MsgManager.ConfirmMsgByID(43591, function()
+            FunctionItemFunc.DoUseItem(data, target, count)
+          end, nil, nil)
+        else
+          FunctionItemFunc.DoUseItem(data, target, count)
+        end
+      else
+        FunctionItemFunc.DoUseItem(data, target, count)
+      end
+      return
     end
     if type(useItem.UsingSys) == "number" then
       MsgManager.ConfirmMsgByID(useItem.UsingSys, function()
@@ -1437,21 +1475,6 @@ function FunctionItemFunc.DoUseItem(data, target, count)
       return true
     elseif useEffectType == "show_local_npc_pos" then
       GameFacade.Instance:sendNotification(SceneUserEvent.ShowLocalNpcPos, useItem.UseEffect.npcid)
-    else
-      local checkList
-      if useEffectType == "add_portrait_frame" then
-        checkList = ChangeHeadProxy.Instance:GetFrameList()
-      elseif useEffectType == "add_background" then
-        checkList = ChangeHeadProxy.Instance:GetBackgroundList()
-      elseif useEffectType == "add_chat_frame" then
-        checkList = ChangeHeadProxy.Instance:GetChatframeList()
-      end
-      if checkList and TableUtility.ArrayFindByPredicate(checkList, function(v, args)
-        return v.id == args
-      end, useItem.UseEffect.id) then
-        MsgManager.ShowMsgByID(43511)
-        return
-      end
     end
   end
   if DungeonProxy.Instance:CheckRoguelikeItemUsable(sdata.id) then
@@ -1665,8 +1688,8 @@ function FunctionItemFunc.RecoverEquips(equipItems, confirmCall, cancelCall)
     if equipItem.equipInfo.refinelv >= GameConfig.Item.material_max_refine then
       table.insert(tipEquips, equipItem)
     end
-    local sCost, _card_needRv, _upgrade_needRv, _strength_needRv, _strength2_needRv, _enchant_needRv = EquipUtil.GetRecoverCost(equipItem, true, true, true, true, true, true)
-    if _card_needRv == true or _upgrade_needRv == true or _strength_needRv == true or _strength2_needRv == true or _enchant_needRv == true then
+    local sCost, _card_needRv, _upgrade_needRv, _strength_needRv, _strength2_needRv, _enchant_needRv, _quench_needRv = EquipUtil.GetRecoverCost(equipItem, true, true, true, true, true, true, true)
+    if _card_needRv == true or _upgrade_needRv == true or _strength_needRv == true or _strength2_needRv == true or _enchant_needRv == true or _quench_needRv == true then
       recoverCost = recoverCost + sCost
       recoverNames = recoverNames .. " " .. equipItem:GetName()
       table.insert(rv_Items, equipItem)
@@ -1701,7 +1724,7 @@ function FunctionItemFunc.RecoverEquips(equipItems, confirmCall, cancelCall)
         local hasenchant = item.enchantInfo and item.enchantInfo:HasAttri() or false
         local hasupgrade = equipInfo.equiplv > 0
         local hasmemory = item:HasMemoryInfo()
-        ServiceItemProxy.Instance:CallRestoreEquipItemCmd(item.id, false, cardids, hasenchant, hasupgrade, false, nil, false, false, hasmemory)
+        ServiceItemProxy.Instance:CallRestoreEquipItemCmd(item.id, false, cardids, hasenchant, hasupgrade, false, nil, true, false, hasmemory)
         if confirmCall then
           confirmCall()
         end

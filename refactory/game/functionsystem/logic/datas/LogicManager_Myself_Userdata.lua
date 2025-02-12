@@ -54,7 +54,8 @@ function LogicManager_Myself_Userdata:ctor()
     [111] = self.TryShowBullets,
     [601] = self.TryShowFrenzy,
     [661] = self.TryShowFeather,
-    [681] = self.TryUpdateHeinrich
+    [681] = self.TryUpdateHeinrich,
+    [771] = self.TryUpdateSunShine
   }
 end
 
@@ -108,6 +109,7 @@ end
 function LogicManager_Myself_Userdata:UpdateProfession(ncreature, userDataID, oldValue, newValue)
   ncreature:UpdateProfession()
   GameFacade.Instance:sendNotification(MyselfEvent.MyProfessionChange)
+  EventManager.Me():PassEvent(MyselfEvent.MyProfessionChange)
   FunctionItemCompare.Me():TryCompare()
   AstrolabeProxy.Instance:InitProfessionPlate_PropData(newValue)
   self:HandleProfessionEffect(ncreature, userDataID, oldValue, newValue)
@@ -166,7 +168,8 @@ function LogicManager_Myself_Userdata:UpdateJobLevel(ncreature, userDataID, oldV
   LogicManager_Myself_Userdata.super.UpdateJobLevel(self, ncreature, userDataID, oldValue, newValue)
   GameFacade.Instance:sendNotification(MyselfEvent.LevelUp)
   local check, oldJobLV, newJobLV = self:CheckShowJobLevel(oldValue, newValue)
-  if check and not changeJob and not MyselfProxy.Instance:CheckLevelUPData(SceneUserEvent.JobLevelUp) then
+  local node = UIManagerProxy.Instance:GetNodeByPanelConfig(PanelConfig.SkillView)
+  if check and not changeJob and not MyselfProxy.Instance:CheckLevelUPData(SceneUserEvent.JobLevelUp) and (not node or not node:IsShow()) then
     MyselfProxy.Instance:RecvLevelUPQueue(SceneUserEvent.JobLevelUp, oldJobLV)
     if not UIManagerProxy.Instance:HasUINode(PanelConfig.LevelUpPanel) then
       GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
@@ -191,8 +194,10 @@ function LogicManager_Myself_Userdata:CheckShowJobLevel(oldValue, newValue)
   if MyselfProxy.Instance:IsHero() then
     return oldValue < newValue, oldValue, newValue
   else
-    local oldJobLV = Table_JobLevel[oldValue].ShowLevel
-    local newJobLV = Table_JobLevel[newValue].ShowLevel
+    local oldConfig = Table_JobLevel[oldValue]
+    local newConfig = Table_JobLevel[newValue]
+    local oldJobLV = oldConfig.MasterLv and oldConfig.MasterLv > 0 and oldValue - 160 or oldConfig.ShowLevel
+    local newJobLV = newConfig.MasterLv and newConfig.MasterLv > 0 and newValue - 160 or newConfig.ShowLevel
     return oldJobLV < newJobLV, oldJobLV, newJobLV
   end
 end
@@ -424,5 +429,26 @@ end
 function LogicManager_Myself_Userdata:UpdateAddPointNotice(ncreature, userDataID, oldValue, newValue)
   if oldValue ~= newValue then
     GameFacade.Instance:sendNotification(MyselfEvent.LevelUp)
+  end
+end
+
+local Hero_SolarBuff = 139610
+
+function LogicManager_Myself_Userdata:TryUpdateSunShine(ncreature, userDataID, oldbranch, newbranch)
+  local myself = Game.Myself
+  local sceneUI = myself:GetSceneUI() or nil
+  if sceneUI then
+    local bufflayer = myself.data:GetBuffLayer(Hero_SolarBuff) or 0
+    if newbranch == 771 then
+      sceneUI.roleBottomUI:ShowSolarEnergy(true)
+      myself.data:UpdateSolarEnergyBuff(Hero_SolarBuff, bufflayer)
+    elseif oldbranch == 771 then
+      if not newbranch then
+        sceneUI.roleBottomUI:ShowSolarEnergy(true)
+        myself.data:UpdateSolarEnergyBuff(Hero_SolarBuff, bufflayer)
+      else
+        sceneUI.roleBottomUI:ShowSolarEnergy(false)
+      end
+    end
   end
 end

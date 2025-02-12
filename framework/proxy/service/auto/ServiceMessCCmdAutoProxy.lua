@@ -48,6 +48,24 @@ function ServiceMessCCmdAutoProxy:onRegister()
   self:Listen(83, 11, function(data)
     self:RecvSetPippiStateMessCCmd(data)
   end)
+  self:Listen(83, 12, function(data)
+    self:RecvSyncDestinyGraphMessCCmd(data)
+  end)
+  self:Listen(83, 13, function(data)
+    self:RecvLightenDestinyGraphMessCCmd(data)
+  end)
+  self:Listen(83, 14, function(data)
+    self:RecvAstralRewardMessCCmd(data)
+  end)
+  self:Listen(83, 15, function(data)
+    self:RecvPurifyProductsMaterialsMessCCmd(data)
+  end)
+  self:Listen(83, 16, function(data)
+    self:RecvPurifyProductsRefineMessCCmd(data)
+  end)
+  self:Listen(83, 17, function(data)
+    self:RecvAstralSyncSeasonInfoMessCCmd(data)
+  end)
 end
 
 function ServiceMessCCmdAutoProxy:CallChooseNewProfessionMessCCmd(bornprofession, chooseprofession)
@@ -337,6 +355,164 @@ function ServiceMessCCmdAutoProxy:CallSetPippiStateMessCCmd(summon, time, state)
   end
 end
 
+function ServiceMessCCmdAutoProxy:CallSyncDestinyGraphMessCCmd(graphinfos, curseason)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.SyncDestinyGraphMessCCmd()
+    if graphinfos ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.graphinfos == nil then
+        msg.graphinfos = {}
+      end
+      for i = 1, #graphinfos do
+        table.insert(msg.graphinfos, graphinfos[i])
+      end
+    end
+    if curseason ~= nil then
+      msg.curseason = curseason
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SyncDestinyGraphMessCCmd.id
+    local msgParam = {}
+    if graphinfos ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.graphinfos == nil then
+        msgParam.graphinfos = {}
+      end
+      for i = 1, #graphinfos do
+        table.insert(msgParam.graphinfos, graphinfos[i])
+      end
+    end
+    if curseason ~= nil then
+      msgParam.curseason = curseason
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallLightenDestinyGraphMessCCmd(season, point)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.LightenDestinyGraphMessCCmd()
+    if season ~= nil then
+      msg.season = season
+    end
+    if point ~= nil then
+      msg.point = point
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.LightenDestinyGraphMessCCmd.id
+    local msgParam = {}
+    if season ~= nil then
+      msgParam.season = season
+    end
+    if point ~= nil then
+      msgParam.point = point
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallAstralRewardMessCCmd(season, pass_num)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.AstralRewardMessCCmd()
+    if season ~= nil then
+      msg.season = season
+    end
+    if pass_num ~= nil then
+      msg.pass_num = pass_num
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.AstralRewardMessCCmd.id
+    local msgParam = {}
+    if season ~= nil then
+      msgParam.season = season
+    end
+    if pass_num ~= nil then
+      msgParam.pass_num = pass_num
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallPurifyProductsMaterialsMessCCmd(materials)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.PurifyProductsMaterialsMessCCmd()
+    if materials ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.materials == nil then
+        msg.materials = {}
+      end
+      for i = 1, #materials do
+        table.insert(msg.materials, materials[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.PurifyProductsMaterialsMessCCmd.id
+    local msgParam = {}
+    if materials ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.materials == nil then
+        msgParam.materials = {}
+      end
+      for i = 1, #materials do
+        table.insert(msgParam.materials, materials[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallPurifyProductsRefineMessCCmd(productid, times)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.PurifyProductsRefineMessCCmd()
+    if productid ~= nil then
+      msg.productid = productid
+    end
+    if times ~= nil then
+      msg.times = times
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.PurifyProductsRefineMessCCmd.id
+    local msgParam = {}
+    if productid ~= nil then
+      msgParam.productid = productid
+    end
+    if times ~= nil then
+      msgParam.times = times
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallAstralSyncSeasonInfoMessCCmd(season)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.AstralSyncSeasonInfoMessCCmd()
+    if season ~= nil then
+      msg.season = season
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.AstralSyncSeasonInfoMessCCmd.id
+    local msgParam = {}
+    if season ~= nil then
+      msgParam.season = season
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceMessCCmdAutoProxy:RecvChooseNewProfessionMessCCmd(data)
   self:Notify(ServiceEvent.MessCCmdChooseNewProfessionMessCCmd, data)
 end
@@ -381,6 +557,30 @@ function ServiceMessCCmdAutoProxy:RecvSetPippiStateMessCCmd(data)
   self:Notify(ServiceEvent.MessCCmdSetPippiStateMessCCmd, data)
 end
 
+function ServiceMessCCmdAutoProxy:RecvSyncDestinyGraphMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdSyncDestinyGraphMessCCmd, data)
+end
+
+function ServiceMessCCmdAutoProxy:RecvLightenDestinyGraphMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdLightenDestinyGraphMessCCmd, data)
+end
+
+function ServiceMessCCmdAutoProxy:RecvAstralRewardMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdAstralRewardMessCCmd, data)
+end
+
+function ServiceMessCCmdAutoProxy:RecvPurifyProductsMaterialsMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdPurifyProductsMaterialsMessCCmd, data)
+end
+
+function ServiceMessCCmdAutoProxy:RecvPurifyProductsRefineMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdPurifyProductsRefineMessCCmd, data)
+end
+
+function ServiceMessCCmdAutoProxy:RecvAstralSyncSeasonInfoMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdAstralSyncSeasonInfoMessCCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.MessCCmdChooseNewProfessionMessCCmd = "ServiceEvent_MessCCmdChooseNewProfessionMessCCmd"
 ServiceEvent.MessCCmdInviterSendLoveConfessionMessCCmd = "ServiceEvent_MessCCmdInviterSendLoveConfessionMessCCmd"
@@ -393,3 +593,9 @@ ServiceEvent.MessCCmdInviterResultLoveConfessionMessCCmd = "ServiceEvent_MessCCm
 ServiceEvent.MessCCmdSyncMapStepForeverRewardInfo = "ServiceEvent_MessCCmdSyncMapStepForeverRewardInfo"
 ServiceEvent.MessCCmdBalanceModeChooseMessCCmd = "ServiceEvent_MessCCmdBalanceModeChooseMessCCmd"
 ServiceEvent.MessCCmdSetPippiStateMessCCmd = "ServiceEvent_MessCCmdSetPippiStateMessCCmd"
+ServiceEvent.MessCCmdSyncDestinyGraphMessCCmd = "ServiceEvent_MessCCmdSyncDestinyGraphMessCCmd"
+ServiceEvent.MessCCmdLightenDestinyGraphMessCCmd = "ServiceEvent_MessCCmdLightenDestinyGraphMessCCmd"
+ServiceEvent.MessCCmdAstralRewardMessCCmd = "ServiceEvent_MessCCmdAstralRewardMessCCmd"
+ServiceEvent.MessCCmdPurifyProductsMaterialsMessCCmd = "ServiceEvent_MessCCmdPurifyProductsMaterialsMessCCmd"
+ServiceEvent.MessCCmdPurifyProductsRefineMessCCmd = "ServiceEvent_MessCCmdPurifyProductsRefineMessCCmd"
+ServiceEvent.MessCCmdAstralSyncSeasonInfoMessCCmd = "ServiceEvent_MessCCmdAstralSyncSeasonInfoMessCCmd"

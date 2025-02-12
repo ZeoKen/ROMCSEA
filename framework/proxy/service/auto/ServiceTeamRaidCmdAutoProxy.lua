@@ -44,7 +44,7 @@ function ServiceTeamRaidCmdAutoProxy:onRegister()
   end)
 end
 
-function ServiceTeamRaidCmdAutoProxy:CallTeamRaidInviteCmd(iscancel, raid_type, difficulty, entranceid, lefttime)
+function ServiceTeamRaidCmdAutoProxy:CallTeamRaidInviteCmd(iscancel, raid_type, difficulty, entranceid, lefttime, out_raid)
   if not NetConfig.PBC then
     local msg = TeamRaidCmd_pb.TeamRaidInviteCmd()
     if iscancel ~= nil then
@@ -61,6 +61,9 @@ function ServiceTeamRaidCmdAutoProxy:CallTeamRaidInviteCmd(iscancel, raid_type, 
     end
     if lefttime ~= nil then
       msg.lefttime = lefttime
+    end
+    if out_raid ~= nil then
+      msg.out_raid = out_raid
     end
     self:SendProto(msg)
   else
@@ -80,6 +83,9 @@ function ServiceTeamRaidCmdAutoProxy:CallTeamRaidInviteCmd(iscancel, raid_type, 
     end
     if lefttime ~= nil then
       msgParam.lefttime = lefttime
+    end
+    if out_raid ~= nil then
+      msgParam.out_raid = out_raid
     end
     self:SendProto2(msgId, msgParam)
   end

@@ -63,7 +63,7 @@ function ChatRoomCell:FindObjs()
   self.chatContent = self:FindGO("chatContent"):GetComponent(UILabel)
   self.clickUrl = self.chatContent.gameObject:GetComponent(UILabelClickUrl)
   self.contentSprite = self:FindGO("contentSpriteBg")
-  self.contentSpriteBg = self.contentSprite:GetComponent(UISprite)
+  self.contentSpriteBg = self.contentSprite:GetComponent(UITexture)
   self.speechBg = self:FindGO("speechBg")
   self.speechTime = self:FindGO("speechTime"):GetComponent(UILabel)
   self.voiceTween = self:FindGO("voice"):GetComponent(TweenColor)
@@ -97,7 +97,7 @@ function ChatRoomCell:FindObjs()
   for i = 1, 4 do
     self["bgDecorate" .. i] = self:FindGO("bgDecorate" .. i)
     if self["bgDecorate" .. i] then
-      self["bgDecorate" .. i .. "_Icon"] = self["bgDecorate" .. i]:GetComponent(UISprite)
+      self["bgDecorate" .. i .. "_Icon"] = self["bgDecorate" .. i]:GetComponent(UITexture)
     end
   end
   self:InitTipoff()

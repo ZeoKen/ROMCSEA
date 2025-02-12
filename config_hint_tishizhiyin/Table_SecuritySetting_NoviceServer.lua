@@ -38,6 +38,11 @@ Table_SecuritySetting = {
     id = 13,
     Desc = "多职业购买",
     param = _EmptyTable
+  },
+  [14] = {
+    id = 14,
+    Desc = "公会神器分解",
+    param = _EmptyTable
   }
 }
 Table_SecuritySetting_fields = {

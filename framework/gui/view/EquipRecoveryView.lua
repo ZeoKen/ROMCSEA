@@ -62,7 +62,7 @@ function EquipRecoveryView:InitView()
   self.chooseListCtrl = ListCtrl.new(self.chooseTable, EquipRecoveryFatherCell, "EquipRecoveryFatherCell")
   self.chooseListCtrl:AddEventListener(MouseEvent.MouseClick, self.OnClickChooseListCell, self)
   self.chooseListCtrl:AddEventListener(EquipChooseCellEvent.ClickItemIcon, self.OnClickChooseListCellIcon, self)
-  IconManager:SetItemIcon("item_100", self.coinIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.coinIcon)
   self.chooseBordTween:SetOnFinished(function()
     if self.isShowingChooseBord then
       return

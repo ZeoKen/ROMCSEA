@@ -806,6 +806,14 @@ function TeamProxy:GetMyTeamMemberData()
   return self.myTeam:GetMemberByGuid(Game.Myself.data.id)
 end
 
+function TeamProxy:CheckMyselfAutoFollowIsOpen()
+  local md = self:GetMyTeamMemberData()
+  if md then
+    return md.autofollow == 1
+  end
+  return false
+end
+
 function TeamProxy:UpdateAroundTeamList(list, type)
   TableUtility.ArrayClear(self.aroundTeamList)
   TableUtility.TableClear(self.mainSubTeamIndex)

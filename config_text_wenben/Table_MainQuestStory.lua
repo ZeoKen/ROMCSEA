@@ -295,6 +295,78 @@ Table_MainQuestStory = {
     Mstory = {504162},
     PuzzleReward = {3779},
     LvRange = {100, 115}
+  },
+  [38] = {
+    id = 38,
+    version = "5.0",
+    index = 1,
+    QuestName = "##1287527",
+    Mstory = {504163},
+    PuzzleReward = {3850},
+    LvRange = {108}
+  },
+  [39] = {
+    id = 39,
+    version = "5.0",
+    index = 2,
+    QuestName = "##1287528",
+    Mstory = _EmptyTable,
+    PuzzleReward = _EmptyTable,
+    LvRange = {110}
+  },
+  [40] = {
+    id = 40,
+    version = "5.0",
+    index = 3,
+    QuestName = "##1287529",
+    Mstory = {504165},
+    PuzzleReward = {3851},
+    LvRange = {110}
+  },
+  [41] = {
+    id = 41,
+    version = "5.0",
+    index = 4,
+    QuestName = "##1287530",
+    Mstory = _EmptyTable,
+    PuzzleReward = _EmptyTable,
+    LvRange = {110}
+  },
+  [42] = {
+    id = 42,
+    version = "5.0",
+    index = 5,
+    QuestName = "##146184",
+    Mstory = {504167},
+    PuzzleReward = {3852},
+    LvRange = {110}
+  },
+  [43] = {
+    id = 43,
+    version = "6.0",
+    index = 1,
+    QuestName = "##1287531",
+    Mstory = {504168},
+    PuzzleReward = {3906},
+    LvRange = {110}
+  },
+  [44] = {
+    id = 44,
+    version = "6.0",
+    index = 2,
+    QuestName = "##1287532",
+    Mstory = {504169},
+    PuzzleReward = {3907},
+    LvRange = {110}
+  },
+  [45] = {
+    id = 45,
+    version = "6.0",
+    index = 3,
+    QuestName = "##1287533",
+    Mstory = {504170},
+    PuzzleReward = {3908},
+    LvRange = {110}
   }
 }
 Table_MainQuestStory_fields = {

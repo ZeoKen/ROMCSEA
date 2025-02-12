@@ -48,13 +48,13 @@ function EquipUtil.CalcEquipUpgradeCost(id, count)
   return result, costZeny
 end
 
-function EquipUtil.GetRecoverCost(itemData, card_rv, upgrade_rv, strength_rv, enchant_rv, strength_rv2, ignoreVIP)
+function EquipUtil.GetRecoverCost(itemData, card_rv, upgrade_rv, strength_rv, enchant_rv, strength_rv2, ignoreVIP, quench_rv)
   if itemData == nil then
     return 0
   end
   local recoverConfig = GameConfig.EquipRecover
   local resultCost = 0
-  local _card_needRv, _upgrade_needRv, _strength_needRv, _enchant_needRv, _strength2_needRv
+  local _card_needRv, _upgrade_needRv, _strength_needRv, _enchant_needRv, _strength2_needRv, _quench_needRv
   if card_rv and (not NewRechargeProxy.Ins:AmIMonthlyVIP() or ignoreVIP) then
     local equipCards = itemData.equipedCardInfo
     if equipCards and 0 < #equipCards then
@@ -89,5 +89,9 @@ function EquipUtil.GetRecoverCost(itemData, card_rv, upgrade_rv, strength_rv, en
     resultCost = resultCost + recoverConfig.Enchant
     _enchant_needRv = true
   end
-  return resultCost, _card_needRv, _upgrade_needRv, _strength_needRv, _strength2_needRv, _enchant_needRv
+  if quench_rv and itemData:HasQuench() then
+    resultCost = resultCost + recoverConfig.Quench
+    _quench_needRv = true
+  end
+  return resultCost, _card_needRv, _upgrade_needRv, _strength_needRv, _strength2_needRv, _enchant_needRv, _quench_needRv
 end

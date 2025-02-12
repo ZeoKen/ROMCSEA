@@ -564,7 +564,6 @@ end
 
 function QuestManualProxy:GetStoryIndexInfo(version, index)
   if not self.questStoryInfo[version] then
-    redlog("无version")
     return
   end
   return self.questStoryInfo[version][index]
@@ -572,11 +571,9 @@ end
 
 function QuestManualProxy:GetQuestIndexStatus(version, index)
   if not version then
-    redlog("无version")
     return
   end
   if not index then
-    redlog("无 index")
     return
   end
   local versionInfo = self.questStoryInfo[version]

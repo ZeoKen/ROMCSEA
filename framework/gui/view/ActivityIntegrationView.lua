@@ -191,6 +191,7 @@ function ActivityIntegrationView:InitShow()
         elseif type == 6 then
           local activityId = staticData.Params.ActivityId
           local timeValid = ActivityIntegrationProxy.Instance:CheckActPersinalActValid(activityId)
+          xdlog("任务页  是否满足", timeValid)
           if timeValid then
             local actPersonalData = Table_ActPersonalTimer[activityId]
             local createDayBase = ActivityIntegrationProxy.Instance:IsActBasedOnCreateDay(activityId)

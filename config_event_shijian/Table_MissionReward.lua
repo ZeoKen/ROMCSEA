@@ -421,6 +421,385 @@ Table_MissionReward = {
     FeMaleReward = {
       {110, 200}
     }
+  },
+  [106202001] = {
+    id = 106202001,
+    QuestName = "##3501752",
+    ActID = 106202,
+    Index = 0,
+    Type = "AllReward",
+    Quests = _EmptyTable,
+    Main_Version = "",
+    MaleReward = {
+      {25175, 1}
+    },
+    FeMaleReward = {
+      {25175, 1}
+    }
+  },
+  [106202002] = {
+    id = 106202002,
+    QuestName = "##1287527",
+    ActID = 106202,
+    Index = 1,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "5.0",
+    Main_Index = 1,
+    MaleReward = {
+      {52836, 50}
+    },
+    FeMaleReward = {
+      {52836, 50}
+    }
+  },
+  [106202003] = {
+    id = 106202003,
+    QuestName = "##1287528",
+    ActID = 106202,
+    Index = 2,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "5.0",
+    Main_Index = 2,
+    MaleReward = {
+      {52836, 50}
+    },
+    FeMaleReward = {
+      {52836, 50}
+    }
+  },
+  [106202004] = {
+    id = 106202004,
+    QuestName = "##1287529",
+    ActID = 106202,
+    Index = 3,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "5.0",
+    Main_Index = 3,
+    MaleReward = {
+      {52836, 50}
+    },
+    FeMaleReward = {
+      {52836, 50}
+    }
+  },
+  [106202005] = {
+    id = 106202005,
+    QuestName = "##1287530",
+    ActID = 106202,
+    Index = 4,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "5.0",
+    Main_Index = 4,
+    MaleReward = {
+      {52836, 50}
+    },
+    FeMaleReward = {
+      {52836, 50}
+    }
+  },
+  [106202006] = {
+    id = 106202006,
+    QuestName = "##146184",
+    ActID = 106202,
+    Index = 5,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "5.0",
+    Main_Index = 5,
+    MaleReward = {
+      {52836, 50}
+    },
+    FeMaleReward = {
+      {52836, 50}
+    }
+  },
+  [106202007] = {
+    id = 106202007,
+    QuestName = "##152766",
+    ActID = 106202,
+    Index = 7,
+    Type = "Branch",
+    Quests = {602140001},
+    Main_Version = "",
+    MaleReward = {
+      {5263, 5}
+    },
+    FeMaleReward = {
+      {5263, 5}
+    }
+  },
+  [106202008] = {
+    id = 106202008,
+    QuestName = "##145780",
+    ActID = 106202,
+    Index = 8,
+    Type = "Branch",
+    Quests = {602160001},
+    Main_Version = "",
+    MaleReward = {
+      {5263, 5}
+    },
+    FeMaleReward = {
+      {5263, 5}
+    }
+  },
+  [106202009] = {
+    id = 106202009,
+    QuestName = "##106544",
+    ActID = 106202,
+    Index = 9,
+    Type = "Collection",
+    Quests = {
+      204260001,
+      204280001,
+      204300001,
+      204320001,
+      204340001
+    },
+    Main_Version = "",
+    MaleReward = {
+      {3720, 3}
+    },
+    FeMaleReward = {
+      {3720, 3}
+    }
+  },
+  [106202010] = {
+    id = 106202010,
+    QuestName = "##106527",
+    ActID = 106202,
+    Index = 10,
+    Type = "Collection",
+    Quests = {
+      204640001,
+      204650001,
+      204660001,
+      204670001,
+      204680001,
+      204690001,
+      204700001,
+      204710001,
+      204720001,
+      204730001
+    },
+    Main_Version = "",
+    MaleReward = {
+      {3720, 3}
+    },
+    FeMaleReward = {
+      {3720, 3}
+    }
+  },
+  [106202011] = {
+    id = 106202011,
+    QuestName = "##106562",
+    ActID = 106202,
+    Index = 11,
+    Type = "Collection",
+    Quests = {204630001},
+    Main_Version = "",
+    MaleReward = {
+      {3720, 3}
+    },
+    FeMaleReward = {
+      {3720, 3}
+    }
+  },
+  [106202012] = {
+    id = 106202012,
+    QuestName = "##106568",
+    ActID = 106202,
+    Index = 12,
+    Type = "Collection",
+    Quests = {
+      204490001,
+      204500001,
+      204510001,
+      204520001,
+      204530001,
+      204540001,
+      204550001,
+      204560001
+    },
+    Main_Version = "",
+    MaleReward = {
+      {3720, 3}
+    },
+    FeMaleReward = {
+      {3720, 3}
+    }
+  },
+  [106203001] = {
+    id = 106203001,
+    QuestName = "##3501752",
+    ActID = 106203,
+    Index = 0,
+    Type = "AllReward",
+    Quests = _EmptyTable,
+    Main_Version = "",
+    MaleReward = {
+      {700181, 1}
+    },
+    FeMaleReward = {
+      {700181, 1}
+    }
+  },
+  [106203002] = {
+    id = 106203002,
+    QuestName = "##1287531",
+    ActID = 106203,
+    Index = 1,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "6.0",
+    Main_Index = 1,
+    MaleReward = {
+      {52836, 100}
+    },
+    FeMaleReward = {
+      {52836, 100}
+    }
+  },
+  [106203003] = {
+    id = 106203003,
+    QuestName = "##1287532",
+    ActID = 106203,
+    Index = 2,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "6.0",
+    Main_Index = 2,
+    MaleReward = {
+      {52836, 100}
+    },
+    FeMaleReward = {
+      {52836, 100}
+    }
+  },
+  [106203004] = {
+    id = 106203004,
+    QuestName = "##1287533",
+    ActID = 106203,
+    Index = 3,
+    Type = "Main",
+    Quests = _EmptyTable,
+    Main_Version = "6.0",
+    Main_Index = 3,
+    MaleReward = {
+      {52836, 100}
+    },
+    FeMaleReward = {
+      {52836, 100}
+    }
+  },
+  [106203005] = {
+    id = 106203005,
+    QuestName = "##253347",
+    ActID = 106203,
+    Index = 4,
+    Type = "Branch",
+    Quests = {206110001},
+    Main_Version = "",
+    MaleReward = {
+      {5263, 4}
+    },
+    FeMaleReward = {
+      {5263, 4}
+    }
+  },
+  [106203006] = {
+    id = 106203006,
+    QuestName = "##253433",
+    ActID = 106203,
+    Index = 5,
+    Type = "Branch",
+    Quests = {206120001},
+    Main_Version = "",
+    MaleReward = {
+      {5263, 4}
+    },
+    FeMaleReward = {
+      {5263, 4}
+    }
+  },
+  [106203007] = {
+    id = 106203007,
+    QuestName = "##136057",
+    ActID = 106203,
+    Index = 6,
+    Type = "Branch",
+    Quests = {206190009},
+    Main_Version = "",
+    MaleReward = {
+      {5263, 4}
+    },
+    FeMaleReward = {
+      {5263, 4}
+    }
+  },
+  [106203008] = {
+    id = 106203008,
+    QuestName = "##152777",
+    ActID = 106203,
+    Index = 7,
+    Type = "Branch",
+    Quests = {602390001},
+    Main_Version = "",
+    MaleReward = {
+      {5263, 4}
+    },
+    FeMaleReward = {
+      {5263, 4}
+    }
+  },
+  [106203009] = {
+    id = 106203009,
+    QuestName = "##106663",
+    ActID = 106203,
+    Index = 8,
+    Type = "Collection",
+    Quests = {205620001},
+    Main_Version = "",
+    MaleReward = {
+      {3720, 3}
+    },
+    FeMaleReward = {
+      {3720, 3}
+    }
+  },
+  [106203010] = {
+    id = 106203010,
+    QuestName = "##106574",
+    ActID = 106203,
+    Index = 9,
+    Type = "Collection",
+    Quests = {205910001},
+    Main_Version = "",
+    MaleReward = {
+      {3720, 3}
+    },
+    FeMaleReward = {
+      {3720, 3}
+    }
+  },
+  [106203011] = {
+    id = 106203011,
+    QuestName = "##106612",
+    ActID = 106203,
+    Index = 10,
+    Type = "Collection",
+    Quests = {205980001},
+    Main_Version = "",
+    MaleReward = {
+      {3720, 3}
+    },
+    FeMaleReward = {
+      {3720, 3}
+    }
   }
 }
 Table_MissionReward_fields = {

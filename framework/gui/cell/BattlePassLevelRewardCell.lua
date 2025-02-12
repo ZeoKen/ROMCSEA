@@ -101,9 +101,9 @@ function BattlePassLevelRewardCell:SetData(data)
   self.data = data
   self.level = data.Level or 0
   self.name.text = "Lv" .. self.level
-  self:SetRewardIcon(self.basicCon, data.RewardItems)
-  self:SetRewardIcon(self.adv1Con, data.ProRewardItems)
-  self:SetRewardIcon(self.adv2Con, data.SuperRewardItems)
+  self:SetRewardIcon(self.basicCon, data.ReplaceRewardItems or data.RewardItems)
+  self:SetRewardIcon(self.adv1Con, data.ReplaceProRewardItems or data.ProRewardItems)
+  self:SetRewardIcon(self.adv2Con, data.ReplaceSuperRewardItems or data.SuperRewardItems)
   self:UpdateStatus()
   self:SetAllRewardUnSelect()
   local hasColl = BattlePassProxy.Instance:HasColPass()
@@ -128,9 +128,9 @@ function BattlePassLevelRewardCell:UpdateStatus()
   self.isNormalLock = self.level > BattlePassProxy.BPLevel()
   self.isAdvLock = self.level > BattlePassProxy.BPLevel() or self.level > BattlePassProxy.Instance:AdvLevel()
   self.isSuLock = self.level > BattlePassProxy.BPLevel() or self.level > BattlePassProxy.Instance:SuLevel()
-  self.isNormalHasReward = self.data.RewardItems and #self.data.RewardItems > 0 or false
-  self.isAdvHasReward = self.data.ProRewardItems and 0 < #self.data.ProRewardItems or false
-  self.isSuHasReward = self.data.SuperRewardItems and 0 < #self.data.SuperRewardItems or false
+  self.isNormalHasReward = self.data.ReplaceRewardItems ~= nil or self.data.RewardItems and #self.data.RewardItems > 0 or false
+  self.isAdvHasReward = self.data.ReplaceProRewardItems ~= nil or self.data.ProRewardItems and 0 < #self.data.ProRewardItems or false
+  self.isSuHasReward = self.data.ReplaceSuperRewardItems ~= nil or self.data.SuperRewardItems and 0 < #self.data.SuperRewardItems or false
   self.isNormalAvail = not self.isNormalGet and not self.isNormalLock and self.isNormalHasReward
   self.isAdvAvail = not self.isAdvGet and not self.isAdvLock and self.isAdvHasReward
   self.isSuAvail = not self.isSuGet and not self.isSuLock and self.isSuHasReward

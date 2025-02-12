@@ -155,15 +155,18 @@ function BattlePassProxy:IsSuRewardGet(level)
 end
 
 function BattlePassProxy:IsNormalRewardNotEmpty(level)
-  return Table_BattlePassLevel[level + self.IdOffset] and Table_BattlePassLevel[level + self.IdOffset].RewardItems and #Table_BattlePassLevel[level + self.IdOffset].RewardItems > 0
+  local config = Table_BattlePassLevel[level + self.IdOffset]
+  return config and (config.ReplaceRewardItems or config.RewardItems and #config.RewardItems > 0)
 end
 
 function BattlePassProxy:IsAdvRewardNotEmpty(level)
-  return Table_BattlePassLevel[level + self.IdOffset] and Table_BattlePassLevel[level + self.IdOffset].ProRewardItems and #Table_BattlePassLevel[level + self.IdOffset].ProRewardItems > 0
+  local config = Table_BattlePassLevel[level + self.IdOffset]
+  return config and (config.ReplaceProRewardItems or config.ProRewardItems and #config.ProRewardItems > 0)
 end
 
 function BattlePassProxy:IsSuRewardNotEmpty(level)
-  return Table_BattlePassLevel[level + self.IdOffset] and Table_BattlePassLevel[level + self.IdOffset].SuperRewardItems and #Table_BattlePassLevel[level + self.IdOffset].SuperRewardItems > 0
+  local config = Table_BattlePassLevel[level + self.IdOffset]
+  return config and (config.ReplaceSuperRewardItems or config.SuperRewardItems and #config.SuperRewardItems > 0)
 end
 
 function BattlePassProxy:GetNextImportantLv(lv)

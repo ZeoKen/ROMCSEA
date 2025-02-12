@@ -242,6 +242,130 @@ Table_Class_t = {
       {name = "Luk", value = 30}
     }
   },
+  LimitMasterSkills = {
+    {
+      [2] = {
+        5690001,
+        5691001,
+        5692001,
+        5693001
+      }
+    },
+    {
+      [2] = {
+        6090001,
+        6091001,
+        6092001,
+        6093001
+      }
+    }
+  },
+  MasterSkills = {
+    {
+      {
+        5300001,
+        5301001,
+        5302001,
+        5303001
+      }
+    },
+    {
+      {
+        5200001,
+        5201001,
+        5202001,
+        5203001
+      }
+    },
+    {
+      {
+        5000001,
+        5001001,
+        5002001,
+        5003001
+      }
+    },
+    {
+      {
+        6100001,
+        6101001,
+        6102001,
+        6103001
+      }
+    },
+    {
+      {
+        5700001,
+        5701001,
+        5702001,
+        5703001
+      }
+    },
+    {
+      {
+        5600001,
+        5601001,
+        5602001,
+        5603001
+      }
+    },
+    {
+      {
+        5100001,
+        5101001,
+        5102001,
+        5103001
+      }
+    },
+    {
+      {
+        5550001,
+        5551001,
+        5552001,
+        5553001
+      }
+    },
+    {
+      {
+        5900001,
+        5901001,
+        5902001,
+        5903001
+      }
+    },
+    {
+      {
+        5800001,
+        5801001,
+        5802001,
+        5803001
+      }
+    },
+    {
+      {
+        5500001,
+        5501001,
+        5502001,
+        5503001
+      }
+    },
+    {
+      {
+        6000001,
+        6001001,
+        6002001,
+        6003001
+      }
+    },
+    {
+      {
+        5400001,
+        5401001,
+        5402001,
+        5403001
+      }
+    }
+  },
   ProfessionalFashion = {
     {440052, 440053},
     {440080, 440081},
@@ -651,7 +775,8 @@ Table_Class_t = {
       1242001,
       1244001,
       1248001,
-      1256001
+      1256001,
+      815001
     },
     {
       1280001,
@@ -1156,6 +1281,7 @@ Table_Class = {
     Desc = "战士使用中重量级武器，敏捷度较低，但攻击是极强有力的。",
     DefaultWeapon = 40301,
     Skill = Table_Class_t.Skill[11],
+    MasterSkills = Table_Class_t.MasterSkills[2],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1180,7 +1306,6 @@ Table_Class = {
   [21] = {
     id = 21,
     NameZh = "魔法师",
-    NameEn = "Magician",
     MaleBody = 11,
     FemaleBody = 12,
     MaleEye = 1,
@@ -1278,6 +1403,7 @@ Table_Class = {
     Desc = "魔法师的体力防御较低，可使用魔法技能进行强大的法术攻击。",
     DefaultWeapon = 40601,
     Skill = Table_Class_t.Skill[17],
+    MasterSkills = Table_Class_t.MasterSkills[3],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1402,6 +1528,7 @@ Table_Class = {
     Desc = "盗贼的防御低而敏捷高，善于快速移动暗杀，有较高的爆发。",
     DefaultWeapon = 40702,
     Skill = Table_Class_t.Skill[23],
+    MasterSkills = Table_Class_t.MasterSkills[4],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1483,6 +1610,7 @@ Table_Class = {
   },
   [43] = {
     id = 43,
+    NameZh = "神射手",
     NameEn = "Sniper",
     MaleBody = 31,
     FemaleBody = 32,
@@ -1512,6 +1640,7 @@ Table_Class = {
   [44] = {
     id = 44,
     NameZh = "游侠",
+    NameEn = "Ranger",
     MaleBody = 33,
     FemaleBody = 34,
     MaleEye = 1,
@@ -1519,6 +1648,7 @@ Table_Class = {
     Desc = "弓箭手攻击灵活、移动迅速，能从较远的距离或高处攻击敌人。",
     DefaultWeapon = 41201,
     Skill = Table_Class_t.Skill[29],
+    MasterSkills = Table_Class_t.MasterSkills[5],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1639,6 +1769,7 @@ Table_Class = {
     Desc = "服事有治愈及治疗能力，拥有很强的力量对付不死系的敌人。",
     DefaultWeapon = 41501,
     Skill = Table_Class_t.Skill[38],
+    MasterSkills = Table_Class_t.MasterSkills[9],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1734,6 +1865,7 @@ Table_Class = {
     AdvancedJobOccupation = 40,
     AdvanceClass = Table_Class_t.AdvanceClass[1],
     Type = 6,
+    icon = "icon_6_3",
     InitialAttr = Table_Class_t.InitialAttr[1],
     AddPointSolution = Table_Class_t.AddPointSolution[1],
     SkillPointSolution = Table_Class_t.SkillPointSolution[1],
@@ -1759,6 +1891,8 @@ Table_Class = {
     Desc = "拥有基本的攻击力及一般的能力。",
     DefaultWeapon = 41801,
     Skill = Table_Class_t.Skill[30],
+    MasterSkills = Table_Class_t.MasterSkills[6],
+    LimitMasterSkills = Table_Class_t.LimitMasterSkills[1],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1796,7 +1930,6 @@ Table_Class = {
     AdvanceClass = Table_Class_t.AdvanceClass[6],
     Type = 1,
     TypeBranch = 12,
-    icon = "icon_7_2",
     InitialAttr = Table_Class_t.InitialAttr[4],
     AddPointSolution = Table_Class_t.AddPointSolution[4],
     SkillPointSolution = Table_Class_t.SkillPointSolution[3],
@@ -1853,6 +1986,7 @@ Table_Class = {
     Desc = "侍奉神的战士，拥有强大的耐力和防御力，攻击手段也多样。",
     DefaultWeapon = 40001,
     Skill = Table_Class_t.Skill[46],
+    MasterSkills = Table_Class_t.MasterSkills[13],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -1943,6 +2077,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 63401,
     Skill = Table_Class_t.Skill[31],
+    MasterSkills = Table_Class_t.MasterSkills[7],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2032,6 +2167,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 40702,
     Skill = Table_Class_t.Skill[39],
+    MasterSkills = Table_Class_t.MasterSkills[10],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2119,6 +2255,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 63101,
     Skill = Table_Class_t.Skill[40],
+    MasterSkills = Table_Class_t.MasterSkills[11],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2140,7 +2277,6 @@ Table_Class = {
   },
   [112] = {
     id = 112,
-    NameZh = "舞娘",
     NameEn = "Dancer",
     MaleBody = 79,
     FemaleBody = 80,
@@ -2207,6 +2343,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 62801,
     Skill = Table_Class_t.Skill[35],
+    MasterSkills = Table_Class_t.MasterSkills[8],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2299,6 +2436,8 @@ Table_Class = {
     Desc = "极限修炼肉体的圣职者，拥有超绝的爆发力。",
     DefaultWeapon = 62501,
     Skill = Table_Class_t.Skill[44],
+    MasterSkills = Table_Class_t.MasterSkills[12],
+    LimitMasterSkills = Table_Class_t.LimitMasterSkills[2],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2390,6 +2529,7 @@ Table_Class = {
     FemaleEye = 2,
     DefaultWeapon = 41801,
     Skill = Table_Class_t.Skill[5],
+    MasterSkills = Table_Class_t.MasterSkills[1],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
@@ -2436,10 +2576,12 @@ local cell_mt = {
     HeroTitle = "",
     InitialAttr = _EmptyTable,
     Intro = "",
+    LimitMasterSkills = _EmptyTable,
+    MasterSkills = _EmptyTable,
     MaxJobLevel = 130,
-    NameEn = "Ranger",
+    NameEn = "Magician",
     NameEnFemale = "",
-    NameZh = "神射手",
+    NameZh = "舞娘",
     NameZhFemale = "",
     ProfessionalFashion = _EmptyTable,
     ShowEndTime = "",
@@ -2454,7 +2596,7 @@ local cell_mt = {
     TypeBranch = 61,
     UnlockAttr = _EmptyTable,
     UnlockTips = "",
-    icon = "icon_6_3",
+    icon = "icon_7_2",
     id = 1
   }
 }

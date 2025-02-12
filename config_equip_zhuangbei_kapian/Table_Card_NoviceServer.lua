@@ -6085,6 +6085,75 @@ Table_Card = {
     BookWeight = 100,
     ComposeCardType = 1
   },
+  [23152] = {
+    id = 23152,
+    Name = "梅丽尔·罗兰兹卡片",
+    Quality = 3,
+    Position = 2,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23152",
+    monsterID = {31151},
+    BuffEffect = {
+      buff = {54780}
+    },
+    NoShow = 1,
+    Weight = 0,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 9,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [23153] = {
+    id = 23153,
+    Name = "赫德卡片",
+    Quality = 3,
+    Position = 3,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23153",
+    monsterID = {31152},
+    BuffEffect = {
+      buff = {54790}
+    },
+    NoShow = 1,
+    Weight = 0,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 9,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [23154] = {
+    id = 23154,
+    Name = "梅菲尔林瑟卡片",
+    Quality = 3,
+    Position = 4,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23154",
+    monsterID = {31153},
+    BuffEffect = {
+      buff = {54800}
+    },
+    NoShow = 1,
+    Weight = 0,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 9,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
   [23173] = {
     id = 23173,
     Name = "国王波利的恩惠（绿）",
@@ -6304,6 +6373,73 @@ Table_Card = {
     BuffEffect = {
       buff = {51480}
     },
+    Weight = 0,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    ComposeCardType = 1
+  },
+  [23216] = {
+    id = 23216,
+    Name = "进击的弑神者卡片",
+    Quality = 3,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_20014",
+    monsterID = {31229},
+    BuffEffect = {
+      buff = {55850}
+    },
+    NoShow = 1,
+    Weight = 0,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 9,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [23217] = {
+    id = 23217,
+    Name = "初心女仆卡片",
+    Quality = 3,
+    Position = 6,
+    CardType = 1,
+    Anchor = {0.5, 0.5},
+    Picture = "card_20015",
+    monsterID = {31230},
+    BuffEffect = {
+      buff = {55860}
+    },
+    NoShow = 1,
+    Weight = 0,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 9,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [23356] = {
+    id = 23356,
+    Name = "厨神小当家联动卡片",
+    Quality = 3,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23356",
+    monsterID = {31437},
+    BuffEffect = {
+      buff = {58330, 58331}
+    },
+    NoShow = 1,
     Weight = 0,
     TFComposeDate = _EmptyTable,
     TFLotteryDate = _EmptyTable,
@@ -9432,132 +9568,17 @@ Table_Card = {
     BookWeight = 10,
     ComposeCardType = 3
   },
-  [23216] = {
-    id = 23216,
-    Name = "进击的弑神者卡片",
+  [23227] = {
+    id = 23227,
+    Name = "一拳超人卡片",
     Quality = 3,
     Position = 1,
     CardType = 1,
     Anchor = _EmptyTable,
-    Picture = "card_20014",
-    monsterID = {31229},
+    Picture = "card_23227",
+    monsterID = {31287},
     BuffEffect = {
-      buff = {55850}
-    },
-    NoShow = 1,
-    Weight = 0,
-    TFComposeDate = _EmptyTable,
-    TFLotteryDate = _EmptyTable,
-    ComposeDate = _EmptyTable,
-    LotteryDate = _EmptyTable,
-    ServerID = _EmptyTable,
-    BookClass = 9,
-    BookWeight = 100,
-    ComposeCardType = 1
-  },
-  [23217] = {
-    id = 23217,
-    Name = "初心女仆卡片",
-    Quality = 3,
-    Position = 6,
-    CardType = 1,
-    Anchor = {0.5, 0.5},
-    Picture = "card_20015",
-    monsterID = {31230},
-    BuffEffect = {
-      buff = {55860}
-    },
-    NoShow = 1,
-    Weight = 0,
-    TFComposeDate = _EmptyTable,
-    TFLotteryDate = _EmptyTable,
-    ComposeDate = _EmptyTable,
-    LotteryDate = _EmptyTable,
-    ServerID = _EmptyTable,
-    BookClass = 9,
-    BookWeight = 100,
-    ComposeCardType = 1
-  },
-  [23152] = {
-    id = 23152,
-    Name = "梅丽尔·罗兰兹卡片",
-    Quality = 3,
-    Position = 2,
-    CardType = 1,
-    Anchor = _EmptyTable,
-    Picture = "card_23152",
-    monsterID = {31151},
-    BuffEffect = {
-      buff = {54780}
-    },
-    NoShow = 1,
-    Weight = 0,
-    TFComposeDate = _EmptyTable,
-    TFLotteryDate = _EmptyTable,
-    ComposeDate = _EmptyTable,
-    LotteryDate = _EmptyTable,
-    ServerID = _EmptyTable,
-    BookClass = 9,
-    BookWeight = 100,
-    ComposeCardType = 1
-  },
-  [23153] = {
-    id = 23153,
-    Name = "赫德卡片",
-    Quality = 3,
-    Position = 3,
-    CardType = 1,
-    Anchor = _EmptyTable,
-    Picture = "card_23153",
-    monsterID = {31152},
-    BuffEffect = {
-      buff = {54790}
-    },
-    NoShow = 1,
-    Weight = 0,
-    TFComposeDate = _EmptyTable,
-    TFLotteryDate = _EmptyTable,
-    ComposeDate = _EmptyTable,
-    LotteryDate = _EmptyTable,
-    ServerID = _EmptyTable,
-    BookClass = 9,
-    BookWeight = 100,
-    ComposeCardType = 1
-  },
-  [23154] = {
-    id = 23154,
-    Name = "梅菲尔林瑟卡片",
-    Quality = 3,
-    Position = 4,
-    CardType = 1,
-    Anchor = _EmptyTable,
-    Picture = "card_23154",
-    monsterID = {31153},
-    BuffEffect = {
-      buff = {54800}
-    },
-    NoShow = 1,
-    Weight = 0,
-    TFComposeDate = _EmptyTable,
-    TFLotteryDate = _EmptyTable,
-    ComposeDate = _EmptyTable,
-    LotteryDate = _EmptyTable,
-    ServerID = _EmptyTable,
-    BookClass = 9,
-    BookWeight = 100,
-    ComposeCardType = 1
-  },
-  [23356] = {
-    id = 23356,
-    Name = "厨神小当家联动卡片",
-    Quality = 3,
-    Position = 1,
-    CardType = 1,
-    Anchor = _EmptyTable,
-    Picture = "card_23356",
-    monsterID = {31437},
-    BuffEffect = {
-      buff = {58330, 58331}
+      buff = {56520}
     },
     NoShow = 1,
     Weight = 0,
@@ -9569,7 +9590,7 @@ Table_Card = {
     ComposeCardType = 1
   }
 }
-Table_Card.MD5 = "--md5:{'primarymd5':'8973877af50b18f041b8cd3b04ab33d0'}"
+Table_Card.MD5 = "--md5:{'primarymd5':'2539ad8b31742ec19ce6f68c1a5abc8c'}"
 Table_Card_fields = {
   "id",
   "Name",

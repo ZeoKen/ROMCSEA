@@ -512,10 +512,10 @@ Table_RuneSpecial_t = {
       2
     },
     {1, 100},
+    {25},
     {5, 25},
     {25, 5},
     {15, 5},
-    {25},
     {5, 40},
     {1, 5},
     {5, 20},
@@ -617,14 +617,16 @@ Table_RuneSpecial = {
     Type = 3,
     RuneName = "##161901",
     Runetip = 1005,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [11010] = {
     id = 11010,
     Type = 3,
     RuneName = "##161901",
     Runetip = 1005,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [11011] = {
     id = 11011,
@@ -656,7 +658,8 @@ Table_RuneSpecial = {
     Type = 3,
     RuneName = "##161901",
     Runetip = 1005,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [12002] = {
     id = 12002,
@@ -715,7 +718,8 @@ Table_RuneSpecial = {
     RuneName = "##168477",
     SkillID = Table_RuneSpecial_t.SkillID[322],
     Runetip = 1012,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [12027] = {
     id = 12027,
@@ -729,7 +733,8 @@ Table_RuneSpecial = {
     RuneName = "##168450",
     SkillID = Table_RuneSpecial_t.SkillID[313],
     Runetip = 1014,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[11]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[11],
+    Recommend = 1
   },
   [12030] = {
     id = 12030,
@@ -996,7 +1001,7 @@ Table_RuneSpecial = {
   },
   [14080] = {
     id = 14080,
-    RuneName = "##168032",
+    RuneName = "##42625556",
     SkillID = Table_RuneSpecial_t.SkillID[204],
     Runetip = 1408,
     SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
@@ -1075,7 +1080,8 @@ Table_RuneSpecial = {
     RuneName = "##168202",
     SkillID = Table_RuneSpecial_t.SkillID[220],
     Runetip = 2010,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [22007] = {
     id = 22007,
@@ -1159,14 +1165,16 @@ Table_RuneSpecial = {
     id = 22040,
     Type = 3,
     RuneName = "##168363",
-    Runetip = 2023
+    Runetip = 2023,
+    Recommend = 1
   },
   [22041] = {
     id = 22041,
     RuneName = "##168577",
     SkillID = Table_RuneSpecial_t.SkillID[58],
     Runetip = 2024,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[26]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[26],
+    Recommend = 1
   },
   [22042] = {
     id = 22042,
@@ -1180,37 +1188,43 @@ Table_RuneSpecial = {
     RuneName = "##168009",
     SkillID = Table_RuneSpecial_t.SkillID[58],
     Runetip = 2026,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[26]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[26],
+    Recommend = 1
   },
   [22044] = {
     id = 22044,
     Type = 3,
     RuneName = "##168363",
-    Runetip = 2023
+    Runetip = 2023,
+    Recommend = 1
   },
   [22045] = {
     id = 22045,
     Type = 3,
     RuneName = "##168362",
-    Runetip = 2040
+    Runetip = 2040,
+    Recommend = 1
   },
   [22046] = {
     id = 22046,
     Type = 3,
     RuneName = "##168362",
-    Runetip = 2040
+    Runetip = 2040,
+    Recommend = 1
   },
   [22047] = {
     id = 22047,
     Type = 3,
     RuneName = "##168362",
-    Runetip = 2040
+    Runetip = 2040,
+    Recommend = 1
   },
   [22048] = {
     id = 22048,
     Type = 3,
     RuneName = "##168362",
-    Runetip = 2040
+    Runetip = 2040,
+    Recommend = 1
   },
   [22050] = {
     id = 22050,
@@ -1224,14 +1238,16 @@ Table_RuneSpecial = {
     Type = 3,
     RuneName = "##168365",
     Runetip = 2028,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[52]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[52],
+    Recommend = 1
   },
   [22061] = {
     id = 22061,
     Type = 3,
     RuneName = "##168365",
     Runetip = 2028,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[52]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[52],
+    Recommend = 1
   },
   [22070] = {
     id = 22070,
@@ -1246,7 +1262,7 @@ Table_RuneSpecial = {
     RuneName = "##161049",
     SkillID = Table_RuneSpecial_t.SkillID[246],
     Runetip = 2029,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[34]
   },
   [22090] = {
     id = 22090,
@@ -1280,7 +1296,8 @@ Table_RuneSpecial = {
     RuneName = "##168124",
     SkillID = Table_RuneSpecial_t.SkillID[238],
     Runetip = 2032,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [22130] = {
     id = 22130,
@@ -1333,7 +1350,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[272],
     Group = 200,
     Runetip = 2038,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [22161] = {
     id = 22161,
@@ -1341,7 +1359,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[272],
     Group = 200,
     Runetip = 2038,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [22170] = {
     id = 22170,
@@ -1506,13 +1525,15 @@ Table_RuneSpecial = {
     id = 31019,
     RuneName = "##168188",
     Runetip = 3005,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [31020] = {
     id = 31020,
     RuneName = "##168187",
     Runetip = 3005,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [31021] = {
     id = 31021,
@@ -1536,7 +1557,7 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[120],
     Group = 48,
     Runetip = 3017,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [31025] = {
     id = 31025,
@@ -1579,14 +1600,14 @@ Table_RuneSpecial = {
     RuneName = "##168313",
     SkillID = Table_RuneSpecial_t.SkillID[103],
     Runetip = 3009,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[34]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[35]
   },
   [32004] = {
     id = 32004,
     RuneName = "##168314",
     SkillID = Table_RuneSpecial_t.SkillID[103],
     Runetip = 3010,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[35]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
   },
   [32005] = {
     id = 32005,
@@ -1671,7 +1692,7 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[106],
     Group = 55,
     Runetip = 3017,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [32026] = {
     id = 32026,
@@ -1695,7 +1716,7 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[116],
     Group = 57,
     Runetip = 3019,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [32032] = {
     id = 32032,
@@ -1710,14 +1731,16 @@ Table_RuneSpecial = {
     Type = 3,
     RuneName = "##168150",
     Runetip = 3020,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[37]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[37],
+    Recommend = 1
   },
   [32050] = {
     id = 32050,
     RuneName = "##168445",
     SkillID = Table_RuneSpecial_t.SkillID[110],
     Runetip = 3021,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[38]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[38],
+    Recommend = 1
   },
   [32060] = {
     id = 32060,
@@ -1795,7 +1818,8 @@ Table_RuneSpecial = {
     RuneName = "##168381",
     SkillID = Table_RuneSpecial_t.SkillID[109],
     Runetip = 3304,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [34010] = {
     id = 34010,
@@ -1816,7 +1840,7 @@ Table_RuneSpecial = {
     RuneName = "##168514",
     SkillID = Table_RuneSpecial_t.SkillID[93],
     Runetip = 3403,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[23]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [34040] = {
     id = 34040,
@@ -1895,7 +1919,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[31],
     Group = 59,
     Runetip = 4004,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[21]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[21],
+    Recommend = 1
   },
   [41009] = {
     id = 41009,
@@ -1903,7 +1928,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[31],
     Group = 59,
     Runetip = 4004,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[22]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[22],
+    Recommend = 1
   },
   [41011] = {
     id = 41011,
@@ -2120,7 +2146,8 @@ Table_RuneSpecial = {
     RuneName = "##168293",
     SkillID = Table_RuneSpecial_t.SkillID[58],
     Runetip = 4026,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10],
+    Recommend = 1
   },
   [42101] = {
     id = 42101,
@@ -2128,7 +2155,8 @@ Table_RuneSpecial = {
     RuneName = "##168293",
     SkillID = Table_RuneSpecial_t.SkillID[58],
     Runetip = 4026,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10],
+    Recommend = 1
   },
   [42102] = {
     id = 42102,
@@ -2136,7 +2164,8 @@ Table_RuneSpecial = {
     RuneName = "##168293",
     SkillID = Table_RuneSpecial_t.SkillID[58],
     Runetip = 4026,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10],
+    Recommend = 1
   },
   [42103] = {
     id = 42103,
@@ -2144,7 +2173,8 @@ Table_RuneSpecial = {
     RuneName = "##168293",
     SkillID = Table_RuneSpecial_t.SkillID[58],
     Runetip = 4026,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10],
+    Recommend = 1
   },
   [42104] = {
     id = 42104,
@@ -2152,7 +2182,8 @@ Table_RuneSpecial = {
     RuneName = "##168293",
     SkillID = Table_RuneSpecial_t.SkillID[58],
     Runetip = 4026,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10],
+    Recommend = 1
   },
   [42110] = {
     id = 42110,
@@ -2243,7 +2274,8 @@ Table_RuneSpecial = {
     RuneName = "##168115",
     SkillID = Table_RuneSpecial_t.SkillID[16],
     Runetip = 4404,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [44050] = {
     id = 44050,
@@ -2379,7 +2411,8 @@ Table_RuneSpecial = {
     id = 52001,
     RuneName = "##168399",
     Runetip = 5010,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [52003] = {
     id = 52003,
@@ -2399,13 +2432,15 @@ Table_RuneSpecial = {
     id = 52006,
     RuneName = "##161411",
     Runetip = 5013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17],
+    Recommend = 1
   },
   [52007] = {
     id = 52007,
     RuneName = "##161411",
     Runetip = 5013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17],
+    Recommend = 1
   },
   [52008] = {
     id = 52008,
@@ -2419,7 +2454,8 @@ Table_RuneSpecial = {
     Type = 3,
     RuneName = "##161016",
     Runetip = 5015,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [52013] = {
     id = 52013,
@@ -2500,19 +2536,22 @@ Table_RuneSpecial = {
     id = 52040,
     RuneName = "##168399",
     Runetip = 5010,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [52041] = {
     id = 52041,
     RuneName = "##168399",
     Runetip = 5010,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [52042] = {
     id = 52042,
     RuneName = "##168399",
     Runetip = 5010,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [52060] = {
     id = 52060,
@@ -2561,19 +2600,22 @@ Table_RuneSpecial = {
     id = 52120,
     RuneName = "##161411",
     Runetip = 5036,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17],
+    Recommend = 1
   },
   [52121] = {
     id = 52121,
     RuneName = "##161411",
     Runetip = 5036,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17],
+    Recommend = 1
   },
   [52122] = {
     id = 52122,
     RuneName = "##161411",
     Runetip = 5036,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[17],
+    Recommend = 1
   },
   [52130] = {
     id = 52130,
@@ -2592,13 +2634,15 @@ Table_RuneSpecial = {
     id = 52150,
     RuneName = "##150511",
     Runetip = 5035,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[81]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[81],
+    Recommend = 1
   },
   [52151] = {
     id = 52151,
     RuneName = "##150511",
     Runetip = 5035,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[81]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[81],
+    Recommend = 1
   },
   [52160] = {
     id = 52160,
@@ -2681,7 +2725,8 @@ Table_RuneSpecial = {
     RuneName = "##168219",
     SkillID = Table_RuneSpecial_t.SkillID[334],
     Runetip = 5403,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [54040] = {
     id = 54040,
@@ -2747,7 +2792,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[267],
     Group = 82,
     Runetip = 6001,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[53]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[53],
+    Recommend = 1
   },
   [61007] = {
     id = 61007,
@@ -2755,7 +2801,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[267],
     Group = 82,
     Runetip = 6001,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[38]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[38],
+    Recommend = 1
   },
   [61011] = {
     id = 61011,
@@ -2846,7 +2893,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[264],
     Group = 83,
     Runetip = 6005,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[50]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[50],
+    Recommend = 1
   },
   [62009] = {
     id = 62009,
@@ -2854,7 +2902,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[264],
     Group = 83,
     Runetip = 6005,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[53]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[53],
+    Recommend = 1
   },
   [62013] = {
     id = 62013,
@@ -2904,7 +2953,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[264],
     Group = 84,
     Runetip = 6007,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[55]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[55],
+    Recommend = 1
   },
   [62021] = {
     id = 62021,
@@ -2912,7 +2962,8 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[264],
     Group = 84,
     Runetip = 6007,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[56]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[56],
+    Recommend = 1
   },
   [62024] = {
     id = 62024,
@@ -3105,7 +3156,8 @@ Table_RuneSpecial = {
     RuneName = "##168369",
     SkillID = Table_RuneSpecial_t.SkillID[223],
     Runetip = 6407,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [64080] = {
     id = 64080,
@@ -3119,7 +3171,8 @@ Table_RuneSpecial = {
     RuneName = "##168058",
     SkillID = Table_RuneSpecial_t.SkillID[269],
     Runetip = 6409,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[60]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[60],
+    Recommend = 1
   },
   [70010] = {
     id = 70010,
@@ -3159,31 +3212,36 @@ Table_RuneSpecial = {
     id = 70060,
     Type = 3,
     RuneName = "##168092",
-    Runetip = 7006
+    Runetip = 7006,
+    Recommend = 1
   },
   [70061] = {
     id = 70061,
     Type = 3,
     RuneName = "##168092",
-    Runetip = 7006
+    Runetip = 7006,
+    Recommend = 1
   },
   [70062] = {
     id = 70062,
     Type = 3,
     RuneName = "##168092",
-    Runetip = 7006
+    Runetip = 7006,
+    Recommend = 1
   },
   [70063] = {
     id = 70063,
     Type = 3,
     RuneName = "##168092",
-    Runetip = 7006
+    Runetip = 7006,
+    Recommend = 1
   },
   [70064] = {
     id = 70064,
     Type = 3,
     RuneName = "##168092",
-    Runetip = 7006
+    Runetip = 7006,
+    Recommend = 1
   },
   [70070] = {
     id = 70070,
@@ -3363,7 +3421,8 @@ Table_RuneSpecial = {
     RuneName = "##168183",
     SkillID = Table_RuneSpecial_t.SkillID[62],
     Runetip = 8205,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [82006] = {
     id = 82006,
@@ -3766,14 +3825,16 @@ Table_RuneSpecial = {
     RuneName = "##168436",
     SkillID = Table_RuneSpecial_t.SkillID[37],
     Runetip = 9015,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[15]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[15],
+    Recommend = 1
   },
   [90160] = {
     id = 90160,
     RuneName = "##168381",
     SkillID = Table_RuneSpecial_t.SkillID[48],
     Runetip = 9016,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [90170] = {
     id = 90170,
@@ -3906,31 +3967,36 @@ Table_RuneSpecial = {
     id = 102001,
     Type = 3,
     RuneName = "##158809",
-    Runetip = 10201
+    Runetip = 10201,
+    Recommend = 1
   },
   [102002] = {
     id = 102002,
     Type = 3,
     RuneName = "##168464",
-    Runetip = 10202
+    Runetip = 10202,
+    Recommend = 1
   },
   [102003] = {
     id = 102003,
     Type = 3,
     RuneName = "##168118",
-    Runetip = 10203
+    Runetip = 10203,
+    Recommend = 1
   },
   [102004] = {
     id = 102004,
     Type = 3,
     RuneName = "##168218",
-    Runetip = 10204
+    Runetip = 10204,
+    Recommend = 1
   },
   [102005] = {
     id = 102005,
     Type = 3,
     RuneName = "##168214",
-    Runetip = 10205
+    Runetip = 10205,
+    Recommend = 1
   },
   [102006] = {
     id = 102006,
@@ -3992,7 +4058,8 @@ Table_RuneSpecial = {
     RuneName = "##168350",
     SkillID = Table_RuneSpecial_t.SkillID[293],
     Runetip = 10215,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[11]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[11],
+    Recommend = 1
   },
   [102016] = {
     id = 102016,
@@ -4127,38 +4194,44 @@ Table_RuneSpecial = {
     id = 102035,
     Type = 3,
     RuneName = "##158811",
-    Runetip = 10235
+    Runetip = 10235,
+    Recommend = 1
   },
   [102036] = {
     id = 102036,
     Type = 3,
     RuneName = "##168263",
-    Runetip = 10236
+    Runetip = 10236,
+    Recommend = 1
   },
   [102037] = {
     id = 102037,
     Type = 3,
     RuneName = "##168265",
-    Runetip = 10237
+    Runetip = 10237,
+    Recommend = 1
   },
   [102038] = {
     id = 102038,
     Type = 3,
     RuneName = "##168264",
-    Runetip = 10238
+    Runetip = 10238,
+    Recommend = 1
   },
   [102039] = {
     id = 102039,
     Type = 3,
     RuneName = "##168542",
-    Runetip = 10239
+    Runetip = 10239,
+    Recommend = 1
   },
   [102040] = {
     id = 102040,
     RuneName = "##168560",
     SkillID = Table_RuneSpecial_t.SkillID[304],
     Runetip = 10240,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[19]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[19],
+    Recommend = 1
   },
   [102041] = {
     id = 102041,
@@ -4269,31 +4342,36 @@ Table_RuneSpecial = {
     id = 112001,
     Type = 3,
     RuneName = "##158728",
-    Runetip = 11201
+    Runetip = 11201,
+    Recommend = 1
   },
   [112002] = {
     id = 112002,
     Type = 3,
     RuneName = "##168346",
-    Runetip = 11202
+    Runetip = 11202,
+    Recommend = 1
   },
   [112003] = {
     id = 112003,
     Type = 3,
     RuneName = "##168357",
-    Runetip = 11203
+    Runetip = 11203,
+    Recommend = 1
   },
   [112004] = {
     id = 112004,
     Type = 3,
     RuneName = "##168349",
-    Runetip = 11204
+    Runetip = 11204,
+    Recommend = 1
   },
   [112005] = {
     id = 112005,
     Type = 3,
     RuneName = "##168359",
-    Runetip = 11205
+    Runetip = 11205,
+    Recommend = 1
   },
   [112006] = {
     id = 112006,
@@ -4307,7 +4385,8 @@ Table_RuneSpecial = {
     RuneName = "##168315",
     SkillID = Table_RuneSpecial_t.SkillID[315],
     Runetip = 11207,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[11]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[11],
+    Recommend = 1
   },
   [112008] = {
     id = 112008,
@@ -4421,7 +4500,7 @@ Table_RuneSpecial = {
     RuneName = "##168351",
     SkillID = Table_RuneSpecial_t.SkillID[144],
     Runetip = 12008,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [120090] = {
     id = 120090,
@@ -4456,14 +4535,16 @@ Table_RuneSpecial = {
     RuneName = "##168448",
     SkillID = Table_RuneSpecial_t.SkillID[178],
     Runetip = 12013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[9],
+    Recommend = 1
   },
   [120140] = {
     id = 120140,
     RuneName = "##168184",
     SkillID = Table_RuneSpecial_t.SkillID[178],
     Runetip = 12014,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[15]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[15],
+    Recommend = 1
   },
   [120150] = {
     id = 120150,
@@ -4477,14 +4558,16 @@ Table_RuneSpecial = {
     Type = 3,
     RuneName = "##168356",
     Runetip = 12016,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [120161] = {
     id = 120161,
     Type = 3,
     RuneName = "##168356",
     Runetip = 12016,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [120170] = {
     id = 120170,
@@ -4558,7 +4641,8 @@ Table_RuneSpecial = {
     RuneName = "##168354",
     SkillID = Table_RuneSpecial_t.SkillID[178],
     Runetip = 12027,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33],
+    Recommend = 1
   },
   [123010] = {
     id = 123010,
@@ -4722,21 +4806,24 @@ Table_RuneSpecial = {
     Type = 3,
     RuneName = "##161795",
     Runetip = 13012,
-    BeingEffect = Table_RuneSpecial_t.BeingEffect[2]
+    BeingEffect = Table_RuneSpecial_t.BeingEffect[2],
+    Recommend = 1
   },
   [130121] = {
     id = 130121,
     Type = 3,
     RuneName = "##161795",
     Runetip = 13012,
-    BeingEffect = Table_RuneSpecial_t.BeingEffect[2]
+    BeingEffect = Table_RuneSpecial_t.BeingEffect[2],
+    Recommend = 1
   },
   [130122] = {
     id = 130122,
     Type = 3,
     RuneName = "##161795",
     Runetip = 13012,
-    BeingEffect = Table_RuneSpecial_t.BeingEffect[2]
+    BeingEffect = Table_RuneSpecial_t.BeingEffect[2],
+    Recommend = 1
   },
   [130130] = {
     id = 130130,
@@ -4744,7 +4831,8 @@ Table_RuneSpecial = {
     RuneName = "##168469",
     Group = 86,
     Runetip = 13013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [130131] = {
     id = 130131,
@@ -4752,7 +4840,8 @@ Table_RuneSpecial = {
     RuneName = "##168469",
     Group = 86,
     Runetip = 13013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [130132] = {
     id = 130132,
@@ -4760,7 +4849,8 @@ Table_RuneSpecial = {
     RuneName = "##168469",
     Group = 86,
     Runetip = 13013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [130133] = {
     id = 130133,
@@ -4768,7 +4858,8 @@ Table_RuneSpecial = {
     RuneName = "##168469",
     Group = 86,
     Runetip = 13013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [130134] = {
     id = 130134,
@@ -4776,14 +4867,16 @@ Table_RuneSpecial = {
     RuneName = "##168469",
     Group = 86,
     Runetip = 13013,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7],
+    Recommend = 1
   },
   [130140] = {
     id = 130140,
     RuneName = "##168503",
     SkillID = Table_RuneSpecial_t.SkillID[78],
     Runetip = 13014,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[10],
+    Recommend = 1
   },
   [130150] = {
     id = 130150,
@@ -4911,7 +5004,8 @@ Table_RuneSpecial = {
     id = 130280,
     RuneName = "##168062",
     SkillID = Table_RuneSpecial_t.SkillID[78],
-    Runetip = 13028
+    Runetip = 13028,
+    Recommend = 1
   },
   [130290] = {
     id = 130290,
@@ -4953,7 +5047,8 @@ Table_RuneSpecial = {
   [133030] = {
     id = 133030,
     RuneName = "##161795",
-    Runetip = 13303
+    Runetip = 13303,
+    Recommend = 1
   },
   [133040] = {
     id = 133040,
@@ -6901,7 +6996,7 @@ Table_RuneSpecial = {
     RuneName = "##161049",
     SkillID = Table_RuneSpecial_t.SkillID[99],
     Runetip = 22312,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[34]
   },
   [223013] = {
     id = 223013,
@@ -6913,7 +7008,8 @@ Table_RuneSpecial = {
   [223014] = {
     RuneName = "##168271",
     Runetip = 22314,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[1],
+    Recommend = 1
   },
   [223015] = {
     id = 223015,

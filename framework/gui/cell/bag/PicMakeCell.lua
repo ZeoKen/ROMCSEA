@@ -45,7 +45,7 @@ end
 function PicMakeCell:InitCell()
   self.roblab = self:FindComponent("ROGold", UILabel)
   local l_zenyIcon = self:FindComponent("Symbol", UISprite, self.roblab.gameObject)
-  IconManager:SetItemIcon("item_100", l_zenyIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, l_zenyIcon)
   self.cost = self:FindGO("Cost")
   self.costGold = self:FindComponent("CostGold", UILabel)
   self.destItemObj = self:FindGO("ItemCell")

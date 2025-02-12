@@ -703,6 +703,9 @@ function FunctionLoginBase:SetNoviceLoginData(data)
 end
 
 function FunctionLoginBase:CopyLoginData(data)
+  if not data then
+    return
+  end
   local copy = {}
   for k, v in pairs(data) do
     copy[k] = v

@@ -7,7 +7,8 @@ UIAtlasConfig.IconAtlas = {
     [1] = "GUI/atlas/preferb/item_os1"
   },
   AvatarBox = {
-    [1] = "GUI/atlas/preferb/AvatarBox"
+    [1] = "GUI/atlas/preferb/AvatarBox",
+    [2] = "GUI/atlas/preferb/AvatarBox_2"
   },
   SkillProfess_0 = {
     [1] = "GUI/atlas/preferb/Skill_1",
@@ -228,6 +229,20 @@ UIAtlasConfig.IconAtlas = {
     [4] = "GUI/atlas/preferb/Skill_yxzy",
     [5] = "GUI/atlas/preferb/Skill_yxzy2"
   },
+  SkillProfess_76 = {
+    [1] = "GUI/atlas/preferb/Skill_1",
+    [2] = "GUI/atlas/preferb/Skill_2",
+    [3] = "GUI/atlas/preferb/Skill_buff",
+    [4] = "GUI/atlas/preferb/Skill_yxzy",
+    [5] = "GUI/atlas/preferb/Skill_yxzy2"
+  },
+  SkillProfess_77 = {
+    [1] = "GUI/atlas/preferb/Skill_1",
+    [2] = "GUI/atlas/preferb/Skill_2",
+    [3] = "GUI/atlas/preferb/Skill_buff",
+    [4] = "GUI/atlas/preferb/Skill_yxzy",
+    [5] = "GUI/atlas/preferb/Skill_yxzy2"
+  },
   Action = {
     [1] = "GUI/atlas/preferb/action"
   },
@@ -286,14 +301,16 @@ UIAtlasConfig.IconAtlas = {
     [13] = "GUI/atlas/preferb/Assesories_Front_13",
     [14] = "GUI/atlas/preferb/Assesories_Front_14",
     [15] = "GUI/atlas/preferb/Assesories_Front_15",
-    [16] = "GUI/atlas/preferb/Assesories_Front_16"
+    [16] = "GUI/atlas/preferb/Assesories_Front_16",
+    [17] = "GUI/atlas/preferb/Assesories_Front_17"
   },
   HeadAccessoryBack = {
     [1] = "GUI/atlas/preferb/Assesories_Back_1",
     [2] = "GUI/atlas/preferb/Assesories_Back_2",
     [3] = "GUI/atlas/preferb/Assesories_Back_3",
     [4] = "GUI/atlas/preferb/Assesories_Back_4",
-    [5] = "GUI/atlas/preferb/Assesories_Back_5"
+    [5] = "GUI/atlas/preferb/Assesories_Back_5",
+    [6] = "GUI/atlas/preferb/Assesories_Back_6"
   },
   HeadFaceMouth = {
     [1] = "GUI/atlas/preferb/Aface_1",
@@ -328,7 +345,8 @@ UIAtlasConfig.IconAtlas = {
     [5] = "GUI/atlas/preferb/ZenyShopItem4",
     [6] = "GUI/atlas/preferb/ZenyShopItem5",
     [7] = "GUI/atlas/preferb/ZenyShopItem6",
-    [8] = "GUI/atlas/preferb/ZenyShopItem7"
+    [8] = "GUI/atlas/preferb/ZenyShopItem7",
+    [9] = "GUI/atlas/preferb/ZenyShopItem8"
   },
   puzzle = {
     [1] = "GUI/atlas/preferb/pic",

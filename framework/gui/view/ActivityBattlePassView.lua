@@ -582,14 +582,14 @@ function ActivityBattlePassView:HandleClickDepositItem(cellctl)
     redlog("no info")
     return
   end
-  local cbfunc = function()
-    self:PurchaseDeposit(info)
+  local cbfunc = function(count)
+    self:PurchaseDeposit(info, count)
   end
-  local m_funcRmbBuy = function()
+  local m_funcRmbBuy = function(count)
     if BranchMgr.IsJapan() or BranchMgr.IsKorea() then
       self:Invoke_DepositConfirmPanel(cbfunc)
     else
-      cbfunc()
+      cbfunc(count)
     end
   end
   local tbItem = Table_Item[info.itemID]
@@ -602,7 +602,7 @@ function ActivityBattlePassView:HandleClickDepositItem(cellctl)
   end
 end
 
-function ActivityBattlePassView:PurchaseDeposit(info)
+function ActivityBattlePassView:PurchaseDeposit(info, count)
   if not info then
     redlog("Purchase no info")
     return
@@ -658,7 +658,7 @@ function ActivityBattlePassView:PurchaseDeposit(info)
       local strResult = str_result or "nil"
       LogUtility.Info("NewRechargeRecommendTShopGoodsCell:OnPayPaying, " .. strResult)
     end
-    FuncPurchase.Instance():Purchase(productConf.id, callbacks)
+    FuncPurchase.Instance():Purchase(productConf.id, callbacks, count)
     local interval = GameConfig.PurchaseMonthlyVIP.interval / 1000
     PurchaseDeltaTimeLimit.Instance():Start(productID, interval)
     return true

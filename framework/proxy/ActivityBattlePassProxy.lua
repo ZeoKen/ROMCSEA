@@ -207,11 +207,21 @@ function ActivityBattlePassProxy:GetCurExp(activityId)
 end
 
 function ActivityBattlePassProxy:GetStartTime(activityId)
-  return self.startTime[activityId]
+  local startTime = self.startTime[activityId]
+  if not startTime then
+    local actInfo = ActivityIntegrationProxy.Instance:GetActPersonalActInfo(activityId)
+    startTime = actInfo and actInfo.starttime
+  end
+  return startTime
 end
 
 function ActivityBattlePassProxy:GetEndTime(activityId)
-  return self.endTime[activityId]
+  local endTime = self.endTime[activityId]
+  if not endTime then
+    local actInfo = ActivityIntegrationProxy.Instance:GetActPersonalActInfo(activityId)
+    endTime = actInfo and actInfo.endtime
+  end
+  return endTime
 end
 
 function ActivityBattlePassProxy:IsNormalRewardReceived(activityId, level)
@@ -276,8 +286,8 @@ function ActivityBattlePassProxy:GetProReward(activityId, list)
 end
 
 function ActivityBattlePassProxy:IsBPAvailable(activityId)
-  local starttime = self.startTime[activityId]
-  local endtime = self.endTime[activityId]
+  local starttime = self:GetStartTime(activityId)
+  local endtime = self:GetEndTime(activityId)
   if starttime and endtime then
     local curTime = ServerTime.CurServerTime() / 1000
     return endtime >= curTime and starttime <= curTime

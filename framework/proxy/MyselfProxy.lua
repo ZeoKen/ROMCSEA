@@ -169,6 +169,25 @@ function MyselfProxy:GetMyGuildScore()
   return Game.Myself and Game.Myself.data.userdata:Get(UDEnum.GUILD_SCORE) or 0
 end
 
+function MyselfProxy:GetMasterJobLevel()
+  local jobLevel = self:JobLevel()
+  local jobLevelConfig = Table_JobLevel[jobLevel]
+  if jobLevelConfig and jobLevelConfig.MasterLv and jobLevelConfig.MasterLv > 0 then
+    return jobLevelConfig.ShowLevel
+  end
+  return 0
+end
+
+function MyselfProxy:GetMaxMasterJobLevel()
+  local maxJobLevel = self:CurMaxJobLevel()
+  for i = maxJobLevel, 1, -1 do
+    local config = Table_JobLevel[i]
+    if config.MasterLv and config.MasterLv > 0 then
+      return config.ShowLevel
+    end
+  end
+end
+
 function MyselfProxy:GetTwelvePVPCamp()
   if self:InOb() then
     return FuBenCmd_pb.EGROUPCAMP_RED
@@ -1403,6 +1422,9 @@ function MyselfProxy:GetHeinrichWeaponPos(poses)
 end
 
 function MyselfProxy:GetFakeNormalAtkID()
+  if Game.Myself.data:CheckEnergyBuffFull() then
+    return 2734001
+  end
   local myPro = MyselfProxy.Instance:GetMyProfession()
   local myTypeBranch = ProfessionProxy.GetTypeBranchFromProf(myPro)
   return FakeNormalAtk and FakeNormalAtk[myTypeBranch]
@@ -1485,6 +1507,56 @@ end
 function MyselfProxy:IsProfessionAlinia()
   local class = self:GetMyProfession()
   return ProfessionProxy.Elynia == class
+end
+
+function MyselfProxy:SetSendMarksInfo(data)
+  if not self.marksMap then
+    self.marksMap = {}
+  else
+    TableUtility.TableClear(self.marksMap)
+  end
+  if not self.markSkill then
+    self.markSkill = {}
+  else
+    TableUtility.TableClear(self.markSkill)
+  end
+  if data.buffid == 0 then
+    return
+  end
+  if data and data.guids then
+    local guids = data.guids
+    for i = 1, #guids do
+      self.marksMap[guids[i]] = true
+    end
+  end
+  self.markBuff = data.buffid
+  local buffConfig = Table_Buffer[self.markBuff]
+  if not buffConfig or not buffConfig.BuffEffect then
+    return
+  end
+  local skills = buffConfig.BuffEffect.SkillID
+  for i = 1, #skills do
+    self.markSkill[skills[i]] = true
+  end
+end
+
+function MyselfProxy:CheckInMarks(skillid, guid)
+  if not self.markSkill or not self.markSkill[skillid] then
+    return false
+  end
+  if not self.marksMap then
+    return false
+  end
+  return self.marksMap[guid]
+end
+
+function MyselfProxy:GetMarkParam(targetCreature)
+  local per = 0
+  if self.markBuff then
+    local launPer = Table_Buffer[self.markBuff].BuffEffect.LaunPer
+    per = CommonFun.calcBuffValue(Game.Myself.data, targetCreature and targetCreature.data, launPer.type, launPer.a, launPer.b, launPer.c, launPer.d, 0, 0)
+  end
+  return per
 end
 
 return MyselfProxy

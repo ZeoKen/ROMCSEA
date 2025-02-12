@@ -1281,7 +1281,7 @@ function FunctionPlayerTip.CheckDistributeArtifact(data)
   local myGuildData = GuildProxy.Instance.myGuildData
   if myGuildData then
     local guildMemberData = myGuildData:GetMemberByGuid(data.id)
-    if not guildMemberData or guildMemberData:IsMercenary() then
+    if not guildMemberData or guildMemberData:IsMercenaryOfOtherGuild() then
       return PlayerTipFuncState.InActive
     end
     local switch = ArtifactProxy.Instance:GetDistributeActiveFlag()

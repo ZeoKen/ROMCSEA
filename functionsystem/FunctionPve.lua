@@ -706,19 +706,59 @@ function FunctionPve:GetCurInviteingRaidName()
     return string.format("%s%s", ZhString.PveShenYu, GameConfig.CardRaid.cardraid_DifficultyName[self.serverEntranceData.staticData.Difficulty])
   elseif raidtype == PveRaidType.StarArk then
     return string.format("%s%s", self.serverEntranceData.staticData.Name, GameConfig.CardRaid.cardraid_DifficultyName[self.serverEntranceData.staticData.Difficulty])
+  elseif raidtype == PveRaidType.Astral then
+    return string.format("%s·%s", self.serverEntranceData.staticData.Name, self.serverEntranceData:GetDifficultyDesc())
   else
     return self.serverEntranceData and self.serverEntranceData.staticData and self.serverEntranceData.staticData.Name or ""
   end
 end
 
-function FunctionPve:TryResetLeaderReady(leaderId)
-  if not self:IsInivteing() then
+function FunctionPve:TryResetLeaderReady(now_leaderId)
+  if not self:IsInviting() then
     return
   end
-  self:_SetReply(self.client_invite_leaderid, nil)
-  self.client_invite_leaderid = leaderId
-  self:_SetReply(leaderId, true)
+  local obsolete_leader_id = self.client_invite_leaderid
+  self:TrySetAutoAgreeWhenLeaderChange(obsolete_leader_id)
+  self.client_invite_leaderid = now_leaderId
+  self:_SetReply(now_leaderId, true)
   GameFacade.Instance:sendNotification(PVEEvent.ReplyInvite)
+end
+
+function FunctionPve:TrySetAutoAgree()
+  if not self:IsInviting() then
+    return
+  end
+  if not self.client_invite_leaderid then
+    return
+  end
+  self:_SetReply(self.client_invite_leaderid, true)
+  local myselfID = Game.Myself.data.id
+  if myselfID == self.client_invite_leaderid then
+    return
+  end
+  if not TeamProxy.Instance:CheckMyselfAutoFollowIsOpen() then
+    return
+  end
+  self:DoReply(true)
+end
+
+function FunctionPve:TrySetAutoAgreeWhenLeaderChange(obsolete_leader_id)
+  if not obsolete_leader_id then
+    return
+  end
+  if not self:IsInviting() then
+    return
+  end
+  local myselfID = Game.Myself.data.id
+  if myselfID == obsolete_leader_id then
+    if TeamProxy.Instance:CheckMyselfAutoFollowIsOpen() then
+      self:DoReply(true)
+    else
+      self:_SetReply(obsolete_leader_id, nil)
+    end
+  else
+    self:_SetReply(obsolete_leader_id, nil)
+  end
 end
 
 function FunctionPve:SetServerInvite(entranceid, difficulty, lefttime)
@@ -729,7 +769,7 @@ function FunctionPve:SetServerInvite(entranceid, difficulty, lefttime)
   end
   self.serverInviteEndTime = ServerTime.CurServerTime() / 1000 + lefttime
   self.client_invite_leaderid = self:GetCurLeaderID()
-  self:_SetReply(self.client_invite_leaderid, true)
+  self:TrySetAutoAgree()
   local isSceneLoading = SceneProxy.Instance:IsLoading()
   if not isSceneLoading then
     GameFacade.Instance:sendNotification(PVEEvent.BeginInvite)
@@ -799,7 +839,7 @@ function FunctionPve:GetReadyEndTime()
   return self.serverInviteEndTime
 end
 
-function FunctionPve:IsInivteing()
+function FunctionPve:IsInviting()
   return nil ~= self.serverEntranceData
 end
 

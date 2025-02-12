@@ -798,3 +798,32 @@ function Creature_SceneBottomUI:SetPvpCamp()
     self.hpSpCell:SetPvpCamp()
   end
 end
+
+function Creature_SceneBottomUI:InitSolarEnergy()
+  if self.hpSpCell then
+    self.hpSpCell:InitSolarEnergy()
+    self.nameFactionCell:Reposition(true)
+  end
+end
+
+function Creature_SceneBottomUI:UpdateSolarEnergy(bufflayer, maxLayer)
+  if self.hpSpCell then
+    self.hpSpCell:UpdateSolarEnergy(bufflayer, maxLayer)
+  end
+end
+
+function Creature_SceneBottomUI:RemoveSolarEnergy()
+  if self.hpSpCell then
+    self.hpSpCell:RemoveSolarEnergy()
+    self.nameFactionCell:Reposition(true)
+  end
+end
+
+function Creature_SceneBottomUI:ShowSolarEnergy(value)
+  if self.hpSpCell then
+    self.hpSpCell:ShowSolarEnergy(value)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(value)
+    end
+  end
+end

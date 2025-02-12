@@ -218,3 +218,13 @@ function ServiceSkillProxy:RecvUseSkillSuccessSync(data)
   SkillProxy.Instance:RecvUseSkillSuccessSync(data)
   self:Notify(ServiceEvent.SkillUseSkillSuccessSync, data)
 end
+
+function ServiceSkillProxy:RecvUpdateMasterSkill(data)
+  SkillProxy.Instance:UpdateMasterSkill(data)
+  self:Notify(ServiceEvent.SkillUpdateMasterSkill, data)
+end
+
+function ServiceSkillProxy:RecvUpdateMasterSkillEquip(data)
+  SkillProxy.Instance:UpdateMasterSkillShortcuts(data.equip_skill_family_id, data.shortcuts)
+  self:Notify(ServiceEvent.SkillUpdateMasterSkillEquip, data)
+end

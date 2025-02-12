@@ -751,6 +751,32 @@ Table_SpEffect = {
     Duration = 10,
     OnAdd = _EmptyTable,
     CutLine = _EmptyTable
+  },
+  [58] = {
+    id = 58,
+    Name = "Line",
+    Type = 1,
+    Perform = {
+      ep1 = 3,
+      ep2 = 3,
+      effect = "Skill/sfx_morocc_mwsl_chain_prf"
+    },
+    Duration = 30,
+    OnAdd = _EmptyTable,
+    CutLine = _EmptyTable
+  },
+  [59] = {
+    id = 59,
+    Name = "Line",
+    Type = 1,
+    Perform = {
+      ep1 = 3,
+      ep2 = 3,
+      effect = "Skill/sfx_morocc_jmgh_line_prf"
+    },
+    Duration = 1,
+    OnAdd = _EmptyTable,
+    CutLine = _EmptyTable
   }
 }
 Table_SpEffect_fields = {

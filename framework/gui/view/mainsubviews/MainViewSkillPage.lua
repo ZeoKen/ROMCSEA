@@ -338,6 +338,8 @@ end
 
 function MainViewSkillPage:AddViewEvts()
   self:AddListenEvt(SkillEvent.SkillUpdate, self.UpdateSkills)
+  self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkill, self.UpdateSkills)
+  self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkillEquip, self.UpdateSkills)
   self:AddListenEvt(MyselfEvent.MyProfessionChange, self.UpdateSkills)
   self:AddListenEvt(ItemEvent.ItemUpdate, self.ItemUpdateHandler)
   self:AddListenEvt(MyselfEvent.ZenyChange, self.ItemUpdateHandler)

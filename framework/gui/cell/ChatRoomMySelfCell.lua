@@ -27,11 +27,11 @@ function ChatRoomMySelfCell:SetData(data)
       local config = Table_UserChatFrame[chatframeId]
       if config then
         self.contentSpriteBg.flip = 1
-        self.contentSpriteBg.spriteName = config.BubbleName
+        PictureManager.Instance:SetChatRoomTexture(config.BubbleName, self.contentSpriteBg)
         local decorateNameRoot = config.IconName
         for i = 1, 4 do
           self["bgDecorate" .. i .. "_Icon"].gameObject:SetActive(true)
-          self["bgDecorate" .. i .. "_Icon"].spriteName = decorateNameRoot .. "_" .. i
+          PictureManager.Instance:SetChatRoomTexture(decorateNameRoot .. "_" .. i, self["bgDecorate" .. i .. "_Icon"])
           self["bgDecorate" .. i .. "_Icon"]:MakePixelPerfect()
         end
         self.chatframeId = chatframeId
@@ -53,8 +53,8 @@ function ChatRoomMySelfCell:SetData(data)
     for i = 1, 4 do
       self["bgDecorate" .. i .. "_Icon"].gameObject:SetActive(false)
     end
-    self.contentSpriteBg.flip = 0
-    self.contentSpriteBg.spriteName = "new-chatroom_bg_2"
+    self.contentSpriteBg.flip = 1
+    PictureManager.Instance:SetChatRoomTexture("new-chatroom_bg_2", self.contentSpriteBg)
     self.chatContent.color = LuaColor.black
     self.chatframeId = nil
   end

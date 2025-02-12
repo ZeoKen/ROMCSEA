@@ -99,6 +99,9 @@ function ServiceLoginUserCmdAutoProxy:onRegister()
   self:Listen(1, 31, function(data)
     self:RecvPingUserCmd(data)
   end)
+  self:Listen(1, 33, function(data)
+    self:RecvSetMaxScopeUserCmd(data)
+  end)
 end
 
 function ServiceLoginUserCmdAutoProxy:CallRegResultUserCmd(id, ret)
@@ -1691,6 +1694,23 @@ function ServiceLoginUserCmdAutoProxy:CallPingUserCmd()
   end
 end
 
+function ServiceLoginUserCmdAutoProxy:CallSetMaxScopeUserCmd(num)
+  if not NetConfig.PBC then
+    local msg = LoginUserCmd_pb.SetMaxScopeUserCmd()
+    if num ~= nil then
+      msg.num = num
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SetMaxScopeUserCmd.id
+    local msgParam = {}
+    if num ~= nil then
+      msgParam.num = num
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceLoginUserCmdAutoProxy:RecvRegResultUserCmd(data)
   self:Notify(ServiceEvent.LoginUserCmdRegResultUserCmd, data)
 end
@@ -1803,6 +1823,10 @@ function ServiceLoginUserCmdAutoProxy:RecvPingUserCmd(data)
   self:Notify(ServiceEvent.LoginUserCmdPingUserCmd, data)
 end
 
+function ServiceLoginUserCmdAutoProxy:RecvSetMaxScopeUserCmd(data)
+  self:Notify(ServiceEvent.LoginUserCmdSetMaxScopeUserCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.LoginUserCmdRegResultUserCmd = "ServiceEvent_LoginUserCmdRegResultUserCmd"
 ServiceEvent.LoginUserCmdCreateCharUserCmd = "ServiceEvent_LoginUserCmdCreateCharUserCmd"
@@ -1832,3 +1856,4 @@ ServiceEvent.LoginUserCmdDeviceInfoUserCmd = "ServiceEvent_LoginUserCmdDeviceInf
 ServiceEvent.LoginUserCmdAttachLoginUserCmd = "ServiceEvent_LoginUserCmdAttachLoginUserCmd"
 ServiceEvent.LoginUserCmdAttachSyncCmdUserCmd = "ServiceEvent_LoginUserCmdAttachSyncCmdUserCmd"
 ServiceEvent.LoginUserCmdPingUserCmd = "ServiceEvent_LoginUserCmdPingUserCmd"
+ServiceEvent.LoginUserCmdSetMaxScopeUserCmd = "ServiceEvent_LoginUserCmdSetMaxScopeUserCmd"

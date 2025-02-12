@@ -130,16 +130,19 @@ function ServiceConnProxy:CheckHeart()
   end
   local recvOff = self.checkHeartTime - self.recvHeartTime
   self.checkHeartTime = time
-  if recvOff > self.loseHeartTime and not self.hasPressHome and self.autoReconnect then
-    if self.isConnect then
-      LogUtility.Warning("ServiceConnProxy--------CheckHeart netmanager gameclose")
-      NetManager.GameDisConnect()
-      self.isConnect = false
-    end
-    if recvOff > self.maxLoseHeartTime then
-      self:NotifyNetDown()
-    else
-      self:TryReconnect()
+  if recvOff > self.loseHeartTime and not self.hasPressHome then
+    FunctionChangeScene.Me():SendTMCR()
+    if self.autoReconnect then
+      if self.isConnect then
+        LogUtility.Warning("ServiceConnProxy--------CheckHeart netmanager gameclose")
+        NetManager.GameDisConnect()
+        self.isConnect = false
+      end
+      if recvOff > self.maxLoseHeartTime then
+        self:NotifyNetDown()
+      else
+        self:TryReconnect()
+      end
     end
   end
 end

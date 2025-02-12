@@ -171,7 +171,7 @@ function EquipInfo:Set(serverData)
       for j = 1, #attr.times do
         time = attr.times[j]
         if time.refresh_times and 0 < #time.refresh_times then
-          times[time.formula_id] = math.min(unpack(time.refresh_times))
+          times[time.formula_id] = time.refresh_times[1]
         elseif 0 < time.refresh_time then
           times[time.formula_id] = time.refresh_time
         end
@@ -969,6 +969,19 @@ function EquipInfo:GetUpgradeReplaceLv()
   else
     return self.upgrade_MaxLv
   end
+end
+
+function EquipInfo:CanRefineTransfer()
+  return self:IsNextGen() or self:IsHeadWearTypeTransferValid()
+end
+
+function EquipInfo:IsHeadWearTypeTransferValid()
+  if self:IsHeadEquipType() then
+    local searchMap = Table_HeadwearRepair[self.equipData.id]
+    local canTransfer = searchMap and searchMap.RefineTransfer and searchMap.RefineTransfer == 1 or false
+    return canTransfer
+  end
+  return false
 end
 
 function EquipInfo:GetSiteReplaceCost(cardslot)

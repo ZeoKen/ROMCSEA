@@ -85,7 +85,7 @@ function NHandNpc:SetMaster(master)
   if self.data.speffect and 0 ~= self.data.speffect then
     tempSpEffectData.id = self.data.speffect
     tempSpEffectData.entity[1] = self.masterId
-    self:Server_AddMultipleTargetSpEffect(tempSpEffectData)
+    self:Server_AddSpEffect(tempSpEffectData)
   end
 end
 
@@ -118,9 +118,11 @@ function NHandNpc:SetVisible(v, reason)
   if self.visibleHandler then
     hasReason = self.visibleHandler:HasReason()
   end
-  for _, effectWorker in pairs(spEffects) do
-    if effectWorker.effect and effectWorker.EffectType == 1 then
-      effectWorker.effect:SetActive(not hasReason)
+  for key, map in pairs(spEffects) do
+    for index, effectWorker in pairs(map) do
+      if effectWorker.effect and effectWorker.EffectType == 1 then
+        effectWorker.effect:SetActive(not hasReason)
+      end
     end
   end
 end

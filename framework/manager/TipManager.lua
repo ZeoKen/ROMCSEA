@@ -53,6 +53,7 @@ autoImport("QuestRepairTip")
 autoImport("EvidenceDetailTip")
 autoImport("TeamMemberTip")
 autoImport("TopicTip")
+autoImport("GuildDateBattleDateTip")
 autoImport("MixShopTip")
 autoImport("LotterySafetyTip")
 autoImport("DayLoginRewardTip")
@@ -64,6 +65,7 @@ autoImport("SinglePropTypeTip")
 autoImport("NewPropTypeTip")
 autoImport("AdventureAppendTip")
 autoImport("BalanceModeSkillTip")
+autoImport("AstralDestinyGraphPointTip")
 TipManager.Instance = nil
 
 function TipManager:ctor()
@@ -487,6 +489,30 @@ function TipManager:ShowPropTypeTip(preDatas, stick, side, offset)
   return titleTip
 end
 
+function TipManager:ShowGuildDateBattleTip(data, stick, side, offset)
+  side = side or NGUIUtil.AnchorSide.TopRight
+  offset = offset or {0, 0}
+  TipsView.Me():ShowStickTip(GuildDateBattleDateTip, data, side, stick, offset, "GuildDateBattleDateTip")
+  local tip = TipsView.Me().currentTip
+  return tip
+end
+
+function TipManager:ShowGuildDateBattleClockTip(data, stick, side, offset)
+  side = side or NGUIUtil.AnchorSide.TopRight
+  offset = offset or {0, 0}
+  TipsView.Me():ShowStickTip(GuildDateBattleDateTip, data, side, stick, offset, "GuildDateBattleClockTip")
+  local tip = TipsView.Me().currentTip
+  return tip
+end
+
+function TipManager:ShowGuildDateBattleModeTip(data, stick, side, offset)
+  side = side or NGUIUtil.AnchorSide.TopRight
+  offset = offset or {0, 0}
+  TipsView.Me():ShowStickTip(GuildDateBattleDateTip, data, side, stick, offset, "GuildDateBattleModeTip")
+  local tip = TipsView.Me().currentTip
+  return tip
+end
+
 function TipManager:ShowSinglePropTypeTip(data, stick, side, offset)
   side = side or NGUIUtil.AnchorSide.TopRight
   offset = offset or {0, 0}
@@ -705,4 +731,15 @@ end
 function TipManager:ShowAddventureAppendTip(data, stick, side, offset)
   TipsView.Me():ShowStickTip(AdventureAppendTip, data, side, stick, offset)
   return TipsView.Me().currentTip
+end
+
+function TipManager:ShowAstralDestinyGraphPointTip(data, stick, side, offset)
+  side = side or NGUIUtil.AnchorSide.TopRight
+  offset = offset or {0, 0}
+  TipsView.Me():ShowStickTip(AstralDestinyGraphPointTip, data, side, stick, offset, "AstralDestinyGraphPointTip")
+  return TipsView.Me().currentTip
+end
+
+function TipManager:CloseAstralDestinyGraphPointTip()
+  TipsView.Me():HideCurrent()
 end

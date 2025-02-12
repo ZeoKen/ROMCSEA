@@ -105,6 +105,8 @@ function MainViewTraceInfoPage:AddViewEvts()
   self:AddListenEvt(PVPEvent.TripleTeams_Launch, self.HandleTripleTeamsLaunch)
   self:AddListenEvt(ServiceEvent.FuBenCmdSyncTripleCampInfoFuBenCmd, self.HandleTripleTeamsLaunch)
   self:AddListenEvt(PVPEvent.TripleTeams_Shutdown, self.HandleTripleTeamsShutdown)
+  self:AddListenEvt(PVEEvent.Astral_Launch, self.HandleAstralRaidLaunch)
+  self:AddListenEvt(PVEEvent.Astral_Shutdown, self.HandleAstralRaidShutdown)
 end
 
 function MainViewTraceInfoPage:HandleAddDungeonInfoBord(data)
@@ -130,7 +132,7 @@ function MainViewTraceInfoPage:HandleMyselfRelive()
 end
 
 function MainViewTraceInfoPage:HandleGuildGvg()
-  if GvgProxy.Instance:IsFireState() then
+  if GvgProxy.Instance:IsFireState() or GvgProxy.Instance:IsPerfectDefense() then
     self:_ShowMetalGVG()
   else
     self:_HideMetalGVG()
@@ -813,5 +815,13 @@ function MainViewTraceInfoPage:HandleTripleTeamsLaunch()
 end
 
 function MainViewTraceInfoPage:HandleTripleTeamsShutdown()
+  self.taskBord:Show()
+end
+
+function MainViewTraceInfoPage:HandleAstralRaidLaunch()
+  self.taskBord:Hide()
+end
+
+function MainViewTraceInfoPage:HandleAstralRaidShutdown()
   self.taskBord:Show()
 end

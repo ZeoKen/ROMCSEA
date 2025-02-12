@@ -173,6 +173,11 @@ Table_GuildAuth = {
     id = 37,
     Name = "##3361177",
     Display = ""
+  },
+  [38] = {
+    id = 38,
+    Name = "##42533368",
+    Display = ""
   }
 }
 Table_GuildAuth_fields = {

@@ -1,1297 +1,1361 @@
+Table_TeamGoals_t = {
+  Difficulty = {
+    {7, 1},
+    {7, 2},
+    {7, 3},
+    {3, 10001},
+    {3, 10002},
+    {17, 3},
+    {17, 4},
+    {17, 5},
+    {17, 1},
+    {17, 2},
+    {1, 2},
+    {8, 1},
+    {8, 2},
+    {8, 3},
+    {8, 4},
+    {8, 5},
+    {8, 6},
+    {8, 7},
+    {8, 8},
+    {8, 9},
+    {8, 10},
+    {10, 1},
+    {12, 1},
+    {13, 1},
+    {14, 1},
+    {15, 1},
+    {16, 1},
+    {19, 1},
+    {1, 1},
+    {18, 5},
+    {18, 6},
+    {3, 1},
+    {3, 2},
+    {3, 3},
+    {3, 4},
+    {3, 5},
+    {3, 6},
+    {3, 7},
+    {3, 8},
+    {3, 9},
+    {3, 10},
+    {18, 13},
+    {18, 12},
+    {18, 11},
+    {18, 10},
+    {18, 9},
+    {18, 8},
+    {18, 7},
+    {18, 4},
+    {18, 3},
+    {18, 2},
+    {18, 1},
+    {9, 1}
+  }
+}
 Table_TeamGoals = {
   [10010] = {
     id = 10010,
     NameZh = "##122891",
     type = 10010,
     Filter = 0,
-    SetShow = 1,
-    Level = 1,
-    RootRaidDesc = "",
-    Difficulty = _EmptyTable
+    Level = 1
   },
   [10020] = {
     id = 10020,
     NameZh = "##1108286",
     type = 10020,
     Filter = 1,
-    SetShow = 1,
     Level = 1,
-    RootRaidDesc = "",
-    GoalGroup = 4,
-    Difficulty = _EmptyTable
-  },
-  [50100] = {
-    id = 50100,
-    NameZh = "##123658",
-    type = 50100,
-    Filter = 42,
-    SetShow = 1,
-    Level = 60,
-    RootRaidDesc = "##122880",
-    FuncState = 109,
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
-  },
-  [50101] = {
-    id = 50101,
-    NameZh = "##122877",
-    type = 50100,
-    Filter = 42,
-    SetShow = 1,
-    Level = 60,
-    RaidType = 100701,
-    RootRaidDesc = "",
-    FuncState = 110,
-    RaidID = 7032,
-    GoalGroup = 2,
-    Difficulty = {1, 1}
-  },
-  [50102] = {
-    id = 50102,
-    NameZh = "##122902",
-    type = 50100,
-    Filter = 42,
-    SetShow = 1,
-    Level = 60,
-    RaidType = 100702,
-    RootRaidDesc = "",
-    FuncState = 111,
-    RaidID = 7029,
-    GoalGroup = 2,
-    Difficulty = {1, 2}
-  },
-  [50400] = {
-    id = 50400,
-    NameZh = "##1122868",
-    type = 50400,
-    Filter = 45,
-    SetShow = 1,
-    Level = 80,
-    RootRaidDesc = "##1134019",
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
-  },
-  [50401] = {
-    id = 50401,
-    NameZh = "##1122867",
-    type = 50400,
-    Filter = 45,
-    SetShow = 1,
-    Level = 80,
-    RaidType = 100406,
-    RootRaidDesc = "",
-    RaidID = 7060,
-    GoalGroup = 2,
-    Difficulty = {1, 1}
-  },
-  [50402] = {
-    id = 50402,
-    NameZh = "##1122870",
-    type = 50400,
-    Filter = 45,
-    SetShow = 1,
-    Level = 80,
-    RaidType = 103001,
-    RootRaidDesc = "",
-    RaidID = 7061,
-    GoalGroup = 2,
-    Difficulty = {1, 2}
-  },
-  [50500] = {
-    id = 50500,
-    NameZh = "##1187083",
-    type = 50500,
-    Filter = 46,
-    SetShow = 1,
-    Level = 70,
-    RootRaidDesc = "##1187086",
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
-  },
-  [50501] = {
-    id = 50501,
-    NameZh = "##1208048",
-    type = 50500,
-    Filter = 46,
-    SetShow = 1,
-    Level = 70,
-    RaidType = 100408,
-    RootRaidDesc = "",
-    RaidID = 7064,
-    GoalGroup = 2,
-    Difficulty = {1, 1}
-  },
-  [50502] = {
-    id = 50502,
-    NameZh = "##1187331",
-    type = 50500,
-    Filter = 46,
-    SetShow = 1,
-    Level = 70,
-    RaidType = 103003,
-    RootRaidDesc = "",
-    RaidID = 7063,
-    GoalGroup = 2,
-    Difficulty = {1, 2}
+    GoalGroup = 4
   },
   [10100] = {
     id = 10100,
     NameZh = "##113983",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RootRaidDesc = "##117117",
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
+    GoalGroup = 2
   },
   [10101] = {
     id = 10101,
     NameZh = "##1224300",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100001,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[32]
   },
   [10102] = {
     id = 10102,
     NameZh = "##1224301",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100002,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[33]
   },
   [10103] = {
     id = 10103,
     NameZh = "##1224302",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100003,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[34]
   },
   [10104] = {
     id = 10104,
     NameZh = "##1224303",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100004,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 4}
+    Difficulty = Table_TeamGoals_t.Difficulty[35]
   },
   [10105] = {
     id = 10105,
     NameZh = "##1224304",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100005,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 5}
+    Difficulty = Table_TeamGoals_t.Difficulty[36]
   },
   [10106] = {
     id = 10106,
     NameZh = "##1224305",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100006,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 6}
+    Difficulty = Table_TeamGoals_t.Difficulty[37]
   },
   [10107] = {
     id = 10107,
     NameZh = "##1224306",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100007,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 7}
+    Difficulty = Table_TeamGoals_t.Difficulty[38]
   },
   [10108] = {
     id = 10108,
     NameZh = "##1224307",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100008,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 8}
+    Difficulty = Table_TeamGoals_t.Difficulty[39]
   },
   [10109] = {
     id = 10109,
     NameZh = "##1224308",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100009,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 9}
+    Difficulty = Table_TeamGoals_t.Difficulty[40]
   },
   [10110] = {
     id = 10110,
     NameZh = "##1224309",
     type = 10100,
     Filter = 2,
-    SetShow = 1,
     Level = 50,
     RaidType = 100010,
-    RootRaidDesc = "",
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = {3, 10}
+    Difficulty = Table_TeamGoals_t.Difficulty[41]
   },
   [10700] = {
     id = 10700,
     NameZh = "##113977",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RootRaidDesc = "##117138",
     FuncState = 104,
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
+    GoalGroup = 2
   },
   [10701] = {
     id = 10701,
     NameZh = "##2808839",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100101,
-    RootRaidDesc = "",
     FuncState = 105,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [10702] = {
     id = 10702,
     NameZh = "##2808840",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100102,
-    RootRaidDesc = "",
     FuncState = 105,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [10703] = {
     id = 10703,
     NameZh = "##2808841",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100103,
-    RootRaidDesc = "",
     FuncState = 106,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [10704] = {
     id = 10704,
     NameZh = "##2808842",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100104,
-    RootRaidDesc = "",
     FuncState = 107,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 4}
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
   },
   [10705] = {
     id = 10705,
     NameZh = "##2808843",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100105,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 5}
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
   },
   [10706] = {
     id = 10706,
     NameZh = "##2808844",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100106,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 6}
+    Difficulty = Table_TeamGoals_t.Difficulty[17]
   },
   [10707] = {
     id = 10707,
     NameZh = "##2808845",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100107,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 7}
+    Difficulty = Table_TeamGoals_t.Difficulty[18]
   },
   [10708] = {
     id = 10708,
     NameZh = "##2808846",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100108,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 8}
+    Difficulty = Table_TeamGoals_t.Difficulty[19]
   },
   [10709] = {
     id = 10709,
     NameZh = "##2808847",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100109,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 9}
+    Difficulty = Table_TeamGoals_t.Difficulty[20]
+  },
+  [10710] = {
+    id = 10710,
+    NameZh = "##2808848",
+    type = 10700,
+    RaidType = 100110,
+    FuncState = 108,
+    RaidID = 64608,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[21]
   },
   [10721] = {
     id = 10721,
     NameZh = "##1249728",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100113,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [10722] = {
     id = 10722,
     NameZh = "##1249729",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100114,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [10723] = {
     id = 10723,
     NameZh = "##1249730",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100115,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [10724] = {
     id = 10724,
     NameZh = "##1249731",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100116,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 4}
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
   },
   [10725] = {
     id = 10725,
     NameZh = "##1249732",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100117,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 5}
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
   },
   [10726] = {
     id = 10726,
     NameZh = "##1249733",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100118,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 6}
+    Difficulty = Table_TeamGoals_t.Difficulty[17]
   },
   [10727] = {
     id = 10727,
     NameZh = "##1249734",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100119,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 7}
+    Difficulty = Table_TeamGoals_t.Difficulty[18]
   },
   [10728] = {
     id = 10728,
     NameZh = "##1249735",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100120,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 8}
+    Difficulty = Table_TeamGoals_t.Difficulty[19]
   },
   [10729] = {
     id = 10729,
     NameZh = "##1249736",
     type = 10700,
-    Filter = 7,
-    SetShow = 1,
-    Level = 40,
     RaidType = 100121,
-    RootRaidDesc = "",
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = {8, 9}
+    Difficulty = Table_TeamGoals_t.Difficulty[20]
+  },
+  [10730] = {
+    id = 10730,
+    NameZh = "##1275716",
+    type = 10700,
+    RaidType = 100122,
+    FuncState = 108,
+    RaidID = 64608,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[21]
   },
   [40100] = {
     id = 40100,
-    NameZh = "##119312",
     type = 40100,
     Filter = 41,
-    SetShow = 1,
     Level = 70,
     RootRaidDesc = "##122876",
     FuncState = 5,
     RaidID = 80001,
-    GoalGroup = 3,
-    Difficulty = _EmptyTable
+    GoalGroup = 3
   },
   [40101] = {
     id = 40101,
-    NameZh = "##119312",
     type = 40100,
     Filter = 41,
-    SetShow = 1,
     Level = 70,
     RaidType = 100601,
-    RootRaidDesc = "",
     FuncState = 5,
     RaidID = 80001,
-    GoalGroup = 3,
-    Difficulty = _EmptyTable
+    GoalGroup = 3
+  },
+  [50100] = {
+    id = 50100,
+    NameZh = "##123658",
+    type = 50100,
+    Filter = 42,
+    Level = 60,
+    RootRaidDesc = "##122880",
+    FuncState = 109,
+    GoalGroup = 2
+  },
+  [50101] = {
+    id = 50101,
+    NameZh = "##122877",
+    type = 50100,
+    Filter = 42,
+    Level = 60,
+    RaidType = 100701,
+    FuncState = 110,
+    RaidID = 7032,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[29]
+  },
+  [50102] = {
+    id = 50102,
+    NameZh = "##122902",
+    type = 50100,
+    Filter = 42,
+    Level = 60,
+    RaidType = 100702,
+    FuncState = 111,
+    RaidID = 7029,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[11]
+  },
+  [50400] = {
+    id = 50400,
+    NameZh = "##1122868",
+    type = 50400,
+    Filter = 45,
+    Level = 80,
+    RootRaidDesc = "##1134019",
+    GoalGroup = 2
+  },
+  [50401] = {
+    id = 50401,
+    NameZh = "##1122867",
+    type = 50400,
+    Filter = 45,
+    Level = 80,
+    RaidType = 100406,
+    RaidID = 7060,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[29]
+  },
+  [50402] = {
+    id = 50402,
+    NameZh = "##1122870",
+    type = 50400,
+    Filter = 45,
+    Level = 80,
+    RaidType = 103001,
+    RaidID = 7061,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[11]
+  },
+  [50500] = {
+    id = 50500,
+    NameZh = "##1187083",
+    type = 50500,
+    Filter = 46,
+    Level = 70,
+    RootRaidDesc = "##1187086",
+    GoalGroup = 2
+  },
+  [50501] = {
+    id = 50501,
+    NameZh = "##1208048",
+    type = 50500,
+    Filter = 46,
+    Level = 70,
+    RaidType = 100408,
+    RaidID = 7064,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[29]
+  },
+  [50502] = {
+    id = 50502,
+    NameZh = "##1187331",
+    type = 50500,
+    Filter = 46,
+    Level = 70,
+    RaidType = 103003,
+    RaidID = 7063,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[11]
   },
   [60100] = {
     id = 60100,
     NameZh = "##122894",
     type = 60100,
     Filter = 43,
-    SetShow = 1,
     Level = 45,
     RootRaidDesc = "##117545",
     FuncState = 101,
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
+    GoalGroup = 2
   },
   [60101] = {
     id = 60101,
     NameZh = "##3464191",
     type = 60100,
     Filter = 43,
-    SetShow = 1,
     Level = 45,
     RaidType = 100801,
-    RootRaidDesc = "",
     FuncState = 101,
     RaidID = 1003100,
     GoalGroup = 2,
-    Difficulty = {7, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
   },
   [60102] = {
     id = 60102,
     NameZh = "##3464192",
     type = 60100,
     Filter = 43,
-    SetShow = 1,
     Level = 45,
     RaidType = 100802,
-    RootRaidDesc = "",
     FuncState = 101,
     RaidID = 1003100,
     GoalGroup = 2,
-    Difficulty = {7, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [60103] = {
     id = 60103,
     NameZh = "##3464193",
     type = 60100,
     Filter = 43,
-    SetShow = 1,
     Level = 45,
     RaidType = 100803,
-    RootRaidDesc = "",
     FuncState = 101,
     RaidID = 1003100,
     GoalGroup = 2,
-    Difficulty = {7, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [70100] = {
     id = 70100,
     NameZh = "##138489",
     type = 70100,
     Filter = 48,
-    SetShow = 1,
     Level = 70,
     RootRaidDesc = "##117117",
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
+    GoalGroup = 2
   },
   [70101] = {
     id = 70101,
     NameZh = "##2819125",
     type = 70100,
     Filter = 48,
-    SetShow = 1,
     Level = 70,
     RaidType = 102001,
-    RootRaidDesc = "",
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = {3, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[32]
   },
   [70102] = {
     id = 70102,
     NameZh = "##2819126",
     type = 70100,
     Filter = 48,
-    SetShow = 1,
     Level = 70,
     RaidType = 102002,
-    RootRaidDesc = "",
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = {3, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[33]
   },
   [70111] = {
     id = 70111,
     NameZh = "##2819132",
     type = 70100,
     Filter = 48,
-    SetShow = 1,
     Level = 70,
     RaidType = 102011,
-    RootRaidDesc = "",
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = {3, 10001}
+    Difficulty = Table_TeamGoals_t.Difficulty[4]
   },
   [70112] = {
     id = 70112,
     NameZh = "##2819133",
     type = 70100,
     Filter = 48,
-    SetShow = 1,
     Level = 70,
     RaidType = 102012,
-    RootRaidDesc = "",
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = {3, 10002}
+    Difficulty = Table_TeamGoals_t.Difficulty[5]
   },
   [90100] = {
     id = 90100,
     NameZh = "##1242905",
     type = 90100,
     Filter = 49,
-    SetShow = 1,
     Level = 20,
     RootRaidDesc = "##1243252",
-    GoalGroup = 1,
-    Difficulty = _EmptyTable
+    GoalGroup = 1
   },
   [90101] = {
     id = 90101,
     NameZh = "##1243253",
     type = 90100,
     Filter = 49,
-    SetShow = 1,
     Level = 20,
     RaidType = 110101,
-    RootRaidDesc = "",
     RaidID = 7066,
     GoalGroup = 1,
-    Difficulty = {7, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
   },
   [90102] = {
     id = 90102,
     NameZh = "##1243254",
     type = 90100,
     Filter = 49,
-    SetShow = 1,
     Level = 20,
     RaidType = 110102,
-    RootRaidDesc = "",
     RaidID = 7067,
     GoalGroup = 1,
-    Difficulty = {7, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [90103] = {
     id = 90103,
     NameZh = "##1243255",
     type = 90100,
     Filter = 49,
-    SetShow = 1,
     Level = 20,
     RaidType = 110103,
-    RootRaidDesc = "",
     RaidID = 7068,
     GoalGroup = 1,
-    Difficulty = {7, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [90200] = {
     id = 90200,
     NameZh = "##1242907",
     type = 90200,
     Filter = 49,
-    SetShow = 1,
-    Level = 40,
     RootRaidDesc = "##1243257",
-    GoalGroup = 1,
-    Difficulty = _EmptyTable
+    GoalGroup = 1
   },
   [90201] = {
     id = 90201,
     NameZh = "##1243258",
     type = 90200,
     Filter = 49,
-    SetShow = 1,
-    Level = 40,
     RaidType = 120101,
-    RootRaidDesc = "",
     RaidID = 7069,
     GoalGroup = 1,
-    Difficulty = {7, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
   },
   [90202] = {
     id = 90202,
     NameZh = "##1243259",
     type = 90200,
     Filter = 49,
-    SetShow = 1,
-    Level = 40,
     RaidType = 120102,
-    RootRaidDesc = "",
     RaidID = 7070,
     GoalGroup = 1,
-    Difficulty = {7, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [90203] = {
     id = 90203,
     NameZh = "##1243260",
     type = 90200,
     Filter = 49,
-    SetShow = 1,
-    Level = 40,
     RaidType = 120103,
-    RootRaidDesc = "",
     RaidID = 7071,
     GoalGroup = 1,
-    Difficulty = {7, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [90300] = {
-    id = 90300,
     NameZh = "##1242903",
     type = 90300,
     Filter = 49,
-    SetShow = 1,
     Level = 60,
     RootRaidDesc = "##1243262",
-    GoalGroup = 1,
-    Difficulty = _EmptyTable
+    GoalGroup = 1
   },
   [90301] = {
     id = 90301,
     NameZh = "##1243263",
     type = 90300,
     Filter = 49,
-    SetShow = 1,
     Level = 60,
     RaidType = 130101,
-    RootRaidDesc = "",
     RaidID = 7072,
     GoalGroup = 1,
-    Difficulty = {7, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
   },
   [90302] = {
     id = 90302,
     NameZh = "##1243264",
     type = 90300,
     Filter = 49,
-    SetShow = 1,
     Level = 60,
     RaidType = 130102,
-    RootRaidDesc = "",
     RaidID = 7073,
     GoalGroup = 1,
-    Difficulty = {7, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [90303] = {
     id = 90303,
     NameZh = "##1243265",
     type = 90300,
     Filter = 49,
-    SetShow = 1,
     Level = 60,
     RaidType = 130103,
-    RootRaidDesc = "",
     RaidID = 7074,
     GoalGroup = 1,
-    Difficulty = {7, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [90400] = {
     id = 90400,
     NameZh = "##1242909",
     type = 90400,
     Filter = 49,
-    SetShow = 1,
     Level = 80,
     RootRaidDesc = "##1235270",
-    GoalGroup = 1,
-    Difficulty = _EmptyTable
+    GoalGroup = 1
   },
   [90401] = {
     id = 90401,
     NameZh = "##1243267",
     type = 90400,
     Filter = 49,
-    SetShow = 1,
     Level = 80,
     RaidType = 140101,
-    RootRaidDesc = "",
     RaidID = 7075,
     GoalGroup = 1,
-    Difficulty = {7, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
   },
   [90402] = {
     id = 90402,
     NameZh = "##1243268",
     type = 90400,
     Filter = 49,
-    SetShow = 1,
     Level = 80,
     RaidType = 140102,
-    RootRaidDesc = "",
     RaidID = 7076,
     GoalGroup = 1,
-    Difficulty = {7, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [90403] = {
     id = 90403,
     NameZh = "##1243269",
     type = 90400,
     Filter = 49,
-    SetShow = 1,
     Level = 80,
     RaidType = 140103,
-    RootRaidDesc = "",
     RaidID = 7077,
     GoalGroup = 1,
-    Difficulty = {7, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [90500] = {
     id = 90500,
     NameZh = "##138493",
     type = 90500,
     Filter = 49,
-    SetShow = 1,
     Level = 90,
     RootRaidDesc = "##1235270",
-    GoalGroup = 1,
-    Difficulty = _EmptyTable
+    GoalGroup = 1
   },
   [90501] = {
     id = 90501,
     NameZh = "##1243271",
     type = 90500,
     Filter = 49,
-    SetShow = 1,
     Level = 90,
     RaidType = 150101,
-    RootRaidDesc = "",
     RaidID = 7078,
     GoalGroup = 1,
-    Difficulty = {7, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
   },
   [90502] = {
     id = 90502,
     NameZh = "##1243272",
     type = 90500,
     Filter = 49,
-    SetShow = 1,
     Level = 90,
     RaidType = 150102,
-    RootRaidDesc = "",
     RaidID = 7079,
     GoalGroup = 1,
-    Difficulty = {7, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [90503] = {
     id = 90503,
     NameZh = "##1243273",
     type = 90500,
     Filter = 49,
-    SetShow = 1,
     Level = 90,
     RaidType = 150103,
-    RootRaidDesc = "",
     RaidID = 7080,
     GoalGroup = 1,
-    Difficulty = {7, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [91100] = {
     id = 91100,
     NameZh = "##1279453",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RootRaidDesc = "##1275719",
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
+    GoalGroup = 2
   },
   [91101] = {
     id = 91101,
     NameZh = "##1302350",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201101,
-    RootRaidDesc = "",
     RaidID = 7120,
     GoalGroup = 2,
-    Difficulty = {9, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[53]
   },
   [91102] = {
     id = 91102,
     NameZh = "##1302351",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201102,
-    RootRaidDesc = "",
     RaidID = 7121,
     GoalGroup = 2,
-    Difficulty = {10, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[22]
   },
   [91103] = {
     id = 91103,
     NameZh = "##1302352",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201103,
-    RootRaidDesc = "",
     RaidID = 7122,
     GoalGroup = 2,
-    Difficulty = {12, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[23]
   },
   [91104] = {
     id = 91104,
     NameZh = "##1302353",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201104,
-    RootRaidDesc = "",
     RaidID = 7123,
     GoalGroup = 2,
-    Difficulty = {13, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[24]
   },
   [91105] = {
     id = 91105,
     NameZh = "##1302354",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201105,
-    RootRaidDesc = "",
     RaidID = 7124,
     GoalGroup = 2,
-    Difficulty = {14, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[25]
   },
   [91106] = {
     id = 91106,
     NameZh = "##1291055",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201106,
-    RootRaidDesc = "",
     RaidID = 7125,
     GoalGroup = 2,
-    Difficulty = {15, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[26]
   },
   [91107] = {
     id = 91107,
     NameZh = "##1279477",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201107,
-    RootRaidDesc = "",
     RaidID = 7126,
     GoalGroup = 2,
-    Difficulty = {16, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[27]
   },
   [91108] = {
     id = 91108,
     NameZh = "##3501128",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201108,
-    RootRaidDesc = "",
     RaidID = 7127,
     GoalGroup = 2,
-    Difficulty = {17, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[9]
   },
   [91109] = {
     id = 91109,
     NameZh = "##42530813",
     type = 91100,
     Filter = 50,
-    SetShow = 1,
     Level = 30,
     RaidType = 201109,
-    RootRaidDesc = "",
     RaidID = 7128,
     GoalGroup = 2,
-    Difficulty = {19, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[28]
   },
   [91500] = {
     id = 91500,
     NameZh = "##3462410",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 20,
-    RootRaidDesc = "",
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
+    GoalGroup = 2
   },
   [91501] = {
     id = 91501,
     NameZh = "##3501129",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 20,
     RaidType = 206116,
-    RootRaidDesc = "",
     RaidID = 1004200,
     GoalGroup = 2,
-    Difficulty = {18, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[52]
   },
   [91502] = {
     id = 91502,
     NameZh = "##3501130",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 30,
     RaidType = 206117,
-    RootRaidDesc = "",
     RaidID = 1004201,
     GoalGroup = 2,
-    Difficulty = {18, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[51]
   },
   [91503] = {
     id = 91503,
     NameZh = "##3501131",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
-    Level = 40,
     RaidType = 206118,
-    RootRaidDesc = "",
     RaidID = 1004202,
     GoalGroup = 2,
-    Difficulty = {18, 3}
+    Difficulty = Table_TeamGoals_t.Difficulty[50]
   },
   [91504] = {
     id = 91504,
     NameZh = "##3501132",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 50,
     RaidType = 206119,
-    RootRaidDesc = "",
     RaidID = 1004203,
     GoalGroup = 2,
-    Difficulty = {18, 4}
+    Difficulty = Table_TeamGoals_t.Difficulty[49]
   },
   [91505] = {
     id = 91505,
     NameZh = "##3501133",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 60,
     RaidType = 206120,
-    RootRaidDesc = "",
     RaidID = 1004204,
     GoalGroup = 2,
-    Difficulty = {18, 5}
+    Difficulty = Table_TeamGoals_t.Difficulty[30]
   },
   [91506] = {
     id = 91506,
     NameZh = "##3501134",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 70,
     RaidType = 206121,
-    RootRaidDesc = "",
     RaidID = 1004205,
     GoalGroup = 2,
-    Difficulty = {18, 6}
+    Difficulty = Table_TeamGoals_t.Difficulty[31]
   },
   [91507] = {
     id = 91507,
     NameZh = "##3501135",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 80,
     RaidType = 206122,
-    RootRaidDesc = "",
     RaidID = 1004206,
     GoalGroup = 2,
-    Difficulty = {18, 7}
+    Difficulty = Table_TeamGoals_t.Difficulty[48]
   },
   [91508] = {
     id = 91508,
     NameZh = "##3501136",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 90,
     RaidType = 206123,
-    RootRaidDesc = "",
     RaidID = 1004207,
     GoalGroup = 2,
-    Difficulty = {18, 8}
+    Difficulty = Table_TeamGoals_t.Difficulty[47]
   },
   [91509] = {
     id = 91509,
     NameZh = "##3501137",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 100,
     RaidType = 206124,
-    RootRaidDesc = "",
     RaidID = 1004208,
     GoalGroup = 2,
-    Difficulty = {18, 9}
+    Difficulty = Table_TeamGoals_t.Difficulty[46]
   },
   [91510] = {
     id = 91510,
     NameZh = "##3501138",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 100,
     RaidType = 206125,
-    RootRaidDesc = "",
     RaidID = 1004209,
     GoalGroup = 2,
-    Difficulty = {18, 10}
+    Difficulty = Table_TeamGoals_t.Difficulty[45]
   },
   [91511] = {
     id = 91511,
     NameZh = "##3501139",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 100,
     RaidType = 206126,
-    RootRaidDesc = "",
     RaidID = 1004210,
     GoalGroup = 2,
-    Difficulty = {18, 11}
+    Difficulty = Table_TeamGoals_t.Difficulty[44]
   },
   [91512] = {
     id = 91512,
     NameZh = "##42530814",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 110,
     RaidType = 206127,
-    RootRaidDesc = "",
     RaidID = 74100,
     GoalGroup = 2,
-    Difficulty = {18, 12}
+    Difficulty = Table_TeamGoals_t.Difficulty[43]
   },
   [91513] = {
     id = 91513,
     NameZh = "##42530815",
     type = 91500,
     Filter = 53,
-    SetShow = 1,
     Level = 110,
     RaidType = 206128,
-    RootRaidDesc = "",
     RaidID = 74101,
     GoalGroup = 2,
-    Difficulty = {18, 13}
+    Difficulty = Table_TeamGoals_t.Difficulty[42]
   },
   [91600] = {
     id = 91600,
     NameZh = "##3489552",
     type = 91600,
     Filter = 54,
-    SetShow = 1,
     Level = 90,
-    RootRaidDesc = "",
-    GoalGroup = 2,
-    Difficulty = _EmptyTable
+    GoalGroup = 2
   },
   [91601] = {
     id = 91601,
     NameZh = "##3490396",
     type = 91600,
     Filter = 54,
-    SetShow = 1,
     Level = 90,
     RaidType = 206201,
-    RootRaidDesc = "",
     RaidID = 7211,
     GoalGroup = 2,
-    Difficulty = {1, 1}
+    Difficulty = Table_TeamGoals_t.Difficulty[29]
   },
   [91602] = {
     id = 91602,
     NameZh = "##3490071",
     type = 91600,
     Filter = 54,
-    SetShow = 1,
-    Level = 105,
+    Level = 90,
     RaidType = 206200,
-    RootRaidDesc = "",
     RaidID = 7210,
     GoalGroup = 2,
-    Difficulty = {1, 2}
+    Difficulty = Table_TeamGoals_t.Difficulty[11]
+  },
+  [91700] = {
+    id = 91700,
+    NameZh = "##42533421",
+    Filter = 55,
+    Level = 70,
+    GoalGroup = 5
+  },
+  [91701] = {
+    id = 91701,
+    NameZh = "##42533592",
+    Filter = 55,
+    Level = 70,
+    RaidType = 206300,
+    RaidID = 7501,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[9]
+  },
+  [91702] = {
+    id = 91702,
+    NameZh = "##42533596",
+    Filter = 55,
+    Level = 80,
+    RaidType = 206301,
+    RaidID = 7502,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[10]
+  },
+  [91703] = {
+    id = 91703,
+    NameZh = "##42533598",
+    Filter = 55,
+    Level = 90,
+    RaidType = 206302,
+    RaidID = 7503,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[6]
+  },
+  [91704] = {
+    id = 91704,
+    NameZh = "##42533600",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206303,
+    RaidID = 7504,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[7]
+  },
+  [91705] = {
+    id = 91705,
+    NameZh = "##42533602",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206304,
+    RaidID = 7505,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[8]
+  },
+  [91706] = {
+    id = 91706,
+    NameZh = "##42533604",
+    Filter = 55,
+    Level = 70,
+    RaidType = 206305,
+    RaidID = 7506,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[9]
+  },
+  [91707] = {
+    id = 91707,
+    NameZh = "##42533606",
+    Filter = 55,
+    Level = 80,
+    RaidType = 206306,
+    RaidID = 7507,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[10]
+  },
+  [91708] = {
+    id = 91708,
+    NameZh = "##42533608",
+    Filter = 55,
+    Level = 90,
+    RaidType = 206307,
+    RaidID = 7508,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[6]
+  },
+  [91709] = {
+    id = 91709,
+    NameZh = "##42533610",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206308,
+    RaidID = 7509,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[7]
+  },
+  [91710] = {
+    id = 91710,
+    NameZh = "##42533612",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206309,
+    RaidID = 7510,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[8]
+  },
+  [91711] = {
+    id = 91711,
+    NameZh = "##42533614",
+    Filter = 55,
+    Level = 70,
+    RaidType = 206310,
+    RaidID = 7511,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[9]
+  },
+  [91712] = {
+    id = 91712,
+    NameZh = "##42533616",
+    Filter = 55,
+    Level = 80,
+    RaidType = 206311,
+    RaidID = 7512,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[10]
+  },
+  [91713] = {
+    id = 91713,
+    NameZh = "##42533618",
+    Filter = 55,
+    Level = 90,
+    RaidType = 206312,
+    RaidID = 7513,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[6]
+  },
+  [91714] = {
+    id = 91714,
+    NameZh = "##42533620",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206313,
+    RaidID = 7514,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[7]
+  },
+  [91715] = {
+    id = 91715,
+    NameZh = "##42533622",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206314,
+    RaidID = 7515,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[8]
+  },
+  [91716] = {
+    id = 91716,
+    NameZh = "##42533624",
+    Filter = 55,
+    Level = 70,
+    RaidType = 206315,
+    RaidID = 7516,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[9]
+  },
+  [91717] = {
+    id = 91717,
+    NameZh = "##42533626",
+    Filter = 55,
+    Level = 80,
+    RaidType = 206316,
+    RaidID = 7517,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[10]
+  },
+  [91718] = {
+    id = 91718,
+    NameZh = "##42533628",
+    Filter = 55,
+    Level = 90,
+    RaidType = 206317,
+    RaidID = 7518,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[6]
+  },
+  [91719] = {
+    id = 91719,
+    NameZh = "##42533630",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206318,
+    RaidID = 7519,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[7]
+  },
+  [91720] = {
+    id = 91720,
+    NameZh = "##42533632",
+    Filter = 55,
+    Level = 100,
+    RaidType = 206319,
+    RaidID = 7520,
+    GoalGroup = 5,
+    Difficulty = Table_TeamGoals_t.Difficulty[8]
+  },
+  [91900] = {
+    id = 91900,
+    NameZh = "##42535719",
+    type = 91900,
+    Filter = 54,
+    Level = 90,
+    GoalGroup = 2
+  },
+  [91901] = {
+    id = 91901,
+    NameZh = "##42622202",
+    type = 91900,
+    Filter = 54,
+    Level = 90,
+    RaidType = 206401,
+    RaidID = 7220,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[29]
+  },
+  [91902] = {
+    id = 91902,
+    NameZh = "##42535904",
+    type = 91900,
+    Filter = 54,
+    Level = 90,
+    RaidType = 206400,
+    RaidID = 7221,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[11]
   }
 }
-Table_TeamGoals_fields = {
-  "id",
-  "NameZh",
-  "type",
-  "Filter",
-  "SetShow",
-  "Level",
-  "RaidType",
-  "RootRaidDesc",
-  "FuncState",
-  "RaidID",
-  "NoServerMerge",
-  "GoalGroup",
-  "Difficulty"
+local cell_mt = {
+  __index = {
+    Difficulty = _EmptyTable,
+    Filter = 7,
+    Level = 40,
+    NameZh = "##119312",
+    RootRaidDesc = "",
+    SetShow = 1,
+    id = 90300,
+    type = 91700
+  }
 }
-return Table_TeamGoals
+for _, d in pairs(Table_TeamGoals) do
+  setmetatable(d, cell_mt)
+end

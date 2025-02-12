@@ -12,6 +12,7 @@ function TripleTeamPwsRewardCell:SetData(data)
     self.labName.text = data.NameZh
     self.labDesc.text = data.Desc
     IconManager:SetUIIcon(data.Icon, self.sprLevel)
+    self.sprLevel:MakePixelPerfect()
     self.iconDescLabel.text = data.IconDesc
     local datas = ReusableTable.CreateArray()
     for i = 1, #data.Rewards do

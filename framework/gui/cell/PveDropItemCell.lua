@@ -29,7 +29,8 @@ PveDropItemCell.Empty = "DropEmpty"
 
 function PveDropItemCell:Init()
   self.dropEmptyBg = self:FindGO("EmptyBg")
-  self.itemobj = self:LoadPreferb("cell/ItemCell", self.gameObject)
+  self.itemContainer = self:FindComponent("ItemContainer", UIWidget)
+  self.itemobj = self:LoadPreferb("cell/ItemCell", self.itemContainer.gameObject)
   self.itemobj.transform.localPosition = LuaGeometry.GetTempVector3()
   PveDropItemCell.super.Init(self)
   self:FindObjs()
@@ -41,6 +42,7 @@ function PveDropItemCell:FindObjs()
   self.flagName = self:FindComponent("Label", UILabel, self.flagSp.gameObject)
   self.mask = self:FindGO("Mask")
   self.extra = self:FindGO("Extra")
+  self.received = self:FindGO("Received")
 end
 
 local _checkId = {
@@ -56,6 +58,7 @@ function PveDropItemCell:SetData(data)
     self:Hide(self.mask)
     self:Hide(self.flagSp)
     self:Hide(self.extra)
+    self:SetReceived(false)
     self.data = data
     return
   end
@@ -70,6 +73,7 @@ function PveDropItemCell:SetData(data)
   self:SetFlag()
   self.mask:SetActive(self.data.dropType == PveDropItemData.Type.E_Pve_Card and nil ~= data.IsPickup and not data:IsPickup())
   self:SetSpecialBg()
+  self:SetReceived(data.received)
 end
 
 function PveDropItemCell:SetSpecialBg()
@@ -116,4 +120,9 @@ function PveDropItemCell:SetReturnExtra(multiply)
   local num = self.data.num * multiply
   local union_num = ItemUtil.CalcUnionNum(num)
   self:UpdateNumLabel(union_num)
+end
+
+function PveDropItemCell:SetReceived(received)
+  self.received:SetActive(received or false)
+  self.itemContainer.alpha = received and 0.5 or 1
 end

@@ -93,9 +93,9 @@ function ServiceMapProxy:RecvSpEffectCmd(data)
   end
   local spEffectData = data.data
   if data.isadd then
-    creature:Server_AddMultipleTargetSpEffect(spEffectData)
+    creature:Server_AddSpEffect(spEffectData)
   else
-    creature:Server_RemoveMultipleTargetSpEffect(spEffectData)
+    creature:Server_RemoveSpEffect(spEffectData)
   end
   self:Notify(ServiceEvent.MapSpEffectCmd, data)
 end
@@ -216,4 +216,9 @@ end
 function ServiceMapProxy:RecvCardRewardQueryCmd(data)
   WildMvpProxy.Instance:RecvCardRewardQueryCmd(data)
   self:Notify(ServiceEvent.MapCardRewardQueryCmd, data)
+end
+
+function ServiceMapAutoProxy:RecvSkillWeatherSyncCmd(data)
+  SkillProxy.Instance:RecvSkillWeatherSyncCmd(data.weather)
+  self:Notify(ServiceEvent.MapSkillWeatherSyncCmd, data)
 end

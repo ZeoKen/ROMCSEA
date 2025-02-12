@@ -92,13 +92,13 @@ function GvgLandInfoPopUp:UpdatePopUp()
   else
     self.fightButton_label.text = ZhString.GvgLandInfoPopUp_EnterArea
   end
-  local config = Table_Guild_StrongHold and Table_Guild_StrongHold[self.flagid]
+  local config = GvgProxy.GetStrongHoldStaticData(self.flagid)
   if config then
     self.title.text = config.Name
     self.desc.text = config.Text
   else
     self.title.text = "Not Find Config"
-    self.desc.text = string.format("Not Find FlagConfig:%s In Table_Guild_StrongHold", self.flagid)
+    self.desc.text = string.format("Not Find FlagConfig:%s In Table_Guild_StrongHold or Table_DateBattleCity", self.flagid)
   end
   self:UpdateFightState()
 end
@@ -115,11 +115,11 @@ function GvgLandInfoPopUp:UpdateFightState(note)
   else
     self:ActiveFightButton(false)
   end
-  local config = Table_Guild_StrongHold and Table_Guild_StrongHold[self.flagid]
+  local config = GvgProxy.GetStrongHoldStaticData(self.flagid)
   if config then
     self.desc.text = config.Text
   else
-    self.desc.text = string.format("Not Find FlagConfig:%s In Table_Guild_StrongHold", self.flagid)
+    self.desc.text = string.format("Not Find FlagConfig:%s In Table_Guild_StrongHold or Table_DateBattleCity", self.flagid)
   end
   local myGuildData = GuildProxy.Instance.myGuildData
   local myGuildId = myGuildData and myGuildData.id or 0

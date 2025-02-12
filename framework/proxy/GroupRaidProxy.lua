@@ -467,13 +467,30 @@ function GroupRaidProxy:GetMultiBossRecordFilter()
   if not raidConfig then
     return
   end
-  BossFilterConfig = raidConfig.BossFilterConfig
   local filterconfig = {}
-  local name = ""
-  if self.multiBossRecord then
-    for k, v in pairs(self.multiBossRecord) do
-      name = BossFilterConfig[v.boss_index]
-      filterconfig[k] = string.format(filterformat, k, name)
+  if raidtype ~= PveRaidType.MemoryRaid then
+    BossFilterConfig = raidConfig.BossFilterConfig
+    local name = ""
+    if self.multiBossRecord then
+      for k, v in pairs(self.multiBossRecord) do
+        name = BossFilterConfig[v.boss_index]
+        filterconfig[k] = string.format(filterformat, k, name)
+      end
+    end
+  else
+    local name = ""
+    local bossConfig = MultiBossConfig.Map[mapid]
+    if self.multiBossRecord then
+      for k, v in pairs(self.multiBossRecord) do
+        local bossindex = v.boss_index
+        if bossindex ~= 4 then
+          local bossConfig = bossConfig.Stages[bossindex]
+          name = Table_Monster[bossConfig.bossid[1]].NameZh
+          filterconfig[k] = string.format(filterformat, k, name)
+        else
+          filterconfig[k] = string.format(filterformat, k, ZhString.GroupRaidProxy_Total)
+        end
+      end
     end
   end
   return filterconfig
@@ -501,6 +518,22 @@ function GroupRaidProxy:GetStarArkRecordFilter()
         table.insert(filterconfig, string.format(filterformat, i, ZhString.GroupRaidProxy_Total))
       elseif bossIndex then
         table.insert(filterconfig, string.format(filterformat, i, mapName .. (DifficultyNameConfig[bossIndex] or "")))
+      end
+    end
+  end
+  return filterconfig
+end
+
+function GroupRaidProxy:GetAstralRecordFilter()
+  local nameConfig = GameConfig.Astral and GameConfig.Astral.StatFilterConfig
+  local filterconfig = {}
+  if self.elementRecord then
+    for i = 1, #self.elementRecord do
+      local bossIndex = self.elementRecord[i].boss_index
+      if GroupRaidTeamShowData.ElementTotalIndex == bossIndex then
+        table.insert(filterconfig, string.format(filterformat, i, ZhString.GroupRaidProxy_Total))
+      elseif bossIndex then
+        table.insert(filterconfig, string.format(filterformat, i, nameConfig and nameConfig[bossIndex] or ""))
       end
     end
   end

@@ -2,7 +2,7 @@ MiniMapGvgStrongHoldData = class("MiniMapGvgStrongHoldData")
 
 function MiniMapGvgStrongHoldData:ctor(id, config, data)
   self.id = type(id) == "string" and tonumber(id) or id
-  self.depth = 6
+  self.depth = 1
   self:SetConfig(config)
   self:SetData(data)
 end
@@ -32,6 +32,10 @@ function MiniMapGvgStrongHoldData:IsActive()
     return self.data:CanGetRewardFromThisHold()
   end
   return false
+end
+
+function MiniMapGvgStrongHoldData:ForceHideIcon()
+  return Game.MapManager:IsGVG_DateBattle()
 end
 
 function MiniMapGvgStrongHoldData:GetMapSymbolDepth()

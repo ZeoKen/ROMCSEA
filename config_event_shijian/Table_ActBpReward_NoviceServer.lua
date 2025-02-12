@@ -366,49 +366,73 @@ Table_ActBpReward_t = {
       {itemid = 3011062, num = 1}
     },
     {
-      {itemid = 140, num = 300}
-    },
-    {
-      {itemid = 5261, num = 1}
-    },
-    {
-      {itemid = 141, num = 500}
-    },
-    {
-      {itemid = 8213, num = 1}
-    },
-    {
-      {itemid = 110, num = 100}
-    },
-    {
-      {itemid = 5263, num = 1}
-    },
-    {
-      {itemid = 135, num = 10}
-    },
-    {
-      {itemid = 52836, num = 50}
-    },
-    {
-      {itemid = 5004, num = 10}
-    },
-    {
-      {itemid = 5263, num = 2}
-    },
-    {
-      {itemid = 12571, num = 10}
-    },
-    {
-      {itemid = 7463, num = 1}
-    },
-    {
-      {itemid = 5002, num = 10}
+      {itemid = 145957, num = 1}
     },
     {
       {itemid = 12572, num = 10}
     },
     {
+      {itemid = 5263, num = 2}
+    },
+    {
+      {itemid = 8213, num = 1}
+    },
+    {
+      {itemid = 5261, num = 1}
+    },
+    {
+      {itemid = 5002, num = 10}
+    },
+    {
+      {itemid = 7444, num = 1}
+    },
+    {
+      {itemid = 12571, num = 10}
+    },
+    {
+      {itemid = 52902, num = 1}
+    },
+    {
+      {itemid = 141, num = 500}
+    },
+    {
+      {itemid = 5004, num = 10}
+    },
+    {
+      {itemid = 52836, num = 50}
+    },
+    {
+      {itemid = 135, num = 10}
+    },
+    {
+      {itemid = 5263, num = 1}
+    },
+    {
+      {itemid = 52901, num = 10}
+    },
+    {
+      {itemid = 140, num = 300}
+    },
+    {
+      {itemid = 14956, num = 1}
+    },
+    {
+      {itemid = 110, num = 100}
+    },
+    {
+      {itemid = 7463, num = 1}
+    },
+    {
       {itemid = 4621, num = 1}
+    },
+    {
+      {itemid = 7443, num = 1}
+    },
+    {
+      {itemid = 14940, num = 1}
+    },
+    {
+      {itemid = 7442, num = 1}
     },
     {
       {itemid = 7440, num = 1}
@@ -4822,7 +4846,7 @@ Table_ActBpReward = {
   [850] = {
     id = 850,
     ActID = 105617,
-    RewardItems = Table_ActBpReward_t.RewardItems[72]
+    RewardItems = Table_ActBpReward_t.RewardItems[87]
   },
   [851] = {
     id = 851,
@@ -4836,14 +4860,14 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 3,
     NeedExp = 200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [853] = {
     id = 853,
     ActID = 105617,
     Level = 4,
     NeedExp = 300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [854] = {
     id = 854,
@@ -4857,7 +4881,7 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 6,
     NeedExp = 500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [856] = {
     id = 856,
@@ -4871,21 +4895,21 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 8,
     NeedExp = 700,
-    RewardItems = Table_ActBpReward_t.RewardItems[77]
+    RewardItems = Table_ActBpReward_t.RewardItems[85]
   },
   [858] = {
     id = 858,
     ActID = 105617,
     Level = 9,
     NeedExp = 800,
-    RewardItems = Table_ActBpReward_t.RewardItems[78]
+    RewardItems = Table_ActBpReward_t.RewardItems[84]
   },
   [859] = {
     id = 859,
     ActID = 105617,
     Level = 10,
     NeedExp = 900,
-    RewardItems = Table_ActBpReward_t.RewardItems[79],
+    RewardItems = Table_ActBpReward_t.RewardItems[83],
     Important = 1
   },
   [860] = {
@@ -4893,7 +4917,7 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 11,
     NeedExp = 1000,
-    RewardItems = Table_ActBpReward_t.RewardItems[80]
+    RewardItems = Table_ActBpReward_t.RewardItems[82]
   },
   [861] = {
     id = 861,
@@ -4907,14 +4931,14 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 13,
     NeedExp = 1200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [863] = {
     id = 863,
     ActID = 105617,
     Level = 14,
     NeedExp = 1300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [864] = {
     id = 864,
@@ -4928,7 +4952,7 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 16,
     NeedExp = 1500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [866] = {
     id = 866,
@@ -4942,21 +4966,21 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 18,
     NeedExp = 1700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [868] = {
     id = 868,
     ActID = 105617,
     Level = 19,
     NeedExp = 1800,
-    RewardItems = Table_ActBpReward_t.RewardItems[82]
+    RewardItems = Table_ActBpReward_t.RewardItems[79]
   },
   [869] = {
     id = 869,
     ActID = 105617,
     Level = 20,
     NeedExp = 1900,
-    RewardItems = Table_ActBpReward_t.RewardItems[83],
+    RewardItems = Table_ActBpReward_t.RewardItems[90],
     Important = 1
   },
   [870] = {
@@ -4964,7 +4988,7 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 21,
     NeedExp = 2000,
-    RewardItems = Table_ActBpReward_t.RewardItems[84]
+    RewardItems = Table_ActBpReward_t.RewardItems[77]
   },
   [871] = {
     id = 871,
@@ -4978,7 +5002,7 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 23,
     NeedExp = 2200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [873] = {
     id = 873,
@@ -5013,27 +5037,27 @@ Table_ActBpReward = {
     ActID = 105617,
     Level = 28,
     NeedExp = 2700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [878] = {
     id = 878,
     ActID = 105617,
     Level = 29,
     NeedExp = 2800,
-    RewardItems = Table_ActBpReward_t.RewardItems[85]
+    RewardItems = Table_ActBpReward_t.RewardItems[73]
   },
   [879] = {
     id = 879,
     ActID = 105617,
     Level = 30,
     NeedExp = 2900,
-    RewardItems = Table_ActBpReward_t.RewardItems[86],
+    RewardItems = Table_ActBpReward_t.RewardItems[91],
     Important = 1
   },
   [900] = {
     id = 900,
     ActID = 105618,
-    RewardItems = Table_ActBpReward_t.RewardItems[72]
+    RewardItems = Table_ActBpReward_t.RewardItems[87]
   },
   [901] = {
     id = 901,
@@ -5047,14 +5071,14 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 3,
     NeedExp = 200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [903] = {
     id = 903,
     ActID = 105618,
     Level = 4,
     NeedExp = 300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [904] = {
     id = 904,
@@ -5068,7 +5092,7 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 6,
     NeedExp = 500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [906] = {
     id = 906,
@@ -5082,21 +5106,21 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 8,
     NeedExp = 700,
-    RewardItems = Table_ActBpReward_t.RewardItems[77]
+    RewardItems = Table_ActBpReward_t.RewardItems[85]
   },
   [908] = {
     id = 908,
     ActID = 105618,
     Level = 9,
     NeedExp = 800,
-    RewardItems = Table_ActBpReward_t.RewardItems[78]
+    RewardItems = Table_ActBpReward_t.RewardItems[84]
   },
   [909] = {
     id = 909,
     ActID = 105618,
     Level = 10,
     NeedExp = 900,
-    RewardItems = Table_ActBpReward_t.RewardItems[79],
+    RewardItems = Table_ActBpReward_t.RewardItems[83],
     Important = 1
   },
   [910] = {
@@ -5104,7 +5128,7 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 11,
     NeedExp = 1000,
-    RewardItems = Table_ActBpReward_t.RewardItems[80]
+    RewardItems = Table_ActBpReward_t.RewardItems[82]
   },
   [911] = {
     id = 911,
@@ -5118,14 +5142,14 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 13,
     NeedExp = 1200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [913] = {
     id = 913,
     ActID = 105618,
     Level = 14,
     NeedExp = 1300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [914] = {
     id = 914,
@@ -5139,7 +5163,7 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 16,
     NeedExp = 1500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [916] = {
     id = 916,
@@ -5153,21 +5177,21 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 18,
     NeedExp = 1700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [918] = {
     id = 918,
     ActID = 105618,
     Level = 19,
     NeedExp = 1800,
-    RewardItems = Table_ActBpReward_t.RewardItems[82]
+    RewardItems = Table_ActBpReward_t.RewardItems[79]
   },
   [919] = {
     id = 919,
     ActID = 105618,
     Level = 20,
     NeedExp = 1900,
-    RewardItems = Table_ActBpReward_t.RewardItems[83],
+    RewardItems = Table_ActBpReward_t.RewardItems[90],
     Important = 1
   },
   [920] = {
@@ -5175,7 +5199,7 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 21,
     NeedExp = 2000,
-    RewardItems = Table_ActBpReward_t.RewardItems[84]
+    RewardItems = Table_ActBpReward_t.RewardItems[77]
   },
   [921] = {
     id = 921,
@@ -5189,7 +5213,7 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 23,
     NeedExp = 2200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [923] = {
     id = 923,
@@ -5224,27 +5248,27 @@ Table_ActBpReward = {
     ActID = 105618,
     Level = 28,
     NeedExp = 2700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [928] = {
     id = 928,
     ActID = 105618,
     Level = 29,
     NeedExp = 2800,
-    RewardItems = Table_ActBpReward_t.RewardItems[85]
+    RewardItems = Table_ActBpReward_t.RewardItems[73]
   },
   [929] = {
     id = 929,
     ActID = 105618,
     Level = 30,
     NeedExp = 2900,
-    RewardItems = Table_ActBpReward_t.RewardItems[86],
+    RewardItems = Table_ActBpReward_t.RewardItems[91],
     Important = 1
   },
   [950] = {
     id = 950,
     ActID = 105619,
-    RewardItems = Table_ActBpReward_t.RewardItems[72]
+    RewardItems = Table_ActBpReward_t.RewardItems[87]
   },
   [951] = {
     id = 951,
@@ -5258,14 +5282,14 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 3,
     NeedExp = 200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [953] = {
     id = 953,
     ActID = 105619,
     Level = 4,
     NeedExp = 300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [954] = {
     id = 954,
@@ -5279,7 +5303,7 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 6,
     NeedExp = 500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [956] = {
     id = 956,
@@ -5293,21 +5317,21 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 8,
     NeedExp = 700,
-    RewardItems = Table_ActBpReward_t.RewardItems[77]
+    RewardItems = Table_ActBpReward_t.RewardItems[85]
   },
   [958] = {
     id = 958,
     ActID = 105619,
     Level = 9,
     NeedExp = 800,
-    RewardItems = Table_ActBpReward_t.RewardItems[78]
+    RewardItems = Table_ActBpReward_t.RewardItems[84]
   },
   [959] = {
     id = 959,
     ActID = 105619,
     Level = 10,
     NeedExp = 900,
-    RewardItems = Table_ActBpReward_t.RewardItems[79],
+    RewardItems = Table_ActBpReward_t.RewardItems[83],
     Important = 1
   },
   [960] = {
@@ -5315,7 +5339,7 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 11,
     NeedExp = 1000,
-    RewardItems = Table_ActBpReward_t.RewardItems[80]
+    RewardItems = Table_ActBpReward_t.RewardItems[82]
   },
   [961] = {
     id = 961,
@@ -5329,14 +5353,14 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 13,
     NeedExp = 1200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [963] = {
     id = 963,
     ActID = 105619,
     Level = 14,
     NeedExp = 1300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [964] = {
     id = 964,
@@ -5350,7 +5374,7 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 16,
     NeedExp = 1500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [966] = {
     id = 966,
@@ -5364,21 +5388,21 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 18,
     NeedExp = 1700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [968] = {
     id = 968,
     ActID = 105619,
     Level = 19,
     NeedExp = 1800,
-    RewardItems = Table_ActBpReward_t.RewardItems[82]
+    RewardItems = Table_ActBpReward_t.RewardItems[79]
   },
   [969] = {
     id = 969,
     ActID = 105619,
     Level = 20,
     NeedExp = 1900,
-    RewardItems = Table_ActBpReward_t.RewardItems[87],
+    RewardItems = Table_ActBpReward_t.RewardItems[95],
     Important = 1
   },
   [970] = {
@@ -5386,7 +5410,7 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 21,
     NeedExp = 2000,
-    RewardItems = Table_ActBpReward_t.RewardItems[84]
+    RewardItems = Table_ActBpReward_t.RewardItems[77]
   },
   [971] = {
     id = 971,
@@ -5400,7 +5424,7 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 23,
     NeedExp = 2200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [973] = {
     id = 973,
@@ -5435,27 +5459,27 @@ Table_ActBpReward = {
     ActID = 105619,
     Level = 28,
     NeedExp = 2700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [978] = {
     id = 978,
     ActID = 105619,
     Level = 29,
     NeedExp = 2800,
-    RewardItems = Table_ActBpReward_t.RewardItems[85]
+    RewardItems = Table_ActBpReward_t.RewardItems[73]
   },
   [979] = {
     id = 979,
     ActID = 105619,
     Level = 30,
     NeedExp = 2900,
-    RewardItems = Table_ActBpReward_t.RewardItems[86],
+    RewardItems = Table_ActBpReward_t.RewardItems[91],
     Important = 1
   },
   [1000] = {
     id = 1000,
     ActID = 105620,
-    RewardItems = Table_ActBpReward_t.RewardItems[72]
+    RewardItems = Table_ActBpReward_t.RewardItems[87]
   },
   [1001] = {
     id = 1001,
@@ -5469,14 +5493,14 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 3,
     NeedExp = 200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [1003] = {
     id = 1003,
     ActID = 105620,
     Level = 4,
     NeedExp = 300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [1004] = {
     id = 1004,
@@ -5490,7 +5514,7 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 6,
     NeedExp = 500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [1006] = {
     id = 1006,
@@ -5504,21 +5528,21 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 8,
     NeedExp = 700,
-    RewardItems = Table_ActBpReward_t.RewardItems[77]
+    RewardItems = Table_ActBpReward_t.RewardItems[85]
   },
   [1008] = {
     id = 1008,
     ActID = 105620,
     Level = 9,
     NeedExp = 800,
-    RewardItems = Table_ActBpReward_t.RewardItems[78]
+    RewardItems = Table_ActBpReward_t.RewardItems[84]
   },
   [1009] = {
     id = 1009,
     ActID = 105620,
     Level = 10,
     NeedExp = 900,
-    RewardItems = Table_ActBpReward_t.RewardItems[79],
+    RewardItems = Table_ActBpReward_t.RewardItems[83],
     Important = 1
   },
   [1010] = {
@@ -5526,7 +5550,7 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 11,
     NeedExp = 1000,
-    RewardItems = Table_ActBpReward_t.RewardItems[80]
+    RewardItems = Table_ActBpReward_t.RewardItems[82]
   },
   [1011] = {
     id = 1011,
@@ -5540,14 +5564,14 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 13,
     NeedExp = 1200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [1013] = {
     id = 1013,
     ActID = 105620,
     Level = 14,
     NeedExp = 1300,
-    RewardItems = Table_ActBpReward_t.RewardItems[74]
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
   },
   [1014] = {
     id = 1014,
@@ -5561,7 +5585,7 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 16,
     NeedExp = 1500,
-    RewardItems = Table_ActBpReward_t.RewardItems[76]
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
   },
   [1016] = {
     id = 1016,
@@ -5575,21 +5599,21 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 18,
     NeedExp = 1700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [1018] = {
     id = 1018,
     ActID = 105620,
     Level = 19,
     NeedExp = 1800,
-    RewardItems = Table_ActBpReward_t.RewardItems[82]
+    RewardItems = Table_ActBpReward_t.RewardItems[79]
   },
   [1019] = {
     id = 1019,
     ActID = 105620,
     Level = 20,
     NeedExp = 1900,
-    RewardItems = Table_ActBpReward_t.RewardItems[89],
+    RewardItems = Table_ActBpReward_t.RewardItems[97],
     Important = 1
   },
   [1020] = {
@@ -5597,7 +5621,7 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 21,
     NeedExp = 2000,
-    RewardItems = Table_ActBpReward_t.RewardItems[84]
+    RewardItems = Table_ActBpReward_t.RewardItems[77]
   },
   [1021] = {
     id = 1021,
@@ -5611,7 +5635,7 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 23,
     NeedExp = 2200,
-    RewardItems = Table_ActBpReward_t.RewardItems[73]
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
   },
   [1023] = {
     id = 1023,
@@ -5646,21 +5670,654 @@ Table_ActBpReward = {
     ActID = 105620,
     Level = 28,
     NeedExp = 2700,
-    RewardItems = Table_ActBpReward_t.RewardItems[81]
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
   },
   [1028] = {
     id = 1028,
     ActID = 105620,
     Level = 29,
     NeedExp = 2800,
-    RewardItems = Table_ActBpReward_t.RewardItems[85]
+    RewardItems = Table_ActBpReward_t.RewardItems[73]
   },
   [1029] = {
     id = 1029,
     ActID = 105620,
     Level = 30,
     NeedExp = 2900,
+    RewardItems = Table_ActBpReward_t.RewardItems[96],
+    Important = 1
+  },
+  [1030] = {
+    id = 1030,
+    ActID = 105621,
+    RewardItems = Table_ActBpReward_t.RewardItems[87]
+  },
+  [1031] = {
+    id = 1031,
+    ActID = 105621,
+    Level = 2,
+    NeedExp = 100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1032] = {
+    id = 1032,
+    ActID = 105621,
+    Level = 3,
+    NeedExp = 200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1033] = {
+    id = 1033,
+    ActID = 105621,
+    Level = 4,
+    NeedExp = 300,
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
+  },
+  [1034] = {
+    id = 1034,
+    ActID = 105621,
+    Level = 5,
+    NeedExp = 400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1035] = {
+    id = 1035,
+    ActID = 105621,
+    Level = 6,
+    NeedExp = 500,
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
+  },
+  [1036] = {
+    id = 1036,
+    ActID = 105621,
+    Level = 7,
+    NeedExp = 600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1037] = {
+    id = 1037,
+    ActID = 105621,
+    Level = 8,
+    NeedExp = 700,
+    RewardItems = Table_ActBpReward_t.RewardItems[85]
+  },
+  [1038] = {
+    id = 1038,
+    ActID = 105621,
+    Level = 9,
+    NeedExp = 800,
+    RewardItems = Table_ActBpReward_t.RewardItems[84]
+  },
+  [1039] = {
+    id = 1039,
+    ActID = 105621,
+    Level = 10,
+    NeedExp = 900,
+    RewardItems = Table_ActBpReward_t.RewardItems[83],
+    Important = 1
+  },
+  [1040] = {
+    id = 1040,
+    ActID = 105621,
+    Level = 11,
+    NeedExp = 1000,
+    RewardItems = Table_ActBpReward_t.RewardItems[82]
+  },
+  [1041] = {
+    id = 1041,
+    ActID = 105621,
+    Level = 12,
+    NeedExp = 1100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1042] = {
+    id = 1042,
+    ActID = 105621,
+    Level = 13,
+    NeedExp = 1200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1043] = {
+    id = 1043,
+    ActID = 105621,
+    Level = 14,
+    NeedExp = 1300,
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
+  },
+  [1044] = {
+    id = 1044,
+    ActID = 105621,
+    Level = 15,
+    NeedExp = 1400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1045] = {
+    id = 1045,
+    ActID = 105621,
+    Level = 16,
+    NeedExp = 1500,
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
+  },
+  [1046] = {
+    id = 1046,
+    ActID = 105621,
+    Level = 17,
+    NeedExp = 1600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1047] = {
+    id = 1047,
+    ActID = 105621,
+    Level = 18,
+    NeedExp = 1700,
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
+  },
+  [1048] = {
+    id = 1048,
+    ActID = 105621,
+    Level = 19,
+    NeedExp = 1800,
+    RewardItems = Table_ActBpReward_t.RewardItems[79]
+  },
+  [1049] = {
+    id = 1049,
+    ActID = 105621,
+    Level = 20,
+    NeedExp = 1900,
+    RewardItems = Table_ActBpReward_t.RewardItems[94],
+    Important = 1
+  },
+  [1050] = {
+    id = 1050,
+    ActID = 105621,
+    Level = 21,
+    NeedExp = 2000,
+    RewardItems = Table_ActBpReward_t.RewardItems[77]
+  },
+  [1051] = {
+    id = 1051,
+    ActID = 105621,
+    Level = 22,
+    NeedExp = 2100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1052] = {
+    id = 1052,
+    ActID = 105621,
+    Level = 23,
+    NeedExp = 2200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1053] = {
+    id = 1053,
+    ActID = 105621,
+    Level = 24,
+    NeedExp = 2300,
+    RewardItems = Table_ActBpReward_t.RewardItems[1]
+  },
+  [1054] = {
+    id = 1054,
+    ActID = 105621,
+    Level = 25,
+    NeedExp = 2400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1055] = {
+    id = 1055,
+    ActID = 105621,
+    Level = 26,
+    NeedExp = 2500,
+    RewardItems = Table_ActBpReward_t.RewardItems[8]
+  },
+  [1056] = {
+    id = 1056,
+    ActID = 105621,
+    Level = 27,
+    NeedExp = 2600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1057] = {
+    id = 1057,
+    ActID = 105621,
+    Level = 28,
+    NeedExp = 2700,
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
+  },
+  [1058] = {
+    id = 1058,
+    ActID = 105621,
+    Level = 29,
+    NeedExp = 2800,
+    RewardItems = Table_ActBpReward_t.RewardItems[73]
+  },
+  [1059] = {
+    id = 1059,
+    ActID = 105621,
+    Level = 30,
+    NeedExp = 2900,
+    RewardItems = Table_ActBpReward_t.RewardItems[93],
+    Important = 1
+  },
+  [1060] = {
+    id = 1060,
+    ActID = 105622,
+    RewardItems = Table_ActBpReward_t.RewardItems[87]
+  },
+  [1061] = {
+    id = 1061,
+    ActID = 105622,
+    Level = 2,
+    NeedExp = 100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1062] = {
+    id = 1062,
+    ActID = 105622,
+    Level = 3,
+    NeedExp = 200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1063] = {
+    id = 1063,
+    ActID = 105622,
+    Level = 4,
+    NeedExp = 300,
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
+  },
+  [1064] = {
+    id = 1064,
+    ActID = 105622,
+    Level = 5,
+    NeedExp = 400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1065] = {
+    id = 1065,
+    ActID = 105622,
+    Level = 6,
+    NeedExp = 500,
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
+  },
+  [1066] = {
+    id = 1066,
+    ActID = 105622,
+    Level = 7,
+    NeedExp = 600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1067] = {
+    id = 1067,
+    ActID = 105622,
+    Level = 8,
+    NeedExp = 700,
+    RewardItems = Table_ActBpReward_t.RewardItems[85]
+  },
+  [1068] = {
+    id = 1068,
+    ActID = 105622,
+    Level = 9,
+    NeedExp = 800,
+    RewardItems = Table_ActBpReward_t.RewardItems[84]
+  },
+  [1069] = {
+    id = 1069,
+    ActID = 105622,
+    Level = 10,
+    NeedExp = 900,
+    RewardItems = Table_ActBpReward_t.RewardItems[83],
+    Important = 1
+  },
+  [1070] = {
+    id = 1070,
+    ActID = 105622,
+    Level = 11,
+    NeedExp = 1000,
+    RewardItems = Table_ActBpReward_t.RewardItems[82]
+  },
+  [1071] = {
+    id = 1071,
+    ActID = 105622,
+    Level = 12,
+    NeedExp = 1100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1072] = {
+    id = 1072,
+    ActID = 105622,
+    Level = 13,
+    NeedExp = 1200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1073] = {
+    id = 1073,
+    ActID = 105622,
+    Level = 14,
+    NeedExp = 1300,
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
+  },
+  [1074] = {
+    id = 1074,
+    ActID = 105622,
+    Level = 15,
+    NeedExp = 1400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1075] = {
+    id = 1075,
+    ActID = 105622,
+    Level = 16,
+    NeedExp = 1500,
+    RewardItems = Table_ActBpReward_t.RewardItems[89]
+  },
+  [1076] = {
+    id = 1076,
+    ActID = 105622,
+    Level = 17,
+    NeedExp = 1600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1077] = {
+    id = 1077,
+    ActID = 105622,
+    Level = 18,
+    NeedExp = 1700,
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
+  },
+  [1078] = {
+    id = 1078,
+    ActID = 105622,
+    Level = 19,
+    NeedExp = 1800,
+    RewardItems = Table_ActBpReward_t.RewardItems[79]
+  },
+  [1079] = {
+    id = 1079,
+    ActID = 105622,
+    Level = 20,
+    NeedExp = 1900,
+    RewardItems = Table_ActBpReward_t.RewardItems[92],
+    Important = 1
+  },
+  [1080] = {
+    id = 1080,
+    ActID = 105622,
+    Level = 21,
+    NeedExp = 2000,
+    RewardItems = Table_ActBpReward_t.RewardItems[77]
+  },
+  [1081] = {
+    id = 1081,
+    ActID = 105622,
+    Level = 22,
+    NeedExp = 2100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1082] = {
+    id = 1082,
+    ActID = 105622,
+    Level = 23,
+    NeedExp = 2200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1083] = {
+    id = 1083,
+    ActID = 105622,
+    Level = 24,
+    NeedExp = 2300,
+    RewardItems = Table_ActBpReward_t.RewardItems[1]
+  },
+  [1084] = {
+    id = 1084,
+    ActID = 105622,
+    Level = 25,
+    NeedExp = 2400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1085] = {
+    id = 1085,
+    ActID = 105622,
+    Level = 26,
+    NeedExp = 2500,
+    RewardItems = Table_ActBpReward_t.RewardItems[8]
+  },
+  [1086] = {
+    id = 1086,
+    ActID = 105622,
+    Level = 27,
+    NeedExp = 2600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1087] = {
+    id = 1087,
+    ActID = 105622,
+    Level = 28,
+    NeedExp = 2700,
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
+  },
+  [1088] = {
+    id = 1088,
+    ActID = 105622,
+    Level = 29,
+    NeedExp = 2800,
+    RewardItems = Table_ActBpReward_t.RewardItems[73]
+  },
+  [1089] = {
+    id = 1089,
+    ActID = 105622,
+    Level = 30,
+    NeedExp = 2900,
     RewardItems = Table_ActBpReward_t.RewardItems[88],
+    Important = 1
+  },
+  [1090] = {
+    id = 1090,
+    ActID = 105623,
+    RewardItems = Table_ActBpReward_t.RewardItems[87]
+  },
+  [1091] = {
+    id = 1091,
+    ActID = 105623,
+    Level = 2,
+    NeedExp = 100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1092] = {
+    id = 1092,
+    ActID = 105623,
+    Level = 3,
+    NeedExp = 200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1093] = {
+    id = 1093,
+    ActID = 105623,
+    Level = 4,
+    NeedExp = 300,
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
+  },
+  [1094] = {
+    id = 1094,
+    ActID = 105623,
+    Level = 5,
+    NeedExp = 400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1095] = {
+    id = 1095,
+    ActID = 105623,
+    Level = 6,
+    NeedExp = 500,
+    RewardItems = Table_ActBpReward_t.RewardItems[86]
+  },
+  [1096] = {
+    id = 1096,
+    ActID = 105623,
+    Level = 7,
+    NeedExp = 600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1097] = {
+    id = 1097,
+    ActID = 105623,
+    Level = 8,
+    NeedExp = 700,
+    RewardItems = Table_ActBpReward_t.RewardItems[85]
+  },
+  [1098] = {
+    id = 1098,
+    ActID = 105623,
+    Level = 9,
+    NeedExp = 800,
+    RewardItems = Table_ActBpReward_t.RewardItems[84]
+  },
+  [1099] = {
+    id = 1099,
+    ActID = 105623,
+    Level = 10,
+    NeedExp = 900,
+    RewardItems = Table_ActBpReward_t.RewardItems[83],
+    Important = 1
+  },
+  [1100] = {
+    id = 1100,
+    ActID = 105623,
+    Level = 11,
+    NeedExp = 1000,
+    RewardItems = Table_ActBpReward_t.RewardItems[82]
+  },
+  [1101] = {
+    id = 1101,
+    ActID = 105623,
+    Level = 12,
+    NeedExp = 1100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1102] = {
+    id = 1102,
+    ActID = 105623,
+    Level = 13,
+    NeedExp = 1200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1103] = {
+    id = 1103,
+    ActID = 105623,
+    Level = 14,
+    NeedExp = 1300,
+    RewardItems = Table_ActBpReward_t.RewardItems[81]
+  },
+  [1104] = {
+    id = 1104,
+    ActID = 105623,
+    Level = 15,
+    NeedExp = 1400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1105] = {
+    id = 1105,
+    ActID = 105623,
+    Level = 16,
+    NeedExp = 1500,
+    RewardItems = Table_ActBpReward_t.RewardItems[80]
+  },
+  [1106] = {
+    id = 1106,
+    ActID = 105623,
+    Level = 17,
+    NeedExp = 1600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1107] = {
+    id = 1107,
+    ActID = 105623,
+    Level = 18,
+    NeedExp = 1700,
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
+  },
+  [1108] = {
+    id = 1108,
+    ActID = 105623,
+    Level = 19,
+    NeedExp = 1800,
+    RewardItems = Table_ActBpReward_t.RewardItems[79]
+  },
+  [1109] = {
+    id = 1109,
+    ActID = 105623,
+    Level = 20,
+    NeedExp = 1900,
+    RewardItems = Table_ActBpReward_t.RewardItems[78],
+    Important = 1
+  },
+  [1110] = {
+    id = 1110,
+    ActID = 105623,
+    Level = 21,
+    NeedExp = 2000,
+    RewardItems = Table_ActBpReward_t.RewardItems[77]
+  },
+  [1111] = {
+    id = 1111,
+    ActID = 105623,
+    Level = 22,
+    NeedExp = 2100,
+    RewardItems = Table_ActBpReward_t.RewardItems[3]
+  },
+  [1112] = {
+    id = 1112,
+    ActID = 105623,
+    Level = 23,
+    NeedExp = 2200,
+    RewardItems = Table_ActBpReward_t.RewardItems[76]
+  },
+  [1113] = {
+    id = 1113,
+    ActID = 105623,
+    Level = 24,
+    NeedExp = 2300,
+    RewardItems = Table_ActBpReward_t.RewardItems[1]
+  },
+  [1114] = {
+    id = 1114,
+    ActID = 105623,
+    Level = 25,
+    NeedExp = 2400,
+    RewardItems = Table_ActBpReward_t.RewardItems[75]
+  },
+  [1115] = {
+    id = 1115,
+    ActID = 105623,
+    Level = 26,
+    NeedExp = 2500,
+    RewardItems = Table_ActBpReward_t.RewardItems[24]
+  },
+  [1116] = {
+    id = 1116,
+    ActID = 105623,
+    Level = 27,
+    NeedExp = 2600,
+    RewardItems = Table_ActBpReward_t.RewardItems[9]
+  },
+  [1117] = {
+    id = 1117,
+    ActID = 105623,
+    Level = 28,
+    NeedExp = 2700,
+    RewardItems = Table_ActBpReward_t.RewardItems[74]
+  },
+  [1118] = {
+    id = 1118,
+    ActID = 105623,
+    Level = 29,
+    NeedExp = 2800,
+    RewardItems = Table_ActBpReward_t.RewardItems[73]
+  },
+  [1119] = {
+    id = 1119,
+    ActID = 105623,
+    Level = 30,
+    NeedExp = 2900,
+    RewardItems = Table_ActBpReward_t.RewardItems[72],
     Important = 1
   }
 }

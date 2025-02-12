@@ -1209,7 +1209,6 @@ function NCreature:Update(time, deltaTime)
       end
     end
   end
-  self:CheckMaskUI(time, deltaTime)
   self:_UpdateProjectileEffect(time, deltaTime)
   if self.buffHugRole then
     self.buffHugRole:Update(time, deltaTime)
@@ -1297,19 +1296,32 @@ function NCreature:Server_AddSpEffect(spEffectData)
   end
   if nil == self.spEffects then
     self.spEffects = {}
-    self.spEffectsCount = 0
   end
   local key = spEffectData.guid
   local effect = self.spEffects[key]
   if nil ~= effect then
-    effect:Destroy()
+    for k, v in ipairs(effect) do
+      v:Destroy()
+      effect[k] = nil
+    end
     self.spEffects[key] = nil
-    self.spEffectsCount = self.spEffectsCount - 1
+  else
+    effect = {}
   end
-  effect = EffectClass.Create(effectID)
-  effect:SetArgs(spEffectData.entity, self)
-  self.spEffects[key] = effect
-  self.spEffectsCount = self.spEffectsCount + 1
+  if spEffectData.entity then
+    for _, v in pairs(spEffectData.entity) do
+      local tmp = EffectClass.Create(effectID)
+      local args = ReusableTable.CreateArray()
+      args[1] = v
+      args[2] = nil
+      tmp:SetArgs(args, self)
+      ReusableTable.DestroyArray(args)
+      effect[#effect + 1] = tmp
+    end
+  end
+  if 0 < #effect then
+    self.spEffects[key] = effect
+  end
 end
 
 function NCreature:Server_RemoveSpEffect(spEffectData)
@@ -1319,103 +1331,32 @@ function NCreature:Server_RemoveSpEffect(spEffectData)
   local key = spEffectData.guid
   local effect = self.spEffects[key]
   if nil ~= effect then
-    effect:Destroy()
+    for _, v in ipairs(effect) do
+      v:Destroy()
+    end
     self.spEffects[key] = nil
-    self.spEffectsCount = self.spEffectsCount - 1
-  end
-end
-
-function NCreature:Server_AddMultipleTargetSpEffect(spEffectData)
-  local effectID = spEffectData.id
-  if nil == Table_SpEffect[effectID] then
-    return
-  end
-  local effectType = Table_SpEffect[effectID].Type
-  local EffectClass = SpEffectWorkerClass[effectType]
-  if nil == EffectClass then
-    return
-  end
-  if nil == self.multipleTargetSpEffects then
-    self.multipleTargetSpEffects = {}
-    self.multipleTargetSpEffectsCount = 0
-  end
-  local key = spEffectData.guid
-  local effect = self.multipleTargetSpEffects[key]
-  if effect ~= nil then
-    self.multipleTargetSpEffectsCount = self.multipleTargetSpEffectsCount - #effect
-    for _, v in ipairs(effect) do
-      v:Destroy()
-    end
-    self.multipleTargetSpEffects[key] = nil
-  end
-  effect = {}
-  for _, v in pairs(spEffectData.entity) do
-    local tmp = EffectClass.Create(effectID)
-    local args = ReusableTable.CreateArray()
-    args[1] = v
-    args[2] = nil
-    tmp:SetArgs(args, self)
-    self.multipleTargetSpEffectsCount = self.multipleTargetSpEffectsCount + 1
-    ReusableTable.DestroyArray(args)
-    table.insert(effect, tmp)
-  end
-  if 0 < #effect then
-    self.multipleTargetSpEffects[key] = effect
-  end
-end
-
-function NCreature:Server_RemoveMultipleTargetSpEffect(spEffectData)
-  if nil == self.multipleTargetSpEffects then
-    return
-  end
-  local key = spEffectData.guid
-  local effect = self.multipleTargetSpEffects[key]
-  if nil ~= effect then
-    self.multipleTargetSpEffectsCount = self.multipleTargetSpEffectsCount - #self.multipleTargetSpEffects
-    for _, v in ipairs(effect) do
-      v:Destroy()
-    end
-    self.multipleTargetSpEffects[key] = nil
   end
 end
 
 function NCreature:ClearSpEffect()
   if nil ~= self.spEffects then
     for k, v in pairs(self.spEffects) do
-      v:Destroy()
-      self.spEffects[k] = nil
-    end
-    self.spEffectsCount = 0
-  end
-  if nil ~= self.multipleTargetSpEffects then
-    for k, v in pairs(self.multipleTargetSpEffects) do
       for k2, v2 in pairs(v) do
         v2:Destroy()
         v[k2] = nil
       end
-      self.multipleTargetSpEffects[k] = nil
+      self.spEffects[k] = nil
     end
-    self.multipleTargetSpEffectsCount = 0
   end
 end
 
 function NCreature:_UpdateSpEffect(time, deltaTime)
-  if nil ~= self.spEffects and self.spEffectsCount > 0 then
+  if nil ~= self.spEffects then
     for k, v in pairs(self.spEffects) do
-      if v:Update(time, deltaTime, self) == false then
-        v:Destroy()
-        self.spEffects[k] = nil
-        self.spEffectsCount = self.spEffectsCount - 1
-      end
-    end
-  end
-  if nil ~= self.multipleTargetSpEffects and 0 < self.multipleTargetSpEffectsCount then
-    for k, v in pairs(self.multipleTargetSpEffects) do
       for k2, v2 in pairs(v) do
         if v2:Update(time, deltaTime, self) == false then
           v2:Destroy()
           v[k2] = nil
-          self.multipleTargetSpEffectsCount = self.multipleTargetSpEffectsCount - 1
         end
       end
     end
@@ -1488,8 +1429,6 @@ function NCreature:UpdateMaskUI()
     maskReason = 3
   elseif self.cellPriority > Game.MapManager:GetCreatureMaskRange() then
     maskReason = 4
-  elseif Game.PlotStoryManager:isInPQTL() and not Game.PlotStoryManager:IsFreeView() then
-    maskReason = 5
   end
   local needMask = 0 < maskReason
   if self.isMaskUI == needMask then
@@ -1522,6 +1461,7 @@ function NCreature:CullingStateChange(visible, distanceLevel)
   if distanceLevel then
     self.culling_distanceLevel = distanceLevel
   end
+  self:UpdateMaskUI()
 end
 
 function NCreature:GetCellPriority()
@@ -1530,10 +1470,12 @@ end
 
 function NCreature:OnPriorityChange(priority)
   self.cellPriority = priority
+  self:UpdateMaskUI()
 end
 
 function NCreature:SetCellCreatureIndex(cellCreatureIndex)
   self.maskUIBecauseCellCreatureCount = cellCreatureIndex > LogicManager_MapCell.RoleUGUIVisibleCount
+  self:UpdateMaskUI()
 end
 
 local SqrDistanceXZ = VectorUtility.DistanceXZ_Square

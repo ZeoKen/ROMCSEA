@@ -174,6 +174,11 @@ Table_Guild_Incident = {
     Page = 1,
     txt = "##1253340"
   },
+  [39] = {
+    id = 39,
+    Page = 1,
+    txt = "##1275467"
+  },
   [40] = {
     id = 40,
     Page = 1,
@@ -218,6 +223,21 @@ Table_Guild_Incident = {
     id = 48,
     Page = 1,
     txt = "##3361179"
+  },
+  [49] = {
+    id = 49,
+    Page = 1,
+    txt = "##42533370"
+  },
+  [50] = {
+    id = 50,
+    Page = 1,
+    txt = "##42533371"
+  },
+  [51] = {
+    id = 51,
+    Page = 5,
+    txt = "##42533372"
   }
 }
 Table_Guild_Incident_fields = {

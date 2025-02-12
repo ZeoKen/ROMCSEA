@@ -1,8 +1,14 @@
 MaxSceneGuildFlag = 8
+LobbyFlagID = 9
 GOManager_SceneGuildFlag = class("GOManager_SceneGuildFlag")
 local tempVector2 = LuaVector2.Zero()
+local guid = 0
+local GenerateGuid = function()
+  guid = guid + 1
+  return guid
+end
 local CheckFlagInvalid = function()
-  if GameConfig.SystemForbid.GVG or not FunctionUnLockFunc.checkFuncStateValid(4) then
+  if GameConfig.SystemForbid.GVG or Table_FuncState[4] and not FunctionUnLockFunc.checkFuncStateValid(4) then
     return true
   end
   return false
@@ -13,7 +19,9 @@ function GOManager_SceneGuildFlag:ctor()
   self.renderers = {}
   self.objGuildIDMap = {}
   self.refAtlases = {}
-  self.lobbyFlagId = {}
+  self.lobbyFlagId = LobbyFlagID
+  self.cityMap = {}
+  self.objectMap = {}
 end
 
 function GOManager_SceneGuildFlag:Clear()
@@ -171,9 +179,10 @@ function GOManager_SceneGuildFlag:SetFlagIcon(flagID, icon, offsetX, offsetY, sc
   end
 end
 
-function GOManager_SceneGuildFlag:SetFlag(obj, ID)
-  self.objects[ID] = obj
+function GOManager_SceneGuildFlag:SetFlag(obj, guid, city_id)
+  self.objects[guid] = obj
   if nil ~= obj then
+    self.objectMap[obj] = guid
     local renderer = obj:GetComponentProperty(0)
     renderer.material = nil
     renderer.materials = _EmptyTable
@@ -182,31 +191,39 @@ function GOManager_SceneGuildFlag:SetFlag(obj, ID)
       renderer2.material = nil
       renderer2.materials = _EmptyTable
     end
-    if self.refAtlases[ID] then
-      self.refAtlases[ID]:RemoveRef()
-      self.refAtlases[ID] = nil
+    if self.refAtlases[guid] then
+      self.refAtlases[guid]:RemoveRef()
+      self.refAtlases[guid] = nil
     end
     if self.objGuildIDMap[obj] then
       GuildPictureManager.Instance():RemoveGuildPicRelative(self.objGuildIDMap[obj])
       self.objGuildIDMap[obj] = nil
     end
   else
-    self.renderers[ID] = nil
+    self.renderers[guid] = nil
   end
-  if nil ~= obj then
-    if ID > MaxSceneGuildFlag then
-      GvgProxy.Instance:TryResetLobbyFlag()
-      return
+  if not obj then
+    return
+  end
+  if guid == LobbyFlagID then
+    GvgProxy.Instance:TryResetLobbyFlag()
+    return
+  end
+  local strongHoldId = tonumber(obj:GetProperty(0))
+  if strongHoldId then
+    if GvgProxy.GetStrongHoldStaticData(strongHoldId) then
+      FunctionGuild.Me():SetStrongHoldFlag(strongHoldId)
     end
-    local strongHoldId = tonumber(obj:GetProperty(0))
-    if strongHoldId and Table_Guild_StrongHold[strongHoldId] then
-      FunctionGuild.Me():SetStrongHoldFlag(ID, strongHoldId)
-    end
+    return
+  end
+  if not Game.MapManager:IsPVPMode_GVGDetailed() and city_id then
+    FunctionGuild.Me():SetGuildFlagIcon(guid, city_id)
+  else
   end
 end
 
 function GOManager_SceneGuildFlag:OnClick(obj)
-  if not FunctionUnLockFunc.checkFuncStateValid(4) then
+  if Table_FuncState[4] and not FunctionUnLockFunc.checkFuncStateValid(4) then
     MsgManager.ShowMsgByID(40003)
     return
   end
@@ -218,10 +235,10 @@ function GOManager_SceneGuildFlag:OnClick(obj)
 end
 
 function GOManager_SceneGuildFlag:ClearFlag(obj)
-  local objID = obj.ID
-  local testObj = self.objects[objID]
+  local guid = self.objectMap[obj]
+  local testObj = self.objects[guid]
   if nil ~= testObj and testObj == obj then
-    self:SetFlag(nil, objID)
+    self:SetFlag(nil, guid)
     return true
   end
   return false
@@ -234,14 +251,11 @@ function GOManager_SceneGuildFlag:RegisterGameObject(obj)
   end
   local objID = obj.ID
   Debug_AssertFormat(0 < objID, "RegisterSceneGuildFlag({0}) invalid id: {1}", obj, objID)
-  if nil ~= self.objects[objID] then
-    local lobbyId = objID + 1
-    self.lobbyFlagId[#self.lobbyFlagId + 1] = lobbyId
-    self:SetFlag(obj, lobbyId)
+  local isCity = nil ~= GvgProxy.GetStrongHoldStaticData(objID)
+  if isCity then
+    local guid = objID * 10000 + GenerateGuid()
+    self:SetFlag(obj, guid, objID)
   else
-    if objID > MaxSceneGuildFlag then
-      self.lobbyFlagId[#self.lobbyFlagId + 1] = objID
-    end
     self:SetFlag(obj, objID)
   end
   return true

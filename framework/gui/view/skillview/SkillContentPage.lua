@@ -2,9 +2,11 @@ autoImport("SubView")
 autoImport("SkillTip")
 autoImport("PeakSkillPreviewTip")
 autoImport("SkillCell")
+autoImport("MasterSkillCell")
 SkillContentPage = class("SkillContentPage", SkillBaseContentPage)
 local tmpPos = LuaVector3.Zero()
 local TimeOut = 10000
+local MasterSkillBgName = "skill_master_bottom"
 
 function SkillContentPage:Init()
   self.gameObject = self:FindGO("SkillContentPage", self:FindGO("SkillPages"))
@@ -15,6 +17,7 @@ function SkillContentPage:Init()
   self:FindObjs()
   self:InitCommonSkill()
   self:InitProfessSkill()
+  self:InitMasterSkill()
   self:AddViewListener()
   self:RegisterGuide()
 end
@@ -37,6 +40,10 @@ function SkillContentPage:OnEnter()
   local profess = SkillProxy.Instance:GetMyProfession()
   self:SetScrollToProfess(profess)
   self.proContentPanel:ResetAndUpdateAnchors()
+  if ISNoviceServerType then
+    PictureManager.Instance:SetMasterSkillTexture(MasterSkillBgName, self.masterSkillBg)
+    self:UpdateMasterSkillEquipState()
+  end
 end
 
 function SkillContentPage:AddViewListener()
@@ -47,6 +54,8 @@ function SkillContentPage:AddViewListener()
   self:AddListenEvt(SkillRecommendEvent.SelectSolution, self.SimulatePreset)
   self:AddListenEvt(SkillRecommendEvent.ResetPreset, self.ResetPreset)
   self:AddListenEvt(GuideEvent.TargetGuideSuccess, self.ResetGuideView)
+  self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkill, self.RefreshSkills)
+  self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkillEquip, self.UpdateMasterSkillEquipState)
 end
 
 function SkillContentPage:ResetGuideView(note)
@@ -105,8 +114,28 @@ function SkillContentPage:FindObjs()
   end)
   self:AddClickEvent(self.confirmBtn.gameObject, function()
     local skillIDs = FunctionSkillSimulate.Me():GetModifiedSkills()
+    if #skillIDs == 0 then
+      self:CancelSimulate()
+      return
+    end
     self.container:CheckNeedShowOverFlow(skillIDs)
-    ServiceSkillProxy.Instance:CallLevelupSkill(SceneSkill_pb.ELEVELUPTYPE_MT, skillIDs)
+    local skillType = SceneSkill_pb.ELEVELUPTYPE_MT
+    for i = 1, #skillIDs do
+      local skillId = skillIDs[i]
+      if SimulateSkillProxy.Instance:IsMasterSkill(skillId) then
+        skillType = SceneSkill_pb.ELEVELUPTYPE_MASTER
+        break
+      end
+    end
+    if skillType == SceneSkill_pb.ELEVELUPTYPE_MASTER then
+      local totalCost = FunctionSkillSimulate.Me().masterSkillTotalCost
+      local myZeny = MyselfProxy.Instance:GetROB()
+      if totalCost > myZeny then
+        MsgManager.ShowMsgByID(1)
+        return
+      end
+    end
+    ServiceSkillProxy.Instance:CallLevelupSkill(skillType, skillIDs)
     self.container:SetMaskColliderOn(true)
     self.waiting = true
     if not self.timeTick then
@@ -121,6 +150,28 @@ function SkillContentPage:FindObjs()
   function self.proContentScroll.onProgressStateChange(progress, state)
     self:ScrollStateChange(progress, state)
   end
+  
+  self.masterSkillsGO = self:FindGO("MasterSkills")
+  self.masterSkillBg = self:FindComponent("MasterSkillBg", UITexture, self.masterSkillsGO)
+  self.masterSkillSelectGOs = {}
+  for i = 1, 3 do
+    self.masterSkillSelectGOs[i] = self:FindGO("Select" .. i, self.masterSkillsGO)
+  end
+  self.masterSkillActiveBtns = {}
+  for i = 1, 3 do
+    self.masterSkillActiveBtns[i] = self:FindGO("Btn" .. i, self.masterSkillsGO)
+    self:AddClickEvent(self.masterSkillActiveBtns[i], function()
+      self:OnMasterSkillActiveBtnClick(i)
+    end)
+  end
+  self.masterGrid = self:FindGO("MasterGrid")
+  self.masterSkillCost = self:FindGO("MasterSkillCost")
+  self.masterSkillCostIcon = self:FindComponent("Icon", UISprite, self.masterSkillCost)
+  self.masterSkillCostLabel = self:FindComponent("Cost", UILabel, self.masterSkillCost)
+  IconManager:SetItemIconById(100, self.masterSkillCostIcon)
+  local helpBtn = self:FindGO("HelpBtn", self.masterSkillsGO)
+  self:RegistShowGeneralHelpByHelpID(32628, helpBtn)
+  self.masterSkillsGO:SetActive(false)
 end
 
 function SkillContentPage:OnSwitch(val)
@@ -144,6 +195,13 @@ function SkillContentPage:InitProfessSkill()
   self.professList:AddEventListener(SkillCell.Click_PreviewPeak, self.ShowPeakTipHandler, self)
   self.professList:AddEventListener(SkillCell.SimulationUpgrade, self.SimulationUpgradeHandler, self)
   self.professList:AddEventListener(SkillCell.SimulationDowngrade, self.SimulationDowngradeHandler, self)
+end
+
+function SkillContentPage:InitMasterSkill()
+  self.masterSkillList = ListCtrl.new(self.masterGrid, MasterSkillCell, "MasterSkillCell")
+  self.masterSkillList:AddEventListener(MouseEvent.MouseClick, self.ShowTipHandler, self)
+  self.masterSkillList:AddEventListener(MasterSkillCell.SimulationUpgrade, self.MasterSkillSimulationUpgradeHandler, self)
+  self.masterSkillList:AddEventListener(MasterSkillCell.SimulationDowngrade, self.MasterSkillSimulationDowngradeHandler, self)
 end
 
 function SkillContentPage:ShowTipHandler(cell)
@@ -214,9 +272,13 @@ function SkillContentPage:SetScrollToProfess(profess)
   local index
   local datas = self.professDatas
   if datas then
+    local jobLv = MyselfProxy.Instance:JobLevel()
     for i = 1, #datas do
       if profess == datas[i].data.profession then
         index = i
+        if jobLv - 160 < 60 then
+          break
+        end
       end
     end
   end
@@ -274,6 +336,23 @@ function SkillContentPage:SimulationDowngradeHandler(cell)
   self:UpdateCurrentProfessSkillPoints()
 end
 
+function SkillContentPage:MasterSkillSimulationUpgradeHandler(cell)
+  redlog("SkillContentPage:MasterSkillSimulationUpgradeHandler")
+  if FunctionSkillSimulate.Me():MasterSkillUpgrade(cell) then
+    self:SetEditMode(true)
+    self:RefreshPoints()
+    self:UpdateCurrentProfessSkillPoints()
+    self:UpdateMasterSkillCost()
+  end
+end
+
+function SkillContentPage:MasterSkillSimulationDowngradeHandler(cell)
+  FunctionSkillSimulate.Me():MasterSkillDowngrade(cell)
+  self:RefreshPoints()
+  self:UpdateCurrentProfessSkillPoints()
+  self:UpdateMasterSkillCost()
+end
+
 function SkillContentPage:NoModifiedHandler(note)
   self:SetEditMode(false)
 end
@@ -281,7 +360,7 @@ end
 function SkillContentPage:RefreshSkills(note)
   self:CancelSimulate()
   if self.currentScrollProfessData then
-    self.container:UpdateTopByProfess(self.currentScrollProfessData.data.profession)
+    self.container:UpdateTopByProfess(self.currentScrollProfessData.data.profession, self.currentScrollProfessData.data.isMaster)
   end
   self:SetCommonSkills()
   self.container:SetMaskColliderOn(false)
@@ -327,10 +406,24 @@ function SkillContentPage:TrySimulate()
         cell:SetDragEnable(false)
       end
     end
+    local masterSkillCells = self.masterSkillList:GetCells()
+    for i = 1, #masterSkillCells do
+      local cell = masterSkillCells[i]
+      cell:ShowUpgrade(false)
+      cell:SetDragEnable(false)
+    end
     return
   end
   if not FunctionSkillSimulate.Me().isIsSimulating then
-    FunctionSkillSimulate.Me():StartSimulate(self.professList:GetCells(), self.professDatas, self:GetSkillPoint())
+    local cells = {}
+    TableUtil.InsertArray(cells, self.professList:GetCells())
+    local masterSkillCells = self.masterSkillList:GetCells()
+    for i = 1, #masterSkillCells do
+      if masterSkillCells[i].data then
+        cells[#cells + 1] = masterSkillCells[i]
+      end
+    end
+    FunctionSkillSimulate.Me():StartSimulate(cells, self.professDatas, self:GetProfessSkillPoint(), self:GetMasterSkillPoint())
   end
 end
 
@@ -414,11 +507,13 @@ function SkillContentPage:SetProfessSkills(needLayout)
       end
       p = p:GetNextByBranch(typeBranch)
     end
+    self:SetMasterSkills(professes)
     self:SetProfessBtns(professes)
     self.professList:ResetDatas(skills, true, false)
     if needLayout then
       self:LayOutProfessSkills(professTree)
     end
+    self:LayoutEmptyMasterSkill()
   else
     self.professList:ResetDatas(skills, true, false)
     self:TryClearSperate()
@@ -503,8 +598,14 @@ function SkillContentPage:LayOutProfessSkills(professTree)
       end
     end
   end
+  self:LayOutMasterSkills(professDatas)
+  if professDatas.master then
+    professCount = professCount + 1
+    professData = professDatas.master
+  end
   self:SetProgressScroll(professDatas, professData.maxX)
   self:TrySperate(professDatas, 1 < professCount)
+  self:SetMasterSkillsPos()
   self:SetSkillCellPlaceHolder(self:GetX(professData.maxX + 4), 0)
 end
 
@@ -555,7 +656,11 @@ function SkillContentPage:SetProgressScroll(gridXYs, max)
   self.professesSkillCenterCell = {}
   local stateMax
   for i = 1, #datas do
-    professData = gridXYs[datas[i].data.profession]
+    if datas[i].data.isMaster then
+      professData = gridXYs.master
+    else
+      professData = gridXYs[datas[i].data.profession]
+    end
     if professData ~= nil then
       local centerX = math.ceil((professData.maxX + professData.minX) / 2)
       local x = -centerX * self.cellWidth + self.comContentPanel.width / 2
@@ -590,14 +695,17 @@ function SkillContentPage:ScrollStateChange(progress, state)
     self.currentScrollProfessData = cellData
   end
   if self.currentScrollProfessData then
-    self.container:UpdateTopByProfess(self.currentScrollProfessData.data.profession)
+    self:RefreshPoints()
+    self.container:UpdateTopByProfess(self.currentScrollProfessData.data.profession, self.currentScrollProfessData.data.isMaster)
+    self.masterSkillCost:SetActive(self.currentScrollProfessData.data.isMaster and FunctionSkillSimulate.Me():HasModifiedMasterSkill() and not FunctionSkillSimulate.Me().isPresetting or false)
+    self.container:UpdateRecommendBtn(not self.currentScrollProfessData.data.isMaster)
   end
   self:UpdateCurrentProfessSkillPoints()
 end
 
 function SkillContentPage:UpdateCurrentProfessSkillPoints()
   if self.currentScrollProfessData then
-    self.container:UpdateProfessSkillPoints(self.currentScrollProfessData.points)
+    self.container:UpdateProfessSkillPoints(self.currentScrollProfessData.points, self.currentScrollProfessData.data.totalPoints)
   end
 end
 
@@ -622,6 +730,9 @@ function SkillContentPage:SetEditMode(val)
       self:Hide(self.bottomrightMines)
       self:ResetProfessPoints()
     end
+    if self.currentScrollProfessData then
+      self.masterSkillCost:SetActive(self.currentScrollProfessData.data.isMaster and FunctionSkillSimulate.Me():HasModifiedMasterSkill() and not FunctionSkillSimulate.Me().isPresetting or false)
+    end
   end
 end
 
@@ -644,7 +755,11 @@ end
 function SkillContentPage:RefreshPoints()
   local points
   if self.isEditMode then
-    points = FunctionSkillSimulate.Me().totalPoints
+    if self.currentScrollProfessData and self.currentScrollProfessData.data.isMaster then
+      points = FunctionSkillSimulate.Me().masterSkillTotalPoints
+    else
+      points = FunctionSkillSimulate.Me().totalPoints
+    end
   else
     points = self:GetSkillPoint()
   end
@@ -655,10 +770,21 @@ end
 function SkillContentPage:OnExit()
   self:SetEditMode(false)
   FunctionSkillSimulate.Me():CancelSimulate()
+  if ISNoviceServerType then
+    PictureManager.Instance:UnloadMasterSkillTexture(MasterSkillBgName, self.masterSkillBg)
+  end
   SkillContentPage.super.OnExit(self)
 end
 
 function SkillContentPage:GetSkillPoint()
+  if self.currentScrollProfessData and self.currentScrollProfessData.data.isMaster then
+    return self:GetMasterSkillPoint()
+  else
+    return self:GetProfessSkillPoint()
+  end
+end
+
+function SkillContentPage:GetProfessSkillPoint()
   local multiSaveId = self.container.multiSaveId
   local classid = multiSaveId and SaveInfoProxy.Instance:GetProfession(multiSaveId, self.container.multiSaveType) or SkillProxy.Instance:GetMyProfession()
   local typeBranch = multiSaveId and SaveInfoProxy.Instance:GetProfessionTypeBranch(multiSaveId, self.container.multiSaveType) or MyselfProxy.Instance:GetMyProfessionTypeBranch()
@@ -678,6 +804,22 @@ function SkillContentPage:GetSkillPoint()
   end
 end
 
+function SkillContentPage:GetMasterSkillPoint()
+  local multiSaveId = self.container.multiSaveId
+  local point = 0
+  local masterJobLevel = MyselfProxy.Instance:GetMasterJobLevel()
+  if self.professDatas then
+    for i = 1, #self.professDatas do
+      if self.professDatas[i].data.isMaster then
+        local usedPoint = self.professDatas[i].points
+        point = masterJobLevel - usedPoint
+        break
+      end
+    end
+  end
+  return multiSaveId and SaveInfoProxy.Instance:GetUnusedSkillPoint(multiSaveId, self.container.multiSaveType) or point
+end
+
 function SkillContentPage:HandleMyDataChange(note)
   local data = note.body
   if data ~= nil then
@@ -685,7 +827,9 @@ function SkillContentPage:HandleMyDataChange(note)
     for i = 1, #data do
       if data[i].type == skillType then
         self:RefreshPoints()
-        break
+      elseif data[i].type == ProtoCommon_pb.EUSERDATATYPE_JOBLEVEL then
+        self:RefreshSkills()
+        self:UpdateMasterSkillEquipState()
       end
     end
   end
@@ -711,7 +855,8 @@ function SkillContentPage:SimulatePreset(note)
   local solutionid = note.body
   local key = "Solution_" .. solutionid
   local preset = Game.SkillRecommend[key] or {}
-  FunctionSkillSimulate.Me():StartPreset(self.professList:GetCells(), preset, self:GetSkillPoint())
+  local totalPoints = self:GetProfessSkillPoint()
+  FunctionSkillSimulate.Me():StartPreset(self.professList:GetCells(), preset, totalPoints)
   self:SetEditMode(true)
   self:RefreshPoints()
   self:UpdateCurrentProfessSkillPoints()
@@ -719,4 +864,217 @@ end
 
 function SkillContentPage:ResetPreset()
   self:CancelSimulate()
+end
+
+function SkillContentPage:SetMasterSkills(professes)
+  if not ISNoviceServerType then
+    return
+  end
+  local skills = {}
+  local depth = ProfessionProxy.GetJobDepth()
+  redlog("SkillContentPage:SetMasterSkills", SkillProxy.Instance:GetMyProfession(), depth)
+  if 3 < depth then
+    local masterProfessSkill = SkillProxy.Instance:GetMasterSkillProfessData()
+    if masterProfessSkill then
+      masterProfessSkill:UpdateMasterSkillPoints()
+      masterProfessSkill:UpdateSkillActive()
+      professes[#professes + 1] = masterProfessSkill
+      TableUtil.InsertArray(skills, masterProfessSkill.skills)
+      local pro = SkillProxy.Instance:GetMyProfession()
+      local config = Table_Class[pro]
+      if config then
+        local unlockSkillIndex = masterProfessSkill:GetUnlockLimitSkillIndex()
+        local groupNum = 0
+        if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
+          groupNum = groupNum + #config.MasterSkills
+        end
+        groupNum = groupNum + #unlockSkillIndex
+        for i = 1, 3 - groupNum do
+          skills[#skills + 1] = SkillItemData.Empty
+        end
+      end
+    end
+  end
+  self.masterSkillList:ResetDatas(skills, true, false)
+  self.masterSkillsGO:SetActive(0 < #skills)
+end
+
+function SkillContentPage:LayOutMasterSkills(professDatas)
+  local sortMap = {}
+  local requiringCells = {}
+  local cells = self.masterSkillList:GetCells()
+  for i = 1, #cells do
+    local cell = cells[i]
+    if cell.data then
+      sortMap[cell.data.sortID] = cell
+      if cell.data.requiredSkillID then
+        requiringCells[#requiringCells + 1] = cell
+      end
+      cell:RemoveLink()
+      cell:ResetLink()
+      local x, y = cell:GetGridXY()
+      tmpPos:Set(self:GetX(x + 0.5), -(y - 3) * self.cellHeight, 0)
+      cell.gameObject.transform.localPosition = tmpPos
+      local professData = professDatas.master
+      if professData == nil then
+        professData = {
+          minX = 10000,
+          maxX = 0,
+          id = "master"
+        }
+        professDatas.master = professData
+      end
+      professData.minX = math.min(professData.minX, x)
+      professData.maxX = math.max(professData.maxX, x)
+    end
+  end
+  for i = 1, #requiringCells do
+    local cell = requiringCells[i]
+    requiredSort = math.floor(cell.data.requiredSkillID / 1000)
+    requiredSkill = sortMap[requiredSort]
+    if requiredSkill then
+      requiredSkill:DrawLink(cell)
+    end
+  end
+end
+
+function SkillContentPage:LayoutEmptyMasterSkill()
+  local cells = self.masterSkillList:GetCells()
+  local emptyCellY
+  for i = 1, #cells do
+    local cell = cells[i]
+    if not cell.data then
+      local x, y = cells[1]:GetGridXY()
+      if not emptyCellY then
+        local lastCell = cells[cell.indexInList - 1]
+        if lastCell then
+          _, y = lastCell:GetGridXY()
+        end
+        emptyCellY = y
+      end
+      emptyCellY = emptyCellY + 1
+      tmpPos:Set(self:GetX(x + 0.5), -(emptyCellY - 3) * self.cellHeight, 0)
+      cell.gameObject.transform.localPosition = tmpPos
+    end
+  end
+end
+
+function SkillContentPage:SetMasterSkillsPos()
+  local cells = self.masterSkillList:GetCells()
+  if #cells == 0 then
+    return
+  end
+  if self.sperates then
+    local lastSperate = self.sperates[#self.sperates]
+    local _, y, z = LuaGameObject.GetLocalPositionGO(self.masterSkillBg.gameObject)
+    local x = lastSperate.transform.localPosition.x + 50
+    LuaGameObject.SetLocalPositionGO(self.masterSkillBg.gameObject, x, y, z)
+  end
+end
+
+function SkillContentPage:UpdateMasterSkillCost()
+  local totalCost = FunctionSkillSimulate.Me().masterSkillTotalCost
+  local costStr = StringUtil.NumThousandFormat(totalCost)
+  local myZeny = MyselfProxy.Instance:GetROB()
+  self.masterSkillCostLabel.text = totalCost > myZeny and string.format(ZhString.MasterSkill_ZenyCost, costStr) or costStr
+end
+
+function SkillContentPage:UpdateMasterSkillEquipState()
+  local equipMasterSkillFamilyId = SkillProxy.Instance:GetEquipMasterSkillFamilyId()
+  local selectIndex = 0
+  local cells = self.masterSkillList:GetCells()
+  redlog("SkillContentPage:UpdateMasterSkillEquipState", tostring(equipMasterSkillFamilyId))
+  if equipMasterSkillFamilyId then
+    local pro = SkillProxy.Instance:GetMyProfession()
+    local config = Table_Class[pro]
+    if config then
+      if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
+        for i = 1, #config.MasterSkills do
+          local skills = config.MasterSkills[i]
+          if skills[1] // 1000 == equipMasterSkillFamilyId then
+            selectIndex = i
+          end
+        end
+      end
+      if selectIndex == 0 then
+        local masterProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
+        if masterProfessData then
+          local unlockSkillIndex = masterProfessData:GetUnlockLimitSkillIndex()
+          if unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
+            for i = 1, #unlockSkillIndex do
+              local skills = config.LimitMasterSkills[unlockSkillIndex[i]]
+              if skills and skills[1] // 1000 == equipMasterSkillFamilyId then
+                selectIndex = unlockSkillIndex[i]
+              end
+            end
+          end
+        end
+      end
+    end
+    local cell = TableUtility.ArrayFindByPredicate(cells, function(v, args)
+      return v.data and v.data.sortID == args
+    end, equipMasterSkillFamilyId)
+    if cell then
+      local selectGo = self.masterSkillSelectGOs[selectIndex]
+      if selectGo then
+        local _, y = cell:GetGridXY()
+        local x = LuaGameObject.GetLocalPositionGO(selectGo)
+        tmpPos:Set(x, -(y - 3) * self.cellHeight, 0)
+        selectGo.transform.localPosition = tmpPos
+      end
+    end
+  end
+  for i = 1, #self.masterSkillSelectGOs do
+    self.masterSkillSelectGOs[i]:SetActive(i == selectIndex)
+  end
+  for i = 1, #self.masterSkillActiveBtns do
+    local go = self.masterSkillActiveBtns[i]
+    local familyId = self:GetMasterSkillFamilyIdByIndex(i)
+    go:SetActive(not self.container.multiSaveId and familyId and 0 < selectIndex and i ~= selectIndex or false)
+    if familyId then
+      local cell = TableUtility.ArrayFindByPredicate(cells, function(v, args)
+        return v.data and v.data.sortID == args
+      end, familyId)
+      if cell then
+        local x = LuaGameObject.GetLocalPositionGO(go)
+        local _, y = cell:GetGridXY()
+        tmpPos:Set(x, -(y - 3) * self.cellHeight, 0)
+        go.transform.localPosition = tmpPos
+      end
+    end
+  end
+  self:ResetProfessPoints()
+end
+
+function SkillContentPage:GetMasterSkillFamilyIdByIndex(index)
+  local pro = SkillProxy.Instance:GetMyProfession()
+  local config = Table_Class[pro]
+  if config and config.MasterSkills and config.MasterSkills ~= _EmptyTable then
+    local skills = config.MasterSkills[index]
+    if skills and skills[1] then
+      return skills[1] // 1000
+    end
+  end
+  local masterProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
+  if masterProfessData then
+    local unlockSkillIndex = masterProfessData:GetUnlockLimitSkillIndex()
+    if unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
+      for i = 1, #unlockSkillIndex do
+        if index == unlockSkillIndex[i] then
+          local skills = config.LimitMasterSkills[index]
+          if skills and skills[1] then
+            return skills[1] // 1000
+          end
+        end
+      end
+    end
+  end
+end
+
+function SkillContentPage:OnMasterSkillActiveBtnClick(index)
+  local familyId = self:GetMasterSkillFamilyIdByIndex(index)
+  if familyId then
+    redlog("CallSwitchMasterSkill", familyId)
+    ServiceSkillProxy.Instance:CallSwitchMasterSkill(familyId)
+  end
 end

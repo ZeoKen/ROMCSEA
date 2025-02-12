@@ -156,9 +156,9 @@ function FunctionLoginTDSG:RequestAuthAccToken()
     local old_deviceId = self:GetOld_DeviceID()
     local new_deviceId = self:GetNew_DeviceID()
     if BranchMgr.IsSEA() or BranchMgr.IsNA() or BranchMgr.IsEU() or BranchMgr.IsNO() or BranchMgr.IsNOTW() then
-      url = string.format("%s/auth?sid=%s&p=%s&sver=%s&cver=%s&client_id=%s&mac_key=%s&lang=%s", NetConfig.NewAccessTokenAuthHost[1], accToken, plat, version, clientCode, AppBundleConfig.TDSG_Config[AppBundleConfig.BundleID], macKey, ApplicationInfo.GetSystemLanguage())
+      url = string.format("%s/auth?sid=%s&p=%s&sver=%s&cver=%s&client_id=%s&mac_key=%s&lang=%s", NetConfig.NewAccessTokenAuthHost[1], accToken, plat, version, clientCode, self:GetTDSG_ClientID(), macKey, ApplicationInfo.GetSystemLanguage())
     else
-      url = string.format("%s/auth?sid=%s&p=%s&sver=%s&cver=%s&client_id=%s&mac_key=%s", NetConfig.NewAccessTokenAuthHost[1], accToken, plat, version, clientCode, AppBundleConfig.TDSG_Config[AppBundleConfig.BundleID], macKey)
+      url = string.format("%s/auth?sid=%s&p=%s&sver=%s&cver=%s&client_id=%s&mac_key=%s", NetConfig.NewAccessTokenAuthHost[1], accToken, plat, version, clientCode, self:GetTDSG_ClientID(), macKey)
     end
     url = string.format("%s&old_deviceid=%s&new_deviceid=%s", url, old_deviceId, new_deviceId)
     url = string.format("%s&appPreVersion=%s&phoneplat=%s", url, appPreVersion, phoneplat)

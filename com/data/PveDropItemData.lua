@@ -85,6 +85,10 @@ function PveDropItemData:SetRange(min, max)
   self.max_num = max
 end
 
+function PveDropItemData:SetReceived(received)
+  self.received = received
+end
+
 local _format = "%d~%d"
 
 function PveDropItemData:GetNumDesc()

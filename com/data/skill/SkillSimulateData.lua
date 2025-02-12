@@ -1,15 +1,16 @@
 SkillSimulateData = class("SkillSimulateData")
 
-function SkillSimulateData:ctor(sourceSkillData)
-  self:ResetSource(sourceSkillData)
+function SkillSimulateData:ctor(sourceSkillData, isMaster)
+  self:ResetSource(sourceSkillData, isMaster)
 end
 
-function SkillSimulateData:ResetSource(sourceSkillData)
+function SkillSimulateData:ResetSource(sourceSkillData, isMaster)
   self.sourceSkill = sourceSkillData
   self.sortID = self.sourceSkill.sortID
   self.profession = self.sourceSkill.profession
   self:SetID(self.sourceSkill.id)
   self:SetLearned(self.sourceSkill.learned)
+  self.isMaster = isMaster
 end
 
 function SkillSimulateData:Reset()

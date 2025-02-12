@@ -70,6 +70,10 @@ Table_HeadImage = {
     Picture = "face_allisge"
   },
   [55132] = {id = 55132, Picture = "face_sarah"},
+  [55134] = {
+    id = 55134,
+    Picture = "face_morocc"
+  },
   [56000] = {id = 56000, Picture = "boli"},
   [56001] = {id = 56001, Picture = "fengtu"},
   [56002] = {
@@ -1075,6 +1079,14 @@ Table_HeadImage = {
     id = 3010822,
     Picture = "head_3010822"
   },
+  [3012585] = {
+    id = 3012585,
+    Picture = "head_3012585"
+  },
+  [3012586] = {
+    id = 3012586,
+    Picture = "head_3012586"
+  },
   [3033924] = {
     id = 3033924,
     Picture = "item_3033924"
@@ -1094,6 +1106,10 @@ Table_HeadImage = {
   [3033928] = {
     id = 3033928,
     Picture = "item_3033928"
+  },
+  [10000263] = {
+    id = 10000263,
+    Picture = "head_10000263"
   }
 }
 Table_HeadImage_fields = {

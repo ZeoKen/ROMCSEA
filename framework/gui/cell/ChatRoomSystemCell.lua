@@ -102,6 +102,11 @@ function ChatRoomSystemCell:OnClickUrl(url)
       view = PanelConfig.QuickBuyCountChoosePopUp,
       viewdata = {goods = goods}
     })
+  elseif urlType == "datebattle" then
+    local dateid = tonumber(split[2])
+    if dateid then
+      GuildDateBattleProxy.Instance:QueryBattleInfo(dateid)
+    end
   elseif url == "playername" then
     local playerData = PlayerTipData.new()
     local data = self.data:GetSysMsgUserInfo()

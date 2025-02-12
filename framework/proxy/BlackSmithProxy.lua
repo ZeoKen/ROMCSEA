@@ -1153,9 +1153,7 @@ local refineEquipTypeMap = {}
 function BlackSmithProxy.GetRefineEquipTypeMap()
   if not next(refineEquipTypeMap) then
     for k, _ in pairs(GameConfig.EquipType) do
-      if k ~= 8 and k ~= 9 and k ~= 10 and k ~= 11 and k ~= 13 then
-        refineEquipTypeMap[k] = 1
-      end
+      refineEquipTypeMap[k] = 1
     end
   end
   return refineEquipTypeMap

@@ -663,8 +663,8 @@ function ActivityIntegrationProxy:CheckSubTabValid(tabid)
           local actInfo = self:GetActPersonalActInfo(activityId)
           local endTime = actInfo.endtime
           local curTime = ServerTime.CurServerTime() / 1000
-          if endTime > curTime then
-            return true
+          if endTime < curTime then
+            return false
           end
         end
         return false

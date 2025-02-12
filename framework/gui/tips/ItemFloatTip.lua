@@ -198,6 +198,8 @@ function ItemFloatTip:ShowFashionPreview(cell)
             self.sfp:SetData(equipPreview[field])
           elseif fashionGroupEquip then
             self.sfp:SetData(fashionGroupEquip.id)
+          elseif data:GetComposeFashionTarget() ~= nil then
+            self.sfp:SetData(data:GetComposeFashionTarget())
           else
             self.sfp:SetData(data.staticData.id)
           end

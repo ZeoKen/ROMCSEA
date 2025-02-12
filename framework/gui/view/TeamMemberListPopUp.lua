@@ -127,11 +127,12 @@ function TeamMemberListPopUp:InitView()
     end, nil)
   end)
   self.autoFollowTog = self:FindComponent("AutoFollowTog", UIToggle)
+  self.autoFollowLab = self:FindComponent("Label", UILabel, self.autoFollowTog.gameObject)
+  self.autoFollowLab.text = ZhString.TeamMemberListPopUp_Auto_Follow_Ready
   self:AddClickEvent(self.autoFollowTog.gameObject, function()
     local togValue = self.autoFollowTog.value
-    local myMemberData = TeamProxy.Instance:GetMyTeamMemberData()
-    local isautoFollow = myMemberData.autofollow == 1
-    if togValue ~= isautoFollow then
+    local isAutoFollow = TeamProxy.Instance:CheckMyselfAutoFollowIsOpen()
+    if togValue ~= isAutoFollow then
       helplog("CallSetMemberOptionTeamCmd", togValue)
       local changeOption = {}
       local autofollowOp = {
@@ -332,12 +333,17 @@ function TeamMemberListPopUp:UpdateTeamInfo()
     self.inviteMemberButton.gameObject:SetActive(leaderAuthority)
     self.optionButton.gameObject:SetActive(leaderAuthority)
     self.inviteAllButton.gameObject:SetActive(leaderAuthority)
-    self.autoFollowTog.gameObject:SetActive(not leaderAuthority)
-    local myMemberData = TeamProxy.Instance:GetMyTeamMemberData()
-    if myMemberData then
-      self.autoFollowTog.value = myMemberData.autofollow == 1
+    local showAutoTog = not leaderAuthority
+    if showAutoTog then
+      self:Show(self.autoFollowTog)
+      local myMemberData = TeamProxy.Instance:GetMyTeamMemberData()
+      if myMemberData then
+        self.autoFollowTog.value = myMemberData.autofollow == 1
+      else
+        self.autoFollowTog.value = false
+      end
     else
-      self.autoFollowTog.value = false
+      self:Hide(self.autoFollowTog)
     end
     local inGroup = TeamProxy.Instance:IHaveGroup()
     self.objRaidMembers:SetActive(inGroup)

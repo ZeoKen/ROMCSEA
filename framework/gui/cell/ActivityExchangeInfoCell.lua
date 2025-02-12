@@ -1,13 +1,12 @@
 autoImport("ActivityExchangeMaterialCell")
 ActivityExchangeInfoCell = class("ActivityExchangeInfoCell", BaseCell)
-local ItemCellPosX = {
-  [1] = -132,
-  [2] = -43,
-  [3] = 47
-}
 
 function ActivityExchangeInfoCell:Init()
   self:FindObjs()
+  local panel = UIUtil.GetComponentInParents(self.gameObject, UIPanel)
+  if panel then
+    self.itemPanel.depth = panel.depth + 1
+  end
   self.tipData = {}
   self.tipData.funcConfig = {}
 end
@@ -25,15 +24,10 @@ end
 
 function ActivityExchangeInfoCell:FindObjs()
   self.widget = self.gameObject:GetComponent(UIWidget)
-  local grid = self:FindComponent("Grid", UIGrid)
-  self.materialListCtrl = UIGridListCtrl.new(grid, ActivityExchangeMaterialCell, "ActivityExchangeMaterialCell")
+  self.itemPanel = self:FindComponent("ItemPanel", UIPanel)
+  self.grid = self:FindComponent("Grid", UIGrid)
+  self.materialListCtrl = UIGridListCtrl.new(self.grid, ActivityExchangeMaterialCell, "ActivityExchangeMaterialCell")
   self.materialListCtrl:AddEventListener(MouseEvent.MouseClick, self.OnItemClick, self)
-  self.itemContainer = self:FindGO("ItemContainer")
-  local go = self:LoadPrefab("ActivityExchangeItemCell", self.itemContainer)
-  self.exchangeItemCell = ActivityExchangeItemCell.new(go)
-  self.exchangeItemCell:AddEventListener(MouseEvent.MouseClick, self.OnItemClick, self)
-  self.plus1 = self:FindGO("Plus1")
-  self.plus2 = self:FindGO("Plus2")
   self.exchangeBtn = self:FindGO("ExchangeBtn")
   self.exchangeBtnCollider = self.exchangeBtn:GetComponent(BoxCollider)
   self:AddClickEvent(self.exchangeBtn, function()
@@ -58,16 +52,20 @@ function ActivityExchangeInfoCell:SetData(data)
       itemData.num = num
       datas[#datas + 1] = itemData
     end
-    self.materialListCtrl:ResetDatas(datas)
+    self.materialListCtrl:ResetDatas(datas, nil, false)
     ReusableTable.DestroyArray(datas)
+    if not self.exchangeItemCell then
+      local go = self:LoadPrefab("ActivityExchangeItemCell", self.grid)
+      self.exchangeItemCell = ActivityExchangeItemCell.new(go)
+      self.exchangeItemCell:AddEventListener(MouseEvent.MouseClick, self.OnItemClick, self)
+    end
     local item = exchangeItemData.item
     local itemData = ItemData.new("item", item[1])
     itemData.num = item[2]
     self.exchangeItemCell:SetData(itemData)
-    local posX = ItemCellPosX[matNum]
-    LuaGameObject.SetLocalPositionGO(self.exchangeItemCell.gameObject, posX, 0, 0)
-    self.plus1:SetActive(1 < matNum)
-    self.plus2:SetActive(2 < matNum)
+    local childCount = self.grid.transform.childCount
+    self.exchangeItemCell.trans:SetSiblingIndex(childCount - 1)
+    self.materialListCtrl:ResetPosition()
     local totalExchangeNum = exchangeItemData.exchange_count
     local exchangedNum = ActivityExchangeProxy.Instance:GetExchangedCount(data.act_id, data.index)
     if totalExchangeNum and 0 < totalExchangeNum then

@@ -62,12 +62,7 @@ function SkillCell:InitCell()
   self:SetEvent(self.clickCell, function()
     self:PassEvent(MouseEvent.MouseClick, self)
   end)
-  self:SetEvent(self.upgradeBtn.gameObject, function()
-    self:PassEvent(SkillCell.SimulationUpgrade, self)
-  end)
-  self:SetEvent(self.levelDelBtn.gameObject, function()
-    self:PassEvent(SkillCell.SimulationDowngrade, self)
-  end)
+  self:AddSimulateButtonEvent()
   
   function self.dragDrop.dragDropComponent.OnStart(data)
     if GameConfig.SkillType[self.data.staticData.SkillType].isPassive then
@@ -81,6 +76,15 @@ function SkillCell:InitCell()
   end)
   self:Hide(self.levelDelBtn.gameObject)
   self:Hide(self.previewBtn)
+end
+
+function SkillCell:AddSimulateButtonEvent()
+  self:SetEvent(self.upgradeBtn.gameObject, function()
+    self:PassEvent(SkillCell.SimulationUpgrade, self)
+  end)
+  self:SetEvent(self.levelDelBtn.gameObject, function()
+    self:PassEvent(SkillCell.SimulationDowngrade, self)
+  end)
 end
 
 function SkillCell:IsClickMe(click)

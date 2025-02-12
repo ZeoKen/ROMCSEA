@@ -7,7 +7,8 @@ ArtifactProxy.OptionType = {
   Distribute = GuildCmd_pb.EARTIFACTOPTTYPE_DISTRIBUTE,
   Retrieve = GuildCmd_pb.EARTIFACTOPTTYPE_RETRIEVE,
   RetrieveCancle = GuildCmd_pb.EARTIFACTOPTTYPE_RETRIEVE_CANCEL,
-  Return = GuildCmd_pb.EARTIFACTOPTTYPE_GIVEBACK
+  Return = GuildCmd_pb.EARTIFACTOPTTYPE_GIVEBACK,
+  Decompose = GuildCmd_pb.EARTIFACTOPTTYPE_DECOMPOSE
 }
 ArtifactProxy.NpcIDByType = {
   2621,
@@ -66,8 +67,11 @@ function ArtifactProxy:GetArtifactType()
 end
 
 function ArtifactProxy:SetArtifactData(data)
+  local guildId = data.guild_id
   for i = 1, #data.itemupdates do
     local cellData = ArtifactItemData.new(data.itemupdates[i])
+    helplog("data.itemupdates[i].guid: ", data.itemupdates[i].guid, guildId)
+    cellData:SetGuildID(guildId)
     self.artifactData[data.itemupdates[i].guid] = cellData
   end
   for i = 1, #data.itemdels do
@@ -158,7 +162,7 @@ end
 function ArtifactProxy:_getOwnCountByType(t)
   local singleTypeCount = 0
   for guid, v in pairs(self.artifactData) do
-    if v.type == t then
+    if v.type == t and v:IsBelongToMyselfGuild() then
       singleTypeCount = singleTypeCount + 1
     end
   end
@@ -169,7 +173,7 @@ function ArtifactProxy:_getTotalArtifactCount()
   local num = 0
   local buildType = self.artifactType == 1 and GuildBuildingProxy.Type.EGUILDBUILDING_HIGH_REFINE or GuildBuildingProxy.Type.EGUILDBUILDING_ARTIFACT_HEAD
   for k, v in pairs(self.artifactData) do
-    if v.staticData and v.staticData.BuildingType == buildType then
+    if v.staticData and v.staticData.BuildingType == buildType and v:IsBelongToMyselfGuild() then
       num = num + 1
     end
   end
@@ -261,7 +265,7 @@ end
 function ArtifactProxy:GetUnUseArtifacts()
   local result = {}
   for k, v in pairs(self.artifactData) do
-    if v.Phase == ArtifactProxy.OptionType.Distribute then
+    if v.Phase == ArtifactProxy.OptionType.Distribute and v:IsBelongToMyselfGuild() then
       result[#result + 1] = v
     end
   end
@@ -279,10 +283,12 @@ end
 function ArtifactProxy:ResetGuildMemberArtifact()
   self.memberArtData = {}
   for _, v in pairs(self.artifactData) do
-    if not self.memberArtData[v.ownerID] then
-      self.memberArtData[v.ownerID] = {}
+    if v:IsBelongToMyselfGuild() then
+      if not self.memberArtData[v.ownerID] then
+        self.memberArtData[v.ownerID] = {}
+      end
+      table.insert(self.memberArtData[v.ownerID], v)
     end
-    table.insert(self.memberArtData[v.ownerID], v)
   end
 end
 

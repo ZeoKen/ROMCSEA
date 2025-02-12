@@ -160,16 +160,19 @@ end
 function AdventureDataProxy:initBagData()
   for i = 1, #Table_AdventureItem do
     local id = Table_AdventureItem[i]
-    tempTable.id = id
-    tempTable.status = SceneManual_pb.EMANUALSTATUS_UNLOCK
-    for i = 1, #AdventureDataProxy.NoServerSyncType do
-      local type = AdventureDataProxy.NoServerSyncType[i]
-      local bagData = self.bagMap[type]
-      local item = AdventureItemData.new(tempTable, type)
-      local tab = bagData:getTabByItemAndType(item, type)
-      if tab and tab.tab.id ~= AdventureDataProxy.MonthCardTabId then
-        bagData:AddItem(item, type)
-        break
+    local staticData = Table_Item[id]
+    if staticData and not staticData.Delete then
+      tempTable.id = id
+      tempTable.status = SceneManual_pb.EMANUALSTATUS_UNLOCK
+      for i = 1, #AdventureDataProxy.NoServerSyncType do
+        local type = AdventureDataProxy.NoServerSyncType[i]
+        local bagData = self.bagMap[type]
+        local item = AdventureItemData.new(tempTable, type)
+        local tab = bagData:getTabByItemAndType(item, type)
+        if tab and tab.tab.id ~= AdventureDataProxy.MonthCardTabId then
+          bagData:AddItem(item, type)
+          break
+        end
       end
     end
   end
@@ -1800,12 +1803,18 @@ function AdventureDataProxy:GetPropsByBufferId(buff, tempArrayData, tempMap)
         for k, v in pairs(bufferData.BuffEffect) do
           local prop = Game.Config_PropName[k]
           if prop then
+            local _value
+            if type(v) == "table" and v.type then
+              _value = CommonFun.calcBuffValue(Game.Myself.data, Game.Myself.data, v.type, v.a, v.b, v.c, v.d)
+            else
+              _value = v
+            end
             local data = tempMap[k]
             if data then
-              data.value = data.value + v
+              data.value = data.value + _value
             else
               data = {}
-              data.value = v
+              data.value = _value
               data.prop = prop
               tempArrayData[#tempArrayData + 1] = data
             end

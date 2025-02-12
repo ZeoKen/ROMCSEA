@@ -120,6 +120,10 @@ function SceneBottomNameFactionCell:initFactionView()
   self.factionJob = self:FindGO("factionJob"):GetComponent(Text)
   self.factionInfo = self:FindGO("factionInfo")
   self.factionInfoRectTrans = self:FindComponent("factionInfo", RectTransform)
+  self.guildDataBattleMvp = self:FindGO("guldDateMvp")
+  if self.guildDataBattleMvp then
+    self:Hide(self.guildDataBattleMvp)
+  end
 end
 
 function SceneBottomNameFactionCell:initNameView()
@@ -189,7 +193,7 @@ function SceneBottomNameFactionCell:SetName(creature)
   end
   if creatureData.GetAchievementtitle then
     local _GuildProxy = GuildProxy.Instance
-    local isPlayerMercenary = _GuildProxy:IsPlayerMercenary(creatureData) and Game.MapManager:IsInGVG()
+    local isPlayerMercenary = _GuildProxy:IsPlayerMercenary(creatureData) and Game.MapManager:IsInGVG(true)
     if isPlayerMercenary then
       name = not _GuildProxy:IsPlayerInMyGuildUnion(creatureData) and creatureData:GetMercenaryGuildName() or name
       name = ZhString.SceneBottomNameFactionCell_Mercenary .. name
@@ -278,7 +282,7 @@ function SceneBottomNameFactionCell:SetFaction(creature)
   local guildjob = ""
   local guildname = ""
   local guildicon, customicon, picType
-  local guildData = Game.MapManager:IsInGVG() and creatureData:GetMercenaryGuildData() or creatureData:GetGuildData()
+  local guildData = Game.MapManager:IsInGVG(true) and creatureData:GetMercenaryGuildData() or creatureData:GetGuildData()
   if guildData then
     guildjob = guildData.jobName
     guildicon = guildData.icon

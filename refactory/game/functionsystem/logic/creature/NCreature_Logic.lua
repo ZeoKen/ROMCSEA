@@ -64,7 +64,7 @@ function NCreature:Logic_PlayAction_Simple(name, defaultName, speed)
 end
 
 function NCreature:GetPippi()
-  local downID = self.data.userdata:Get(UDEnum.DOWN_CHARID)
+  local downID = self.data:GetDownID()
   if downID and downID ~= 0 then
     local role = SceneCreatureProxy.FindCreature(downID)
     if role and role.data:IsPippi() then

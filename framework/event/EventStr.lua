@@ -224,7 +224,9 @@ PVEEvent = {
   StarArk_Launch = "StarArk_Launch",
   StarArk_Shutdown = "StarArk_Shutdown",
   EndlessBattleField_Launch = "EndlessBattleField_Launch",
-  EndlessBattleField_Shutdown = "EndlessBattleField_Shutdown"
+  EndlessBattleField_Shutdown = "EndlessBattleField_Shutdown",
+  Astral_Launch = "Astral_Launch",
+  Astral_Shutdown = "Astral_Shutdown"
 }
 GVGEvent = {
   GVGDungeonLaunch = "GVGEvent_GVGDungeonLaunch",
@@ -373,7 +375,8 @@ MyselfEvent = {
   SpecialHideBuffAdd = "MyselfEvent_SpecialHideBuffAdd",
   SpecialHideBuffRemove = "MyselfEvent_SpecialHideBuffRemove",
   RidePlayerChange = "MyselfEvent_RidePlayerChange",
-  MyPippiChange = "MyselfEvent_MyPippiChange"
+  MyPippiChange = "MyselfEvent_MyPippiChange",
+  AsEquipChange = "MyselfEvent_AsEquipChange"
 }
 ItemEvent = {
   ItemCmd = "ItemEvent_ItemCmd",
@@ -420,7 +423,8 @@ ItemEvent = {
   EquipChooseSuccess = "ItemEvent_EquipChooseSuccess",
   EquipIntegrate_TrySelectEquip = "ItemEvent_EquipIntegrate_TrySelectEquip",
   ItemChange = "ItemEvent_ItemChange",
-  MemoryUpdate = "ItemEvent_MemoryUpdate"
+  MemoryUpdate = "ItemEvent_MemoryUpdate",
+  SpecialFashionUpdate = "ItemEvent_SpecialFashionUpdate"
 }
 PackageEvent = {
   OpenBarrowBag = "PackageEvent_OpenBarrowBag",
@@ -692,7 +696,14 @@ GuildEvent = {
   VoiceChange = "Guild_VoiceChange",
   GetAssembleReward = "Guild_GetAssembleReward",
   ExitMercenary = "Guild_ExitMercenary",
-  EnterMercenary = "Guild_EnterMercenary"
+  EnterMercenary = "Guild_EnterMercenary",
+  GuildBattleClientRefused = "GuildEvent_GuildBattleClientRefused"
+}
+GuildDateBattleEvent = {
+  ChooseDate = "GuildDateBattleEvent_ChooseDate",
+  ChooseClock = "GuildDateBattleEvent_ChooseClock",
+  CloseGuildFindView = "GuildDateBattleEvent_CloseGuildFindPage",
+  ChooseMode = "GuildDateBattleEvent_ChooseMode"
 }
 GuildChallengeEvent = {
   CloseUI = "GuildChallengeEvent_CloseUI"
@@ -1625,4 +1636,10 @@ EscortEvent = {
 }
 BigWorldClientEvent = {
   ClientNpcLoaded = "BigWorldClientEvent_ClientNpcLoaded"
+}
+CraftingPotViewEvent = {
+  UpdateProduct = "CraftingPotView_UpdateProduct"
+}
+AstralGraphEvent = {
+  LightenPoint = "AstralGraphEvent_LightenPoint"
 }

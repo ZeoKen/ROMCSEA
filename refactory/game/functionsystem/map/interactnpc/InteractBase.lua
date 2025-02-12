@@ -97,9 +97,7 @@ function InteractBase:GetOn(cpid, charid, npcid, masterid, ncreature)
     if actionInfo == nil then
       return
     end
-    if self.staticData.Param and self.staticData.Param.MoveMultiMount or not creature:Client_IsMoving() then
-      self:PlayOnAction(creature, actionInfo.Name)
-    end
+    self:PlayOnAction(creature, actionInfo.Name)
   end
 end
 

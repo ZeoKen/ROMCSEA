@@ -67,8 +67,8 @@ function DyeComposeView:SetSpText()
   self.makeBtnLab.text = ZhString.DyeComposeView_Btn
   local icon = self:FindComponent("Zeny", UISprite, self.costRoot)
   local symbol = self:FindComponent("symbol", UISprite, self:FindGO("Silver"))
-  IconManager:SetItemIcon(_ZenyIcon, icon)
-  IconManager:SetItemIcon(_ZenyIcon, symbol)
+  IconManager:SetItemIcon(Table_Item[100].Icon, icon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, symbol)
 end
 
 function DyeComposeView:AddEvts()

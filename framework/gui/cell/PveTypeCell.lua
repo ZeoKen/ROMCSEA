@@ -24,6 +24,8 @@ function PveTypeCell:InitGridUpdateFunc()
   self.gridUpdateFunc[PveRaidType.Crack] = self.UpdateCrackGrid
   self.gridUpdateFunc[PveRaidType.Boss] = self.UpdateBossGrid
   self.gridUpdateFunc[PveRaidType.RoadOfHero] = self.UpdateHeroRoadGrid
+  self.gridUpdateFunc[PveRaidType.Astral] = self.UpdateAstralGrid
+  self.gridUpdateFunc[PveRaidType.MemoryRaid] = self.UpdateMemoryRaidGrid
 end
 
 function PveTypeCell:FindObj()
@@ -54,6 +56,9 @@ function PveTypeCell:FindObj()
   end)
   self.redtip = self:FindGO("redtip")
   self.gridRoot:SetActive(false)
+  self.seasonLabel = self:FindComponent("Season", UILabel)
+  self:Hide(self.seasonLabel)
+  self.seasonRemainTimeLabel = self:FindComponent("SeasonRemainTime", UILabel)
 end
 
 function PveTypeCell:SetDragScrollView(sv)
@@ -178,6 +183,18 @@ function PveTypeCell:UpdateHeroRoadGrid()
   self:UpdateSubGrid(datas, datas[1].id)
 end
 
+function PveTypeCell:UpdateAstralGrid()
+  local datas = PveEntranceProxy.Instance:GetAllAstralData()
+  local entranceData = PveEntranceProxy.Instance:GetCurAstralFirstPveData()
+  self:UpdateSubGrid(datas, entranceData.id)
+end
+
+function PveTypeCell:UpdateMemoryRaidGrid()
+  local datas = PveEntranceProxy.Instance:GetAllMemoryRaidData()
+  local entranceData = PveEntranceProxy.Instance:GetCurMemoryFirstPveData()
+  self:UpdateSubGrid(datas, entranceData.id)
+end
+
 function PveTypeCell:UpdateSubGrid(datas, chooseId)
   self.gridCtl:ResetDatas(datas)
   self.gridBg.height = #datas * gridCellHeight + gridCellHeightOffset
@@ -214,8 +231,9 @@ function PveTypeCell:SetData(data)
   self.content:SetActive(true)
   self:UpdateUnlock()
   self:TryUpdateGridCtl()
-  local _nameStr = entrance_data:IsCrack() and ZhString.Pve_TypeCrackNamePrefix or entrance_data:IsRoadOfHero() and ZhString.Pve_TypeHeroRoadNamePrefix or ZhString.Pve_TypeNamePrefix
+  local _nameStr = entrance_data:IsCrack() and ZhString.Pve_TypeCrackNamePrefix or entrance_data:IsRoadOfHero() and ZhString.Pve_TypeHeroRoadNamePrefix or entrance_data:IsAstral() and ZhString.Pve_TypeAstralNamePrefix or ZhString.Pve_TypeNamePrefix
   self.nameLab.text = string.format(_nameStr, entrance_data.name)
+  local nameStr = string.format(_nameStr, entrance_data.name)
   local _raidTypeConfig = _RaidTypeConfig[entrance_data.groupid]
   if not _raidTypeConfig then
     redlog("检查配置 GameConfig.Pve.RaidType , ID : ", self.raidType, entrance_data.groupid)
@@ -242,6 +260,41 @@ function PveTypeCell:SetData(data)
   if not self:IsGridType() then
     self:Hide(self.gridRoot)
     self.reverseActive = false
+  end
+  local isAstralRaid = entrance_data:IsAstral()
+  self.seasonRemainTimeLabel.gameObject:SetActive(isAstralRaid)
+  if isAstralRaid and not AstralProxy.Instance:IsSeasonNotOpen() then
+    local season_suffix = string.format(ZhString.Pve_TypeNameAstralSuffix, AstralProxy.Instance:GetSeason())
+    self.nameLab.text = nameStr .. season_suffix
+  else
+    self.nameLab.text = nameStr
+  end
+  if isAstralRaid then
+    local season = AstralProxy.Instance:GetSeason()
+    local config = Table_AstralSeason[season]
+    local endTimeFormat = config and EnvChannel.IsTFBranch() and config.TfEndTime or config and config.EndTime
+    local endTime = ClientTimeUtil.GetOSDateTime(endTimeFormat)
+    local curTime = ServerTime.CurServerTime() / 1000
+    if AstralProxy.Instance:IsSeasonEnd() then
+      self.seasonRemainTimeLabel.text = ZhString.Pve_Astral_SeasonPrepareTime
+    else
+      local remainTime = endTime - curTime
+      local day = math.floor(remainTime / 86400)
+      if 1 <= day then
+        local str = string.format(ZhString.Pve_Astral_SeasonRemainTime_Day, day)
+        self.seasonRemainTimeLabel.text = string.format(ZhString.Pve_Astral_SeasonRemainTime, str)
+      else
+        local hour = math.floor(remainTime / 3600)
+        if 1 <= hour then
+          local str = string.format(ZhString.Pve_Astral_SeasonRemainTime_Hour, hour)
+          self.seasonRemainTimeLabel.text = string.format(ZhString.Pve_Astral_SeasonRemainTime, str)
+        else
+          local min = math.floor(remainTime / 60)
+          local str = string.format(ZhString.Pve_Astral_SeasonRemainTime_Min, min)
+          self.seasonRemainTimeLabel.text = string.format(ZhString.Pve_Astral_SeasonRemainTime, str)
+        end
+      end
+    end
   end
 end
 
@@ -328,5 +381,5 @@ function PveTypeCell:IsGridType()
     return false
   end
   local entrance_data = self.data.staticEntranceData
-  return entrance_data:IsCrack() or entrance_data:IsBoss() or entrance_data:IsRoadOfHero()
+  return entrance_data:IsCrack() or entrance_data:IsBoss() or entrance_data:IsRoadOfHero() or entrance_data:IsAstral() or entrance_data:IsMemoryRaid()
 end

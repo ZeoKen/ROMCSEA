@@ -142,7 +142,16 @@ Table_PveMonsterIntroduction = {
   [141] = {id = 141, Content = "##1302462"},
   [142] = {id = 142, Content = "##3490973"},
   [143] = {id = 143, Content = "##3490974"},
-  [144] = {id = 144, Content = "##3490975"}
+  [144] = {id = 144, Content = "##3490975"},
+  [145] = {id = 145, Content = "##42535950"},
+  [146] = {id = 146, Content = "##42535951"},
+  [147] = {id = 147, Content = "##42535952"},
+  [148] = {id = 148, Content = "##42535953"},
+  [149] = {id = 149, Content = "##42535954"},
+  [150] = {id = 150, Content = "##42535955"},
+  [151] = {id = 151, Content = "##42535956"},
+  [152] = {id = 152, Content = "##42535957"},
+  [153] = {id = 153, Content = "##42535958"}
 }
 Table_PveMonsterIntroduction_fields = {"id", "Content"}
 return Table_PveMonsterIntroduction

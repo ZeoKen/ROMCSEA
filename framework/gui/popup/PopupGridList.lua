@@ -15,6 +15,9 @@ local styleConfig = {
   [3] = {
     popupAsset = "PopupGridList_Yellow",
     popupCellAsset = "PopupGridListCell_Yellow"
+  },
+  [4] = {
+    popupCellAsset = "PopupGridListCell_AstralGraph"
   }
 }
 

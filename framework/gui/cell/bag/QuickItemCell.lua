@@ -34,6 +34,9 @@ function QuickItemCell:SetData(data)
   else
     self.isSp, self.isHp = false, false
     self.gameObject:SetActive(false)
+    if self.cdCtrl and self.cdCtrl:IsRefreshing(self) then
+      self.cdCtrl:Remove(self)
+    end
   end
   self:UpdateHpSpTipEffect()
   self:UpdateRefineLv()

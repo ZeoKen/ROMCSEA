@@ -20,6 +20,17 @@ function MyselfTeamData:SetData(teamData)
   end
 end
 
+local leaderMap
+local CheckJobIsLeader = function(job)
+  if not leaderMap then
+    leaderMap = {
+      [SessionTeam_pb.ETEAMJOB_LEADER] = 1,
+      [SessionTeam_pb.ETEAMJOB_TEMPLEADER] = 1
+    }
+  end
+  return nil ~= leaderMap[job]
+end
+
 function MyselfTeamData:SetMember(data)
   local member = self:GetMemberByGuid(data.guid)
   if not member then
@@ -48,7 +59,7 @@ function MyselfTeamData:SetMember(data)
       self:NotifyMemberChangeMap(member)
     end
     if cacheJob ~= member.job then
-      if member.job == SessionTeam_pb.ETEAMJOB_LEADER or member.job == SessionTeam_pb.ETEAMJOB_TEMPLEADER or cacheJob == SessionTeam_pb.ETEAMJOB_LEADER or cacheJob == SessionTeam_pb.ETEAMJOB_TEMPLEADER then
+      if CheckJobIsLeader(member.job) or CheckJobIsLeader(cacheJob) then
         GameFacade.Instance:sendNotification(TeamEvent.MyLeaderChange)
       end
       self:NotifyMyTeamJobChange(member.job)

@@ -56,6 +56,7 @@ function FunctionNetError:ShowError(feedBackType, cancelFeedBack, msgID, param, 
   if feedBackType == FunctionNetError.FeedBackType.ErrorBackToLogin or feedBackType == FunctionNetError.FeedBackType.ErrorBackToLogo or feedBackType == FunctionNetError.FeedBackType.ErrorNoConnectSerVer then
     UIWarning.Instance:HideBord()
     self:DisConnect()
+    FunctionChangeScene.Me():SendTMCR()
   end
   local cancelHandler
   if cancelFeedBack ~= nil then

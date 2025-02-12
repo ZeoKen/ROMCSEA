@@ -13,7 +13,7 @@ function ServiceSceneTipProxy:ctor(proxyName)
 end
 
 function ServiceSceneTipProxy:RecvGameTipCmd(data)
-  RedTipProxy.Instance:UpdateRedTipsbyServer(data)
+  RedTipProxy.Instance:RecvGameTipCmd(data)
   self:Notify(ServiceEvent.SceneTipGameTipCmd, data)
 end
 

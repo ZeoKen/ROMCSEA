@@ -266,6 +266,7 @@ function NMyselfPlayer:RemoveObjsWhenLeaveScene()
   if not Game.MapManager:IsPVEMode_Roguelike() then
     self:ClearContractEffects()
   end
+  self:ClearSpEffect()
 end
 
 function NMyselfPlayer:SetPartner(id)
@@ -733,6 +734,9 @@ end
 
 function NMyselfPlayer:SetNextNormalAttack(skillID, time)
   local nextSkill = AtkSpdSerialSkills[skillID]
+  if self.data:CheckEnergyBuffFull() then
+    nextSkill = 2734001
+  end
   local curServerTime = ServerTime.CurServerTime() / 1000 + 5
   self.nextNormalAttack = {skillID = nextSkill, time = curServerTime}
 end
@@ -750,6 +754,9 @@ function NMyselfPlayer:GetFakeNormalAtkID()
   local skillID = self.nextNormalAttack and self.nextNormalAttack.skillID
   local useTime = self.nextNormalAttack and self.nextNormalAttack.time
   local curServerTime = ServerTime.CurServerTime() / 1000
+  if self.data:CheckEnergyBuffFull() then
+    return skillID or 2734001
+  end
   if useTime and useTime < curServerTime or not skillID then
     return MyselfProxy.Instance:GetFakeNormalAtkID()
   else

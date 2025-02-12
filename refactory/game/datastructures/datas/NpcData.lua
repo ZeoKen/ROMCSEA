@@ -79,7 +79,8 @@ NpcData.ZoneType = {
   ZONE_MAX = 7,
   ZONE_STORM = 22,
   ZONE_EQUIPUP = 24,
-  ZONE_MemoryPalace = 25
+  ZONE_MemoryPalace = 25,
+  ZONE_MemoryRaid = 26
 }
 NpcData.BossType = {
   Mvp = 1,
@@ -704,6 +705,8 @@ function NpcData.GetZoneTypeByStaticData(staticData)
     return NpcData.ZoneType.ZONE_EQUIPUP
   elseif str == "MemoryPalace" then
     return NpcData.ZoneType.ZONE_MemoryPalace
+  elseif str == "MemoryRaid" then
+    return NpcData.ZoneType.ZONE_MemoryRaid
   end
 end
 

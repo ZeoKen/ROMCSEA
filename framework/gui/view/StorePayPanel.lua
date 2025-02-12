@@ -60,7 +60,7 @@ function StorePayPanel:LoadView()
     local productDes = self:FindGO("producDes")
     local priceSprite = priceObj:GetComponent(UISprite)
     if self.curProduct.Type == 1 then
-      IconManager:SetItemIcon("item_100", priceSprite)
+      IconManager:SetItemIcon(Table_Item[100].Icon, priceSprite)
       priceSprite.width = 50
       priceSprite.height = 50
     elseif self.curProduct.Type == 3 then

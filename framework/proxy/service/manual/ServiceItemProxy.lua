@@ -58,7 +58,7 @@ function ServiceItemProxy:CallQueryEquipData(guid, data)
 end
 
 function ServiceItemProxy:CallEquip(oper, pos, guid, transfer, count, quickUse, id)
-  helplog("ServiceItemProxyCallEquip id|pos|oper", id, pos, oper)
+  helplog(string.format("ServiceItemProxyCallEquip id%s|pos%s|oper%s|guid%s", id, pos, oper, guid))
   local _bagProxy = BagProxy.Instance
   local IsViceEquipType = BagProxy.Instance:IsViceEquipType()
   local hasMappingPos = ItemUtil.HasMappingPos(pos)

@@ -8021,6 +8021,106 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
+  [16191] = {
+    id = 16191,
+    NameZh = "##112730",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [16192] = {
+    id = 16192,
+    NameZh = "##113390",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [16193] = {
+    id = 16193,
+    NameZh = "##113350",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [16203] = {
+    id = 16203,
+    NameZh = "##112896",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [16204] = {
+    id = 16204,
+    NameZh = "##112635",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
   [17004] = {
     id = 17004,
     NameZh = "##112936",
@@ -8241,10 +8341,90 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
+  [17081] = {
+    id = 17081,
+    NameZh = "##112805",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17082] = {
+    id = 17082,
+    NameZh = "##112884",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
   [17083] = {
     id = 17083,
     NameZh = "##112889",
     Trade = 0,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17086] = {
+    id = 17086,
+    NameZh = "##112474",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17087] = {
+    id = 17087,
+    NameZh = "##112978",
+    Trade = 1,
     Overlap = 1,
     Category = 12,
     ShowTime = 7200,
@@ -9741,6 +9921,126 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
+  [17712] = {
+    id = 17712,
+    NameZh = "##113259",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17713] = {
+    id = 17713,
+    NameZh = "##112546",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17714] = {
+    id = 17714,
+    NameZh = "##112877",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17720] = {
+    id = 17720,
+    NameZh = "##112918",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17722] = {
+    id = 17722,
+    NameZh = "##113111",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17799] = {
+    id = 17799,
+    NameZh = "##1291002",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
   [18049] = {
     id = 18049,
     NameZh = "##113576",
@@ -9881,10 +10181,310 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
+  [18149] = {
+    id = 18149,
+    NameZh = "##113379",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18150] = {
+    id = 18150,
+    NameZh = "##112852",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18151] = {
+    id = 18151,
+    NameZh = "##112920",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18152] = {
+    id = 18152,
+    NameZh = "##113026",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18153] = {
+    id = 18153,
+    NameZh = "##113158",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18154] = {
+    id = 18154,
+    NameZh = "##112949",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18155] = {
+    id = 18155,
+    NameZh = "##113024",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
   [18160] = {
     id = 18160,
     NameZh = "##112917",
     Trade = 0,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18182] = {
+    id = 18182,
+    NameZh = "##112750",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18183] = {
+    id = 18183,
+    NameZh = "##112830",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18184] = {
+    id = 18184,
+    NameZh = "##113107",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18185] = {
+    id = 18185,
+    NameZh = "##113320",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18200] = {
+    id = 18200,
+    NameZh = "##112618",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18201] = {
+    id = 18201,
+    NameZh = "##113257",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18202] = {
+    id = 18202,
+    NameZh = "##282895",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18203] = {
+    id = 18203,
+    NameZh = "##282892",
+    Trade = 1,
     Overlap = 1,
     Category = 12,
     ShowTime = 7200,
@@ -18164,8 +18764,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40057] = {
     id = 40057,
@@ -18178,8 +18784,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40058] = {
     id = 40058,
@@ -18192,8 +18804,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40059] = {
     id = 40059,
@@ -18206,8 +18824,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40066] = {
     id = 40066,
@@ -18220,8 +18844,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40306] = {
     id = 40306,
@@ -18454,8 +19084,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40360] = {
     id = 40360,
@@ -18468,8 +19104,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40361] = {
     id = 40361,
@@ -18482,8 +19124,54 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [40373] = {
+    id = 40373,
+    NameZh = "##107435",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [40376] = {
+    id = 40376,
+    NameZh = "##107724",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40606] = {
     id = 40606,
@@ -18756,8 +19444,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40661] = {
     id = 40661,
@@ -18770,8 +19464,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40662] = {
     id = 40662,
@@ -18784,8 +19484,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40663] = {
     id = 40663,
@@ -18798,8 +19504,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40664] = {
     id = 40664,
@@ -18832,8 +19544,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40676] = {
     id = 40676,
@@ -18846,8 +19564,34 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [40679] = {
+    id = 40679,
+    NameZh = "##107888",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40711] = {
     id = 40711,
@@ -19240,8 +19984,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40767] = {
     id = 40767,
@@ -19254,12 +20004,38 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40773] = {
     id = 40773,
     NameZh = "##107525",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [40781] = {
+    id = 40781,
+    NameZh = "##107815",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -19428,8 +20204,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [40945] = {
     id = 40945,
@@ -19442,8 +20224,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41205] = {
     id = 41205,
@@ -19736,8 +20524,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41255] = {
     id = 41255,
@@ -19750,8 +20544,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41256] = {
     id = 41256,
@@ -19764,8 +20564,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41257] = {
     id = 41257,
@@ -19778,8 +20584,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41258] = {
     id = 41258,
@@ -19792,8 +20604,54 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [41269] = {
+    id = 41269,
+    NameZh = "##108094",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [41272] = {
+    id = 41272,
+    NameZh = "##107256",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41504] = {
     id = 41504,
@@ -20066,8 +20924,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41566] = {
     id = 41566,
@@ -20080,8 +20944,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41567] = {
     id = 41567,
@@ -20094,8 +20964,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41568] = {
     id = 41568,
@@ -20108,8 +20984,34 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [41582] = {
+    id = 41582,
+    NameZh = "##128695",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41805] = {
     id = 41805,
@@ -20582,8 +21484,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41868] = {
     id = 41868,
@@ -20596,8 +21504,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41869] = {
     id = 41869,
@@ -20610,8 +21524,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41870] = {
     id = 41870,
@@ -20624,8 +21544,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41871] = {
     id = 41871,
@@ -20638,12 +21564,38 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [41877] = {
     id = 41877,
     NameZh = "##109069",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [41882] = {
+    id = 41882,
+    NameZh = "##108441",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -21721,6 +22673,46 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [42110] = {
+    id = 42110,
+    NameZh = "##108242",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42121] = {
+    id = 42121,
+    NameZh = "##108344",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [42506] = {
     id = 42506,
     NameZh = "##108257",
@@ -22084,6 +23076,46 @@ Table_Exchange = {
   [42557] = {
     id = 42557,
     NameZh = "##108736",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42568] = {
+    id = 42568,
+    NameZh = "##108831",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42569] = {
+    id = 42569,
+    NameZh = "##108830",
     Trade = 1,
     Overlap = 0,
     Category = 1026,
@@ -22564,6 +23596,26 @@ Table_Exchange = {
   [43044] = {
     id = 43044,
     NameZh = "##108695",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43046] = {
+    id = 43046,
+    NameZh = "##108483",
     Trade = 1,
     Overlap = 0,
     Category = 1028,
@@ -23104,6 +24156,46 @@ Table_Exchange = {
   [43559] = {
     id = 43559,
     NameZh = "##108724",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43561] = {
+    id = 43561,
+    NameZh = "##108808",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43571] = {
+    id = 43571,
+    NameZh = "##108175",
     Trade = 1,
     Overlap = 0,
     Category = 1029,
@@ -23681,332 +24773,12 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [40373] = {
-    id = 40373,
-    NameZh = "##107435",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [41269] = {
-    id = 41269,
-    NameZh = "##108094",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [41882] = {
-    id = 41882,
-    NameZh = "##108441",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [42110] = {
-    id = 42110,
-    NameZh = "##108242",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1027,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [42568] = {
-    id = 42568,
-    NameZh = "##108831",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1026,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [42569] = {
-    id = 42569,
-    NameZh = "##108830",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1026,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [43046] = {
-    id = 43046,
-    NameZh = "##108483",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1028,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [43561] = {
-    id = 43561,
-    NameZh = "##108808",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1029,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
   [44064] = {
     id = 44064,
     NameZh = "##108629",
     Trade = 1,
     Overlap = 0,
     Category = 1030,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [40376] = {
-    id = 40376,
-    NameZh = "##107724",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [40679] = {
-    id = 40679,
-    NameZh = "##107888",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [40781] = {
-    id = 40781,
-    NameZh = "##107815",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [41272] = {
-    id = 41272,
-    NameZh = "##107256",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [41582] = {
-    id = 41582,
-    NameZh = "##128695",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [42121] = {
-    id = 42121,
-    NameZh = "##108344",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1027,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [63447] = {
-    id = 63447,
-    NameZh = "##108759",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [43571] = {
-    id = 43571,
-    NameZh = "##108175",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1029,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -28424,6 +29196,111 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [47191] = {
+    id = 47191,
+    NameZh = "##113393",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [47192] = {
+    id = 47192,
+    NameZh = "##112818",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [47193] = {
+    id = 47193,
+    NameZh = "##113216",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [47203] = {
+    id = 47203,
+    NameZh = "##112469",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [47204] = {
+    id = 47204,
+    NameZh = "##113316",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [47263] = {
     id = 47263,
     NameZh = "##1164266",
@@ -28757,6 +29634,48 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [48081] = {
+    id = 48081,
+    NameZh = "##112460",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1044,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48082] = {
+    id = 48082,
+    NameZh = "##112557",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1044,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [48083] = {
     id = 48083,
     NameZh = "##112804",
@@ -28764,6 +29683,48 @@ Table_Exchange = {
     Overlap = 0,
     Category = 1044,
     FashionType = 4,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48086] = {
+    id = 48086,
+    NameZh = "##112654",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1044,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48087] = {
+    id = 48087,
+    NameZh = "##113153",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1044,
+    FashionType = 3,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -30458,6 +31419,69 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [48712] = {
+    id = 48712,
+    NameZh = "##112481",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1041,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48713] = {
+    id = 48713,
+    NameZh = "##112513",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1041,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48714] = {
+    id = 48714,
+    NameZh = "##113010",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1041,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [48715] = {
     id = 48715,
     NameZh = "##113120",
@@ -30465,6 +31489,69 @@ Table_Exchange = {
     Overlap = 0,
     Category = 1043,
     FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48720] = {
+    id = 48720,
+    NameZh = "##113043",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1043,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48722] = {
+    id = 48722,
+    NameZh = "##112761",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1041,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48799] = {
+    id = 48799,
+    NameZh = "##1284530",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1041,
+    FashionType = 1,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -34879,8 +35966,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [62541] = {
     id = 62541,
@@ -34893,8 +35986,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [62542] = {
     id = 62542,
@@ -34907,8 +36006,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [62551] = {
     id = 62551,
@@ -34921,8 +36026,94 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [62570] = {
+    id = 62570,
+    NameZh = "##1266730",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [62571] = {
+    id = 62571,
+    NameZh = "##42622143",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [62572] = {
+    id = 62572,
+    NameZh = "##1266732",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [62573] = {
+    id = 62573,
+    NameZh = "##42622144",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [62809] = {
     id = 62809,
@@ -34995,8 +36186,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [62844] = {
     id = 62844,
@@ -35009,8 +36206,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [63109] = {
     id = 63109,
@@ -35083,8 +36286,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [63144] = {
     id = 63144,
@@ -35097,8 +36306,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [63417] = {
     id = 63417,
@@ -35171,8 +36386,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [63444] = {
     id = 63444,
@@ -35185,8 +36406,34 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [63447] = {
+    id = 63447,
+    NameZh = "##108759",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140003] = {
     id = 140003,
@@ -35479,8 +36726,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140057] = {
     id = 140057,
@@ -35493,8 +36746,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140058] = {
     id = 140058,
@@ -35507,8 +36766,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140059] = {
     id = 140059,
@@ -35521,8 +36786,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140066] = {
     id = 140066,
@@ -35535,8 +36806,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140306] = {
     id = 140306,
@@ -35749,8 +37026,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140360] = {
     id = 140360,
@@ -35763,8 +37046,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140361] = {
     id = 140361,
@@ -35777,8 +37066,54 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [140373] = {
+    id = 140373,
+    NameZh = "##110211",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [140376] = {
+    id = 140376,
+    NameZh = "##110378",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140606] = {
     id = 140606,
@@ -36031,8 +37366,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140661] = {
     id = 140661,
@@ -36045,8 +37386,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140662] = {
     id = 140662,
@@ -36059,8 +37406,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140663] = {
     id = 140663,
@@ -36073,8 +37426,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140664] = {
     id = 140664,
@@ -36107,8 +37466,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140676] = {
     id = 140676,
@@ -36121,8 +37486,34 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [140679] = {
+    id = 140679,
+    NameZh = "##111126",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140711] = {
     id = 140711,
@@ -36495,8 +37886,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140767] = {
     id = 140767,
@@ -36509,12 +37906,38 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140773] = {
     id = 140773,
     NameZh = "##110888",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [140781] = {
+    id = 140781,
+    NameZh = "##110623",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -36663,8 +38086,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [140945] = {
     id = 140945,
@@ -36677,8 +38106,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141205] = {
     id = 141205,
@@ -36951,8 +38386,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141255] = {
     id = 141255,
@@ -36965,8 +38406,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141256] = {
     id = 141256,
@@ -36979,8 +38426,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141257] = {
     id = 141257,
@@ -36993,8 +38446,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141258] = {
     id = 141258,
@@ -37007,8 +38466,54 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [141269] = {
+    id = 141269,
+    NameZh = "##110416",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [141272] = {
+    id = 141272,
+    NameZh = "##111027",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141504] = {
     id = 141504,
@@ -37261,8 +38766,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141566] = {
     id = 141566,
@@ -37275,8 +38786,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141567] = {
     id = 141567,
@@ -37289,8 +38806,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141568] = {
     id = 141568,
@@ -37303,8 +38826,34 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [141582] = {
+    id = 141582,
+    NameZh = "##133770",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141805] = {
     id = 141805,
@@ -37757,8 +39306,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141868] = {
     id = 141868,
@@ -37771,8 +39326,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141869] = {
     id = 141869,
@@ -37785,8 +39346,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141870] = {
     id = 141870,
@@ -37799,8 +39366,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141871] = {
     id = 141871,
@@ -37813,12 +39386,38 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [141877] = {
     id = 141877,
     NameZh = "##110774",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [141882] = {
+    id = 141882,
+    NameZh = "##110964",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -38896,6 +40495,46 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [142110] = {
+    id = 142110,
+    NameZh = "##111034",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142121] = {
+    id = 142121,
+    NameZh = "##110428",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [142506] = {
     id = 142506,
     NameZh = "##110246",
@@ -39239,6 +40878,46 @@ Table_Exchange = {
   [142557] = {
     id = 142557,
     NameZh = "##110765",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142568] = {
+    id = 142568,
+    NameZh = "##110608",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142569] = {
+    id = 142569,
+    NameZh = "##110581",
     Trade = 1,
     Overlap = 0,
     Category = 1026,
@@ -39719,6 +41398,26 @@ Table_Exchange = {
   [143044] = {
     id = 143044,
     NameZh = "##111374",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143046] = {
+    id = 143046,
+    NameZh = "##111620",
     Trade = 1,
     Overlap = 0,
     Category = 1028,
@@ -40259,6 +41958,46 @@ Table_Exchange = {
   [143559] = {
     id = 143559,
     NameZh = "##111151",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143561] = {
+    id = 143561,
+    NameZh = "##111426",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143571] = {
+    id = 143571,
+    NameZh = "##111295",
     Trade = 1,
     Overlap = 0,
     Category = 1029,
@@ -40836,312 +42575,12 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [140373] = {
-    id = 140373,
-    NameZh = "##110211",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [141269] = {
-    id = 141269,
-    NameZh = "##110416",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [141882] = {
-    id = 141882,
-    NameZh = "##110964",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [142110] = {
-    id = 142110,
-    NameZh = "##111034",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1027,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [142568] = {
-    id = 142568,
-    NameZh = "##110608",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1026,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [142569] = {
-    id = 142569,
-    NameZh = "##110581",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1026,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [143046] = {
-    id = 143046,
-    NameZh = "##111620",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1028,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [143561] = {
-    id = 143561,
-    NameZh = "##111426",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1029,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
   [144064] = {
     id = 144064,
     NameZh = "##111451",
     Trade = 1,
     Overlap = 0,
     Category = 1030,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [140376] = {
-    id = 140376,
-    NameZh = "##110378",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [140679] = {
-    id = 140679,
-    NameZh = "##111126",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [140781] = {
-    id = 140781,
-    NameZh = "##110623",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [141272] = {
-    id = 141272,
-    NameZh = "##111027",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [141582] = {
-    id = 141582,
-    NameZh = "##133770",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [142121] = {
-    id = 142121,
-    NameZh = "##110428",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1027,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [143571] = {
-    id = 143571,
-    NameZh = "##111295",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1029,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -41182,26 +42621,6 @@ Table_Exchange = {
     Trade = 1,
     Overlap = 0,
     Category = 1030,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [163447] = {
-    id = 163447,
-    NameZh = "##111630",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -43790,6 +45209,153 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [149149] = {
+    id = 149149,
+    NameZh = "##113110",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149150] = {
+    id = 149150,
+    NameZh = "##112444",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149151] = {
+    id = 149151,
+    NameZh = "##113127",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149152] = {
+    id = 149152,
+    NameZh = "##113094",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149153] = {
+    id = 149153,
+    NameZh = "##113007",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149154] = {
+    id = 149154,
+    NameZh = "##112855",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149155] = {
+    id = 149155,
+    NameZh = "##112849",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [149157] = {
     id = 149157,
     NameZh = "##112706",
@@ -43832,6 +45398,90 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [149182] = {
+    id = 149182,
+    NameZh = "##113331",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149183] = {
+    id = 149183,
+    NameZh = "##112733",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149184] = {
+    id = 149184,
+    NameZh = "##112819",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149185] = {
+    id = 149185,
+    NameZh = "##113366",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [149199] = {
     id = 149199,
     NameZh = "##112841",
@@ -43839,6 +45489,90 @@ Table_Exchange = {
     Overlap = 0,
     Category = 1041,
     FashionType = 5,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149200] = {
+    id = 149200,
+    NameZh = "##112509",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149201] = {
+    id = 149201,
+    NameZh = "##111639",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149202] = {
+    id = 149202,
+    NameZh = "##111463",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149203] = {
+    id = 149203,
+    NameZh = "##111527",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 3,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -44325,8 +46059,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [162541] = {
     id = 162541,
@@ -44339,8 +46079,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [162542] = {
     id = 162542,
@@ -44353,8 +46099,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [162551] = {
     id = 162551,
@@ -44367,8 +46119,94 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [162570] = {
+    id = 162570,
+    NameZh = "##1266734",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [162571] = {
+    id = 162571,
+    NameZh = "##42622145",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [162572] = {
+    id = 162572,
+    NameZh = "##1266736",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [162573] = {
+    id = 162573,
+    NameZh = "##42622146",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [162809] = {
     id = 162809,
@@ -44421,8 +46259,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [162844] = {
     id = 162844,
@@ -44435,8 +46279,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [163109] = {
     id = 163109,
@@ -44489,8 +46339,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [163144] = {
     id = 163144,
@@ -44503,8 +46359,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [163417] = {
     id = 163417,
@@ -44557,8 +46419,14 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [163444] = {
     id = 163444,
@@ -44571,8 +46439,34 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
-    BuyLimit = _EmptyTable,
-    SellLimit = _EmptyTable
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [163447] = {
+    id = 163447,
+    NameZh = "##111630",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [200001] = {
     id = 200001,
@@ -52441,6 +54335,26 @@ Table_Exchange = {
       Param = {count = 9999}
     }
   },
+  [3010978] = {
+    id = 3010978,
+    NameZh = "##3359171",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1020,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [3031167] = {
     id = 3031167,
     NameZh = "##101208",
@@ -52689,12 +54603,12 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [16191] = {
-    id = 16191,
-    NameZh = "##112730",
+  [10000186] = {
+    id = 10000186,
+    NameZh = "##42621951",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1003,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52709,12 +54623,12 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
-  [16192] = {
-    id = 16192,
-    NameZh = "##113390",
+  [10000187] = {
+    id = 10000187,
+    NameZh = "##42621953",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1003,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52729,12 +54643,12 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
-  [17081] = {
-    id = 17081,
-    NameZh = "##112805",
+  [10000188] = {
+    id = 10000188,
+    NameZh = "##42621955",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1003,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52749,12 +54663,12 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
-  [17712] = {
-    id = 17712,
-    NameZh = "##113259",
+  [10000189] = {
+    id = 10000189,
+    NameZh = "##42621957",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1003,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52769,12 +54683,12 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
-  [18149] = {
-    id = 18149,
-    NameZh = "##113379",
+  [10000190] = {
+    id = 10000190,
+    NameZh = "##42621959",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1003,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52789,12 +54703,12 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
-  [18150] = {
-    id = 18150,
-    NameZh = "##112852",
+  [10000191] = {
+    id = 10000191,
+    NameZh = "##42621961",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1003,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52809,12 +54723,12 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
-  [18151] = {
-    id = 18151,
-    NameZh = "##112920",
+  [10000192] = {
+    id = 10000192,
+    NameZh = "##42621963",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1003,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52829,12 +54743,12 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
-  [18152] = {
-    id = 18152,
-    NameZh = "##113026",
+  [10000202] = {
+    id = 10000202,
+    NameZh = "##42621975",
     Trade = 1,
     Overlap = 1,
-    Category = 12,
+    Category = 1045,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -52847,1035 +54761,6 @@ Table_Exchange = {
     SellLimit = {
       type = "Count",
       Param = {count = 20}
-    }
-  },
-  [18153] = {
-    id = 18153,
-    NameZh = "##113158",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [17082] = {
-    id = 17082,
-    NameZh = "##112884",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [16193] = {
-    id = 16193,
-    NameZh = "##113350",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18154] = {
-    id = 18154,
-    NameZh = "##112949",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [17713] = {
-    id = 17713,
-    NameZh = "##112546",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18155] = {
-    id = 18155,
-    NameZh = "##113024",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [17714] = {
-    id = 17714,
-    NameZh = "##112877",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18182] = {
-    id = 18182,
-    NameZh = "##112750",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [17722] = {
-    id = 17722,
-    NameZh = "##113111",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18185] = {
-    id = 18185,
-    NameZh = "##113320",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18183] = {
-    id = 18183,
-    NameZh = "##112830",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [17720] = {
-    id = 17720,
-    NameZh = "##112918",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [16203] = {
-    id = 16203,
-    NameZh = "##112896",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18184] = {
-    id = 18184,
-    NameZh = "##113107",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [17086] = {
-    id = 17086,
-    NameZh = "##112474",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18201] = {
-    id = 18201,
-    NameZh = "##113257",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18202] = {
-    id = 18202,
-    NameZh = "##282895",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [17087] = {
-    id = 17087,
-    NameZh = "##112978",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [16204] = {
-    id = 16204,
-    NameZh = "##112635",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18203] = {
-    id = 18203,
-    NameZh = "##282892",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [18200] = {
-    id = 18200,
-    NameZh = "##112618",
-    Trade = 1,
-    Overlap = 1,
-    Category = 12,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 20}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 20}
-    }
-  },
-  [47191] = {
-    id = 47191,
-    NameZh = "##113393",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1042,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [47192] = {
-    id = 47192,
-    NameZh = "##112818",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1042,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48081] = {
-    id = 48081,
-    NameZh = "##112460",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1044,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48712] = {
-    id = 48712,
-    NameZh = "##112481",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1041,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149149] = {
-    id = 149149,
-    NameZh = "##113110",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149150] = {
-    id = 149150,
-    NameZh = "##112444",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149151] = {
-    id = 149151,
-    NameZh = "##113127",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149152] = {
-    id = 149152,
-    NameZh = "##113094",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149153] = {
-    id = 149153,
-    NameZh = "##113007",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48082] = {
-    id = 48082,
-    NameZh = "##112557",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1044,
-    FashionType = 2,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [47193] = {
-    id = 47193,
-    NameZh = "##113216",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1042,
-    FashionType = 2,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149154] = {
-    id = 149154,
-    NameZh = "##112855",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 2,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48713] = {
-    id = 48713,
-    NameZh = "##112513",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1041,
-    FashionType = 3,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149155] = {
-    id = 149155,
-    NameZh = "##112849",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 3,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48714] = {
-    id = 48714,
-    NameZh = "##113010",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1041,
-    FashionType = 3,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149182] = {
-    id = 149182,
-    NameZh = "##113331",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48722] = {
-    id = 48722,
-    NameZh = "##112761",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1041,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149185] = {
-    id = 149185,
-    NameZh = "##113366",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149183] = {
-    id = 149183,
-    NameZh = "##112733",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48720] = {
-    id = 48720,
-    NameZh = "##113043",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1043,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [47203] = {
-    id = 47203,
-    NameZh = "##112469",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1042,
-    FashionType = 1,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149184] = {
-    id = 149184,
-    NameZh = "##112819",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 2,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48086] = {
-    id = 48086,
-    NameZh = "##112654",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1044,
-    FashionType = 2,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149201] = {
-    id = 149201,
-    NameZh = "##111639",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 2,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149202] = {
-    id = 149202,
-    NameZh = "##111463",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 2,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [48087] = {
-    id = 48087,
-    NameZh = "##113153",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1044,
-    FashionType = 3,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [47204] = {
-    id = 47204,
-    NameZh = "##113316",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1042,
-    FashionType = 3,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149203] = {
-    id = 149203,
-    NameZh = "##111527",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 3,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [149200] = {
-    id = 149200,
-    NameZh = "##112509",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1040,
-    FashionType = 3,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
     }
   }
 }

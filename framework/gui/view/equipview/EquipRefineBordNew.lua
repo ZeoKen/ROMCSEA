@@ -1381,7 +1381,9 @@ local FindRefineMatBagNums = function(sId)
   local items = BagProxy.Instance:GetMaterialItems_ByItemId(sId, REFINE_MATERIAL_SEARCH_BAGTYPES)
   local bagNum = 0
   for j = 1, #items do
-    bagNum = bagNum + items[j].num
+    if not items[j]:HasQuench() then
+      bagNum = bagNum + items[j].num
+    end
   end
   return bagNum
 end
@@ -1509,10 +1511,12 @@ function EquipRefineBordNew:UpdateSafeRefineMats(clearSelect)
     for i = 1, #self.safeMatItemIds do
       local items = BagProxy.Instance:GetMaterialItems_ByItemId(self.safeMatItemIds[i], REFINE_MATERIAL_SEARCH_BAGTYPES)
       for j = 1, #items do
-        local d = items[j]:Clone()
-        d.showRefineval = true
-        d.chooseCount = 0
-        table.insert(self.safeRefineMats, d)
+        if not items[j]:HasQuench() then
+          local d = items[j]:Clone()
+          d.showRefineval = true
+          d.chooseCount = 0
+          table.insert(self.safeRefineMats, d)
+        end
       end
     end
   end
@@ -1531,7 +1535,7 @@ function EquipRefineBordNew:UpdateSafeRefineMats(clearSelect)
             cpyData = matEquips[i]:Clone()
             cpyData.num = cpyData.num - 1
           end
-        else
+        elseif not matEquips[i]:HasQuench() then
           cpyData = matEquips[i]:Clone()
         end
         if cpyData then
@@ -1623,10 +1627,12 @@ function EquipRefineBordNew:UpdateRepairMats(clearSelect)
   if self.repairItemMatID then
     local items = BagProxy.Instance:GetMaterialItems_ByItemId(self.repairItemMatID, REPAIR_MATERIAL_SEARCH_BAGTYPES)
     for i = 1, #items do
-      local cloneItem = items[i]:Clone()
-      cloneItem.showRefineval = true
-      cloneItem.chooseCount = 0
-      table.insert(self.repairMatDatas, cloneItem)
+      if not items[i]:HasQuench() then
+        local cloneItem = items[i]:Clone()
+        cloneItem.showRefineval = true
+        cloneItem.chooseCount = 0
+        table.insert(self.repairMatDatas, cloneItem)
+      end
     end
   end
   if self.safeMatDefaultData then

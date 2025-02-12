@@ -15,7 +15,9 @@ GuildSummaryType = {
   OtherGuildSummary10 = "curmercenary",
   OccupiedCityId = "occupy_city",
   BattleGroup = "battle_group",
-  NextBattleGroup = "next_battle_group"
+  NextBattleGroup = "next_battle_group",
+  DateBattleMvp = "datebattle_mvp",
+  ChairmanId = "chairmanid"
 }
 GuildData.RegionColor = {
   [1] = LuaColor.New(0.5960785, 0.7215686, 1, 1),
@@ -53,6 +55,8 @@ mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_SUPERGVG, "insupergvg")
 mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_SUPERGVG_LV, "supergvg_lv")
 mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_MATERIAL_MACHINE_COUNT, "material_machine_count")
 mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_GVG_GROUP_TIME, "change_group_time")
+mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_DATEBATTLE_INVITE_COUNT, "datebattle_invite_count")
+mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_DATEBATTLE_MVP, "datebattle_mvp")
 mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_CITYID, "cityid")
 mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_CITY_GIVEUP_CD, "citygiveuptime")
 mapGuildEnumProp(GuildCmd_pb.EGUILDDATA_ASSEMBLY_NUM, "assembly_complete_num")
@@ -140,6 +144,10 @@ function GuildData:UpdateGuildJobInfos(server_jobs)
   end
 end
 
+function GuildData:GetChairManId()
+  return self.chairmanid or 0
+end
+
 function GuildData:UpdateGuildJobInfo(single)
   local jobId = single.job
   if jobId then
@@ -188,6 +196,20 @@ function GuildData:_updateCitys(values)
   for i = 1, #values do
     self.cityids[#self.cityids + 1] = values[i]
   end
+end
+
+function GuildData:HasClassicModeCity()
+  if self.cityids then
+    local classic_mode = GuildCmd_pb.EGUILDDATEBATTLEMODE_CLASSIC
+    local staticCity
+    for i = 1, #self.cityids do
+      staticCity = GvgProxy.GetStrongHoldStaticData(self.cityids[i])
+      if staticCity and staticCity.Mode == classic_mode then
+        return true
+      end
+    end
+  end
+  return false
 end
 
 function GuildData:_updateCityGiveupCD(values)
@@ -537,7 +559,7 @@ end
 
 function GuildData:GetOccupiedCityConfig()
   if self.occupy_city then
-    return Table_Guild_StrongHold[self.occupy_city]
+    return GvgProxy.GetStrongHoldStaticData(self.occupy_city)
   end
 end
 

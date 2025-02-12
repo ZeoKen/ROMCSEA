@@ -83,6 +83,8 @@ function ProfessionProxy:ParseStaticInfo()
   ProfessionProxy.SaraIrena = 735
   ProfessionProxy.Elynia = 745
   ProfessionProxy.Cook = 755
+  ProfessionProxy.Morocc = 765
+  ProfessionProxy.Sunshine = 775
   ProfessionProxy.specialDepthJobs = {
     ProfessionProxy.moshentandoushiJob,
     ProfessionProxy.shenlongdoushiJob,
@@ -106,7 +108,9 @@ function ProfessionProxy:ParseStaticInfo()
     ProfessionProxy.Khalitzburg,
     ProfessionProxy.SaraIrena,
     ProfessionProxy.Elynia,
-    ProfessionProxy.Cook
+    ProfessionProxy.Cook,
+    ProfessionProxy.Morocc,
+    ProfessionProxy.Sunshine
   }
   ProfessionProxy.specialJobs = {
     ProfessionProxy.superNovice,
@@ -132,7 +136,9 @@ function ProfessionProxy:ParseStaticInfo()
     ProfessionProxy.Khalitzburg,
     ProfessionProxy.SaraIrena,
     ProfessionProxy.Elynia,
-    ProfessionProxy.Cook
+    ProfessionProxy.Cook,
+    ProfessionProxy.Morocc,
+    ProfessionProxy.Sunshine
   }
   for i = #ProfessionProxy.specialJobs, 1, -1 do
     if not Table_Class[ProfessionProxy.specialJobs[i]] then
@@ -2488,4 +2494,9 @@ function ProfessionProxy:GetClassPreviewFirstRowTable()
     return l < r
   end)
   return result
+end
+
+function ProfessionProxy.IsSunshine(profId)
+  profId = profId or MyselfProxy:GetMyProfession()
+  return profId == ProfessionProxy.Sunshine
 end

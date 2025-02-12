@@ -345,7 +345,7 @@ function DressingView:RefreshSelectedROB(type, precost, hairID, eyeID)
   self:RefreshMoney()
   local needCost = _hairCost
   local myZeny = MyselfProxy.Instance:GetROB()
-  IconManager:SetItemIcon("item_100", self.itemIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.itemIcon)
   local enoughZeny, isActive
   self.hairUnlockEnough, self.eyeUnlockEnough, self.costId = nil, nil, nil
   if type == 1 then

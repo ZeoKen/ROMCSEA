@@ -315,8 +315,10 @@ function NPlayer:UpdateProfession()
   self.data:UpdateProfession()
   self:HandlerAssetRoleSuffixMap()
   self:UpdateSkillOverAction()
-  if self.data:IsAnonymous() and self.sceneui then
-    self.sceneui.roleBottomUI:HandleChangeTitle(self)
+  if self.sceneui then
+    if self.data:IsAnonymous() then
+      self.sceneui.roleBottomUI:HandleChangeTitle(self)
+    end
     self.sceneui.roleBottomUI:HandlerPlayerFactionChange(self)
   end
 end
@@ -458,8 +460,8 @@ function NPlayer:SetDressEnable(v)
     local myselfID = Game.Myself and Game.Myself.data and Game.Myself.data.id
     local upID = self.data:GetUpID()
     local downID = self.data:GetDownID()
-    local upRole = FindCreature(upID)
-    local downRole = FindCreature(downID)
+    local upRole = 0 ~= upID and FindCreature(upID)
+    local downRole = 0 ~= downID and FindCreature(downID)
     redlog("SetDressEnable", upID, downID, self.data.id, myselfID)
     if upID == myselfID or downID == myselfID then
       showCombine = true

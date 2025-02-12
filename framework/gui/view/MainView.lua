@@ -37,6 +37,7 @@ autoImport("PvpObTeamPwsOthelloSubview")
 autoImport("PvpObDesertWolfObSubview")
 autoImport("DayloginAnniversaryPanel")
 autoImport("DayloginNewbiePanel")
+autoImport("MainViewAstralPage")
 MainViewShortCutBord = {
   "ShortCutGrid",
   "SkillBord"
@@ -231,6 +232,8 @@ function MainView:MapViewListener()
   self:AddListenEvt(ServiceEvent.FuBenCmdSyncTripleCampInfoFuBenCmd, self.HandlePvpTripleTeamsLaunch)
   self:AddListenEvt(PVPEvent.TripleTeams_Shutdown, self.HandlePvpTripleTeamsShutdown)
   self:AddListenEvt(PVPEvent.TripleTeams_Launch, self.HandleTripleTeamsLaunch)
+  self:AddListenEvt(ServiceEvent.FuBenCmdAstralInfoSyncCmd, self.HandleAstralLaunch)
+  self:AddListenEvt(PVEEvent.Astral_Shutdown, self.HandleAstralShutdown)
 end
 
 function MainView:SceneLoadHandler()
@@ -677,6 +680,19 @@ function MainView:HandleTripleTeamsLaunch()
   end
   self.mainviewHeadRoot:SetActive(false)
   self.chatMsgPage:HandlePoringFightBegin()
+end
+
+function MainView:HandleAstralLaunch()
+  if not self.astralPage then
+    self.astralPage = self:AddSubView("AstralPage", MainViewAstralPage)
+  end
+end
+
+function MainView:HandleAstralShutdown()
+  if self.astralPage then
+    self:RemoveSubView("AstralPage")
+    self.astralPage = nil
+  end
 end
 
 return MainView

@@ -17,6 +17,7 @@ local TwelvePvpConfig = GameConfig.TwelvePvp.HpShow
 local _TableMonster = Table_Monster
 local _TableNpc = Table_Npc
 local RaidNPCSymbols = GameConfig.RaidNPCSymbols
+local SkillWeatherIcon = GameConfig.SkillWeather and GameConfig.SkillWeather.MapIcon
 local miniMapDataDeleteFunc = function(data)
   data:Destroy()
 end
@@ -75,6 +76,7 @@ function MainViewMiniMap:InitData()
   self.gvgMetalMap = {}
   self.tripleTeamsMapInfo = {}
   self.EBFEventAreaMapInfo = {}
+  self.astralMapInfo = {}
 end
 
 local tempArgs = {}
@@ -243,6 +245,21 @@ function MainViewMiniMap:InitUI()
   end)
   self.mapTreasure = self:FindGO("MapTreasure"):GetComponent(UILabel)
   self.mapTreasure_Icon = self:FindGO("MapTreasureIcon"):GetComponent(UISprite)
+  self.skillWeatherGO = self:FindGO("SkillWeather")
+  self.skillWeatherName = self:FindGO("SkillWeatherName", self.skillWeatherGO)
+  self.skillWeatherSp = self.skillWeatherGO:GetComponent(UISprite)
+  self:UpdateSkillWeather()
+end
+
+function MainViewMiniMap:UpdateSkillWeather()
+  local skillWeather = SkillProxy.Instance:GetSkillWeather()
+  redlog("UpdateSkillWeather", skillWeather, SkillWeatherIcon)
+  if skillWeather and SkillWeatherIcon and SkillWeatherIcon[skillWeather] then
+    self.skillWeatherGO:SetActive(true)
+    self.skillWeatherSp.spriteName = SkillWeatherIcon[skillWeather]
+  else
+    self.skillWeatherGO:SetActive(false)
+  end
 end
 
 function MainViewMiniMap:TryExitRaid()
@@ -688,6 +705,53 @@ function MainViewMiniMap:ActiveNearlyBord(b)
   self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.ShowOrHideExitInfo, false)
 end
 
+local _InnerTransShow = {
+  [9101] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9106] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9108] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9110] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9112] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9114] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9116] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9118] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9125] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9127] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  },
+  [9129] = {
+    [3] = ZhString.GVGExitPointName1,
+    [4] = ZhString.GVGExitPointName2
+  }
+}
+
 function MainViewMiniMap:UpdateNearlyCreature(tog, forceUpdate)
   local needUpdateList = true
   if not forceUpdate and not self:IsObjActive(self.nearlyBord) then
@@ -815,16 +879,25 @@ function MainViewMiniMap:UpdateNearlyCreature(tog, forceUpdate)
     if MapManager:IsPVEMode_Roguelike() then
       exitPointArray = nil
     end
+    local curMap = MapManager:GetMapID()
     if exitPointArray then
       for i = 1, #exitPointArray do
         local edata = exitPointArray[i]
-        if edata and edata.nextSceneID and edata.nextSceneID ~= 0 and Game.AreaTrigger_ExitPoint:IsInvisible(edata.ID) == false then
+        if edata and edata.nextSceneID and Game.AreaTrigger_ExitPoint:IsInvisible(edata.ID) == false then
           local data = MiniMapData.CreateAsTable(edata.ID)
           data:SetParama("isExitPoint", true)
           data:SetParama("nextSceneID", edata.nextSceneID)
           data:SetParama("index", i)
           data:SetPos(edata.position[1], edata.position[2], edata.position[3])
-          table.insert(self.exitPoints, data)
+          if edata.nextSceneID == 0 then
+            if _InnerTransShow[curMap] and _InnerTransShow[curMap][i] then
+              xdlog("特殊地图配置")
+              data:SetParama("StaticName", _InnerTransShow[curMap][i])
+              table.insert(self.exitPoints, data)
+            end
+          else
+            table.insert(self.exitPoints, data)
+          end
         end
       end
     end
@@ -1489,6 +1562,7 @@ function MainViewMiniMap:UpdateMapAllInfo(map2d)
     self:UpdateGvgStrongHold()
     self:UpdateGVGMetaInfo()
     self:UpdateTripleTeamsMapInfo()
+    self:UpdateAstralTowerMapInfo()
     self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateQuestFocuses, self.focusMap)
     self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateQuestFocuses, self.focusMap)
     self:UpdateTransmitter()
@@ -1647,6 +1721,7 @@ function MainViewMiniMap:MapEvent()
   self:AddListenEvt(PVPEvent.TripleTeams_Shutdown, self.ClearTripleTeamsMapInfo)
   self:AddListenEvt(PVPEvent.EndlessBattleField_Launch, self.LaunchEBFEventAreaMapInfo)
   self:AddListenEvt(PVPEvent.EndlessBattleField_Shutdown, self.ClearEBFEventAreaMapInfo)
+  self:AddListenEvt(ServiceEvent.MapSkillWeatherSyncCmd, self.UpdateSkillWeather)
 end
 
 function MainViewMiniMap:HandleChangeMap(note)
@@ -1655,6 +1730,7 @@ function MainViewMiniMap:HandleChangeMap(note)
   self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.ClearSymbolHintParam)
   self:UpdateTeamMembersPos(true)
   self:TrySetupBigWorldWildMvpPassDayRefresh()
+  self:UpdateAstralTowerMapInfo()
 end
 
 function MainViewMiniMap:HandleActivePart(note)
@@ -4121,7 +4197,7 @@ function MainViewMiniMap:UpdateGVGMetaInfo()
     return
   end
   _TableClearByDeleter(self.gvgMetalMap, miniMapDataDeleteFunc)
-  local pos = MetalSymbols.pos
+  local pos = GvgProxy.IsClassicMode() and MetalSymbols.pos[2] or MetalSymbols.pos[1]
   local miniMapData = MiniMapData.CreateAsTable(1)
   miniMapData:SetPos(pos[1], pos[2], pos[3])
   miniMapData:SetParama("Symbol", MetalSymbols.icon)
@@ -4353,4 +4429,23 @@ function MainViewMiniMap:ClearEBFEventAreaMapInfo()
   end
   self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateEBFEventAreaSymbol, self.EBFEventAreaMapInfo, true)
   self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateEBFEventAreaSymbol, self.EBFEventAreaMapInfo, true)
+end
+
+function MainViewMiniMap:UpdateAstralTowerMapInfo()
+  local curMap = MapManager:GetMapID()
+  local mapConfig = GameConfig.Astral and GameConfig.Astral.MiniMapArea
+  if mapConfig and curMap == mapConfig.mapId then
+    local miniMapData = self.astralMapInfo.tower
+    if not miniMapData then
+      miniMapData = MiniMapData.CreateAsTable("tower")
+      self.astralMapInfo.tower = miniMapData
+    end
+    local pos = mapConfig.pos
+    miniMapData:SetPos(pos[1], pos[2], pos[3])
+    miniMapData:SetParama("Symbol", mapConfig.mapSymbol)
+  else
+    _TableClearByDeleter(self.astralMapInfo, miniMapDataDeleteFunc)
+  end
+  self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateAstralTowerSymbol, self.astralMapInfo, true)
+  self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateAstralTowerSymbol, self.astralMapInfo, true)
 end

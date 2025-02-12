@@ -103,6 +103,7 @@ function FunctionNpcFunc:ctor()
   self.funcMap.DoQuenchIntro = FunctionNpcFunc.DoQuenchIntro
   self.funcMap.DoQuenchGetMat = FunctionNpcFunc.DoQuenchGetMat
   self.funcMap.Exchange = FunctionNpcFunc.Exchange
+  self.funcMap.GuildDateBattleRecord = FunctionNpcFunc.GuildDateBattleRecord
   self.funcMap.ChangeGuildLine = FunctionNpcFunc.ChangeGuildLine
   self.funcMap.ChangeGvgLine = FunctionNpcFunc.ChangeGvgLine
   self.funcMap.ReleaseActivity = FunctionNpcFunc.ReleaseActivity
@@ -176,6 +177,7 @@ function FunctionNpcFunc:ctor()
   self.funcMap.HighRefine = FunctionNpcFunc.HighRefine
   self.funcMap.SewingRefine = FunctionNpcFunc.SewingRefine
   self.funcMap.ArtifactMake = FunctionNpcFunc.ArtifactMake
+  self.funcMap.ArtifactDecompose = FunctionNpcFunc.ArtifactDecompose
   self.funcMap.ReturnArtifact = FunctionNpcFunc.ReturnArtifact
   self.funcMap.ServerOpenFunction = FunctionNpcFunc.ServerOpenFunction
   self.funcMap.YoyoSeat = FunctionNpcFunc.YoyoSeat
@@ -200,6 +202,7 @@ function FunctionNpcFunc:ctor()
   self.funcMap.DialogGoddessOfferDead = FunctionNpcFunc.DialogGoddessOfferDead
   self.funcMap.DeathTransfer = FunctionNpcFunc.DeathTransfer
   self.funcMap.CourageRanking = FunctionNpcFunc.CourageRanking
+  self.funcMap.GuildDateBattle = FunctionNpcFunc.GuildDateBattle
   self.funcMap.HeadWearStart = FunctionNpcFunc.HeadWearStart
   self.funcMap.ActivityHeadWearStart = FunctionNpcFunc.ActivityHeadWearStart
   self.funcMap.StartRaid = FunctionNpcFunc.StartRaid
@@ -336,6 +339,10 @@ function FunctionNpcFunc:ctor()
   self.funcMap.ExchangeGift = FunctionNpcFunc.ExchangeGift
   self.funcMap.ReceiveTripleTeamPwsTargetReward = FunctionNpcFunc.ReceiveTripleTeamPwsTargetReward
   self.funcMap.ReceiveTripleTeamPwsRankReward = FunctionNpcFunc.ReceiveTripleTeamPwsRankReward
+  self.funcMap.AstralRaidNextLevel = FunctionNpcFunc.AstralRaidNextLevel
+  self.funcMap.AstralRaidExitRaid = FunctionNpcFunc.AstralRaidExitRaid
+  self.funcMap.OpenAstralDestinyGraph = FunctionNpcFunc.OpenAstralDestinyGraph
+  self.funcMap.CraftingPot = FunctionNpcFunc.CraftingPot
   self.checkMap.CreateGuild = FunctionNpcFunc.CheckCreateGuild
   self.checkMap.ApplyGuild = FunctionNpcFunc.CheckCreateGuild
   self.checkMap.QuickTeam = FunctionNpcFunc.CheckQuickTeam
@@ -364,6 +371,7 @@ function FunctionNpcFunc:ctor()
   self.checkMap.OpenGuildChallengeTaskView = FunctionNpcFunc.CheckOpenGuildChallengeTaskView
   self.checkMap.HighRefine = FunctionNpcFunc.CheckHighRefine
   self.checkMap.ArtifactMake = FunctionNpcFunc.CheckArtifactMake
+  self.checkMap.ArtifactDecompose = FunctionNpcFunc.CheckArtifactDecompose
   self.checkMap.WeddingDay = FunctionNpcFunc.CheckWeddingDay
   self.checkMap.BookingWedding = FunctionNpcFunc.CheckBookingWedding
   self.checkMap.CancelWedding = FunctionNpcFunc.CheckCancelWedding
@@ -444,6 +452,8 @@ function FunctionNpcFunc:ctor()
   self.checkMap.QueryPrice = FunctionNpcFunc.CheckQueryPrice
   self.checkMap.ReceiveTripleTeamPwsTargetReward = FunctionNpcFunc.CheckReceiveTripleTeamPwsTargetReward
   self.checkMap.ReceiveTripleTeamPwsRankReward = FunctionNpcFunc.CheckReceiveTripleTeamPwsRankReward
+  self.checkMap.AstralRaidNextLevel = FunctionNpcFunc.CheckAstralRaidNextLevel
+  self.checkMap.OpenAstralDestinyGraph = FunctionNpcFunc.CheckAstralDestinyGraph
   self.updateCheckCache = {}
 end
 
@@ -1180,13 +1190,19 @@ function FunctionNpcFunc.PicMake(nnpc, params)
   end
 end
 
+function FunctionNpcFunc.GetStaticStrongHold()
+  local raidId = Game.MapManager:GetMapID()
+  local lobbyMap = Game.MapManager:IsGVG_DateBattle_Lobby() and Game.Config_DateBattleCity_Lobby or Game.Config_GuildStrongHold_Lobby
+  local staticData = lobbyMap[raidId]
+  return staticData
+end
+
 function FunctionNpcFunc.GvgLand()
   local groupid = GvgProxy.Instance:GetCurMapGvgGroupID()
   if groupid < 0 then
     return
   end
-  local raidId = Game.MapManager:GetMapID()
-  local staticData = Game.Config_GuildStrongHold_Lobby[raidId]
+  local staticData = FunctionNpcFunc.GetStaticStrongHold()
   if not staticData then
     return
   end
@@ -1545,6 +1561,10 @@ end
 
 function FunctionNpcFunc.Exchange(nnpc, params)
   FunctionNpcFunc.JumpPanel(PanelConfig.ShopMallMainView)
+end
+
+function FunctionNpcFunc.GuildDateBattleRecord(nnpc, params)
+  FunctionNpcFunc.JumpPanel(PanelConfig.GuildDateBattleRecordView)
 end
 
 function FunctionNpcFunc.ChangeGuildLine(nnpc, params)
@@ -2160,6 +2180,10 @@ function FunctionNpcFunc.ReturnArtifact(npc, param)
   end
 end
 
+function FunctionNpcFunc.ArtifactDecompose(npc, param)
+  FunctionNpcFunc.JumpPanel(PanelConfig.ArtifactDecomposeView, {npcdata = npc})
+end
+
 function FunctionNpcFunc.ServerOpenFunction(npc, param)
   GameFacade.Instance:sendNotification(DialogEvent.ServerOpenFunction, {npcdata = npc, param = param})
 end
@@ -2464,6 +2488,10 @@ end
 
 function FunctionNpcFunc.CourageRanking(nnpc, params)
   FunctionNpcFunc.JumpPanel(PanelConfig.CourageRankPopUp)
+end
+
+function FunctionNpcFunc.GuildDateBattle(nnpc, param)
+  FunctionNpcFunc.JumpPanel(PanelConfig.GuildDateBattleOverview)
 end
 
 function FunctionNpcFunc.MoroccSeal(nnpc)
@@ -3359,6 +3387,35 @@ function FunctionNpcFunc.ReceiveTripleTeamPwsRankReward(npc, params, npcFunction
   ServiceMatchCCmdProxy.Instance:CallTriplePvpPickRewardCmd(MatchCCmd_pb.TRIPLE_REWARD_RANK)
 end
 
+function FunctionNpcFunc.CraftingPot(npc, params, npcFunctionData)
+  CraftingPotProxy.Instance:InitCall(true)
+  ServiceMessCCmdProxy.Instance:CallPurifyProductsMaterialsMessCCmd()
+  GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+    view = PanelConfig.CraftingPotView
+  })
+end
+
+function FunctionNpcFunc.AstralRaidNextLevel(npc, params, npcFunctionData)
+  local raidId = Game.MapManager:GetRaidID()
+  local entranceData = AstralProxy.Instance:GetNextLevelEntranceDataByRaidId(raidId)
+  if not entranceData then
+    redlog("Table_PveRaidEntrance里无当前副本！raidId=" .. raidId)
+    return
+  end
+  FunctionPve.Me():SetCurPve(entranceData)
+  FunctionPve.Me():DoChallenge()
+end
+
+function FunctionNpcFunc.AstralRaidExitRaid(npc, params, npcFunctionData)
+  MsgManager.ConfirmMsgByID(7, function()
+    ServiceNUserProxy.Instance:ReturnToHomeCity()
+  end)
+end
+
+function FunctionNpcFunc.OpenAstralDestinyGraph(npc, params, npcFunctionData)
+  FunctionNpcFunc.JumpPanel(PanelConfig.AstralDestinyGraphView)
+end
+
 function FunctionNpcFunc.CheckWildTransfer(npc, param)
   local amIMonthlyVIP = NewRechargeProxy.Ins:AmIMonthlyVIP()
   if not amIMonthlyVIP then
@@ -3430,6 +3487,17 @@ function FunctionNpcFunc.CheckArtifactMake(npc, param)
     return FunctionNpcFunc.checkBuildingActiveSelf(GuildBuildingProxy.Type.EGUILDBUILDING_HIGH_REFINE)
   elseif ArtifactProxy.Type.HeadBackArtifact == param then
     return FunctionNpcFunc.checkBuildingActiveSelf(GuildBuildingProxy.Type.EGUILDBUILDING_ARTIFACT_HEAD)
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.CheckArtifactDecompose(npc, param)
+  local myGuildData = GuildProxy.Instance.myGuildData
+  if myGuildData then
+    local myMemberData = GuildProxy.Instance:GetMyGuildMemberData()
+    if myMemberData.job == 1 or myMemberData.job == 2 then
+      return NpcFuncState.Active
+    end
   end
   return NpcFuncState.InActive
 end
@@ -3621,8 +3689,7 @@ function FunctionNpcFunc.CheckGvgLand()
   if groupid < 0 then
     return NpcFuncState.InActive
   end
-  local raidId = Game.MapManager:GetMapID()
-  local staticData = Game.Config_GuildStrongHold_Lobby[raidId]
+  local staticData = FunctionNpcFunc.GetStaticStrongHold()
   if not staticData then
     return NpcFuncState.InActive
   end
@@ -3640,29 +3707,32 @@ function FunctionNpcFunc.CheckHeadWearStart(npc, param)
   return NpcFuncState.Active
 end
 
-local CheckGuildPray = function(config)
-  local menu = config and config.menu
-  if menu then
-    if FunctionUnLockFunc.Me():CheckCanOpen(menu) then
-      return NpcFuncState.Active
-    else
-      return NpcFuncState.InActive
-    end
-  else
-    return NpcFuncState.Active
-  end
-end
-
 function FunctionNpcFunc.CheckPray(npc, param)
-  return CheckGuildPray(GameConfig.Guild.pray)
+  if GuildPrayProxy.CheckPrayForbidden() then
+    return NpcFuncState.InActive
+  end
+  return NpcFuncState.Active
 end
 
 function FunctionNpcFunc.CheckBless(npc, param)
-  return CheckGuildPray(GameConfig.Guild.bless)
+  if GuildPrayProxy.CheckGvgPrayForbidden() then
+    return NpcFuncState.InActive
+  end
+  return NpcFuncState.Active
 end
 
 function FunctionNpcFunc.CheckHolyBless(npc, param)
-  return CheckGuildPray(GameConfig.Guild.holy)
+  if GuildPrayProxy.CheckHolyPrayForbidden() then
+    return NpcFuncState.InActive
+  end
+  return NpcFuncState.Active
+end
+
+function FunctionNpcFunc.CheckGuildPray4(npc, param)
+  if GuildPrayProxy.CheckPray4Forbidden() then
+    return NpcFuncState.InActive
+  end
+  return NpcFuncState.Active
 end
 
 function FunctionNpcFunc.CheckDisneyTeam(npc, param)
@@ -4373,6 +4443,23 @@ end
 function FunctionNpcFunc.CheckReceiveTripleTeamPwsRankReward(npc, params)
   local canReceive = PvpProxy.Instance:IsTriplePwsRankRewardCanReceive()
   if canReceive then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.CheckAstralRaidNextLevel(npc, params)
+  local raidId = Game.MapManager:GetRaidID()
+  local entranceData = AstralProxy.Instance:GetNextLevelEntranceDataByRaidId(raidId)
+  if entranceData then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.CheckAstralDestinyGraph(npc, params)
+  local menuId = GameConfig.Astral and GameConfig.Astral.GraphMenuID
+  if FunctionUnLockFunc.Me():CheckCanOpen(menuId) and not AstralProxy.Instance:IsSeasonNotOpen() then
     return NpcFuncState.Active
   end
   return NpcFuncState.InActive

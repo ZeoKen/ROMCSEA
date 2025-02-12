@@ -161,6 +161,10 @@ function NewRechargeGiftTipCell:shopDeposit(data)
     self.countSubtractBg.gameObject:SetActive(true)
     self.countInput.enabled = true
     self.countInputBc.enabled = true
+    self.maxcount = limitCount - buyCount
+    if self.maxcount > 10 then
+      self.maxcount = 10
+    end
   else
     self.m_uiBtnMax.gameObject:SetActive(false)
     self.countPlusBg.gameObject:SetActive(false)

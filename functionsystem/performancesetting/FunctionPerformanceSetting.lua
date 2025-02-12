@@ -5,6 +5,16 @@ autoImport("HurtNum")
 autoImport("PushConfig")
 FunctionPerformanceSetting = class("FunctionPerformanceSetting")
 FunctionPerformanceSetting.OriginalData = {}
+EScreenCountLevel = {
+  Low = 1,
+  Mid = 2,
+  High = 3
+}
+local ScreenCountPCSetting = {
+  [EScreenCountLevel.Low] = 50,
+  [EScreenCountLevel.Mid] = 100,
+  [EScreenCountLevel.High] = 200
+}
 local mapRecommandConfig = {}
 
 function FunctionPerformanceSetting.Me()
@@ -39,6 +49,34 @@ local GetDeviceMsaa = function(anti)
   end
   return anti
 end
+local IntegratedKeywords = {
+  "Intel",
+  "UHD",
+  "Iris",
+  "Radeon Vega"
+}
+local DedicatedKeywords = {
+  "NVIDIA",
+  "GeForce",
+  "RTX",
+  "GTX",
+  "AMD",
+  "Radeon RX",
+  "Intel Arc"
+}
+local IsIntegratedGPU = function(gpuName, gpuVendor)
+  for _, keyword in ipairs(DedicatedKeywords) do
+    if string.find(gpuName, keyword) or string.find(gpuVendor, keyword) then
+      return false
+    end
+  end
+  for _, keyword in ipairs(IntegratedKeywords) do
+    if string.find(gpuName, keyword) or string.find(gpuVendor, keyword) then
+      return true
+    end
+  end
+  return true
+end
 
 function FunctionPerformanceSetting:ctor()
   self.setting = {
@@ -46,6 +84,7 @@ function FunctionPerformanceSetting:ctor()
     skillEffect = true,
     skillAudioEffect = true,
     slim = false,
+    weatherEffect = true,
     immediatelyDress = false,
     bgmVolume = 1,
     soundVolume = 1,
@@ -193,9 +232,29 @@ function FunctionPerformanceSetting:ctor()
     self.setting.shadowRate = 2
     self.setting.antiRate = 3
     self.setting.effectLv = 2
-    self.setting.screenCount = GameConfig.Setting.ScreenCountHigh
+    local screenCountLevel = self:GetWindownsScreenCountLevel()
+    if screenCountLevel > EScreenCountLevel.Low then
+      self.screenCountSetting = ScreenCountPCSetting
+      self.setting.screenCount = ScreenCountPCSetting[EScreenCountLevel.High]
+    else
+      self.setting.screenCount = GameConfig.Setting.ScreenCountHigh
+    end
   end
   EventManager.Me():AddEventListener(LoadSceneEvent.FinishLoadScene, self.OnSceneLoaded, self)
+end
+
+function FunctionPerformanceSetting:GetWindownsScreenCountLevel()
+  local size = SystemInfo.graphicsMemorySize
+  if size <= 2048 then
+    return EScreenCountLevel.Low
+  end
+  if IsIntegratedGPU(SystemInfo.graphicsDeviceName, SystemInfo.graphicsDeviceVendor) then
+    return EScreenCountLevel.Low
+  end
+  if size <= 4096 then
+    return EScreenCountLevel.Mid
+  end
+  return EScreenCountLevel.High
 end
 
 function FunctionPerformanceSetting:TryReduceConfig()
@@ -287,7 +346,7 @@ function FunctionPerformanceSetting.AdjustBigWorldConfig()
   if ApplicationInfo.GetSystemMemorySize() < 2800 then
     FunctionPerformanceSetting.Me().setting.showBloom = false
     FunctionPerformanceSetting.Me().setting.shadowRate = 0
-    FunctionPerformanceSetting.Me().setting.screenCount = GameConfig.Setting.ScreenCountLow
+    FunctionPerformanceSetting.Me().setting.screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
     FunctionPerformanceSetting.Me():SetFxaa(false)
     FunctionPerformanceSetting.Me():SetAnti(1)
   end
@@ -314,6 +373,7 @@ function FunctionPerformanceSetting:InitRecommandConfig()
     if self.qualitySetConfig[2].effect < 1 then
       self.qualitySetConfig[2].effect = 1
     end
+    self:SetScreenCount(GameConfig.Setting.ScreenCountHigh)
   else
     self.qualitySetConfig[2].shadow = self.recommendConfig[deviceRate].shadow
   end
@@ -420,6 +480,10 @@ end
 
 function FunctionPerformanceSetting:SetOutLine(on)
   self.setting.outLine = on
+end
+
+function FunctionPerformanceSetting:SetWeatherEffect(on)
+  self.setting.weatherEffect = on
 end
 
 function FunctionPerformanceSetting:SetSkillEffect(on)
@@ -628,6 +692,10 @@ function FunctionPerformanceSetting:SetEnd()
     changedSetting.slim = self.setting.slim
     changed = true
   end
+  if self.oldSetting.weatherEffect ~= self.setting.weatherEffect then
+    changedSetting.weatherEffect = self.setting.weatherEffect
+    changed = true
+  end
   if self.oldSetting.immediatelyDress ~= self.setting.immediatelyDress then
     changedSetting.immediatelyDress = self.setting.immediatelyDress
     changed = true
@@ -799,6 +867,9 @@ function FunctionPerformanceSetting:Apply(setting)
       flag = 1
     end
     ServiceNUserProxy.Instance:CallNewSetOptionUserCmd(SceneUser2_pb.EOPTIONTYPE_USE_SLIM, flag)
+  end
+  if nil ~= setting.weatherEffect and setting.weatherEffect then
+    GameFacade.Instance:sendNotification(UIEvent.RemoveFullScreenEffect)
   end
   if nil == setting.bgmVolume or GVoiceProxy.Instance.curChannel ~= nil then
   else
@@ -1143,6 +1214,10 @@ function FunctionPerformanceSetting:GetOutline()
   return self.setting.outLine
 end
 
+function FunctionPerformanceSetting:GetWeatherEffect()
+  return self.setting.weatherEffect
+end
+
 function FunctionPerformanceSetting:GetTargetFrameRate()
   return self.setting.targetFrameRate
 end
@@ -1225,7 +1300,7 @@ function FunctionPerformanceSetting.EnterSavingMode()
   changedSetting.outLine = false
   changedSetting.slim = false
   changedSetting.effectLv = 2
-  changedSetting.screenCount = GameConfig.Setting.ScreenCountLow
+  changedSetting.screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
   changedSetting.isShowOtherName = false
   changedSetting.resolution = #tab
   changedSetting.targetFrameRate = 1
@@ -1236,6 +1311,7 @@ function FunctionPerformanceSetting.ExitSavingMode()
   local me = FunctionPerformanceSetting.Me()
   changedSetting.outLine = me:GetSetting().outLine
   changedSetting.slim = me:GetSetting().slim
+  changedSetting.weatherEffect = me:GetSetting().weatherEffect
   changedSetting.screenCount = me:GetSetting().screenCount
   changedSetting.effectLv = me:GetSetting().effectLv
   changedSetting.isShowOtherName = me:GetSetting().isShowOtherName
@@ -1344,4 +1420,33 @@ end
 
 function FunctionPerformanceSetting:ExitPhotoMode()
   self:Apply()
+end
+
+function FunctionPerformanceSetting:GetScreenCountByLevel(level)
+  if self.screenCountSetting ~= nil then
+    return self.screenCountSetting[level]
+  end
+  if level == EScreenCountLevel.Low then
+    return GameConfig.Setting.ScreenCountLow
+  elseif level == EScreenCountLevel.Mid then
+    return GameConfig.Setting.ScreenCountMid
+  elseif level == EScreenCountLevel.High then
+    return GameConfig.Setting.ScreenCountHigh
+  end
+end
+
+function FunctionPerformanceSetting:GetScreenCountLevel(count)
+  if self.screenCountSetting ~= nil then
+    for k, v in pairs(self.screenCountSetting) do
+      if v == count then
+        return k
+      end
+    end
+  end
+  if count == GameConfig.Setting.ScreenCountHigh then
+    return EScreenCountLevel.High
+  elseif count == GameConfig.Setting.ScreenCountMid then
+    return EScreenCountLevel.Mid
+  end
+  return EScreenCountLevel.Low
 end

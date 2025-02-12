@@ -288,6 +288,51 @@ function ServiceGuildCmdAutoProxy:onRegister()
   self:Listen(50, 98, function(data)
     self:RecvExchangeGvgGroupGuildCmd(data)
   end)
+  self:Listen(50, 112, function(data)
+    self:RecvGvgDataQueryGuildCmd(data)
+  end)
+  self:Listen(50, 99, function(data)
+    self:RecvDateBattleInfoGuildCmd(data)
+  end)
+  self:Listen(50, 100, function(data)
+    self:RecvDateBattleTargetGuildCmd(data)
+  end)
+  self:Listen(50, 101, function(data)
+    self:RecvDateBattleInviteGuildCmd(data)
+  end)
+  self:Listen(50, 102, function(data)
+    self:RecvDateBattleReplyGuildCmd(data)
+  end)
+  self:Listen(50, 103, function(data)
+    self:RecvDateBattleOpenGuildCmd(data)
+  end)
+  self:Listen(50, 104, function(data)
+    self:RecvDateBattleEnterGuildCmd(data)
+  end)
+  self:Listen(50, 105, function(data)
+    self:RecvDateBattleReportGuildCmd(data)
+  end)
+  self:Listen(50, 106, function(data)
+    self:RecvDateBattleDetailGuildCmd(data)
+  end)
+  self:Listen(50, 107, function(data)
+    self:RecvDateBattleListGuildCmd(data)
+  end)
+  self:Listen(50, 108, function(data)
+    self:RecvDateBattleRankGuildCmd(data)
+  end)
+  self:Listen(50, 109, function(data)
+    self:RecvRedtipOptGuildCmd(data)
+  end)
+  self:Listen(50, 110, function(data)
+    self:RecvRedtipBrowseGuildCmd(data)
+  end)
+  self:Listen(50, 111, function(data)
+    self:RecvDateBattleFlagGuildCmd(data)
+  end)
+  self:Listen(50, 113, function(data)
+    self:RecvDateBattleReportUIStateCmd(data)
+  end)
 end
 
 function ServiceGuildCmdAutoProxy:CallQueryGuildListGuildCmd(keyword, page, conds, list)
@@ -576,6 +621,15 @@ function ServiceGuildCmdAutoProxy:CallEnterGuildGuildCmd(data)
         msg.data.summary = {}
       end
       msg.data.summary.mercenary = data.summary.mercenary
+    end
+    if data.summary ~= nil and data.summary.chairmanid ~= nil then
+      if msg.data == nil then
+        msg.data = {}
+      end
+      if msg.data.summary == nil then
+        msg.data.summary = {}
+      end
+      msg.data.summary.chairmanid = data.summary.chairmanid
     end
     if data ~= nil and data.questresettime ~= nil then
       if msg == nil then
@@ -1024,6 +1078,15 @@ function ServiceGuildCmdAutoProxy:CallEnterGuildGuildCmd(data)
         msgParam.data.summary = {}
       end
       msgParam.data.summary.mercenary = data.summary.mercenary
+    end
+    if data.summary ~= nil and data.summary.chairmanid ~= nil then
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      if msgParam.data.summary == nil then
+        msgParam.data.summary = {}
+      end
+      msgParam.data.summary.chairmanid = data.summary.chairmanid
     end
     if data ~= nil and data.questresettime ~= nil then
       if msgParam == nil then
@@ -2356,7 +2419,7 @@ function ServiceGuildCmdAutoProxy:CallPrayGuildCmd(action, pray, count, usecerti
   end
 end
 
-function ServiceGuildCmdAutoProxy:CallGuildInfoNtf(charid, id, name, icon, job, mercenary_guild)
+function ServiceGuildCmdAutoProxy:CallGuildInfoNtf(charid, id, name, icon, job, ismvp, mercenary_guild)
   if not NetConfig.PBC then
     local msg = GuildCmd_pb.GuildInfoNtf()
     if charid ~= nil then
@@ -2373,6 +2436,9 @@ function ServiceGuildCmdAutoProxy:CallGuildInfoNtf(charid, id, name, icon, job, 
     end
     if job ~= nil then
       msg.job = job
+    end
+    if ismvp ~= nil then
+      msg.ismvp = ismvp
     end
     if mercenary_guild ~= nil and mercenary_guild.id ~= nil then
       if msg == nil then
@@ -2437,6 +2503,9 @@ function ServiceGuildCmdAutoProxy:CallGuildInfoNtf(charid, id, name, icon, job, 
     end
     if job ~= nil then
       msgParam.job = job
+    end
+    if ismvp ~= nil then
+      msgParam.ismvp = ismvp
     end
     if mercenary_guild ~= nil and mercenary_guild.id ~= nil then
       if msgParam == nil then
@@ -3468,7 +3537,7 @@ function ServiceGuildCmdAutoProxy:CallBuildingLvupEffGuildCmd(effects)
   end
 end
 
-function ServiceGuildCmdAutoProxy:CallArtifactUpdateNtfGuildCmd(itemupdates, itemdels, dataupdates)
+function ServiceGuildCmdAutoProxy:CallArtifactUpdateNtfGuildCmd(itemupdates, itemdels, dataupdates, guild_id)
   if not NetConfig.PBC then
     local msg = GuildCmd_pb.ArtifactUpdateNtfGuildCmd()
     if itemupdates ~= nil then
@@ -3503,6 +3572,9 @@ function ServiceGuildCmdAutoProxy:CallArtifactUpdateNtfGuildCmd(itemupdates, ite
       for i = 1, #dataupdates do
         table.insert(msg.dataupdates, dataupdates[i])
       end
+    end
+    if guild_id ~= nil then
+      msg.guild_id = guild_id
     end
     self:SendProto(msg)
   else
@@ -3541,6 +3613,9 @@ function ServiceGuildCmdAutoProxy:CallArtifactUpdateNtfGuildCmd(itemupdates, ite
         table.insert(msgParam.dataupdates, dataupdates[i])
       end
     end
+    if guild_id ~= nil then
+      msgParam.guild_id = guild_id
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
@@ -3562,7 +3637,7 @@ function ServiceGuildCmdAutoProxy:CallArtifactProduceGuildCmd(id)
   end
 end
 
-function ServiceGuildCmdAutoProxy:CallArtifactOptGuildCmd(opt, guid, charid)
+function ServiceGuildCmdAutoProxy:CallArtifactOptGuildCmd(opt, guid, charid, mercenary_queried, is_mercenary)
   if not NetConfig.PBC then
     local msg = GuildCmd_pb.ArtifactOptGuildCmd()
     if opt ~= nil then
@@ -3581,6 +3656,12 @@ function ServiceGuildCmdAutoProxy:CallArtifactOptGuildCmd(opt, guid, charid)
     end
     if charid ~= nil then
       msg.charid = charid
+    end
+    if mercenary_queried ~= nil then
+      msg.mercenary_queried = mercenary_queried
+    end
+    if is_mercenary ~= nil then
+      msg.is_mercenary = is_mercenary
     end
     self:SendProto(msg)
   else
@@ -3602,6 +3683,12 @@ function ServiceGuildCmdAutoProxy:CallArtifactOptGuildCmd(opt, guid, charid)
     end
     if charid ~= nil then
       msgParam.charid = charid
+    end
+    if mercenary_queried ~= nil then
+      msgParam.mercenary_queried = mercenary_queried
+    end
+    if is_mercenary ~= nil then
+      msgParam.is_mercenary = is_mercenary
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -3924,7 +4011,7 @@ function ServiceGuildCmdAutoProxy:CallQueryGCityShowInfoGuildCmd(infos, groupid)
   end
 end
 
-function ServiceGuildCmdAutoProxy:CallGvgOpenFireGuildCmd(fire, settle_time)
+function ServiceGuildCmdAutoProxy:CallGvgOpenFireGuildCmd(fire, settle_time, start_time)
   if not NetConfig.PBC then
     local msg = GuildCmd_pb.GvgOpenFireGuildCmd()
     if fire ~= nil then
@@ -3932,6 +4019,9 @@ function ServiceGuildCmdAutoProxy:CallGvgOpenFireGuildCmd(fire, settle_time)
     end
     if settle_time ~= nil then
       msg.settle_time = settle_time
+    end
+    if start_time ~= nil then
+      msg.start_time = start_time
     end
     self:SendProto(msg)
   else
@@ -3942,6 +4032,9 @@ function ServiceGuildCmdAutoProxy:CallGvgOpenFireGuildCmd(fire, settle_time)
     end
     if settle_time ~= nil then
       msgParam.settle_time = settle_time
+    end
+    if start_time ~= nil then
+      msgParam.start_time = start_time
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -4637,26 +4730,19 @@ function ServiceGuildCmdAutoProxy:CallGvgSmallMetalCntGuildCmd(guildid, count)
   end
 end
 
-function ServiceGuildCmdAutoProxy:CallGvgTaskUpdateGuildCmd(task, guildid)
+function ServiceGuildCmdAutoProxy:CallGvgTaskUpdateGuildCmd(tasks, guildid)
   if not NetConfig.PBC then
     local msg = GuildCmd_pb.GvgTaskUpdateGuildCmd()
-    if task ~= nil and task.taskid ~= nil then
+    if tasks ~= nil then
       if msg == nil then
         msg = {}
       end
-      if msg.task == nil then
-        msg.task = {}
+      if msg.tasks == nil then
+        msg.tasks = {}
       end
-      msg.task.taskid = task.taskid
-    end
-    if task ~= nil and task.progress ~= nil then
-      if msg == nil then
-        msg = {}
+      for i = 1, #tasks do
+        table.insert(msg.tasks, tasks[i])
       end
-      if msg.task == nil then
-        msg.task = {}
-      end
-      msg.task.progress = task.progress
     end
     if guildid ~= nil then
       msg.guildid = guildid
@@ -4665,23 +4751,16 @@ function ServiceGuildCmdAutoProxy:CallGvgTaskUpdateGuildCmd(task, guildid)
   else
     local msgId = ProtoReqInfoList.GvgTaskUpdateGuildCmd.id
     local msgParam = {}
-    if task ~= nil and task.taskid ~= nil then
+    if tasks ~= nil then
       if msgParam == nil then
         msgParam = {}
       end
-      if msgParam.task == nil then
-        msgParam.task = {}
+      if msgParam.tasks == nil then
+        msgParam.tasks = {}
       end
-      msgParam.task.taskid = task.taskid
-    end
-    if task ~= nil and task.progress ~= nil then
-      if msgParam == nil then
-        msgParam = {}
+      for i = 1, #tasks do
+        table.insert(msgParam.tasks, tasks[i])
       end
-      if msgParam.task == nil then
-        msgParam.task = {}
-      end
-      msgParam.task.progress = task.progress
     end
     if guildid ~= nil then
       msgParam.guildid = guildid
@@ -5977,6 +6056,915 @@ function ServiceGuildCmdAutoProxy:CallExchangeGvgGroupGuildCmd(gvg_group, cancel
   end
 end
 
+function ServiceGuildCmdAutoProxy:CallGvgDataQueryGuildCmd()
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.GvgDataQueryGuildCmd()
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.GvgDataQueryGuildCmd.id
+    local msgParam = {}
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleInfoGuildCmd(id, datas)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleInfoGuildCmd()
+    if id ~= nil then
+      msg.id = id
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleInfoGuildCmd.id
+    local msgParam = {}
+    if id ~= nil then
+      msgParam.id = id
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleTargetGuildCmd(guildid, datas)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleTargetGuildCmd()
+    if guildid ~= nil then
+      msg.guildid = guildid
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleTargetGuildCmd.id
+    local msgParam = {}
+    if guildid ~= nil then
+      msgParam.guildid = guildid
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleInviteGuildCmd(guildid, starttime, mode, datas)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleInviteGuildCmd()
+    if guildid ~= nil then
+      msg.guildid = guildid
+    end
+    if starttime ~= nil then
+      msg.starttime = starttime
+    end
+    if mode ~= nil then
+      msg.mode = mode
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleInviteGuildCmd.id
+    local msgParam = {}
+    if guildid ~= nil then
+      msgParam.guildid = guildid
+    end
+    if starttime ~= nil then
+      msgParam.starttime = starttime
+    end
+    if mode ~= nil then
+      msgParam.mode = mode
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleReplyGuildCmd(id, isagree, datas)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleReplyGuildCmd()
+    if id ~= nil then
+      msg.id = id
+    end
+    if isagree ~= nil then
+      msg.isagree = isagree
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleReplyGuildCmd.id
+    local msgParam = {}
+    if id ~= nil then
+      msgParam.id = id
+    end
+    if isagree ~= nil then
+      msgParam.isagree = isagree
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleOpenGuildCmd(state, data)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleOpenGuildCmd()
+    if state ~= nil then
+      msg.state = state
+    end
+    if data ~= nil and data.id ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.id = data.id
+    end
+    if data ~= nil and data.atk_guildid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.atk_guildid = data.atk_guildid
+    end
+    if data ~= nil and data.atk_guildname ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.atk_guildname = data.atk_guildname
+    end
+    if data ~= nil and data.atk_guildportrait ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.atk_guildportrait = data.atk_guildportrait
+    end
+    if data ~= nil and data.atk_serverid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.atk_serverid = data.atk_serverid
+    end
+    if data ~= nil and data.atk_chairmanid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.atk_chairmanid = data.atk_chairmanid
+    end
+    if data ~= nil and data.def_guildid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.def_guildid = data.def_guildid
+    end
+    if data ~= nil and data.def_guildname ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.def_guildname = data.def_guildname
+    end
+    if data ~= nil and data.def_guildportrait ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.def_guildportrait = data.def_guildportrait
+    end
+    if data ~= nil and data.def_serverid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.def_serverid = data.def_serverid
+    end
+    if data ~= nil and data.def_chairmanid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.def_chairmanid = data.def_chairmanid
+    end
+    if data ~= nil and data.battle_starttime ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.battle_starttime = data.battle_starttime
+    end
+    if data ~= nil and data.invite_time ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.invite_time = data.invite_time
+    end
+    if data ~= nil and data.mode ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.mode = data.mode
+    end
+    if data ~= nil and data.state ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.state = data.state
+    end
+    if data ~= nil and data.winner_guildid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.winner_guildid = data.winner_guildid
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleOpenGuildCmd.id
+    local msgParam = {}
+    if state ~= nil then
+      msgParam.state = state
+    end
+    if data ~= nil and data.id ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.id = data.id
+    end
+    if data ~= nil and data.atk_guildid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.atk_guildid = data.atk_guildid
+    end
+    if data ~= nil and data.atk_guildname ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.atk_guildname = data.atk_guildname
+    end
+    if data ~= nil and data.atk_guildportrait ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.atk_guildportrait = data.atk_guildportrait
+    end
+    if data ~= nil and data.atk_serverid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.atk_serverid = data.atk_serverid
+    end
+    if data ~= nil and data.atk_chairmanid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.atk_chairmanid = data.atk_chairmanid
+    end
+    if data ~= nil and data.def_guildid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.def_guildid = data.def_guildid
+    end
+    if data ~= nil and data.def_guildname ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.def_guildname = data.def_guildname
+    end
+    if data ~= nil and data.def_guildportrait ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.def_guildportrait = data.def_guildportrait
+    end
+    if data ~= nil and data.def_serverid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.def_serverid = data.def_serverid
+    end
+    if data ~= nil and data.def_chairmanid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.def_chairmanid = data.def_chairmanid
+    end
+    if data ~= nil and data.battle_starttime ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.battle_starttime = data.battle_starttime
+    end
+    if data ~= nil and data.invite_time ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.invite_time = data.invite_time
+    end
+    if data ~= nil and data.mode ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.mode = data.mode
+    end
+    if data ~= nil and data.state ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.state = data.state
+    end
+    if data ~= nil and data.winner_guildid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.winner_guildid = data.winner_guildid
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleEnterGuildCmd(id)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleEnterGuildCmd()
+    if id ~= nil then
+      msg.id = id
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleEnterGuildCmd.id
+    local msgParam = {}
+    if id ~= nil then
+      msgParam.id = id
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleReportGuildCmd(atk_member_count, def_member_count, boss_hp, perfect_time)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleReportGuildCmd()
+    if atk_member_count ~= nil then
+      msg.atk_member_count = atk_member_count
+    end
+    if def_member_count ~= nil then
+      msg.def_member_count = def_member_count
+    end
+    if boss_hp ~= nil then
+      msg.boss_hp = boss_hp
+    end
+    if perfect_time ~= nil and perfect_time.pause ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.perfect_time == nil then
+        msg.perfect_time = {}
+      end
+      msg.perfect_time.pause = perfect_time.pause
+    end
+    if perfect_time ~= nil and perfect_time.time ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.perfect_time == nil then
+        msg.perfect_time = {}
+      end
+      msg.perfect_time.time = perfect_time.time
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleReportGuildCmd.id
+    local msgParam = {}
+    if atk_member_count ~= nil then
+      msgParam.atk_member_count = atk_member_count
+    end
+    if def_member_count ~= nil then
+      msgParam.def_member_count = def_member_count
+    end
+    if boss_hp ~= nil then
+      msgParam.boss_hp = boss_hp
+    end
+    if perfect_time ~= nil and perfect_time.pause ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.perfect_time == nil then
+        msgParam.perfect_time = {}
+      end
+      msgParam.perfect_time.pause = perfect_time.pause
+    end
+    if perfect_time ~= nil and perfect_time.time ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.perfect_time == nil then
+        msgParam.perfect_time = {}
+      end
+      msgParam.perfect_time.time = perfect_time.time
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleDetailGuildCmd(reports, isover, winner_guildid)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleDetailGuildCmd()
+    if reports ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.reports == nil then
+        msg.reports = {}
+      end
+      for i = 1, #reports do
+        table.insert(msg.reports, reports[i])
+      end
+    end
+    if isover ~= nil then
+      msg.isover = isover
+    end
+    if winner_guildid ~= nil then
+      msg.winner_guildid = winner_guildid
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleDetailGuildCmd.id
+    local msgParam = {}
+    if reports ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.reports == nil then
+        msgParam.reports = {}
+      end
+      for i = 1, #reports do
+        table.insert(msgParam.reports, reports[i])
+      end
+    end
+    if isover ~= nil then
+      msgParam.isover = isover
+    end
+    if winner_guildid ~= nil then
+      msgParam.winner_guildid = winner_guildid
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleListGuildCmd(type, datas)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleListGuildCmd()
+    if type ~= nil then
+      msg.type = type
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleListGuildCmd.id
+    local msgParam = {}
+    if type ~= nil then
+      msgParam.type = type
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleRankGuildCmd(mydata, datas)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleRankGuildCmd()
+    if mydata ~= nil and mydata.guildid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.mydata == nil then
+        msg.mydata = {}
+      end
+      msg.mydata.guildid = mydata.guildid
+    end
+    if mydata ~= nil and mydata.guildname ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.mydata == nil then
+        msg.mydata = {}
+      end
+      msg.mydata.guildname = mydata.guildname
+    end
+    if mydata ~= nil and mydata.guildportrait ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.mydata == nil then
+        msg.mydata = {}
+      end
+      msg.mydata.guildportrait = mydata.guildportrait
+    end
+    if mydata ~= nil and mydata.serverid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.mydata == nil then
+        msg.mydata = {}
+      end
+      msg.mydata.serverid = mydata.serverid
+    end
+    if mydata ~= nil and mydata.chairmanname ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.mydata == nil then
+        msg.mydata = {}
+      end
+      msg.mydata.chairmanname = mydata.chairmanname
+    end
+    if mydata ~= nil and mydata.wintimes ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.mydata == nil then
+        msg.mydata = {}
+      end
+      msg.mydata.wintimes = mydata.wintimes
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleRankGuildCmd.id
+    local msgParam = {}
+    if mydata ~= nil and mydata.guildid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.mydata == nil then
+        msgParam.mydata = {}
+      end
+      msgParam.mydata.guildid = mydata.guildid
+    end
+    if mydata ~= nil and mydata.guildname ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.mydata == nil then
+        msgParam.mydata = {}
+      end
+      msgParam.mydata.guildname = mydata.guildname
+    end
+    if mydata ~= nil and mydata.guildportrait ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.mydata == nil then
+        msgParam.mydata = {}
+      end
+      msgParam.mydata.guildportrait = mydata.guildportrait
+    end
+    if mydata ~= nil and mydata.serverid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.mydata == nil then
+        msgParam.mydata = {}
+      end
+      msgParam.mydata.serverid = mydata.serverid
+    end
+    if mydata ~= nil and mydata.chairmanname ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.mydata == nil then
+        msgParam.mydata = {}
+      end
+      msgParam.mydata.chairmanname = mydata.chairmanname
+    end
+    if mydata ~= nil and mydata.wintimes ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.mydata == nil then
+        msgParam.mydata = {}
+      end
+      msgParam.mydata.wintimes = mydata.wintimes
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallRedtipOptGuildCmd(redtips)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.RedtipOptGuildCmd()
+    if redtips ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.redtips == nil then
+        msg.redtips = {}
+      end
+      for i = 1, #redtips do
+        table.insert(msg.redtips, redtips[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.RedtipOptGuildCmd.id
+    local msgParam = {}
+    if redtips ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.redtips == nil then
+        msgParam.redtips = {}
+      end
+      for i = 1, #redtips do
+        table.insert(msgParam.redtips, redtips[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallRedtipBrowseGuildCmd(red, tipid)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.RedtipBrowseGuildCmd()
+    if red ~= nil then
+      msg.red = red
+    end
+    if tipid ~= nil then
+      msg.tipid = tipid
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.RedtipBrowseGuildCmd.id
+    local msgParam = {}
+    if red ~= nil then
+      msgParam.red = red
+    end
+    if tipid ~= nil then
+      msgParam.tipid = tipid
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleFlagGuildCmd(mapid, datas)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleFlagGuildCmd()
+    if mapid ~= nil then
+      msg.mapid = mapid
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleFlagGuildCmd.id
+    local msgParam = {}
+    if mapid ~= nil then
+      msgParam.mapid = mapid
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallDateBattleReportUIStateCmd(open)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.DateBattleReportUIStateCmd()
+    if open ~= nil then
+      msg.open = open
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DateBattleReportUIStateCmd.id
+    local msgParam = {}
+    if open ~= nil then
+      msgParam.open = open
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceGuildCmdAutoProxy:RecvQueryGuildListGuildCmd(data)
   self:Notify(ServiceEvent.GuildCmdQueryGuildListGuildCmd, data)
 end
@@ -6341,6 +7329,66 @@ function ServiceGuildCmdAutoProxy:RecvExchangeGvgGroupGuildCmd(data)
   self:Notify(ServiceEvent.GuildCmdExchangeGvgGroupGuildCmd, data)
 end
 
+function ServiceGuildCmdAutoProxy:RecvGvgDataQueryGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdGvgDataQueryGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleInfoGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleInfoGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleTargetGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleTargetGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleInviteGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleInviteGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleReplyGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleReplyGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleOpenGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleOpenGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleEnterGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleEnterGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleReportGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleReportGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleDetailGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleDetailGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleListGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleListGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleRankGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleRankGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvRedtipOptGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdRedtipOptGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvRedtipBrowseGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdRedtipBrowseGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleFlagGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleFlagGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvDateBattleReportUIStateCmd(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleReportUIStateCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.GuildCmdQueryGuildListGuildCmd = "ServiceEvent_GuildCmdQueryGuildListGuildCmd"
 ServiceEvent.GuildCmdCreateGuildGuildCmd = "ServiceEvent_GuildCmdCreateGuildGuildCmd"
@@ -6433,3 +7481,18 @@ ServiceEvent.GuildCmdBuildingUpdateNtfGuildCmd = "ServiceEvent_GuildCmdBuildingU
 ServiceEvent.GuildCmdGvgRoadblockModifyGuildCmd = "ServiceEvent_GuildCmdGvgRoadblockModifyGuildCmd"
 ServiceEvent.GuildCmdGvgRoadblockQueryGuildCmd = "ServiceEvent_GuildCmdGvgRoadblockQueryGuildCmd"
 ServiceEvent.GuildCmdExchangeGvgGroupGuildCmd = "ServiceEvent_GuildCmdExchangeGvgGroupGuildCmd"
+ServiceEvent.GuildCmdGvgDataQueryGuildCmd = "ServiceEvent_GuildCmdGvgDataQueryGuildCmd"
+ServiceEvent.GuildCmdDateBattleInfoGuildCmd = "ServiceEvent_GuildCmdDateBattleInfoGuildCmd"
+ServiceEvent.GuildCmdDateBattleTargetGuildCmd = "ServiceEvent_GuildCmdDateBattleTargetGuildCmd"
+ServiceEvent.GuildCmdDateBattleInviteGuildCmd = "ServiceEvent_GuildCmdDateBattleInviteGuildCmd"
+ServiceEvent.GuildCmdDateBattleReplyGuildCmd = "ServiceEvent_GuildCmdDateBattleReplyGuildCmd"
+ServiceEvent.GuildCmdDateBattleOpenGuildCmd = "ServiceEvent_GuildCmdDateBattleOpenGuildCmd"
+ServiceEvent.GuildCmdDateBattleEnterGuildCmd = "ServiceEvent_GuildCmdDateBattleEnterGuildCmd"
+ServiceEvent.GuildCmdDateBattleReportGuildCmd = "ServiceEvent_GuildCmdDateBattleReportGuildCmd"
+ServiceEvent.GuildCmdDateBattleDetailGuildCmd = "ServiceEvent_GuildCmdDateBattleDetailGuildCmd"
+ServiceEvent.GuildCmdDateBattleListGuildCmd = "ServiceEvent_GuildCmdDateBattleListGuildCmd"
+ServiceEvent.GuildCmdDateBattleRankGuildCmd = "ServiceEvent_GuildCmdDateBattleRankGuildCmd"
+ServiceEvent.GuildCmdRedtipOptGuildCmd = "ServiceEvent_GuildCmdRedtipOptGuildCmd"
+ServiceEvent.GuildCmdRedtipBrowseGuildCmd = "ServiceEvent_GuildCmdRedtipBrowseGuildCmd"
+ServiceEvent.GuildCmdDateBattleFlagGuildCmd = "ServiceEvent_GuildCmdDateBattleFlagGuildCmd"
+ServiceEvent.GuildCmdDateBattleReportUIStateCmd = "ServiceEvent_GuildCmdDateBattleReportUIStateCmd"

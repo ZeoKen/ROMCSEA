@@ -580,6 +580,9 @@ function SkillInfo:GetCastEffectPath(creature)
   if not self:IgnoreEffectCulling(creature) and not SkillLogic_Base.AllowSelfEffect(creature) then
     return nil
   end
+  if self:IsHideInShadowViel() and Game.Myself.data:IsInShadowViel() then
+    return nil
+  end
   local dynamicConfig = self:GetDynamicConfig(creature, SkillDynamicManager.Config.CastEffect)
   if dynamicConfig ~= nil then
     return self:GetEffectPath(creature, dynamicConfig)
@@ -1025,13 +1028,19 @@ function SkillInfo:GetLaunchRange(creature)
     local shrinkTo = creature:GetMinShrinkRange()
     if shrinkTo and 0 < shrinkTo then
       if 0 < tempRange then
-        return math.max(finalRange, tempRange)
+        tempRange = math.max(finalRange, tempRange)
       else
-        return math.min(finalRange, shrinkTo)
+        tempRange = math.min(finalRange, shrinkTo)
       end
     end
   end
-  return math.max(finalRange, tempRange)
+  local resultRange = math.max(finalRange, tempRange)
+  local targetCreature = Game.Myself:GetLockTarget()
+  local hasMark = MyselfProxy.Instance:CheckInMarks(self.staticData.id, targetCreature and targetCreature.data and targetCreature.data.id)
+  if hasMark then
+    resultRange = resultRange * (1 + MyselfProxy.Instance:GetMarkParam(targetCreature))
+  end
+  return resultRange
 end
 
 function SkillInfo:NoAction(creature)
@@ -1723,6 +1732,9 @@ function SkillInfo:GetWarnRingEffectPath(creature)
   if Game.HandUpManager:IsInHandingUp() then
     return nil
   end
+  if Game.Myself.data:IsInShadowViel() then
+    return nil
+  end
   return self:GetEffectPath(creature, EffectMap.Maps.WarnRing)
 end
 
@@ -2135,4 +2147,8 @@ function SkillInfo:NoPreCheckTarget()
   if "RideShoulder" == self.staticData.SkillType then
     return true
   end
+end
+
+function SkillInfo:IsHideInShadowViel()
+  return self.logicParam.HideInShadowViel == 1
 end

@@ -771,6 +771,60 @@ Table_Compose = {
     Product = {id = 8013},
     Type = 1
   },
+  [65] = {
+    id = 65,
+    ROB = 0,
+    BeCostItem = {
+      {id = 920001, num = 4}
+    },
+    Product = {id = 913103},
+    Type = 1
+  },
+  [66] = {
+    id = 66,
+    ROB = 0,
+    BeCostItem = {
+      {id = 920002, num = 4}
+    },
+    Product = {id = 913104},
+    Type = 1
+  },
+  [67] = {
+    id = 67,
+    ROB = 0,
+    BeCostItem = {
+      {id = 920003, num = 4}
+    },
+    Product = {id = 913105},
+    Type = 1
+  },
+  [68] = {
+    id = 68,
+    ROB = 0,
+    BeCostItem = {
+      {id = 920004, num = 4}
+    },
+    Product = {id = 913106},
+    Type = 1
+  },
+  [69] = {
+    id = 69,
+    ROB = 0,
+    BeCostItem = {
+      {id = 920005, num = 4}
+    },
+    Product = {id = 913107},
+    Type = 1
+  },
+  [70] = {
+    id = 70,
+    ROB = 0,
+    BeCostItem = {
+      {id = 920006, num = 4}
+    },
+    Product = {id = 913108},
+    Type = 1
+  },
   [101] = {
     id = 101,
     BeCostItem = {
@@ -23319,6 +23373,66 @@ Table_Compose = {
     Product = {id = 162551},
     Category = 6
   },
+  [625702] = {
+    id = 625702,
+    ROB = 150000,
+    BeCostItem = {
+      {id = 62570, num = 10}
+    },
+    Product = {id = 162570},
+    Category = 6
+  },
+  [625703] = {
+    id = 625703,
+    BeCostItem = {
+      {id = 52507, num = 30},
+      {id = 52505, num = 75},
+      {id = 52313, num = 8},
+      {id = 52155, num = 600}
+    },
+    Product = {id = 62570},
+    NpcId = 2649,
+    Category = 1
+  },
+  [625712] = {
+    id = 625712,
+    ROB = 150000,
+    BeCostItem = {
+      {id = 62570, num = 10}
+    },
+    Product = {id = 162571},
+    Category = 6
+  },
+  [625722] = {
+    id = 625722,
+    ROB = 150000,
+    BeCostItem = {
+      {id = 62572, num = 10}
+    },
+    Product = {id = 162572},
+    Category = 6
+  },
+  [625723] = {
+    id = 625723,
+    BeCostItem = {
+      {id = 52503, num = 30},
+      {id = 52403, num = 70},
+      {id = 52309, num = 6},
+      {id = 52105, num = 500}
+    },
+    Product = {id = 62572},
+    NpcId = 2622,
+    Category = 1
+  },
+  [625732] = {
+    id = 625732,
+    ROB = 150000,
+    BeCostItem = {
+      {id = 62572, num = 10}
+    },
+    Product = {id = 162573},
+    Category = 6
+  },
   [628092] = {
     id = 628092,
     ROB = 100000,
@@ -23539,9 +23653,7 @@ Table_Compose = {
       {id = 20032, num = 1}
     },
     Product = {id = 20030},
-    Category = 7,
-    MenuID = 1401,
-    MenuDes = "##124262"
+    Category = 7
   },
   [1000010] = {
     id = 1000010,
@@ -23553,9 +23665,7 @@ Table_Compose = {
       {id = 20032, num = 1}
     },
     Product = {id = 20031},
-    Category = 7,
-    MenuID = 1402,
-    MenuDes = "##124262"
+    Category = 7
   },
   [1000020] = {
     id = 1000020,
@@ -23567,9 +23677,7 @@ Table_Compose = {
       {id = 20027, num = 1}
     },
     Product = {id = 20041},
-    Category = 7,
-    MenuID = 1403,
-    MenuDes = "##124254"
+    Category = 7
   },
   [1000030] = {
     id = 1000030,
@@ -23581,9 +23689,7 @@ Table_Compose = {
       {id = 20020, num = 1}
     },
     Product = {id = 20044},
-    Category = 7,
-    MenuID = 1404,
-    MenuDes = "##124254"
+    Category = 7
   },
   [1000040] = {
     id = 1000040,
@@ -23595,9 +23701,7 @@ Table_Compose = {
       {id = 20014, num = 1}
     },
     Product = {id = 20073},
-    Category = 7,
-    MenuID = 1405,
-    MenuDes = "##124243"
+    Category = 7
   },
   [1000050] = {
     id = 1000050,
@@ -23609,9 +23713,7 @@ Table_Compose = {
       {id = 20083, num = 1}
     },
     Product = {id = 20076},
-    Category = 7,
-    MenuID = 1406,
-    MenuDes = "##124243"
+    Category = 7
   },
   [1000060] = {
     id = 1000060,
@@ -23623,9 +23725,7 @@ Table_Compose = {
       {id = 20053, num = 1}
     },
     Product = {id = 24001},
-    Category = 7,
-    MenuID = 1407,
-    MenuDes = "##124243"
+    Category = 7
   },
   [1000070] = {
     id = 1000070,
@@ -23637,9 +23737,7 @@ Table_Compose = {
       {id = 20100, num = 1}
     },
     Product = {id = 24002},
-    Category = 7,
-    MenuID = 1408,
-    MenuDes = "##124243"
+    Category = 7
   },
   [1000080] = {
     id = 1000080,
@@ -23651,9 +23749,7 @@ Table_Compose = {
       {id = 20086, num = 1}
     },
     Product = {id = 24008},
-    Category = 7,
-    MenuID = 1409,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000090] = {
     id = 1000090,
@@ -23665,9 +23761,7 @@ Table_Compose = {
       {id = 20067, num = 1}
     },
     Product = {id = 24009},
-    Category = 7,
-    MenuID = 1410,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000100] = {
     id = 1000100,
@@ -23679,9 +23773,7 @@ Table_Compose = {
       {id = 20038, num = 1}
     },
     Product = {id = 24010},
-    Category = 7,
-    MenuID = 1411,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000110] = {
     id = 1000110,
@@ -23693,9 +23785,7 @@ Table_Compose = {
       {id = 20045, num = 1}
     },
     Product = {id = 24011},
-    Category = 7,
-    MenuID = 1412,
-    MenuDes = "##124262"
+    Category = 7
   },
   [1000120] = {
     id = 1000120,
@@ -23707,9 +23797,7 @@ Table_Compose = {
       {id = 20098, num = 1}
     },
     Product = {id = 24012},
-    Category = 7,
-    MenuID = 1413,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000130] = {
     id = 1000130,
@@ -23721,9 +23809,7 @@ Table_Compose = {
       {id = 20006, num = 1}
     },
     Product = {id = 24013},
-    Category = 7,
-    MenuID = 1414,
-    MenuDes = "##124262"
+    Category = 7
   },
   [1000150] = {
     id = 1000150,
@@ -23735,9 +23821,7 @@ Table_Compose = {
       {id = 20067, num = 1}
     },
     Product = {id = 24015},
-    Category = 7,
-    MenuID = 1415,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000160] = {
     id = 1000160,
@@ -23749,9 +23833,7 @@ Table_Compose = {
       {id = 23205, num = 1}
     },
     Product = {id = 24016},
-    Category = 7,
-    MenuID = 1416,
-    MenuDes = "##124254"
+    Category = 7
   },
   [1000170] = {
     id = 1000170,
@@ -23763,9 +23845,7 @@ Table_Compose = {
       {id = 20024, num = 1}
     },
     Product = {id = 24030},
-    Category = 7,
-    MenuID = 1417,
-    MenuDes = "##124254"
+    Category = 7
   },
   [1000180] = {
     id = 1000180,
@@ -23777,9 +23857,7 @@ Table_Compose = {
       {id = 20070, num = 1}
     },
     Product = {id = 24031},
-    Category = 7,
-    MenuID = 1418,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000190] = {
     id = 1000190,
@@ -23791,9 +23869,7 @@ Table_Compose = {
       {id = 20074, num = 1}
     },
     Product = {id = 24032},
-    Category = 7,
-    MenuID = 1419,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000200] = {
     id = 1000200,
@@ -23805,9 +23881,7 @@ Table_Compose = {
       {id = 20070, num = 1}
     },
     Product = {id = 24033},
-    Category = 7,
-    MenuID = 1420,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000210] = {
     id = 1000210,
@@ -23819,9 +23893,7 @@ Table_Compose = {
       {id = 20042, num = 1}
     },
     Product = {id = 24034},
-    Category = 7,
-    MenuID = 1421,
-    MenuDes = "##124264"
+    Category = 7
   },
   [1000211] = {
     id = 1000211,
@@ -27428,6 +27500,34 @@ Table_Compose = {
     },
     FemaleRandomProduct = {
       {id = 3009433, weight = 100}
+    },
+    Type = 1
+  },
+  [4000140] = {
+    id = 4000140,
+    ROB = 0,
+    BeCostItem = {
+      {id = 3010978, num = 1}
+    },
+    RandomProduct = {
+      {id = 25238, weight = 100}
+    },
+    FemaleRandomProduct = {
+      {id = 25238, weight = 100}
+    },
+    Type = 1
+  },
+  [4000180] = {
+    id = 4000180,
+    ROB = 0,
+    BeCostItem = {
+      {id = 3011783, num = 1}
+    },
+    RandomProduct = {
+      {id = 3011780, weight = 100}
+    },
+    FemaleRandomProduct = {
+      {id = 3011781, weight = 100}
     },
     Type = 1
   },

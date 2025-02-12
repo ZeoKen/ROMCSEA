@@ -346,6 +346,20 @@ function MultiProfessionSaveProxy:GetEquipInfo(id, bagType)
   return self.recordDatas[id]:GetRoleEquipsSaveDatas(bagType)
 end
 
+function MultiProfessionSaveProxy:GetMasterSkillProfessData(id)
+  if not self.recordDatas[id] then
+    return
+  end
+  return self.recordDatas[id]:GetMasterSkillProfessData()
+end
+
+function MultiProfessionSaveProxy:GetEquipMasterSkillFamilyId(id)
+  if not self.recordDatas[id] then
+    return
+  end
+  return self.recordDatas[id]:GetEquipMasterSkillFamilyId()
+end
+
 function MultiProfessionSaveProxy:GetGemCountDesc(id)
   local skillCount, attrCount = GemProxy.GetSkillAndAttrGemCountDescFromItemDatas(self:GetGemData(id))
   return string.format(ZhString.Gem_CountLabelFormat, skillCount, GemProxy.Instance.pageSkillGemMaxCount), string.format(ZhString.Gem_CountLabelFormat, attrCount, GemProxy.Instance.pageAttrGemMaxCount)

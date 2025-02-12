@@ -98,10 +98,18 @@ function RedTipProxy:IsNew(tipId, id)
   return false
 end
 
-function RedTipProxy:SeenNew(tipid, subtipid)
+function RedTipProxy:SeenNew(tipid, subtipid, guilddate)
+  if nil == tipid or nil == Table_RedTip[tipid] then
+    redlog("RedTipProxy:SeenNew() tip config is nil")
+    return
+  end
   local tip = self:GetOrCreateRedTip(tipid)
   if tip.enable and tip.config then
-    ServiceSceneTipProxy.Instance:CallBrowseRedTipCmd(tipid, subtipid)
+    if guilddate then
+      ServiceGuildCmdProxy.Instance:CallRedtipBrowseGuildCmd(tipid, subtipid)
+    else
+      ServiceSceneTipProxy.Instance:CallBrowseRedTipCmd(tipid, subtipid)
+    end
   end
 end
 
@@ -132,13 +140,17 @@ function RedTipProxy:RemoveWholeTip(id)
   end
 end
 
-function RedTipProxy:UpdateRedTipsbyServer(data)
+function RedTipProxy:RecvGameTipCmd(data)
   if data.opt == SceneTip_pb.ETIPOPT_UPDATE then
-    for i = 1, #data.redtip do
-      self:UpdateRedTipbyServer(data.redtip[i])
-    end
+    self:UpdateRedTipsByServer(data.redtip)
   elseif data.opt == SceneTip_pb.ETIPOPT_DELETE then
     self:RemoveWholeTipsByServerData(data)
+  end
+end
+
+function RedTipProxy:UpdateRedTipsByServer(datas)
+  for i = 1, #datas do
+    self:UpdateRedTipbyServer(datas[i])
   end
 end
 

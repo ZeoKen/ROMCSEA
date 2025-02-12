@@ -8,15 +8,30 @@ function GvgQuestTableCell:Init()
   self.rewardName = self:FindComponent("rewardName", UILabel, rewardRoot)
   self.rewards = {
     [1] = {},
-    [2] = {}
+    [2] = {},
+    [3] = {}
   }
+  self.rewardGrid = self:FindGO("RewardGrid"):GetComponent(UIGrid)
   self.rewards[1].icon = self:FindComponent("rewardIcon1", UISprite, rewardRoot)
   self.rewards[1].countLab = self:FindComponent("rewardCount1", UILabel, rewardRoot)
   self.rewards[2].icon = self:FindComponent("rewardIcon2", UISprite, rewardRoot)
   self.rewards[2].countLab = self:FindComponent("rewardCount2", UILabel, rewardRoot)
+  self.rewards[3].icon = self:FindComponent("rewardIcon3", UISprite, rewardRoot)
+  self.rewards[3].countLab = self:FindComponent("rewardCount3", UILabel, rewardRoot)
 end
 
 function GvgQuestTableCell:SetData(data)
+  self.data = data
+  local type = data.type or 1
+  if type == 1 then
+    self:SetPersonalTask(data)
+  elseif type == 2 then
+    self:SetGroupTask(data)
+  end
+end
+
+function GvgQuestTableCell:SetPersonalTask(data)
+  local isInLeisure = data.isInLeisure
   local key = data.key
   local value = data.value
   local configData = GameConfig.GVGConfig.reward[GvgProxy.GvgQuestMap[key]]
@@ -36,6 +51,8 @@ function GvgQuestTableCell:SetData(data)
         self.rewards[i].countLab.text = multiple_reward and "x" .. configData[i][2] * multiple_reward or "x" .. configData[i][2]
         local icon = Table_Item[configData[i][1]] and Table_Item[configData[i][1]].Icon or ""
         IconManager:SetItemIcon(icon, self.rewards[i].icon)
+        self.rewards[i].icon:MakePixelPerfect()
+        self.rewards[i].icon.gameObject.transform.localScale = LuaGeometry.GetTempVector3(0.4, 0.4, 0.4)
       end
       return
     end
@@ -49,9 +66,14 @@ function GvgQuestTableCell:SetData(data)
         self.rewardName.text = string.format(dataInfo.desc, value <= dataInfo.times and value or dataInfo.times)
         if dataInfo.items then
           for i = 1, #dataInfo.items do
-            self.rewards[i].countLab.text = multiple_reward and "x" .. dataInfo.items[i][2] * multiple_reward or dataInfo.items[i][2]
-            local icon = Table_Item[dataInfo.items[i][1]] and Table_Item[dataInfo.items[i][1]].Icon or ""
-            IconManager:SetItemIcon(icon, self.rewards[i].icon)
+            if isInLeisure and dataInfo.items[i][1] == 913000 then
+            else
+              self.rewards[i].countLab.text = multiple_reward ~= nil and "x" .. dataInfo.items[i][2] * multiple_reward or "x" .. dataInfo.items[i][2]
+              local icon = Table_Item[dataInfo.items[i][1]] and Table_Item[dataInfo.items[i][1]].Icon or ""
+              IconManager:SetItemIcon(icon, self.rewards[i].icon)
+              self.rewards[i].icon:MakePixelPerfect()
+              self.rewards[i].icon.gameObject.transform.localScale = LuaGeometry.GetTempVector3(0.4, 0.4, 0.4)
+            end
           end
         end
         if value >= configData[maxRound].times then
@@ -72,6 +94,46 @@ function GvgQuestTableCell:SetData(data)
         break
       end
       index = index + 1
+    end
+  end
+end
+
+function GvgQuestTableCell:SetGroupTask(data)
+  local config
+  for k, v in pairs(GameConfig.GVGConfig.GvgTask) do
+    if v.taskid == data.taskid then
+      config = v
+      break
+    end
+  end
+  if config ~= nil then
+    local progress = data.progress
+    if config.task_type == GuildCmd_pb.EGVGGUILDTASK_POINT_TIME or config.task_type == GuildCmd_pb.EGVGGUILDTASK_POINT_FIGHT then
+      progress = progress // 60
+    elseif config.task_type == GuildCmd_pb.EGVGGUILDTASK_PERFECT_DEFENSE and 0 < progress then
+      progress = config.need_count
+    end
+    if progress == config.need_count then
+      self.questName.text = string.format(ZhString.MainViewGvgPage_GvgQuestTip_Complete, ZhString.GvgLandChallengeView_GroupTask2 .. config.title)
+    else
+      self.questName.text = ZhString.GvgLandChallengeView_GroupTask2 .. config.title
+    end
+    self.rewardName.text = string.format(config.desc, progress)
+    local reward = config.reward
+    if reward ~= nil then
+      for i = 1, #reward do
+        if isInLeisure and reward[i][1] == 913000 then
+        else
+          self.rewards[i].countLab.text = "x" .. reward[i][2]
+          local item = Table_Item[reward[i][1]]
+          if item ~= nil then
+            local icon = item.Icon or ""
+            IconManager:SetItemIcon(icon, self.rewards[i].icon)
+            self.rewards[i].icon:MakePixelPerfect()
+            self.rewards[i].icon.gameObject.transform.localScale = LuaGeometry.GetTempVector3(0.4, 0.4, 0.4)
+          end
+        end
+      end
     end
   end
 end

@@ -3,7 +3,7 @@ Table_NewServerChallengeTarget = {
     id = 105800101,
     ActID = 1058001,
     TargetType = "base_lv",
-    TargetNum = 10,
+    TargetNum = 7,
     Param = _EmptyTable,
     MaleReward = {
       {900139, 1}

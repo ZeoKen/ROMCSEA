@@ -152,7 +152,7 @@ local maxLimited = GameConfig.Servant.recommend_max_coin or 4500
 function ServantRecommendView:UpdateWeekLimited()
   local myServant = MyselfProxy.Instance:GetMyServantID()
   local favorCFG = HappyShopProxy.Instance:GetServantShopMap()
-  local favoritemid = favorCFG and favorCFG[myServant] and favorCFG[myServant].npcFavoriteItemid or 100
+  local favoritemid = favorCFG and favorCFG[myServant] and favorCFG[myServant].npcFavoriteItemid or 5828
   local iconName = Table_Item[favoritemid] and Table_Item[favoritemid].Icon or ""
   IconManager:SetItemIcon(iconName, self.favoriteItem)
   local weeknum = MyselfProxy.Instance:GetAccVarValueByType(Var_pb.EACCVARTYPE_SERVANT_RECOMMEND_COIN) or 0

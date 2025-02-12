@@ -47,7 +47,7 @@ function DeComposeNewView:InitUI()
   self.cost = self:FindComponent("Cost", UILabel)
   self.cost.text = 0
   local l_zenyIcon = self:FindComponent("PriceIcon", UISprite)
-  IconManager:SetItemIcon("item_100", l_zenyIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, l_zenyIcon)
   local coins = self:FindChild("TopCoins")
   self.userRob = self:FindChild("Silver", coins)
   self.robLabel = self:FindComponent("Label", UILabel, self.userRob)

@@ -234,7 +234,7 @@ function FunctionLogin:ChangeServerType(serverType)
   CurrentServerType = serverType
   autoImport("GainWayTipProxy")
   GainWayTipProxy.new()
-  if self.serverData and self.serverData.servertype == "novice" then
+  if self.serverData and self.serverData.servertype == "novice" and not BranchMgr.IsNO() and not BranchMgr.IsNOTW() then
     autoImport("Table_NoviceServer")
     GainWayTipProxy.V1 = false
   else
@@ -357,6 +357,7 @@ function FunctionLogin:ImportTableForSelectRole()
   reAutoImport("Table_Sysmsg")
   reAutoImport("CommonFun")
   reAutoImport("Table_MapInfo")
+  reAutoImport("Table_SkillEffect")
   reAutoImport("PveEntranceData")
   if ProfessionProxy.Instance then
     ProfessionProxy.Instance:ReInit()
@@ -378,7 +379,9 @@ function FunctionLogin:IsNoviceServer()
   if not self.serverData then
     return false
   end
-  ISNoviceServerType = self.serverData.servertype and self.serverData.servertype == "novice" or false
+  if not BranchMgr.IsNO() and not BranchMgr.IsNOTW() then
+    ISNoviceServerType = self.serverData.servertype and self.serverData.servertype == "novice" or false
+  end
   return ISNoviceServerType
 end
 

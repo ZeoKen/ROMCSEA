@@ -20,7 +20,7 @@ function EquipUpgradePopUp:InitView()
   self.tipLab = self:FindComponent("TipLab", UILabel)
   self:InitCountCtrl()
   self:InitBtns()
-  IconManager:SetItemIcon("item_100", self.zenyCtrlSp)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.zenyCtrlSp)
 end
 
 function EquipUpgradePopUp:InitCountCtrl()
@@ -288,7 +288,7 @@ end
 
 function EquipUpgradePopUp:OnEnter()
   EquipUpgradePopUp.super.OnEnter(self)
-  IconManager:SetItemIcon("item_100", self.zenyCtrlSp)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.zenyCtrlSp)
   local viewdata = self.viewdata and self.viewdata.viewdata
   self.equipItem = viewdata and viewdata.equipItem
   self.countInput.value = QuickBuyProxy.Instance.equipUpgradeExLevel or 1

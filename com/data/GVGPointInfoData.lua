@@ -1,3 +1,4 @@
+local gvg_total_point_count = 8
 GVGPointInfoData = class("GVGPointInfoData")
 
 function GVGPointInfoData:ctor(data)
@@ -59,10 +60,51 @@ function GVGPointInfoData:UpdateFlag()
   if not flagManager then
     return
   end
-  if self:IsOccupied() then
-    flagManager:ResetNewGvgFlag(self.pointid, self.guildPortrait, self.guildid)
+  local static_data = GvgProxy.Instance.curStrongHoldStaticData
+  local ratio = static_data and static_data.Point and static_data.Point[self.pointid] and static_data.Point[self.pointid].calc_ratio
+  if ratio then
+    self:UpdateClassicModeFlag(ratio)
   else
-    flagManager:HideNewGvgFlag(self.pointid)
+    self:UpdateBaseModeFlag()
+  end
+end
+
+function GVGPointInfoData:UpdateClassicModeFlag(ratio)
+  if not ratio or type(ratio) ~= "number" then
+    return
+  end
+  for i = 1, ratio do
+    self:_SetFlag(i)
+  end
+  self:HideUnuseClassicFlag(ratio)
+end
+
+function GVGPointInfoData:HideUnuseClassicFlag(ratio)
+  local unuse_count = gvg_total_point_count - ratio
+  if 0 < unuse_count then
+    local flagManager = Game.GameObjectManagers[Game.GameObjectType.SceneGuildFlag]
+    if not flagManager then
+      return
+    end
+    for i = ratio + 1, gvg_total_point_count do
+      flagManager:HideNewGvgFlag(i)
+    end
+  end
+end
+
+function GVGPointInfoData:UpdateBaseModeFlag()
+  self:_SetFlag(self.pointid)
+end
+
+function GVGPointInfoData:_SetFlag(pointid)
+  local flagManager = Game.GameObjectManagers[Game.GameObjectType.SceneGuildFlag]
+  if not flagManager then
+    return
+  end
+  if self:IsOccupied() then
+    flagManager:ResetNewGvgFlag(pointid, self.guildPortrait, self.guildid)
+  else
+    flagManager:HideNewGvgFlag(pointid)
   end
 end
 
@@ -112,7 +154,7 @@ function GVGPointInfoData:CanGetRewardFromThisHold()
   if not gvgProxy:CanIGetMoreStrongHoldReward() then
     return false
   end
-  local myGuildId = guildProxy:GetGuildID()
+  local myGuildId = gvgProxy:GetGuildID()
   if not myGuildId then
     return false
   end

@@ -1383,6 +1383,20 @@ PanelConfig = {
     prefab = "RollRewardWaitForRollPopUp",
     class = "RollRewardWaitForRollPopUp"
   },
+  GLandStatusCombineView = {
+    id = 553,
+    name = "GVG信息整合",
+    desc = "",
+    prefab = "GLandStatusCombineView",
+    class = "GLandStatusCombineView"
+  },
+  GLandChallengeView = {
+    id = 554,
+    name = "GVG目标",
+    desc = "",
+    prefab = "GLandChallengeView",
+    class = "GLandChallengeView"
+  },
   SpeechRecognizerView = {
     id = 560,
     tab = nil,
@@ -2873,6 +2887,14 @@ PanelConfig = {
     prefab = "ArtifactMakeView",
     class = "ArtifactMakeView"
   },
+  ArtifactDecomposeView = {
+    id = 1511,
+    tab = nil,
+    name = "分解神器",
+    desc = "",
+    prefab = "EquipMemoryDecomposeView",
+    class = "ArtifactDecomposeView"
+  },
   ReturnArtifactView = {
     id = 1520,
     tab = nil,
@@ -3913,6 +3935,78 @@ PanelConfig = {
     prefab = "WorldMapMenuPopUp",
     class = "WorldMapMenuPopUp",
     hideCollider = true
+  },
+  GuildDateBattleEntranceView = {
+    id = 1831,
+    tab = nil,
+    name = "公会约战比赛开始入口界面",
+    desc = "",
+    prefab = "GuildDateBattleEntranceView",
+    class = "GuildDateBattleEntranceView"
+  },
+  GuildDateBattlefieldReport = {
+    id = 1832,
+    tab = nil,
+    name = "约战战报界面",
+    desc = "",
+    prefab = "GuildDateBattlefieldReport",
+    class = "GuildDateBattlefieldReport"
+  },
+  GuildDateBattleOverview = {
+    id = 1833,
+    tab = nil,
+    name = "约战总览界面",
+    desc = "",
+    prefab = "GuildDateBattleOverview",
+    class = "GuildDateBattleOverview"
+  },
+  GuildDateBattle_Overview_Result = {
+    id = 1834,
+    tab = 1,
+    name = "约战总览(约战结果)",
+    desc = "",
+    prefab = "GuildDateBattleOverview",
+    class = "GuildDateBattle_Overview_Result"
+  },
+  GuildDateBattle_Overview_Going = {
+    id = 1835,
+    tab = 2,
+    name = "约战总览(即将开赛、正在进行)",
+    desc = "",
+    prefab = "GuildDateBattleOverview",
+    class = "GuildDateBattle_Overview_Going"
+  },
+  GuildDateBattle_Overview_Rank = {
+    id = 1836,
+    tab = 3,
+    name = "约战总览界面(30天内胜利次数排行榜)",
+    desc = "",
+    prefab = "GuildDateBattleOverview",
+    class = "GuildDateBattle_Overview_Rank"
+  },
+  GuildDateBattleInviteView = {
+    id = 1837,
+    tab = nil,
+    name = "约战邀请界面",
+    desc = "",
+    prefab = "GuildDateBattleInviteView",
+    class = "GuildDateBattleInviteView"
+  },
+  GuildDateBattleRecordView = {
+    id = 1838,
+    tab = nil,
+    name = "本公会约战记录界面",
+    desc = "",
+    prefab = "GuildDateBattleRecordView",
+    class = "GuildDateBattleRecordView"
+  },
+  GuildDateBattlePreEnterView = {
+    id = 1839,
+    tab = nil,
+    name = "公会约战准备阶段预览界面",
+    desc = "",
+    prefab = "GuildDateBattlePreEnterView",
+    class = "GuildDateBattlePreEnterView"
   },
   HomeBuildingView = {
     id = 1840,
@@ -5729,6 +5823,39 @@ PanelConfig = {
     prefab = "HeroRoadPicPopUp",
     class = "HeroRoadPicPopUp"
   },
+  AstralPrayPopUp = {
+    id = 4200,
+    tab = nil,
+    name = "星座之塔祝福",
+    desc = "",
+    prefab = "AstralPrayPopUp",
+    class = "AstralPrayPopUp"
+  },
+  AstralRewardPopUp = {
+    id = 4201,
+    tab = nil,
+    name = "星座之塔奖励",
+    desc = "",
+    prefab = "AstralRewardPopUp",
+    class = "AstralRewardPopUp"
+  },
+  AstralStaticsView = {
+    id = 4202,
+    tab = nil,
+    name = "星座之塔统计",
+    desc = "",
+    prefab = "RaidStatistics",
+    class = "AstralStaticsView",
+    hideCollider = true
+  },
+  AstralDestinyGraphView = {
+    id = 4203,
+    tab = nil,
+    name = "星座命运图谱",
+    desc = "",
+    prefab = "AstralDestinyGraphView",
+    class = "AstralDestinyGraphView"
+  },
   RedPacketSendView = {
     id = 5101,
     tab = nil,
@@ -6280,6 +6407,22 @@ PanelConfig = {
     name = "交换礼物",
     prefab = "DonateView",
     class = "ExchangeGiftView"
+  },
+  CraftingPotView = {
+    id = 30025,
+    tab = nil,
+    name = "新装备制作",
+    desc = "",
+    prefab = "CraftingPotView",
+    class = "CraftingPotView"
+  },
+  ResetSecretLandGemPopUp = {
+    id = 30030,
+    tab = nil,
+    name = "重置奥秘符文",
+    desc = "",
+    prefab = "ResetSecretLandGemPopUp",
+    class = "ResetSecretLandGemPopUp"
   },
   FaceBookFavPanel = {
     id = 100001,

@@ -2,14 +2,16 @@ autoImport("SkillProfessData")
 autoImport("SkillBeingData")
 autoImport("BeingInfoData")
 autoImport("ShortCutData")
+autoImport("MasterSkillProfessData")
 SkillSaveData = class("SkillSaveData")
 
-function SkillSaveData:ctor(serverSkillData)
+function SkillSaveData:ctor(serverSkillData, pro, jobLv)
   self.professionSkillList = {}
   self.beingSkillList = {}
   self.equipedSkills = {}
   self.equipedAutoSkills = {}
   self.beinginfo = {}
+  self.jobLevel = jobLv
   self.left_point = serverSkillData.left_point
   self.skillShortCut = ShortCutData.new()
   local length = 0
@@ -43,6 +45,40 @@ function SkillSaveData:ctor(serverSkillData)
     length = #serverSkillData.datas
     for i = 1, length do
       self:AddProfessSkill(self:CreateProfessSkill(serverSkillData.datas[i]))
+    end
+  end
+  if ISNoviceServerType then
+    local config = Table_JobLevel[jobLv]
+    if config and config.MasterLv and 0 < config.MasterLv then
+      local serverMasterSkillData = serverSkillData.master_skill_data
+      if serverMasterSkillData then
+        self:CreateMasterSkillProfessData(pro, serverMasterSkillData.unlock_limit_skill_index)
+        if serverMasterSkillData.skill_ids then
+          for i = 1, #serverMasterSkillData.skill_ids do
+            local skillId = serverMasterSkillData.skill_ids[i]
+            local skill = self.masterSkillProfessData:AddMasterSkill(skillId, true)
+            self:LearnedSkill(skill)
+          end
+        end
+        if self.masterSkillProfessData then
+          self.masterSkillProfessData:SortSkills()
+          self.equipMasterSkillFamilyId = serverMasterSkillData.equip_skill_family_id
+          self.masterSkillProfessData:UpdateMasterSkillPoints(self.equipMasterSkillFamilyId)
+          local skill = self.masterSkillProfessData:FindSkillByFamilyId(self.equipMasterSkillFamilyId)
+          if skill then
+            local shortcuts = serverMasterSkillData.shortcuts
+            if shortcuts then
+              skill:UpdateShortcuts(shortcuts)
+            end
+            if self:_CheckPosInShortCut(skill) then
+              table.insert(self.equipedSkills, skill)
+            end
+            if 0 < skill:GetPosInShortCutGroup(shortCutAuto) then
+              table.insert(self.equipedAutoSkills, skill)
+            end
+          end
+        end
+      end
     end
   end
   if serverSkillData.curbeingid then
@@ -81,7 +117,14 @@ function SkillSaveData:GetBeingInfo(beingid)
 end
 
 function SkillSaveData:GetUnusedSkillPoint()
-  return self.left_point
+  local masterSkillLeftPoint = 0
+  if self.masterSkillProfessData then
+    local config = Table_JobLevel[self.jobLevel]
+    if config and config.MasterLv and 0 < config.MasterLv then
+      masterSkillLeftPoint = config.ShowLevel - self.masterSkillProfessData.points
+    end
+  end
+  return self.left_point + masterSkillLeftPoint
 end
 
 function SkillSaveData:GetCurrentBeing()
@@ -199,6 +242,9 @@ function SkillSaveData:GetUsedPoints()
       self.totalUsedPoint = self.totalUsedPoint + self.professionSkillList[i].points
     end
   end
+  if self.masterSkillProfessData then
+    self.totalUsedPoint = self.totalUsedPoint + self.masterSkillProfessData.points
+  end
   return self.totalUsedPoint
 end
 
@@ -256,4 +302,41 @@ function SkillSaveData:GetLearnItemCost()
     end
   end
   return itemCost
+end
+
+function SkillSaveData:CreateMasterSkillProfessData(profession, unlockSkillIndex)
+  local config = Table_Class[profession]
+  if config then
+    if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
+      self.masterSkillProfessData = MasterSkillProfessData.new(profession, 0, true)
+      for i = 1, #config.MasterSkills do
+        local skillIds = config.MasterSkills[i]
+        for j = 1, #skillIds do
+          self.masterSkillProfessData:AddMasterSkill(skillIds[j], nil, i)
+        end
+      end
+    end
+    if unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
+      if not self.masterSkillProfessData then
+        self.masterSkillProfessData = MasterSkillProfessData.new(myProfess, 0, true)
+      end
+      self.masterSkillProfessData:SetUnlockLimitSkillIndex(unlockSkillIndex)
+      for i = 1, #unlockSkillIndex do
+        local skillIds = config.LimitMasterSkills[unlockSkillIndex[i]]
+        if skillIds then
+          for j = 1, #skillIds do
+            self.masterSkillProfessData:AddMasterSkill(skillIds[j], nil, unlockSkillIndex[i])
+          end
+        end
+      end
+    end
+  end
+end
+
+function SkillSaveData:GetMasterSkillProfessData()
+  return self.masterSkillProfessData
+end
+
+function SkillSaveData:GetEquipMasterSkillFamilyId()
+  return self.equipMasterSkillFamilyId
 end

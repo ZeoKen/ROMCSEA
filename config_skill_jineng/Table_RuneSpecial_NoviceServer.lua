@@ -512,10 +512,10 @@ Table_RuneSpecial_t = {
       2
     },
     {1, 100},
+    {25},
     {5, 25},
     {25, 5},
     {15, 5},
-    {25},
     {5, 40},
     {1, 5},
     {5, 20},
@@ -996,7 +996,7 @@ Table_RuneSpecial = {
   },
   [14080] = {
     id = 14080,
-    RuneName = "龙之庇护-火免",
+    RuneName = "龙之庇护-减免",
     SkillID = Table_RuneSpecial_t.SkillID[204],
     Runetip = 1408,
     SkillTipParm = Table_RuneSpecial_t.SkillTipParm[7]
@@ -1246,7 +1246,7 @@ Table_RuneSpecial = {
     RuneName = "元素扩散",
     SkillID = Table_RuneSpecial_t.SkillID[246],
     Runetip = 2029,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[34]
   },
   [22090] = {
     id = 22090,
@@ -1536,7 +1536,7 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[120],
     Group = 48,
     Runetip = 3017,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [31025] = {
     id = 31025,
@@ -1579,14 +1579,14 @@ Table_RuneSpecial = {
     RuneName = "后退回避Ⅰ",
     SkillID = Table_RuneSpecial_t.SkillID[103],
     Runetip = 3009,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[34]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[35]
   },
   [32004] = {
     id = 32004,
     RuneName = "后退回避Ⅱ",
     SkillID = Table_RuneSpecial_t.SkillID[103],
     Runetip = 3010,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[35]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
   },
   [32005] = {
     id = 32005,
@@ -1671,7 +1671,7 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[106],
     Group = 55,
     Runetip = 3017,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [32026] = {
     id = 32026,
@@ -1695,7 +1695,7 @@ Table_RuneSpecial = {
     SkillID = Table_RuneSpecial_t.SkillID[116],
     Group = 57,
     Runetip = 3019,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [32032] = {
     id = 32032,
@@ -1816,7 +1816,7 @@ Table_RuneSpecial = {
     RuneName = "武器格挡-反击斩",
     SkillID = Table_RuneSpecial_t.SkillID[93],
     Runetip = 3403,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[23]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [34040] = {
     id = 34040,
@@ -4421,7 +4421,7 @@ Table_RuneSpecial = {
     RuneName = "普通攻击-SP回复",
     SkillID = Table_RuneSpecial_t.SkillID[144],
     Runetip = 12008,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [120090] = {
     id = 120090,
@@ -4558,7 +4558,7 @@ Table_RuneSpecial = {
     RuneName = "弹指神通-刷新",
     SkillID = Table_RuneSpecial_t.SkillID[178],
     Runetip = 12027,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[36]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
   },
   [123010] = {
     id = 123010,
@@ -6901,7 +6901,7 @@ Table_RuneSpecial = {
     RuneName = "元素扩散",
     SkillID = Table_RuneSpecial_t.SkillID[99],
     Runetip = 22312,
-    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[33]
+    SkillTipParm = Table_RuneSpecial_t.SkillTipParm[34]
   },
   [223013] = {
     id = 223013,

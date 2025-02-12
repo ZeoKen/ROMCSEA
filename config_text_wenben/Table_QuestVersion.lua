@@ -187,6 +187,58 @@ Table_QuestVersion = {
       82,
       144
     }
+  },
+  [10] = {
+    id = 10,
+    version = "5.0",
+    name = "##123664",
+    icon = "taskmanual_btn_SZGD",
+    PuzzleUnder = "taskmanual_bg_jigsaw",
+    VersionStory = "##173301",
+    StoryName = "##1290939",
+    VersionPic = "Puzzle_6",
+    FirstMainQuest = 204220001,
+    sortid = 11,
+    KeyReward = {
+      male = {
+        {51241, 1}
+      },
+      female = {
+        {51251, 1}
+      }
+    },
+    VersionBG = "Missiontracking_bottom_heise",
+    MapID = {
+      70,
+      71,
+      72,
+      73,
+      74
+    }
+  },
+  [11] = {
+    id = 11,
+    version = "6.0",
+    name = "##105365",
+    icon = "taskmanual_btn_07",
+    PuzzleUnder = "taskmanual_bg_jigsaw",
+    VersionStory = "##173278",
+    StoryName = "##173271",
+    VersionPic = "Puzzle_9",
+    FirstMainQuest = 204950001,
+    sortid = 8,
+    KeyReward = {
+      {25139, 1}
+    },
+    VersionBG = "Missiontracking_bottom_guangying",
+    MapID = {
+      76,
+      77,
+      78,
+      79,
+      80,
+      81
+    }
   }
 }
 Table_QuestVersion_fields = {

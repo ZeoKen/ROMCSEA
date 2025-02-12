@@ -322,7 +322,7 @@ function NMyselfPlayer:Client_UseSkill(skillID, targetCreature, targetPosition, 
     phaseData = nil
     return true
   end
-  if skillInfo:GetSkillType() == SkillType.Ensemble and self:Logic_CanUseEnsembleSkill(skillInfo) == false then
+  if (skillInfo:GetSkillType() == SkillType.Ensemble or skillInfo:GetSkillType() == SkillType.EnsembleDouble) and self:Logic_CanUseEnsembleSkill(skillInfo) == false then
     return false
   end
   if SkillTargetType.Point == skillInfo:GetTargetType(self) and targetPosition ~= nil and not ignoreCast then

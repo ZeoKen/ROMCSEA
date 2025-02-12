@@ -3,16 +3,19 @@ GuildFindView = class("GuildFindView", ContainerView)
 GuildFindView.ViewType = UIViewType.NormalLayer
 
 function GuildFindView:Init()
+  self.isGuildDate = self.viewdata.viewdata.isGuildDate
   local findBord = self:FindGO("FindBord")
   if not self.guildFindPage then
     self.guildFindPage = self:AddSubView("GuildFindPage", GuildFindPage, findBord)
   end
-end
-
-function GuildFindView:OnEnter()
-  GuildFindView.super.OnEnter(self)
+  self:AddListenEvt(GuildDateBattleEvent.CloseGuildFindView, self.CloseSelf)
 end
 
 function GuildFindView:OnExit()
   GuildFindView.super.OnExit(self)
+  if self.isGuildDate then
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.GuildDateBattleRecordView
+    })
+  end
 end

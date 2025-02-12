@@ -279,6 +279,8 @@ function ItemTipComCell:UpdateShowFpButton()
       self.showfpButton:SetActive(cfgShowShield ~= nil and TableUtility.ArrayFindIndex(cfgShowShield, MyselfProxy.Instance:GetMyProfessionTypeBranch()) > 0)
     elseif GameConfig.BattlePass.EquipPreview and GameConfig.BattlePass.EquipPreview[data.staticData.id] then
       self.showfpButton:SetActive(true)
+    elseif data:GetComposeFashionTarget() ~= nil then
+      self.showfpButton:SetActive(true)
     else
       self.showfpButton:SetActive(false)
     end

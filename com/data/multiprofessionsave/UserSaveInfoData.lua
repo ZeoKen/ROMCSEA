@@ -28,7 +28,7 @@ function UserSaveInfoData:ctor(data)
     end
   end
   self.astrolabes = AstrolabeSaveData.new(data.astrolabe_data)
-  self.skills = SkillSaveData.new(data.skill_data)
+  self.skills = SkillSaveData.new(data.skill_data, data.profession, data.joblv)
   self.gemDatas = {}
   local serverGems = data.gem_data
   local serverGem, itemData
@@ -270,4 +270,12 @@ end
 
 function UserSaveInfoData:GetExtractData()
   return self.extracts
+end
+
+function UserSaveInfoData:GetMasterSkillProfessData()
+  return self.skills:GetMasterSkillProfessData()
+end
+
+function UserSaveInfoData:GetEquipMasterSkillFamilyId()
+  return self.skills:GetEquipMasterSkillFamilyId()
 end

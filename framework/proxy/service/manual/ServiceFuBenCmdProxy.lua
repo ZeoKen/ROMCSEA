@@ -82,7 +82,9 @@ end
 function ServiceFuBenCmdProxy:RecvSyncPvePassInfoFubenCmd(data)
   PveEntranceProxy.Instance:RecvSyncPvePassInfoFubenCmd(data.passinfos, data.battletime, data.lastinfo, data.affixids, data.quick_boss, data.endlessrewardlayer, data.all_crack_non_first)
   BattleTimeDataProxy.Instance:HandleRecvSyncPvePassInfoFubenCmd(data)
+  AstralProxy.Instance:RecvSyncAstralInfo(data.astral_season, data.astral_gotten_reward, data.astral_pass_num)
   self:Notify(ServiceEvent.FuBenCmdSyncPvePassInfoFubenCmd, data)
+  EventManager.Me():PassEvent(ServiceEvent.FuBenCmdSyncPvePassInfoFubenCmd)
 end
 
 function ServiceFuBenCmdProxy:RecvSyncPveCardOpenStateFubenCmd(data)
@@ -578,6 +580,7 @@ end
 function ServiceFuBenCmdProxy:RecvTeamReliveCountFubenCmd(data)
   DungeonProxy.Instance:SetReviveCount(data.count, data.maxcount)
   self:Notify(ServiceEvent.FuBenCmdTeamReliveCountFubenCmd, data)
+  EventManager.Me():DispatchEvent(ServiceEvent.FuBenCmdTeamReliveCountFubenCmd, data)
 end
 
 function ServiceFuBenCmdProxy:RecvSyncUnlockRoomIDsFuBenCmd(data)
@@ -691,4 +694,9 @@ function ServiceFuBenCmdProxy:RecvSyncTripleFightingInfoFuBenCmd(data)
   redlog("RecvSyncTripleFightingInfoFuBenCmd")
   PvpProxy.Instance:UpdateTripleCampInfo(data.camps)
   self:Notify(ServiceEvent.FuBenCmdSyncTripleFightingInfoFuBenCmd, data)
+end
+
+function ServiceFuBenCmdProxy:RecvAstralInfoSyncCmd(data)
+  AstralProxy.Instance:SyncAstralRoundInfo(data)
+  self:Notify(ServiceEvent.FuBenCmdAstralInfoSyncCmd, data)
 end

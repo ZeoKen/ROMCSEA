@@ -59,10 +59,17 @@ function mFGetTransferCost(srcData, dstData)
     return nil
   end
   local retCost
-  local srcRefine = srcData.equipInfo and srcData.equipInfo.equipData.NewEquipRefine
-  local dstRefine = dstData.equipInfo and dstData.equipInfo.equipData.NewEquipRefine
-  if mFSameRefine(dstRefine, srcRefine) then
-    retCost = GameConfig.Equip.RefineTransferItemCost[srcRefine]
+  local srcIsHeadType = srcData.equipInfo and srcData.equipInfo:IsHeadEquipType()
+  local dstIsHeadType = dstData.equipInfo and dstData.equipInfo:IsHeadEquipType()
+  if srcIsHeadType and dstIsHeadType then
+    local refinelv = srcData.equipInfo.refinelv
+    retCost = GameConfig.Equip.HeadWearRefineTransferCost and GameConfig.Equip.HeadWearRefineTransferCost[refinelv]
+  else
+    local srcRefine = srcData.equipInfo and srcData.equipInfo.equipData.NewEquipRefine
+    local dstRefine = dstData.equipInfo and dstData.equipInfo.equipData.NewEquipRefine
+    if mFSameRefine(dstRefine, srcRefine) then
+      retCost = GameConfig.Equip.RefineTransferItemCost[srcRefine]
+    end
   end
   if retCost then
     return retCost
@@ -97,7 +104,7 @@ end
 local newEquipRefineBan = GameConfig.BanRefineTransfer and GameConfig.BanRefineTransfer.NewEquipRefine
 local SrcEquipPredicate = function(equip, dstEquip)
   local equipInfo = equip.equipInfo
-  if equipInfo:IsNextGen() and equipInfo.refinelv > 0 and not equipInfo.damage and (not newEquipRefineBan or TableUtility.ArrayFindIndex(newEquipRefineBan, equipInfo.equipData.NewEquipRefine) == 0) then
+  if equipInfo:CanRefineTransfer() and equipInfo.refinelv > 0 and not equipInfo.damage and (not newEquipRefineBan or TableUtility.ArrayFindIndex(newEquipRefineBan, equipInfo.equipData.NewEquipRefine) == 0) then
     if dstEquip then
       return CheckIsSameType(equip, dstEquip)
     end
@@ -123,7 +130,7 @@ local DstEquipPredicate = function(equip, compareTarget)
   if not mFGetTransferCost(compareTarget, equip) then
     return false
   end
-  return equipInfo:IsNextGen() and equipInfo.refinelv < compareTarget.equipInfo.refinelv and not equipInfo.damage and CheckIsSameType(equip, compareTarget) and equip.id ~= compareTarget.id and (not newEquipRefineBan or TableUtility.ArrayFindIndex(newEquipRefineBan, equipInfo.equipData.NewEquipRefine) == 0)
+  return equipInfo:CanRefineTransfer() and equipInfo.refinelv < compareTarget.equipInfo.refinelv and not equipInfo.damage and CheckIsSameType(equip, compareTarget) and equip.id ~= compareTarget.id and (not newEquipRefineBan or TableUtility.ArrayFindIndex(newEquipRefineBan, equipInfo.equipData.NewEquipRefine) == 0)
 end
 
 function RefineTransferView:GetDstChooseDatas()
@@ -229,7 +236,7 @@ function RefineTransferView:InitView()
   self.transferSuccessGo = self:FindGO("TransferSuccessCell")
   self.chooseContainer = self:FindGO("ChooseContainer")
   self.chooseBord = EquipChooseBord1_CombineSize.new(self.chooseContainer)
-  self.chooseBord:SetFilterPopData(GameConfig.EquipRefineFilter)
+  self.chooseBord:SetFilterPopData(GameConfig.EquipChooseFilter)
   self.chooseBord:Hide()
   self.costCtl = UIGridListCtrl.new(self:FindComponent("CostGrid", UIGrid), CostInfoCell2, "CostInfoCell2")
   self.costCtl:AddEventListener(CostInfoCell2.ClickTrace, self.ShowGetPath, self)
@@ -303,6 +310,7 @@ end
 function RefineTransferView:AddListenEvts()
   self:AddListenEvt(MyselfEvent.ZenyChange, self.UpdateCost)
   self:AddListenEvt(ServiceEvent.ItemEquipRefineTransferItemCmd, self.OnRefineTransfer)
+  self:AddListenEvt(ItemEvent.ItemUpdate, self.UpdateTransferCost)
 end
 
 function RefineTransferView:OnRefineTransfer(note)
@@ -428,13 +436,47 @@ function RefineTransferView:ClickTransfer()
   if self.clickDisabled then
     return
   end
-  if not self:CheckCost() then
+  local isValidHeadWearType = self.srcData.equipInfo:IsHeadWearTypeTransferValid()
+  if isValidHeadWearType then
+    local zenyNotEnough = false
+    local lackItems = {}
+    local costs = self:GetTransferCost()
+    for i = 1, #costs do
+      local ownCount = BagProxy.Instance:GetItemNumByStaticID(costs[i][1], BagTypes_RefineCheck)
+      if ownCount < costs[i][2] then
+        if costs[i][1] == 100 then
+          zenyNotEnough = true
+        else
+          table.insert(lackItems, {
+            id = costs[i][1],
+            count = costs[i][2] - ownCount
+          })
+        end
+      end
+    end
+    if zenyNotEnough then
+      MsgManager.ShowMsgByIDTable(1)
+      return
+    elseif 0 < #lackItems then
+      QuickBuyProxy.Instance:TryOpenView(lackItems)
+      return
+    end
+  elseif not self:CheckCost() then
     MsgManager.ShowMsgByIDTable(8)
     return
   end
-  self.clickDisabled = true
-  self:PlayUIEffect(EffectMap.UI.RefineTransfer, self.effectContainer, true)
-  TimeTickManager.Me():CreateOnceDelayTick(800, self.DoTransfer, self)
+  local callFunc = function()
+    self.clickDisabled = true
+    self:PlayUIEffect(EffectMap.UI.RefineTransfer, self.effectContainer, true)
+    TimeTickManager.Me():CreateOnceDelayTick(800, self.DoTransfer, self)
+  end
+  if isValidHeadWearType then
+    MsgManager.ConfirmMsgByID(43587, function()
+      callFunc()
+    end)
+  else
+    callFunc()
+  end
 end
 
 function RefineTransferView:UpdateTransferCost()

@@ -7,6 +7,8 @@ end
 function GvgSandTableData:SetData(data)
   self.data = data
   self.city = data.city
+  self.staticData = GvgProxy.GetStrongHoldStaticData(self.city)
+  self.isClassic = self.staticData and self.staticData.Mode == GuildCmd_pb.EGUILDDATEBATTLEMODE_CLASSIC
   self.metalhp = data.metalhp
   self.defensenum = data.defensenum
   self.attacknum = data.attacknum
@@ -24,8 +26,10 @@ function GvgSandTableData:SetData(data)
   for i = 1, #points do
     local pointData = {}
     pointData.guildData = SandTableGuildData.new(points[i].guild)
+    pointData.isClassic = self.isClassic
     pointData.has_occupied = points[i].has_occupied
     pointData.id = points[i].id
+    pointData.ratio = self.staticData and self.staticData.Point[pointData.id] and self.staticData.Point[pointData.id].calc_ratio
     if nil ~= points[i].score then
       pointData.score = points[i].score
       if points[i].score then

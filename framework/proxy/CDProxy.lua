@@ -368,8 +368,11 @@ function CDProxy:GetSkillItemDataCD(skillitemdata)
     cdData = self:GetSkillInCD(replaceID // 1000)
     if cdData then
       sortID = replaceID // 1000
-    elseif not skillitemdata:UseSelfCD() then
-      return 0, 1, 0
+    else
+      local replacedata = Table_Skill[replaceID]
+      if replacedata and replacedata.Logic_Param.useSelfCD then
+        return 0, 1, 0
+      end
     end
   end
   if not sortID then

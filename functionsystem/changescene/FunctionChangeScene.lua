@@ -292,6 +292,17 @@ function FunctionChangeScene:TickTMCR()
   end
 end
 
+function FunctionChangeScene:SendTMCR()
+  if self.lastSceneID then
+    if ServiceUserEventProxy.Instance.initThemisTm then
+      pcall(function()
+        BuglyManager.GetInstance():TMCR(tostring(self.lastSceneID), false)
+      end)
+    end
+    self.lastSceneID = nil
+  end
+end
+
 function FunctionChangeScene:StopTickTMCR()
   self.lastTMCTtime = nil
   if self.speedTimer then
@@ -299,6 +310,8 @@ function FunctionChangeScene:StopTickTMCR()
     self.speedTimer = nil
   end
 end
+
+local callonce
 
 function FunctionChangeScene:RecvServerSceneLoaded(data)
   if self.lastSceneID then
@@ -336,6 +349,13 @@ function FunctionChangeScene:RecvServerSceneLoaded(data)
   self.pauseIdleCount = 0
   if not TeamProxy.Instance:IHaveTeam() and Game.MapManager:IsPVPMode() then
     ServiceSessionTeamProxy.Instance:CallAskForTeamInfoTeamCmd()
+  end
+  if callonce == nil then
+    callonce = true
+    if ApplicationInfo.IsRunOnWindowns() then
+      local screenCountLevel = FunctionPerformanceSetting.Me():GetWindownsScreenCountLevel()
+      ServiceLoginUserCmdProxy.Instance:CallSetMaxScopeUserCmd(screenCountLevel)
+    end
   end
 end
 

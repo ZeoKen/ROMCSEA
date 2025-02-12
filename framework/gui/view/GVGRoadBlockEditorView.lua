@@ -2,8 +2,11 @@ autoImport("GVGRoadBlockEditorCell")
 GVGRoadBlockEditorView = class("GVGRoadBlockEditorView", ContainerView)
 GVGRoadBlockEditorView.ViewType = UIViewType.PopUpLayer
 local MapTexName = "GVG_map"
+local ClassicMapTexName = "GVG_map2"
+local ForbiddenMapTexName = "Novicecopy_diaoluo_bg2"
 
 function GVGRoadBlockEditorView:Init()
+  self.isClassicCity = GuildProxy.Instance:IHaveClassicCity()
   self:AddListenEvts()
   self:InitData()
   self:FindObjs()
@@ -24,26 +27,48 @@ function GVGRoadBlockEditorView:FindObjs()
     self:CloseSelf()
   end)
   TipsView.Me():TryShowGeneralHelpByHelpId(530, self:FindGO("HelpButton"))
-  self.mapTex = self:FindComponent("MapTex", UITexture)
-  self.blockIconA1 = self:FindComponent("blockA1", UIMultiSprite)
-  self.blockIconA2 = self:FindComponent("blockA2", UIMultiSprite)
-  self.blockIconB1 = self:FindComponent("blockB1", UIMultiSprite)
-  self.blockIconB2 = self:FindComponent("blockB2", UIMultiSprite)
-  self.blockIconB3 = self:FindComponent("blockB3", UIMultiSprite)
-  self.blockIconC1 = self:FindComponent("blockC1", UIMultiSprite)
-  self.blockIconC2 = self:FindComponent("blockC2", UIMultiSprite)
-  local grid = self:FindComponent("BlockGrid", UIGrid)
+  self.editableRoot = self:FindGO("EditableType")
+  self.classicRoot = self:FindGO("ClassicType")
+  self.descLab = self:FindComponent("DescLab", UILabel)
+  self:InitEditableGOs()
+  self:InitClassicGOs()
+end
+
+function GVGRoadBlockEditorView:InitEditableGOs()
+  self.mapTex = self:FindComponent("MapTex", UITexture, self.editableRoot)
+  self.blockIconA1 = self:FindComponent("blockA1", UIMultiSprite, self.editableRoot)
+  self.blockIconA2 = self:FindComponent("blockA2", UIMultiSprite, self.editableRoot)
+  self.blockIconB1 = self:FindComponent("blockB1", UIMultiSprite, self.editableRoot)
+  self.blockIconB2 = self:FindComponent("blockB2", UIMultiSprite, self.editableRoot)
+  self.blockIconB3 = self:FindComponent("blockB3", UIMultiSprite, self.editableRoot)
+  self.blockIconC1 = self:FindComponent("blockC1", UIMultiSprite, self.editableRoot)
+  self.blockIconC2 = self:FindComponent("blockC2", UIMultiSprite, self.editableRoot)
+  local grid = self:FindComponent("BlockGrid", UIGrid, self.editableRoot)
   self.blockListCtrl = UIGridListCtrl.new(grid, GVGRoadBlockEditorCell, "GVGRoadBlockEditorCell")
   self.blockListCtrl:AddEventListener(MouseEvent.MouseClick, self.HandleBlockSelect, self)
-  self.saveBtn = self:FindGO("SaveBtn")
+  self.saveBtn = self:FindGO("SaveBtn", self.editableRoot)
   self:AddClickEvent(self.saveBtn, function()
     self:OnSaveBtnClick()
   end)
-  self.saveBtnGrey = self:FindGO("SaveBtnGrey")
+  self.saveBtnGrey = self:FindGO("SaveBtnGrey", self.editableRoot)
+end
+
+function GVGRoadBlockEditorView:InitClassicGOs()
+  self.forbiddenTex = self:FindComponent("ForbiddenTexture", UITexture, self.classicRoot)
+  self.classicMapTex = self:FindComponent("ClassicMapTex", UITexture, self.classicRoot)
 end
 
 function GVGRoadBlockEditorView:InitView()
-  ServiceGuildCmdProxy.Instance:CallGvgRoadblockQueryGuildCmd()
+  if self.isClassicCity then
+    self:Show(self.classicRoot)
+    self:Hide(self.editableRoot)
+    self.descLab.text = ZhString.GVGRoadBlockEditorView_Desc_Type2
+  else
+    self:Show(self.editableRoot)
+    self:Hide(self.classicRoot)
+    self.descLab.text = ZhString.GVGRoadBlockEditorView_Desc_Type1
+    ServiceGuildCmdProxy.Instance:CallGvgRoadblockQueryGuildCmd()
+  end
 end
 
 function GVGRoadBlockEditorView:RefreshView()
@@ -64,10 +89,14 @@ end
 
 function GVGRoadBlockEditorView:OnEnter()
   PictureManager.Instance:SetRoadBlockTexture(MapTexName, self.mapTex)
+  PictureManager.Instance:SetRoadBlockTexture(ClassicMapTexName, self.classicMapTex)
+  PictureManager.Instance:SetUI(ForbiddenMapTexName, self.forbiddenTex)
 end
 
 function GVGRoadBlockEditorView:OnExit()
   PictureManager.Instance:UnloadRoadBlockTexture(MapTexName, self.mapTex)
+  PictureManager.Instance:UnloadRoadBlockTexture(ClassicMapTexName, self.classicMapTex)
+  PictureManager.Instance:UnLoadUI(ForbiddenMapTexName, self.forbiddenTex)
 end
 
 function GVGRoadBlockEditorView:HandleBlockSelect(cell)

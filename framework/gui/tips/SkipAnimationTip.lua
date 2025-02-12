@@ -32,7 +32,8 @@ SKIPTYPE = {
   ComodoMusicBox = "ComodoMusicBox",
   LotteryCard_New = "LotteryCard_New",
   AfricanPoring = "AfricanPoring",
-  MvpCardCompose = "MvpCardCompose"
+  MvpCardCompose = "MvpCardCompose",
+  Crafting = "Crafting"
 }
 
 function SkipAnimationTip:OnEnter()

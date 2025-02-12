@@ -59,7 +59,7 @@ function QualitySelect:SetEffect()
   if self.index == 2 then
     value = true
   end
-  local screenCount = self.index == 1 and GameConfig.Setting.ScreenCountLow or GameConfig.Setting.ScreenCountHigh
+  local screenCount = self.index == 1 and FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low) or FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High)
   helplog("QualitySelect:SetEffect", self.index, value, screenCount)
   setting:SetBegin()
   setting:SetOutLine(value)

@@ -44,10 +44,17 @@ function BigMapGvgInfoTip:SetTitle()
   if not self.title then
     return
   end
+  if GuildDateBattleProxy.Instance:IsOpen() then
+    self:Hide(self.title)
+    return
+  end
   local canShowPointScore = GvgProxy.Instance:CanShowPointScore()
   if canShowPointScore then
     local max = GvgProxy.Instance:GetMaxPointScore()
     local score = GvgProxy.Instance:GetCurMapPointScore()
+    if GvgProxy.IsClassicMode() and 0 < score then
+      score = max
+    end
     self.title.text = string.format(ZhString.NewGvg_PointInfo, score, max)
   elseif GvgProxy.Instance:IsNeutral() then
     self.title.text = ZhString.NewGvg_PointInfo_Neutral

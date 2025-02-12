@@ -83,7 +83,14 @@ AudioMap.UI = {
   BatteryCannonSkillUnlock = "Skill/attack14",
   TransferPreviewEffect = "Common/sfx_ui_role_lighten",
   sfx_UI_common_levelup = "Common/sfx_UI_common_levelup",
-  GlassBroken = "Common/glass_broken"
+  GlassBroken = "Common/glass_broken",
+  Music_1 = "Npc/do",
+  Music_2 = "Npc/re",
+  Music_3 = "Npc/mi",
+  Music_4 = "Npc/fa",
+  Music_5 = "Npc/so",
+  Music_6 = "Npc/la",
+  Music_7 = "Npc/xi"
 }
 AudioMap.StealthGame = {
   OperationMachine = "Common/sfx_ui_heartlock_lightswitch",

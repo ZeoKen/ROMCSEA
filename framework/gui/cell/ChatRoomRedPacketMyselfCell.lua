@@ -40,9 +40,9 @@ function ChatRoomRedPacketMyselfCell:SetData(data)
   end
   local bgWidth = self.contentSpriteBg.width
   self.contentSpriteBg.width = bgWidth + self.redPacketIcon.width
-  LuaVector3.Better_Set(pos, -self.contentSpriteBg.width + 59, -17, 0)
+  LuaVector3.Better_Set(pos, -self.contentSpriteBg.width - 27, -15, 0)
   self.bgDecorate1_Icon.transform.localPosition = pos
-  LuaVector3.Better_Set(pos, -self.contentSpriteBg.width + 59, -self.contentSpriteBg.height - 13, 0)
+  LuaVector3.Better_Set(pos, -self.contentSpriteBg.width - 25, -self.contentSpriteBg.height - 14, 0)
   self.bgDecorate2_Icon.transform.localPosition = pos
   LuaVector3.Better_Set(pos, 23, -self.contentSpriteBg.height - 10, 0)
   self.bgDecorate3_Icon.transform.localPosition = pos

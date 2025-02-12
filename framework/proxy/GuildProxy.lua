@@ -67,13 +67,16 @@ function GuildProxy:InitProxy()
 end
 
 function GuildProxy:UpdateGuildList(guildSummarys)
+  local my_guild_id = GuildProxy.Instance:GetOwnGuildID()
   self.guildList = {}
   for i = 1, #guildSummarys do
     local gd = {
       summary = guildSummarys[i]
     }
     local guildData = GuildData.new(gd)
-    table.insert(self.guildList, guildData)
+    if my_guild_id ~= guildData.id then
+      table.insert(self.guildList, guildData)
+    end
   end
 end
 
@@ -177,6 +180,7 @@ function GuildProxy:InitMyGuildData(guildData)
   self.guildId = self.myGuildData.id
   UnionLogo.Ins():SetUnionID(self.myGuildData.id)
   GvgProxy.Instance:DoQueryGvgZoneGroup(true)
+  GvgProxy.Instance:QueryCityInfo()
 end
 
 function GuildProxy:UpdateMyGuildData(data)
@@ -309,6 +313,13 @@ end
 
 function GuildProxy:IHaveGuild()
   return self.myGuildData ~= nil
+end
+
+function GuildProxy:IHaveClassicCity()
+  if not self:IHaveGuild() then
+    return false
+  end
+  return self.myGuildData:HasClassicModeCity()
 end
 
 function GuildProxy:ImGuildChairman()
@@ -1059,6 +1070,13 @@ function GuildProxy:GetMyGuildMercenaryCount()
   return self.myGuildData and self.myGuildData.curmercenary
 end
 
+function GuildProxy:IsGuildDataBattleMvp()
+  if self.myGuildData then
+    return self.myGuildData.datebattle_mvp == true
+  end
+  return false
+end
+
 function GuildProxy:IsMyGuildHaveMercenary()
   local myMercenaryNum = self:GetMyGuildMercenaryCount()
   return myMercenaryNum and 0 < myMercenaryNum
@@ -1124,14 +1142,14 @@ function GuildProxy:IsPlayerInMyGuildUnion(creatureData)
 end
 
 function GuildProxy:IsMyGuildUnion(guildId)
-  if self:DoIHaveMercenaryGuild() then
+  if not Game.MapManager:IsGVG_Date() and self:DoIHaveMercenaryGuild() then
     return self:IsMyMercenaryGuild(guildId)
   end
   return self:IsMyGuild(guildId)
 end
 
 function GuildProxy:GetMyGuildUnion()
-  if self:DoIHaveMercenaryGuild() then
+  if not Game.MapManager:IsGVG_Date() and self:DoIHaveMercenaryGuild() then
     return self.myMercenaryGuild
   end
   return self.myGuildData
@@ -1179,6 +1197,10 @@ end
 
 function GuildProxy:GetGuildID()
   return self.myMercenaryGuildId or self.guildId
+end
+
+function GuildProxy:GetOwnGuildID()
+  return self.guildId
 end
 
 function GuildProxy:GetGuildUnionID()

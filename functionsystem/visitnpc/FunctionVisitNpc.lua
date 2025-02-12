@@ -67,7 +67,7 @@ function FunctionVisitNpc.AccessGuildFlag(flagid, trans)
 end
 
 function FunctionVisitNpc:_AccessGuildFlag(flagid)
-  local staticData = Table_Guild_StrongHold[flagid]
+  local staticData = GvgProxy.GetStrongHoldStaticData(flagid)
   if not staticData then
     return
   end
@@ -1369,6 +1369,34 @@ function FunctionVisitNpc.SNpcFuncMap.firework(npcfunction, target, events)
       target
     })
     return true
+  end
+  return false
+end
+
+function FunctionVisitNpc.SNpcFuncMap.PveRaidEntrance(npcfunction, target)
+  for i = 1, #npcfunction do
+    local single = npcfunction[i]
+    if single.param and single.param.groupid then
+      local menuId = single.param.menuid
+      local datas
+      if FunctionUnLockFunc.Me():CheckCanOpen(menuId) and not AstralProxy.Instance:IsSeasonEnd() then
+        FunctionPve.QueryPvePassInfo()
+        local diffs = PveEntranceProxy.Instance:GetDifficultyData(single.param.groupid)
+        datas = {}
+        for j = 1, #diffs do
+          if diffs[j] ~= PveEntranceProxy.EmptyDiff then
+            datas[#datas + 1] = diffs[j]
+          end
+        end
+      end
+      local viewdata = {
+        viewname = "DialogView",
+        pveRaidEntrances = datas,
+        npcinfo = target
+      }
+      GameFacade.Instance:sendNotification(UIEvent.ShowUI, viewdata)
+      return true
+    end
   end
   return false
 end

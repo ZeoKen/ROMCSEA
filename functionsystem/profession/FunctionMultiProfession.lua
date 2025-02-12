@@ -72,6 +72,8 @@ function FunctionMultiProfession:Shutdown()
   self:ResetCamera()
   self.backgroundGO = nil
   self.backgroundTsf = nil
+  self.buffEffects = nil
+  self.containBuffPart = nil
 end
 
 function FunctionMultiProfession:InitCameraBG()
@@ -258,6 +260,7 @@ function FunctionMultiProfession:UpdateRoleModel(parts)
   self.assetRole:SetEulerAngleY(0)
   self.assetRole:SetEpNodesDisplay(true)
   self.assetRole:SetPosition(defaultSpawnPosition)
+  self:RefreshBuffState(parts)
 end
 
 function FunctionMultiProfession:ObserverEvent(asset_role, param)
@@ -412,4 +415,46 @@ function FunctionMultiProfession:GetEquipsUnloadCards(equips)
     end
   end
   return unloadCards
+end
+
+function FunctionMultiProfession:RefreshBuffState(parts)
+  if not self.buffEffects then
+    self.buffEffects = {}
+  end
+  if not self.containBuffPart then
+    self.containBuffPart = {}
+  end
+  for _partType, _index in pairs(Asset_Role.PartIndex) do
+    local _id = parts and parts[_index] or 0
+    if _id and self.containBuffPart[_index] and self.containBuffPart[_index] ~= _id then
+      xdlog("移除特效")
+      self.containBuffPart[_index] = nil
+      local effList = self.buffEffects[_index] or {}
+      for i = #effList, 1, -1 do
+        effList[i]:Destroy()
+        effList[i] = nil
+      end
+    end
+    if 0 < _id and (not self.containBuffPart[_index] or self.containBuffPart[_index] ~= _id) then
+      local equipData = Table_Equip[_id]
+      local fashionBuff = equipData and equipData.FashionBuff
+      if fashionBuff and 0 < #fashionBuff then
+        self.containBuffPart[_index] = _id
+        for i = 1, #fashionBuff do
+          local buffData = Table_Buffer[fashionBuff[i]]
+          local buffStateID = buffData and buffData.BuffStateID
+          if buffStateID then
+            local buffStateData = Table_BuffState[buffStateID]
+            local path = buffStateData.Effect
+            local eff = self.assetRole:PlayEffectOn(path, buffStateData.EP)
+            if not self.buffEffects[_index] then
+              self.buffEffects[_index] = {}
+            end
+            xdlog("添加特效", _index, path)
+            table.insert(self.buffEffects[_index], eff)
+          end
+        end
+      end
+    end
+  end
 end

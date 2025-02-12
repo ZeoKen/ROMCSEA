@@ -209,6 +209,11 @@ function ServiceSceneUser3Proxy:RecvAuthQueryUserCmd(data)
   self:Notify(ServiceEvent.SceneUser3AuthQueryUserCmd, data)
 end
 
+function ServiceSceneUser3Proxy:RecvBattleTimeOffUserCmd(data)
+  BattleTimeDataProxy.Instance:RecvBattleTimeSwitch(data.off, data.cd)
+  self:Notify(ServiceEvent.SceneUser3BattleTimeOffUserCmd, data)
+end
+
 function ServiceSceneUser3Proxy:RecvAuthUpdateUserCmd(data)
   AuthUserInfoProxy.Instance:UpdateAuthUserInfo(data)
   self:Notify(ServiceEvent.SceneUser3AuthUpdateUserCmd, data)
@@ -264,4 +269,14 @@ end
 
 function ServiceSceneUser3Proxy:RecvActivityExchangeGiftsRewardUserCmd(data)
   self:Notify(ServiceEvent.SceneUser3ActivityExchangeGiftsRewardUserCmd, data)
+end
+
+function ServiceSceneUser3Proxy:RecvGvgExcellectQueryUserCmd(data)
+  GvgProxy.Instance:RecvGvgExcellectQueryUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3GvgExcellectQueryUserCmd, data)
+end
+
+function ServiceSceneUser3Proxy:RecvGvgExcellectRewardUserCmd(data)
+  GvgProxy.Instance:RecvGvgExcellectRewardUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3GvgExcellectRewardUserCmd, data)
 end

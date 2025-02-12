@@ -430,11 +430,15 @@ end
 
 local Manual_UseConfirm_Branch = {JP = 1, KR = 1}
 
-function OverseaHostHelper:GachaUseComfirm(count, cb, z, ccb)
+function OverseaHostHelper:UseOverseaConfirm()
   local config = GameConfig.Lottery and GameConfig.Lottery.UseConfirm_Branch or Manual_UseConfirm_Branch
   local branch_name = BranchMgr.GetBranchName()
-  local needConfirm = config and config[branch_name]
-  if needConfirm then
+  return nil ~= config and nil ~= config[branch_name]
+end
+
+function OverseaHostHelper:GachaUseComfirm(count, cb, z, ccb)
+  local confirm = self:UseOverseaConfirm()
+  if confirm then
     local msgData = Table_Sysmsg[43233]
     if not msgData then
       redlog("未配置SysMsg id:43233。 错误分支名：", branch_name)

@@ -35,22 +35,22 @@ function ChangeHeadCell:SetData(data)
     else
       if self.type == HeadCellType.Avatar then
         staticData = Table_HeadImage[data.id]
-        iconstr = staticData.Picture
+        iconstr = staticData and staticData.Picture
         IconManager:SetFaceIcon(iconstr, self.headIcon)
         ERedSys = SceneTip_pb.EREDSYS_MONSTER_IMG
       elseif self.type == HeadCellType.Portrait then
         staticData = Table_UserPortraitFrame[data.id]
-        iconstr = Table_Item[staticData.ItemID].Icon
+        iconstr = staticData and Table_Item[staticData.ItemID].Icon
         IconManager:SetItemIcon(iconstr, self.headIcon)
         ERedSys = SceneTip_pb.EREDSYS_PORTRAIT_FRAME
       elseif self.type == HeadCellType.Frame then
         staticData = Table_UserBackground[data.id]
-        iconstr = Table_Item[staticData.ItemID].Icon
+        iconstr = staticData and Table_Item[staticData.ItemID].Icon
         IconManager:SetItemIcon(iconstr, self.headIcon)
         ERedSys = SceneTip_pb.EREDSYS_BACKGROUND_FRAME
       elseif self.type == HeadCellType.ChatFrame then
         staticData = Table_UserChatFrame[data.id]
-        iconstr = Table_Item[staticData.ItemID].Icon
+        iconstr = staticData and Table_Item[staticData.ItemID].Icon
         IconManager:SetItemIcon(iconstr, self.headIcon)
       end
       if ERedSys then

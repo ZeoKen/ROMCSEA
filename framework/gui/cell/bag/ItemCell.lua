@@ -203,6 +203,20 @@ function ItemCell:SetIcon(data)
     if not setFaceSuc then
       setFaceSuc = IconManager:SetFaceIcon("boli", self.icon)
     end
+  elseif itemType == 41 then
+    local useItem = Table_UseItem[data.staticData.id]
+    local isPortrait = useItem and useItem.UseEffect and useItem.UseEffect.type == "add_portrait" or false
+    if isPortrait then
+      setFaceSuc = IconManager:SetFaceIcon(data.staticData.Icon, self.icon)
+      if not setFaceSuc then
+        setFaceSuc = IconManager:SetFaceIcon("boli", self.icon)
+      end
+    else
+      setSuc = IconManager:SetItemIcon(data.staticData.Icon, self.icon)
+      if not setSuc then
+        setSuc = IconManager:SetItemIcon("item_45001", self.icon)
+      end
+    end
   else
     if data.petEggInfo and data.petEggInfo:PetMountCanEquip() then
       setSuc = IconManager:SetPetMountIcon(data, self.icon)

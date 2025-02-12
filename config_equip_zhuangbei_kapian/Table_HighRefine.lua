@@ -223,7 +223,8 @@ Table_HighRefine_t = {
           705,
           715,
           725,
-          745
+          745,
+          775
         },
         Refine = 6
       },
@@ -261,7 +262,8 @@ Table_HighRefine_t = {
           675,
           695,
           735,
-          755
+          755,
+          765
         },
         MRefine = 6
       }
@@ -340,7 +342,8 @@ Table_HighRefine_t = {
           705,
           715,
           725,
-          745
+          745,
+          775
         },
         Refine = 2
       },
@@ -378,7 +381,8 @@ Table_HighRefine_t = {
           675,
           695,
           735,
-          755
+          755,
+          765
         },
         MRefine = 2
       }
@@ -457,7 +461,8 @@ Table_HighRefine_t = {
           705,
           715,
           725,
-          745
+          745,
+          775
         },
         Refine = 4
       },
@@ -495,7 +500,8 @@ Table_HighRefine_t = {
           675,
           695,
           735,
-          755
+          755,
+          765
         },
         MRefine = 4
       }
@@ -574,7 +580,8 @@ Table_HighRefine_t = {
           705,
           715,
           725,
-          745
+          745,
+          775
         },
         Refine = 8
       },
@@ -612,7 +619,8 @@ Table_HighRefine_t = {
           675,
           695,
           735,
-          755
+          755,
+          765
         },
         MRefine = 8
       }
@@ -691,7 +699,8 @@ Table_HighRefine_t = {
           705,
           715,
           725,
-          745
+          745,
+          775
         },
         Refine = 10
       },
@@ -729,7 +738,8 @@ Table_HighRefine_t = {
           675,
           695,
           735,
-          755
+          755,
+          765
         },
         MRefine = 10
       }

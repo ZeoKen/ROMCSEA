@@ -147,6 +147,15 @@ function ServiceSceneUser3AutoProxy:onRegister()
   self:Listen(82, 46, function(data)
     self:RecvActivityExchangeGiftsRewardUserCmd(data)
   end)
+  self:Listen(82, 47, function(data)
+    self:RecvGvgExcellectQueryUserCmd(data)
+  end)
+  self:Listen(82, 48, function(data)
+    self:RecvGvgExcellectRewardUserCmd(data)
+  end)
+  self:Listen(82, 52, function(data)
+    self:RecvBattleTimeOffUserCmd(data)
+  end)
 end
 
 function ServiceSceneUser3AutoProxy:CallFirstDepositInfo(end_time, got_gear, accumlated_deposit, first_deposit_rewarded, version)
@@ -2549,6 +2558,69 @@ function ServiceSceneUser3AutoProxy:CallActivityExchangeGiftsRewardUserCmd(activ
   end
 end
 
+function ServiceSceneUser3AutoProxy:CallGvgExcellectQueryUserCmd(rewardid, leisure)
+  if not NetConfig.PBC then
+    local msg = SceneUser3_pb.GvgExcellectQueryUserCmd()
+    if rewardid ~= nil then
+      msg.rewardid = rewardid
+    end
+    if leisure ~= nil then
+      msg.leisure = leisure
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.GvgExcellectQueryUserCmd.id
+    local msgParam = {}
+    if rewardid ~= nil then
+      msgParam.rewardid = rewardid
+    end
+    if leisure ~= nil then
+      msgParam.leisure = leisure
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSceneUser3AutoProxy:CallGvgExcellectRewardUserCmd(rewardid)
+  if not NetConfig.PBC then
+    local msg = SceneUser3_pb.GvgExcellectRewardUserCmd()
+    if rewardid ~= nil then
+      msg.rewardid = rewardid
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.GvgExcellectRewardUserCmd.id
+    local msgParam = {}
+    if rewardid ~= nil then
+      msgParam.rewardid = rewardid
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSceneUser3AutoProxy:CallBattleTimeOffUserCmd(off, cd)
+  if not NetConfig.PBC then
+    local msg = SceneUser3_pb.BattleTimeOffUserCmd()
+    if off ~= nil then
+      msg.off = off
+    end
+    if cd ~= nil then
+      msg.cd = cd
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.BattleTimeOffUserCmd.id
+    local msgParam = {}
+    if off ~= nil then
+      msgParam.off = off
+    end
+    if cd ~= nil then
+      msgParam.cd = cd
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceSceneUser3AutoProxy:RecvFirstDepositInfo(data)
   self:Notify(ServiceEvent.SceneUser3FirstDepositInfo, data)
 end
@@ -2725,6 +2797,18 @@ function ServiceSceneUser3AutoProxy:RecvActivityExchangeGiftsRewardUserCmd(data)
   self:Notify(ServiceEvent.SceneUser3ActivityExchangeGiftsRewardUserCmd, data)
 end
 
+function ServiceSceneUser3AutoProxy:RecvGvgExcellectQueryUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3GvgExcellectQueryUserCmd, data)
+end
+
+function ServiceSceneUser3AutoProxy:RecvGvgExcellectRewardUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3GvgExcellectRewardUserCmd, data)
+end
+
+function ServiceSceneUser3AutoProxy:RecvBattleTimeOffUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3BattleTimeOffUserCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.SceneUser3FirstDepositInfo = "ServiceEvent_SceneUser3FirstDepositInfo"
 ServiceEvent.SceneUser3FirstDepositReward = "ServiceEvent_SceneUser3FirstDepositReward"
@@ -2770,3 +2854,6 @@ ServiceEvent.SceneUser3YearMemoryProcessUserCmd = "ServiceEvent_SceneUser3YearMe
 ServiceEvent.SceneUser3SetYearMemoryTitleUserCmd = "ServiceEvent_SceneUser3SetYearMemoryTitleUserCmd"
 ServiceEvent.SceneUser3ActivityExchangeGiftsQueryUserCmd = "ServiceEvent_SceneUser3ActivityExchangeGiftsQueryUserCmd"
 ServiceEvent.SceneUser3ActivityExchangeGiftsRewardUserCmd = "ServiceEvent_SceneUser3ActivityExchangeGiftsRewardUserCmd"
+ServiceEvent.SceneUser3GvgExcellectQueryUserCmd = "ServiceEvent_SceneUser3GvgExcellectQueryUserCmd"
+ServiceEvent.SceneUser3GvgExcellectRewardUserCmd = "ServiceEvent_SceneUser3GvgExcellectRewardUserCmd"
+ServiceEvent.SceneUser3BattleTimeOffUserCmd = "ServiceEvent_SceneUser3BattleTimeOffUserCmd"

@@ -756,6 +756,42 @@ Table_ShortcutPower_t = {
       }
     },
     {
+      mapid = 31,
+      npcid = 850989,
+      uniqueid = 850989
+    },
+    {
+      mapid = 31,
+      npcid = 850990,
+      uniqueid = 850990
+    },
+    {
+      mapid = 31,
+      npcid = 850991,
+      uniqueid = 850991
+    },
+    {
+      mapid = 31,
+      npcid = 850992,
+      uniqueid = 850992
+    },
+    {
+      mapid = 1,
+      npcid = 850984,
+      uniqueid = 199953
+    },
+    {
+      mapid = 10001,
+      npcid = 7691,
+      uniqueid = 7691
+    },
+    {
+      panelid = 4110,
+      param = {
+        groupid = {40}
+      }
+    },
+    {
       mapid = 7,
       npcid = 2163,
       uniqueid = 2163
@@ -3536,6 +3572,14 @@ Table_ShortcutPower_t = {
       uniqueid = 842480
     },
     {
+      mapid = 48,
+      pos = {
+        -26.77,
+        3.22,
+        50.83
+      }
+    },
+    {
       mapid = 1001,
       npcid = 1101,
       uniqueid = 1101
@@ -3574,6 +3618,213 @@ Table_ShortcutPower_t = {
       mapid = 90,
       npcid = 806675,
       uniqueid = 806675
+    },
+    {
+      mapid = 10001,
+      npcid = 7600,
+      uniqueid = 99
+    },
+    {npcfuncid = 20640, param = 1},
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 43,
+        subtab = 1,
+        tab = 43002
+      }
+    },
+    {
+      mapid = 1,
+      pos = {
+        -49.9,
+        -0.68,
+        -34.06
+      }
+    },
+    {
+      mapid = 1,
+      pos = {
+        -8.55,
+        0.11,
+        20.15
+      }
+    },
+    {
+      mapid = 43,
+      pos = {
+        -4.21,
+        0.01,
+        -1.14
+      }
+    },
+    {
+      mapid = 1,
+      pos = {
+        -27.77,
+        7.32,
+        65.19
+      }
+    },
+    {npcfuncid = 20664, param = 1},
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 43,
+        subtab = 1,
+        tab = 43003
+      }
+    },
+    {npcfuncid = 10000008, param = 1},
+    {
+      mapid = 1,
+      pos = {
+        -9.74,
+        0.01,
+        -0.36
+      }
+    },
+    {
+      mapid = 48,
+      pos = {
+        -2.92,
+        0.67,
+        -38.95
+      }
+    },
+    {
+      mapid = 49,
+      pos = {
+        112.63,
+        18.51,
+        -61.48
+      }
+    },
+    {
+      mapid = 48,
+      pos = {
+        -7.55,
+        3.22,
+        53.99
+      }
+    },
+    {
+      mapid = 48,
+      pos = {
+        -10.09,
+        3.22,
+        42.08
+      }
+    },
+    {
+      mapid = 49,
+      pos = {
+        97.66,
+        18.51,
+        -40.39
+      }
+    },
+    {
+      mapid = 48,
+      pos = {
+        44.66,
+        3.58,
+        26.84
+      }
+    },
+    {
+      mapid = 48,
+      pos = {
+        -6.09,
+        3.25,
+        6.1
+      }
+    },
+    {
+      mapid = 48,
+      pos = {
+        -5.18,
+        0.28,
+        -38.76
+      }
+    },
+    {npcfuncid = 20631, param = 1},
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 39,
+        subtab = 1,
+        tab = 39002
+      }
+    },
+    {npcfuncid = 850, param = 1},
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 10001,
+        subtab = 1,
+        tab = 1000106
+      }
+    },
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 10001,
+        subtab = 1,
+        tab = 1000105
+      }
+    },
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 10001,
+        subtab = 1,
+        tab = 1000104
+      }
+    },
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 10001,
+        subtab = 1,
+        tab = 1000103
+      }
+    },
+    {panelid = 1628},
+    {
+      panelid = 2847,
+      viewdata = {id = 104314}
+    },
+    {
+      mapid = 1,
+      pos = {
+        60.81,
+        0.31,
+        32.26
+      }
+    },
+    {
+      mapid = 1,
+      pos = {
+        53.15,
+        0.31,
+        30.73
+      }
+    },
+    {
+      mapid = 1,
+      pos = {
+        16.14,
+        0.11,
+        -27.9
+      }
+    },
+    {
+      panelid = 2848,
+      viewdata = {
+        group = 38,
+        subtab = 2,
+        tab = 38002
+      }
     },
     {
       mapid = 1,
@@ -3705,40 +3956,6 @@ Table_ShortcutPower_t = {
       }
     },
     {npcfuncid = 20592, param = 1},
-    {npcfuncid = 850, param = 1},
-    {
-      panelid = 2848,
-      viewdata = {
-        group = 10001,
-        subtab = 1,
-        tab = 1000106
-      }
-    },
-    {
-      panelid = 2848,
-      viewdata = {
-        group = 10001,
-        subtab = 1,
-        tab = 1000105
-      }
-    },
-    {
-      panelid = 2848,
-      viewdata = {
-        group = 10001,
-        subtab = 1,
-        tab = 1000104
-      }
-    },
-    {
-      panelid = 2848,
-      viewdata = {
-        group = 10001,
-        subtab = 1,
-        tab = 1000103
-      }
-    },
-    {panelid = 1628},
     {
       panelid = 2091,
       viewdata = {id = 104001}
@@ -3779,14 +3996,6 @@ Table_ShortcutPower_t = {
     {
       mapid = 48,
       pos = {
-        -2.92,
-        0.67,
-        -38.95
-      }
-    },
-    {
-      mapid = 48,
-      pos = {
         3.79,
         0.02,
         -81.7
@@ -3798,30 +4007,6 @@ Table_ShortcutPower_t = {
         -33.7,
         3.22,
         28.45
-      }
-    },
-    {
-      mapid = 48,
-      pos = {
-        44.66,
-        3.58,
-        26.84
-      }
-    },
-    {
-      mapid = 48,
-      pos = {
-        -6.09,
-        3.25,
-        6.1
-      }
-    },
-    {
-      mapid = 48,
-      pos = {
-        -5.18,
-        0.28,
-        -38.76
       }
     },
     {panelid = 5601},
@@ -6968,182 +7153,182 @@ Table_ShortcutPower = {
   [201] = {
     id = 201,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[153]
+    Event = Table_ShortcutPower_t.Event[160]
   },
   [202] = {
     id = 202,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[154]
+    Event = Table_ShortcutPower_t.Event[161]
   },
   [203] = {
     id = 203,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[155]
+    Event = Table_ShortcutPower_t.Event[162]
   },
   [204] = {
     id = 204,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[156]
+    Event = Table_ShortcutPower_t.Event[163]
   },
   [205] = {
     id = 205,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[157]
+    Event = Table_ShortcutPower_t.Event[164]
   },
   [206] = {
     id = 206,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[158]
+    Event = Table_ShortcutPower_t.Event[165]
   },
   [207] = {
     id = 207,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[159]
+    Event = Table_ShortcutPower_t.Event[166]
   },
   [208] = {
     id = 208,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[160]
+    Event = Table_ShortcutPower_t.Event[167]
   },
   [209] = {
     id = 209,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[161]
+    Event = Table_ShortcutPower_t.Event[168]
   },
   [210] = {
     id = 210,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[162]
+    Event = Table_ShortcutPower_t.Event[169]
   },
   [211] = {
     id = 211,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[163]
+    Event = Table_ShortcutPower_t.Event[170]
   },
   [212] = {
     id = 212,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[164]
+    Event = Table_ShortcutPower_t.Event[171]
   },
   [213] = {
     id = 213,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[165]
+    Event = Table_ShortcutPower_t.Event[172]
   },
   [214] = {
     id = 214,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[166]
+    Event = Table_ShortcutPower_t.Event[173]
   },
   [215] = {
     id = 215,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[167]
+    Event = Table_ShortcutPower_t.Event[174]
   },
   [216] = {
     id = 216,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[168]
+    Event = Table_ShortcutPower_t.Event[175]
   },
   [217] = {
     id = 217,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[169]
+    Event = Table_ShortcutPower_t.Event[176]
   },
   [219] = {
     id = 219,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[170]
+    Event = Table_ShortcutPower_t.Event[177]
   },
   [220] = {
     id = 220,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[171]
+    Event = Table_ShortcutPower_t.Event[178]
   },
   [221] = {
     id = 221,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[172]
+    Event = Table_ShortcutPower_t.Event[179]
   },
   [222] = {
     id = 222,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[173]
+    Event = Table_ShortcutPower_t.Event[180]
   },
   [223] = {
     id = 223,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[174]
+    Event = Table_ShortcutPower_t.Event[181]
   },
   [224] = {
     id = 224,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[175]
+    Event = Table_ShortcutPower_t.Event[182]
   },
   [225] = {
     id = 225,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[176]
+    Event = Table_ShortcutPower_t.Event[183]
   },
   [301] = {
     id = 301,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[182]
+    Event = Table_ShortcutPower_t.Event[189]
   },
   [302] = {
     id = 302,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[183]
+    Event = Table_ShortcutPower_t.Event[190]
   },
   [303] = {
     id = 303,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[184]
+    Event = Table_ShortcutPower_t.Event[191]
   },
   [304] = {
     id = 304,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[185]
+    Event = Table_ShortcutPower_t.Event[192]
   },
   [305] = {
     id = 305,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[186]
+    Event = Table_ShortcutPower_t.Event[193]
   },
   [306] = {
     id = 306,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[187]
+    Event = Table_ShortcutPower_t.Event[194]
   },
   [401] = {
     id = 401,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[265]
+    Event = Table_ShortcutPower_t.Event[272]
   },
   [402] = {
     id = 402,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[266]
+    Event = Table_ShortcutPower_t.Event[273]
   },
   [403] = {
     id = 403,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[267]
+    Event = Table_ShortcutPower_t.Event[274]
   },
   [404] = {
     id = 404,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[268]
+    Event = Table_ShortcutPower_t.Event[275]
   },
   [405] = {
     id = 405,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[269]
+    Event = Table_ShortcutPower_t.Event[276]
   },
   [500] = {
     id = 500,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[349]
+    Event = Table_ShortcutPower_t.Event[356]
   },
   [501] = {
     id = 501,
@@ -7153,377 +7338,377 @@ Table_ShortcutPower = {
   [502] = {
     id = 502,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[350]
+    Event = Table_ShortcutPower_t.Event[357]
   },
   [600] = {
     id = 600,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[433]
+    Event = Table_ShortcutPower_t.Event[440]
   },
   [601] = {
     id = 601,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[434]
+    Event = Table_ShortcutPower_t.Event[441]
   },
   [602] = {
     id = 602,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[435]
+    Event = Table_ShortcutPower_t.Event[442]
   },
   [603] = {
     id = 603,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[436]
+    Event = Table_ShortcutPower_t.Event[443]
   },
   [699] = {
     id = 699,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[525]
+    Event = Table_ShortcutPower_t.Event[532]
   },
   [700] = {
     id = 700,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[526]
+    Event = Table_ShortcutPower_t.Event[533]
   },
   [701] = {
     id = 701,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[527]
+    Event = Table_ShortcutPower_t.Event[534]
   },
   [702] = {
     id = 702,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[528]
+    Event = Table_ShortcutPower_t.Event[535]
   },
   [703] = {
     id = 703,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[529]
+    Event = Table_ShortcutPower_t.Event[536]
   },
   [704] = {
     id = 704,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[530]
+    Event = Table_ShortcutPower_t.Event[537]
   },
   [705] = {
     id = 705,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[531]
+    Event = Table_ShortcutPower_t.Event[538]
   },
   [706] = {
     id = 706,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[532]
+    Event = Table_ShortcutPower_t.Event[539]
   },
   [707] = {
     id = 707,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[533]
+    Event = Table_ShortcutPower_t.Event[540]
   },
   [708] = {
     id = 708,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[534]
+    Event = Table_ShortcutPower_t.Event[541]
   },
   [709] = {
     id = 709,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[535]
+    Event = Table_ShortcutPower_t.Event[542]
   },
   [710] = {
     id = 710,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[536]
+    Event = Table_ShortcutPower_t.Event[543]
   },
   [711] = {
     id = 711,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[537]
+    Event = Table_ShortcutPower_t.Event[544]
   },
   [712] = {
     id = 712,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[538]
+    Event = Table_ShortcutPower_t.Event[545]
   },
   [713] = {
     id = 713,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[539]
+    Event = Table_ShortcutPower_t.Event[546]
   },
   [714] = {
     id = 714,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[540]
+    Event = Table_ShortcutPower_t.Event[547]
   },
   [715] = {
     id = 715,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[541]
+    Event = Table_ShortcutPower_t.Event[548]
   },
   [716] = {
     id = 716,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[542]
+    Event = Table_ShortcutPower_t.Event[549]
   },
   [717] = {
     id = 717,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[543]
+    Event = Table_ShortcutPower_t.Event[550]
   },
   [718] = {
     id = 718,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[544]
+    Event = Table_ShortcutPower_t.Event[551]
   },
   [719] = {
     id = 719,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[545]
+    Event = Table_ShortcutPower_t.Event[552]
   },
   [720] = {
     id = 720,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[546]
+    Event = Table_ShortcutPower_t.Event[553]
   },
   [721] = {
     id = 721,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[547]
+    Event = Table_ShortcutPower_t.Event[554]
   },
   [722] = {
     id = 722,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[548]
+    Event = Table_ShortcutPower_t.Event[555]
   },
   [723] = {
     id = 723,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[549]
+    Event = Table_ShortcutPower_t.Event[556]
   },
   [724] = {
     id = 724,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[550]
+    Event = Table_ShortcutPower_t.Event[557]
   },
   [725] = {
     id = 725,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[551]
+    Event = Table_ShortcutPower_t.Event[558]
   },
   [726] = {
     id = 726,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[552]
+    Event = Table_ShortcutPower_t.Event[559]
   },
   [727] = {
     id = 727,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[553]
+    Event = Table_ShortcutPower_t.Event[560]
   },
   [728] = {
     id = 728,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[554]
+    Event = Table_ShortcutPower_t.Event[561]
   },
   [729] = {
     id = 729,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[555]
+    Event = Table_ShortcutPower_t.Event[562]
   },
   [730] = {
     id = 730,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[556]
+    Event = Table_ShortcutPower_t.Event[563]
   },
   [731] = {
     id = 731,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[557]
+    Event = Table_ShortcutPower_t.Event[564]
   },
   [732] = {
     id = 732,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[558]
+    Event = Table_ShortcutPower_t.Event[565]
   },
   [733] = {
     id = 733,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[559]
+    Event = Table_ShortcutPower_t.Event[566]
   },
   [801] = {
     id = 801,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[625]
+    Event = Table_ShortcutPower_t.Event[632]
   },
   [802] = {
     id = 802,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[626]
+    Event = Table_ShortcutPower_t.Event[633]
   },
   [803] = {
     id = 803,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[627]
+    Event = Table_ShortcutPower_t.Event[634]
   },
   [804] = {
     id = 804,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[628]
+    Event = Table_ShortcutPower_t.Event[635]
   },
   [805] = {
     id = 805,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[629]
+    Event = Table_ShortcutPower_t.Event[636]
   },
   [806] = {
     id = 806,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[630]
+    Event = Table_ShortcutPower_t.Event[637]
   },
   [807] = {
     id = 807,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[631]
+    Event = Table_ShortcutPower_t.Event[638]
   },
   [808] = {
     id = 808,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[632]
+    Event = Table_ShortcutPower_t.Event[639]
   },
   [809] = {
     id = 809,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[633]
+    Event = Table_ShortcutPower_t.Event[640]
   },
   [810] = {
     id = 810,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[634]
+    Event = Table_ShortcutPower_t.Event[641]
   },
   [901] = {
     id = 901,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[715]
+    Event = Table_ShortcutPower_t.Event[722]
   },
   [902] = {
     id = 902,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[716]
+    Event = Table_ShortcutPower_t.Event[723]
   },
   [903] = {
     id = 903,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[717]
+    Event = Table_ShortcutPower_t.Event[724]
   },
   [904] = {
     id = 904,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[718]
+    Event = Table_ShortcutPower_t.Event[725]
   },
   [905] = {
     id = 905,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[719]
+    Event = Table_ShortcutPower_t.Event[726]
   },
   [906] = {
     id = 906,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[720]
+    Event = Table_ShortcutPower_t.Event[727]
   },
   [907] = {
     id = 907,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[721]
+    Event = Table_ShortcutPower_t.Event[728]
   },
   [908] = {
     id = 908,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[722]
+    Event = Table_ShortcutPower_t.Event[729]
   },
   [909] = {
     id = 909,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[723]
+    Event = Table_ShortcutPower_t.Event[730]
   },
   [910] = {
     id = 910,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[724]
+    Event = Table_ShortcutPower_t.Event[731]
   },
   [911] = {
     id = 911,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[725]
+    Event = Table_ShortcutPower_t.Event[732]
   },
   [912] = {
     id = 912,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[726]
+    Event = Table_ShortcutPower_t.Event[733]
   },
   [913] = {
     id = 913,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[727]
+    Event = Table_ShortcutPower_t.Event[734]
   },
   [921] = {
     id = 921,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[734]
+    Event = Table_ShortcutPower_t.Event[741]
   },
   [922] = {
     id = 922,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[735]
+    Event = Table_ShortcutPower_t.Event[742]
   },
   [923] = {
     id = 923,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[736]
+    Event = Table_ShortcutPower_t.Event[743]
   },
   [924] = {
     id = 924,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[737]
+    Event = Table_ShortcutPower_t.Event[744]
   },
   [925] = {
     id = 925,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[738]
+    Event = Table_ShortcutPower_t.Event[745]
   },
   [926] = {
     id = 926,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[739]
+    Event = Table_ShortcutPower_t.Event[746]
   },
   [927] = {
     id = 927,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[740]
+    Event = Table_ShortcutPower_t.Event[747]
   },
   [928] = {
     id = 928,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[741]
+    Event = Table_ShortcutPower_t.Event[748]
   },
   [930] = {
     id = 930,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[743]
+    Event = Table_ShortcutPower_t.Event[750]
   },
   [931] = {
     id = 931,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[744]
+    Event = Table_ShortcutPower_t.Event[751]
   },
   [932] = {
     id = 932,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[745]
+    Event = Table_ShortcutPower_t.Event[752]
   },
   [933] = {
     id = 933,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[746]
+    Event = Table_ShortcutPower_t.Event[753]
   },
   [941] = {
     id = 941,
@@ -7533,482 +7718,487 @@ Table_ShortcutPower = {
   [942] = {
     id = 942,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[754]
+    Event = Table_ShortcutPower_t.Event[761]
   },
   [943] = {
     id = 943,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[755]
+    Event = Table_ShortcutPower_t.Event[762]
   },
   [944] = {
     id = 944,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[756]
+    Event = Table_ShortcutPower_t.Event[763]
   },
   [945] = {
     id = 945,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[757]
+    Event = Table_ShortcutPower_t.Event[764]
   },
   [946] = {
     id = 946,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[758]
+    Event = Table_ShortcutPower_t.Event[765]
   },
   [947] = {
     id = 947,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[759]
+    Event = Table_ShortcutPower_t.Event[766]
   },
   [948] = {
     id = 948,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[760]
+    Event = Table_ShortcutPower_t.Event[767]
   },
   [961] = {
     id = 961,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[773]
+    Event = Table_ShortcutPower_t.Event[780]
   },
   [962] = {
     id = 962,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[774]
+    Event = Table_ShortcutPower_t.Event[781]
   },
   [963] = {
     id = 963,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[775]
+    Event = Table_ShortcutPower_t.Event[782]
   },
   [964] = {
     id = 964,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[776]
+    Event = Table_ShortcutPower_t.Event[783]
   },
   [965] = {
     id = 965,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[777]
+    Event = Table_ShortcutPower_t.Event[784]
   },
   [966] = {
     id = 966,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[778]
+    Event = Table_ShortcutPower_t.Event[785]
   },
   [967] = {
     id = 967,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[779]
+    Event = Table_ShortcutPower_t.Event[786]
   },
   [970] = {
     id = 970,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[782]
+    Event = Table_ShortcutPower_t.Event[789]
   },
   [971] = {
     id = 971,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[783]
+    Event = Table_ShortcutPower_t.Event[790]
   },
   [972] = {
     id = 972,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[784]
+    Event = Table_ShortcutPower_t.Event[791]
   },
   [980] = {
     id = 980,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[792]
+    Event = Table_ShortcutPower_t.Event[799]
   },
   [981] = {
     id = 981,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[793]
+    Event = Table_ShortcutPower_t.Event[800]
   },
   [982] = {
     id = 982,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[794]
+    Event = Table_ShortcutPower_t.Event[801]
   },
   [983] = {
     id = 983,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[795]
+    Event = Table_ShortcutPower_t.Event[802]
   },
   [984] = {
     id = 984,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[796]
+    Event = Table_ShortcutPower_t.Event[803]
   },
   [985] = {
     id = 985,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[797]
+    Event = Table_ShortcutPower_t.Event[804]
   },
   [986] = {
     id = 986,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[798]
+    Event = Table_ShortcutPower_t.Event[805]
   },
   [987] = {
     id = 987,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[799]
+    Event = Table_ShortcutPower_t.Event[806]
   },
   [1000] = {
     id = 1000,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[786]
+    Event = Table_ShortcutPower_t.Event[793]
   },
   [1001] = {
     id = 1001,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[810]
+    Event = Table_ShortcutPower_t.Event[817]
   },
   [1002] = {
     id = 1002,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[811]
+    Event = Table_ShortcutPower_t.Event[818]
   },
   [1003] = {
     id = 1003,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[812]
+    Event = Table_ShortcutPower_t.Event[819]
   },
   [1004] = {
     id = 1004,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[813]
+    Event = Table_ShortcutPower_t.Event[820]
   },
   [1005] = {
     id = 1005,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[814]
+    Event = Table_ShortcutPower_t.Event[821]
   },
   [1006] = {
     id = 1006,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[815]
+    Event = Table_ShortcutPower_t.Event[822]
   },
   [1007] = {
     id = 1007,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[813]
+    Event = Table_ShortcutPower_t.Event[820]
   },
   [1008] = {
     id = 1008,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[816]
+    Event = Table_ShortcutPower_t.Event[823]
   },
   [1009] = {
     id = 1009,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[817]
+    Event = Table_ShortcutPower_t.Event[824]
   },
   [1010] = {
     id = 1010,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[818]
+    Event = Table_ShortcutPower_t.Event[825]
   },
   [1011] = {
     id = 1011,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[819]
+    Event = Table_ShortcutPower_t.Event[826]
   },
   [1012] = {
     id = 1012,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[820]
+    Event = Table_ShortcutPower_t.Event[827]
   },
   [1050] = {
     id = 1050,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[857]
+    Event = Table_ShortcutPower_t.Event[865]
   },
   [1051] = {
     id = 1051,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[858]
+    Event = Table_ShortcutPower_t.Event[866]
   },
   [1052] = {
     id = 1052,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[859]
+    Event = Table_ShortcutPower_t.Event[867]
   },
   [1053] = {
     id = 1053,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[860]
+    Event = Table_ShortcutPower_t.Event[868]
   },
   [1054] = {
     id = 1054,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[861]
+    Event = Table_ShortcutPower_t.Event[869]
   },
   [1055] = {
     id = 1055,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[862]
+    Event = Table_ShortcutPower_t.Event[870]
   },
   [1056] = {
     id = 1056,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[863]
+    Event = Table_ShortcutPower_t.Event[871]
   },
   [1057] = {
     id = 1057,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[864]
+    Event = Table_ShortcutPower_t.Event[872]
+  },
+  [1058] = {
+    id = 1058,
+    Type = 7,
+    Event = Table_ShortcutPower_t.Event[873]
   },
   [1500] = {
     id = 1500,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[808]
+    Event = Table_ShortcutPower_t.Event[815]
   },
   [1600] = {
     id = 1600,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1236]
+    Event = Table_ShortcutPower_t.Event[1266]
   },
   [1601] = {
     id = 1601,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1237]
+    Event = Table_ShortcutPower_t.Event[1267]
   },
   [1602] = {
     id = 1602,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1238]
+    Event = Table_ShortcutPower_t.Event[1268]
   },
   [1603] = {
     id = 1603,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1239]
+    Event = Table_ShortcutPower_t.Event[1269]
   },
   [1604] = {
     id = 1604,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1240]
+    Event = Table_ShortcutPower_t.Event[1270]
   },
   [1605] = {
     id = 1605,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[837]
+    Event = Table_ShortcutPower_t.Event[844]
   },
   [1700] = {
     id = 1700,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1328]
+    Event = Table_ShortcutPower_t.Event[1358]
   },
   [1701] = {
     id = 1701,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1328]
+    Event = Table_ShortcutPower_t.Event[1358]
   },
   [1702] = {
     id = 1702,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1328]
+    Event = Table_ShortcutPower_t.Event[1358]
   },
   [1703] = {
     id = 1703,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1156]
+    Event = Table_ShortcutPower_t.Event[1186]
   },
   [1704] = {
     id = 1704,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1329]
+    Event = Table_ShortcutPower_t.Event[1359]
   },
   [1998] = {
     id = 1998,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1592]
+    Event = Table_ShortcutPower_t.Event[1622]
   },
   [1999] = {
     id = 1999,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1593]
+    Event = Table_ShortcutPower_t.Event[1623]
   },
   [2000] = {
     id = 2000,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1594]
+    Event = Table_ShortcutPower_t.Event[1624]
   },
   [2001] = {
     id = 2001,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1595]
+    Event = Table_ShortcutPower_t.Event[1625]
   },
   [2002] = {
     id = 2002,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1304]
+    Event = Table_ShortcutPower_t.Event[1334]
   },
   [2003] = {
     id = 2003,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1287]
+    Event = Table_ShortcutPower_t.Event[1317]
   },
   [2004] = {
     id = 2004,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1172]
+    Event = Table_ShortcutPower_t.Event[1202]
   },
   [2005] = {
     id = 2005,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1596]
+    Event = Table_ShortcutPower_t.Event[1626]
   },
   [2006] = {
     id = 2006,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1597]
+    Event = Table_ShortcutPower_t.Event[1627]
   },
   [2049] = {
     id = 2049,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1637]
+    Event = Table_ShortcutPower_t.Event[1667]
   },
   [2050] = {
     id = 2050,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1304]
+    Event = Table_ShortcutPower_t.Event[1334]
   },
   [2051] = {
     id = 2051,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1303]
+    Event = Table_ShortcutPower_t.Event[1333]
   },
   [2052] = {
     id = 2052,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1302]
+    Event = Table_ShortcutPower_t.Event[1332]
   },
   [2053] = {
     id = 2053,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1301]
+    Event = Table_ShortcutPower_t.Event[1331]
   },
   [2054] = {
     id = 2054,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1273]
+    Event = Table_ShortcutPower_t.Event[1303]
   },
   [2055] = {
     id = 2055,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1300]
+    Event = Table_ShortcutPower_t.Event[1330]
   },
   [2056] = {
     id = 2056,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1299]
+    Event = Table_ShortcutPower_t.Event[1329]
   },
   [2057] = {
     id = 2057,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1298]
+    Event = Table_ShortcutPower_t.Event[1328]
   },
   [2058] = {
     id = 2058,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1297]
+    Event = Table_ShortcutPower_t.Event[1327]
   },
   [2059] = {
     id = 2059,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1296]
+    Event = Table_ShortcutPower_t.Event[1326]
   },
   [2060] = {
     id = 2060,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1295]
+    Event = Table_ShortcutPower_t.Event[1325]
   },
   [2061] = {
     id = 2061,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1294]
+    Event = Table_ShortcutPower_t.Event[1324]
   },
   [2062] = {
     id = 2062,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1293]
+    Event = Table_ShortcutPower_t.Event[1323]
   },
   [2063] = {
     id = 2063,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1292]
+    Event = Table_ShortcutPower_t.Event[1322]
   },
   [2064] = {
     id = 2064,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1291]
+    Event = Table_ShortcutPower_t.Event[1321]
   },
   [2065] = {
     id = 2065,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1290]
+    Event = Table_ShortcutPower_t.Event[1320]
   },
   [2067] = {
     id = 2067,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1289]
+    Event = Table_ShortcutPower_t.Event[1319]
   },
   [2068] = {
     id = 2068,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1288]
+    Event = Table_ShortcutPower_t.Event[1318]
   },
   [2069] = {
     id = 2069,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1287]
+    Event = Table_ShortcutPower_t.Event[1317]
   },
   [2070] = {
     id = 2070,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1286]
+    Event = Table_ShortcutPower_t.Event[1316]
   },
   [2071] = {
     id = 2071,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1285]
+    Event = Table_ShortcutPower_t.Event[1315]
   },
   [2072] = {
     id = 2072,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1284]
+    Event = Table_ShortcutPower_t.Event[1314]
   },
   [2073] = {
     id = 2073,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1278]
+    Event = Table_ShortcutPower_t.Event[1308]
   },
   [2074] = {
     id = 2074,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1283]
+    Event = Table_ShortcutPower_t.Event[1313]
   },
   [2075] = {
     id = 2075,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1282]
+    Event = Table_ShortcutPower_t.Event[1312]
   },
   [2076] = {
     id = 2076,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1281]
+    Event = Table_ShortcutPower_t.Event[1311]
   },
   [2077] = {
     id = 2077,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1280]
+    Event = Table_ShortcutPower_t.Event[1310]
   },
   [2078] = {
     id = 2078,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1279]
+    Event = Table_ShortcutPower_t.Event[1309]
   },
   [2079] = {
     id = 2079,
@@ -8018,197 +8208,197 @@ Table_ShortcutPower = {
   [2080] = {
     id = 2080,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1278]
+    Event = Table_ShortcutPower_t.Event[1308]
   },
   [2081] = {
     id = 2081,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1277]
+    Event = Table_ShortcutPower_t.Event[1307]
   },
   [2082] = {
     id = 2082,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1276]
+    Event = Table_ShortcutPower_t.Event[1306]
   },
   [2083] = {
     id = 2083,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[570]
+    Event = Table_ShortcutPower_t.Event[577]
   },
   [2084] = {
     id = 2084,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1275]
+    Event = Table_ShortcutPower_t.Event[1305]
   },
   [2085] = {
     id = 2085,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1274]
+    Event = Table_ShortcutPower_t.Event[1304]
   },
   [2086] = {
     id = 2086,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1273]
+    Event = Table_ShortcutPower_t.Event[1303]
   },
   [2087] = {
     id = 2087,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1345]
+    Event = Table_ShortcutPower_t.Event[1375]
   },
   [2088] = {
     id = 2088,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1344]
+    Event = Table_ShortcutPower_t.Event[1374]
   },
   [2089] = {
     id = 2089,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1343]
+    Event = Table_ShortcutPower_t.Event[1373]
   },
   [2090] = {
     id = 2090,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1181]
+    Event = Table_ShortcutPower_t.Event[1211]
   },
   [2091] = {
     id = 2091,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1334]
+    Event = Table_ShortcutPower_t.Event[1364]
   },
   [2092] = {
     id = 2092,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1333]
+    Event = Table_ShortcutPower_t.Event[1363]
   },
   [2093] = {
     id = 2093,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1332]
+    Event = Table_ShortcutPower_t.Event[1362]
   },
   [2094] = {
     id = 2094,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1331]
+    Event = Table_ShortcutPower_t.Event[1361]
   },
   [2095] = {
     id = 2095,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1330]
+    Event = Table_ShortcutPower_t.Event[1360]
   },
   [2096] = {
     id = 2096,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1327]
+    Event = Table_ShortcutPower_t.Event[1357]
   },
   [2997] = {
     id = 2997,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[762]
+    Event = Table_ShortcutPower_t.Event[769]
   },
   [2998] = {
     id = 2998,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[763]
+    Event = Table_ShortcutPower_t.Event[770]
   },
   [2999] = {
     id = 2999,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[764]
+    Event = Table_ShortcutPower_t.Event[771]
   },
   [3000] = {
     id = 3000,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[765]
+    Event = Table_ShortcutPower_t.Event[772]
   },
   [3001] = {
     id = 3001,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[766]
+    Event = Table_ShortcutPower_t.Event[773]
   },
   [3002] = {
     id = 3002,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[767]
+    Event = Table_ShortcutPower_t.Event[774]
   },
   [3003] = {
     id = 3003,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[768]
+    Event = Table_ShortcutPower_t.Event[775]
   },
   [3004] = {
     id = 3004,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[769]
+    Event = Table_ShortcutPower_t.Event[776]
   },
   [3005] = {
     id = 3005,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[770]
+    Event = Table_ShortcutPower_t.Event[777]
   },
   [3006] = {
     id = 3006,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[771]
+    Event = Table_ShortcutPower_t.Event[778]
   },
   [3007] = {
     id = 3007,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[772]
+    Event = Table_ShortcutPower_t.Event[779]
   },
   [3008] = {
     id = 3008,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1326]
+    Event = Table_ShortcutPower_t.Event[1356]
   },
   [3009] = {
     id = 3009,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1325]
+    Event = Table_ShortcutPower_t.Event[1355]
   },
   [3010] = {
     id = 3010,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1197]
+    Event = Table_ShortcutPower_t.Event[1227]
   },
   [3011] = {
     id = 3011,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1324]
+    Event = Table_ShortcutPower_t.Event[1354]
   },
   [3012] = {
     id = 3012,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1323]
+    Event = Table_ShortcutPower_t.Event[1353]
   },
   [3013] = {
     id = 3013,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1322]
+    Event = Table_ShortcutPower_t.Event[1352]
   },
   [3014] = {
     id = 3014,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1321]
+    Event = Table_ShortcutPower_t.Event[1351]
   },
   [3015] = {
     id = 3015,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[780]
+    Event = Table_ShortcutPower_t.Event[787]
   },
   [3016] = {
     id = 3016,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[781]
+    Event = Table_ShortcutPower_t.Event[788]
   },
   [3017] = {
     id = 3017,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1320]
+    Event = Table_ShortcutPower_t.Event[1350]
   },
   [3018] = {
     id = 3018,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1090]
+    Event = Table_ShortcutPower_t.Event[1120]
   },
   [3019] = {
     id = 3019,
@@ -8218,747 +8408,747 @@ Table_ShortcutPower = {
   [3020] = {
     id = 3020,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[785]
+    Event = Table_ShortcutPower_t.Event[792]
   },
   [3021] = {
     id = 3021,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[786]
+    Event = Table_ShortcutPower_t.Event[793]
   },
   [3022] = {
     id = 3022,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[787]
+    Event = Table_ShortcutPower_t.Event[794]
   },
   [3023] = {
     id = 3023,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[788]
+    Event = Table_ShortcutPower_t.Event[795]
   },
   [3024] = {
     id = 3024,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[789]
+    Event = Table_ShortcutPower_t.Event[796]
   },
   [3025] = {
     id = 3025,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[790]
+    Event = Table_ShortcutPower_t.Event[797]
   },
   [3026] = {
     id = 3026,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[791]
+    Event = Table_ShortcutPower_t.Event[798]
   },
   [3027] = {
     id = 3027,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1319]
+    Event = Table_ShortcutPower_t.Event[1349]
   },
   [3028] = {
     id = 3028,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1318]
+    Event = Table_ShortcutPower_t.Event[1348]
   },
   [3029] = {
     id = 3029,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1317]
+    Event = Table_ShortcutPower_t.Event[1347]
   },
   [3030] = {
     id = 3030,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1316]
+    Event = Table_ShortcutPower_t.Event[1346]
   },
   [3031] = {
     id = 3031,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1242]
+    Event = Table_ShortcutPower_t.Event[1272]
   },
   [3032] = {
     id = 3032,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1241]
+    Event = Table_ShortcutPower_t.Event[1271]
   },
   [3033] = {
     id = 3033,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1235]
+    Event = Table_ShortcutPower_t.Event[1265]
   },
   [3034] = {
     id = 3034,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1234]
+    Event = Table_ShortcutPower_t.Event[1264]
   },
   [3035] = {
     id = 3035,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[800]
+    Event = Table_ShortcutPower_t.Event[807]
   },
   [3036] = {
     id = 3036,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[801]
+    Event = Table_ShortcutPower_t.Event[808]
   },
   [3037] = {
     id = 3037,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[802]
+    Event = Table_ShortcutPower_t.Event[809]
   },
   [3038] = {
     id = 3038,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[803]
+    Event = Table_ShortcutPower_t.Event[810]
   },
   [3039] = {
     id = 3039,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[804]
+    Event = Table_ShortcutPower_t.Event[811]
   },
   [3040] = {
     id = 3040,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[805]
+    Event = Table_ShortcutPower_t.Event[812]
   },
   [3041] = {
     id = 3041,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[784]
+    Event = Table_ShortcutPower_t.Event[791]
   },
   [3042] = {
     id = 3042,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[782]
+    Event = Table_ShortcutPower_t.Event[789]
   },
   [3043] = {
     id = 3043,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[806]
+    Event = Table_ShortcutPower_t.Event[813]
   },
   [3044] = {
     id = 3044,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[807]
+    Event = Table_ShortcutPower_t.Event[814]
   },
   [3045] = {
     id = 3045,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[808]
+    Event = Table_ShortcutPower_t.Event[815]
   },
   [3046] = {
     id = 3046,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[809]
+    Event = Table_ShortcutPower_t.Event[816]
   },
   [3047] = {
     id = 3047,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1233]
+    Event = Table_ShortcutPower_t.Event[1263]
   },
   [3048] = {
     id = 3048,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1232]
+    Event = Table_ShortcutPower_t.Event[1262]
   },
   [3049] = {
     id = 3049,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1231]
+    Event = Table_ShortcutPower_t.Event[1261]
   },
   [3050] = {
     id = 3050,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1230]
+    Event = Table_ShortcutPower_t.Event[1260]
   },
   [3051] = {
     id = 3051,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1229]
+    Event = Table_ShortcutPower_t.Event[1259]
   },
   [3052] = {
     id = 3052,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1228]
+    Event = Table_ShortcutPower_t.Event[1258]
   },
   [3053] = {
     id = 3053,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1227]
+    Event = Table_ShortcutPower_t.Event[1257]
   },
   [3054] = {
     id = 3054,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1226]
+    Event = Table_ShortcutPower_t.Event[1256]
   },
   [3055] = {
     id = 3055,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1225]
+    Event = Table_ShortcutPower_t.Event[1255]
   },
   [3056] = {
     id = 3056,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1224]
+    Event = Table_ShortcutPower_t.Event[1254]
   },
   [3057] = {
     id = 3057,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1223]
+    Event = Table_ShortcutPower_t.Event[1253]
   },
   [3058] = {
     id = 3058,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1222]
+    Event = Table_ShortcutPower_t.Event[1252]
   },
   [3059] = {
     id = 3059,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1221]
+    Event = Table_ShortcutPower_t.Event[1251]
   },
   [3060] = {
     id = 3060,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[821]
+    Event = Table_ShortcutPower_t.Event[828]
   },
   [3061] = {
     id = 3061,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[822]
+    Event = Table_ShortcutPower_t.Event[829]
   },
   [3062] = {
     id = 3062,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[823]
+    Event = Table_ShortcutPower_t.Event[830]
   },
   [3063] = {
     id = 3063,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[824]
+    Event = Table_ShortcutPower_t.Event[831]
   },
   [3064] = {
     id = 3064,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[825]
+    Event = Table_ShortcutPower_t.Event[832]
   },
   [3065] = {
     id = 3065,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[826]
+    Event = Table_ShortcutPower_t.Event[833]
   },
   [3066] = {
     id = 3066,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[827]
+    Event = Table_ShortcutPower_t.Event[834]
   },
   [3067] = {
     id = 3067,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[828]
+    Event = Table_ShortcutPower_t.Event[835]
   },
   [3068] = {
     id = 3068,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[829]
+    Event = Table_ShortcutPower_t.Event[836]
   },
   [3069] = {
     id = 3069,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[830]
+    Event = Table_ShortcutPower_t.Event[837]
   },
   [3070] = {
     id = 3070,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[831]
+    Event = Table_ShortcutPower_t.Event[838]
   },
   [3071] = {
     id = 3071,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[832]
+    Event = Table_ShortcutPower_t.Event[839]
   },
   [3072] = {
     id = 3072,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[833]
+    Event = Table_ShortcutPower_t.Event[840]
   },
   [3073] = {
     id = 3073,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[834]
+    Event = Table_ShortcutPower_t.Event[841]
   },
   [3074] = {
     id = 3074,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[835]
+    Event = Table_ShortcutPower_t.Event[842]
   },
   [3075] = {
     id = 3075,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[836]
+    Event = Table_ShortcutPower_t.Event[843]
   },
   [3076] = {
     id = 3076,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[837]
+    Event = Table_ShortcutPower_t.Event[844]
   },
   [3077] = {
     id = 3077,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[838]
+    Event = Table_ShortcutPower_t.Event[845]
   },
   [3078] = {
     id = 3078,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[839]
+    Event = Table_ShortcutPower_t.Event[846]
   },
   [3079] = {
     id = 3079,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[840]
+    Event = Table_ShortcutPower_t.Event[847]
   },
   [3080] = {
     id = 3080,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[841]
+    Event = Table_ShortcutPower_t.Event[848]
   },
   [3081] = {
     id = 3081,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[842]
+    Event = Table_ShortcutPower_t.Event[849]
   },
   [3082] = {
     id = 3082,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[843]
+    Event = Table_ShortcutPower_t.Event[850]
   },
   [3083] = {
     id = 3083,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[844]
+    Event = Table_ShortcutPower_t.Event[851]
   },
   [3084] = {
     id = 3084,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[845]
+    Event = Table_ShortcutPower_t.Event[852]
   },
   [3085] = {
     id = 3085,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[846]
+    Event = Table_ShortcutPower_t.Event[853]
   },
   [3086] = {
     id = 3086,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[847]
+    Event = Table_ShortcutPower_t.Event[854]
   },
   [3087] = {
     id = 3087,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[848]
+    Event = Table_ShortcutPower_t.Event[855]
   },
   [3088] = {
     id = 3088,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[849]
+    Event = Table_ShortcutPower_t.Event[856]
   },
   [3089] = {
     id = 3089,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[850]
+    Event = Table_ShortcutPower_t.Event[857]
   },
   [3090] = {
     id = 3090,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[851]
+    Event = Table_ShortcutPower_t.Event[858]
   },
   [3091] = {
     id = 3091,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[852]
+    Event = Table_ShortcutPower_t.Event[859]
   },
   [3092] = {
     id = 3092,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[853]
+    Event = Table_ShortcutPower_t.Event[860]
   },
   [3093] = {
     id = 3093,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[854]
+    Event = Table_ShortcutPower_t.Event[861]
   },
   [3094] = {
     id = 3094,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[855]
+    Event = Table_ShortcutPower_t.Event[862]
   },
   [3095] = {
     id = 3095,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[856]
+    Event = Table_ShortcutPower_t.Event[863]
   },
   [4001] = {
     id = 4001,
-    Event = Table_ShortcutPower_t.Event[1551]
+    Event = Table_ShortcutPower_t.Event[1581]
   },
   [4002] = {
     id = 4002,
-    Event = Table_ShortcutPower_t.Event[1552]
+    Event = Table_ShortcutPower_t.Event[1582]
   },
   [4003] = {
     id = 4003,
-    Event = Table_ShortcutPower_t.Event[1553]
+    Event = Table_ShortcutPower_t.Event[1583]
   },
   [4004] = {
     id = 4004,
-    Event = Table_ShortcutPower_t.Event[1554]
+    Event = Table_ShortcutPower_t.Event[1584]
   },
   [4005] = {
     id = 4005,
-    Event = Table_ShortcutPower_t.Event[1555]
+    Event = Table_ShortcutPower_t.Event[1585]
   },
   [4006] = {
     id = 4006,
-    Event = Table_ShortcutPower_t.Event[1556]
+    Event = Table_ShortcutPower_t.Event[1586]
   },
   [4007] = {
     id = 4007,
-    Event = Table_ShortcutPower_t.Event[1557]
+    Event = Table_ShortcutPower_t.Event[1587]
   },
   [4008] = {
     id = 4008,
-    Event = Table_ShortcutPower_t.Event[1558]
+    Event = Table_ShortcutPower_t.Event[1588]
   },
   [4009] = {
     id = 4009,
-    Event = Table_ShortcutPower_t.Event[1559]
+    Event = Table_ShortcutPower_t.Event[1589]
   },
   [4010] = {
     id = 4010,
-    Event = Table_ShortcutPower_t.Event[1560]
+    Event = Table_ShortcutPower_t.Event[1590]
   },
   [4011] = {
     id = 4011,
-    Event = Table_ShortcutPower_t.Event[1561]
+    Event = Table_ShortcutPower_t.Event[1591]
   },
   [4012] = {
     id = 4012,
-    Event = Table_ShortcutPower_t.Event[1562]
+    Event = Table_ShortcutPower_t.Event[1592]
   },
   [4013] = {
     id = 4013,
-    Event = Table_ShortcutPower_t.Event[1563]
+    Event = Table_ShortcutPower_t.Event[1593]
   },
   [4014] = {
     id = 4014,
-    Event = Table_ShortcutPower_t.Event[1564]
+    Event = Table_ShortcutPower_t.Event[1594]
   },
   [4015] = {
     id = 4015,
-    Event = Table_ShortcutPower_t.Event[1565]
+    Event = Table_ShortcutPower_t.Event[1595]
   },
   [4016] = {
     id = 4016,
-    Event = Table_ShortcutPower_t.Event[1566]
+    Event = Table_ShortcutPower_t.Event[1596]
   },
   [4017] = {
     id = 4017,
-    Event = Table_ShortcutPower_t.Event[1567]
+    Event = Table_ShortcutPower_t.Event[1597]
   },
   [4018] = {
     id = 4018,
-    Event = Table_ShortcutPower_t.Event[1568]
+    Event = Table_ShortcutPower_t.Event[1598]
   },
   [4019] = {
     id = 4019,
-    Event = Table_ShortcutPower_t.Event[1083]
+    Event = Table_ShortcutPower_t.Event[1113]
   },
   [4020] = {
     id = 4020,
-    Event = Table_ShortcutPower_t.Event[1569]
+    Event = Table_ShortcutPower_t.Event[1599]
   },
   [4021] = {
     id = 4021,
-    Event = Table_ShortcutPower_t.Event[1562]
+    Event = Table_ShortcutPower_t.Event[1592]
   },
   [4022] = {
     id = 4022,
-    Event = Table_ShortcutPower_t.Event[1570]
+    Event = Table_ShortcutPower_t.Event[1600]
   },
   [4023] = {
     id = 4023,
-    Event = Table_ShortcutPower_t.Event[1571]
+    Event = Table_ShortcutPower_t.Event[1601]
   },
   [4024] = {
     id = 4024,
-    Event = Table_ShortcutPower_t.Event[1572]
+    Event = Table_ShortcutPower_t.Event[1602]
   },
   [4025] = {
     id = 4025,
-    Event = Table_ShortcutPower_t.Event[1573]
+    Event = Table_ShortcutPower_t.Event[1603]
   },
   [4026] = {
     id = 4026,
-    Event = Table_ShortcutPower_t.Event[1574]
+    Event = Table_ShortcutPower_t.Event[1604]
   },
   [4027] = {
     id = 4027,
-    Event = Table_ShortcutPower_t.Event[1575]
+    Event = Table_ShortcutPower_t.Event[1605]
   },
   [4028] = {
     id = 4028,
-    Event = Table_ShortcutPower_t.Event[1576]
+    Event = Table_ShortcutPower_t.Event[1606]
   },
   [4029] = {
     id = 4029,
-    Event = Table_ShortcutPower_t.Event[1577]
+    Event = Table_ShortcutPower_t.Event[1607]
   },
   [4030] = {
     id = 4030,
-    Event = Table_ShortcutPower_t.Event[1578]
+    Event = Table_ShortcutPower_t.Event[1608]
   },
   [4031] = {
     id = 4031,
-    Event = Table_ShortcutPower_t.Event[1579]
+    Event = Table_ShortcutPower_t.Event[1609]
   },
   [4032] = {
     id = 4032,
-    Event = Table_ShortcutPower_t.Event[1580]
+    Event = Table_ShortcutPower_t.Event[1610]
   },
   [4033] = {
     id = 4033,
-    Event = Table_ShortcutPower_t.Event[1581]
+    Event = Table_ShortcutPower_t.Event[1611]
   },
   [4034] = {
     id = 4034,
-    Event = Table_ShortcutPower_t.Event[1582]
+    Event = Table_ShortcutPower_t.Event[1612]
   },
   [4035] = {
     id = 4035,
-    Event = Table_ShortcutPower_t.Event[1583]
+    Event = Table_ShortcutPower_t.Event[1613]
   },
   [4037] = {
     id = 4037,
-    Event = Table_ShortcutPower_t.Event[1584]
+    Event = Table_ShortcutPower_t.Event[1614]
   },
   [4038] = {
     id = 4038,
-    Event = Table_ShortcutPower_t.Event[1585]
+    Event = Table_ShortcutPower_t.Event[1615]
   },
   [4039] = {
     id = 4039,
-    Event = Table_ShortcutPower_t.Event[1586]
+    Event = Table_ShortcutPower_t.Event[1616]
   },
   [4040] = {
     id = 4040,
-    Event = Table_ShortcutPower_t.Event[1587]
+    Event = Table_ShortcutPower_t.Event[1617]
   },
   [4041] = {
     id = 4041,
-    Event = Table_ShortcutPower_t.Event[1588]
+    Event = Table_ShortcutPower_t.Event[1618]
   },
   [4042] = {
     id = 4042,
-    Event = Table_ShortcutPower_t.Event[1589]
+    Event = Table_ShortcutPower_t.Event[1619]
   },
   [4043] = {
     id = 4043,
-    Event = Table_ShortcutPower_t.Event[1590]
+    Event = Table_ShortcutPower_t.Event[1620]
   },
   [4044] = {
     id = 4044,
-    Event = Table_ShortcutPower_t.Event[1591]
+    Event = Table_ShortcutPower_t.Event[1621]
   },
   [4045] = {
     id = 4045,
-    Event = Table_ShortcutPower_t.Event[1335]
+    Event = Table_ShortcutPower_t.Event[1365]
   },
   [4046] = {
     id = 4046,
-    Event = Table_ShortcutPower_t.Event[1336]
+    Event = Table_ShortcutPower_t.Event[1366]
   },
   [4047] = {
     id = 4047,
-    Event = Table_ShortcutPower_t.Event[1337]
+    Event = Table_ShortcutPower_t.Event[1367]
   },
   [4048] = {
     id = 4048,
-    Event = Table_ShortcutPower_t.Event[1338]
+    Event = Table_ShortcutPower_t.Event[1368]
   },
   [4049] = {
     id = 4049,
-    Event = Table_ShortcutPower_t.Event[1339]
+    Event = Table_ShortcutPower_t.Event[1369]
   },
   [4050] = {
     id = 4050,
-    Event = Table_ShortcutPower_t.Event[1340]
+    Event = Table_ShortcutPower_t.Event[1370]
   },
   [4052] = {
     id = 4052,
-    Event = Table_ShortcutPower_t.Event[1341]
+    Event = Table_ShortcutPower_t.Event[1371]
   },
   [4053] = {
     id = 4053,
-    Event = Table_ShortcutPower_t.Event[1342]
+    Event = Table_ShortcutPower_t.Event[1372]
   },
   [4054] = {
     id = 4054,
-    Event = Table_ShortcutPower_t.Event[1598]
+    Event = Table_ShortcutPower_t.Event[1628]
   },
   [4055] = {
     id = 4055,
-    Event = Table_ShortcutPower_t.Event[1599]
+    Event = Table_ShortcutPower_t.Event[1629]
   },
   [4056] = {
     id = 4056,
-    Event = Table_ShortcutPower_t.Event[1600]
+    Event = Table_ShortcutPower_t.Event[1630]
   },
   [4057] = {
     id = 4057,
-    Event = Table_ShortcutPower_t.Event[1601]
+    Event = Table_ShortcutPower_t.Event[1631]
   },
   [4058] = {
     id = 4058,
-    Event = Table_ShortcutPower_t.Event[1602]
+    Event = Table_ShortcutPower_t.Event[1632]
   },
   [4059] = {
     id = 4059,
-    Event = Table_ShortcutPower_t.Event[1603]
+    Event = Table_ShortcutPower_t.Event[1633]
   },
   [4060] = {
     id = 4060,
-    Event = Table_ShortcutPower_t.Event[1604]
+    Event = Table_ShortcutPower_t.Event[1634]
   },
   [4061] = {
     id = 4061,
-    Event = Table_ShortcutPower_t.Event[1605]
+    Event = Table_ShortcutPower_t.Event[1635]
   },
   [4062] = {
     id = 4062,
-    Event = Table_ShortcutPower_t.Event[1606]
+    Event = Table_ShortcutPower_t.Event[1636]
   },
   [4063] = {
     id = 4063,
-    Event = Table_ShortcutPower_t.Event[1607]
+    Event = Table_ShortcutPower_t.Event[1637]
   },
   [4064] = {
     id = 4064,
-    Event = Table_ShortcutPower_t.Event[1608]
+    Event = Table_ShortcutPower_t.Event[1638]
   },
   [4065] = {
     id = 4065,
-    Event = Table_ShortcutPower_t.Event[1609]
+    Event = Table_ShortcutPower_t.Event[1639]
   },
   [4066] = {
     id = 4066,
-    Event = Table_ShortcutPower_t.Event[1610]
+    Event = Table_ShortcutPower_t.Event[1640]
   },
   [4067] = {
     id = 4067,
-    Event = Table_ShortcutPower_t.Event[1611]
+    Event = Table_ShortcutPower_t.Event[1641]
   },
   [4068] = {
     id = 4068,
-    Event = Table_ShortcutPower_t.Event[1612]
+    Event = Table_ShortcutPower_t.Event[1642]
   },
   [4069] = {
     id = 4069,
-    Event = Table_ShortcutPower_t.Event[1613]
+    Event = Table_ShortcutPower_t.Event[1643]
   },
   [4070] = {
     id = 4070,
-    Event = Table_ShortcutPower_t.Event[1614]
+    Event = Table_ShortcutPower_t.Event[1644]
   },
   [4071] = {
     id = 4071,
-    Event = Table_ShortcutPower_t.Event[1615]
+    Event = Table_ShortcutPower_t.Event[1645]
   },
   [4072] = {
     id = 4072,
-    Event = Table_ShortcutPower_t.Event[1616]
+    Event = Table_ShortcutPower_t.Event[1646]
   },
   [4073] = {
     id = 4073,
-    Event = Table_ShortcutPower_t.Event[1617]
+    Event = Table_ShortcutPower_t.Event[1647]
   },
   [4074] = {
     id = 4074,
-    Event = Table_ShortcutPower_t.Event[1618]
+    Event = Table_ShortcutPower_t.Event[1648]
   },
   [4075] = {
     id = 4075,
-    Event = Table_ShortcutPower_t.Event[1619]
+    Event = Table_ShortcutPower_t.Event[1649]
   },
   [4076] = {
     id = 4076,
-    Event = Table_ShortcutPower_t.Event[1620]
+    Event = Table_ShortcutPower_t.Event[1650]
   },
   [4077] = {
     id = 4077,
-    Event = Table_ShortcutPower_t.Event[1621]
+    Event = Table_ShortcutPower_t.Event[1651]
   },
   [4078] = {
     id = 4078,
-    Event = Table_ShortcutPower_t.Event[1622]
+    Event = Table_ShortcutPower_t.Event[1652]
   },
   [4079] = {
     id = 4079,
-    Event = Table_ShortcutPower_t.Event[1623]
+    Event = Table_ShortcutPower_t.Event[1653]
   },
   [4080] = {
     id = 4080,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1349]
+    Event = Table_ShortcutPower_t.Event[1379]
   },
   [4081] = {
     id = 4081,
-    Event = Table_ShortcutPower_t.Event[1624]
+    Event = Table_ShortcutPower_t.Event[1654]
   },
   [4082] = {
     id = 4082,
-    Event = Table_ShortcutPower_t.Event[1625]
+    Event = Table_ShortcutPower_t.Event[1655]
   },
   [4083] = {
     id = 4083,
-    Event = Table_ShortcutPower_t.Event[1626]
+    Event = Table_ShortcutPower_t.Event[1656]
   },
   [4084] = {
     id = 4084,
-    Event = Table_ShortcutPower_t.Event[1627]
+    Event = Table_ShortcutPower_t.Event[1657]
   },
   [4085] = {
     id = 4085,
-    Event = Table_ShortcutPower_t.Event[1628]
+    Event = Table_ShortcutPower_t.Event[1658]
   },
   [4086] = {
     id = 4086,
-    Event = Table_ShortcutPower_t.Event[1629]
+    Event = Table_ShortcutPower_t.Event[1659]
   },
   [4087] = {
     id = 4087,
-    Event = Table_ShortcutPower_t.Event[1630]
+    Event = Table_ShortcutPower_t.Event[1660]
   },
   [4088] = {
     id = 4088,
-    Event = Table_ShortcutPower_t.Event[1631]
+    Event = Table_ShortcutPower_t.Event[1661]
   },
   [4089] = {
     id = 4089,
-    Event = Table_ShortcutPower_t.Event[1632]
+    Event = Table_ShortcutPower_t.Event[1662]
   },
   [4090] = {
     id = 4090,
-    Event = Table_ShortcutPower_t.Event[1633]
+    Event = Table_ShortcutPower_t.Event[1663]
   },
   [4091] = {
     id = 4091,
-    Event = Table_ShortcutPower_t.Event[1634]
+    Event = Table_ShortcutPower_t.Event[1664]
   },
   [4092] = {
     id = 4092,
-    Event = Table_ShortcutPower_t.Event[1635]
+    Event = Table_ShortcutPower_t.Event[1665]
   },
   [4093] = {
     id = 4093,
-    Event = Table_ShortcutPower_t.Event[1636]
+    Event = Table_ShortcutPower_t.Event[1666]
   },
   [4094] = {
     id = 4094,
@@ -8966,277 +9156,277 @@ Table_ShortcutPower = {
   },
   [4095] = {
     id = 4095,
-    Event = Table_ShortcutPower_t.Event[1305]
+    Event = Table_ShortcutPower_t.Event[1335]
   },
   [4096] = {
     id = 4096,
-    Event = Table_ShortcutPower_t.Event[1306]
+    Event = Table_ShortcutPower_t.Event[1336]
   },
   [4097] = {
     id = 4097,
-    Event = Table_ShortcutPower_t.Event[1307]
+    Event = Table_ShortcutPower_t.Event[1337]
   },
   [4098] = {
     id = 4098,
-    Event = Table_ShortcutPower_t.Event[1308]
+    Event = Table_ShortcutPower_t.Event[1338]
   },
   [4099] = {
     id = 4099,
-    Event = Table_ShortcutPower_t.Event[1309]
+    Event = Table_ShortcutPower_t.Event[1339]
   },
   [4100] = {
     id = 4100,
-    Event = Table_ShortcutPower_t.Event[1310]
+    Event = Table_ShortcutPower_t.Event[1340]
   },
   [4101] = {
     id = 4101,
-    Event = Table_ShortcutPower_t.Event[1311]
+    Event = Table_ShortcutPower_t.Event[1341]
   },
   [4102] = {
     id = 4102,
-    Event = Table_ShortcutPower_t.Event[1312]
+    Event = Table_ShortcutPower_t.Event[1342]
   },
   [4103] = {
     id = 4103,
-    Event = Table_ShortcutPower_t.Event[1313]
+    Event = Table_ShortcutPower_t.Event[1343]
   },
   [4104] = {
     id = 4104,
-    Event = Table_ShortcutPower_t.Event[1314]
+    Event = Table_ShortcutPower_t.Event[1344]
   },
   [4105] = {
     id = 4105,
-    Event = Table_ShortcutPower_t.Event[1315]
+    Event = Table_ShortcutPower_t.Event[1345]
   },
   [4106] = {
     id = 4106,
-    Event = Table_ShortcutPower_t.Event[1474]
+    Event = Table_ShortcutPower_t.Event[1504]
   },
   [4107] = {
     id = 4107,
-    Event = Table_ShortcutPower_t.Event[1473]
+    Event = Table_ShortcutPower_t.Event[1503]
   },
   [4108] = {
     id = 4108,
-    Event = Table_ShortcutPower_t.Event[1472]
+    Event = Table_ShortcutPower_t.Event[1502]
   },
   [4109] = {
     id = 4109,
-    Event = Table_ShortcutPower_t.Event[1471]
+    Event = Table_ShortcutPower_t.Event[1501]
   },
   [4110] = {
     id = 4110,
-    Event = Table_ShortcutPower_t.Event[1470]
+    Event = Table_ShortcutPower_t.Event[1500]
   },
   [4111] = {
     id = 4111,
-    Event = Table_ShortcutPower_t.Event[1469]
+    Event = Table_ShortcutPower_t.Event[1499]
   },
   [4112] = {
     id = 4112,
-    Event = Table_ShortcutPower_t.Event[1468]
+    Event = Table_ShortcutPower_t.Event[1498]
   },
   [4113] = {
     id = 4113,
-    Event = Table_ShortcutPower_t.Event[1467]
+    Event = Table_ShortcutPower_t.Event[1497]
   },
   [4114] = {
     id = 4114,
-    Event = Table_ShortcutPower_t.Event[1466]
+    Event = Table_ShortcutPower_t.Event[1496]
   },
   [4115] = {
     id = 4115,
-    Event = Table_ShortcutPower_t.Event[1465]
+    Event = Table_ShortcutPower_t.Event[1495]
   },
   [4116] = {
     id = 4116,
-    Event = Table_ShortcutPower_t.Event[1464]
+    Event = Table_ShortcutPower_t.Event[1494]
   },
   [4117] = {
     id = 4117,
-    Event = Table_ShortcutPower_t.Event[1463]
+    Event = Table_ShortcutPower_t.Event[1493]
   },
   [4118] = {
     id = 4118,
-    Event = Table_ShortcutPower_t.Event[1462]
+    Event = Table_ShortcutPower_t.Event[1492]
   },
   [4119] = {
     id = 4119,
-    Event = Table_ShortcutPower_t.Event[1461]
+    Event = Table_ShortcutPower_t.Event[1491]
   },
   [4120] = {
     id = 4120,
-    Event = Table_ShortcutPower_t.Event[1460]
+    Event = Table_ShortcutPower_t.Event[1490]
   },
   [4121] = {
     id = 4121,
-    Event = Table_ShortcutPower_t.Event[1459]
+    Event = Table_ShortcutPower_t.Event[1489]
   },
   [4122] = {
     id = 4122,
-    Event = Table_ShortcutPower_t.Event[1458]
+    Event = Table_ShortcutPower_t.Event[1488]
   },
   [4123] = {
     id = 4123,
-    Event = Table_ShortcutPower_t.Event[1457]
+    Event = Table_ShortcutPower_t.Event[1487]
   },
   [4124] = {
     id = 4124,
-    Event = Table_ShortcutPower_t.Event[1456]
+    Event = Table_ShortcutPower_t.Event[1486]
   },
   [4125] = {
     id = 4125,
-    Event = Table_ShortcutPower_t.Event[1455]
+    Event = Table_ShortcutPower_t.Event[1485]
   },
   [4126] = {
     id = 4126,
-    Event = Table_ShortcutPower_t.Event[1454]
+    Event = Table_ShortcutPower_t.Event[1484]
   },
   [4127] = {
     id = 4127,
-    Event = Table_ShortcutPower_t.Event[1453]
+    Event = Table_ShortcutPower_t.Event[1483]
   },
   [4128] = {
     id = 4128,
-    Event = Table_ShortcutPower_t.Event[1452]
+    Event = Table_ShortcutPower_t.Event[1482]
   },
   [4129] = {
     id = 4129,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1451]
+    Event = Table_ShortcutPower_t.Event[1481]
   },
   [4130] = {
     id = 4130,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1213]
+    Event = Table_ShortcutPower_t.Event[1243]
   },
   [4131] = {
     id = 4131,
-    Event = Table_ShortcutPower_t.Event[1450]
+    Event = Table_ShortcutPower_t.Event[1480]
   },
   [4132] = {
     id = 4132,
-    Event = Table_ShortcutPower_t.Event[1449]
+    Event = Table_ShortcutPower_t.Event[1479]
   },
   [4133] = {
     id = 4133,
-    Event = Table_ShortcutPower_t.Event[1448]
+    Event = Table_ShortcutPower_t.Event[1478]
   },
   [4134] = {
     id = 4134,
-    Event = Table_ShortcutPower_t.Event[1447]
+    Event = Table_ShortcutPower_t.Event[1477]
   },
   [4135] = {
     id = 4135,
-    Event = Table_ShortcutPower_t.Event[1446]
+    Event = Table_ShortcutPower_t.Event[1476]
   },
   [4136] = {
     id = 4136,
-    Event = Table_ShortcutPower_t.Event[1445]
+    Event = Table_ShortcutPower_t.Event[1475]
   },
   [4137] = {
     id = 4137,
-    Event = Table_ShortcutPower_t.Event[1444]
+    Event = Table_ShortcutPower_t.Event[1474]
   },
   [4138] = {
     id = 4138,
-    Event = Table_ShortcutPower_t.Event[1443]
+    Event = Table_ShortcutPower_t.Event[1473]
   },
   [4139] = {
     id = 4139,
-    Event = Table_ShortcutPower_t.Event[1437]
+    Event = Table_ShortcutPower_t.Event[1467]
   },
   [4140] = {
     id = 4140,
-    Event = Table_ShortcutPower_t.Event[1442]
+    Event = Table_ShortcutPower_t.Event[1472]
   },
   [4141] = {
     id = 4141,
-    Event = Table_ShortcutPower_t.Event[1431]
+    Event = Table_ShortcutPower_t.Event[1461]
   },
   [4142] = {
     id = 4142,
-    Event = Table_ShortcutPower_t.Event[1441]
+    Event = Table_ShortcutPower_t.Event[1471]
   },
   [4143] = {
     id = 4143,
-    Event = Table_ShortcutPower_t.Event[1440]
+    Event = Table_ShortcutPower_t.Event[1470]
   },
   [4144] = {
     id = 4144,
-    Event = Table_ShortcutPower_t.Event[1439]
+    Event = Table_ShortcutPower_t.Event[1469]
   },
   [4145] = {
     id = 4145,
-    Event = Table_ShortcutPower_t.Event[1438]
+    Event = Table_ShortcutPower_t.Event[1468]
   },
   [4146] = {
     id = 4146,
-    Event = Table_ShortcutPower_t.Event[1437]
+    Event = Table_ShortcutPower_t.Event[1467]
   },
   [4147] = {
     id = 4147,
-    Event = Table_ShortcutPower_t.Event[1436]
+    Event = Table_ShortcutPower_t.Event[1466]
   },
   [4148] = {
     id = 4148,
-    Event = Table_ShortcutPower_t.Event[1435]
+    Event = Table_ShortcutPower_t.Event[1465]
   },
   [4149] = {
     id = 4149,
-    Event = Table_ShortcutPower_t.Event[1006]
+    Event = Table_ShortcutPower_t.Event[1036]
   },
   [4150] = {
     id = 4150,
-    Event = Table_ShortcutPower_t.Event[1005]
+    Event = Table_ShortcutPower_t.Event[1035]
   },
   [4151] = {
     id = 4151,
-    Event = Table_ShortcutPower_t.Event[1004]
+    Event = Table_ShortcutPower_t.Event[1034]
   },
   [4152] = {
     id = 4152,
-    Event = Table_ShortcutPower_t.Event[1431]
+    Event = Table_ShortcutPower_t.Event[1461]
   },
   [4153] = {
     id = 4153,
-    Event = Table_ShortcutPower_t.Event[1430]
+    Event = Table_ShortcutPower_t.Event[1460]
   },
   [4154] = {
     id = 4154,
-    Event = Table_ShortcutPower_t.Event[1429]
+    Event = Table_ShortcutPower_t.Event[1459]
   },
   [4155] = {
     id = 4155,
-    Event = Table_ShortcutPower_t.Event[1428]
+    Event = Table_ShortcutPower_t.Event[1458]
   },
   [4156] = {
     id = 4156,
-    Event = Table_ShortcutPower_t.Event[1427]
+    Event = Table_ShortcutPower_t.Event[1457]
   },
   [4157] = {
     id = 4157,
-    Event = Table_ShortcutPower_t.Event[1426]
+    Event = Table_ShortcutPower_t.Event[1456]
   },
   [4158] = {
     id = 4158,
-    Event = Table_ShortcutPower_t.Event[1425]
+    Event = Table_ShortcutPower_t.Event[1455]
   },
   [4159] = {
     id = 4159,
-    Event = Table_ShortcutPower_t.Event[1424]
+    Event = Table_ShortcutPower_t.Event[1454]
   },
   [4160] = {
     id = 4160,
-    Event = Table_ShortcutPower_t.Event[1423]
+    Event = Table_ShortcutPower_t.Event[1453]
   },
   [4161] = {
     id = 4161,
-    Event = Table_ShortcutPower_t.Event[1422]
+    Event = Table_ShortcutPower_t.Event[1452]
   },
   [4162] = {
     id = 4162,
-    Event = Table_ShortcutPower_t.Event[1421]
+    Event = Table_ShortcutPower_t.Event[1451]
   },
   [4163] = {
     id = 4163,
@@ -9244,123 +9434,123 @@ Table_ShortcutPower = {
   },
   [4164] = {
     id = 4164,
-    Event = Table_ShortcutPower_t.Event[1420]
+    Event = Table_ShortcutPower_t.Event[1450]
   },
   [4165] = {
     id = 4165,
-    Event = Table_ShortcutPower_t.Event[1419]
+    Event = Table_ShortcutPower_t.Event[1449]
   },
   [4166] = {
     id = 4166,
-    Event = Table_ShortcutPower_t.Event[1418]
+    Event = Table_ShortcutPower_t.Event[1448]
   },
   [4167] = {
     id = 4167,
-    Event = Table_ShortcutPower_t.Event[1417]
+    Event = Table_ShortcutPower_t.Event[1447]
   },
   [4168] = {
     id = 4168,
-    Event = Table_ShortcutPower_t.Event[1416]
+    Event = Table_ShortcutPower_t.Event[1446]
   },
   [4169] = {
     id = 4169,
-    Event = Table_ShortcutPower_t.Event[1415]
+    Event = Table_ShortcutPower_t.Event[1445]
   },
   [4170] = {
     id = 4170,
-    Event = Table_ShortcutPower_t.Event[1414]
+    Event = Table_ShortcutPower_t.Event[1444]
   },
   [4171] = {
     id = 4171,
-    Event = Table_ShortcutPower_t.Event[1413]
+    Event = Table_ShortcutPower_t.Event[1443]
   },
   [4172] = {
     id = 4172,
-    Event = Table_ShortcutPower_t.Event[1412]
+    Event = Table_ShortcutPower_t.Event[1442]
   },
   [4173] = {
     id = 4173,
-    Event = Table_ShortcutPower_t.Event[1411]
+    Event = Table_ShortcutPower_t.Event[1441]
   },
   [4174] = {
     id = 4174,
-    Event = Table_ShortcutPower_t.Event[1410]
+    Event = Table_ShortcutPower_t.Event[1440]
   },
   [4175] = {
     id = 4175,
-    Event = Table_ShortcutPower_t.Event[1409]
+    Event = Table_ShortcutPower_t.Event[1439]
   },
   [4176] = {
     id = 4176,
-    Event = Table_ShortcutPower_t.Event[1408]
+    Event = Table_ShortcutPower_t.Event[1438]
   },
   [4177] = {
     id = 4177,
-    Event = Table_ShortcutPower_t.Event[1407]
+    Event = Table_ShortcutPower_t.Event[1437]
   },
   [4178] = {
     id = 4178,
-    Event = Table_ShortcutPower_t.Event[1406]
+    Event = Table_ShortcutPower_t.Event[1436]
   },
   [4179] = {
     id = 4179,
-    Event = Table_ShortcutPower_t.Event[1405]
+    Event = Table_ShortcutPower_t.Event[1435]
   },
   [4180] = {
     id = 4180,
-    Event = Table_ShortcutPower_t.Event[1404]
+    Event = Table_ShortcutPower_t.Event[1434]
   },
   [4181] = {
     id = 4181,
-    Event = Table_ShortcutPower_t.Event[1403]
+    Event = Table_ShortcutPower_t.Event[1433]
   },
   [4182] = {
     id = 4182,
-    Event = Table_ShortcutPower_t.Event[1402]
+    Event = Table_ShortcutPower_t.Event[1432]
   },
   [4183] = {
     id = 4183,
-    Event = Table_ShortcutPower_t.Event[1401]
+    Event = Table_ShortcutPower_t.Event[1431]
   },
   [4184] = {
     id = 4184,
-    Event = Table_ShortcutPower_t.Event[1400]
+    Event = Table_ShortcutPower_t.Event[1430]
   },
   [4185] = {
     id = 4185,
-    Event = Table_ShortcutPower_t.Event[1399]
+    Event = Table_ShortcutPower_t.Event[1429]
   },
   [4186] = {
     id = 4186,
-    Event = Table_ShortcutPower_t.Event[1398]
+    Event = Table_ShortcutPower_t.Event[1428]
   },
   [4187] = {
     id = 4187,
-    Event = Table_ShortcutPower_t.Event[1397]
+    Event = Table_ShortcutPower_t.Event[1427]
   },
   [4188] = {
     id = 4188,
-    Event = Table_ShortcutPower_t.Event[1396]
+    Event = Table_ShortcutPower_t.Event[1426]
   },
   [4189] = {
     id = 4189,
-    Event = Table_ShortcutPower_t.Event[1395]
+    Event = Table_ShortcutPower_t.Event[1425]
   },
   [4190] = {
     id = 4190,
-    Event = Table_ShortcutPower_t.Event[1394]
+    Event = Table_ShortcutPower_t.Event[1424]
   },
   [4191] = {
     id = 4191,
-    Event = Table_ShortcutPower_t.Event[1393]
+    Event = Table_ShortcutPower_t.Event[1423]
   },
   [4192] = {
     id = 4192,
-    Event = Table_ShortcutPower_t.Event[1392]
+    Event = Table_ShortcutPower_t.Event[1422]
   },
   [4193] = {
     id = 4193,
-    Event = Table_ShortcutPower_t.Event[1391]
+    Event = Table_ShortcutPower_t.Event[1421]
   },
   [4194] = {
     id = 4194,
@@ -9369,297 +9559,297 @@ Table_ShortcutPower = {
   [4981] = {
     id = 4981,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[701]
+    Event = Table_ShortcutPower_t.Event[708]
   },
   [4982] = {
     id = 4982,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[702]
+    Event = Table_ShortcutPower_t.Event[709]
   },
   [4983] = {
     id = 4983,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[703]
+    Event = Table_ShortcutPower_t.Event[710]
   },
   [4984] = {
     id = 4984,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[704]
+    Event = Table_ShortcutPower_t.Event[711]
   },
   [4985] = {
     id = 4985,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[705]
+    Event = Table_ShortcutPower_t.Event[712]
   },
   [4986] = {
     id = 4986,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[706]
+    Event = Table_ShortcutPower_t.Event[713]
   },
   [4987] = {
     id = 4987,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[707]
+    Event = Table_ShortcutPower_t.Event[714]
   },
   [4988] = {
     id = 4988,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[708]
+    Event = Table_ShortcutPower_t.Event[715]
   },
   [4989] = {
     id = 4989,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[709]
+    Event = Table_ShortcutPower_t.Event[716]
   },
   [4990] = {
     id = 4990,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[710]
+    Event = Table_ShortcutPower_t.Event[717]
   },
   [4991] = {
     id = 4991,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[711]
+    Event = Table_ShortcutPower_t.Event[718]
   },
   [4992] = {
     id = 4992,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[712]
+    Event = Table_ShortcutPower_t.Event[719]
   },
   [4993] = {
     id = 4993,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[713]
+    Event = Table_ShortcutPower_t.Event[720]
   },
   [4994] = {
     id = 4994,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[714]
+    Event = Table_ShortcutPower_t.Event[721]
   },
   [4995] = {
     id = 4995,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1390]
+    Event = Table_ShortcutPower_t.Event[1420]
   },
   [4996] = {
     id = 4996,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1389]
+    Event = Table_ShortcutPower_t.Event[1419]
   },
   [4997] = {
     id = 4997,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1388]
+    Event = Table_ShortcutPower_t.Event[1418]
   },
   [4998] = {
     id = 4998,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1387]
+    Event = Table_ShortcutPower_t.Event[1417]
   },
   [4999] = {
     id = 4999,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1386]
+    Event = Table_ShortcutPower_t.Event[1416]
   },
   [5000] = {
     id = 5000,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1385]
+    Event = Table_ShortcutPower_t.Event[1415]
   },
   [5001] = {
     id = 5001,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1384]
+    Event = Table_ShortcutPower_t.Event[1414]
   },
   [5002] = {
     id = 5002,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1383]
+    Event = Table_ShortcutPower_t.Event[1413]
   },
   [5003] = {
     id = 5003,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[372]
+    Event = Table_ShortcutPower_t.Event[379]
   },
   [5004] = {
     id = 5004,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1382]
+    Event = Table_ShortcutPower_t.Event[1412]
   },
   [5005] = {
     id = 5005,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[214]
+    Event = Table_ShortcutPower_t.Event[221]
   },
   [5006] = {
     id = 5006,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1381]
+    Event = Table_ShortcutPower_t.Event[1411]
   },
   [5007] = {
     id = 5007,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1380]
+    Event = Table_ShortcutPower_t.Event[1410]
   },
   [5008] = {
     id = 5008,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[728]
+    Event = Table_ShortcutPower_t.Event[735]
   },
   [5009] = {
     id = 5009,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[729]
+    Event = Table_ShortcutPower_t.Event[736]
   },
   [5010] = {
     id = 5010,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[730]
+    Event = Table_ShortcutPower_t.Event[737]
   },
   [5011] = {
     id = 5011,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[731]
+    Event = Table_ShortcutPower_t.Event[738]
   },
   [5012] = {
     id = 5012,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[732]
+    Event = Table_ShortcutPower_t.Event[739]
   },
   [5013] = {
     id = 5013,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[733]
+    Event = Table_ShortcutPower_t.Event[740]
   },
   [5014] = {
     id = 5014,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[277]
+    Event = Table_ShortcutPower_t.Event[284]
   },
   [5015] = {
     id = 5015,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1379]
+    Event = Table_ShortcutPower_t.Event[1409]
   },
   [5016] = {
     id = 5016,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1378]
+    Event = Table_ShortcutPower_t.Event[1408]
   },
   [5017] = {
     id = 5017,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1377]
+    Event = Table_ShortcutPower_t.Event[1407]
   },
   [5018] = {
     id = 5018,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1376]
+    Event = Table_ShortcutPower_t.Event[1406]
   },
   [5019] = {
     id = 5019,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[316]
+    Event = Table_ShortcutPower_t.Event[323]
   },
   [5020] = {
     id = 5020,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1375]
+    Event = Table_ShortcutPower_t.Event[1405]
   },
   [5021] = {
     id = 5021,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1374]
+    Event = Table_ShortcutPower_t.Event[1404]
   },
   [5022] = {
     id = 5022,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1373]
+    Event = Table_ShortcutPower_t.Event[1403]
   },
   [5023] = {
     id = 5023,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[742]
+    Event = Table_ShortcutPower_t.Event[749]
   },
   [5024] = {
     id = 5024,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[199]
+    Event = Table_ShortcutPower_t.Event[206]
   },
   [5025] = {
     id = 5025,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1372]
+    Event = Table_ShortcutPower_t.Event[1402]
   },
   [5026] = {
     id = 5026,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1371]
+    Event = Table_ShortcutPower_t.Event[1401]
   },
   [5027] = {
     id = 5027,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1370]
+    Event = Table_ShortcutPower_t.Event[1400]
   },
   [5028] = {
     id = 5028,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[747]
+    Event = Table_ShortcutPower_t.Event[754]
   },
   [5029] = {
     id = 5029,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[748]
+    Event = Table_ShortcutPower_t.Event[755]
   },
   [5030] = {
     id = 5030,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[749]
+    Event = Table_ShortcutPower_t.Event[756]
   },
   [5031] = {
     id = 5031,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[750]
+    Event = Table_ShortcutPower_t.Event[757]
   },
   [5032] = {
     id = 5032,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[751]
+    Event = Table_ShortcutPower_t.Event[758]
   },
   [5033] = {
     id = 5033,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[752]
+    Event = Table_ShortcutPower_t.Event[759]
   },
   [5034] = {
     id = 5034,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[753]
+    Event = Table_ShortcutPower_t.Event[760]
   },
   [5035] = {
     id = 5035,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1369]
+    Event = Table_ShortcutPower_t.Event[1399]
   },
   [5036] = {
     id = 5036,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1368]
+    Event = Table_ShortcutPower_t.Event[1398]
   },
   [5037] = {
     id = 5037,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1367]
+    Event = Table_ShortcutPower_t.Event[1397]
   },
   [5038] = {
     id = 5038,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1366]
+    Event = Table_ShortcutPower_t.Event[1396]
   },
   [5039] = {
     id = 5039,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1365]
+    Event = Table_ShortcutPower_t.Event[1395]
   },
   [5040] = {
     id = 5040,
@@ -9669,387 +9859,387 @@ Table_ShortcutPower = {
   [5041] = {
     id = 5041,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1364]
+    Event = Table_ShortcutPower_t.Event[1394]
   },
   [5042] = {
     id = 5042,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1363]
+    Event = Table_ShortcutPower_t.Event[1393]
   },
   [5043] = {
     id = 5043,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[761]
+    Event = Table_ShortcutPower_t.Event[768]
   },
   [5044] = {
     id = 5044,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1362]
+    Event = Table_ShortcutPower_t.Event[1392]
   },
   [5045] = {
     id = 5045,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1361]
+    Event = Table_ShortcutPower_t.Event[1391]
   },
   [5046] = {
     id = 5046,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1360]
+    Event = Table_ShortcutPower_t.Event[1390]
   },
   [5047] = {
     id = 5047,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1359]
+    Event = Table_ShortcutPower_t.Event[1389]
   },
   [5048] = {
     id = 5048,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1358]
+    Event = Table_ShortcutPower_t.Event[1388]
   },
   [5049] = {
     id = 5049,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1357]
+    Event = Table_ShortcutPower_t.Event[1387]
   },
   [5050] = {
     id = 5050,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1356]
+    Event = Table_ShortcutPower_t.Event[1386]
   },
   [5051] = {
     id = 5051,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1355]
+    Event = Table_ShortcutPower_t.Event[1385]
   },
   [5052] = {
     id = 5052,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1354]
+    Event = Table_ShortcutPower_t.Event[1384]
   },
   [5053] = {
     id = 5053,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1353]
+    Event = Table_ShortcutPower_t.Event[1383]
   },
   [5054] = {
     id = 5054,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1352]
+    Event = Table_ShortcutPower_t.Event[1382]
   },
   [5055] = {
     id = 5055,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1351]
+    Event = Table_ShortcutPower_t.Event[1381]
   },
   [5056] = {
     id = 5056,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1350]
+    Event = Table_ShortcutPower_t.Event[1380]
   },
   [5057] = {
     id = 5057,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1349]
+    Event = Table_ShortcutPower_t.Event[1379]
   },
   [5058] = {
     id = 5058,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1348]
+    Event = Table_ShortcutPower_t.Event[1378]
   },
   [5059] = {
     id = 5059,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1347]
+    Event = Table_ShortcutPower_t.Event[1377]
   },
   [5060] = {
     id = 5060,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1346]
+    Event = Table_ShortcutPower_t.Event[1376]
   },
   [5501] = {
     id = 5501,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1063]
+    Event = Table_ShortcutPower_t.Event[1093]
   },
   [5502] = {
     id = 5502,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1064]
+    Event = Table_ShortcutPower_t.Event[1094]
   },
   [5503] = {
     id = 5503,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1065]
+    Event = Table_ShortcutPower_t.Event[1095]
   },
   [5504] = {
     id = 5504,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1066]
+    Event = Table_ShortcutPower_t.Event[1096]
   },
   [5505] = {
     id = 5505,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1067]
+    Event = Table_ShortcutPower_t.Event[1097]
   },
   [5506] = {
     id = 5506,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1068]
+    Event = Table_ShortcutPower_t.Event[1098]
   },
   [5507] = {
     id = 5507,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1069]
+    Event = Table_ShortcutPower_t.Event[1099]
   },
   [5508] = {
     id = 5508,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1070]
+    Event = Table_ShortcutPower_t.Event[1100]
   },
   [5509] = {
     id = 5509,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1071]
+    Event = Table_ShortcutPower_t.Event[1101]
   },
   [5510] = {
     id = 5510,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1072]
+    Event = Table_ShortcutPower_t.Event[1102]
   },
   [5511] = {
     id = 5511,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1073]
+    Event = Table_ShortcutPower_t.Event[1103]
   },
   [5512] = {
     id = 5512,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1074]
+    Event = Table_ShortcutPower_t.Event[1104]
   },
   [5513] = {
     id = 5513,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1075]
+    Event = Table_ShortcutPower_t.Event[1105]
   },
   [5514] = {
     id = 5514,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1076]
+    Event = Table_ShortcutPower_t.Event[1106]
   },
   [5515] = {
     id = 5515,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1077]
+    Event = Table_ShortcutPower_t.Event[1107]
   },
   [5516] = {
     id = 5516,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1078]
+    Event = Table_ShortcutPower_t.Event[1108]
   },
   [5517] = {
     id = 5517,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1079]
+    Event = Table_ShortcutPower_t.Event[1109]
   },
   [5518] = {
     id = 5518,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1080]
+    Event = Table_ShortcutPower_t.Event[1110]
   },
   [5519] = {
     id = 5519,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1081]
+    Event = Table_ShortcutPower_t.Event[1111]
   },
   [6000] = {
     id = 6000,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1507]
+    Event = Table_ShortcutPower_t.Event[1537]
   },
   [6001] = {
     id = 6001,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1508]
+    Event = Table_ShortcutPower_t.Event[1538]
   },
   [6002] = {
     id = 6002,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1509]
+    Event = Table_ShortcutPower_t.Event[1539]
   },
   [6003] = {
     id = 6003,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1510]
+    Event = Table_ShortcutPower_t.Event[1540]
   },
   [6004] = {
     id = 6004,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1511]
+    Event = Table_ShortcutPower_t.Event[1541]
   },
   [6005] = {
     id = 6005,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1512]
+    Event = Table_ShortcutPower_t.Event[1542]
   },
   [6006] = {
     id = 6006,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1513]
+    Event = Table_ShortcutPower_t.Event[1543]
   },
   [6007] = {
     id = 6007,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1514]
+    Event = Table_ShortcutPower_t.Event[1544]
   },
   [6008] = {
     id = 6008,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1515]
+    Event = Table_ShortcutPower_t.Event[1545]
   },
   [6009] = {
     id = 6009,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1516]
+    Event = Table_ShortcutPower_t.Event[1546]
   },
   [6010] = {
     id = 6010,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1517]
+    Event = Table_ShortcutPower_t.Event[1547]
   },
   [6011] = {
     id = 6011,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1518]
+    Event = Table_ShortcutPower_t.Event[1548]
   },
   [6012] = {
     id = 6012,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1519]
+    Event = Table_ShortcutPower_t.Event[1549]
   },
   [6013] = {
     id = 6013,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1520]
+    Event = Table_ShortcutPower_t.Event[1550]
   },
   [6014] = {
     id = 6014,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1521]
+    Event = Table_ShortcutPower_t.Event[1551]
   },
   [6015] = {
     id = 6015,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1522]
+    Event = Table_ShortcutPower_t.Event[1552]
   },
   [6016] = {
     id = 6016,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1523]
+    Event = Table_ShortcutPower_t.Event[1553]
   },
   [6017] = {
     id = 6017,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1259]
+    Event = Table_ShortcutPower_t.Event[1289]
   },
   [6018] = {
     id = 6018,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1524]
+    Event = Table_ShortcutPower_t.Event[1554]
   },
   [6019] = {
     id = 6019,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1525]
+    Event = Table_ShortcutPower_t.Event[1555]
   },
   [6020] = {
     id = 6020,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1526]
+    Event = Table_ShortcutPower_t.Event[1556]
   },
   [6021] = {
     id = 6021,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1527]
+    Event = Table_ShortcutPower_t.Event[1557]
   },
   [6022] = {
     id = 6022,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1528]
+    Event = Table_ShortcutPower_t.Event[1558]
   },
   [6023] = {
     id = 6023,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1529]
+    Event = Table_ShortcutPower_t.Event[1559]
   },
   [6024] = {
     id = 6024,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1530]
+    Event = Table_ShortcutPower_t.Event[1560]
   },
   [6025] = {
     id = 6025,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1531]
+    Event = Table_ShortcutPower_t.Event[1561]
   },
   [6026] = {
     id = 6026,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1532]
+    Event = Table_ShortcutPower_t.Event[1562]
   },
   [6027] = {
     id = 6027,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1533]
+    Event = Table_ShortcutPower_t.Event[1563]
   },
   [6028] = {
     id = 6028,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1534]
+    Event = Table_ShortcutPower_t.Event[1564]
   },
   [6029] = {
     id = 6029,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1535]
+    Event = Table_ShortcutPower_t.Event[1565]
   },
   [6030] = {
     id = 6030,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1536]
+    Event = Table_ShortcutPower_t.Event[1566]
   },
   [7001] = {
     id = 7001,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[683]
+    Event = Table_ShortcutPower_t.Event[690]
   },
   [7002] = {
     id = 7002,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[684]
+    Event = Table_ShortcutPower_t.Event[691]
   },
   [7003] = {
     id = 7003,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[685]
+    Event = Table_ShortcutPower_t.Event[692]
   },
   [7004] = {
     id = 7004,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[686]
+    Event = Table_ShortcutPower_t.Event[693]
   },
   [7005] = {
     id = 7005,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[687]
+    Event = Table_ShortcutPower_t.Event[694]
   },
   [7006] = {
     id = 7006,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[688]
+    Event = Table_ShortcutPower_t.Event[695]
   },
   [7010] = {
     id = 7010,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[692]
+    Event = Table_ShortcutPower_t.Event[699]
   },
   [7011] = {
     id = 7011,
@@ -10059,741 +10249,741 @@ Table_ShortcutPower = {
   [7012] = {
     id = 7012,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[693]
+    Event = Table_ShortcutPower_t.Event[700]
   },
   [8000] = {
     id = 8000,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[807]
+    Event = Table_ShortcutPower_t.Event[814]
   },
   [8001] = {
     id = 8001,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[841]
+    Event = Table_ShortcutPower_t.Event[848]
   },
   [8002] = {
     id = 8002,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1221]
+    Event = Table_ShortcutPower_t.Event[1251]
   },
   [8003] = {
     id = 8003,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1240]
+    Event = Table_ShortcutPower_t.Event[1270]
   },
   [8004] = {
     id = 8004,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1239]
+    Event = Table_ShortcutPower_t.Event[1269]
   },
   [8005] = {
     id = 8005,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[853]
+    Event = Table_ShortcutPower_t.Event[860]
   },
   [8006] = {
     id = 8006,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1475]
+    Event = Table_ShortcutPower_t.Event[1505]
   },
   [8007] = {
     id = 8007,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1476]
+    Event = Table_ShortcutPower_t.Event[1506]
   },
   [8008] = {
     id = 8008,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[852]
+    Event = Table_ShortcutPower_t.Event[859]
   },
   [8009] = {
     id = 8009,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1238]
+    Event = Table_ShortcutPower_t.Event[1268]
   },
   [8010] = {
     id = 8010,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1477]
+    Event = Table_ShortcutPower_t.Event[1507]
   },
   [8011] = {
     id = 8011,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1478]
+    Event = Table_ShortcutPower_t.Event[1508]
   },
   [8012] = {
     id = 8012,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1479]
+    Event = Table_ShortcutPower_t.Event[1509]
   },
   [8013] = {
     id = 8013,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1480]
+    Event = Table_ShortcutPower_t.Event[1510]
   },
   [8014] = {
     id = 8014,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1481]
+    Event = Table_ShortcutPower_t.Event[1511]
   },
   [8015] = {
     id = 8015,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1482]
+    Event = Table_ShortcutPower_t.Event[1512]
   },
   [8016] = {
     id = 8016,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1483]
+    Event = Table_ShortcutPower_t.Event[1513]
   },
   [8017] = {
     id = 8017,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1357]
+    Event = Table_ShortcutPower_t.Event[1387]
   },
   [8018] = {
     id = 8018,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1484]
+    Event = Table_ShortcutPower_t.Event[1514]
   },
   [8019] = {
     id = 8019,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1485]
+    Event = Table_ShortcutPower_t.Event[1515]
   },
   [8020] = {
     id = 8020,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1486]
+    Event = Table_ShortcutPower_t.Event[1516]
   },
   [8021] = {
     id = 8021,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1487]
+    Event = Table_ShortcutPower_t.Event[1517]
   },
   [8022] = {
     id = 8022,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1488]
+    Event = Table_ShortcutPower_t.Event[1518]
   },
   [8023] = {
     id = 8023,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1489]
+    Event = Table_ShortcutPower_t.Event[1519]
   },
   [8024] = {
     id = 8024,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1490]
+    Event = Table_ShortcutPower_t.Event[1520]
   },
   [8025] = {
     id = 8025,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1491]
+    Event = Table_ShortcutPower_t.Event[1521]
   },
   [8026] = {
     id = 8026,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1492]
+    Event = Table_ShortcutPower_t.Event[1522]
   },
   [8027] = {
     id = 8027,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1493]
+    Event = Table_ShortcutPower_t.Event[1523]
   },
   [8028] = {
     id = 8028,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[837]
+    Event = Table_ShortcutPower_t.Event[844]
   },
   [8029] = {
     id = 8029,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1356]
+    Event = Table_ShortcutPower_t.Event[1386]
   },
   [8030] = {
     id = 8030,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1494]
+    Event = Table_ShortcutPower_t.Event[1524]
   },
   [8031] = {
     id = 8031,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1355]
+    Event = Table_ShortcutPower_t.Event[1385]
   },
   [8032] = {
     id = 8032,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1007]
+    Event = Table_ShortcutPower_t.Event[1037]
   },
   [8033] = {
     id = 8033,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1495]
+    Event = Table_ShortcutPower_t.Event[1525]
   },
   [8034] = {
     id = 8034,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1496]
+    Event = Table_ShortcutPower_t.Event[1526]
   },
   [8035] = {
     id = 8035,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[349]
+    Event = Table_ShortcutPower_t.Event[356]
   },
   [8036] = {
     id = 8036,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1497]
+    Event = Table_ShortcutPower_t.Event[1527]
   },
   [8037] = {
     id = 8037,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1498]
+    Event = Table_ShortcutPower_t.Event[1528]
   },
   [8038] = {
     id = 8038,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1499]
+    Event = Table_ShortcutPower_t.Event[1529]
   },
   [8039] = {
     id = 8039,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1500]
+    Event = Table_ShortcutPower_t.Event[1530]
   },
   [8040] = {
     id = 8040,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1501]
+    Event = Table_ShortcutPower_t.Event[1531]
   },
   [8041] = {
     id = 8041,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1214]
+    Event = Table_ShortcutPower_t.Event[1244]
   },
   [8042] = {
     id = 8042,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1502]
+    Event = Table_ShortcutPower_t.Event[1532]
   },
   [8043] = {
     id = 8043,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1503]
+    Event = Table_ShortcutPower_t.Event[1533]
   },
   [8044] = {
     id = 8044,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1504]
+    Event = Table_ShortcutPower_t.Event[1534]
   },
   [8045] = {
     id = 8045,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1505]
+    Event = Table_ShortcutPower_t.Event[1535]
   },
   [8046] = {
     id = 8046,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1506]
+    Event = Table_ShortcutPower_t.Event[1536]
   },
   [8047] = {
     id = 8047,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1272]
+    Event = Table_ShortcutPower_t.Event[1302]
   },
   [8048] = {
     id = 8048,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1271]
+    Event = Table_ShortcutPower_t.Event[1301]
   },
   [8049] = {
     id = 8049,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1270]
+    Event = Table_ShortcutPower_t.Event[1300]
   },
   [8050] = {
     id = 8050,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1269]
+    Event = Table_ShortcutPower_t.Event[1299]
   },
   [8051] = {
     id = 8051,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1268]
+    Event = Table_ShortcutPower_t.Event[1298]
   },
   [8052] = {
     id = 8052,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1267]
+    Event = Table_ShortcutPower_t.Event[1297]
   },
   [8053] = {
     id = 8053,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1266]
+    Event = Table_ShortcutPower_t.Event[1296]
   },
   [8054] = {
     id = 8054,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1265]
+    Event = Table_ShortcutPower_t.Event[1295]
   },
   [8055] = {
     id = 8055,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1264]
+    Event = Table_ShortcutPower_t.Event[1294]
   },
   [8056] = {
     id = 8056,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1263]
+    Event = Table_ShortcutPower_t.Event[1293]
   },
   [8057] = {
     id = 8057,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1262]
+    Event = Table_ShortcutPower_t.Event[1292]
   },
   [8058] = {
     id = 8058,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1261]
+    Event = Table_ShortcutPower_t.Event[1291]
   },
   [8059] = {
     id = 8059,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1260]
+    Event = Table_ShortcutPower_t.Event[1290]
   },
   [8060] = {
     id = 8060,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1259]
+    Event = Table_ShortcutPower_t.Event[1289]
   },
   [8061] = {
     id = 8061,
-    Event = Table_ShortcutPower_t.Event[1258]
+    Event = Table_ShortcutPower_t.Event[1288]
   },
   [8062] = {
     id = 8062,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1257]
+    Event = Table_ShortcutPower_t.Event[1287]
   },
   [8063] = {
     id = 8063,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1256]
+    Event = Table_ShortcutPower_t.Event[1286]
   },
   [8064] = {
     id = 8064,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1255]
+    Event = Table_ShortcutPower_t.Event[1285]
   },
   [8065] = {
     id = 8065,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1254]
+    Event = Table_ShortcutPower_t.Event[1284]
   },
   [8066] = {
     id = 8066,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1253]
+    Event = Table_ShortcutPower_t.Event[1283]
   },
   [8067] = {
     id = 8067,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1252]
+    Event = Table_ShortcutPower_t.Event[1282]
   },
   [8068] = {
     id = 8068,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1251]
+    Event = Table_ShortcutPower_t.Event[1281]
   },
   [8069] = {
     id = 8069,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1250]
+    Event = Table_ShortcutPower_t.Event[1280]
   },
   [8070] = {
     id = 8070,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1249]
+    Event = Table_ShortcutPower_t.Event[1279]
   },
   [8071] = {
     id = 8071,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1248]
+    Event = Table_ShortcutPower_t.Event[1278]
   },
   [8072] = {
     id = 8072,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1087]
+    Event = Table_ShortcutPower_t.Event[1117]
   },
   [8073] = {
     id = 8073,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1247]
+    Event = Table_ShortcutPower_t.Event[1277]
   },
   [8074] = {
     id = 8074,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1246]
+    Event = Table_ShortcutPower_t.Event[1276]
   },
   [8075] = {
     id = 8075,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1245]
+    Event = Table_ShortcutPower_t.Event[1275]
   },
   [8076] = {
     id = 8076,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1244]
+    Event = Table_ShortcutPower_t.Event[1274]
   },
   [8077] = {
     id = 8077,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1243]
+    Event = Table_ShortcutPower_t.Event[1273]
   },
   [8078] = {
     id = 8078,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[337]
+    Event = Table_ShortcutPower_t.Event[344]
   },
   [8079] = {
     id = 8079,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1537]
+    Event = Table_ShortcutPower_t.Event[1567]
   },
   [8080] = {
     id = 8080,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[558]
+    Event = Table_ShortcutPower_t.Event[565]
   },
   [8081] = {
     id = 8081,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1538]
+    Event = Table_ShortcutPower_t.Event[1568]
   },
   [8082] = {
     id = 8082,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1539]
+    Event = Table_ShortcutPower_t.Event[1569]
   },
   [8083] = {
     id = 8083,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1540]
+    Event = Table_ShortcutPower_t.Event[1570]
   },
   [8084] = {
     id = 8084,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1541]
+    Event = Table_ShortcutPower_t.Event[1571]
   },
   [8085] = {
     id = 8085,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1542]
+    Event = Table_ShortcutPower_t.Event[1572]
   },
   [8086] = {
     id = 8086,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1543]
+    Event = Table_ShortcutPower_t.Event[1573]
   },
   [8087] = {
     id = 8087,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1544]
+    Event = Table_ShortcutPower_t.Event[1574]
   },
   [8088] = {
     id = 8088,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1545]
+    Event = Table_ShortcutPower_t.Event[1575]
   },
   [8089] = {
     id = 8089,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1546]
+    Event = Table_ShortcutPower_t.Event[1576]
   },
   [8090] = {
     id = 8090,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1547]
+    Event = Table_ShortcutPower_t.Event[1577]
   },
   [8091] = {
     id = 8091,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1548]
+    Event = Table_ShortcutPower_t.Event[1578]
   },
   [8092] = {
     id = 8092,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1549]
+    Event = Table_ShortcutPower_t.Event[1579]
   },
   [8093] = {
     id = 8093,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1550]
+    Event = Table_ShortcutPower_t.Event[1580]
   },
   [8094] = {
     id = 8094,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1540]
+    Event = Table_ShortcutPower_t.Event[1570]
   },
   [8095] = {
     id = 8095,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1220]
+    Event = Table_ShortcutPower_t.Event[1250]
   },
   [8096] = {
     id = 8096,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1219]
+    Event = Table_ShortcutPower_t.Event[1249]
   },
   [8097] = {
     id = 8097,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1218]
+    Event = Table_ShortcutPower_t.Event[1248]
   },
   [8098] = {
     id = 8098,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1217]
+    Event = Table_ShortcutPower_t.Event[1247]
   },
   [8099] = {
     id = 8099,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1216]
+    Event = Table_ShortcutPower_t.Event[1246]
   },
   [8100] = {
     id = 8100,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[474]
+    Event = Table_ShortcutPower_t.Event[481]
   },
   [8103] = {
     id = 8103,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1215]
+    Event = Table_ShortcutPower_t.Event[1245]
   },
   [8104] = {
     id = 8104,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1007]
+    Event = Table_ShortcutPower_t.Event[1037]
   },
   [8105] = {
     id = 8105,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1214]
+    Event = Table_ShortcutPower_t.Event[1244]
   },
   [8106] = {
     id = 8106,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1213]
+    Event = Table_ShortcutPower_t.Event[1243]
   },
   [8107] = {
     id = 8107,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1206]
+    Event = Table_ShortcutPower_t.Event[1236]
   },
   [8108] = {
     id = 8108,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1212]
+    Event = Table_ShortcutPower_t.Event[1242]
   },
   [8109] = {
     id = 8109,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1211]
+    Event = Table_ShortcutPower_t.Event[1241]
   },
   [8110] = {
     id = 8110,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1210]
+    Event = Table_ShortcutPower_t.Event[1240]
   },
   [8111] = {
     id = 8111,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1209]
+    Event = Table_ShortcutPower_t.Event[1239]
   },
   [8112] = {
     id = 8112,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1208]
+    Event = Table_ShortcutPower_t.Event[1238]
   },
   [8113] = {
     id = 8113,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1207]
+    Event = Table_ShortcutPower_t.Event[1237]
   },
   [8114] = {
     id = 8114,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1206]
+    Event = Table_ShortcutPower_t.Event[1236]
   },
   [8115] = {
     id = 8115,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1205]
+    Event = Table_ShortcutPower_t.Event[1235]
   },
   [8116] = {
     id = 8116,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1204]
+    Event = Table_ShortcutPower_t.Event[1234]
   },
   [8117] = {
     id = 8117,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1203]
+    Event = Table_ShortcutPower_t.Event[1233]
   },
   [8121] = {
     id = 8121,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1191]
+    Event = Table_ShortcutPower_t.Event[1221]
   },
   [8122] = {
     id = 8122,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1202]
+    Event = Table_ShortcutPower_t.Event[1232]
   },
   [8123] = {
     id = 8123,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1202]
+    Event = Table_ShortcutPower_t.Event[1232]
   },
   [8124] = {
     id = 8124,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1202]
+    Event = Table_ShortcutPower_t.Event[1232]
   },
   [8125] = {
     id = 8125,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1201]
+    Event = Table_ShortcutPower_t.Event[1231]
   },
   [8126] = {
     id = 8126,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1199]
+    Event = Table_ShortcutPower_t.Event[1229]
   },
   [8127] = {
     id = 8127,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1200]
+    Event = Table_ShortcutPower_t.Event[1230]
   },
   [8128] = {
     id = 8128,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1199]
+    Event = Table_ShortcutPower_t.Event[1229]
   },
   [8129] = {
     id = 8129,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1198]
+    Event = Table_ShortcutPower_t.Event[1228]
   },
   [8130] = {
     id = 8130,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1198]
+    Event = Table_ShortcutPower_t.Event[1228]
   },
   [8131] = {
     id = 8131,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1196]
+    Event = Table_ShortcutPower_t.Event[1226]
   },
   [8132] = {
     id = 8132,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1196]
+    Event = Table_ShortcutPower_t.Event[1226]
   },
   [8133] = {
     id = 8133,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1191]
+    Event = Table_ShortcutPower_t.Event[1221]
   },
   [8134] = {
     id = 8134,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1195]
+    Event = Table_ShortcutPower_t.Event[1225]
   },
   [8135] = {
     id = 8135,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1195]
+    Event = Table_ShortcutPower_t.Event[1225]
   },
   [8136] = {
     id = 8136,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1194]
+    Event = Table_ShortcutPower_t.Event[1224]
   },
   [8137] = {
     id = 8137,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1193]
+    Event = Table_ShortcutPower_t.Event[1223]
   },
   [8138] = {
     id = 8138,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1192]
+    Event = Table_ShortcutPower_t.Event[1222]
   },
   [8139] = {
     id = 8139,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1192]
+    Event = Table_ShortcutPower_t.Event[1222]
   },
   [8140] = {
     id = 8140,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1191]
+    Event = Table_ShortcutPower_t.Event[1221]
   },
   [8141] = {
     id = 8141,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1190]
+    Event = Table_ShortcutPower_t.Event[1220]
   },
   [8142] = {
     id = 8142,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1190]
+    Event = Table_ShortcutPower_t.Event[1220]
   },
   [8143] = {
     id = 8143,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1189]
+    Event = Table_ShortcutPower_t.Event[1219]
   },
   [8144] = {
     id = 8144,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1188]
+    Event = Table_ShortcutPower_t.Event[1218]
   },
   [8145] = {
     id = 8145,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1188]
+    Event = Table_ShortcutPower_t.Event[1218]
   },
   [8146] = {
     id = 8146,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1187]
+    Event = Table_ShortcutPower_t.Event[1217]
   },
   [8147] = {
     id = 8147,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1186]
+    Event = Table_ShortcutPower_t.Event[1216]
   },
   [8148] = {
     id = 8148,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1185]
+    Event = Table_ShortcutPower_t.Event[1215]
   },
   [8149] = {
     id = 8149,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1184]
+    Event = Table_ShortcutPower_t.Event[1214]
   },
   [8150] = {
     id = 8150,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1183]
+    Event = Table_ShortcutPower_t.Event[1213]
   },
   [8151] = {
     id = 8151,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1182]
+    Event = Table_ShortcutPower_t.Event[1212]
   },
   [8152] = {
     id = 8152,
@@ -10803,132 +10993,132 @@ Table_ShortcutPower = {
   [8153] = {
     id = 8153,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1181]
+    Event = Table_ShortcutPower_t.Event[1211]
   },
   [8154] = {
     id = 8154,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1180]
+    Event = Table_ShortcutPower_t.Event[1210]
   },
   [8155] = {
     id = 8155,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1179]
+    Event = Table_ShortcutPower_t.Event[1209]
   },
   [8156] = {
     id = 8156,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1178]
+    Event = Table_ShortcutPower_t.Event[1208]
   },
   [8157] = {
     id = 8157,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1177]
+    Event = Table_ShortcutPower_t.Event[1207]
   },
   [8158] = {
     id = 8158,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1176]
+    Event = Table_ShortcutPower_t.Event[1206]
   },
   [8159] = {
     id = 8159,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1175]
+    Event = Table_ShortcutPower_t.Event[1205]
   },
   [8160] = {
     id = 8160,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1174]
+    Event = Table_ShortcutPower_t.Event[1204]
   },
   [8161] = {
     id = 8161,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1173]
+    Event = Table_ShortcutPower_t.Event[1203]
   },
   [8162] = {
     id = 8162,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1172]
+    Event = Table_ShortcutPower_t.Event[1202]
   },
   [8163] = {
     id = 8163,
     Type = 8,
-    Event = Table_ShortcutPower_t.Event[1171]
+    Event = Table_ShortcutPower_t.Event[1201]
   },
   [8164] = {
     id = 8164,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1170]
+    Event = Table_ShortcutPower_t.Event[1200]
   },
   [8165] = {
     id = 8165,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1169]
+    Event = Table_ShortcutPower_t.Event[1199]
   },
   [8166] = {
     id = 8166,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1168]
+    Event = Table_ShortcutPower_t.Event[1198]
   },
   [8167] = {
     id = 8167,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1167]
+    Event = Table_ShortcutPower_t.Event[1197]
   },
   [8168] = {
     id = 8168,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1166]
+    Event = Table_ShortcutPower_t.Event[1196]
   },
   [8169] = {
     id = 8169,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1165]
+    Event = Table_ShortcutPower_t.Event[1195]
   },
   [8170] = {
     id = 8170,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1164]
+    Event = Table_ShortcutPower_t.Event[1194]
   },
   [8171] = {
     id = 8171,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1163]
+    Event = Table_ShortcutPower_t.Event[1193]
   },
   [8172] = {
     id = 8172,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1162]
+    Event = Table_ShortcutPower_t.Event[1192]
   },
   [8173] = {
     id = 8173,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1161]
+    Event = Table_ShortcutPower_t.Event[1191]
   },
   [8174] = {
     id = 8174,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1160]
+    Event = Table_ShortcutPower_t.Event[1190]
   },
   [8175] = {
     id = 8175,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1159]
+    Event = Table_ShortcutPower_t.Event[1189]
   },
   [8176] = {
     id = 8176,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1158]
+    Event = Table_ShortcutPower_t.Event[1188]
   },
   [8177] = {
     id = 8177,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1157]
+    Event = Table_ShortcutPower_t.Event[1187]
   },
   [8178] = {
     id = 8178,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1156]
+    Event = Table_ShortcutPower_t.Event[1186]
   },
   [8179] = {
     id = 8179,
@@ -10938,317 +11128,317 @@ Table_ShortcutPower = {
   [8180] = {
     id = 8180,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1155]
+    Event = Table_ShortcutPower_t.Event[1185]
   },
   [8181] = {
     id = 8181,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1154]
+    Event = Table_ShortcutPower_t.Event[1184]
   },
   [8182] = {
     id = 8182,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1153]
+    Event = Table_ShortcutPower_t.Event[1183]
   },
   [8183] = {
     id = 8183,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1152]
+    Event = Table_ShortcutPower_t.Event[1182]
   },
   [8184] = {
     id = 8184,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[349]
+    Event = Table_ShortcutPower_t.Event[356]
   },
   [8185] = {
     id = 8185,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1151]
+    Event = Table_ShortcutPower_t.Event[1181]
   },
   [8186] = {
     id = 8186,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1150]
+    Event = Table_ShortcutPower_t.Event[1180]
   },
   [8187] = {
     id = 8187,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1149]
+    Event = Table_ShortcutPower_t.Event[1179]
   },
   [8188] = {
     id = 8188,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1148]
+    Event = Table_ShortcutPower_t.Event[1178]
   },
   [8189] = {
     id = 8189,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1147]
+    Event = Table_ShortcutPower_t.Event[1177]
   },
   [8190] = {
     id = 8190,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1146]
+    Event = Table_ShortcutPower_t.Event[1176]
   },
   [8191] = {
     id = 8191,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1145]
+    Event = Table_ShortcutPower_t.Event[1175]
   },
   [8192] = {
     id = 8192,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1144]
+    Event = Table_ShortcutPower_t.Event[1174]
   },
   [8193] = {
     id = 8193,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1143]
+    Event = Table_ShortcutPower_t.Event[1173]
   },
   [8194] = {
     id = 8194,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1142]
+    Event = Table_ShortcutPower_t.Event[1172]
   },
   [8195] = {
     id = 8195,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1141]
+    Event = Table_ShortcutPower_t.Event[1171]
   },
   [8196] = {
     id = 8196,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1140]
+    Event = Table_ShortcutPower_t.Event[1170]
   },
   [8197] = {
     id = 8197,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1139]
+    Event = Table_ShortcutPower_t.Event[1169]
   },
   [8198] = {
     id = 8198,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1138]
+    Event = Table_ShortcutPower_t.Event[1168]
   },
   [8199] = {
     id = 8199,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1137]
+    Event = Table_ShortcutPower_t.Event[1167]
   },
   [8200] = {
     id = 8200,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1136]
+    Event = Table_ShortcutPower_t.Event[1166]
   },
   [8201] = {
     id = 8201,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1135]
+    Event = Table_ShortcutPower_t.Event[1165]
   },
   [8202] = {
     id = 8202,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1134]
+    Event = Table_ShortcutPower_t.Event[1164]
   },
   [8203] = {
     id = 8203,
     Type = 8,
-    Event = Table_ShortcutPower_t.Event[1133]
+    Event = Table_ShortcutPower_t.Event[1163]
   },
   [8204] = {
     id = 8204,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1132]
+    Event = Table_ShortcutPower_t.Event[1162]
   },
   [8205] = {
     id = 8205,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1131]
+    Event = Table_ShortcutPower_t.Event[1161]
   },
   [8206] = {
     id = 8206,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1130]
+    Event = Table_ShortcutPower_t.Event[1160]
   },
   [8207] = {
     id = 8207,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1129]
+    Event = Table_ShortcutPower_t.Event[1159]
   },
   [8208] = {
     id = 8208,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1128]
+    Event = Table_ShortcutPower_t.Event[1158]
   },
   [8209] = {
     id = 8209,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1127]
+    Event = Table_ShortcutPower_t.Event[1157]
   },
   [8210] = {
     id = 8210,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1126]
+    Event = Table_ShortcutPower_t.Event[1156]
   },
   [8211] = {
     id = 8211,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1125]
+    Event = Table_ShortcutPower_t.Event[1155]
   },
   [8212] = {
     id = 8212,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1124]
+    Event = Table_ShortcutPower_t.Event[1154]
   },
   [8213] = {
     id = 8213,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1123]
+    Event = Table_ShortcutPower_t.Event[1153]
   },
   [8214] = {
     id = 8214,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1122]
+    Event = Table_ShortcutPower_t.Event[1152]
   },
   [8215] = {
     id = 8215,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1121]
+    Event = Table_ShortcutPower_t.Event[1151]
   },
   [8216] = {
     id = 8216,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1120]
+    Event = Table_ShortcutPower_t.Event[1150]
   },
   [8217] = {
     id = 8217,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1119]
+    Event = Table_ShortcutPower_t.Event[1149]
   },
   [8218] = {
     id = 8218,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1118]
+    Event = Table_ShortcutPower_t.Event[1148]
   },
   [8219] = {
     id = 8219,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1117]
+    Event = Table_ShortcutPower_t.Event[1147]
   },
   [8220] = {
     id = 8220,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1116]
+    Event = Table_ShortcutPower_t.Event[1146]
   },
   [8221] = {
     id = 8221,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1115]
+    Event = Table_ShortcutPower_t.Event[1145]
   },
   [8222] = {
     id = 8222,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1114]
+    Event = Table_ShortcutPower_t.Event[1144]
   },
   [8223] = {
     id = 8223,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1113]
+    Event = Table_ShortcutPower_t.Event[1143]
   },
   [8224] = {
     id = 8224,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1112]
+    Event = Table_ShortcutPower_t.Event[1142]
   },
   [8225] = {
     id = 8225,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1111]
+    Event = Table_ShortcutPower_t.Event[1141]
   },
   [8226] = {
     id = 8226,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1110]
+    Event = Table_ShortcutPower_t.Event[1140]
   },
   [8227] = {
     id = 8227,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1109]
+    Event = Table_ShortcutPower_t.Event[1139]
   },
   [8228] = {
     id = 8228,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1108]
+    Event = Table_ShortcutPower_t.Event[1138]
   },
   [8229] = {
     id = 8229,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1107]
+    Event = Table_ShortcutPower_t.Event[1137]
   },
   [8230] = {
     id = 8230,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1106]
+    Event = Table_ShortcutPower_t.Event[1136]
   },
   [8231] = {
     id = 8231,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1105]
+    Event = Table_ShortcutPower_t.Event[1135]
   },
   [8232] = {
     id = 8232,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1104]
+    Event = Table_ShortcutPower_t.Event[1134]
   },
   [8233] = {
     id = 8233,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1103]
+    Event = Table_ShortcutPower_t.Event[1133]
   },
   [8234] = {
     id = 8234,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1102]
+    Event = Table_ShortcutPower_t.Event[1132]
   },
   [8235] = {
     id = 8235,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1101]
+    Event = Table_ShortcutPower_t.Event[1131]
   },
   [8236] = {
     id = 8236,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1100]
+    Event = Table_ShortcutPower_t.Event[1130]
   },
   [8237] = {
     id = 8237,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1099]
+    Event = Table_ShortcutPower_t.Event[1129]
   },
   [8238] = {
     id = 8238,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1098]
+    Event = Table_ShortcutPower_t.Event[1128]
   },
   [8239] = {
     id = 8239,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1097]
+    Event = Table_ShortcutPower_t.Event[1127]
   },
   [8240] = {
     id = 8240,
     Type = 10,
-    Event = Table_ShortcutPower_t.Event[1096]
+    Event = Table_ShortcutPower_t.Event[1126]
   },
   [8241] = {
     id = 8241,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1095]
+    Event = Table_ShortcutPower_t.Event[1125]
   },
   [8242] = {
     id = 8242,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[810]
+    Event = Table_ShortcutPower_t.Event[817]
   },
   [8243] = {
     id = 8243,
@@ -11258,81 +11448,81 @@ Table_ShortcutPower = {
   [8244] = {
     id = 8244,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1094]
+    Event = Table_ShortcutPower_t.Event[1124]
   },
   [8245] = {
     id = 8245,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[815]
+    Event = Table_ShortcutPower_t.Event[822]
   },
   [8246] = {
     id = 8246,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1093]
+    Event = Table_ShortcutPower_t.Event[1123]
   },
   [8247] = {
     id = 8247,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1092]
+    Event = Table_ShortcutPower_t.Event[1122]
   },
   [8248] = {
     id = 8248,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1091]
+    Event = Table_ShortcutPower_t.Event[1121]
   },
   [8249] = {
     id = 8249,
     Type = 7,
-    Event = Table_ShortcutPower_t.Event[1090]
+    Event = Table_ShortcutPower_t.Event[1120]
   },
   [8250] = {
     id = 8250,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1089]
+    Event = Table_ShortcutPower_t.Event[1119]
   },
   [8251] = {
     id = 8251,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1088]
+    Event = Table_ShortcutPower_t.Event[1118]
   },
   [8252] = {
     id = 8252,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1087]
+    Event = Table_ShortcutPower_t.Event[1117]
   },
   [8253] = {
     id = 8253,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1086]
+    Event = Table_ShortcutPower_t.Event[1116]
   },
   [8254] = {
     id = 8254,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1085]
+    Event = Table_ShortcutPower_t.Event[1115]
   },
   [8255] = {
     id = 8255,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1084]
+    Event = Table_ShortcutPower_t.Event[1114]
   },
   [8256] = {
     id = 8256,
-    Event = Table_ShortcutPower_t.Event[1083]
+    Event = Table_ShortcutPower_t.Event[1113]
   },
   [8257] = {
     id = 8257,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1082]
+    Event = Table_ShortcutPower_t.Event[1112]
   },
   [8258] = {
     id = 8258,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[970]
+    Event = Table_ShortcutPower_t.Event[1000]
   },
   [8259] = {
     id = 8259,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[971]
+    Event = Table_ShortcutPower_t.Event[1001]
   },
   [8260] = {
     id = 8260,
@@ -11342,72 +11532,72 @@ Table_ShortcutPower = {
   [8261] = {
     id = 8261,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[972]
+    Event = Table_ShortcutPower_t.Event[1002]
   },
   [8262] = {
     id = 8262,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[973]
+    Event = Table_ShortcutPower_t.Event[1003]
   },
   [8263] = {
     id = 8263,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[974]
+    Event = Table_ShortcutPower_t.Event[1004]
   },
   [8264] = {
     id = 8264,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[975]
+    Event = Table_ShortcutPower_t.Event[1005]
   },
   [8265] = {
     id = 8265,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[976]
+    Event = Table_ShortcutPower_t.Event[1006]
   },
   [8266] = {
     id = 8266,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[977]
+    Event = Table_ShortcutPower_t.Event[1007]
   },
   [8267] = {
     id = 8267,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[978]
+    Event = Table_ShortcutPower_t.Event[1008]
   },
   [8268] = {
     id = 8268,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[979]
+    Event = Table_ShortcutPower_t.Event[1009]
   },
   [8269] = {
     id = 8269,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[980]
+    Event = Table_ShortcutPower_t.Event[1010]
   },
   [8270] = {
     id = 8270,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[981]
+    Event = Table_ShortcutPower_t.Event[1011]
   },
   [8271] = {
     id = 8271,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[982]
+    Event = Table_ShortcutPower_t.Event[1012]
   },
   [8272] = {
     id = 8272,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[983]
+    Event = Table_ShortcutPower_t.Event[1013]
   },
   [8273] = {
     id = 8273,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[1055]
+    Event = Table_ShortcutPower_t.Event[1085]
   },
   [8274] = {
     id = 8274,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[984]
+    Event = Table_ShortcutPower_t.Event[1014]
   },
   [8275] = {
     id = 8275,
@@ -11417,102 +11607,102 @@ Table_ShortcutPower = {
   [8276] = {
     id = 8276,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[985]
+    Event = Table_ShortcutPower_t.Event[1015]
   },
   [8277] = {
     id = 8277,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[986]
+    Event = Table_ShortcutPower_t.Event[1016]
   },
   [8278] = {
     id = 8278,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[987]
+    Event = Table_ShortcutPower_t.Event[1017]
   },
   [8279] = {
     id = 8279,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[988]
+    Event = Table_ShortcutPower_t.Event[1018]
   },
   [8280] = {
     id = 8280,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[989]
+    Event = Table_ShortcutPower_t.Event[1019]
   },
   [8281] = {
     id = 8281,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[990]
+    Event = Table_ShortcutPower_t.Event[1020]
   },
   [8282] = {
     id = 8282,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[991]
+    Event = Table_ShortcutPower_t.Event[1021]
   },
   [8283] = {
     id = 8283,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[992]
+    Event = Table_ShortcutPower_t.Event[1022]
   },
   [8284] = {
     id = 8284,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[993]
+    Event = Table_ShortcutPower_t.Event[1023]
   },
   [8285] = {
     id = 8285,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[994]
+    Event = Table_ShortcutPower_t.Event[1024]
   },
   [8286] = {
     id = 8286,
     Type = 1,
-    Event = Table_ShortcutPower_t.Event[995]
+    Event = Table_ShortcutPower_t.Event[1025]
   },
   [8287] = {
     id = 8287,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[996]
+    Event = Table_ShortcutPower_t.Event[1026]
   },
   [8288] = {
     id = 8288,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[997]
+    Event = Table_ShortcutPower_t.Event[1027]
   },
   [8289] = {
     id = 8289,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[998]
+    Event = Table_ShortcutPower_t.Event[1028]
   },
   [8290] = {
     id = 8290,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[999]
+    Event = Table_ShortcutPower_t.Event[1029]
   },
   [8291] = {
     id = 8291,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[1000]
+    Event = Table_ShortcutPower_t.Event[1030]
   },
   [8292] = {
     id = 8292,
     Type = 11,
-    Event = Table_ShortcutPower_t.Event[1001]
+    Event = Table_ShortcutPower_t.Event[1031]
   },
   [8293] = {
     id = 8293,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1002]
+    Event = Table_ShortcutPower_t.Event[1032]
   },
   [8294] = {
     id = 8294,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1003]
+    Event = Table_ShortcutPower_t.Event[1033]
   },
   [8295] = {
     id = 8295,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1003]
+    Event = Table_ShortcutPower_t.Event[1033]
   },
   [8296] = {id = 8296, Type = 10},
   [8297] = {id = 8297, Type = 10},
@@ -11686,1140 +11876,1175 @@ Table_ShortcutPower = {
     Type = 3,
     Event = Table_ShortcutPower_t.Event[152]
   },
+  [8349] = {
+    id = 8349,
+    Type = 1,
+    Event = Table_ShortcutPower_t.Event[153]
+  },
+  [8350] = {
+    id = 8350,
+    Type = 1,
+    Event = Table_ShortcutPower_t.Event[154]
+  },
+  [8351] = {
+    id = 8351,
+    Type = 1,
+    Event = Table_ShortcutPower_t.Event[155]
+  },
+  [8352] = {
+    id = 8352,
+    Type = 1,
+    Event = Table_ShortcutPower_t.Event[156]
+  },
+  [8353] = {
+    id = 8353,
+    Type = 1,
+    Event = Table_ShortcutPower_t.Event[157]
+  },
+  [8354] = {
+    id = 8354,
+    Type = 7,
+    Event = Table_ShortcutPower_t.Event[158]
+  },
+  [8355] = {
+    id = 8355,
+    Type = 3,
+    Event = Table_ShortcutPower_t.Event[159]
+  },
   [10001] = {
     id = 10001,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[1432]
+    Event = Table_ShortcutPower_t.Event[1462]
   },
   [10002] = {
     id = 10002,
     Type = 6,
-    Event = Table_ShortcutPower_t.Event[1433]
+    Event = Table_ShortcutPower_t.Event[1463]
   },
   [10003] = {
     id = 10003,
     Type = 4,
-    Event = Table_ShortcutPower_t.Event[1434]
+    Event = Table_ShortcutPower_t.Event[1464]
   },
   [20000] = {id = 20000, Type = 1},
   [30001] = {
     id = 30001,
-    Event = Table_ShortcutPower_t.Event[1008]
+    Event = Table_ShortcutPower_t.Event[1038]
   },
   [30002] = {
     id = 30002,
-    Event = Table_ShortcutPower_t.Event[1009]
+    Event = Table_ShortcutPower_t.Event[1039]
   },
   [30003] = {
     id = 30003,
-    Event = Table_ShortcutPower_t.Event[1010]
+    Event = Table_ShortcutPower_t.Event[1040]
   },
   [30004] = {
     id = 30004,
-    Event = Table_ShortcutPower_t.Event[1011]
+    Event = Table_ShortcutPower_t.Event[1041]
   },
   [30005] = {
     id = 30005,
-    Event = Table_ShortcutPower_t.Event[1012]
+    Event = Table_ShortcutPower_t.Event[1042]
   },
   [30006] = {
     id = 30006,
-    Event = Table_ShortcutPower_t.Event[1013]
+    Event = Table_ShortcutPower_t.Event[1043]
   },
   [30007] = {
     id = 30007,
-    Event = Table_ShortcutPower_t.Event[1014]
+    Event = Table_ShortcutPower_t.Event[1044]
   },
   [30008] = {
     id = 30008,
-    Event = Table_ShortcutPower_t.Event[1015]
+    Event = Table_ShortcutPower_t.Event[1045]
   },
   [30009] = {
     id = 30009,
-    Event = Table_ShortcutPower_t.Event[1016]
+    Event = Table_ShortcutPower_t.Event[1046]
   },
   [30010] = {
     id = 30010,
-    Event = Table_ShortcutPower_t.Event[1017]
+    Event = Table_ShortcutPower_t.Event[1047]
   },
   [30011] = {
     id = 30011,
-    Event = Table_ShortcutPower_t.Event[1018]
+    Event = Table_ShortcutPower_t.Event[1048]
   },
   [30012] = {
     id = 30012,
-    Event = Table_ShortcutPower_t.Event[1019]
+    Event = Table_ShortcutPower_t.Event[1049]
   },
   [30013] = {
     id = 30013,
-    Event = Table_ShortcutPower_t.Event[1020]
+    Event = Table_ShortcutPower_t.Event[1050]
   },
   [30014] = {
     id = 30014,
-    Event = Table_ShortcutPower_t.Event[1021]
+    Event = Table_ShortcutPower_t.Event[1051]
   },
   [30015] = {
     id = 30015,
-    Event = Table_ShortcutPower_t.Event[1022]
+    Event = Table_ShortcutPower_t.Event[1052]
   },
   [30016] = {
     id = 30016,
-    Event = Table_ShortcutPower_t.Event[1023]
+    Event = Table_ShortcutPower_t.Event[1053]
   },
   [30017] = {
     id = 30017,
-    Event = Table_ShortcutPower_t.Event[1024]
+    Event = Table_ShortcutPower_t.Event[1054]
   },
   [30018] = {
     id = 30018,
-    Event = Table_ShortcutPower_t.Event[1025]
+    Event = Table_ShortcutPower_t.Event[1055]
   },
   [30019] = {
     id = 30019,
-    Event = Table_ShortcutPower_t.Event[1026]
+    Event = Table_ShortcutPower_t.Event[1056]
   },
   [30020] = {
     id = 30020,
-    Event = Table_ShortcutPower_t.Event[1027]
+    Event = Table_ShortcutPower_t.Event[1057]
   },
   [30021] = {
     id = 30021,
-    Event = Table_ShortcutPower_t.Event[1028]
+    Event = Table_ShortcutPower_t.Event[1058]
   },
   [30022] = {
     id = 30022,
-    Event = Table_ShortcutPower_t.Event[1029]
+    Event = Table_ShortcutPower_t.Event[1059]
   },
   [30023] = {
     id = 30023,
-    Event = Table_ShortcutPower_t.Event[1030]
+    Event = Table_ShortcutPower_t.Event[1060]
   },
   [30024] = {
     id = 30024,
-    Event = Table_ShortcutPower_t.Event[1031]
+    Event = Table_ShortcutPower_t.Event[1061]
   },
   [30026] = {
     id = 30026,
-    Event = Table_ShortcutPower_t.Event[1032]
+    Event = Table_ShortcutPower_t.Event[1062]
   },
   [30027] = {
     id = 30027,
-    Event = Table_ShortcutPower_t.Event[1033]
+    Event = Table_ShortcutPower_t.Event[1063]
   },
   [30028] = {
     id = 30028,
-    Event = Table_ShortcutPower_t.Event[1034]
+    Event = Table_ShortcutPower_t.Event[1064]
   },
   [30029] = {
     id = 30029,
-    Event = Table_ShortcutPower_t.Event[1035]
+    Event = Table_ShortcutPower_t.Event[1065]
   },
   [30030] = {
     id = 30030,
-    Event = Table_ShortcutPower_t.Event[1036]
+    Event = Table_ShortcutPower_t.Event[1066]
   },
   [30031] = {
     id = 30031,
-    Event = Table_ShortcutPower_t.Event[1037]
+    Event = Table_ShortcutPower_t.Event[1067]
   },
   [30032] = {
     id = 30032,
-    Event = Table_ShortcutPower_t.Event[1038]
+    Event = Table_ShortcutPower_t.Event[1068]
   },
   [30033] = {
     id = 30033,
-    Event = Table_ShortcutPower_t.Event[1039]
+    Event = Table_ShortcutPower_t.Event[1069]
   },
   [30034] = {
     id = 30034,
-    Event = Table_ShortcutPower_t.Event[1040]
+    Event = Table_ShortcutPower_t.Event[1070]
   },
   [30035] = {
     id = 30035,
-    Event = Table_ShortcutPower_t.Event[1041]
+    Event = Table_ShortcutPower_t.Event[1071]
   },
   [30036] = {
     id = 30036,
-    Event = Table_ShortcutPower_t.Event[1042]
+    Event = Table_ShortcutPower_t.Event[1072]
   },
   [30037] = {
     id = 30037,
-    Event = Table_ShortcutPower_t.Event[1043]
+    Event = Table_ShortcutPower_t.Event[1073]
   },
   [30038] = {
     id = 30038,
-    Event = Table_ShortcutPower_t.Event[1044]
+    Event = Table_ShortcutPower_t.Event[1074]
   },
   [30039] = {
     id = 30039,
-    Event = Table_ShortcutPower_t.Event[1045]
+    Event = Table_ShortcutPower_t.Event[1075]
   },
   [30040] = {
     id = 30040,
-    Event = Table_ShortcutPower_t.Event[1046]
+    Event = Table_ShortcutPower_t.Event[1076]
   },
   [30041] = {
     id = 30041,
-    Event = Table_ShortcutPower_t.Event[1047]
+    Event = Table_ShortcutPower_t.Event[1077]
   },
   [30042] = {
     id = 30042,
-    Event = Table_ShortcutPower_t.Event[1048]
+    Event = Table_ShortcutPower_t.Event[1078]
   },
   [30043] = {
     id = 30043,
-    Event = Table_ShortcutPower_t.Event[1049]
+    Event = Table_ShortcutPower_t.Event[1079]
   },
   [30044] = {
     id = 30044,
-    Event = Table_ShortcutPower_t.Event[1050]
+    Event = Table_ShortcutPower_t.Event[1080]
   },
   [30045] = {
     id = 30045,
-    Event = Table_ShortcutPower_t.Event[1051]
+    Event = Table_ShortcutPower_t.Event[1081]
   },
   [30046] = {
     id = 30046,
-    Event = Table_ShortcutPower_t.Event[1052]
+    Event = Table_ShortcutPower_t.Event[1082]
   },
   [30047] = {
     id = 30047,
-    Event = Table_ShortcutPower_t.Event[1053]
+    Event = Table_ShortcutPower_t.Event[1083]
   },
   [30048] = {
     id = 30048,
-    Event = Table_ShortcutPower_t.Event[1054]
+    Event = Table_ShortcutPower_t.Event[1084]
   },
   [30050] = {
     id = 30050,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[308]
+    Event = Table_ShortcutPower_t.Event[315]
   },
   [30051] = {
     id = 30051,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1056]
+    Event = Table_ShortcutPower_t.Event[1086]
   },
   [30052] = {
     id = 30052,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[309]
+    Event = Table_ShortcutPower_t.Event[316]
   },
   [30053] = {
     id = 30053,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[579]
+    Event = Table_ShortcutPower_t.Event[586]
   },
   [30054] = {
     id = 30054,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1057]
+    Event = Table_ShortcutPower_t.Event[1087]
   },
   [30055] = {
     id = 30055,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1058]
+    Event = Table_ShortcutPower_t.Event[1088]
   },
   [30056] = {
     id = 30056,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[395]
+    Event = Table_ShortcutPower_t.Event[402]
   },
   [30057] = {
     id = 30057,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[304]
+    Event = Table_ShortcutPower_t.Event[311]
   },
   [30058] = {
     id = 30058,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[302]
+    Event = Table_ShortcutPower_t.Event[309]
   },
   [30059] = {
     id = 30059,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[301]
+    Event = Table_ShortcutPower_t.Event[308]
   },
   [30060] = {
     id = 30060,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1059]
+    Event = Table_ShortcutPower_t.Event[1089]
   },
   [30061] = {
     id = 30061,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[952]
+    Event = Table_ShortcutPower_t.Event[982]
   },
   [30062] = {
     id = 30062,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1060]
+    Event = Table_ShortcutPower_t.Event[1090]
   },
   [30063] = {
     id = 30063,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1061]
+    Event = Table_ShortcutPower_t.Event[1091]
   },
   [30064] = {
     id = 30064,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[1062]
+    Event = Table_ShortcutPower_t.Event[1092]
   },
   [30065] = {
     id = 30065,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[969]
+    Event = Table_ShortcutPower_t.Event[999]
   },
   [30066] = {
     id = 30066,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[968]
+    Event = Table_ShortcutPower_t.Event[998]
   },
   [30067] = {
     id = 30067,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[967]
+    Event = Table_ShortcutPower_t.Event[997]
   },
   [30068] = {
     id = 30068,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[966]
+    Event = Table_ShortcutPower_t.Event[996]
   },
   [30069] = {
     id = 30069,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[965]
+    Event = Table_ShortcutPower_t.Event[995]
   },
   [30070] = {
     id = 30070,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[964]
+    Event = Table_ShortcutPower_t.Event[994]
   },
   [30071] = {
     id = 30071,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[963]
+    Event = Table_ShortcutPower_t.Event[993]
   },
   [30072] = {
     id = 30072,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[303]
+    Event = Table_ShortcutPower_t.Event[310]
   },
   [30073] = {
     id = 30073,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[452]
+    Event = Table_ShortcutPower_t.Event[459]
   },
   [31001] = {
     id = 31001,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[177]
+    Event = Table_ShortcutPower_t.Event[184]
   },
   [31002] = {
     id = 31002,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[178]
+    Event = Table_ShortcutPower_t.Event[185]
   },
   [31003] = {
     id = 31003,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[179]
+    Event = Table_ShortcutPower_t.Event[186]
   },
   [31004] = {
     id = 31004,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[180]
+    Event = Table_ShortcutPower_t.Event[187]
   },
   [31005] = {
     id = 31005,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[181]
+    Event = Table_ShortcutPower_t.Event[188]
   },
   [31006] = {
     id = 31006,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[962]
+    Event = Table_ShortcutPower_t.Event[992]
   },
   [31007] = {
     id = 31007,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[961]
+    Event = Table_ShortcutPower_t.Event[991]
   },
   [31008] = {
     id = 31008,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[960]
+    Event = Table_ShortcutPower_t.Event[990]
   },
   [31009] = {
     id = 31009,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[959]
+    Event = Table_ShortcutPower_t.Event[989]
   },
   [31010] = {
     id = 31010,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[958]
+    Event = Table_ShortcutPower_t.Event[988]
   },
   [31011] = {
     id = 31011,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[957]
+    Event = Table_ShortcutPower_t.Event[987]
   },
   [31012] = {
     id = 31012,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[188]
+    Event = Table_ShortcutPower_t.Event[195]
   },
   [31013] = {
     id = 31013,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[189]
+    Event = Table_ShortcutPower_t.Event[196]
   },
   [31014] = {
     id = 31014,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[190]
+    Event = Table_ShortcutPower_t.Event[197]
   },
   [31015] = {
     id = 31015,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[191]
+    Event = Table_ShortcutPower_t.Event[198]
   },
   [31016] = {
     id = 31016,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[192]
+    Event = Table_ShortcutPower_t.Event[199]
   },
   [31017] = {
     id = 31017,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[193]
+    Event = Table_ShortcutPower_t.Event[200]
   },
   [31018] = {
     id = 31018,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[194]
+    Event = Table_ShortcutPower_t.Event[201]
   },
   [31019] = {
     id = 31019,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[195]
+    Event = Table_ShortcutPower_t.Event[202]
   },
   [31020] = {
     id = 31020,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[196]
+    Event = Table_ShortcutPower_t.Event[203]
   },
   [31021] = {
     id = 31021,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[197]
+    Event = Table_ShortcutPower_t.Event[204]
   },
   [31022] = {
     id = 31022,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[198]
+    Event = Table_ShortcutPower_t.Event[205]
   },
   [31023] = {
     id = 31023,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[199]
+    Event = Table_ShortcutPower_t.Event[206]
   },
   [31024] = {
     id = 31024,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[200]
+    Event = Table_ShortcutPower_t.Event[207]
   },
   [31025] = {
     id = 31025,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[201]
+    Event = Table_ShortcutPower_t.Event[208]
   },
   [31026] = {
     id = 31026,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[202]
+    Event = Table_ShortcutPower_t.Event[209]
   },
   [31027] = {
     id = 31027,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[203]
+    Event = Table_ShortcutPower_t.Event[210]
   },
   [31028] = {
     id = 31028,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[204]
+    Event = Table_ShortcutPower_t.Event[211]
   },
   [31029] = {
     id = 31029,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[205]
+    Event = Table_ShortcutPower_t.Event[212]
   },
   [31030] = {
     id = 31030,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[206]
+    Event = Table_ShortcutPower_t.Event[213]
   },
   [31031] = {
     id = 31031,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[207]
+    Event = Table_ShortcutPower_t.Event[214]
   },
   [31032] = {
     id = 31032,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[208]
+    Event = Table_ShortcutPower_t.Event[215]
   },
   [31033] = {
     id = 31033,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[209]
+    Event = Table_ShortcutPower_t.Event[216]
   },
   [31034] = {
     id = 31034,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[208]
+    Event = Table_ShortcutPower_t.Event[215]
   },
   [31035] = {
     id = 31035,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[210]
+    Event = Table_ShortcutPower_t.Event[217]
   },
   [31036] = {
     id = 31036,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[211]
+    Event = Table_ShortcutPower_t.Event[218]
   },
   [31037] = {
     id = 31037,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[212]
+    Event = Table_ShortcutPower_t.Event[219]
   },
   [31038] = {
     id = 31038,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[213]
+    Event = Table_ShortcutPower_t.Event[220]
   },
   [31039] = {
     id = 31039,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[214]
+    Event = Table_ShortcutPower_t.Event[221]
   },
   [31040] = {
     id = 31040,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[211]
+    Event = Table_ShortcutPower_t.Event[218]
   },
   [31042] = {
     id = 31042,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[215]
+    Event = Table_ShortcutPower_t.Event[222]
   },
   [31043] = {
     id = 31043,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[216]
+    Event = Table_ShortcutPower_t.Event[223]
   },
   [31044] = {
     id = 31044,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[217]
+    Event = Table_ShortcutPower_t.Event[224]
   },
   [31045] = {
     id = 31045,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[218]
+    Event = Table_ShortcutPower_t.Event[225]
   },
   [31046] = {
     id = 31046,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[217]
+    Event = Table_ShortcutPower_t.Event[224]
   },
   [31047] = {
     id = 31047,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[211]
+    Event = Table_ShortcutPower_t.Event[218]
   },
   [31048] = {
     id = 31048,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[219]
+    Event = Table_ShortcutPower_t.Event[226]
   },
   [31049] = {
     id = 31049,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[220]
+    Event = Table_ShortcutPower_t.Event[227]
   },
   [31051] = {
     id = 31051,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[221]
+    Event = Table_ShortcutPower_t.Event[228]
   },
   [31053] = {
     id = 31053,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[222]
+    Event = Table_ShortcutPower_t.Event[229]
   },
   [31054] = {
     id = 31054,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[223]
+    Event = Table_ShortcutPower_t.Event[230]
   },
   [31055] = {
     id = 31055,
-    Event = Table_ShortcutPower_t.Event[224]
+    Event = Table_ShortcutPower_t.Event[231]
   },
   [31059] = {
     id = 31059,
-    Event = Table_ShortcutPower_t.Event[225]
+    Event = Table_ShortcutPower_t.Event[232]
   },
   [31060] = {
     id = 31060,
-    Event = Table_ShortcutPower_t.Event[226]
+    Event = Table_ShortcutPower_t.Event[233]
   },
   [31061] = {
     id = 31061,
-    Event = Table_ShortcutPower_t.Event[227]
+    Event = Table_ShortcutPower_t.Event[234]
   },
   [31062] = {
     id = 31062,
-    Event = Table_ShortcutPower_t.Event[228]
+    Event = Table_ShortcutPower_t.Event[235]
   },
   [31063] = {
     id = 31063,
-    Event = Table_ShortcutPower_t.Event[229]
+    Event = Table_ShortcutPower_t.Event[236]
   },
   [31064] = {
     id = 31064,
-    Event = Table_ShortcutPower_t.Event[230]
+    Event = Table_ShortcutPower_t.Event[237]
   },
   [31065] = {
     id = 31065,
-    Event = Table_ShortcutPower_t.Event[231]
+    Event = Table_ShortcutPower_t.Event[238]
   },
   [31066] = {
     id = 31066,
-    Event = Table_ShortcutPower_t.Event[232]
+    Event = Table_ShortcutPower_t.Event[239]
   },
   [31067] = {
     id = 31067,
-    Event = Table_ShortcutPower_t.Event[233]
+    Event = Table_ShortcutPower_t.Event[240]
   },
   [31068] = {
     id = 31068,
-    Event = Table_ShortcutPower_t.Event[234]
+    Event = Table_ShortcutPower_t.Event[241]
   },
   [31069] = {
     id = 31069,
-    Event = Table_ShortcutPower_t.Event[235]
+    Event = Table_ShortcutPower_t.Event[242]
   },
   [31070] = {
     id = 31070,
-    Event = Table_ShortcutPower_t.Event[236]
+    Event = Table_ShortcutPower_t.Event[243]
   },
   [31071] = {
     id = 31071,
-    Event = Table_ShortcutPower_t.Event[237]
+    Event = Table_ShortcutPower_t.Event[244]
   },
   [31073] = {
     id = 31073,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[238]
+    Event = Table_ShortcutPower_t.Event[245]
   },
   [31074] = {
     id = 31074,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[239]
+    Event = Table_ShortcutPower_t.Event[246]
   },
   [31075] = {
     id = 31075,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[240]
+    Event = Table_ShortcutPower_t.Event[247]
   },
   [31076] = {
     id = 31076,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[241]
+    Event = Table_ShortcutPower_t.Event[248]
   },
   [31077] = {
     id = 31077,
-    Event = Table_ShortcutPower_t.Event[242]
+    Event = Table_ShortcutPower_t.Event[249]
   },
   [31078] = {
     id = 31078,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[243]
+    Event = Table_ShortcutPower_t.Event[250]
   },
   [31081] = {
     id = 31081,
-    Event = Table_ShortcutPower_t.Event[244]
+    Event = Table_ShortcutPower_t.Event[251]
   },
   [31082] = {
     id = 31082,
-    Event = Table_ShortcutPower_t.Event[245]
+    Event = Table_ShortcutPower_t.Event[252]
   },
   [31083] = {
     id = 31083,
-    Event = Table_ShortcutPower_t.Event[246]
+    Event = Table_ShortcutPower_t.Event[253]
   },
   [31084] = {
     id = 31084,
-    Event = Table_ShortcutPower_t.Event[247]
+    Event = Table_ShortcutPower_t.Event[254]
   },
   [31085] = {
     id = 31085,
-    Event = Table_ShortcutPower_t.Event[248]
+    Event = Table_ShortcutPower_t.Event[255]
   },
   [31086] = {
     id = 31086,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[249]
+    Event = Table_ShortcutPower_t.Event[256]
   },
   [31087] = {
     id = 31087,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[250]
+    Event = Table_ShortcutPower_t.Event[257]
   },
   [31088] = {
     id = 31088,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[251]
+    Event = Table_ShortcutPower_t.Event[258]
   },
   [31089] = {
     id = 31089,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[189]
+    Event = Table_ShortcutPower_t.Event[196]
   },
   [31090] = {
     id = 31090,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[214]
+    Event = Table_ShortcutPower_t.Event[221]
   },
   [31091] = {
     id = 31091,
-    Event = Table_ShortcutPower_t.Event[252]
+    Event = Table_ShortcutPower_t.Event[259]
   },
   [31094] = {
     id = 31094,
-    Event = Table_ShortcutPower_t.Event[253]
+    Event = Table_ShortcutPower_t.Event[260]
   },
   [31095] = {
     id = 31095,
-    Event = Table_ShortcutPower_t.Event[254]
+    Event = Table_ShortcutPower_t.Event[261]
   },
   [31096] = {
     id = 31096,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[255]
+    Event = Table_ShortcutPower_t.Event[262]
   },
   [31097] = {
     id = 31097,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[256]
+    Event = Table_ShortcutPower_t.Event[263]
   },
   [31098] = {
     id = 31098,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[257]
+    Event = Table_ShortcutPower_t.Event[264]
   },
   [31099] = {
     id = 31099,
-    Event = Table_ShortcutPower_t.Event[258]
+    Event = Table_ShortcutPower_t.Event[265]
   },
   [31100] = {
     id = 31100,
-    Event = Table_ShortcutPower_t.Event[259]
+    Event = Table_ShortcutPower_t.Event[266]
   },
   [31101] = {
     id = 31101,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[260]
+    Event = Table_ShortcutPower_t.Event[267]
   },
   [31102] = {
     id = 31102,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[261]
+    Event = Table_ShortcutPower_t.Event[268]
   },
   [31103] = {
     id = 31103,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[262]
+    Event = Table_ShortcutPower_t.Event[269]
   },
   [31104] = {
     id = 31104,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[263]
+    Event = Table_ShortcutPower_t.Event[270]
   },
   [31105] = {
     id = 31105,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[264]
+    Event = Table_ShortcutPower_t.Event[271]
   },
   [31106] = {
     id = 31106,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[279]
+    Event = Table_ShortcutPower_t.Event[286]
   },
   [31107] = {
     id = 31107,
-    Event = Table_ShortcutPower_t.Event[956]
+    Event = Table_ShortcutPower_t.Event[986]
   },
   [31108] = {
     id = 31108,
-    Event = Table_ShortcutPower_t.Event[955]
+    Event = Table_ShortcutPower_t.Event[985]
   },
   [31109] = {
     id = 31109,
-    Event = Table_ShortcutPower_t.Event[954]
+    Event = Table_ShortcutPower_t.Event[984]
   },
   [31110] = {
     id = 31110,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[953]
+    Event = Table_ShortcutPower_t.Event[983]
   },
   [31111] = {
     id = 31111,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[270]
+    Event = Table_ShortcutPower_t.Event[277]
   },
   [31112] = {
     id = 31112,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[271]
+    Event = Table_ShortcutPower_t.Event[278]
   },
   [31113] = {
     id = 31113,
-    Event = Table_ShortcutPower_t.Event[272]
+    Event = Table_ShortcutPower_t.Event[279]
   },
   [31114] = {
     id = 31114,
-    Event = Table_ShortcutPower_t.Event[273]
+    Event = Table_ShortcutPower_t.Event[280]
   },
   [31115] = {
     id = 31115,
-    Event = Table_ShortcutPower_t.Event[274]
+    Event = Table_ShortcutPower_t.Event[281]
   },
   [31116] = {
     id = 31116,
-    Event = Table_ShortcutPower_t.Event[275]
+    Event = Table_ShortcutPower_t.Event[282]
   },
   [31117] = {
     id = 31117,
-    Event = Table_ShortcutPower_t.Event[276]
+    Event = Table_ShortcutPower_t.Event[283]
   },
   [31118] = {
     id = 31118,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[277]
+    Event = Table_ShortcutPower_t.Event[284]
   },
   [31119] = {
     id = 31119,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[278]
+    Event = Table_ShortcutPower_t.Event[285]
   },
   [31120] = {
     id = 31120,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[279]
+    Event = Table_ShortcutPower_t.Event[286]
   },
   [31122] = {
     id = 31122,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[280]
+    Event = Table_ShortcutPower_t.Event[287]
   },
   [31123] = {
     id = 31123,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[281]
+    Event = Table_ShortcutPower_t.Event[288]
   },
   [31124] = {
     id = 31124,
-    Event = Table_ShortcutPower_t.Event[282]
+    Event = Table_ShortcutPower_t.Event[289]
   },
   [31126] = {
     id = 31126,
-    Event = Table_ShortcutPower_t.Event[283]
+    Event = Table_ShortcutPower_t.Event[290]
   },
   [31127] = {
     id = 31127,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[284]
+    Event = Table_ShortcutPower_t.Event[291]
   },
   [31129] = {
     id = 31129,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[285]
+    Event = Table_ShortcutPower_t.Event[292]
   },
   [31131] = {
     id = 31131,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[286]
+    Event = Table_ShortcutPower_t.Event[293]
   },
   [31132] = {
     id = 31132,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[287]
+    Event = Table_ShortcutPower_t.Event[294]
   },
   [31133] = {
     id = 31133,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[288]
+    Event = Table_ShortcutPower_t.Event[295]
   },
   [31134] = {
     id = 31134,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[289]
+    Event = Table_ShortcutPower_t.Event[296]
   },
   [31135] = {
     id = 31135,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[290]
+    Event = Table_ShortcutPower_t.Event[297]
   },
   [31136] = {
     id = 31136,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[291]
+    Event = Table_ShortcutPower_t.Event[298]
   },
   [31137] = {
     id = 31137,
-    Event = Table_ShortcutPower_t.Event[292]
+    Event = Table_ShortcutPower_t.Event[299]
   },
   [31138] = {
     id = 31138,
-    Event = Table_ShortcutPower_t.Event[293]
+    Event = Table_ShortcutPower_t.Event[300]
   },
   [31139] = {
     id = 31139,
-    Event = Table_ShortcutPower_t.Event[294]
+    Event = Table_ShortcutPower_t.Event[301]
   },
   [31140] = {
     id = 31140,
-    Event = Table_ShortcutPower_t.Event[295]
+    Event = Table_ShortcutPower_t.Event[302]
   },
   [31141] = {
     id = 31141,
-    Event = Table_ShortcutPower_t.Event[296]
+    Event = Table_ShortcutPower_t.Event[303]
   },
   [31142] = {
     id = 31142,
-    Event = Table_ShortcutPower_t.Event[297]
+    Event = Table_ShortcutPower_t.Event[304]
   },
   [31143] = {
     id = 31143,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[298]
+    Event = Table_ShortcutPower_t.Event[305]
   },
   [31144] = {
     id = 31144,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[299]
+    Event = Table_ShortcutPower_t.Event[306]
   },
   [31145] = {
     id = 31145,
-    Event = Table_ShortcutPower_t.Event[300]
+    Event = Table_ShortcutPower_t.Event[307]
   },
   [31146] = {
     id = 31146,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[301]
+    Event = Table_ShortcutPower_t.Event[308]
   },
   [31147] = {
     id = 31147,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[302]
+    Event = Table_ShortcutPower_t.Event[309]
   },
   [31148] = {
     id = 31148,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[286]
+    Event = Table_ShortcutPower_t.Event[293]
   },
   [31149] = {
     id = 31149,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[189]
+    Event = Table_ShortcutPower_t.Event[196]
   },
   [31150] = {
     id = 31150,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[303]
+    Event = Table_ShortcutPower_t.Event[310]
   },
   [31151] = {
     id = 31151,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[304]
+    Event = Table_ShortcutPower_t.Event[311]
   },
   [31152] = {
     id = 31152,
-    Event = Table_ShortcutPower_t.Event[305]
+    Event = Table_ShortcutPower_t.Event[312]
   },
   [31154] = {
     id = 31154,
-    Event = Table_ShortcutPower_t.Event[306]
+    Event = Table_ShortcutPower_t.Event[313]
   },
   [31155] = {
     id = 31155,
-    Event = Table_ShortcutPower_t.Event[307]
+    Event = Table_ShortcutPower_t.Event[314]
   },
   [31156] = {
     id = 31156,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[308]
+    Event = Table_ShortcutPower_t.Event[315]
   },
   [31157] = {
     id = 31157,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[309]
+    Event = Table_ShortcutPower_t.Event[316]
   },
   [31158] = {
     id = 31158,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[310]
+    Event = Table_ShortcutPower_t.Event[317]
   },
   [31159] = {
     id = 31159,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[311]
+    Event = Table_ShortcutPower_t.Event[318]
   },
   [31160] = {
     id = 31160,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[303]
+    Event = Table_ShortcutPower_t.Event[310]
   },
   [31161] = {
     id = 31161,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[312]
+    Event = Table_ShortcutPower_t.Event[319]
   },
   [31162] = {
     id = 31162,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[313]
+    Event = Table_ShortcutPower_t.Event[320]
   },
   [31163] = {
     id = 31163,
-    Event = Table_ShortcutPower_t.Event[314]
+    Event = Table_ShortcutPower_t.Event[321]
   },
   [31164] = {
     id = 31164,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[308]
+    Event = Table_ShortcutPower_t.Event[315]
   },
   [31165] = {
     id = 31165,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[315]
+    Event = Table_ShortcutPower_t.Event[322]
   },
   [31166] = {
     id = 31166,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[316]
+    Event = Table_ShortcutPower_t.Event[323]
   },
   [31167] = {
     id = 31167,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[317]
+    Event = Table_ShortcutPower_t.Event[324]
   },
   [31168] = {
     id = 31168,
-    Event = Table_ShortcutPower_t.Event[318]
+    Event = Table_ShortcutPower_t.Event[325]
   },
   [31169] = {
     id = 31169,
-    Event = Table_ShortcutPower_t.Event[319]
+    Event = Table_ShortcutPower_t.Event[326]
   },
   [31170] = {
     id = 31170,
-    Event = Table_ShortcutPower_t.Event[320]
+    Event = Table_ShortcutPower_t.Event[327]
   },
   [31171] = {
     id = 31171,
-    Event = Table_ShortcutPower_t.Event[321]
+    Event = Table_ShortcutPower_t.Event[328]
   },
   [31172] = {
     id = 31172,
-    Event = Table_ShortcutPower_t.Event[322]
+    Event = Table_ShortcutPower_t.Event[329]
   },
   [31173] = {
     id = 31173,
-    Event = Table_ShortcutPower_t.Event[323]
+    Event = Table_ShortcutPower_t.Event[330]
   },
   [31174] = {
     id = 31174,
-    Event = Table_ShortcutPower_t.Event[324]
+    Event = Table_ShortcutPower_t.Event[331]
   },
   [31175] = {
     id = 31175,
-    Event = Table_ShortcutPower_t.Event[325]
+    Event = Table_ShortcutPower_t.Event[332]
   },
   [31176] = {
     id = 31176,
-    Event = Table_ShortcutPower_t.Event[326]
+    Event = Table_ShortcutPower_t.Event[333]
   },
   [31177] = {
     id = 31177,
-    Event = Table_ShortcutPower_t.Event[327]
+    Event = Table_ShortcutPower_t.Event[334]
   },
   [31178] = {
     id = 31178,
-    Event = Table_ShortcutPower_t.Event[328]
+    Event = Table_ShortcutPower_t.Event[335]
   },
   [31179] = {
     id = 31179,
-    Event = Table_ShortcutPower_t.Event[329]
+    Event = Table_ShortcutPower_t.Event[336]
   },
   [31180] = {
     id = 31180,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[330]
+    Event = Table_ShortcutPower_t.Event[337]
   },
   [31181] = {
     id = 31181,
-    Event = Table_ShortcutPower_t.Event[331]
+    Event = Table_ShortcutPower_t.Event[338]
   },
   [31182] = {
     id = 31182,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[332]
+    Event = Table_ShortcutPower_t.Event[339]
   },
   [31183] = {
     id = 31183,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[333]
+    Event = Table_ShortcutPower_t.Event[340]
   },
   [31184] = {
     id = 31184,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[334]
+    Event = Table_ShortcutPower_t.Event[341]
   },
   [31185] = {
     id = 31185,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[335]
+    Event = Table_ShortcutPower_t.Event[342]
   },
   [31186] = {
     id = 31186,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[336]
+    Event = Table_ShortcutPower_t.Event[343]
   },
   [31187] = {
     id = 31187,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[337]
+    Event = Table_ShortcutPower_t.Event[344]
   },
   [31188] = {
     id = 31188,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[338]
+    Event = Table_ShortcutPower_t.Event[345]
   },
   [31189] = {
     id = 31189,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[339]
+    Event = Table_ShortcutPower_t.Event[346]
   },
   [31190] = {
     id = 31190,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[340]
+    Event = Table_ShortcutPower_t.Event[347]
   },
   [31191] = {
     id = 31191,
@@ -12829,1321 +13054,1321 @@ Table_ShortcutPower = {
   [31192] = {
     id = 31192,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[341]
+    Event = Table_ShortcutPower_t.Event[348]
   },
   [31193] = {
     id = 31193,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[342]
+    Event = Table_ShortcutPower_t.Event[349]
   },
   [31194] = {
     id = 31194,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[343]
+    Event = Table_ShortcutPower_t.Event[350]
   },
   [31195] = {
     id = 31195,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[344]
+    Event = Table_ShortcutPower_t.Event[351]
   },
   [31196] = {
     id = 31196,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[343]
+    Event = Table_ShortcutPower_t.Event[350]
   },
   [31197] = {
     id = 31197,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[345]
+    Event = Table_ShortcutPower_t.Event[352]
   },
   [31198] = {
     id = 31198,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[344]
+    Event = Table_ShortcutPower_t.Event[351]
   },
   [31200] = {
     id = 31200,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[346]
+    Event = Table_ShortcutPower_t.Event[353]
   },
   [31201] = {
     id = 31201,
-    Event = Table_ShortcutPower_t.Event[347]
+    Event = Table_ShortcutPower_t.Event[354]
   },
   [31202] = {
     id = 31202,
-    Event = Table_ShortcutPower_t.Event[348]
+    Event = Table_ShortcutPower_t.Event[355]
   },
   [31203] = {
     id = 31203,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[304]
+    Event = Table_ShortcutPower_t.Event[311]
   },
   [31204] = {
     id = 31204,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[221]
+    Event = Table_ShortcutPower_t.Event[228]
   },
   [31205] = {
     id = 31205,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[309]
+    Event = Table_ShortcutPower_t.Event[316]
   },
   [31206] = {
     id = 31206,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[952]
+    Event = Table_ShortcutPower_t.Event[982]
   },
   [31207] = {
     id = 31207,
-    Event = Table_ShortcutPower_t.Event[951]
+    Event = Table_ShortcutPower_t.Event[981]
   },
   [31208] = {
     id = 31208,
-    Event = Table_ShortcutPower_t.Event[351]
+    Event = Table_ShortcutPower_t.Event[358]
   },
   [31209] = {
     id = 31209,
-    Event = Table_ShortcutPower_t.Event[352]
+    Event = Table_ShortcutPower_t.Event[359]
   },
   [31210] = {
     id = 31210,
-    Event = Table_ShortcutPower_t.Event[353]
+    Event = Table_ShortcutPower_t.Event[360]
   },
   [31211] = {
     id = 31211,
-    Event = Table_ShortcutPower_t.Event[354]
+    Event = Table_ShortcutPower_t.Event[361]
   },
   [31212] = {
     id = 31212,
-    Event = Table_ShortcutPower_t.Event[355]
+    Event = Table_ShortcutPower_t.Event[362]
   },
   [31213] = {
     id = 31213,
-    Event = Table_ShortcutPower_t.Event[356]
+    Event = Table_ShortcutPower_t.Event[363]
   },
   [31214] = {
     id = 31214,
-    Event = Table_ShortcutPower_t.Event[357]
+    Event = Table_ShortcutPower_t.Event[364]
   },
   [31215] = {
     id = 31215,
-    Event = Table_ShortcutPower_t.Event[358]
+    Event = Table_ShortcutPower_t.Event[365]
   },
   [31216] = {
     id = 31216,
-    Event = Table_ShortcutPower_t.Event[359]
+    Event = Table_ShortcutPower_t.Event[366]
   },
   [31217] = {
     id = 31217,
-    Event = Table_ShortcutPower_t.Event[360]
+    Event = Table_ShortcutPower_t.Event[367]
   },
   [31218] = {
     id = 31218,
-    Event = Table_ShortcutPower_t.Event[361]
+    Event = Table_ShortcutPower_t.Event[368]
   },
   [31220] = {
     id = 31220,
-    Event = Table_ShortcutPower_t.Event[362]
+    Event = Table_ShortcutPower_t.Event[369]
   },
   [31221] = {
     id = 31221,
-    Event = Table_ShortcutPower_t.Event[363]
+    Event = Table_ShortcutPower_t.Event[370]
   },
   [31222] = {
     id = 31222,
-    Event = Table_ShortcutPower_t.Event[364]
+    Event = Table_ShortcutPower_t.Event[371]
   },
   [31223] = {
     id = 31223,
-    Event = Table_ShortcutPower_t.Event[365]
+    Event = Table_ShortcutPower_t.Event[372]
   },
   [31224] = {
     id = 31224,
-    Event = Table_ShortcutPower_t.Event[366]
+    Event = Table_ShortcutPower_t.Event[373]
   },
   [31225] = {
     id = 31225,
-    Event = Table_ShortcutPower_t.Event[367]
+    Event = Table_ShortcutPower_t.Event[374]
   },
   [31227] = {
     id = 31227,
-    Event = Table_ShortcutPower_t.Event[368]
+    Event = Table_ShortcutPower_t.Event[375]
   },
   [31228] = {
     id = 31228,
-    Event = Table_ShortcutPower_t.Event[369]
+    Event = Table_ShortcutPower_t.Event[376]
   },
   [31229] = {
     id = 31229,
-    Event = Table_ShortcutPower_t.Event[370]
+    Event = Table_ShortcutPower_t.Event[377]
   },
   [31234] = {
     id = 31234,
-    Event = Table_ShortcutPower_t.Event[371]
+    Event = Table_ShortcutPower_t.Event[378]
   },
   [31236] = {
     id = 31236,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[372]
+    Event = Table_ShortcutPower_t.Event[379]
   },
   [31237] = {
     id = 31237,
-    Event = Table_ShortcutPower_t.Event[373]
+    Event = Table_ShortcutPower_t.Event[380]
   },
   [31238] = {
     id = 31238,
-    Event = Table_ShortcutPower_t.Event[374]
+    Event = Table_ShortcutPower_t.Event[381]
   },
   [31239] = {
     id = 31239,
-    Event = Table_ShortcutPower_t.Event[375]
+    Event = Table_ShortcutPower_t.Event[382]
   },
   [31240] = {
     id = 31240,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[308]
+    Event = Table_ShortcutPower_t.Event[315]
   },
   [31241] = {
     id = 31241,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[376]
+    Event = Table_ShortcutPower_t.Event[383]
   },
   [31242] = {
     id = 31242,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[377]
+    Event = Table_ShortcutPower_t.Event[384]
   },
   [31243] = {
     id = 31243,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[309]
+    Event = Table_ShortcutPower_t.Event[316]
   },
   [31245] = {
     id = 31245,
-    Event = Table_ShortcutPower_t.Event[378]
+    Event = Table_ShortcutPower_t.Event[385]
   },
   [31246] = {
     id = 31246,
-    Event = Table_ShortcutPower_t.Event[379]
+    Event = Table_ShortcutPower_t.Event[386]
   },
   [31247] = {
     id = 31247,
-    Event = Table_ShortcutPower_t.Event[380]
+    Event = Table_ShortcutPower_t.Event[387]
   },
   [31248] = {
     id = 31248,
-    Event = Table_ShortcutPower_t.Event[381]
+    Event = Table_ShortcutPower_t.Event[388]
   },
   [31249] = {
     id = 31249,
-    Event = Table_ShortcutPower_t.Event[382]
+    Event = Table_ShortcutPower_t.Event[389]
   },
   [31250] = {
     id = 31250,
-    Event = Table_ShortcutPower_t.Event[383]
+    Event = Table_ShortcutPower_t.Event[390]
   },
   [31251] = {
     id = 31251,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[384]
+    Event = Table_ShortcutPower_t.Event[391]
   },
   [31252] = {
     id = 31252,
-    Event = Table_ShortcutPower_t.Event[385]
+    Event = Table_ShortcutPower_t.Event[392]
   },
   [31253] = {
     id = 31253,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[386]
+    Event = Table_ShortcutPower_t.Event[393]
   },
   [31254] = {
     id = 31254,
-    Event = Table_ShortcutPower_t.Event[387]
+    Event = Table_ShortcutPower_t.Event[394]
   },
   [31255] = {
     id = 31255,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[388]
+    Event = Table_ShortcutPower_t.Event[395]
   },
   [31256] = {
     id = 31256,
-    Event = Table_ShortcutPower_t.Event[389]
+    Event = Table_ShortcutPower_t.Event[396]
   },
   [31259] = {
     id = 31259,
-    Event = Table_ShortcutPower_t.Event[390]
+    Event = Table_ShortcutPower_t.Event[397]
   },
   [31260] = {
     id = 31260,
-    Event = Table_ShortcutPower_t.Event[391]
+    Event = Table_ShortcutPower_t.Event[398]
   },
   [31261] = {
     id = 31261,
-    Event = Table_ShortcutPower_t.Event[392]
+    Event = Table_ShortcutPower_t.Event[399]
   },
   [31262] = {
     id = 31262,
-    Event = Table_ShortcutPower_t.Event[393]
+    Event = Table_ShortcutPower_t.Event[400]
   },
   [31263] = {
     id = 31263,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[394]
+    Event = Table_ShortcutPower_t.Event[401]
   },
   [31264] = {
     id = 31264,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[308]
+    Event = Table_ShortcutPower_t.Event[315]
   },
   [31265] = {
     id = 31265,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[304]
+    Event = Table_ShortcutPower_t.Event[311]
   },
   [31266] = {
     id = 31266,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[395]
+    Event = Table_ShortcutPower_t.Event[402]
   },
   [31267] = {
     id = 31267,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[396]
+    Event = Table_ShortcutPower_t.Event[403]
   },
   [31268] = {
     id = 31268,
-    Event = Table_ShortcutPower_t.Event[397]
+    Event = Table_ShortcutPower_t.Event[404]
   },
   [31269] = {
     id = 31269,
-    Event = Table_ShortcutPower_t.Event[398]
+    Event = Table_ShortcutPower_t.Event[405]
   },
   [31270] = {
     id = 31270,
-    Event = Table_ShortcutPower_t.Event[399]
+    Event = Table_ShortcutPower_t.Event[406]
   },
   [31271] = {
     id = 31271,
-    Event = Table_ShortcutPower_t.Event[400]
+    Event = Table_ShortcutPower_t.Event[407]
   },
   [31272] = {
     id = 31272,
-    Event = Table_ShortcutPower_t.Event[401]
+    Event = Table_ShortcutPower_t.Event[408]
   },
   [31273] = {
     id = 31273,
-    Event = Table_ShortcutPower_t.Event[402]
+    Event = Table_ShortcutPower_t.Event[409]
   },
   [31274] = {
     id = 31274,
-    Event = Table_ShortcutPower_t.Event[403]
+    Event = Table_ShortcutPower_t.Event[410]
   },
   [31275] = {
     id = 31275,
-    Event = Table_ShortcutPower_t.Event[404]
+    Event = Table_ShortcutPower_t.Event[411]
   },
   [31276] = {
     id = 31276,
-    Event = Table_ShortcutPower_t.Event[405]
+    Event = Table_ShortcutPower_t.Event[412]
   },
   [31277] = {
     id = 31277,
-    Event = Table_ShortcutPower_t.Event[406]
+    Event = Table_ShortcutPower_t.Event[413]
   },
   [31278] = {
     id = 31278,
-    Event = Table_ShortcutPower_t.Event[407]
+    Event = Table_ShortcutPower_t.Event[414]
   },
   [31279] = {
     id = 31279,
-    Event = Table_ShortcutPower_t.Event[408]
+    Event = Table_ShortcutPower_t.Event[415]
   },
   [31280] = {
     id = 31280,
-    Event = Table_ShortcutPower_t.Event[409]
+    Event = Table_ShortcutPower_t.Event[416]
   },
   [31281] = {
     id = 31281,
-    Event = Table_ShortcutPower_t.Event[410]
+    Event = Table_ShortcutPower_t.Event[417]
   },
   [31282] = {
     id = 31282,
-    Event = Table_ShortcutPower_t.Event[411]
+    Event = Table_ShortcutPower_t.Event[418]
   },
   [31283] = {
     id = 31283,
-    Event = Table_ShortcutPower_t.Event[412]
+    Event = Table_ShortcutPower_t.Event[419]
   },
   [31284] = {
     id = 31284,
-    Event = Table_ShortcutPower_t.Event[413]
+    Event = Table_ShortcutPower_t.Event[420]
   },
   [31285] = {
     id = 31285,
-    Event = Table_ShortcutPower_t.Event[414]
+    Event = Table_ShortcutPower_t.Event[421]
   },
   [31286] = {
     id = 31286,
-    Event = Table_ShortcutPower_t.Event[415]
+    Event = Table_ShortcutPower_t.Event[422]
   },
   [31287] = {
     id = 31287,
-    Event = Table_ShortcutPower_t.Event[416]
+    Event = Table_ShortcutPower_t.Event[423]
   },
   [31288] = {
     id = 31288,
-    Event = Table_ShortcutPower_t.Event[417]
+    Event = Table_ShortcutPower_t.Event[424]
   },
   [31289] = {
     id = 31289,
-    Event = Table_ShortcutPower_t.Event[418]
+    Event = Table_ShortcutPower_t.Event[425]
   },
   [31290] = {
     id = 31290,
-    Event = Table_ShortcutPower_t.Event[419]
+    Event = Table_ShortcutPower_t.Event[426]
   },
   [31291] = {
     id = 31291,
-    Event = Table_ShortcutPower_t.Event[420]
+    Event = Table_ShortcutPower_t.Event[427]
   },
   [31292] = {
     id = 31292,
-    Event = Table_ShortcutPower_t.Event[421]
+    Event = Table_ShortcutPower_t.Event[428]
   },
   [31293] = {
     id = 31293,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[422]
+    Event = Table_ShortcutPower_t.Event[429]
   },
   [31294] = {
     id = 31294,
-    Event = Table_ShortcutPower_t.Event[423]
+    Event = Table_ShortcutPower_t.Event[430]
   },
   [31295] = {
     id = 31295,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[424]
+    Event = Table_ShortcutPower_t.Event[431]
   },
   [31296] = {
     id = 31296,
-    Event = Table_ShortcutPower_t.Event[425]
+    Event = Table_ShortcutPower_t.Event[432]
   },
   [31297] = {
     id = 31297,
-    Event = Table_ShortcutPower_t.Event[426]
+    Event = Table_ShortcutPower_t.Event[433]
   },
   [31298] = {
     id = 31298,
-    Event = Table_ShortcutPower_t.Event[427]
+    Event = Table_ShortcutPower_t.Event[434]
   },
   [31300] = {
     id = 31300,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[428]
+    Event = Table_ShortcutPower_t.Event[435]
   },
   [31301] = {
     id = 31301,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[429]
+    Event = Table_ShortcutPower_t.Event[436]
   },
   [31302] = {
     id = 31302,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[430]
+    Event = Table_ShortcutPower_t.Event[437]
   },
   [31303] = {
     id = 31303,
-    Event = Table_ShortcutPower_t.Event[431]
+    Event = Table_ShortcutPower_t.Event[438]
   },
   [31304] = {
     id = 31304,
-    Event = Table_ShortcutPower_t.Event[432]
+    Event = Table_ShortcutPower_t.Event[439]
   },
   [31305] = {
     id = 31305,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[950]
+    Event = Table_ShortcutPower_t.Event[980]
   },
   [31306] = {
     id = 31306,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[949]
+    Event = Table_ShortcutPower_t.Event[979]
   },
   [31308] = {
     id = 31308,
-    Event = Table_ShortcutPower_t.Event[948]
+    Event = Table_ShortcutPower_t.Event[978]
   },
   [31309] = {
     id = 31309,
-    Event = Table_ShortcutPower_t.Event[437]
+    Event = Table_ShortcutPower_t.Event[444]
   },
   [31310] = {
     id = 31310,
-    Event = Table_ShortcutPower_t.Event[438]
+    Event = Table_ShortcutPower_t.Event[445]
   },
   [31311] = {
     id = 31311,
-    Event = Table_ShortcutPower_t.Event[439]
+    Event = Table_ShortcutPower_t.Event[446]
   },
   [31312] = {
     id = 31312,
-    Event = Table_ShortcutPower_t.Event[440]
+    Event = Table_ShortcutPower_t.Event[447]
   },
   [31313] = {
     id = 31313,
-    Event = Table_ShortcutPower_t.Event[441]
+    Event = Table_ShortcutPower_t.Event[448]
   },
   [31314] = {
     id = 31314,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[442]
+    Event = Table_ShortcutPower_t.Event[449]
   },
   [31315] = {
     id = 31315,
-    Event = Table_ShortcutPower_t.Event[443]
+    Event = Table_ShortcutPower_t.Event[450]
   },
   [31316] = {
     id = 31316,
-    Event = Table_ShortcutPower_t.Event[444]
+    Event = Table_ShortcutPower_t.Event[451]
   },
   [31317] = {
     id = 31317,
-    Event = Table_ShortcutPower_t.Event[445]
+    Event = Table_ShortcutPower_t.Event[452]
   },
   [31318] = {
     id = 31318,
-    Event = Table_ShortcutPower_t.Event[446]
+    Event = Table_ShortcutPower_t.Event[453]
   },
   [31319] = {
     id = 31319,
-    Event = Table_ShortcutPower_t.Event[447]
+    Event = Table_ShortcutPower_t.Event[454]
   },
   [31320] = {
     id = 31320,
-    Event = Table_ShortcutPower_t.Event[448]
+    Event = Table_ShortcutPower_t.Event[455]
   },
   [31321] = {
     id = 31321,
-    Event = Table_ShortcutPower_t.Event[449]
+    Event = Table_ShortcutPower_t.Event[456]
   },
   [31322] = {
     id = 31322,
-    Event = Table_ShortcutPower_t.Event[450]
+    Event = Table_ShortcutPower_t.Event[457]
   },
   [31324] = {
     id = 31324,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[308]
+    Event = Table_ShortcutPower_t.Event[315]
   },
   [31325] = {
     id = 31325,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[304]
+    Event = Table_ShortcutPower_t.Event[311]
   },
   [31326] = {
     id = 31326,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[451]
+    Event = Table_ShortcutPower_t.Event[458]
   },
   [31327] = {
     id = 31327,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[452]
+    Event = Table_ShortcutPower_t.Event[459]
   },
   [31328] = {
     id = 31328,
-    Event = Table_ShortcutPower_t.Event[453]
+    Event = Table_ShortcutPower_t.Event[460]
   },
   [31329] = {
     id = 31329,
-    Event = Table_ShortcutPower_t.Event[454]
+    Event = Table_ShortcutPower_t.Event[461]
   },
   [31330] = {
     id = 31330,
-    Event = Table_ShortcutPower_t.Event[455]
+    Event = Table_ShortcutPower_t.Event[462]
   },
   [31331] = {
     id = 31331,
-    Event = Table_ShortcutPower_t.Event[456]
+    Event = Table_ShortcutPower_t.Event[463]
   },
   [31332] = {
     id = 31332,
-    Event = Table_ShortcutPower_t.Event[457]
+    Event = Table_ShortcutPower_t.Event[464]
   },
   [31333] = {
     id = 31333,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[458]
+    Event = Table_ShortcutPower_t.Event[465]
   },
   [31334] = {
     id = 31334,
-    Event = Table_ShortcutPower_t.Event[459]
+    Event = Table_ShortcutPower_t.Event[466]
   },
   [31335] = {
     id = 31335,
-    Event = Table_ShortcutPower_t.Event[460]
+    Event = Table_ShortcutPower_t.Event[467]
   },
   [31336] = {
     id = 31336,
-    Event = Table_ShortcutPower_t.Event[461]
+    Event = Table_ShortcutPower_t.Event[468]
   },
   [31337] = {
     id = 31337,
-    Event = Table_ShortcutPower_t.Event[462]
+    Event = Table_ShortcutPower_t.Event[469]
   },
   [31338] = {
     id = 31338,
-    Event = Table_ShortcutPower_t.Event[463]
+    Event = Table_ShortcutPower_t.Event[470]
   },
   [31339] = {
     id = 31339,
-    Event = Table_ShortcutPower_t.Event[464]
+    Event = Table_ShortcutPower_t.Event[471]
   },
   [31340] = {
     id = 31340,
-    Event = Table_ShortcutPower_t.Event[465]
+    Event = Table_ShortcutPower_t.Event[472]
   },
   [31341] = {
     id = 31341,
-    Event = Table_ShortcutPower_t.Event[466]
+    Event = Table_ShortcutPower_t.Event[473]
   },
   [31342] = {
     id = 31342,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[467]
+    Event = Table_ShortcutPower_t.Event[474]
   },
   [31343] = {
     id = 31343,
-    Event = Table_ShortcutPower_t.Event[468]
+    Event = Table_ShortcutPower_t.Event[475]
   },
   [31344] = {
     id = 31344,
-    Event = Table_ShortcutPower_t.Event[469]
+    Event = Table_ShortcutPower_t.Event[476]
   },
   [31345] = {
     id = 31345,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[467]
+    Event = Table_ShortcutPower_t.Event[474]
   },
   [31346] = {
     id = 31346,
-    Event = Table_ShortcutPower_t.Event[470]
+    Event = Table_ShortcutPower_t.Event[477]
   },
   [31347] = {
     id = 31347,
-    Event = Table_ShortcutPower_t.Event[471]
+    Event = Table_ShortcutPower_t.Event[478]
   },
   [31348] = {
     id = 31348,
-    Event = Table_ShortcutPower_t.Event[472]
+    Event = Table_ShortcutPower_t.Event[479]
   },
   [31349] = {
     id = 31349,
-    Event = Table_ShortcutPower_t.Event[473]
+    Event = Table_ShortcutPower_t.Event[480]
   },
   [31350] = {
     id = 31350,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[474]
+    Event = Table_ShortcutPower_t.Event[481]
   },
   [31351] = {
     id = 31351,
-    Event = Table_ShortcutPower_t.Event[475]
+    Event = Table_ShortcutPower_t.Event[482]
   },
   [31352] = {
     id = 31352,
-    Event = Table_ShortcutPower_t.Event[476]
+    Event = Table_ShortcutPower_t.Event[483]
   },
   [31353] = {
     id = 31353,
-    Event = Table_ShortcutPower_t.Event[477]
+    Event = Table_ShortcutPower_t.Event[484]
   },
   [31354] = {
     id = 31354,
-    Event = Table_ShortcutPower_t.Event[478]
+    Event = Table_ShortcutPower_t.Event[485]
   },
   [31356] = {
     id = 31356,
-    Event = Table_ShortcutPower_t.Event[479]
+    Event = Table_ShortcutPower_t.Event[486]
   },
   [31357] = {
     id = 31357,
-    Event = Table_ShortcutPower_t.Event[480]
+    Event = Table_ShortcutPower_t.Event[487]
   },
   [31358] = {
     id = 31358,
-    Event = Table_ShortcutPower_t.Event[481]
+    Event = Table_ShortcutPower_t.Event[488]
   },
   [31359] = {
     id = 31359,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[482]
+    Event = Table_ShortcutPower_t.Event[489]
   },
   [31360] = {
     id = 31360,
-    Event = Table_ShortcutPower_t.Event[483]
+    Event = Table_ShortcutPower_t.Event[490]
   },
   [31361] = {
     id = 31361,
-    Event = Table_ShortcutPower_t.Event[484]
+    Event = Table_ShortcutPower_t.Event[491]
   },
   [31362] = {
     id = 31362,
-    Event = Table_ShortcutPower_t.Event[485]
+    Event = Table_ShortcutPower_t.Event[492]
   },
   [31363] = {
     id = 31363,
-    Event = Table_ShortcutPower_t.Event[486]
+    Event = Table_ShortcutPower_t.Event[493]
   },
   [31364] = {
     id = 31364,
-    Event = Table_ShortcutPower_t.Event[487]
+    Event = Table_ShortcutPower_t.Event[494]
   },
   [31365] = {
     id = 31365,
-    Event = Table_ShortcutPower_t.Event[488]
+    Event = Table_ShortcutPower_t.Event[495]
   },
   [31366] = {
     id = 31366,
-    Event = Table_ShortcutPower_t.Event[489]
+    Event = Table_ShortcutPower_t.Event[496]
   },
   [31367] = {
     id = 31367,
-    Event = Table_ShortcutPower_t.Event[490]
+    Event = Table_ShortcutPower_t.Event[497]
   },
   [31368] = {
     id = 31368,
-    Event = Table_ShortcutPower_t.Event[491]
+    Event = Table_ShortcutPower_t.Event[498]
   },
   [31369] = {
     id = 31369,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[492]
+    Event = Table_ShortcutPower_t.Event[499]
   },
   [31370] = {
     id = 31370,
-    Event = Table_ShortcutPower_t.Event[493]
+    Event = Table_ShortcutPower_t.Event[500]
   },
   [31371] = {
     id = 31371,
-    Event = Table_ShortcutPower_t.Event[494]
+    Event = Table_ShortcutPower_t.Event[501]
   },
   [31372] = {
     id = 31372,
-    Event = Table_ShortcutPower_t.Event[495]
+    Event = Table_ShortcutPower_t.Event[502]
   },
   [31373] = {
     id = 31373,
-    Event = Table_ShortcutPower_t.Event[496]
+    Event = Table_ShortcutPower_t.Event[503]
   },
   [31374] = {
     id = 31374,
-    Event = Table_ShortcutPower_t.Event[497]
+    Event = Table_ShortcutPower_t.Event[504]
   },
   [31375] = {
     id = 31375,
-    Event = Table_ShortcutPower_t.Event[498]
+    Event = Table_ShortcutPower_t.Event[505]
   },
   [31376] = {
     id = 31376,
-    Event = Table_ShortcutPower_t.Event[499]
+    Event = Table_ShortcutPower_t.Event[506]
   },
   [31377] = {
     id = 31377,
-    Event = Table_ShortcutPower_t.Event[500]
+    Event = Table_ShortcutPower_t.Event[507]
   },
   [31378] = {
     id = 31378,
-    Event = Table_ShortcutPower_t.Event[501]
+    Event = Table_ShortcutPower_t.Event[508]
   },
   [31379] = {
     id = 31379,
-    Event = Table_ShortcutPower_t.Event[502]
+    Event = Table_ShortcutPower_t.Event[509]
   },
   [31380] = {
     id = 31380,
-    Event = Table_ShortcutPower_t.Event[503]
+    Event = Table_ShortcutPower_t.Event[510]
   },
   [31382] = {
     id = 31382,
-    Event = Table_ShortcutPower_t.Event[504]
+    Event = Table_ShortcutPower_t.Event[511]
   },
   [31383] = {
     id = 31383,
-    Event = Table_ShortcutPower_t.Event[505]
+    Event = Table_ShortcutPower_t.Event[512]
   },
   [31384] = {
     id = 31384,
-    Event = Table_ShortcutPower_t.Event[506]
+    Event = Table_ShortcutPower_t.Event[513]
   },
   [31385] = {
     id = 31385,
-    Event = Table_ShortcutPower_t.Event[507]
+    Event = Table_ShortcutPower_t.Event[514]
   },
   [31386] = {
     id = 31386,
-    Event = Table_ShortcutPower_t.Event[508]
+    Event = Table_ShortcutPower_t.Event[515]
   },
   [31387] = {
     id = 31387,
-    Event = Table_ShortcutPower_t.Event[509]
+    Event = Table_ShortcutPower_t.Event[516]
   },
   [31388] = {
     id = 31388,
-    Event = Table_ShortcutPower_t.Event[510]
+    Event = Table_ShortcutPower_t.Event[517]
   },
   [31389] = {
     id = 31389,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[511]
+    Event = Table_ShortcutPower_t.Event[518]
   },
   [31390] = {
     id = 31390,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[512]
+    Event = Table_ShortcutPower_t.Event[519]
   },
   [31391] = {
     id = 31391,
-    Event = Table_ShortcutPower_t.Event[513]
+    Event = Table_ShortcutPower_t.Event[520]
   },
   [31392] = {
     id = 31392,
-    Event = Table_ShortcutPower_t.Event[514]
+    Event = Table_ShortcutPower_t.Event[521]
   },
   [31393] = {
     id = 31393,
-    Event = Table_ShortcutPower_t.Event[515]
+    Event = Table_ShortcutPower_t.Event[522]
   },
   [31394] = {
     id = 31394,
-    Event = Table_ShortcutPower_t.Event[516]
+    Event = Table_ShortcutPower_t.Event[523]
   },
   [31395] = {
     id = 31395,
-    Event = Table_ShortcutPower_t.Event[517]
+    Event = Table_ShortcutPower_t.Event[524]
   },
   [31396] = {
     id = 31396,
-    Event = Table_ShortcutPower_t.Event[518]
+    Event = Table_ShortcutPower_t.Event[525]
   },
   [31397] = {
     id = 31397,
-    Event = Table_ShortcutPower_t.Event[519]
+    Event = Table_ShortcutPower_t.Event[526]
   },
   [31399] = {
     id = 31399,
-    Event = Table_ShortcutPower_t.Event[520]
+    Event = Table_ShortcutPower_t.Event[527]
   },
   [31400] = {
     id = 31400,
-    Event = Table_ShortcutPower_t.Event[521]
+    Event = Table_ShortcutPower_t.Event[528]
   },
   [31401] = {
     id = 31401,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[522]
+    Event = Table_ShortcutPower_t.Event[529]
   },
   [31402] = {
     id = 31402,
-    Event = Table_ShortcutPower_t.Event[523]
+    Event = Table_ShortcutPower_t.Event[530]
   },
   [31403] = {
     id = 31403,
-    Event = Table_ShortcutPower_t.Event[524]
+    Event = Table_ShortcutPower_t.Event[531]
   },
   [31404] = {
     id = 31404,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[947]
+    Event = Table_ShortcutPower_t.Event[977]
   },
   [31405] = {
     id = 31405,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[946]
+    Event = Table_ShortcutPower_t.Event[976]
   },
   [31406] = {
     id = 31406,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[945]
+    Event = Table_ShortcutPower_t.Event[975]
   },
   [31407] = {
     id = 31407,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[944]
+    Event = Table_ShortcutPower_t.Event[974]
   },
   [31408] = {
     id = 31408,
-    Event = Table_ShortcutPower_t.Event[943]
+    Event = Table_ShortcutPower_t.Event[973]
   },
   [31409] = {
     id = 31409,
-    Event = Table_ShortcutPower_t.Event[942]
+    Event = Table_ShortcutPower_t.Event[972]
   },
   [31411] = {
     id = 31411,
-    Event = Table_ShortcutPower_t.Event[941]
+    Event = Table_ShortcutPower_t.Event[971]
   },
   [31412] = {
     id = 31412,
-    Event = Table_ShortcutPower_t.Event[940]
+    Event = Table_ShortcutPower_t.Event[970]
   },
   [31413] = {
     id = 31413,
-    Event = Table_ShortcutPower_t.Event[939]
+    Event = Table_ShortcutPower_t.Event[969]
   },
   [31414] = {
     id = 31414,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[938]
+    Event = Table_ShortcutPower_t.Event[968]
   },
   [31415] = {
     id = 31415,
-    Event = Table_ShortcutPower_t.Event[937]
+    Event = Table_ShortcutPower_t.Event[967]
   },
   [31416] = {
     id = 31416,
-    Event = Table_ShortcutPower_t.Event[936]
+    Event = Table_ShortcutPower_t.Event[966]
   },
   [31417] = {
     id = 31417,
-    Event = Table_ShortcutPower_t.Event[935]
+    Event = Table_ShortcutPower_t.Event[965]
   },
   [31419] = {
     id = 31419,
-    Event = Table_ShortcutPower_t.Event[934]
+    Event = Table_ShortcutPower_t.Event[964]
   },
   [31420] = {
     id = 31420,
-    Event = Table_ShortcutPower_t.Event[933]
+    Event = Table_ShortcutPower_t.Event[963]
   },
   [31421] = {
     id = 31421,
-    Event = Table_ShortcutPower_t.Event[932]
+    Event = Table_ShortcutPower_t.Event[962]
   },
   [31422] = {
     id = 31422,
-    Event = Table_ShortcutPower_t.Event[931]
+    Event = Table_ShortcutPower_t.Event[961]
   },
   [31423] = {
     id = 31423,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[930]
+    Event = Table_ShortcutPower_t.Event[960]
   },
   [31424] = {
     id = 31424,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[929]
+    Event = Table_ShortcutPower_t.Event[959]
   },
   [31425] = {
     id = 31425,
-    Event = Table_ShortcutPower_t.Event[928]
+    Event = Table_ShortcutPower_t.Event[958]
   },
   [31426] = {
     id = 31426,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[927]
+    Event = Table_ShortcutPower_t.Event[957]
   },
   [31427] = {
     id = 31427,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[926]
+    Event = Table_ShortcutPower_t.Event[956]
   },
   [31428] = {
     id = 31428,
-    Event = Table_ShortcutPower_t.Event[925]
+    Event = Table_ShortcutPower_t.Event[955]
   },
   [31429] = {
     id = 31429,
-    Event = Table_ShortcutPower_t.Event[924]
+    Event = Table_ShortcutPower_t.Event[954]
   },
   [31435] = {
     id = 31435,
-    Event = Table_ShortcutPower_t.Event[923]
+    Event = Table_ShortcutPower_t.Event[953]
   },
   [31436] = {
     id = 31436,
-    Event = Table_ShortcutPower_t.Event[922]
+    Event = Table_ShortcutPower_t.Event[952]
   },
   [31437] = {
     id = 31437,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[921]
+    Event = Table_ShortcutPower_t.Event[951]
   },
   [31438] = {
     id = 31438,
-    Event = Table_ShortcutPower_t.Event[920]
+    Event = Table_ShortcutPower_t.Event[950]
   },
   [31439] = {
     id = 31439,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[560]
+    Event = Table_ShortcutPower_t.Event[567]
   },
   [31440] = {
     id = 31440,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[561]
+    Event = Table_ShortcutPower_t.Event[568]
   },
   [31441] = {
     id = 31441,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[562]
+    Event = Table_ShortcutPower_t.Event[569]
   },
   [31442] = {
     id = 31442,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[563]
+    Event = Table_ShortcutPower_t.Event[570]
   },
   [31443] = {
     id = 31443,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[564]
+    Event = Table_ShortcutPower_t.Event[571]
   },
   [31444] = {
     id = 31444,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[565]
+    Event = Table_ShortcutPower_t.Event[572]
   },
   [31445] = {
     id = 31445,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[566]
+    Event = Table_ShortcutPower_t.Event[573]
   },
   [31446] = {
     id = 31446,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[567]
+    Event = Table_ShortcutPower_t.Event[574]
   },
   [31447] = {
     id = 31447,
-    Event = Table_ShortcutPower_t.Event[568]
+    Event = Table_ShortcutPower_t.Event[575]
   },
   [31448] = {
     id = 31448,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[569]
+    Event = Table_ShortcutPower_t.Event[576]
   },
   [31449] = {
     id = 31449,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[570]
+    Event = Table_ShortcutPower_t.Event[577]
   },
   [31450] = {
     id = 31450,
-    Event = Table_ShortcutPower_t.Event[571]
+    Event = Table_ShortcutPower_t.Event[578]
   },
   [31451] = {
     id = 31451,
-    Event = Table_ShortcutPower_t.Event[572]
+    Event = Table_ShortcutPower_t.Event[579]
   },
   [31452] = {
     id = 31452,
-    Event = Table_ShortcutPower_t.Event[573]
+    Event = Table_ShortcutPower_t.Event[580]
   },
   [31453] = {
     id = 31453,
-    Event = Table_ShortcutPower_t.Event[574]
+    Event = Table_ShortcutPower_t.Event[581]
   },
   [31454] = {
     id = 31454,
-    Event = Table_ShortcutPower_t.Event[575]
+    Event = Table_ShortcutPower_t.Event[582]
   },
   [31455] = {
     id = 31455,
-    Event = Table_ShortcutPower_t.Event[576]
+    Event = Table_ShortcutPower_t.Event[583]
   },
   [31456] = {
     id = 31456,
-    Event = Table_ShortcutPower_t.Event[577]
+    Event = Table_ShortcutPower_t.Event[584]
   },
   [31457] = {
     id = 31457,
-    Event = Table_ShortcutPower_t.Event[578]
+    Event = Table_ShortcutPower_t.Event[585]
   },
   [31458] = {
     id = 31458,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[579]
+    Event = Table_ShortcutPower_t.Event[586]
   },
   [31459] = {
     id = 31459,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[580]
+    Event = Table_ShortcutPower_t.Event[587]
   },
   [31460] = {
     id = 31460,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[581]
+    Event = Table_ShortcutPower_t.Event[588]
   },
   [31461] = {
     id = 31461,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[582]
+    Event = Table_ShortcutPower_t.Event[589]
   },
   [31462] = {
     id = 31462,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[511]
+    Event = Table_ShortcutPower_t.Event[518]
   },
   [31463] = {
     id = 31463,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[346]
+    Event = Table_ShortcutPower_t.Event[353]
   },
   [31464] = {
     id = 31464,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[583]
+    Event = Table_ShortcutPower_t.Event[590]
   },
   [31465] = {
     id = 31465,
-    Event = Table_ShortcutPower_t.Event[584]
+    Event = Table_ShortcutPower_t.Event[591]
   },
   [31466] = {
     id = 31466,
-    Event = Table_ShortcutPower_t.Event[585]
+    Event = Table_ShortcutPower_t.Event[592]
   },
   [31467] = {
     id = 31467,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[586]
+    Event = Table_ShortcutPower_t.Event[593]
   },
   [31468] = {
     id = 31468,
     Type = 4,
-    Event = Table_ShortcutPower_t.Event[587]
+    Event = Table_ShortcutPower_t.Event[594]
   },
   [31469] = {
     id = 31469,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[588]
+    Event = Table_ShortcutPower_t.Event[595]
   },
   [31470] = {
     id = 31470,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[589]
+    Event = Table_ShortcutPower_t.Event[596]
   },
   [31471] = {
     id = 31471,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[590]
+    Event = Table_ShortcutPower_t.Event[597]
   },
   [31472] = {
     id = 31472,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[591]
+    Event = Table_ShortcutPower_t.Event[598]
   },
   [31473] = {
     id = 31473,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[592]
+    Event = Table_ShortcutPower_t.Event[599]
   },
   [31474] = {
     id = 31474,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[593]
+    Event = Table_ShortcutPower_t.Event[600]
   },
   [31475] = {
     id = 31475,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[594]
+    Event = Table_ShortcutPower_t.Event[601]
   },
   [31476] = {
     id = 31476,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[595]
+    Event = Table_ShortcutPower_t.Event[602]
   },
   [31477] = {
     id = 31477,
-    Event = Table_ShortcutPower_t.Event[596]
+    Event = Table_ShortcutPower_t.Event[603]
   },
   [31478] = {
     id = 31478,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[597]
+    Event = Table_ShortcutPower_t.Event[604]
   },
   [31479] = {
     id = 31479,
-    Event = Table_ShortcutPower_t.Event[598]
+    Event = Table_ShortcutPower_t.Event[605]
   },
   [31480] = {
     id = 31480,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[599]
+    Event = Table_ShortcutPower_t.Event[606]
   },
   [31481] = {
     id = 31481,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[600]
+    Event = Table_ShortcutPower_t.Event[607]
   },
   [31482] = {
     id = 31482,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[601]
+    Event = Table_ShortcutPower_t.Event[608]
   },
   [31483] = {
     id = 31483,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[602]
+    Event = Table_ShortcutPower_t.Event[609]
   },
   [31484] = {
     id = 31484,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[603]
+    Event = Table_ShortcutPower_t.Event[610]
   },
   [31485] = {
     id = 31485,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[604]
+    Event = Table_ShortcutPower_t.Event[611]
   },
   [31486] = {
     id = 31486,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[605]
+    Event = Table_ShortcutPower_t.Event[612]
   },
   [31487] = {
     id = 31487,
-    Event = Table_ShortcutPower_t.Event[606]
+    Event = Table_ShortcutPower_t.Event[613]
   },
   [31488] = {
     id = 31488,
-    Event = Table_ShortcutPower_t.Event[607]
+    Event = Table_ShortcutPower_t.Event[614]
   },
   [31489] = {
     id = 31489,
-    Event = Table_ShortcutPower_t.Event[608]
+    Event = Table_ShortcutPower_t.Event[615]
   },
   [31490] = {
     id = 31490,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[609]
+    Event = Table_ShortcutPower_t.Event[616]
   },
   [31491] = {
     id = 31491,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[610]
+    Event = Table_ShortcutPower_t.Event[617]
   },
   [31492] = {
     id = 31492,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[611]
+    Event = Table_ShortcutPower_t.Event[618]
   },
   [31493] = {
     id = 31493,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[612]
+    Event = Table_ShortcutPower_t.Event[619]
   },
   [31494] = {
     id = 31494,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[613]
+    Event = Table_ShortcutPower_t.Event[620]
   },
   [31495] = {
     id = 31495,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[614]
+    Event = Table_ShortcutPower_t.Event[621]
   },
   [31496] = {
     id = 31496,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[615]
+    Event = Table_ShortcutPower_t.Event[622]
   },
   [31497] = {
     id = 31497,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[616]
+    Event = Table_ShortcutPower_t.Event[623]
   },
   [31498] = {
     id = 31498,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[617]
+    Event = Table_ShortcutPower_t.Event[624]
   },
   [31499] = {
     id = 31499,
-    Event = Table_ShortcutPower_t.Event[618]
+    Event = Table_ShortcutPower_t.Event[625]
   },
   [31500] = {
     id = 31500,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[619]
+    Event = Table_ShortcutPower_t.Event[626]
   },
   [31501] = {
     id = 31501,
-    Event = Table_ShortcutPower_t.Event[620]
+    Event = Table_ShortcutPower_t.Event[627]
   },
   [31502] = {
     id = 31502,
-    Event = Table_ShortcutPower_t.Event[621]
+    Event = Table_ShortcutPower_t.Event[628]
   },
   [31503] = {
     id = 31503,
-    Event = Table_ShortcutPower_t.Event[622]
+    Event = Table_ShortcutPower_t.Event[629]
   },
   [31504] = {
     id = 31504,
-    Event = Table_ShortcutPower_t.Event[623]
+    Event = Table_ShortcutPower_t.Event[630]
   },
   [31505] = {
     id = 31505,
-    Event = Table_ShortcutPower_t.Event[624]
+    Event = Table_ShortcutPower_t.Event[631]
   },
   [31506] = {
     id = 31506,
-    Event = Table_ShortcutPower_t.Event[919]
+    Event = Table_ShortcutPower_t.Event[949]
   },
   [31507] = {
     id = 31507,
-    Event = Table_ShortcutPower_t.Event[918]
+    Event = Table_ShortcutPower_t.Event[948]
   },
   [31508] = {
     id = 31508,
-    Event = Table_ShortcutPower_t.Event[917]
+    Event = Table_ShortcutPower_t.Event[947]
   },
   [31509] = {
     id = 31509,
-    Event = Table_ShortcutPower_t.Event[916]
+    Event = Table_ShortcutPower_t.Event[946]
   },
   [31510] = {
     id = 31510,
-    Event = Table_ShortcutPower_t.Event[915]
+    Event = Table_ShortcutPower_t.Event[945]
   },
   [31511] = {
     id = 31511,
-    Event = Table_ShortcutPower_t.Event[914]
+    Event = Table_ShortcutPower_t.Event[944]
   },
   [31512] = {
     id = 31512,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[913]
+    Event = Table_ShortcutPower_t.Event[943]
   },
   [31513] = {
     id = 31513,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[912]
+    Event = Table_ShortcutPower_t.Event[942]
   },
   [31514] = {
     id = 31514,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[911]
+    Event = Table_ShortcutPower_t.Event[941]
   },
   [31515] = {
     id = 31515,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[910]
+    Event = Table_ShortcutPower_t.Event[940]
   },
   [31516] = {
     id = 31516,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[635]
+    Event = Table_ShortcutPower_t.Event[642]
   },
   [31517] = {
     id = 31517,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[636]
+    Event = Table_ShortcutPower_t.Event[643]
   },
   [31518] = {
     id = 31518,
-    Event = Table_ShortcutPower_t.Event[637]
+    Event = Table_ShortcutPower_t.Event[644]
   },
   [31519] = {
     id = 31519,
@@ -14152,474 +14377,610 @@ Table_ShortcutPower = {
   },
   [31520] = {
     id = 31520,
-    Event = Table_ShortcutPower_t.Event[638]
+    Event = Table_ShortcutPower_t.Event[645]
   },
   [31521] = {
     id = 31521,
-    Event = Table_ShortcutPower_t.Event[639]
+    Event = Table_ShortcutPower_t.Event[646]
   },
   [31522] = {
     id = 31522,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[640]
+    Event = Table_ShortcutPower_t.Event[647]
   },
   [31523] = {
     id = 31523,
-    Event = Table_ShortcutPower_t.Event[641]
+    Event = Table_ShortcutPower_t.Event[648]
   },
   [31524] = {
     id = 31524,
-    Event = Table_ShortcutPower_t.Event[642]
+    Event = Table_ShortcutPower_t.Event[649]
   },
   [31525] = {
     id = 31525,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[643]
+    Event = Table_ShortcutPower_t.Event[650]
   },
   [31526] = {
     id = 31526,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[644]
+    Event = Table_ShortcutPower_t.Event[651]
   },
   [31527] = {
     id = 31527,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[645]
+    Event = Table_ShortcutPower_t.Event[652]
   },
   [31528] = {
     id = 31528,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[646]
+    Event = Table_ShortcutPower_t.Event[653]
   },
   [31529] = {
     id = 31529,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[647]
+    Event = Table_ShortcutPower_t.Event[654]
   },
   [31530] = {
     id = 31530,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[648]
+    Event = Table_ShortcutPower_t.Event[655]
   },
   [31531] = {
     id = 31531,
-    Event = Table_ShortcutPower_t.Event[649]
+    Event = Table_ShortcutPower_t.Event[656]
   },
   [31532] = {
     id = 31532,
-    Event = Table_ShortcutPower_t.Event[650]
+    Event = Table_ShortcutPower_t.Event[657]
   },
   [31533] = {
     id = 31533,
-    Event = Table_ShortcutPower_t.Event[651]
+    Event = Table_ShortcutPower_t.Event[658]
   },
   [31534] = {
     id = 31534,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[652]
+    Event = Table_ShortcutPower_t.Event[659]
   },
   [31535] = {
     id = 31535,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[653]
+    Event = Table_ShortcutPower_t.Event[660]
   },
   [31536] = {
     id = 31536,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[654]
+    Event = Table_ShortcutPower_t.Event[661]
   },
   [31537] = {
     id = 31537,
-    Event = Table_ShortcutPower_t.Event[655]
+    Event = Table_ShortcutPower_t.Event[662]
   },
   [31538] = {
     id = 31538,
-    Event = Table_ShortcutPower_t.Event[656]
+    Event = Table_ShortcutPower_t.Event[663]
   },
   [31539] = {
     id = 31539,
-    Event = Table_ShortcutPower_t.Event[657]
+    Event = Table_ShortcutPower_t.Event[664]
   },
   [31540] = {
     id = 31540,
-    Event = Table_ShortcutPower_t.Event[658]
+    Event = Table_ShortcutPower_t.Event[665]
   },
   [31541] = {
     id = 31541,
-    Event = Table_ShortcutPower_t.Event[659]
+    Event = Table_ShortcutPower_t.Event[666]
   },
   [31542] = {
     id = 31542,
-    Event = Table_ShortcutPower_t.Event[660]
+    Event = Table_ShortcutPower_t.Event[667]
   },
   [31543] = {
     id = 31543,
-    Event = Table_ShortcutPower_t.Event[661]
+    Event = Table_ShortcutPower_t.Event[668]
   },
   [31544] = {
     id = 31544,
-    Event = Table_ShortcutPower_t.Event[662]
+    Event = Table_ShortcutPower_t.Event[669]
   },
   [31545] = {
     id = 31545,
-    Event = Table_ShortcutPower_t.Event[663]
+    Event = Table_ShortcutPower_t.Event[670]
   },
   [31546] = {
     id = 31546,
-    Event = Table_ShortcutPower_t.Event[664]
+    Event = Table_ShortcutPower_t.Event[671]
   },
   [31547] = {
     id = 31547,
-    Event = Table_ShortcutPower_t.Event[665]
+    Event = Table_ShortcutPower_t.Event[672]
   },
   [31548] = {
     id = 31548,
-    Event = Table_ShortcutPower_t.Event[666]
+    Event = Table_ShortcutPower_t.Event[673]
   },
   [31549] = {
     id = 31549,
-    Event = Table_ShortcutPower_t.Event[667]
+    Event = Table_ShortcutPower_t.Event[674]
   },
   [31550] = {
     id = 31550,
-    Event = Table_ShortcutPower_t.Event[668]
+    Event = Table_ShortcutPower_t.Event[675]
   },
   [31551] = {
     id = 31551,
-    Event = Table_ShortcutPower_t.Event[669]
+    Event = Table_ShortcutPower_t.Event[676]
   },
   [31552] = {
     id = 31552,
-    Event = Table_ShortcutPower_t.Event[670]
+    Event = Table_ShortcutPower_t.Event[677]
   },
   [31553] = {
     id = 31553,
-    Event = Table_ShortcutPower_t.Event[671]
+    Event = Table_ShortcutPower_t.Event[678]
   },
   [31554] = {
     id = 31554,
-    Event = Table_ShortcutPower_t.Event[672]
+    Event = Table_ShortcutPower_t.Event[679]
   },
   [31555] = {
     id = 31555,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[673]
+    Event = Table_ShortcutPower_t.Event[680]
   },
   [31556] = {
     id = 31556,
     Type = 4,
-    Event = Table_ShortcutPower_t.Event[674]
+    Event = Table_ShortcutPower_t.Event[681]
   },
   [31557] = {
     id = 31557,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[675]
+    Event = Table_ShortcutPower_t.Event[682]
   },
   [31558] = {
     id = 31558,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[676]
+    Event = Table_ShortcutPower_t.Event[683]
   },
   [31559] = {
     id = 31559,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[677]
+    Event = Table_ShortcutPower_t.Event[684]
   },
   [31560] = {
     id = 31560,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[678]
+    Event = Table_ShortcutPower_t.Event[685]
   },
   [31561] = {
     id = 31561,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[679]
+    Event = Table_ShortcutPower_t.Event[686]
   },
   [31562] = {
     id = 31562,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[680]
+    Event = Table_ShortcutPower_t.Event[687]
   },
   [31563] = {
     id = 31563,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[681]
+    Event = Table_ShortcutPower_t.Event[688]
   },
   [31564] = {
     id = 31564,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[682]
+    Event = Table_ShortcutPower_t.Event[689]
   },
   [31565] = {
     id = 31565,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[909]
+    Event = Table_ShortcutPower_t.Event[939]
   },
   [31566] = {
     id = 31566,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[908]
+    Event = Table_ShortcutPower_t.Event[938]
   },
   [31567] = {
     id = 31567,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[907]
+    Event = Table_ShortcutPower_t.Event[891]
   },
   [31568] = {
     id = 31568,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[906]
+    Event = Table_ShortcutPower_t.Event[890]
   },
   [31569] = {
     id = 31569,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[905]
+    Event = Table_ShortcutPower_t.Event[889]
   },
   [31570] = {
     id = 31570,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[904]
+    Event = Table_ShortcutPower_t.Event[937]
   },
   [31571] = {
     id = 31571,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[689]
+    Event = Table_ShortcutPower_t.Event[696]
   },
   [31572] = {
     id = 31572,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[690]
+    Event = Table_ShortcutPower_t.Event[697]
   },
   [31573] = {
     id = 31573,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[691]
+    Event = Table_ShortcutPower_t.Event[698]
   },
   [31574] = {
     id = 31574,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[903]
+    Event = Table_ShortcutPower_t.Event[936]
   },
   [31575] = {
     id = 31575,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[902]
+    Event = Table_ShortcutPower_t.Event[884]
   },
   [31576] = {
     id = 31576,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[901]
+    Event = Table_ShortcutPower_t.Event[935]
   },
   [31577] = {
     id = 31577,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[452]
+    Event = Table_ShortcutPower_t.Event[459]
   },
   [31578] = {
     id = 31578,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[694]
+    Event = Table_ShortcutPower_t.Event[701]
   },
   [31579] = {
     id = 31579,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[695]
+    Event = Table_ShortcutPower_t.Event[702]
   },
   [31580] = {
     id = 31580,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[696]
+    Event = Table_ShortcutPower_t.Event[703]
   },
   [31581] = {
     id = 31581,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[697]
+    Event = Table_ShortcutPower_t.Event[704]
   },
   [31584] = {
     id = 31584,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[698]
+    Event = Table_ShortcutPower_t.Event[705]
   },
   [31585] = {
     id = 31585,
-    Event = Table_ShortcutPower_t.Event[699]
+    Event = Table_ShortcutPower_t.Event[706]
   },
   [31586] = {
     id = 31586,
-    Event = Table_ShortcutPower_t.Event[700]
+    Event = Table_ShortcutPower_t.Event[707]
   },
   [31594] = {
     id = 31594,
-    Event = Table_ShortcutPower_t.Event[900]
+    Event = Table_ShortcutPower_t.Event[934]
   },
   [31595] = {
     id = 31595,
-    Event = Table_ShortcutPower_t.Event[899]
+    Event = Table_ShortcutPower_t.Event[933]
   },
   [31596] = {
     id = 31596,
-    Event = Table_ShortcutPower_t.Event[898]
+    Event = Table_ShortcutPower_t.Event[932]
   },
   [31597] = {
     id = 31597,
-    Event = Table_ShortcutPower_t.Event[897]
+    Event = Table_ShortcutPower_t.Event[931]
   },
   [31598] = {
     id = 31598,
-    Event = Table_ShortcutPower_t.Event[896]
+    Event = Table_ShortcutPower_t.Event[930]
   },
   [31599] = {
     id = 31599,
-    Event = Table_ShortcutPower_t.Event[895]
+    Event = Table_ShortcutPower_t.Event[929]
   },
   [31600] = {
     id = 31600,
-    Event = Table_ShortcutPower_t.Event[894]
+    Event = Table_ShortcutPower_t.Event[928]
   },
   [31601] = {
     id = 31601,
-    Event = Table_ShortcutPower_t.Event[893]
+    Event = Table_ShortcutPower_t.Event[927]
   },
   [31602] = {
     id = 31602,
-    Event = Table_ShortcutPower_t.Event[892]
+    Event = Table_ShortcutPower_t.Event[926]
   },
   [31603] = {
     id = 31603,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[891]
+    Event = Table_ShortcutPower_t.Event[925]
   },
   [31604] = {
     id = 31604,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[890]
+    Event = Table_ShortcutPower_t.Event[924]
   },
   [31605] = {
     id = 31605,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[889]
+    Event = Table_ShortcutPower_t.Event[923]
   },
   [31684] = {
     id = 31684,
-    Event = Table_ShortcutPower_t.Event[882]
+    Event = Table_ShortcutPower_t.Event[922]
   },
   [31685] = {
     id = 31685,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[881]
+    Event = Table_ShortcutPower_t.Event[921]
   },
   [31686] = {
     id = 31686,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[880]
+    Event = Table_ShortcutPower_t.Event[920]
   },
   [31687] = {
     id = 31687,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[879]
+    Event = Table_ShortcutPower_t.Event[919]
   },
   [31688] = {
     id = 31688,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[878]
+    Event = Table_ShortcutPower_t.Event[918]
   },
   [31689] = {
     id = 31689,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[877]
+    Event = Table_ShortcutPower_t.Event[917]
   },
   [31690] = {
     id = 31690,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[876]
+    Event = Table_ShortcutPower_t.Event[916]
   },
   [31691] = {
     id = 31691,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[604]
+    Event = Table_ShortcutPower_t.Event[611]
   },
   [31692] = {
     id = 31692,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[875]
+    Event = Table_ShortcutPower_t.Event[915]
   },
   [31696] = {
     id = 31696,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[874]
+    Event = Table_ShortcutPower_t.Event[914]
   },
   [31697] = {
     id = 31697,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[873]
+    Event = Table_ShortcutPower_t.Event[913]
   },
   [31703] = {
     id = 31703,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[872]
+    Event = Table_ShortcutPower_t.Event[912]
   },
   [31705] = {
     id = 31705,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[871]
+    Event = Table_ShortcutPower_t.Event[911]
   },
   [31708] = {
     id = 31708,
-    Event = Table_ShortcutPower_t.Event[870]
+    Event = Table_ShortcutPower_t.Event[910]
   },
   [31716] = {
     id = 31716,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[869]
+    Event = Table_ShortcutPower_t.Event[909]
   },
   [31717] = {
     id = 31717,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[868]
+    Event = Table_ShortcutPower_t.Event[908]
   },
   [31718] = {
     id = 31718,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[867]
+    Event = Table_ShortcutPower_t.Event[907]
   },
   [31719] = {
     id = 31719,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[866]
+    Event = Table_ShortcutPower_t.Event[906]
   },
   [31720] = {
     id = 31720,
     Type = 2,
-    Event = Table_ShortcutPower_t.Event[865]
+    Event = Table_ShortcutPower_t.Event[905]
+  },
+  [31732] = {
+    id = 31732,
+    Type = 3,
+    Event = Table_ShortcutPower_t.Event[904]
+  },
+  [31733] = {
+    id = 31733,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[903]
+  },
+  [31734] = {
+    id = 31734,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[902]
+  },
+  [31735] = {
+    id = 31735,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[652]
+  },
+  [31736] = {
+    id = 31736,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[901]
+  },
+  [31740] = {
+    id = 31740,
+    Type = 3,
+    Event = Table_ShortcutPower_t.Event[900]
+  },
+  [31746] = {
+    id = 31746,
+    Type = 3,
+    Event = Table_ShortcutPower_t.Event[893]
+  },
+  [31747] = {
+    id = 31747,
+    Event = Table_ShortcutPower_t.Event[892]
+  },
+  [31748] = {
+    id = 31748,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[891]
+  },
+  [31749] = {
+    id = 31749,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[890]
+  },
+  [31750] = {
+    id = 31750,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[889]
+  },
+  [31751] = {
+    id = 31751,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[888]
+  },
+  [31752] = {
+    id = 31752,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[887]
+  },
+  [31753] = {
+    id = 31753,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[886]
+  },
+  [31754] = {
+    id = 31754,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[864]
+  },
+  [31755] = {
+    id = 31755,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[885]
+  },
+  [31756] = {
+    id = 31756,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[884]
+  },
+  [31757] = {
+    id = 31757,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[459]
+  },
+  [31768] = {
+    id = 31768,
+    Event = Table_ShortcutPower_t.Event[874]
+  },
+  [31774] = {
+    id = 31774,
+    Type = 3,
+    Event = Table_ShortcutPower_t.Event[875]
+  },
+  [31775] = {
+    id = 31775,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[876]
+  },
+  [31776] = {
+    id = 31776,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[877]
+  },
+  [31777] = {
+    id = 31777,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[878]
+  },
+  [31778] = {
+    id = 31778,
+    Type = 2,
+    Event = Table_ShortcutPower_t.Event[879]
+  },
+  [31802] = {
+    id = 31802,
+    Event = Table_ShortcutPower_t.Event[880]
   },
   [10000001] = {
     id = 10000001,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[888]
+    Event = Table_ShortcutPower_t.Event[899]
   },
   [10000002] = {
     id = 10000002,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[887]
+    Event = Table_ShortcutPower_t.Event[898]
   },
   [10000003] = {
     id = 10000003,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[886]
+    Event = Table_ShortcutPower_t.Event[897]
   },
   [10000004] = {
     id = 10000004,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[885]
+    Event = Table_ShortcutPower_t.Event[896]
   },
   [10000005] = {
     id = 10000005,
     Type = 3,
-    Event = Table_ShortcutPower_t.Event[884]
+    Event = Table_ShortcutPower_t.Event[895]
   },
   [10000006] = {
     id = 10000006,
+    Event = Table_ShortcutPower_t.Event[894]
+  },
+  [10000007] = {
+    id = 10000007,
+    Type = 2,
     Event = Table_ShortcutPower_t.Event[883]
+  },
+  [10000008] = {
+    id = 10000008,
+    Event = Table_ShortcutPower_t.Event[882]
+  },
+  [10000009] = {
+    id = 10000009,
+    Type = 3,
+    Event = Table_ShortcutPower_t.Event[881]
   }
 }
 local cell_mt = {

@@ -12,6 +12,11 @@ function SkillRecommendPopUp:FindObj()
   self.grid = self:FindGO("Grid"):GetComponent(UIGrid)
   self.gridCtrl = UIGridListCtrl.new(self.grid, SkillRecommendCell, "SkillRecommendCell")
   self.gridCtrl:AddEventListener(MouseEvent.MouseClick, self.OnClickCell)
+  self.closecomp = self:FindComponent("Container", CloseWhenClickOtherPlace)
+  
+  function self.closecomp.callBack(go)
+    self:CloseSelf()
+  end
 end
 
 function SkillRecommendPopUp:AddViewEvts()
@@ -36,11 +41,7 @@ function SkillRecommendPopUp:InitView()
   self.gridCtrl:ResetDatas(tempArray)
   local cells = self.gridCtrl:GetCells()
   for i = 1, #cells do
-    for j = 1, #cells do
-      if i ~= j then
-        cells[i]:AddIgnoreBounds(cells[j].gameObject)
-      end
-    end
+    self:AddIgnoreBounds(cells[i].gameObject)
   end
 end
 

@@ -462,6 +462,390 @@ Table_DepositProducts = {
     ProductID = "",
     CurrencyType = "USD",
     Rmb = 29.99
+  },
+  [59] = {
+    id = 59,
+    DepositID = 400007,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_7",
+    CurrencyType = "TWD",
+    Rmb = 30
+  },
+  [60] = {
+    id = 60,
+    DepositID = 400007,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_7",
+    CurrencyType = "TWD",
+    Rmb = 30
+  },
+  [61] = {
+    id = 61,
+    DepositID = 400007,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_7",
+    CurrencyType = "USD",
+    Rmb = 0.99
+  },
+  [62] = {
+    id = 62,
+    DepositID = 400008,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_8",
+    CurrencyType = "TWD",
+    Rmb = 90
+  },
+  [63] = {
+    id = 63,
+    DepositID = 400008,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_8",
+    CurrencyType = "TWD",
+    Rmb = 90
+  },
+  [64] = {
+    id = 64,
+    DepositID = 400008,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_8",
+    CurrencyType = "USD",
+    Rmb = 2.99
+  },
+  [65] = {
+    id = 65,
+    DepositID = 400009,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_9",
+    CurrencyType = "TWD",
+    Rmb = 150
+  },
+  [66] = {
+    id = 66,
+    DepositID = 400009,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_9",
+    CurrencyType = "TWD",
+    Rmb = 150
+  },
+  [67] = {
+    id = 67,
+    DepositID = 400009,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_9",
+    CurrencyType = "USD",
+    Rmb = 4.99
+  },
+  [68] = {
+    id = 68,
+    DepositID = 400010,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_10",
+    CurrencyType = "TWD",
+    Rmb = 590
+  },
+  [69] = {
+    id = 69,
+    DepositID = 400010,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_10",
+    CurrencyType = "TWD",
+    Rmb = 590
+  },
+  [70] = {
+    id = 70,
+    DepositID = 400010,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_10",
+    CurrencyType = "USD",
+    Rmb = 17.99
+  },
+  [71] = {
+    id = 71,
+    DepositID = 400011,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_11",
+    CurrencyType = "TWD",
+    Rmb = 1490
+  },
+  [72] = {
+    id = 72,
+    DepositID = 400011,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_11",
+    CurrencyType = "TWD",
+    Rmb = 1490
+  },
+  [73] = {
+    id = 73,
+    DepositID = 400011,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_11",
+    CurrencyType = "USD",
+    Rmb = 45.99
+  },
+  [74] = {
+    id = 74,
+    DepositID = 400012,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_12",
+    CurrencyType = "TWD",
+    Rmb = 30
+  },
+  [75] = {
+    id = 75,
+    DepositID = 400012,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_12",
+    CurrencyType = "TWD",
+    Rmb = 30
+  },
+  [76] = {
+    id = 76,
+    DepositID = 400012,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_12",
+    CurrencyType = "USD",
+    Rmb = 0.99
+  },
+  [77] = {
+    id = 77,
+    DepositID = 400013,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_13",
+    CurrencyType = "TWD",
+    Rmb = 90
+  },
+  [78] = {
+    id = 78,
+    DepositID = 400013,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_13",
+    CurrencyType = "TWD",
+    Rmb = 90
+  },
+  [79] = {
+    id = 79,
+    DepositID = 400013,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_13",
+    CurrencyType = "USD",
+    Rmb = 2.99
+  },
+  [80] = {
+    id = 80,
+    DepositID = 400014,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_14",
+    CurrencyType = "TWD",
+    Rmb = 150
+  },
+  [81] = {
+    id = 81,
+    DepositID = 400014,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_14",
+    CurrencyType = "TWD",
+    Rmb = 150
+  },
+  [82] = {
+    id = 82,
+    DepositID = 400014,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_14",
+    CurrencyType = "USD",
+    Rmb = 4.99
+  },
+  [83] = {
+    id = 83,
+    DepositID = 400015,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_15",
+    CurrencyType = "TWD",
+    Rmb = 590
+  },
+  [84] = {
+    id = 84,
+    DepositID = 400015,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_15",
+    CurrencyType = "TWD",
+    Rmb = 590
+  },
+  [85] = {
+    id = 85,
+    DepositID = 400015,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_15",
+    CurrencyType = "USD",
+    Rmb = 17.99
+  },
+  [86] = {
+    id = 86,
+    DepositID = 400016,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_16",
+    CurrencyType = "TWD",
+    Rmb = 1490
+  },
+  [87] = {
+    id = 87,
+    DepositID = 400016,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_16",
+    CurrencyType = "TWD",
+    Rmb = 1490
+  },
+  [88] = {
+    id = 88,
+    DepositID = 400016,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_16",
+    CurrencyType = "USD",
+    Rmb = 45.99
+  },
+  [89] = {
+    id = 89,
+    DepositID = 400017,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_17",
+    CurrencyType = "TWD",
+    Rmb = 30
+  },
+  [90] = {
+    id = 90,
+    DepositID = 400017,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_17",
+    CurrencyType = "TWD",
+    Rmb = 30
+  },
+  [91] = {
+    id = 91,
+    DepositID = 400017,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_17",
+    CurrencyType = "USD",
+    Rmb = 0.99
+  },
+  [92] = {
+    id = 92,
+    DepositID = 400018,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_18",
+    CurrencyType = "TWD",
+    Rmb = 90
+  },
+  [93] = {
+    id = 93,
+    DepositID = 400018,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_18",
+    CurrencyType = "TWD",
+    Rmb = 90
+  },
+  [94] = {
+    id = 94,
+    DepositID = 400018,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_18",
+    CurrencyType = "USD",
+    Rmb = 2.99
+  },
+  [95] = {
+    id = 95,
+    DepositID = 400019,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_19",
+    CurrencyType = "TWD",
+    Rmb = 150
+  },
+  [96] = {
+    id = 96,
+    DepositID = 400019,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_19",
+    CurrencyType = "TWD",
+    Rmb = 150
+  },
+  [97] = {
+    id = 97,
+    DepositID = 400019,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_19",
+    CurrencyType = "USD",
+    Rmb = 4.99
+  },
+  [98] = {
+    id = 98,
+    DepositID = 400020,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_20",
+    CurrencyType = "TWD",
+    Rmb = 590
+  },
+  [99] = {
+    id = 99,
+    DepositID = 400020,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_20",
+    CurrencyType = "TWD",
+    Rmb = 590
+  },
+  [100] = {
+    id = 100,
+    DepositID = 400020,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_20",
+    CurrencyType = "USD",
+    Rmb = 17.99
+  },
+  [101] = {
+    id = 101,
+    DepositID = 400021,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_21",
+    CurrencyType = "TWD",
+    Rmb = 1490
+  },
+  [102] = {
+    id = 102,
+    DepositID = 400021,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_21",
+    CurrencyType = "TWD",
+    Rmb = 1490
+  },
+  [103] = {
+    id = 103,
+    DepositID = 400021,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_21",
+    CurrencyType = "USD",
+    Rmb = 45.99
+  },
+  [104] = {
+    id = 104,
+    DepositID = 400022,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.pack_no_22",
+    CurrencyType = "TWD",
+    Rmb = 750
+  },
+  [105] = {
+    id = 105,
+    DepositID = 400022,
+    region = 1,
+    ProductID = "com.gnjoy.rom.tw.ios_pack_no_22",
+    CurrencyType = "TWD",
+    Rmb = 750
+  },
+  [106] = {
+    id = 106,
+    DepositID = 400022,
+    region = 2,
+    ProductID = "com.gravity.romg.pack_no_22",
+    CurrencyType = "USD",
+    Rmb = 23.99
   }
 }
 Table_DepositProducts_fields = {

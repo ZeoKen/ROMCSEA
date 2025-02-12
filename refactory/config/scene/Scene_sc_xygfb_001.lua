@@ -1,5 +1,639 @@
 local Scene_sc_xygfb_001 = {
   Raids = {
+    [7220] = {
+      bps = {
+        {
+          ID = 1,
+          position = {
+            12.4300003051758,
+            -0.0700000002980232,
+            -43.5999984741211
+          },
+          range = 0,
+          dir = 0
+        },
+        {
+          ID = 2,
+          position = {
+            12.4300003051758,
+            -0.0700000002980232,
+            -22.5
+          },
+          range = 0,
+          dir = 0
+        }
+      },
+      eps = {
+        {
+          ID = 1,
+          commonEffectID = 16,
+          exitType = 0,
+          position = {
+            12.4499998092651,
+            0,
+            -0.889999985694885
+          },
+          nextSceneID = 1,
+          nextSceneBornPointID = 1,
+          type = 0,
+          range = 1
+        }
+      },
+      nps = {
+        {
+          uniqueID = 1,
+          ID = 276430,
+          position = {
+            12.5,
+            0,
+            -12.4899997711182
+          },
+          dir = 180,
+          xdir = 360,
+          waitaction = "state1001"
+        },
+        {
+          uniqueID = 10,
+          ID = 9892,
+          position = {
+            12.5,
+            0,
+            -25
+          },
+          xdir = 360,
+          waitaction = "state6002"
+        },
+        {
+          uniqueID = 11,
+          ID = 9892,
+          position = {
+            15.5,
+            0,
+            -25
+          },
+          xdir = 360,
+          waitaction = "state6002"
+        },
+        {
+          uniqueID = 12,
+          ID = 9892,
+          position = {
+            9.5,
+            0,
+            -25
+          },
+          xdir = 360,
+          waitaction = "state6002"
+        },
+        {
+          uniqueID = 1001,
+          ID = 276431,
+          position = {
+            22.5,
+            0,
+            -22.4899997711182
+          },
+          dir = 314.819702148438,
+          xdir = 360
+        },
+        {
+          uniqueID = 1002,
+          ID = 276431,
+          position = {
+            22.5300006866455,
+            0,
+            -2.52999997138977
+          },
+          dir = 223.021453857422,
+          xdir = 360
+        },
+        {
+          uniqueID = 1003,
+          ID = 276431,
+          position = {
+            2.5,
+            0,
+            -22.5100002288818
+          },
+          dir = 47.8982315063477,
+          xdir = 360
+        },
+        {
+          uniqueID = 1004,
+          ID = 276431,
+          position = {
+            2.49499988555908,
+            0,
+            -2.50200009346008
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1005,
+          ID = 276431,
+          position = {
+            0.389999985694885,
+            0,
+            -12.4899997711182
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1006,
+          ID = 276431,
+          position = {
+            24.7099990844727,
+            0,
+            -12.4899997711182
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1007,
+          ID = 276431,
+          position = {
+            12.503999710083,
+            0,
+            -24.75
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1008,
+          ID = 276431,
+          position = {
+            12.5019998550415,
+            0,
+            -0.469999998807907
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 2001,
+          ID = 276445,
+          position = {
+            7.50299978256226,
+            0,
+            0.00100000004749745
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 2002,
+          ID = 276445,
+          position = {
+            17.4909992218018,
+            0,
+            -25
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2003,
+          ID = 276432,
+          position = {
+            9.99999974737875E-5,
+            0,
+            -17.5300006866455
+          },
+          dir = 90,
+          xdir = 360
+        },
+        {
+          uniqueID = 2004,
+          ID = 276432,
+          position = {
+            25.0002002716064,
+            0,
+            -7.51800012588501
+          },
+          dir = 270,
+          xdir = 360
+        },
+        {
+          uniqueID = 2101,
+          ID = 276439,
+          position = {
+            7.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2102,
+          ID = 276439,
+          position = {
+            7.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2103,
+          ID = 276439,
+          position = {
+            17.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2104,
+          ID = 276439,
+          position = {
+            17.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2201,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2202,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2203,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2204,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2205,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2206,
+          ID = 276447,
+          position = {
+            7.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2207,
+          ID = 276447,
+          position = {
+            7.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2208,
+          ID = 276447,
+          position = {
+            7.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2209,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2210,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2211,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2212,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2213,
+          ID = 276447,
+          position = {
+            17.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2214,
+          ID = 276447,
+          position = {
+            17.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2215,
+          ID = 276447,
+          position = {
+            17.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2216,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2217,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2218,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2219,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2220,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 3001,
+          ID = 276435,
+          position = {
+            12.5,
+            0,
+            -12.4899997711182
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 2,
+          ID = 276500,
+          position = {
+            12.5,
+            0,
+            -7.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 3,
+          ID = 276505,
+          position = {
+            12.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 100,
+          ID = 276507,
+          position = {
+            2.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 101,
+          ID = 276507,
+          position = {
+            7.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 102,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 103,
+          ID = 276507,
+          position = {
+            17.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 104,
+          ID = 276507,
+          position = {
+            22.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 105,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -2.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 106,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -7.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 107,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -17.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 108,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -22.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 109,
+          ID = 276507,
+          position = {
+            5,
+            0,
+            -20
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 110,
+          ID = 276507,
+          position = {
+            5,
+            0,
+            -5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 111,
+          ID = 276507,
+          position = {
+            20,
+            0,
+            -20
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 112,
+          ID = 276507,
+          position = {
+            20,
+            0,
+            -5
+          },
+          dir = 180,
+          xdir = 360
+        }
+      }
+    },
     [7212] = {
       bps = {
         {
@@ -1511,6 +2145,640 @@ local Scene_sc_xygfb_001 = {
           },
           xdir = 360,
           waitaction = "state6002"
+        }
+      }
+    },
+    [7221] = {
+      bps = {
+        {
+          ID = 1,
+          position = {
+            12.4300003051758,
+            -0.0700000002980232,
+            -43.5999984741211
+          },
+          range = 0,
+          dir = 0
+        },
+        {
+          ID = 2,
+          position = {
+            12.4300003051758,
+            -0.0700000002980232,
+            -22.5
+          },
+          range = 0,
+          dir = 0
+        }
+      },
+      eps = {
+        {
+          ID = 1,
+          commonEffectID = 16,
+          exitType = 0,
+          position = {
+            12.4499998092651,
+            0,
+            -0.889999985694885
+          },
+          nextSceneID = 1,
+          nextSceneBornPointID = 1,
+          type = 0,
+          range = 1
+        }
+      },
+      nps = {
+        {
+          uniqueID = 1,
+          ID = 276450,
+          position = {
+            12.5,
+            0,
+            -12.4899997711182
+          },
+          dir = 180,
+          xdir = 360,
+          waitaction = "state1001"
+        },
+        {
+          uniqueID = 10,
+          ID = 9892,
+          position = {
+            12.5,
+            0,
+            -25
+          },
+          xdir = 360,
+          waitaction = "state6002"
+        },
+        {
+          uniqueID = 11,
+          ID = 9892,
+          position = {
+            15.5,
+            0,
+            -25
+          },
+          xdir = 360,
+          waitaction = "state6002"
+        },
+        {
+          uniqueID = 12,
+          ID = 9892,
+          position = {
+            9.5,
+            0,
+            -25
+          },
+          xdir = 360,
+          waitaction = "state6002"
+        },
+        {
+          uniqueID = 1001,
+          ID = 276431,
+          position = {
+            22.5,
+            0,
+            -22.4899997711182
+          },
+          dir = 314.819702148438,
+          xdir = 360
+        },
+        {
+          uniqueID = 1002,
+          ID = 276431,
+          position = {
+            22.5300006866455,
+            0,
+            -2.52999997138977
+          },
+          dir = 223.021453857422,
+          xdir = 360
+        },
+        {
+          uniqueID = 1003,
+          ID = 276431,
+          position = {
+            2.5,
+            0,
+            -22.5100002288818
+          },
+          dir = 47.8982315063477,
+          xdir = 360
+        },
+        {
+          uniqueID = 1004,
+          ID = 276431,
+          position = {
+            2.49499988555908,
+            0,
+            -2.50200009346008
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1005,
+          ID = 276431,
+          position = {
+            0.389999985694885,
+            0,
+            -12.4899997711182
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1006,
+          ID = 276431,
+          position = {
+            24.7099990844727,
+            0,
+            -12.4899997711182
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1007,
+          ID = 276431,
+          position = {
+            12.503999710083,
+            0,
+            -24.75
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 1008,
+          ID = 276431,
+          position = {
+            12.5019998550415,
+            0,
+            -0.469999998807907
+          },
+          dir = 136.675354003906,
+          xdir = 360
+        },
+        {
+          uniqueID = 2001,
+          ID = 276461,
+          position = {
+            7.50299978256226,
+            0,
+            0.00100000004749745
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 2002,
+          ID = 276461,
+          position = {
+            17.4909992218018,
+            0,
+            -25
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2003,
+          ID = 276451,
+          position = {
+            9.99999974737875E-5,
+            0,
+            -17.5300006866455
+          },
+          dir = 90,
+          xdir = 360
+        },
+        {
+          uniqueID = 2004,
+          ID = 276451,
+          position = {
+            25.0002002716064,
+            0,
+            -7.51800012588501
+          },
+          dir = 270,
+          xdir = 360
+        },
+        {
+          uniqueID = 2101,
+          ID = 276439,
+          position = {
+            7.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2102,
+          ID = 276439,
+          position = {
+            7.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2103,
+          ID = 276439,
+          position = {
+            17.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2104,
+          ID = 276439,
+          position = {
+            17.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2201,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2202,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2203,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2204,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2205,
+          ID = 276447,
+          position = {
+            2.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2206,
+          ID = 276447,
+          position = {
+            7.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2207,
+          ID = 276447,
+          position = {
+            7.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2208,
+          ID = 276447,
+          position = {
+            7.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2209,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2210,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2211,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2212,
+          ID = 276447,
+          position = {
+            12.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2213,
+          ID = 276447,
+          position = {
+            17.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2214,
+          ID = 276447,
+          position = {
+            17.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2215,
+          ID = 276447,
+          position = {
+            17.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2216,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -2.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2217,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -7.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2218,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -12.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2219,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -17.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 2220,
+          ID = 276447,
+          position = {
+            22.5,
+            0,
+            -22.5
+          },
+          xdir = 360
+        },
+        {
+          uniqueID = 3001,
+          ID = 276435,
+          position = {
+            12.5,
+            0,
+            -12.4899997711182
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 2,
+          ID = 276510,
+          position = {
+            12.5,
+            0,
+            -7.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 3,
+          ID = 276505,
+          position = {
+            12.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 100,
+          ID = 276507,
+          position = {
+            2.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 101,
+          ID = 276507,
+          position = {
+            7.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 102,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 103,
+          ID = 276507,
+          position = {
+            17.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 104,
+          ID = 276507,
+          position = {
+            22.5,
+            0,
+            -12.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 105,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -2.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 106,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -7.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 107,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -17.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 108,
+          ID = 276507,
+          position = {
+            12.5,
+            0,
+            -22.5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 109,
+          ID = 276507,
+          position = {
+            5,
+            0,
+            -20
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 110,
+          ID = 276507,
+          position = {
+            5,
+            0,
+            -5
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 111,
+          ID = 276507,
+          position = {
+            20,
+            0,
+            -20
+          },
+          dir = 180,
+          xdir = 360
+        },
+        {
+          uniqueID = 112,
+          ID = 276507,
+          position = {
+            20,
+            0,
+            -5
+          },
+          dir = 180,
+          xdir = 360
         }
       }
     }

@@ -30,13 +30,19 @@ function NearlyCreatureCell:SetData(data)
   if self.isExitPoint then
     self.pos = data.pos:Clone()
     self.nextSceneID = data:GetParama("nextSceneID")
-    if Table_Map[self.nextSceneID] == nil then
-      self.gameObject:SetActive(false)
-      return
-    end
-    local name = Table_Map[self.nextSceneID].CallZh
-    if name == "" then
-      name = Table_Map[self.nextSceneID].NameZh
+    local name = ""
+    local spName = data:GetParama("StaticName")
+    if spName then
+      name = spName
+    else
+      if Table_Map[self.nextSceneID] == nil then
+        self.gameObject:SetActive(false)
+        return
+      end
+      name = Table_Map[self.nextSceneID].CallZh
+      if name == "" then
+        name = Table_Map[self.nextSceneID].NameZh
+      end
     end
     self.name.text = name
     IconManager:SetMapIcon("map_raid", self.symbol)

@@ -34,6 +34,7 @@ end
 
 function SetView:AddViewEvt()
   self:AddListenEvt(ServiceEvent.NUserBattleTimelenUserCmd, self.HandleTimelen)
+  self:AddListenEvt(ServiceEvent.SceneUser3BattleTimeOffUserCmd, self.UpdateBattleTimeSwitch)
   EventManager.Me():AddEventListener(SetViewEvent.SaveBtnStatus, self.SetSaveBtnStatus, self)
 end
 
@@ -70,6 +71,14 @@ function SetView:FindObj()
   self.togglesParent = self:FindGO("toggles")
   self.toggleGrid = self.togglesParent:GetComponent(UIGrid)
   self.playTimeSlider = self:FindComponent("PlayTimeSlider", UISlider)
+  self.battleTimeSwitchLab = self:FindComponent("BattleTimeSwitchLab", UILabel)
+  self.battleTimeSwitchLab.text = ISNoviceServerType and ZhString.SetViewBattleTimeSwitch_Novice or ZhString.SetViewBattleTimeSwitch
+  self.battleTimeSwitchColider = self:FindGO("BattleTimeColider", self.battleTimeSwitchLab.gameObject)
+  self:AddClickEvent(self.battleTimeSwitchColider, function()
+    BattleTimeDataProxy.Instance:QuerySwitch()
+  end)
+  self.battleTimeSwitchObj = self:FindGO("BattleTimeSwitchObj", self.battleTimeSwitchColider)
+  self:UpdateBattleTimeSwitch()
   self:AddOrRemoveGuideId("CloseButton", 475)
   self:AddHelpButtonEvent()
 end
@@ -205,6 +214,15 @@ function SetView:HandleTimelen(note)
   local data = note.body
   if data then
     self:SetGameTime(data)
+  end
+end
+
+function SetView:UpdateBattleTimeSwitch()
+  local on = BattleTimeDataProxy.Instance:CheckBattleTimeSwitchOn()
+  if on then
+    self:Show(self.battleTimeSwitchObj)
+  else
+    self:Hide(self.battleTimeSwitchObj)
   end
 end
 

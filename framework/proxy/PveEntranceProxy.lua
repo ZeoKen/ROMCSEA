@@ -14,8 +14,10 @@ PveRaidType = {
   Element = FuBenCmd_pb.ERAIDTYPE_ELEMENT or 70,
   StarArk = FuBenCmd_pb.ERAIDTYPE_STAR_ARK or 71,
   NormalMaterials = FuBenCmd_pb.ERAIDTYPE_COMMON_MATERIALS or 73,
-  MemoryPalace = FuBenCmd_pb.ERAIDTYPE_MEMORY_PALACE or 74,
-  RoadOfHero = FuBenCmd_pb.ERAIDTYPE_HERO_JOURNEY or 76
+  MemoryPalace = FuBenCmd_pb.ERAIDTYPE_MEMORY_RAID or 80,
+  RoadOfHero = FuBenCmd_pb.ERAIDTYPE_HERO_JOURNEY or 76,
+  Astral = FuBenCmd_pb.ERAIDTYPE_ASTRAL or 79,
+  MemoryRaid = FuBenCmd_pb.ERAIDTYPE_MEMORY_RAID or 80
 }
 RaidType2AERewardMode = {
   [PveRaidType.Crack] = ActivityEvent_pb.EAEREWARDMODE_SEAL,
@@ -26,7 +28,8 @@ RaidType2AERewardMode = {
   [PveRaidType.Comodo] = ActivityEvent_pb.EAEREWARDMODE_Comodo_Team,
   [PveRaidType.MultiBoss] = ActivityEvent_pb.EAEREWARDMODE_MULTIBOSS,
   [PveRaidType.EquipUpgrade] = ActivityEvent_pb.EAEREWARDMODE_EQUIP_UP_RAID,
-  [PveRaidType.MemoryPalace] = ActivityEvent_pb.EAEREWARDMODE_MEMORY_PALACE
+  [PveRaidType.MemoryPalace] = ActivityEvent_pb.EAEREWARDMODE_MEMORY_PALACE,
+  [PveRaidType.MemoryRaid] = ActivityEvent_pb.EAEREWARDMODE_MEMORY_RAID
 }
 RaidType2GroupID = {
   [PveRaidType.Rugelike] = 8,
@@ -41,7 +44,8 @@ RaidType2GroupID = {
   [PveRaidType.GuildRaid] = 19,
   [PveRaidType.Boss] = 20,
   [PveRaidType.NormalMaterials] = EPVEGROUPTYPE_COMMON_MATERIALS or 32,
-  [PveRaidType.MemoryPalace] = 33
+  [PveRaidType.MemoryPalace] = 33,
+  [PveRaidType.MemoryRaid] = 40
 }
 RaidType2AERewardMode = {
   [PveRaidType.Comodo] = AERewardType.ComodoRaid,
@@ -49,7 +53,8 @@ RaidType2AERewardMode = {
   [PveRaidType.PveCard] = AERewardType.PveCard,
   [PveRaidType.InfiniteTower] = AERewardType.Tower,
   [PveRaidType.Thanatos] = AERewardType.TeamGroup,
-  [PveRaidType.MemoryPalace] = ActivityEvent_pb.EAEREWARDMODE_MEMORY_PALACE
+  [PveRaidType.MemoryPalace] = ActivityEvent_pb.EAEREWARDMODE_MEMORY_PALACE,
+  [PveRaidType.MemoryRaid] = ActivityEvent_pb.EAEREWARDMODE_MEMORY_RAID
 }
 ServerMergeStatus = {
   None = 0,
@@ -104,11 +109,15 @@ function PveEntranceProxy:Init()
   self.catalogAll_crack = {}
   self.catalogAll_boss = {}
   self.catalogAll_RoadOfHero = {}
+  self.catalogAll_Astral = {}
+  self.catalogAll_Memory = {}
   self.catalogMap = {}
   self.catalogMap_raid = {}
   self.catalogMap_crack = {}
   self.catalogMap_boss = {}
   self.catalogMap_RoadOfHero = {}
+  self.catalogMap_Astral = {}
+  self.catalogMap_Memory = {}
   self.passInfoMap = {}
   self.targetMap = {}
   self.dropMap = {}
@@ -153,6 +162,10 @@ function PveEntranceProxy:InitStatic()
       _ArrayPushBack(self.catalogAll_boss, firstPveData)
     elseif firstPveData.staticEntranceData:IsRoadOfHero() then
       _ArrayPushBack(self.catalogAll_RoadOfHero, firstPveData)
+    elseif firstPveData.staticEntranceData:IsAstral() then
+      _ArrayPushBack(self.catalogAll_Astral, firstPveData)
+    elseif firstPveData.staticEntranceData:IsMemoryRaid() then
+      _ArrayPushBack(self.catalogAll_Memory, firstPveData)
     else
       local catalogs = firstPveData.staticEntranceData.staticData.Catalog
       for i = 1, #catalogs do
@@ -201,6 +214,35 @@ function PveEntranceProxy:PreprocessHeroRoadEntrance()
   end
 end
 
+function PveEntranceProxy:PreprocessAstralEntrance()
+  _TableClear(self.catalogMap_Astral)
+  self.astralFirstPveData = self.catalogAll_Astral[1]
+  if self.astralFirstPveData then
+    local catalogs = self.astralFirstPveData.staticEntranceData.staticData.Catalog
+    for i = 1, #catalogs do
+      local catalogData = self.catalogMap_Astral[catalogs[i]]
+      catalogData = catalogData or {}
+      catalogData[#catalogData + 1] = self.astralFirstPveData
+      self.catalogMap_Astral[catalogs[i]] = catalogData
+    end
+  end
+end
+
+function PveEntranceProxy:PreprocessMemoryRaidEntrance()
+  _TableClear(self.catalogMap_Memory)
+  local maxLvEntranceData = self.catalogAll_Memory[1]
+  self.memoryFirstPveData = maxLvEntranceData or self.catalogAll_Memory[1]
+  if self.memoryFirstPveData then
+    local catalogs = self.memoryFirstPveData.staticEntranceData.staticData.Catalog
+    for i = 1, #catalogs do
+      local catalogData = self.catalogMap_Memory[catalogs[i]]
+      catalogData = catalogData or {}
+      catalogData[#catalogData + 1] = self.memoryFirstPveData
+      self.catalogMap_Memory[catalogs[i]] = catalogData
+    end
+  end
+end
+
 function PveEntranceProxy:_setCatalogMap(targetMap)
   for catalog, list in pairs(targetMap) do
     local catalogData = self.catalogMap[catalog]
@@ -218,6 +260,8 @@ function PveEntranceProxy:SetCatalogMap()
   self:_setCatalogMap(self.catalogMap_crack)
   self:_setCatalogMap(self.catalogMap_boss)
   self:_setCatalogMap(self.catalogMap_RoadOfHero)
+  self:_setCatalogMap(self.catalogMap_Astral)
+  self:_setCatalogMap(self.catalogMap_Memory)
 end
 
 function PveEntranceProxy:SetCatalogAll()
@@ -228,6 +272,8 @@ function PveEntranceProxy:SetCatalogAll()
   _ArrayPushBack(self.catalogAll, self.crackRaidFirstPveData)
   _ArrayPushBack(self.catalogAll, self.bossFirstPveData)
   _ArrayPushBack(self.catalogAll, self.heroRoadFirstPveData)
+  _ArrayPushBack(self.catalogAll, self.astralFirstPveData)
+  _ArrayPushBack(self.catalogAll, self.memoryFirstPveData)
 end
 
 function PveEntranceProxy:GetCatalogAll()
@@ -280,6 +326,14 @@ function PveEntranceProxy:GetAllRoadOfHeroData()
   return self.catalogAll_RoadOfHero
 end
 
+function PveEntranceProxy:GetAllAstralData()
+  return self.catalogAll_Astral
+end
+
+function PveEntranceProxy:GetAllMemoryRaidData()
+  return self.catalogAll_Memory
+end
+
 function PveEntranceProxy:StaticSortEntrance()
   table.sort(self.catalogAll_raid, function(l, r)
     return _SortFunc(l, r)
@@ -291,6 +345,12 @@ function PveEntranceProxy:StaticSortEntrance()
     return _SortFunc(l, r)
   end)
   table.sort(self.catalogAll_RoadOfHero, function(l, r)
+    return _SortFunc(l, r)
+  end)
+  table.sort(self.catalogAll_Astral, function(l, r)
+    return _SortFunc(l, r)
+  end)
+  table.sort(self.catalogAll_Memory, function(l, r)
     return _SortFunc(l, r)
   end)
 end
@@ -413,6 +473,8 @@ function PveEntranceProxy:HandleCombinePveData()
   self:PreprocessCrackEntrance()
   self:PreprocessBossEntrance()
   self:PreprocessHeroRoadEntrance()
+  self:PreprocessAstralEntrance()
+  self:PreprocessMemoryRaidEntrance()
   self:SetCatalogAll()
   self:SetCatalogMap()
   self:SortEntrance()
@@ -623,6 +685,14 @@ end
 
 function PveEntranceProxy:GetCurBossFirstPveData()
   return self.bossFirstPveData
+end
+
+function PveEntranceProxy:GetCurAstralFirstPveData()
+  return self.astralFirstPveData
+end
+
+function PveEntranceProxy:GetCurMemoryFirstPveData()
+  return self.memoryFirstPveData
 end
 
 function PveEntranceProxy:HandleSyncPveRaidAchieveFubenCmd(server_data)

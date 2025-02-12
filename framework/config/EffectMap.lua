@@ -134,7 +134,11 @@ EffectMap.Maps = {
   EndlessBattle_Occupy_Neutral = "Skill/sfx_sc_jfzc_round_white_01_prf",
   EndlessBattle_OccupyProgress_Human = "Common/sfx_jz_qws_blue_001_prf",
   EndlessBattle_OccupyProgress_Vampire = "Common/sfx_jz_qws_red_001_prf",
-  EndlessBattle_LoseCoin = "Common/mfx_xyks_bao_01_prf"
+  EndlessBattle_LoseCoin = "Common/mfx_xyks_bao_01_prf",
+  mfx_endless_shikong_prf = "Common/mfx_endless_shikong_prf",
+  mfx_endless_shengming_prf = "Common/mfx_endless_shengming_prf",
+  mfx_endless_siwang_prf = "Common/mfx_endless_siwang_prf",
+  mfx_endless_zhire_prf = "Common/mfx_endless_zhire_prf"
 }
 EffectMap.UI = {
   AutoFight = "1AutoBattleOn",
@@ -456,7 +460,11 @@ EffectMap.UI = {
   LevelUp_LineEff_Base = "ufx_chuxin_base_up_line_prf",
   SelfChooseCardDrawed = "ufx_33activation_prf",
   ScreenBroken = "ufx_gczc_p4_boli_prf",
-  EquipMemory_BG = "EquipMemory_UI"
+  EquipMemory_BG = "EquipMemory_UI",
+  GLandChallenge_SliderShine = "ufx_gvg_honor_tips_001_prf",
+  GLandChallenge_ReachRank = "ufx_gvg_honor_tips_002_prf",
+  AstralGraphStar = "ufx_starsign_star_prf",
+  AstralGraphGet = "ufx_starsign_get_prf"
 }
 EffectMap.UIEffect_IdMap = {
   [76] = "76BigCat_Warnning",

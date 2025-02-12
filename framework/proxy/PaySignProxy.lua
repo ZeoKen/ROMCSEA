@@ -150,7 +150,7 @@ end
 
 function PaySignProxy:HasFreeReward(id)
   local data = self:GetInfoMap(id)
-  return data and data:HasFreeReward()
+  return data and data:HasFreeReward() or false
 end
 
 function PaySignProxy:CheckPurchased(id)
@@ -166,7 +166,11 @@ function PaySignProxy:ActRealOpen(id)
   local purchased = self:CheckPurchased(id)
   if purchased then
     local info = self:GetInfoMap(id)
-    return info.status ~= PaySignProxy.RECEIVE_REWARD_STATUS.FINISHED
+    if info.isFree then
+      return self:IsLotteryTimeValid(id)
+    else
+      return info.status ~= PaySignProxy.RECEIVE_REWARD_STATUS.FINISHED
+    end
   else
     return self:IsLotteryTimeValid(id)
   end

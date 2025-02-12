@@ -344,6 +344,10 @@ function CreatureDataWithPropUserdata:IsEnemy(creatureData)
   return creatureData:GetCamp() == RoleDefines_Camp.ENEMY
 end
 
+function CreatureDataWithPropUserdata:NotFriend(creatureData)
+  return creatureData:GetCamp() < RoleDefines_Camp.FRIEND
+end
+
 function CreatureDataWithPropUserdata:IsImmuneSkill(skillID)
   return false
 end
@@ -1168,13 +1172,13 @@ function CreatureDataWithPropUserdata:GetDressParts()
       parts[PartIndex.Tail] = userData:Get(UDEnum.TAIL) or default == nil and 0 or default[PartIndex.Tail]
       parts[PartIndex.Eye] = userData:Get(UDEnum.EYE) or default == nil and 0 or default[PartIndex.Eye]
       parts[PartIndex.Mouth] = userData:Get(UDEnum.MOUTH) or default == nil and 0 or default[PartIndex.Mouth]
-      parts[PartIndex.Mount] = userData:Get(UDEnum.MOUNT) or default == nil and 0 or default[PartIndex.Mount]
       parts[PartIndexEx.Gender] = userData:Get(UDEnum.SEX) or default == nil and 0 or default[PartIndexEx.Gender]
       parts[PartIndexEx.HairColorIndex] = userData:Get(UDEnum.HAIRCOLOR) or default == nil and 0 or default[PartIndexEx.HairColorIndex]
       parts[PartIndexEx.EyeColorIndex] = userData:Get(UDEnum.EYECOLOR) or default == nil and 0 or default[PartIndexEx.EyeColorIndex]
       parts[PartIndexEx.BodyColorIndex] = userData:Get(UDEnum.CLOTHCOLOR) or default == nil and 0 or default[PartIndexEx.BodyColorIndex]
-      self:SetMountFashionParts(parts, userData)
     end
+    parts[PartIndex.Mount] = userData:Get(UDEnum.MOUNT) or default == nil and 0 or default[PartIndex.Mount]
+    self:SetMountFashionParts(parts, userData)
   else
     for i = 1, 12 do
       parts[i] = 0
@@ -1874,10 +1878,11 @@ function CreatureDataWithPropUserdata:GetRangeTeammate(range)
 end
 
 function CreatureDataWithPropUserdata:GetDownID()
-  if self.userdata then
-    return self.userdata:Get(UDEnum.DOWN_CHARID) or 0
-  end
-  return 0
+  return self.downID or 0
+end
+
+function CreatureDataWithPropUserdata:SetDownID(downID)
+  self.downID = downID
 end
 
 function CreatureDataWithPropUserdata:GetUpID()
@@ -1924,6 +1929,9 @@ function CreatureDataWithPropUserdata:IsAnonymous()
   return false
 end
 
+function CreatureDataWithPropUserdata:SetShadowViel(val)
+end
+
 function CreatureDataWithPropUserdata:DoConstruct(asArray, parts)
   self:SetAttackSpeed(1)
   self.bodyScale = self:GetDefaultScale()
@@ -1948,4 +1956,5 @@ function CreatureDataWithPropUserdata:DoDeconstruct(asArray)
   self.noEnemyLocked = false
   self.hasNoattackedBuff = false
   self.ignoreNoEnemyLocked = false
+  self.downID = nil
 end

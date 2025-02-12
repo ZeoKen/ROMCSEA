@@ -113,124 +113,96 @@ function FuncPurchase:PurchaseWithConf(productConf, callbacks, buycount)
     local productID = productConf.ProductID
     if productID then
       ServiceUserEventProxy.Instance:CallChargeSdkRequestUserEvent(product_conf_id, ServerTime.CurServerTime())
-      do
-        local productName = productConf.Desc
-        local productPrice = productConf.Rmb
-        local productCount = 1
-        local roleID = Game.Myself and Game.Myself.data and Game.Myself.data.id or nil
-        if roleID then
-          do
-            local roleGrade = MyselfProxy.Instance:RoleLevel() or 0
-            local server = FunctionLogin.Me():getCurServerData()
-            local serverID = server ~= nil and server.serverid or nil
-            if serverID then
-              do
-                local currentServerTime = ServerTime.CurServerTime() / 1000
-                self.purchaseFlags[product_conf_id] = true
-                self.callbacks[product_conf_id] = callbacks
-                if not BranchMgr.IsChina() then
-                  if FunctionSDK.Instance.CurrentType == FunctionSDK.E_SDKType.TDSG then
-                    local orderID = MyMD5.HashString(roleID .. "_" .. currentServerTime)
-                    local ext = serverID .. "|" .. orderID
-                    if buycount and buycount ~= 0 then
-                      ext = ext .. "|" .. buycount
-                    end
-                    Debug.Log("=============TDSGPay===============")
-                    if BranchMgr.IsVN() then
-                      local priceStr = productConf.priceStr
-                      local price = string.match(priceStr, "%d+")
-                      if price == nil then
-                        price = 0
-                      else
-                        price = tonumber(price)
-                      end
-                      FunctionSDK.AntiAddiction_CheckPayLimit(price, function(success, msg)
-                        if not success then
-                          MsgManager.ShowMsgByID(1000009)
-                        else
-                          FunctionSDK.Instance:TDSGPay(orderID, productID, roleID, serverID, ext, function(x)
-                            self:OnPaySuccess(productConf, x)
-                            self.AntiAddiction_SubmitPayResult(price)
-                          end, function(x)
-                            self:OnPayCancel(productConf, x)
-                          end)
-                        end
-                      end)
-                    else
-                      FunctionSDK.Instance:TDSGPay(orderID, productID, roleID, serverID, ext, function(x)
-                        self:OnPaySuccess(productConf, x)
-                      end, function(x)
-                        self:OnPayCancel(productConf, x)
-                      end)
-                    end
-                  else
-                    self:OnPaySuccess(productConf, x)
-                  end
-                  return
-                end
-                local runtimePlatform = ApplicationInfo.GetRunPlatform()
-                if runtimePlatform == RuntimePlatform.Android then
-                  TableUtility.TableClear(gReusableTable)
-                  gReusableTable.productGameID = tostring(productConf.id)
-                  gReusableTable.serverID = tostring(serverID)
-                  FuncPurchase.SetPayCallbackCode(gReusableTable)
-                  LogUtility.Info("Android Pay starting.")
-                  local ext = json.encode(gReusableTable)
-                  if not BackwardCompatibilityUtil.CompatibilityMode_V81 then
-                    FunctionSDK.Instance:XDSDKPay(productName, productID, productPrice * 100, serverID, tostring(roleID), "", ext, function(x)
-                      self:OnPaySuccess(productConf, x)
-                    end, function(x)
-                      self:OnPayFail(productConf, x)
-                    end, function(x)
-                      self:OnPayCancel(productConf, x)
-                    end)
-                  else
-                    FunctionXDSDK.Ins:Pay(productName, productID, productPrice * 100, serverID, tostring(roleID), "", ext, function(x)
-                      self:OnPaySuccess(productConf, x)
-                    end, function(x)
-                      self:OnPayFail(productConf, x)
-                    end, function(x)
-                      self:OnPayCancel(productConf, x)
-                    end)
-                  end
-                elseif FunctionSDK.Instance.CurrentType == FunctionSDK.E_SDKType.XD then
-                  TableUtility.TableClear(gReusableTable)
-                  gReusableTable.productGameID = tostring(productConf.id)
-                  gReusableTable.serverID = tostring(serverID)
-                  FuncPurchase.SetPayCallbackCode(gReusableTable)
-                  if BranchMgr.IsChina() and ApplicationInfo.GetRunPlatform() == RuntimePlatform.IPhonePlayer then
-                    local accid = FunctionLogin.Me():getLoginData().accid
-                    if accid == nil or accid == 0 or not ServiceConnProxy.Instance:IsConnect() then
-                      MsgManager.ShowMsgByID(1056)
-                      self.purchaseFlags[product_conf_id] = nil
-                      self.callbacks[product_conf_id] = nil
-                      return
-                    end
-                    gReusableTable.accid = tostring(accid)
-                    helplog("ios pay: accid: ", gReusableTable.accid)
-                    if PlayerPrefs.HasKey(PlayerPrefsMYServer) then
-                      gReusableTable.sid = tostring(PlayerPrefs.GetInt(PlayerPrefsMYServer))
-                      helplog("ios pay: sid: ", gReusableTable.sid)
-                    end
-                  end
-                  local ext = json.encode(gReusableTable)
-                  local roleAndServerTime = roleID .. "_" .. currentServerTime
-                  self.orderIDOfXDSDKPay = MyMD5.HashString(roleAndServerTime)
-                  LogUtility.Info("iOS Pay starting.")
-                  ShopProxy.Instance:XDSDKPay(productPrice * 100, tostring(serverID), productID, productName, tostring(roleID), ext, productCount, self.orderIDOfXDSDKPay, function(x)
-                    self:OnPaySuccess(productConf, x)
-                  end, function(x)
-                    self:OnPayFail(productConf, x)
-                  end, function(x)
-                    self:OnPayTimeout(productConf, x)
-                  end, function(x)
-                    self:OnPayCancel(productConf, x)
-                  end, function(x)
-                    self:OnPayProductIllegal(productConf, x)
-                  end)
-                end
+      local productName = productConf.Desc
+      local productPrice = productConf.Rmb
+      local productCount = 1
+      local roleID = Game.Myself and Game.Myself.data and Game.Myself.data.id or nil
+      if roleID then
+        local roleGrade = MyselfProxy.Instance:RoleLevel() or 0
+        local server = FunctionLogin.Me():getCurServerData()
+        local serverID = server ~= nil and server.serverid or nil
+        if serverID then
+          local currentServerTime = ServerTime.CurServerTime() / 1000
+          self.purchaseFlags[product_conf_id] = true
+          self.callbacks[product_conf_id] = callbacks
+          if not BranchMgr.IsChina() then
+            if FunctionSDK.Instance.CurrentType == FunctionSDK.E_SDKType.TDSG then
+              local orderID = MyMD5.HashString(roleID .. "_" .. currentServerTime)
+              local ext = serverID .. "|" .. orderID
+              if buycount and 1 < buycount then
+                ext = ext .. "|" .. buycount
+              end
+              Debug.Log("=============TDSGPay===============")
+              FunctionSDK.Instance:TDSGPay(orderID, productID, roleID, serverID, ext, function(x)
+                self:OnPaySuccess(productConf, x)
+              end, function(x)
+                self:OnPayCancel(productConf, x)
+              end)
+            else
+              self:OnPaySuccess(productConf, x)
+            end
+            return
+          end
+          local runtimePlatform = ApplicationInfo.GetRunPlatform()
+          if runtimePlatform == RuntimePlatform.Android then
+            TableUtility.TableClear(gReusableTable)
+            gReusableTable.productGameID = tostring(productConf.id)
+            gReusableTable.serverID = tostring(serverID)
+            FuncPurchase.SetPayCallbackCode(gReusableTable)
+            LogUtility.Info("Android Pay starting.")
+            local ext = json.encode(gReusableTable)
+            if not BackwardCompatibilityUtil.CompatibilityMode_V81 then
+              FunctionSDK.Instance:XDSDKPay(productName, productID, productPrice * 100, serverID, tostring(roleID), "", ext, function(x)
+                self:OnPaySuccess(productConf, x)
+              end, function(x)
+                self:OnPayFail(productConf, x)
+              end, function(x)
+                self:OnPayCancel(productConf, x)
+              end)
+            else
+              FunctionXDSDK.Ins:Pay(productName, productID, productPrice * 100, serverID, tostring(roleID), "", ext, function(x)
+                self:OnPaySuccess(productConf, x)
+              end, function(x)
+                self:OnPayFail(productConf, x)
+              end, function(x)
+                self:OnPayCancel(productConf, x)
+              end)
+            end
+          elseif FunctionSDK.Instance.CurrentType == FunctionSDK.E_SDKType.XD then
+            TableUtility.TableClear(gReusableTable)
+            gReusableTable.productGameID = tostring(productConf.id)
+            gReusableTable.serverID = tostring(serverID)
+            FuncPurchase.SetPayCallbackCode(gReusableTable)
+            if BranchMgr.IsChina() and ApplicationInfo.GetRunPlatform() == RuntimePlatform.IPhonePlayer then
+              local accid = FunctionLogin.Me():getLoginData().accid
+              if accid == nil or accid == 0 or not ServiceConnProxy.Instance:IsConnect() then
+                MsgManager.ShowMsgByID(1056)
+                self.purchaseFlags[product_conf_id] = nil
+                self.callbacks[product_conf_id] = nil
+                return
+              end
+              gReusableTable.accid = tostring(accid)
+              helplog("ios pay: accid: ", gReusableTable.accid)
+              if PlayerPrefs.HasKey(PlayerPrefsMYServer) then
+                gReusableTable.sid = tostring(PlayerPrefs.GetInt(PlayerPrefsMYServer))
+                helplog("ios pay: sid: ", gReusableTable.sid)
               end
             end
+            local ext = json.encode(gReusableTable)
+            local roleAndServerTime = roleID .. "_" .. currentServerTime
+            self.orderIDOfXDSDKPay = MyMD5.HashString(roleAndServerTime)
+            LogUtility.Info("iOS Pay starting.")
+            ShopProxy.Instance:XDSDKPay(productPrice * 100, tostring(serverID), productID, productName, tostring(roleID), ext, productCount, self.orderIDOfXDSDKPay, function(x)
+              self:OnPaySuccess(productConf, x)
+            end, function(x)
+              self:OnPayFail(productConf, x)
+            end, function(x)
+              self:OnPayTimeout(productConf, x)
+            end, function(x)
+              self:OnPayCancel(productConf, x)
+            end, function(x)
+              self:OnPayProductIllegal(productConf, x)
+            end)
           end
         end
       end

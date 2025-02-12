@@ -6,7 +6,7 @@ function SavingModeSetting.EnterSavingMode()
   changedSetting.outLine = false
   changedSetting.toonLight = false
   changedSetting.effectLv = LogicManager_MapCell.LODLevel.Low
-  changedSetting.screenCount = GameConfig.Setting.ScreenCountLow
+  changedSetting.screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
   changedSetting.isShowOtherName = false
   changedSetting.showOtherChar = false
   changedSetting.resolution = #tab

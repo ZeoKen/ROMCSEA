@@ -128,25 +128,35 @@ function NCreature:Client_AddSpEffect(targetGUID, effectID, duration)
   end
   if self.spEffects == nil then
     self.spEffects = {}
-    self.spEffectsCount = 0
   end
   spEKeyArray[1] = "Client"
   spEKeyArray[2] = self.data.id
   spEKeyArray[3] = targetGUID
   spEKeyArray[4] = effectID
   local key = table.concat(spEKeyArray, "_")
-  local effect = self.spEffects[key]
-  if not effect then
+  local effect = self:GetClientSpEffect(key)
+  if effect == nil then
     effect = EffectClass.Create(effectID)
-    self.spEffects[key] = effect
+    self.spEffects[key] = {effect}
     SpEffectGuid = SpEffectGuid + 1
   end
   local args = ReusableTable.CreateArray()
   args[1] = targetGUID
   args[2] = duration
   effect:SetArgs(args, self)
-  self.spEffectsCount = self.spEffectsCount + 1
   ReusableTable.DestroyArray(args)
+end
+
+function NCreature:GetClientSpEffect(key)
+  local spEffects = self.spEffects
+  if spEffects == nil then
+    return
+  end
+  spEffects = spEffects[key]
+  if spEffects == nil then
+    return
+  end
+  return spEffects[1]
 end
 
 function NCreature:Client_RemoveSpEffect(key)
@@ -155,9 +165,10 @@ function NCreature:Client_RemoveSpEffect(key)
   end
   local effect = self.spEffects[key]
   if nil ~= effect then
-    effect:Destroy()
+    for _, v in ipairs(effect) do
+      v:Destroy()
+    end
     self.spEffects[key] = nil
-    self.spEffectsCount = self.spEffectsCount - 1
   end
 end
 

@@ -54,6 +54,18 @@ function ArtifactItemData:CanEquip(pro)
   return false
 end
 
+function ArtifactItemData:SetGuildID(guildid)
+  self.guildid = guildid
+end
+
+function ArtifactItemData:IsBelongToMyselfGuild()
+  if not self.guildid or self.guildid == 0 then
+    return true
+  end
+  local myGuildId = GuildProxy.Instance:GetOwnGuildID()
+  return self.guildid == myGuildId
+end
+
 ArtifactTypeData = class("ArtifactTypeData")
 
 function ArtifactTypeData:ctor(data)

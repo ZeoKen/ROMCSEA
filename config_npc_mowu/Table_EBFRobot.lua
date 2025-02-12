@@ -34,7 +34,6 @@ Table_EBFRobot = {
     Profession = 705,
     BuffListSkill = _EmptyTable,
     AutoSkill = {
-      2793001,
       2795001,
       2796001,
       2797001

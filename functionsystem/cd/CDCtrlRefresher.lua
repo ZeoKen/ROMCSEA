@@ -77,5 +77,9 @@ function LeanTweenCDCellRefresher:RemoveAll()
   LeanTweenCDCellRefresher.super.RemoveAll(self)
 end
 
+function LeanTweenCDCellRefresher:IsRefreshing(cell)
+  return self.objs[cell] ~= nil
+end
+
 BagCDRefresher = class("BagCDRefresher", LeanTweenCDCellRefresher)
 EquippedEffectCDRefresher = class("EquippedEffectCDRefresher", LeanTweenCDCellRefresher)

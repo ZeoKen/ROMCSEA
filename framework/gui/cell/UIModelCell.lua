@@ -23,7 +23,7 @@ function UIModelCell:SetRenderTexPath(index)
 end
 
 function UIModelCell:Init()
-  self.camera = self:FindGO("Camera", go):GetComponent(Camera)
+  self.camera = self:FindGO("Camera", self.gameObject):GetComponent(Camera)
   if LayerMask.NameToLayer("UIModelOutline") < 0 then
     local cullingMask = self.camera.cullingMask
     cullingMask = cullingMask | 1 << LayerMask.NameToLayer("Outline")
@@ -713,4 +713,24 @@ end
 
 function UIModelCell:Reset()
   self:Clear()
+end
+
+function UIModelCell:SetCameraCulling(layers)
+  if self.camera then
+    local layers = layers or {}
+    local _cullingMask = 0
+    for i = 1, #layers do
+      _cullingMask = _cullingMask | 1 << layers[i]
+    end
+    self.camera.cullingMask = _cullingMask
+  end
+end
+
+function UIModelCell:ResetCameraCulling()
+  if self.camera then
+    local cullingMask = 0
+    cullingMask = cullingMask | 1 << LayerMask.NameToLayer("UIModel")
+    cullingMask = cullingMask | 1 << LayerMask.NameToLayer("UIModelOutline")
+    self.camera.cullingMask = cullingMask
+  end
 end

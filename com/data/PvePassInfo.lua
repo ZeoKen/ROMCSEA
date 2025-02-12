@@ -61,7 +61,7 @@ function PvePassInfo:InitRewardCheckFunc()
   self.rewardCheckFunc[PveDropItemData.Type.E_Pve] = self.checkType_9
   self.rewardCheckFunc[PveDropItemData.Type.E_Pve_Card] = self.checkType_10
   self.rewardCheckFunc[PveDropItemData.Type.E_Pve_Card_NoFirst] = self.checkType_11
-  self.rewardCheckFunc[PveDropItemData.Type.E_Pve_Card_NoFirst] = self.checkType_12
+  self.rewardCheckFunc[PveDropItemData.Type.E_Pve_Sweep] = self.checkType_12
   self.rewardCheckFunc[PveDropItemData.Type.E_Pve_ThreeStars] = self.checkType_13
 end
 
@@ -75,7 +75,7 @@ function PvePassInfo:RealFirstPass()
 end
 
 function PvePassInfo:checkType_3()
-  return not self:RealFirstPass()
+  return not self:RealFirstPass() or self.staticEntranceData:IsAstral()
 end
 
 function PvePassInfo:checkType_11()
@@ -155,7 +155,7 @@ function PvePassInfo:SetServerData(serverdata)
   if nil ~= serverdata.pass then
     self.pass = serverdata.pass
   end
-  if serverdata.acc_pass then
+  if serverdata.acc_pass ~= nil then
     self.acc_pass = serverdata.acc_pass
   end
   if nil ~= serverdata.grade then
@@ -177,6 +177,12 @@ function PvePassInfo:SetServerData(serverdata)
     for i = 1, #serverdata.stars do
       self.heroRoadStars[i] = serverdata.stars[i]
     end
+  end
+  if serverdata.astral_pray_group then
+    self.astral_pray_group = serverdata.astral_pray_group
+  end
+  if serverdata.astral_pray_id then
+    self.astral_pray_id = serverdata.astral_pray_id
   end
   self:_resetRewards()
   self:_resetCommonFunRewards()
@@ -337,7 +343,8 @@ function PvePassInfo:_resetRewards()
   local isQuick = self:GetQuick()
   local pickUp = self:IsPickup()
   local heroRoadStarCount = self:GetHeroRoadStarCount()
-  if self.cacheQuick == isQuick and self.cacheFirstPass == isFirstPass and self.cachePickUp == pickUp and self.cacheHeroRoadStarCount == heroRoadStarCount then
+  local isAstral = self.staticEntranceData:IsAstral()
+  if self.cacheQuick == isQuick and self.cacheFirstPass == isFirstPass and self.cachePickUp == pickUp and self.cacheHeroRoadStarCount == heroRoadStarCount and not isAstral then
     return
   end
   self.cacheQuick = isQuick
@@ -394,9 +401,26 @@ function PvePassInfo:_resetRewards()
               item:SetType(itemRewardType)
               item:SetRange(data.minnum, data.maxnum)
               item:SetSpecialBgName(_GetSpecialIconBg(data.id))
+              local received = isAstral and reward_type == PveDropItemData.Type.E_First and isFirstPass or false
+              item:SetReceived(received)
               _ArrayPushBack(self.staticRewardList, item)
             end
           end
+        end
+      end
+    end
+  end
+  if isAstral then
+    local season = AstralProxy.Instance:GetSeason()
+    local config = Table_AstralSeason[season]
+    if config and config.FashionReward then
+      for diff, data in pairs(config.FashionReward) do
+        if diff == self.staticEntranceData.staticDifficulty and data[1] and data[2] then
+          local item = PveDropItemData.new("PveDropReward", data[1])
+          item.num = data[2]
+          item:SetType(PveDropItemData.Type.E_First)
+          item:SetReceived(isFirstPass)
+          _ArrayPushBack(self.staticRewardList, item)
         end
       end
     end
@@ -615,4 +639,9 @@ function PvePassInfo:GetHeroRoadStarCount()
     return #self.heroRoadStars
   end
   return 0
+end
+
+function PvePassInfo:IsMyProAstralPrayed()
+  local myPro = MyselfProxy.Instance:GetMyProfession()
+  return AstralProxy.Instance:IsProAstralPrayed(myPro, self.astral_pray_group)
 end

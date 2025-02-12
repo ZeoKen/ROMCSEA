@@ -3,7 +3,8 @@ Dialog_MenuData_Type = {
   NpcFunc = 1,
   Task = 2,
   CustomFunc = 3,
-  Option = 4
+  Option = 4,
+  PveRaidEntrance = 5
 }
 
 function Dialog_MenuData:ctor()
@@ -95,4 +96,18 @@ end
 
 function Dialog_MenuData:SetIcon_ByOption(iconPath)
   self.icon = iconPath
+end
+
+function Dialog_MenuData:Set_ByPveRaidEntrance(pvePassInfo)
+  self.menuType = Dialog_MenuData_Type.PveRaidEntrance
+  local name = pvePassInfo.staticEntranceData.name
+  local difficultyName = pvePassInfo.staticEntranceData:GetDifficultyDesc()
+  name = string.format("%s %s", name, difficultyName)
+  self:Set_Name(name)
+  if not pvePassInfo.open then
+    self:Set_State(NpcFuncState.Grey)
+  else
+    self:Set_State(NpcFuncState.Active)
+  end
+  self.pvePassInfo = pvePassInfo
 end

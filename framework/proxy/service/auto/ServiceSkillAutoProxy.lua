@@ -117,9 +117,18 @@ function ServiceSkillAutoProxy:onRegister()
   self:Listen(7, 34, function(data)
     self:RecvUseSkillSuccessSync(data)
   end)
+  self:Listen(7, 35, function(data)
+    self:RecvUpdateMasterSkill(data)
+  end)
+  self:Listen(7, 36, function(data)
+    self:RecvUpdateMasterSkillEquip(data)
+  end)
+  self:Listen(7, 37, function(data)
+    self:RecvSwitchMasterSkill(data)
+  end)
 end
 
-function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fulled, auto_shortcut)
+function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fulled, auto_shortcut, master_skill_data)
   if not NetConfig.PBC then
     local msg = SceneSkill_pb.ReqSkillData()
     if data ~= nil then
@@ -149,6 +158,57 @@ function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fu
     end
     if auto_shortcut ~= nil then
       msg.auto_shortcut = auto_shortcut
+    end
+    if master_skill_data ~= nil and master_skill_data.pro ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.master_skill_data == nil then
+        msg.master_skill_data = {}
+      end
+      msg.master_skill_data.pro = master_skill_data.pro
+    end
+    if master_skill_data ~= nil and master_skill_data.skill_ids ~= nil then
+      if msg.master_skill_data == nil then
+        msg.master_skill_data = {}
+      end
+      if msg.master_skill_data.skill_ids == nil then
+        msg.master_skill_data.skill_ids = {}
+      end
+      for i = 1, #master_skill_data.skill_ids do
+        table.insert(msg.master_skill_data.skill_ids, master_skill_data.skill_ids[i])
+      end
+    end
+    if master_skill_data ~= nil and master_skill_data.equip_skill_family_id ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.master_skill_data == nil then
+        msg.master_skill_data = {}
+      end
+      msg.master_skill_data.equip_skill_family_id = master_skill_data.equip_skill_family_id
+    end
+    if master_skill_data ~= nil and master_skill_data.shortcuts ~= nil then
+      if msg.master_skill_data == nil then
+        msg.master_skill_data = {}
+      end
+      if msg.master_skill_data.shortcuts == nil then
+        msg.master_skill_data.shortcuts = {}
+      end
+      for i = 1, #master_skill_data.shortcuts do
+        table.insert(msg.master_skill_data.shortcuts, master_skill_data.shortcuts[i])
+      end
+    end
+    if master_skill_data ~= nil and master_skill_data.unlock_limit_skill_index ~= nil then
+      if msg.master_skill_data == nil then
+        msg.master_skill_data = {}
+      end
+      if msg.master_skill_data.unlock_limit_skill_index == nil then
+        msg.master_skill_data.unlock_limit_skill_index = {}
+      end
+      for i = 1, #master_skill_data.unlock_limit_skill_index do
+        table.insert(msg.master_skill_data.unlock_limit_skill_index, master_skill_data.unlock_limit_skill_index[i])
+      end
     end
     self:SendProto(msg)
   else
@@ -181,6 +241,57 @@ function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fu
     end
     if auto_shortcut ~= nil then
       msgParam.auto_shortcut = auto_shortcut
+    end
+    if master_skill_data ~= nil and master_skill_data.pro ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.master_skill_data == nil then
+        msgParam.master_skill_data = {}
+      end
+      msgParam.master_skill_data.pro = master_skill_data.pro
+    end
+    if master_skill_data ~= nil and master_skill_data.skill_ids ~= nil then
+      if msgParam.master_skill_data == nil then
+        msgParam.master_skill_data = {}
+      end
+      if msgParam.master_skill_data.skill_ids == nil then
+        msgParam.master_skill_data.skill_ids = {}
+      end
+      for i = 1, #master_skill_data.skill_ids do
+        table.insert(msgParam.master_skill_data.skill_ids, master_skill_data.skill_ids[i])
+      end
+    end
+    if master_skill_data ~= nil and master_skill_data.equip_skill_family_id ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.master_skill_data == nil then
+        msgParam.master_skill_data = {}
+      end
+      msgParam.master_skill_data.equip_skill_family_id = master_skill_data.equip_skill_family_id
+    end
+    if master_skill_data ~= nil and master_skill_data.shortcuts ~= nil then
+      if msgParam.master_skill_data == nil then
+        msgParam.master_skill_data = {}
+      end
+      if msgParam.master_skill_data.shortcuts == nil then
+        msgParam.master_skill_data.shortcuts = {}
+      end
+      for i = 1, #master_skill_data.shortcuts do
+        table.insert(msgParam.master_skill_data.shortcuts, master_skill_data.shortcuts[i])
+      end
+    end
+    if master_skill_data ~= nil and master_skill_data.unlock_limit_skill_index ~= nil then
+      if msgParam.master_skill_data == nil then
+        msgParam.master_skill_data = {}
+      end
+      if msgParam.master_skill_data.unlock_limit_skill_index == nil then
+        msgParam.master_skill_data.unlock_limit_skill_index = {}
+      end
+      for i = 1, #master_skill_data.unlock_limit_skill_index do
+        table.insert(msgParam.master_skill_data.unlock_limit_skill_index, master_skill_data.unlock_limit_skill_index[i])
+      end
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -1657,6 +1768,139 @@ function ServiceSkillAutoProxy:CallUseSkillSuccessSync(skillid)
   end
 end
 
+function ServiceSkillAutoProxy:CallUpdateMasterSkill(add_ids, del_ids, unlock_skill_index)
+  if not NetConfig.PBC then
+    local msg = SceneSkill_pb.UpdateMasterSkill()
+    if add_ids ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.add_ids == nil then
+        msg.add_ids = {}
+      end
+      for i = 1, #add_ids do
+        table.insert(msg.add_ids, add_ids[i])
+      end
+    end
+    if del_ids ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.del_ids == nil then
+        msg.del_ids = {}
+      end
+      for i = 1, #del_ids do
+        table.insert(msg.del_ids, del_ids[i])
+      end
+    end
+    if unlock_skill_index ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.unlock_skill_index == nil then
+        msg.unlock_skill_index = {}
+      end
+      for i = 1, #unlock_skill_index do
+        table.insert(msg.unlock_skill_index, unlock_skill_index[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.UpdateMasterSkill.id
+    local msgParam = {}
+    if add_ids ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.add_ids == nil then
+        msgParam.add_ids = {}
+      end
+      for i = 1, #add_ids do
+        table.insert(msgParam.add_ids, add_ids[i])
+      end
+    end
+    if del_ids ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.del_ids == nil then
+        msgParam.del_ids = {}
+      end
+      for i = 1, #del_ids do
+        table.insert(msgParam.del_ids, del_ids[i])
+      end
+    end
+    if unlock_skill_index ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.unlock_skill_index == nil then
+        msgParam.unlock_skill_index = {}
+      end
+      for i = 1, #unlock_skill_index do
+        table.insert(msgParam.unlock_skill_index, unlock_skill_index[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSkillAutoProxy:CallUpdateMasterSkillEquip(equip_skill_family_id, shortcuts)
+  if not NetConfig.PBC then
+    local msg = SceneSkill_pb.UpdateMasterSkillEquip()
+    if equip_skill_family_id ~= nil then
+      msg.equip_skill_family_id = equip_skill_family_id
+    end
+    if shortcuts ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.shortcuts == nil then
+        msg.shortcuts = {}
+      end
+      for i = 1, #shortcuts do
+        table.insert(msg.shortcuts, shortcuts[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.UpdateMasterSkillEquip.id
+    local msgParam = {}
+    if equip_skill_family_id ~= nil then
+      msgParam.equip_skill_family_id = equip_skill_family_id
+    end
+    if shortcuts ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.shortcuts == nil then
+        msgParam.shortcuts = {}
+      end
+      for i = 1, #shortcuts do
+        table.insert(msgParam.shortcuts, shortcuts[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSkillAutoProxy:CallSwitchMasterSkill(skill_family_id)
+  if not NetConfig.PBC then
+    local msg = SceneSkill_pb.SwitchMasterSkill()
+    if skill_family_id ~= nil then
+      msg.skill_family_id = skill_family_id
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SwitchMasterSkill.id
+    local msgParam = {}
+    if skill_family_id ~= nil then
+      msgParam.skill_family_id = skill_family_id
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceSkillAutoProxy:RecvReqSkillData(data)
   self:Notify(ServiceEvent.SkillReqSkillData, data)
 end
@@ -1793,6 +2037,18 @@ function ServiceSkillAutoProxy:RecvUseSkillSuccessSync(data)
   self:Notify(ServiceEvent.SkillUseSkillSuccessSync, data)
 end
 
+function ServiceSkillAutoProxy:RecvUpdateMasterSkill(data)
+  self:Notify(ServiceEvent.SkillUpdateMasterSkill, data)
+end
+
+function ServiceSkillAutoProxy:RecvUpdateMasterSkillEquip(data)
+  self:Notify(ServiceEvent.SkillUpdateMasterSkillEquip, data)
+end
+
+function ServiceSkillAutoProxy:RecvSwitchMasterSkill(data)
+  self:Notify(ServiceEvent.SkillSwitchMasterSkill, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.SkillReqSkillData = "ServiceEvent_SkillReqSkillData"
 ServiceEvent.SkillSkillUpdate = "ServiceEvent_SkillSkillUpdate"
@@ -1828,3 +2084,6 @@ ServiceEvent.SkillMarkSunMoonSkillCmd = "ServiceEvent_SkillMarkSunMoonSkillCmd"
 ServiceEvent.SkillTriggerKickSkillSkillCmd = "ServiceEvent_SkillTriggerKickSkillSkillCmd"
 ServiceEvent.SkillTimeDiskSkillCmd = "ServiceEvent_SkillTimeDiskSkillCmd"
 ServiceEvent.SkillUseSkillSuccessSync = "ServiceEvent_SkillUseSkillSuccessSync"
+ServiceEvent.SkillUpdateMasterSkill = "ServiceEvent_SkillUpdateMasterSkill"
+ServiceEvent.SkillUpdateMasterSkillEquip = "ServiceEvent_SkillUpdateMasterSkillEquip"
+ServiceEvent.SkillSwitchMasterSkill = "ServiceEvent_SkillSwitchMasterSkill"

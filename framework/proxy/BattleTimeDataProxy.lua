@@ -56,10 +56,21 @@ function BattleTimeDataProxy:Init()
   self.total_playtime_extra_daily = 0
   self.used_playtime_extra = 0
   self.total_playtime_extra = 0
+  self.battleTimeSwitch_on = true
 end
 
 function BattleTimeDataProxy.QueryBattleTimelenUserCmd()
   ServiceNUserProxy.Instance:CallBattleTimelenUserCmd()
+end
+
+function BattleTimeDataProxy:QuerySwitch()
+  local battle_time_interval = GameConfig.System.battle_time_cd or 1
+  local curTime = ServerTime.CurServerTime() / 1000
+  if self.battleTimeSwitch_cd and curTime < self.battleTimeSwitch_cd + battle_time_interval then
+    MsgManager.ShowMsgByID(43596)
+    return
+  end
+  ServiceSceneUser3Proxy.Instance:CallBattleTimeOffUserCmd(self.battleTimeSwitch_on)
 end
 
 function BattleTimeDataProxy.QueryBattleTimeCostSelectCmd(var)
@@ -108,6 +119,15 @@ end
 
 function BattleTimeDataProxy:HandleRecvBattleTimeCostSelectCmd(data)
   self.gameTimeSetting = data and data.ecost or BattleTimeDataProxy.ETime.PLAY
+end
+
+function BattleTimeDataProxy:RecvBattleTimeSwitch(server_off, start_timestamp)
+  self.battleTimeSwitch_on = not server_off
+  self.battleTimeSwitch_cd = start_timestamp
+end
+
+function BattleTimeDataProxy:CheckBattleTimeSwitchOn()
+  return self.battleTimeSwitch_on == true
 end
 
 function BattleTimeDataProxy:UseDailyPlayTime()
@@ -228,4 +248,19 @@ function BattleTimeDataProxy:GetSpareBattleTime()
   local spare_play_time = self:GetLeftTime(BattleTimeDataProxy.ETime.PLAY)
   local spare_battle_time = self:GetLeftTime(BattleTimeDataProxy.ETime.BATTLE)
   return spare_battle_time + spare_play_time
+end
+
+function BattleTimeDataProxy:GetDifferenceCostTime(costTime)
+  if not costTime then
+    return
+  end
+  local time = self:GetLeftTime()
+  if 0 < time and costTime > time then
+    local timeType = self:GetGameTimeSetting()
+    local reverseTime = self:GetLeftTime(BattleTimeDataProxy.ReverseType[timeType])
+    if costTime <= reverseTime + time then
+      local differenceCostTime = (costTime - time) // 60
+      return differenceCostTime
+    end
+  end
 end

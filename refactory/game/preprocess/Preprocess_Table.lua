@@ -21,6 +21,7 @@ function Game.Preprocess_Table()
   Game.Preprocess_HairStyle()
   Game.Preprocess_PveEntrance()
   Game.Preprocess_GuildStrongHold()
+  Game.Preprocess_DateBattleCity()
   Game.Preprocess_BossSceneMonster()
   Game.Preprocess_HeadwearRepair()
   Game.Preprocess_Card()
@@ -44,6 +45,7 @@ function Game.Preprocess_Table()
   Game.Preprocess_Table_WindowsHotKey()
   Game.Preprocess_ItemMemory()
   Game.Preprocess_Table_EndlessBattleFieldEvent()
+  Game.Preprocess_Table_AstralDestinyGraph()
 end
 
 function Game.Preprocess_TableByTime()
@@ -771,6 +773,19 @@ function Game.Preprocess_GuildStrongHold()
   end
 end
 
+function Game.Preprocess_DateBattleCity()
+  Game.Config_DateBattleCity_Lobby = {}
+  Game.Config_DateBattleCity_RaidMap = {}
+  for k, v in pairs(Table_DateBattleCity) do
+    if v.LobbyRaidID then
+      Game.Config_DateBattleCity_Lobby[v.LobbyRaidID] = v
+    end
+    if v.RaidId then
+      Game.Config_DateBattleCity_RaidMap[v.RaidId] = v
+    end
+  end
+end
+
 function Game.Preprocess_CameraPlot()
   if not Table_CameraPlot then
     return
@@ -1301,6 +1316,7 @@ function Game.Process_Table_BattlePassLevel()
     for i = 1, #srcRewards do
       local reward = srcRewards[i]
       if reward.year == y and reward.month == m then
+        destRewards[1] = {}
         destRewards[1].itemid = reward.itemid
         destRewards[1].num = reward.num
         return
@@ -1310,15 +1326,27 @@ function Game.Process_Table_BattlePassLevel()
   for _, data in pairs(Table_BattlePassLevel) do
     local server_rewardItems = data.Server_RewardItems
     if server_rewardItems and server_rewardItems ~= _EmptyTable then
-      replaceReward(server_rewardItems, data.RewardItems)
+      local replaceRewardItems = {}
+      replaceReward(server_rewardItems, replaceRewardItems)
+      if 0 < #replaceRewardItems then
+        data.ReplaceRewardItems = replaceRewardItems
+      end
     end
     local server_proRewardItems = data.Server_ProRewardItems
     if server_proRewardItems and server_proRewardItems ~= _EmptyTable then
-      replaceReward(server_proRewardItems, data.ProRewardItems)
+      local replaceProRewardItems = {}
+      replaceReward(server_proRewardItems, replaceProRewardItems)
+      if 0 < #replaceProRewardItems then
+        data.ReplaceProRewardItems = replaceProRewardItems
+      end
     end
     local server_superRewardItems = data.Server_SuperRewardItems
     if server_superRewardItems and server_superRewardItems ~= _EmptyTable then
-      replaceReward(server_superRewardItems, data.SuperRewardItems)
+      local replaceSuperRewardItems = {}
+      replaceReward(server_superRewardItems, replaceSuperRewardItems)
+      if 0 < #replaceSuperRewardItems then
+        data.ReplaceSuperRewardItems = replaceSuperRewardItems
+      end
     end
   end
 end
@@ -1376,14 +1404,13 @@ function Game.Preprocess_ItemMemory()
       }
     end
     _colors[effectID].group[v.GroupID] = 1
-    xdlog("Group Init", effectID, v.GroupID)
   end
   for k, v in pairs(Table_ItemMemoryEffect) do
     local effectId = v.EffectID
     if not t[effectId] then
       t[effectId] = {
-        Color = _colors[effectId].type,
-        Group = _colors[effectId].group,
+        Color = _colors[effectId] and _colors[effectId].type,
+        Group = _colors[effectId] and _colors[effectId].group,
         level = {}
       }
     end
@@ -1391,4 +1418,16 @@ function Game.Preprocess_ItemMemory()
     t[effectId].level[level] = k
   end
   Game.ItemMemoryEffect = t
+end
+
+function Game.Preprocess_Table_AstralDestinyGraph()
+  if not Table_AstralDestinyGraph then
+    return
+  end
+  local t = {}
+  for _, v in pairs(Table_AstralDestinyGraph) do
+    t[v.Season] = t[v.Season] or {}
+    t[v.Season][v.Point] = v
+  end
+  Game.AstralDestinyGraphSeasonPointMap = t
 end

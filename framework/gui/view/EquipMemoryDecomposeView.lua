@@ -14,6 +14,8 @@ end
 
 function EquipMemoryDecomposeView:InitUI()
   self.decomposeBord = self:FindGO("DecomposeBord")
+  self.helpBtn = self:FindGO("HelpButton")
+  self.resultScrollView = self:FindGO("ResultScrollView"):GetComponent(UIScrollView)
   self.resultGrid = self:FindComponent("ResultGrid", UIGrid)
   self.resultCtl = UIGridListCtrl.new(self.resultGrid, DecomposeItemCell, "DecomposeItemCell")
   self.resultCtl:AddEventListener(MouseEvent.MouseClick, self.clickResultCell, self)
@@ -25,7 +27,7 @@ function EquipMemoryDecomposeView:InitUI()
   self.cost.text = 0
   self.cost.gameObject:SetActive(false)
   local l_zenyIcon = self:FindComponent("Sprite", UISprite, self.cost.gameObject)
-  IconManager:SetItemIcon("item_100", l_zenyIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, l_zenyIcon)
   local coins = self:FindChild("TopCoins")
   self.userRob = self:FindChild("Silver", coins)
   self.robLabel = self:FindComponent("Label", UILabel, self.userRob)
@@ -230,7 +232,14 @@ function EquipMemoryDecomposeView:DecomposePreview()
     table.insert(result, itemData)
   end
   self.resultCtl:ResetDatas(result)
+  if 5 <= #result then
+    self.resultScrollView.contentPivot = UIWidget.Pivot.Left
+  else
+    self.resultScrollView.contentPivot = UIWidget.Pivot.Center
+  end
+  self.resultScrollView:ResetPosition()
   self.chooseCtl:ResetDatas(chosenList)
+  self.chosenScrollView:ResetPosition()
   self.noMaterialTip:SetActive(#result == 0)
   self.emptyChosenTip:SetActive(#chosenList == 0)
   if #result == 0 then
@@ -319,6 +328,7 @@ function EquipMemoryDecomposeView:HandleDecomposeSuccess()
   xdlog("分解成功")
   TableUtility.TableClear(self.chosenMap)
   self:UpdateChooseBord()
+  self:DecomposePreview()
 end
 
 function EquipMemoryDecomposeView:OnEnter()
@@ -331,6 +341,7 @@ function EquipMemoryDecomposeView:OnEnter()
   end
   self:UpdateCoins()
   self:UpdateChooseBord()
+  self:DecomposePreview()
 end
 
 function EquipMemoryDecomposeView:HandleItemUpdate()

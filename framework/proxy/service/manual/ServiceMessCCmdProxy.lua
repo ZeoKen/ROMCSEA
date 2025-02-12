@@ -46,3 +46,25 @@ function ServiceMessCCmdProxy:RecvSetPippiStateMessCCmd(data)
   PetProxy.Instance:RecvSetPippiStateMessCCmd(data)
   self:Notify(ServiceEvent.MessCCmdSetPippiStateMessCCmd, data)
 end
+
+function ServiceMessCCmdProxy:RecvPurifyProductsMaterialsMessCCmd(data)
+  CraftingPotProxy.Instance:InitCall(false)
+  CraftingPotProxy.Instance:RecvPurifyProductsMaterialsMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdPurifyProductsMaterialsMessCCmd, data)
+end
+
+function ServiceMessCCmdProxy:RecvPurifyProductsRefineMessCCmd(data)
+  CraftingPotProxy.Instance:RecvPurifyProductsRefineMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdPurifyProductsRefineMessCCmd, data)
+end
+
+function ServiceMessCCmdProxy:RecvSyncDestinyGraphMessCCmd(data)
+  AstralProxy.Instance:SyncDestinyGraphInfo(data.curseason, data.graphinfos)
+  self:Notify(ServiceEvent.MessCCmdSyncDestinyGraphMessCCmd, data)
+end
+
+function ServiceMessCCmdProxy:RecvAstralSyncSeasonInfoMessCCmd(data)
+  redlog("ServiceMessCCmdProxy:RecvAstralSyncSeasonInfoMessCCmd", data.season)
+  AstralProxy.Instance:SyncAstralSeason(data.season)
+  self:Notify(ServiceEvent.MessCCmdAstralSyncSeasonInfoMessCCmd, data)
+end

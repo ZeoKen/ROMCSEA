@@ -131,14 +131,14 @@ function MyselfData:GetDressParts()
       parts[PartIndex.Tail] = userData:Get(UDEnum.TAIL) or 0
       parts[PartIndex.Eye] = userData:Get(UDEnum.EYE) or 0
       parts[PartIndex.Mouth] = userData:Get(UDEnum.MOUTH) or 0
-      parts[PartIndex.Mount] = userData:Get(UDEnum.MOUNT) or 0
       parts[PartIndexEx.Gender] = userData:Get(UDEnum.SEX) or 0
       parts[PartIndexEx.HairColorIndex] = userData:Get(UDEnum.HAIRCOLOR) or 0
       parts[PartIndexEx.EyeColorIndex] = userData:Get(UDEnum.EYECOLOR) or 0
       parts[PartIndexEx.BodyColorIndex] = userData:Get(UDEnum.CLOTHCOLOR) or 0
       parts[PartIndexEx.Download] = true
-      self:SetMountFashionParts(parts, userData)
     end
+    parts[PartIndex.Mount] = userData:Get(UDEnum.MOUNT) or 0
+    self:SetMountFashionParts(parts, userData)
     self:SpecialProcessPart_Sheath(parts)
   else
     for i = 1, 12 do
@@ -414,6 +414,7 @@ local StarBuff = GameConfig.StarShape.starBuff or 136190
 local Hero_SanityBuff = GameConfig.SkillCommon.Hero_SanityBuff or 136400
 local Hero_FeatherBuff = GameConfig.SkillCommon.Hero_FeatherBuff or 137392
 local Heinrich_EnergyBuff = 137710
+local Hero_SolarEnergyBuff = 139610
 
 function MyselfData:InitBuffHandler()
   self.buffHandler = {
@@ -535,6 +536,10 @@ function MyselfData:InitBuffHandler()
     [BuffType.WithoutTeammate] = {
       Add = self.WithoutTeammate_Start,
       Remove = self.WithoutTeammate_End
+    },
+    [BuffType.SkillWeather] = {
+      Add = self.SkillWeather_Start,
+      Remove = self.SkillWeather_End
     }
   }
   self.buffClientPropsHandler = {
@@ -556,6 +561,10 @@ function MyselfData:InitBuffHandler()
     [Heinrich_EnergyBuff] = {
       Update = self.UpdateEnergyBuff,
       Remove = self.RemoveEnergyBuff
+    },
+    [Hero_SolarEnergyBuff] = {
+      Update = self.UpdateSolarEnergyBuff,
+      Remove = self.RemoveSolarEnergyBuff
     }
   }
 end
@@ -1269,7 +1278,7 @@ function MyselfData:GetMapTeammateNum()
   local _TeamProxy = TeamProxy.Instance
   if _TeamProxy:IHaveTeam() then
     local memberMap = _TeamProxy.myTeam:GetMemberMap()
-    for k, v in memberMap, nil, nil do
+    for k, v in pairs(memberMap) do
       if v:IsSameMap() then
         num = num + 1
       end
@@ -1438,10 +1447,21 @@ end
 
 function MyselfData:UpdateEnergyBuff(bufffID, layer)
   Game.Myself:UpdateEnergyBuff(layer)
+  self.energyBuffLayer = layer
+  local data = Table_Buffer[bufffID]
+  self.energyBuffLimitLayer = data.limit_layer or 10
+end
+
+function MyselfData:CheckEnergyBuffFull()
+  if not self.energyBuffLayer or not self.energyBuffLimitLayer then
+    return false
+  end
+  return self.energyBuffLayer >= self.energyBuffLimitLayer
 end
 
 function MyselfData:RemoveEnergyBuff()
   local profId = MyselfProxy:GetMyProfession()
+  self.energyBuffLayer = 0
   if profId == 685 then
     Game.Myself:UpdateEnergyBuff(0)
   else
@@ -1629,6 +1649,80 @@ function MyselfData:GetWithoutTeammate()
   return self.withoutTeammate
 end
 
+function MyselfData:SetShadowViel(val)
+  self.inShadowViel = val
+  if val then
+    local cfData = Table_CameraFilters[1]
+    if cfData then
+      CameraFilterProxy.Instance:CFSetEffectAndSpEffect(cfData.FilterName, cfData.SpecialEffectsName, true)
+    end
+  else
+    CameraFilterProxy.Instance:CFQuit(true)
+  end
+end
+
+function MyselfData:IsInShadowViel()
+  return self.inShadowViel
+end
+
+function MyselfData:UpdateSolarEnergyBuff(bufffID, layer)
+  local data = Table_Buffer[bufffID]
+  local buffeffect = data.BuffEffect.ChangeBuffLayer
+  self.maxSolarLayer = CommonFun.calcBuffValue(self, self, buffeffect.type, buffeffect.a, buffeffect.b, buffeffect.c, buffeffect.d)
+  local sceneUI = Game.Myself:GetSceneUI() or nil
+  if sceneUI then
+    sceneUI.roleBottomUI:UpdateSolarEnergy(layer, self.maxSolarLayer)
+  end
+end
+
+function MyselfData:RemoveSolarEnergyBuff(bufffID)
+  local data = Table_Buffer[bufffID]
+  local buffeffect = data.BuffEffect.ChangeBuffLayer
+  self.maxSolarLayer = CommonFun.calcBuffValue(self, self, buffeffect.type, buffeffect.a, buffeffect.b, buffeffect.c, buffeffect.d)
+  local sceneUI = Game.Myself:GetSceneUI() or nil
+  if ProfessionProxy.IsSunshine() then
+    sceneUI.roleBottomUI:UpdateSolarEnergy(0, self.maxSolarLayer)
+  else
+    sceneUI.roleBottomUI:ShowSolarEnergy(false)
+  end
+end
+
+local SkillWeatherEffect = GameConfig.SkillWeather and GameConfig.SkillWeather.UIEffect
+
+function MyselfData:SkillWeather_Start(buffeffect, fromID, isInit, level, active, buffID)
+  if not FunctionPerformanceSetting.Me():GetWeatherEffect() then
+    return
+  end
+  local weatherID = buffeffect.weather
+  if SkillWeatherEffect[weatherID] then
+    local data = {}
+    data.effect = SkillWeatherEffect[weatherID][1]
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.FullScreenEffectView,
+      viewdata = data
+    })
+  end
+end
+
+function MyselfData:SkillWeather_End(buffeffect, level, buffID)
+  if not FunctionPerformanceSetting.Me():GetWeatherEffect() then
+    GameFacade.Instance:sendNotification(UIEvent.RemoveFullScreenEffect)
+    return
+  end
+  local weatherID = buffeffect.weather
+  if SkillWeatherEffect[weatherID] then
+    local data = {}
+    data.effect = SkillWeatherEffect[weatherID][2]
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.FullScreenEffectView,
+      viewdata = data
+    })
+    TimeTickManager.Me():CreateOnceDelayTick(1000, function()
+      GameFacade.Instance:sendNotification(UIEvent.RemoveFullScreenEffect)
+    end, self)
+  end
+end
+
 function MyselfData:DoConstruct(asArray, serverData)
   helplog("MyselfData:DoConstruct")
   MyselfData.super.DoConstruct(self, asArray, serverData)
@@ -1638,6 +1732,7 @@ function MyselfData:DoConstruct(asArray, serverData)
   self.maxbullets = 0
   self.starShapeAdd = false
   self.spTrans = nil
+  self.inShadowViel = nil
 end
 
 function MyselfData:GetCurrentMaxLayer(buffid, fromid)
@@ -1654,6 +1749,7 @@ function MyselfData:DoDeconstruct(asArray)
   self.maxbullets = 0
   self.spTrans = nil
   self.starShapeAdd = false
+  self.inShadowViel = nil
   MyselfData.super.DoDeconstruct(self, asArray)
 end
 

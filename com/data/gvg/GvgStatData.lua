@@ -63,3 +63,7 @@ end
 function GvgStatData:IsStarByIndex(index)
   return self.stars[SortableKeys[index]] or false
 end
+
+function GvgStatData:IsMySelf()
+  return self.charid == Game.Myself.data.id
+end

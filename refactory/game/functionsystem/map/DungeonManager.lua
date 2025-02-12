@@ -105,6 +105,10 @@ local PVERaidConfig = {
     Type = FuBenCmd_pb.ERAIDTYPE_GVG_LOBBY,
     DungeonSpawner = PVEFactory.GetGvgLobby
   },
+  GVG_Lobby_DateBattle = {
+    Type = FuBenCmd_pb.ERAIDTYPE_GUILD_DATE_BATTLE_LOBBY,
+    DungeonSpawner = PVEFactory.GetGvgLobbyDateBattle
+  },
   PVE_BossRaid = {
     Type = FuBenCmd_pb.ERAIDTYPE_BOSS,
     DungeonSpawner = PVEFactory.GetBossRaid
@@ -115,6 +119,14 @@ local PVERaidConfig = {
   },
   PVE_MemoryPalace = {
     Type = FuBenCmd_pb.ERAIDTYPE_MEMORY_PALACE,
+    DungeonSpawner = PVEFactory.GetSevenRoyals
+  },
+  PVE_AstralRaid = {
+    Type = FuBenCmd_pb.ERAIDTYPE_ASTRAL,
+    DungeonSpawner = PVEFactory.GetAstralRaid
+  },
+  PVE_MemoryRaid = {
+    Type = FuBenCmd_pb.ERAIDTYPE_MEMORY_RAID,
     DungeonSpawner = PVEFactory.GetSevenRoyals
   }
 }
@@ -172,6 +184,10 @@ local GVGRaidConfig = {
   GVG_Droiyan = {
     Type = 30,
     DungeonSpawner = PVPFactory.GetGvgDroiyan
+  },
+  GVG_Date_Battle = {
+    Type = 77,
+    DungeonSpawner = PVPFactory.GetGuildDateBattle
   }
 }
 local GuildArea_DungeonID = 10001
@@ -252,11 +268,23 @@ function DungeonManager:IsPVPRaidMode()
 end
 
 function DungeonManager:IsGVG_Detailed()
+  return self:IsGVGMetal() or self:IsGVG_DateBattle()
+end
+
+function DungeonManager:IsGVGMetal()
   return self.currentDungeon ~= nil and self.currentDungeon.isGVG
+end
+
+function DungeonManager:IsGVG_DateBattle()
+  return self.currentDungeon ~= nil and self.currentDungeon.isGuildDateBattle
 end
 
 function DungeonManager:IsGVG_Lobby()
   return self:GetRaidType() == FuBenCmd_pb.ERAIDTYPE_GVG_LOBBY
+end
+
+function DungeonManager:IsGVG_Lobby_Date_Battle()
+  return self:GetRaidType() == FuBenCmd_pb.ERAIDTYPE_GUILD_DATE_BATTLE_LOBBY
 end
 
 function DungeonManager:IsPVPMode_PoringFight()
@@ -412,6 +440,10 @@ end
 
 function DungeonManager:IsPVPMode_EndlessBattleField()
   return self.currentDungeon and self.currentDungeon.isPVPEBF or false
+end
+
+function DungeonManager:IsPVEMode_AstralRaid()
+  return self.currentDungeon and self.currentDungeon.isAstralRaid or false
 end
 
 function DungeonManager:GetRaidType()

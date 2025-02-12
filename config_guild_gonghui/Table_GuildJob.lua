@@ -20,7 +20,7 @@ Table_GuildJob = {
     },
     DefaultAuthority = 4227858431,
     DefaultEditAuthority = 263169,
-    DefaultAuthority2 = 31,
+    DefaultAuthority2 = 63,
     DefaultEditAuthority2 = 31
   },
   [2] = {
@@ -43,7 +43,7 @@ Table_GuildJob = {
     },
     DefaultAuthority = 4227078111,
     DefaultEditAuthority = 262144,
-    DefaultAuthority2 = 15,
+    DefaultAuthority2 = 47,
     DefaultEditAuthority2 = 3
   },
   [3] = {

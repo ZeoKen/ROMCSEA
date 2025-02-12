@@ -1,11 +1,11 @@
 autoImportPathMap = {}
 mConfig_Special = {
-  "StageBagItemIndex",
-  "EquipFun",
-  "GameConfig",
-  "MapTeleport",
-  "CommonFun",
-  "TransferTeleport"
+  StageBagItemIndex = true,
+  EquipFun = true,
+  GameConfig = true,
+  MapTeleport = true,
+  CommonFun = true,
+  TransferTeleport = true
 }
 
 function reAutoImport(moduleName)
@@ -27,14 +27,14 @@ function autoImport(moduleName)
   local fullPath = autoImportPathMap[moduleName]
   if fullPath == nil then
     local moduleNameNovice
-    if ISNoviceServerType and moduleName ~= "Table_NoviceServer" and not BranchMgr.IsNO() and not BranchMgr.IsNOTW() then
+    if ISNoviceServerType and moduleName ~= "Table_NoviceServer" then
       local p = moduleName:match("^Table_([%w_]+)$")
       local s = moduleName:match("^Scene_([%w_]+)$")
-      if p then
+      if p and not BranchMgr.IsNO() and not BranchMgr.IsNOTW() then
         moduleNameNovice = "Table_" .. p .. "_NoviceServer"
       elseif s then
         moduleNameNovice = "Scene_" .. s .. "_NoviceServer"
-      elseif TableUtil.ArrayIndexOf(mConfig_Special, moduleName) ~= 0 then
+      elseif mConfig_Special[moduleName] and not BranchMgr.IsNO() and not BranchMgr.IsNOTW() then
         moduleNameNovice = moduleName .. "_NoviceServer"
       end
     end

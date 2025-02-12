@@ -11,7 +11,7 @@ GvgSettleCity.SortID = {
 function GvgSettleCity:ctor(id, sortid, lastGuild)
   self.cityId = id
   self.sortID = sortid
-  self.cityConfig = Table_Guild_StrongHold[id]
+  self.cityConfig = GvgProxy.GetStrongHoldStaticData(id)
   if self.cityConfig then
     self.cityName = self.cityConfig.Name
   else
@@ -58,7 +58,8 @@ function GvgSettleInfo:ctor(data)
   local server_guildShowInfo = data.last_city_owner
   if data.last_city and data.last_city > 0 and server_guildShowInfo.guildid and 0 < server_guildShowInfo.guildid then
     self.lastCityId = data.last_city
-    self.lastCityName = Table_Guild_StrongHold[self.lastCityId] and Table_Guild_StrongHold[self.lastCityId].Name or ""
+    local staticCity = GvgProxy.GetStrongHoldStaticData(self.lastCityId)
+    self.lastCityName = staticCity and staticCity.Name or ""
     self.lastCityGuildId = server_guildShowInfo.guildid
     self.lastCityShowInfo = NewGvgRank_GuildShowInfo.new(self.lastCityGuildId, server_guildShowInfo)
     local settle_Last_city = GvgSettleCity.new(self.lastCityId, GvgSettleCity.SortID.LastCity, self.lastCityGuildId)

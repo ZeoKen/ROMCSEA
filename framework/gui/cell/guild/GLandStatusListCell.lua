@@ -1,3 +1,7 @@
+local ModeName = {
+  [1] = ZhString.GVGMode_Type1,
+  [2] = ZhString.GVGMode_Type2
+}
 local BaseCell = autoImport("BaseCell")
 GLandStatusListCell = class("GLandStatusListCell", BaseCell)
 GLandStatusList_CellEvent_Trace = "GLandStatusList_CellEvent_Trace"
@@ -8,6 +12,7 @@ function GLandStatusListCell:Init()
   self.headCell = GuildHeadCell.new(guildHeadCellGO)
   self.headCell:SetCallIndex(UnionLogo.CallerIndex.UnionList)
   self.city_name = self:FindComponent("CityName", UILabel)
+  self.mode_name = self:FindComponent("ModeName", UILabel)
   self.guild_name = self:FindComponent("GuildName", UILabel)
   self.status_desc = self:FindComponent("StatusDesc", UILabel)
   self.trace_button = self:FindGO("TraceButton")
@@ -39,9 +44,11 @@ function GLandStatusListCell:SetData(data)
   self.data_guildid = data.guildid
   self.data_groupid = data.groupid
   self.data_oldguildid = data.oldguildid
-  local land_config = Table_Guild_StrongHold[data.cityid]
+  local land_config = GvgProxy.GetStrongHoldStaticData(data.cityid)
   if land_config ~= nil then
     self.city_name.text = land_config.Name
+    local mode = land_config.Mode or 1
+    self.mode_name.text = ModeName[mode]
   else
     self.city_name.text = "NO CONFIG LAND:" .. tostring(data.cityid)
     self.gameObject:SetActive(false)
@@ -84,7 +91,7 @@ function GLandStatusListCell:SetData(data)
   if self.leadName then
     self.leadName.text = data.leadername or ""
   end
-  local cityConfig = Table_Guild_StrongHold[data.cityid or 0]
+  local cityConfig = GvgProxy.GetStrongHoldStaticData(data.cityid or 0)
   if cityConfig then
     self.cityIcon.gameObject:SetActive(true)
     if cityConfig.Icon then

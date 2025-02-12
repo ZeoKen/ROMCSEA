@@ -133,6 +133,7 @@ function DialogView:ResetViewData()
   self.keepOpen = nil
   self.noFocus = nil
   self.isExtendDialog = nil
+  self.pveRaidEntrances = nil
 end
 
 function DialogView:ReloadView()
@@ -273,6 +274,7 @@ function DialogView:UpdateViewData()
   self.dialogInfo = {}
   self.dialogIndex = 1
   self:UpdateQuestParams()
+  self.pveRaidEntrances = self.viewdata.pveRaidEntrances
 end
 
 function DialogView:GetCurNpc()
@@ -518,7 +520,14 @@ function DialogView:UpdateMenu(configs, tasks, option, optionTime)
       end
     end
   end
-  if configs or self.addconfig then
+  if self.pveRaidEntrances then
+    for i = 1, #self.pveRaidEntrances do
+      local diff = self.pveRaidEntrances[i]
+      local menuData = Dialog_MenuData.new()
+      menuData:Set_ByPveRaidEntrance(diff)
+      table.insert(self.menuData, menuData)
+    end
+  elseif configs or self.addconfig then
     TableUtility.ArrayClear(tempArray)
     if configs then
       TableUtility.ArrayShallowCopy(tempArray, configs)
@@ -692,6 +701,29 @@ function DialogView:DoMenuEvent(cellData)
         self:CloseSelf()
       end
     end
+  elseif menuType == Dialog_MenuData_Type.PveRaidEntrance then
+    if AstralProxy.Instance:IsSeasonEnd() then
+      MsgManager.ShowMsgByID(43567)
+      return
+    end
+    local entranceData = cellData.pvePassInfo.staticEntranceData
+    FunctionPve.Me():SetCurPve(entranceData)
+    local costTime = entranceData.staticData.TimeCost
+    if costTime and not ISNoviceServerType then
+      local _BattleTimeDataProxy = BattleTimeDataProxy.Instance
+      local differenceCostTime = _BattleTimeDataProxy:GetDifferenceCostTime(costTime)
+      if differenceCostTime then
+        local timeType = _BattleTimeDataProxy:GetGameTimeSetting()
+        local id = timeType == BattleTimeDataProxy.ETime.PLAY and 43242 or 43243
+        MsgManager.ConfirmMsgByID(id, function()
+          if FunctionPve.Me():DoChallenge() then
+            self:CloseSelf()
+          end
+        end, nil, nil, differenceCostTime)
+      end
+    elseif FunctionPve.Me():DoChallenge() then
+      self:CloseSelf()
+    end
   end
 end
 
@@ -712,6 +744,7 @@ function DialogView:MapEvent()
   self:AddListenEvt(ServiceEvent.PhotoCmdBoardQueryAwardPhotoCmd, self.HandlePhotoCmdBoardQueryAwardPhoto)
   self:AddListenEvt(HotKeyEvent.DialogPushOn, self.HandleHotKeyDialogPushOn)
   self:AddListenEvt(HotKeyEvent.DialogSelectOption, self.HandleHotKeyDialogSelectOption)
+  self:AddListenEvt(PVEEvent.SyncPvePassInfo, self.HandleSyncPvePassInfo)
 end
 
 function DialogView:HandleRecvLogin(note)
@@ -878,6 +911,12 @@ function DialogView:HandleHotKeyDialogSelectOption()
     index = 1
   end
   self:SelectMenu(index)
+end
+
+function DialogView:HandleSyncPvePassInfo()
+  if self.pveRaidEntrances then
+    self:UpdateMenu()
+  end
 end
 
 function DialogView:RemoveLeanTween()

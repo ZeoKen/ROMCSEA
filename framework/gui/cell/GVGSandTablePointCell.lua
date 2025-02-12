@@ -21,6 +21,8 @@ function GVGSandTablePointCell:FindObjs()
   self.hpSlider = self.hp:GetComponent(UISlider)
   self.hpLabel = self:FindGO("Label", self.hp):GetComponent(UILabel)
   self.pointScore = self:FindGO("PointScore"):GetComponent(UISprite)
+  self.uiTable = self:FindComponent("Table", UITable)
+  self.ratioLab = self:FindComponent("RatioLab", UILabel)
 end
 
 function GVGSandTablePointCell:UpdatePointScore(id, score, hasPointScore)
@@ -39,7 +41,23 @@ function GVGSandTablePointCell:UpdatePointScore(id, score, hasPointScore)
   self.pointScore.color = score and Color.Blue or Color.Gray
 end
 
-function GVGSandTablePointCell:SetData(data, defguild, noMoreMetal, hasPointScore)
+local ratio_format = "x%d"
+
+function GVGSandTablePointCell:UpdateRatio()
+  if self.isClassic and self.pointScore.gameObject.activeSelf then
+    self:Show(self.ratioLab)
+    self.ratioLab.text = string.format(ratio_format, self.ratio)
+  else
+    self:Hide(self.ratioLab)
+  end
+  self.uiTable:Reposition()
+end
+
+function GVGSandTablePointCell:SetData(data, defguild, noMoreMetal, hasPointScore, ratio)
+  self.isClassic = data.isClassic
+  if self.isClassic then
+    self.ratio = math.min(GvgProxy.Instance:GetMaxPointScore(), data.ratio)
+  end
   local pointID = data.id
   self:UpdatePointScore(pointID, data.score, hasPointScore)
   local has_occupied = data.has_occupied
@@ -85,6 +103,7 @@ function GVGSandTablePointCell:SetData(data, defguild, noMoreMetal, hasPointScor
   guildportrait = Table_Guild_Icon[guildportrait] and Table_Guild_Icon[guildportrait].Icon or ""
   IconManager:SetGuildIcon(guildportrait, self.guildIcon)
   self.guildInfo.transform.localPosition = LuaGeometry.GetTempVector3(0, self.statusIcon.height, 0)
+  self:UpdateRatio()
 end
 
 function GVGSandTablePointCell:SetEmpty(noMoreMetal)
@@ -129,9 +148,17 @@ function GVGSandTablePointCell:SetHP(percent)
   self.statusIcon.CurrentState = percent ~= 0 and 2 or 3
 end
 
-function GVGSandTablePointCell:SetEnable(bool)
+function GVGSandTablePointCell:SetEnable(bool, isClassic)
   self.guildInfo:SetActive(bool)
   if not bool then
+    self:Hide(self.pointScore)
     self.statusIcon.CurrentState = 3
+  else
+    self:Show(self.pointScore)
+  end
+  if isClassic then
+    self.statusIcon.enabled = bool
+  else
+    self.statusIcon.enabled = true
   end
 end

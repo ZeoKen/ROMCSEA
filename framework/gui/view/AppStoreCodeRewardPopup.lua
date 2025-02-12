@@ -5,13 +5,9 @@ function AppStoreCodeRewardPopup.CanShow()
   if GameConfig.ForbidAppStoreRedemptionCode then
     return false
   end
-  if not BranchMgr.IsChina() or ApplicationInfo.GetRunPlatform() ~= RuntimePlatform.IPhonePlayer or FunctionSDK.Instance.CurrentType ~= FunctionSDK.E_SDKType.XD then
-  end
-  do
-    local restorePays = FunctionLogin.Me():getRestorePays()
-    if restorePays and next(restorePays) then
-      return true
-    end
+  local restorePays = FunctionLogin.Me():getRestorePays()
+  if restorePays and next(restorePays) then
+    return true
   end
   return false
 end

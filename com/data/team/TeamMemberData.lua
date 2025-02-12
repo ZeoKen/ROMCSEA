@@ -240,7 +240,7 @@ function TeamMemberData:UpdateFakeNpcMemberInfo()
     local MonsterID = self.fake_npc
     local monsterData = MonsterID and Table_Npc[MonsterID]
     if monsterData then
-      self.name = monsterData.NameZh
+      self.name = OverSea.LangManager.Instance():GetLangByKey(monsterData.NameZh)
       self.body = monsterData.Body
       self.hair = monsterData.Hair
       self.eye = monsterData.Eye
@@ -306,7 +306,7 @@ function TeamMemberData:UpdateRobotMemberInfo()
       local MonsterID = self.robotData.MonsterID
       local monsterData = MonsterID and Table_Monster[MonsterID]
       if monsterData then
-        self.name = monsterData.NameZh
+        self.name = OverSea.LangManager.Instance():GetLangByKey(monsterData.NameZh)
         self.profession = self.robotData.Profession
         self.body = monsterData.Body
         self.hair = monsterData.Hair
@@ -367,7 +367,7 @@ function TeamMemberData:UpdateTeamNpcInfo()
     local MonsterID = self.teamnpc
     local monsterData = MonsterID and Table_Monster[MonsterID]
     if monsterData then
-      self.name = monsterData.NameZh
+      self.name = OverSea.LangManager.Instance():GetLangByKey(monsterData.NameZh)
       self.body = monsterData.Body
       self.hair = monsterData.Hair
       self.eye = monsterData.Eye

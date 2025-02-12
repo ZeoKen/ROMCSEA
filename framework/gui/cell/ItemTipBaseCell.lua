@@ -652,7 +652,7 @@ function ItemTipBaseCell:UpdateNormalItemInfo(data)
       local sData = Table_RedPacket[data.staticData.id]
       if sData and sData.source == "gvg_new" then
         if data.redPacketData then
-          local config = Table_Guild_StrongHold[data.redPacketData.gvg_cityid]
+          local config = GvgProxy.GetStrongHoldStaticData(data.redPacketData.gvg_cityid)
           local cityType = config and config.CityType or 0
           local cityData = GameConfig.GvgNewConfig.citytype_data[cityType]
           local maxBlessNum = cityData and cityData.praise_red_packet_cnt or 0
@@ -1649,6 +1649,9 @@ end
 
 function ItemTipBaseCell:UpdateMemoryAttrInfo(data)
   if self.equipBuffUpSource and self.equipBuffUpSource ~= Game.Myself.data.id then
+    return
+  end
+  if data and data:IsShadowEquip() then
     return
   end
   local memoryData = data and data.equipMemoryData

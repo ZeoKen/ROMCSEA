@@ -120,6 +120,9 @@ function ServiceMapAutoProxy:onRegister()
   self:Listen(12, 35, function(data)
     self:RecvCardRewardQueryCmd(data)
   end)
+  self:Listen(12, 36, function(data)
+    self:RecvSkillWeatherSyncCmd(data)
+  end)
 end
 
 function ServiceMapAutoProxy:CallAddMapItem(items)
@@ -1923,6 +1926,23 @@ function ServiceMapAutoProxy:CallCardRewardQueryCmd(data)
   end
 end
 
+function ServiceMapAutoProxy:CallSkillWeatherSyncCmd(weather)
+  if not NetConfig.PBC then
+    local msg = SceneMap_pb.SkillWeatherSyncCmd()
+    if weather ~= nil then
+      msg.weather = weather
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SkillWeatherSyncCmd.id
+    local msgParam = {}
+    if weather ~= nil then
+      msgParam.weather = weather
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceMapAutoProxy:RecvAddMapItem(data)
   self:Notify(ServiceEvent.MapAddMapItem, data)
 end
@@ -2063,6 +2083,10 @@ function ServiceMapAutoProxy:RecvCardRewardQueryCmd(data)
   self:Notify(ServiceEvent.MapCardRewardQueryCmd, data)
 end
 
+function ServiceMapAutoProxy:RecvSkillWeatherSyncCmd(data)
+  self:Notify(ServiceEvent.MapSkillWeatherSyncCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.MapAddMapItem = "ServiceEvent_MapAddMapItem"
 ServiceEvent.MapPickupItem = "ServiceEvent_MapPickupItem"
@@ -2099,3 +2123,4 @@ ServiceEvent.MapMapNpcShowMapCmd = "ServiceEvent_MapMapNpcShowMapCmd"
 ServiceEvent.MapMapNpcDelMapCmd = "ServiceEvent_MapMapNpcDelMapCmd"
 ServiceEvent.MapNpcPreloadForbidMapCmd = "ServiceEvent_MapNpcPreloadForbidMapCmd"
 ServiceEvent.MapCardRewardQueryCmd = "ServiceEvent_MapCardRewardQueryCmd"
+ServiceEvent.MapSkillWeatherSyncCmd = "ServiceEvent_MapSkillWeatherSyncCmd"

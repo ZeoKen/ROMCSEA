@@ -93,13 +93,6 @@ function DownloadTip:InitData()
 end
 
 function DownloadTip:ClickItemCell(cell)
-  local data = {
-    funcConfig = _EmptyTable,
-    itemdata = ItemData.new(),
-    hideGetPath = false
-  }
-  data.itemdata:ResetData("Tip", cell.itemId)
-  self:ShowItemTip(data, self.bgSp, NGUIUtil.AnchorSide.Left)
 end
 
 function DownloadTip.ReadableSize(bytes)

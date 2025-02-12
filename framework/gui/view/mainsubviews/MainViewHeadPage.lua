@@ -527,6 +527,10 @@ end
 function MainViewHeadPage:RegistRedTip()
   local headSprite = self:FindComponent("Frame", UISprite, self.headCellObj)
   self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_ADD_POINT, headSprite, 50, {-9, -9})
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MONSTER_IMG, headSprite, 50, {-9, -9})
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_PORTRAIT_FRAME, headSprite, 50, {-9, -9})
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_BACKGROUND_FRAME, headSprite, 50, {-9, -9})
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_CHAT_FRAME, headSprite, 50, {-9, -9})
 end
 
 function MainViewHeadPage:MapInterestEvent()

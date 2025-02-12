@@ -396,18 +396,21 @@ function ServiceGuildCmdProxy:RecvGvgScoreInfoUpdateGuildCmd(data)
 end
 
 function ServiceGuildCmdProxy:RecvQueryGCityShowInfoGuildCmd(data)
-  GvgProxy.Instance:Debug("[NewGVG] RecvQueryGCityShowInfoGuildCmd groupid #infos: ", data.groupid, #data.infos)
+  helplog("[Debug 旗帜] RecvQueryGCityShowInfoGuildCmd groupid #infos: ", data.groupid, #data.infos)
+  TableUtil.Print(data)
   GvgProxy.Instance:Update_GLandStatusInfos(data.infos, data.groupid)
   self:Notify(ServiceEvent.GuildCmdQueryGCityShowInfoGuildCmd, data)
 end
 
 function ServiceGuildCmdProxy:RecvUpdateMapCityGuildCmd(data)
-  GvgProxy.Instance:SetRuleGuildInfos(data)
+  helplog("[Debug 旗帜] Recv--> UpdateMapCityGuildCmd")
+  TableUtil.Print(data)
+  GvgProxy.Instance:UpdateLobbyMapCityGuild(data)
   self:Notify(ServiceEvent.GuildCmdUpdateMapCityGuildCmd, data)
 end
 
 function ServiceGuildCmdProxy:RecvGvgOpenFireGuildCmd(data)
-  GvgProxy.Instance:SetGvgOpenFireState(data.fire, data.settle_time)
+  GvgProxy.Instance:SetGvgOpenFireState(data)
   self:Notify(ServiceEvent.GuildCmdGvgOpenFireGuildCmd, data)
 end
 
@@ -518,4 +521,56 @@ end
 function ServiceGuildCmdProxy:RecvGvgRoadblockQueryGuildCmd(data)
   GvgProxy.Instance:UpdateMyGuildRoadBlock(data.roadblock)
   self:Notify(ServiceEvent.GuildCmdGvgRoadblockQueryGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleInfoGuildCmd(data)
+  GuildDateBattleProxy.Instance:UpdateRecords(data.datas, data.id)
+  self:Notify(ServiceEvent.GuildCmdDateBattleInfoGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleInviteGuildCmd(data)
+  GuildDateBattleProxy.Instance:UpdateRecords(data.datas, nil, data.guildid)
+  self:Notify(ServiceEvent.GuildCmdDateBattleInviteGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleReplyGuildCmd(data)
+  GuildDateBattleProxy.Instance:UpdateRecords(data.datas)
+  self:Notify(ServiceEvent.GuildCmdDateBattleReplyGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleListGuildCmd(data)
+  GuildDateBattleProxy.Instance:HandleQueryAllRecords(data.datas, data.type)
+  self:Notify(ServiceEvent.GuildCmdDateBattleListGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleRankGuildCmd(data)
+  GuildDateBattleProxy.Instance:HandleQueryRank(data.datas, data.mydata)
+  self:Notify(ServiceEvent.GuildCmdDateBattleRankGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleTargetGuildCmd(data)
+  GuildDateBattleProxy.Instance:HandleTargetGuildDateData(data.guildid, data.datas)
+  self:Notify(ServiceEvent.GuildCmdDateBattleTargetGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleOpenGuildCmd(data)
+  GuildDateBattleProxy.Instance:HandleDateBattleOpen(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleOpenGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleReportGuildCmd(data)
+  GuildDateBattleProxy.Instance:HandleSetEntranceData(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleReportGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleDetailGuildCmd(data)
+  GuildDateBattleProxy.Instance:HandleGuildDateReportDetail(data)
+  self:Notify(ServiceEvent.GuildCmdDateBattleDetailGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvRedtipOptGuildCmd(data)
+  GuildDateBattleProxy.Instance:HandleRedtip(data)
+end
+
+function ServiceGuildCmdProxy:RecvDateBattleFlagGuildCmd(data)
 end

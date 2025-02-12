@@ -2273,6 +2273,12 @@ ProtoReqInfoList = {
     ack = "Cmd.EBFEventAreaUpdateCmd",
     from = "FuBenCmd"
   },
+  AstralInfoSyncCmd = {
+    id = 110163,
+    req = "Cmd.AstralInfoSyncCmd",
+    ack = "Cmd.AstralInfoSyncCmd",
+    from = "FuBenCmd"
+  },
   QueryGuildListGuildCmd = {
     id = 500001,
     req = "Cmd.QueryGuildListGuildCmd",
@@ -2819,6 +2825,96 @@ ProtoReqInfoList = {
     ack = "Cmd.ExchangeGvgGroupGuildCmd",
     from = "GuildCmd"
   },
+  GvgDataQueryGuildCmd = {
+    id = 500112,
+    req = "Cmd.GvgDataQueryGuildCmd",
+    ack = "Cmd.GvgDataQueryGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleInfoGuildCmd = {
+    id = 500099,
+    req = "Cmd.DateBattleInfoGuildCmd",
+    ack = "Cmd.DateBattleInfoGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleTargetGuildCmd = {
+    id = 500100,
+    req = "Cmd.DateBattleTargetGuildCmd",
+    ack = "Cmd.DateBattleTargetGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleInviteGuildCmd = {
+    id = 500101,
+    req = "Cmd.DateBattleInviteGuildCmd",
+    ack = "Cmd.DateBattleInviteGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleReplyGuildCmd = {
+    id = 500102,
+    req = "Cmd.DateBattleReplyGuildCmd",
+    ack = "Cmd.DateBattleReplyGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleOpenGuildCmd = {
+    id = 500103,
+    req = "Cmd.DateBattleOpenGuildCmd",
+    ack = "Cmd.DateBattleOpenGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleEnterGuildCmd = {
+    id = 500104,
+    req = "Cmd.DateBattleEnterGuildCmd",
+    ack = "Cmd.DateBattleEnterGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleReportGuildCmd = {
+    id = 500105,
+    req = "Cmd.DateBattleReportGuildCmd",
+    ack = "Cmd.DateBattleReportGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleDetailGuildCmd = {
+    id = 500106,
+    req = "Cmd.DateBattleDetailGuildCmd",
+    ack = "Cmd.DateBattleDetailGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleListGuildCmd = {
+    id = 500107,
+    req = "Cmd.DateBattleListGuildCmd",
+    ack = "Cmd.DateBattleListGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleRankGuildCmd = {
+    id = 500108,
+    req = "Cmd.DateBattleRankGuildCmd",
+    ack = "Cmd.DateBattleRankGuildCmd",
+    from = "GuildCmd"
+  },
+  RedtipOptGuildCmd = {
+    id = 500109,
+    req = "Cmd.RedtipOptGuildCmd",
+    ack = "Cmd.RedtipOptGuildCmd",
+    from = "GuildCmd"
+  },
+  RedtipBrowseGuildCmd = {
+    id = 500110,
+    req = "Cmd.RedtipBrowseGuildCmd",
+    ack = "Cmd.RedtipBrowseGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleFlagGuildCmd = {
+    id = 500111,
+    req = "Cmd.DateBattleFlagGuildCmd",
+    ack = "Cmd.DateBattleFlagGuildCmd",
+    from = "GuildCmd"
+  },
+  DateBattleReportUIStateCmd = {
+    id = 500113,
+    req = "Cmd.DateBattleReportUIStateCmd",
+    ack = "Cmd.DateBattleReportUIStateCmd",
+    from = "GuildCmd"
+  },
   HouseOpt = {
     id = 1,
     req = "Cmd.HouseOpt",
@@ -3243,6 +3339,12 @@ ProtoReqInfoList = {
     id = 10031,
     req = "Cmd.PingUserCmd",
     ack = "Cmd.PingUserCmd",
+    from = "LoginUserCmd"
+  },
+  SetMaxScopeUserCmd = {
+    id = 10033,
+    req = "Cmd.SetMaxScopeUserCmd",
+    ack = "Cmd.SetMaxScopeUserCmd",
     from = "LoginUserCmd"
   },
   ReqMyRoomMatchCCmd = {
@@ -3741,6 +3843,42 @@ ProtoReqInfoList = {
     id = 830011,
     req = "Cmd.SetPippiStateMessCCmd",
     ack = "Cmd.SetPippiStateMessCCmd",
+    from = "MessCCmd"
+  },
+  SyncDestinyGraphMessCCmd = {
+    id = 830012,
+    req = "Cmd.SyncDestinyGraphMessCCmd",
+    ack = "Cmd.SyncDestinyGraphMessCCmd",
+    from = "MessCCmd"
+  },
+  LightenDestinyGraphMessCCmd = {
+    id = 830013,
+    req = "Cmd.LightenDestinyGraphMessCCmd",
+    ack = "Cmd.LightenDestinyGraphMessCCmd",
+    from = "MessCCmd"
+  },
+  AstralRewardMessCCmd = {
+    id = 830014,
+    req = "Cmd.AstralRewardMessCCmd",
+    ack = "Cmd.AstralRewardMessCCmd",
+    from = "MessCCmd"
+  },
+  PurifyProductsMaterialsMessCCmd = {
+    id = 830015,
+    req = "Cmd.PurifyProductsMaterialsMessCCmd",
+    ack = "Cmd.PurifyProductsMaterialsMessCCmd",
+    from = "MessCCmd"
+  },
+  PurifyProductsRefineMessCCmd = {
+    id = 830016,
+    req = "Cmd.PurifyProductsRefineMessCCmd",
+    ack = "Cmd.PurifyProductsRefineMessCCmd",
+    from = "MessCCmd"
+  },
+  AstralSyncSeasonInfoMessCCmd = {
+    id = 830017,
+    req = "Cmd.AstralSyncSeasonInfoMessCCmd",
+    ack = "Cmd.AstralSyncSeasonInfoMessCCmd",
     from = "MessCCmd"
   },
   MiniGameNtfMonsterShot = {
@@ -6485,6 +6623,12 @@ ProtoReqInfoList = {
     ack = "Cmd.CardRewardQueryCmd",
     from = "SceneMap"
   },
+  SkillWeatherSyncCmd = {
+    id = 120036,
+    req = "Cmd.SkillWeatherSyncCmd",
+    ack = "Cmd.SkillWeatherSyncCmd",
+    from = "SceneMap"
+  },
   PetList = {
     id = 99999,
     req = "Cmd.PetList",
@@ -7331,6 +7475,24 @@ ProtoReqInfoList = {
     ack = "Cmd.UseSkillSuccessSync",
     from = "SceneSkill"
   },
+  UpdateMasterSkill = {
+    id = 70035,
+    req = "Cmd.UpdateMasterSkill",
+    ack = "Cmd.UpdateMasterSkill",
+    from = "SceneSkill"
+  },
+  UpdateMasterSkillEquip = {
+    id = 70036,
+    req = "Cmd.UpdateMasterSkillEquip",
+    ack = "Cmd.UpdateMasterSkillEquip",
+    from = "SceneSkill"
+  },
+  SwitchMasterSkill = {
+    id = 70037,
+    req = "Cmd.SwitchMasterSkill",
+    ack = "Cmd.SwitchMasterSkill",
+    from = "SceneSkill"
+  },
   GameTipCmd = {
     id = 180001,
     req = "Cmd.GameTipCmd",
@@ -7643,10 +7805,10 @@ ProtoReqInfoList = {
     ack = "Cmd.UseFrame",
     from = "SceneUser2"
   },
-  NewPortraitFrame = {
+  UpdatePortraitFrame = {
     id = 90020,
-    req = "Cmd.NewPortraitFrame",
-    ack = "Cmd.NewPortraitFrame",
+    req = "Cmd.UpdatePortraitFrame",
+    ack = "Cmd.UpdatePortraitFrame",
     from = "SceneUser2"
   },
   QueryPortraitListUserCmd = {
@@ -8945,6 +9107,12 @@ ProtoReqInfoList = {
     ack = "Cmd.RaceGameFinishUserCmd",
     from = "SceneUser2"
   },
+  SendMarksInfoUserCmd = {
+    id = 90226,
+    req = "Cmd.SendMarksInfoUserCmd",
+    ack = "Cmd.SendMarksInfoUserCmd",
+    from = "SceneUser2"
+  },
   FirstDepositInfo = {
     id = 820001,
     req = "Cmd.FirstDepositInfo",
@@ -9207,6 +9375,24 @@ ProtoReqInfoList = {
     id = 820046,
     req = "Cmd.ActivityExchangeGiftsRewardUserCmd",
     ack = "Cmd.ActivityExchangeGiftsRewardUserCmd",
+    from = "SceneUser3"
+  },
+  GvgExcellectQueryUserCmd = {
+    id = 820047,
+    req = "Cmd.GvgExcellectQueryUserCmd",
+    ack = "Cmd.GvgExcellectQueryUserCmd",
+    from = "SceneUser3"
+  },
+  GvgExcellectRewardUserCmd = {
+    id = 820048,
+    req = "Cmd.GvgExcellectRewardUserCmd",
+    ack = "Cmd.GvgExcellectRewardUserCmd",
+    from = "SceneUser3"
+  },
+  BattleTimeOffUserCmd = {
+    id = 820052,
+    req = "Cmd.BattleTimeOffUserCmd",
+    ack = "Cmd.BattleTimeOffUserCmd",
     from = "SceneUser3"
   },
   QueryAllMail = {
@@ -11119,6 +11305,7 @@ ProtoReqInfoList[110159] = ProtoReqInfoList.QueryPvpStatCmd
 ProtoReqInfoList[110160] = ProtoReqInfoList.EBFKickTimeCmd
 ProtoReqInfoList[110161] = ProtoReqInfoList.EBFContinueCmd
 ProtoReqInfoList[110162] = ProtoReqInfoList.EBFEventAreaUpdateCmd
+ProtoReqInfoList[110163] = ProtoReqInfoList.AstralInfoSyncCmd
 ProtoReqInfoList[500001] = ProtoReqInfoList.QueryGuildListGuildCmd
 ProtoReqInfoList[500002] = ProtoReqInfoList.CreateGuildGuildCmd
 ProtoReqInfoList[500003] = ProtoReqInfoList.EnterGuildGuildCmd
@@ -11210,6 +11397,21 @@ ProtoReqInfoList[500095] = ProtoReqInfoList.BuildingUpdateNtfGuildCmd
 ProtoReqInfoList[500096] = ProtoReqInfoList.GvgRoadblockModifyGuildCmd
 ProtoReqInfoList[500097] = ProtoReqInfoList.GvgRoadblockQueryGuildCmd
 ProtoReqInfoList[500098] = ProtoReqInfoList.ExchangeGvgGroupGuildCmd
+ProtoReqInfoList[500112] = ProtoReqInfoList.GvgDataQueryGuildCmd
+ProtoReqInfoList[500099] = ProtoReqInfoList.DateBattleInfoGuildCmd
+ProtoReqInfoList[500100] = ProtoReqInfoList.DateBattleTargetGuildCmd
+ProtoReqInfoList[500101] = ProtoReqInfoList.DateBattleInviteGuildCmd
+ProtoReqInfoList[500102] = ProtoReqInfoList.DateBattleReplyGuildCmd
+ProtoReqInfoList[500103] = ProtoReqInfoList.DateBattleOpenGuildCmd
+ProtoReqInfoList[500104] = ProtoReqInfoList.DateBattleEnterGuildCmd
+ProtoReqInfoList[500105] = ProtoReqInfoList.DateBattleReportGuildCmd
+ProtoReqInfoList[500106] = ProtoReqInfoList.DateBattleDetailGuildCmd
+ProtoReqInfoList[500107] = ProtoReqInfoList.DateBattleListGuildCmd
+ProtoReqInfoList[500108] = ProtoReqInfoList.DateBattleRankGuildCmd
+ProtoReqInfoList[500109] = ProtoReqInfoList.RedtipOptGuildCmd
+ProtoReqInfoList[500110] = ProtoReqInfoList.RedtipBrowseGuildCmd
+ProtoReqInfoList[500111] = ProtoReqInfoList.DateBattleFlagGuildCmd
+ProtoReqInfoList[500113] = ProtoReqInfoList.DateBattleReportUIStateCmd
 ProtoReqInfoList[1] = ProtoReqInfoList.HouseOpt
 ProtoReqInfoList[700001] = ProtoReqInfoList.QueryFurnitureDataHomeCmd
 ProtoReqInfoList[700002] = ProtoReqInfoList.FurnitureActionHomeCmd
@@ -11281,6 +11483,7 @@ ProtoReqInfoList[10028] = ProtoReqInfoList.DeviceInfoUserCmd
 ProtoReqInfoList[10029] = ProtoReqInfoList.AttachLoginUserCmd
 ProtoReqInfoList[10030] = ProtoReqInfoList.AttachSyncCmdUserCmd
 ProtoReqInfoList[10031] = ProtoReqInfoList.PingUserCmd
+ProtoReqInfoList[10033] = ProtoReqInfoList.SetMaxScopeUserCmd
 ProtoReqInfoList[610001] = ProtoReqInfoList.ReqMyRoomMatchCCmd
 ProtoReqInfoList[610002] = ProtoReqInfoList.ReqRoomListCCmd
 ProtoReqInfoList[610003] = ProtoReqInfoList.ReqRoomDetailCCmd
@@ -11364,6 +11567,12 @@ ProtoReqInfoList[830008] = ProtoReqInfoList.InviterResultLoveConfessionMessCCmd
 ProtoReqInfoList[830009] = ProtoReqInfoList.SyncMapStepForeverRewardInfo
 ProtoReqInfoList[830010] = ProtoReqInfoList.BalanceModeChooseMessCCmd
 ProtoReqInfoList[830011] = ProtoReqInfoList.SetPippiStateMessCCmd
+ProtoReqInfoList[830012] = ProtoReqInfoList.SyncDestinyGraphMessCCmd
+ProtoReqInfoList[830013] = ProtoReqInfoList.LightenDestinyGraphMessCCmd
+ProtoReqInfoList[830014] = ProtoReqInfoList.AstralRewardMessCCmd
+ProtoReqInfoList[830015] = ProtoReqInfoList.PurifyProductsMaterialsMessCCmd
+ProtoReqInfoList[830016] = ProtoReqInfoList.PurifyProductsRefineMessCCmd
+ProtoReqInfoList[830017] = ProtoReqInfoList.AstralSyncSeasonInfoMessCCmd
 ProtoReqInfoList[2230001] = ProtoReqInfoList.MiniGameNtfMonsterShot
 ProtoReqInfoList[2230002] = ProtoReqInfoList.MiniGameMonsterShotAction
 ProtoReqInfoList[2230009] = ProtoReqInfoList.MiniGameNtfMonsterAnswer
@@ -11821,6 +12030,7 @@ ProtoReqInfoList[120032] = ProtoReqInfoList.MapNpcShowMapCmd
 ProtoReqInfoList[120033] = ProtoReqInfoList.MapNpcDelMapCmd
 ProtoReqInfoList[120031] = ProtoReqInfoList.NpcPreloadForbidMapCmd
 ProtoReqInfoList[120035] = ProtoReqInfoList.CardRewardQueryCmd
+ProtoReqInfoList[120036] = ProtoReqInfoList.SkillWeatherSyncCmd
 ProtoReqInfoList[99999] = ProtoReqInfoList.PetList
 ProtoReqInfoList[100002] = ProtoReqInfoList.FireCatPetCmd
 ProtoReqInfoList[100003] = ProtoReqInfoList.HireCatPetCmd
@@ -11962,6 +12172,9 @@ ProtoReqInfoList[70031] = ProtoReqInfoList.MarkSunMoonSkillCmd
 ProtoReqInfoList[70032] = ProtoReqInfoList.TriggerKickSkillSkillCmd
 ProtoReqInfoList[70033] = ProtoReqInfoList.TimeDiskSkillCmd
 ProtoReqInfoList[70034] = ProtoReqInfoList.UseSkillSuccessSync
+ProtoReqInfoList[70035] = ProtoReqInfoList.UpdateMasterSkill
+ProtoReqInfoList[70036] = ProtoReqInfoList.UpdateMasterSkillEquip
+ProtoReqInfoList[70037] = ProtoReqInfoList.SwitchMasterSkill
 ProtoReqInfoList[180001] = ProtoReqInfoList.GameTipCmd
 ProtoReqInfoList[180002] = ProtoReqInfoList.BrowseRedTipCmd
 ProtoReqInfoList[180003] = ProtoReqInfoList.AddRedTip
@@ -12014,7 +12227,7 @@ ProtoReqInfoList[90232] = ProtoReqInfoList.EvaluationReward
 ProtoReqInfoList[90017] = ProtoReqInfoList.TeamInfoNine
 ProtoReqInfoList[90018] = ProtoReqInfoList.UsePortrait
 ProtoReqInfoList[90019] = ProtoReqInfoList.UseFrame
-ProtoReqInfoList[90020] = ProtoReqInfoList.NewPortraitFrame
+ProtoReqInfoList[90020] = ProtoReqInfoList.UpdatePortraitFrame
 ProtoReqInfoList[90024] = ProtoReqInfoList.QueryPortraitListUserCmd
 ProtoReqInfoList[90025] = ProtoReqInfoList.UseDressing
 ProtoReqInfoList[90026] = ProtoReqInfoList.NewDressing
@@ -12231,6 +12444,7 @@ ProtoReqInfoList[90251] = ProtoReqInfoList.SendTargetPosUserCmd
 ProtoReqInfoList[90252] = ProtoReqInfoList.CookGameFinishUserCmd
 ProtoReqInfoList[90253] = ProtoReqInfoList.RaceGameStartUserCmd
 ProtoReqInfoList[90254] = ProtoReqInfoList.RaceGameFinishUserCmd
+ProtoReqInfoList[90226] = ProtoReqInfoList.SendMarksInfoUserCmd
 ProtoReqInfoList[820001] = ProtoReqInfoList.FirstDepositInfo
 ProtoReqInfoList[820002] = ProtoReqInfoList.FirstDepositReward
 ProtoReqInfoList[820003] = ProtoReqInfoList.ClientPayLog
@@ -12275,6 +12489,9 @@ ProtoReqInfoList[820043] = ProtoReqInfoList.YearMemoryProcessUserCmd
 ProtoReqInfoList[820044] = ProtoReqInfoList.SetYearMemoryTitleUserCmd
 ProtoReqInfoList[820045] = ProtoReqInfoList.ActivityExchangeGiftsQueryUserCmd
 ProtoReqInfoList[820046] = ProtoReqInfoList.ActivityExchangeGiftsRewardUserCmd
+ProtoReqInfoList[820047] = ProtoReqInfoList.GvgExcellectQueryUserCmd
+ProtoReqInfoList[820048] = ProtoReqInfoList.GvgExcellectRewardUserCmd
+ProtoReqInfoList[820052] = ProtoReqInfoList.BattleTimeOffUserCmd
 ProtoReqInfoList[550001] = ProtoReqInfoList.QueryAllMail
 ProtoReqInfoList[550002] = ProtoReqInfoList.MailUpdate
 ProtoReqInfoList[550003] = ProtoReqInfoList.GetMailAttach

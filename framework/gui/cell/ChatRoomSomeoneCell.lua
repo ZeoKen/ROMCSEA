@@ -19,7 +19,7 @@ function ChatRoomSomeoneCell:FindObjs()
   ChatRoomSomeoneCell.super.FindObjs(self)
   self.zoneGO = self:FindGO("Zone")
   self.zone = self.zoneGO:GetComponent(UILabel)
-  self.bg = self:FindGO("contentSpriteBg"):GetComponent(UISprite)
+  self.bg = self:FindGO("contentSpriteBg"):GetComponent(UITexture)
 end
 
 function ChatRoomSomeoneCell:SetData(data)
@@ -54,8 +54,8 @@ function ChatRoomSomeoneCell:_SetBg(data)
         self["bgDecorate" .. i .. "_Icon"].gameObject:SetActive(false)
       end
       local bg = self.bg
-      bg.spriteName = isTeam and "chatroom_bg_2" or "chatroom_bg_1"
-      bg.flip = isTeam and 1 or 0
+      local spriteName = isTeam and "chatroom_bg_2" or "chatroom_bg_1"
+      PictureManager.Instance:SetChatRoomTexture(spriteName, bg)
       self.isTeam = isTeam
       self.bgIndex = nil
     end
@@ -67,11 +67,11 @@ function ChatRoomSomeoneCell:_SetBg(data)
         local decorateNameRoot = config.IconName
         for i = 1, 4 do
           self["bgDecorate" .. i .. "_Icon"].gameObject:SetActive(true)
-          self["bgDecorate" .. i .. "_Icon"].spriteName = decorateNameRoot .. "_" .. i
+          PictureManager.Instance:SetChatRoomTexture(decorateNameRoot .. "_" .. i, self["bgDecorate" .. i .. "_Icon"])
           self["bgDecorate" .. i .. "_Icon"]:MakePixelPerfect()
         end
         local bg = self.bg
-        bg.spriteName = config.BubbleName
+        PictureManager.Instance:SetChatRoomTexture(config.BubbleName, bg)
         self.bgIndex = chatframeId
         if config.TextColor and config.TextColor ~= "" then
           local _, color = ColorUtil.TryParseHtmlString(config.TextColor)

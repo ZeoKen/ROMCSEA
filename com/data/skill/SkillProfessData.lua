@@ -68,11 +68,15 @@ function SkillProfessData:AddSkill(serverSkillItem)
 end
 
 function SkillProfessData:RemoveSkill(serverSkillItem)
-  local skill, index = self:FindSkillByIdAndSource(serverSkillItem.id, serverSkillItem.sourceid)
+  return self:RemoveSkillByIdAndSource(serverSkillItem.id, serverSkillItem.sourceid)
+end
+
+function SkillProfessData:RemoveSkillByIdAndSource(id, source)
+  local skill, index = self:FindSkillByIdAndSource(id, source)
   if skill then
     table.remove(self.skills, index)
   end
-  return skill
+  return skill, index
 end
 
 function SkillProfessData:FindSkillByIdAndSource(id, source)

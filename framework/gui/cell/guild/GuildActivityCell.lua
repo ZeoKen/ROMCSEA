@@ -5,6 +5,8 @@ GuildActivityCellEvent = {
   ClickHelp = "GuildActivityCellEvent_ClickHelp"
 }
 local GUILD_CHALLENGE_REWARD = SceneTip_pb.EREDSYS_GUILD_CHALLENGE_REWARD or 42
+local EREDSYS_GUILD_DATEBATTLE_INVITE = SceneTip_pb.EREDSYS_GUILD_DATEBATTLE_INVITE or 10767
+local EREDSYS_GUILD_DATEBATTLE_READY = SceneTip_pb.EREDSYS_GUILD_DATEBATTLE_READY or 10768
 local assembleProgressFoe = "guild_bg_jindutiao"
 local tempArgs = {}
 
@@ -37,6 +39,13 @@ function GuildActivityCell:Init()
     end
     self:DoTrace()
   end)
+  self.targetBtn = self:FindGO("Func2Btn")
+  self.targetBtn_Label = self:FindGO("Label", self.targetBtn):GetComponent(UILabel)
+  self:AddClickEvent(self.targetBtn, function()
+    self:OpenGVGTarget(1)
+  end)
+  RedTipProxy.Instance:RegisterUI(SceneTip_pb.EREDSYS_GVG_FIRE, self.targetBtn, 15)
+  RedTipProxy.Instance:RegisterUI(SceneTip_pb.EREDSYS_EXCELLENT_REWARD, self.targetBtn, 15)
   self.helpButton = self:FindGO("DescButton")
   self:AddClickEvent(self.helpButton, function(go)
     self:PassEvent(GuildActivityCellEvent.ClickHelp, self.data)
@@ -53,6 +62,10 @@ function GuildActivityCell:Init()
   self.assembleProgressBar = self:FindComponent("AssembleProgress", UIProgressBar)
   self.assembleDesc = self:FindComponent("AssembleTip", UILabel)
   self.remainTimeLabel = self:FindComponent("RemainTime", UILabel)
+  self.season = self:FindGO("Season")
+  self.season_txt1 = self:FindGO("SeasonLab", self.season):GetComponent(UISprite)
+  self.season_txt2 = self:FindGO("SeasonLab2", self.season):GetComponent(UISprite)
+  self.rankName = self:FindGO("RankName", self.season):GetComponent(UILabel)
 end
 
 function GuildActivityCell:DoTrace()
@@ -68,6 +81,10 @@ function GuildActivityCell:DoTrace()
         self:JumpPanel()
       end
     elseif self.data.PanelId then
+      if self.data.PanelId == 553 then
+        self:OpenGVGTarget(2)
+        return
+      end
       self:JumpPanel()
     else
       self:GotoNpc()
@@ -98,6 +115,14 @@ function GuildActivityCell:GotoNpc()
   else
     ServiceGuildCmdProxy.Instance:CallEnterTerritoryGuildCmd()
   end
+end
+
+function GuildActivityCell:OpenGVGTarget(index)
+  RedTipProxy.Instance:RemoveWholeTip(10773)
+  self:sendNotification(UIEvent.JumpPanel, {
+    view = PanelConfig.GLandStatusCombineView,
+    viewdata = {index = index}
+  })
 end
 
 function GuildActivityCell:SetData(data)
@@ -153,6 +178,39 @@ function GuildActivityCell:SetData(data)
         self.assembleGreyBtn:SetActive(false)
         self.transButton:SetActive(false)
       end
+    elseif self.data.PanelId == 553 then
+      self.assembleDesc.text = ""
+      self.assembleProgressBar.gameObject:SetActive(false)
+      self.assembleButton:SetActive(false)
+      self.assembleGreyBtn:SetActive(false)
+      self.targetBtn:SetActive(true)
+      self.transButton:SetActive(true)
+      self.desc.text = ""
+      self.season:SetActive(true)
+      local nowSeason = GvgProxy.Instance:NowSeason() or 0
+      if 10 <= nowSeason then
+        local first, second = math.modf(nowSeason / 10)
+        self.season_txt1.spriteName = "txt_combo_" .. first
+        self.season_txt2.spriteName = "txt_combo_" .. second
+        self.rankName.gameObject.transform.localPosition = LuaGeometry.GetTempVector3(80, 17, 0)
+      else
+        self.season_txt1.spriteName = "txt_combo_" .. nowSeason
+        self.season_txt2.gameObject:SetActive(false)
+        self.rankName.gameObject.transform.localPosition = LuaGeometry.GetTempVector3(70, 17, 0)
+      end
+      local rank = GvgProxy.Instance:GetExcellentRank()
+      local rankConfig = GameConfig.ExcellentRankName and GameConfig.ExcellentRankName[rank]
+      if rankConfig then
+        self.rankName.text = rankConfig.name
+        local atlas = RO.AtlasMap.GetAtlas("UI_GuildWar")
+        if atlas then
+          self.headIcon.atlas = atlas
+          self.headIcon.spriteName = "guildwar_icon_0" .. rank
+          self.headIcon:MakePixelPerfect()
+          self.headIcon.gameObject.transform.localScale = LuaGeometry.GetTempVector3(0.68, 0.68, 0.68)
+        end
+      end
+      self.transButton_label.text = "GVG"
     else
       self.desc.text = data.Content
       self.assembleDesc.text = ""
@@ -198,6 +256,16 @@ function GuildActivityCell:RegistRedTip()
   if self.data.AssembleId then
     RedTipProxy.Instance:RegisterUI(SceneTip_pb.EREDSYS_GUILD_ASSEMBLY_AWARD, self.transButton, 10, {6, -2}, NGUIUtil.AnchorSide.TopLeft)
   end
+  if self.data.PanelId and self.data.PanelId == PanelConfig.GuildDateBattleRecordView.id then
+    if RedTipProxy.Instance:HasRedTipParam(EREDSYS_GUILD_DATEBATTLE_INVITE) then
+      RedTipProxy.Instance:RegisterUI(EREDSYS_GUILD_DATEBATTLE_INVITE, self.transButton, 10, {-7, -7})
+      self.guildDateTipRegister = true
+    end
+    if RedTipProxy.Instance:HasRedTipParam(EREDSYS_GUILD_DATEBATTLE_READY) then
+      RedTipProxy.Instance:RegisterUI(EREDSYS_GUILD_DATEBATTLE_READY, self.transButton, 10, {-7, -7})
+      self.guildDateTipRegister = true
+    end
+  end
 end
 
 function GuildActivityCell:UnRegisteRedTip()
@@ -208,6 +276,11 @@ function GuildActivityCell:UnRegisteRedTip()
   if self.data.AssembleId then
     RedTipProxy.Instance:UnRegisterUI(SceneTip_pb.EREDSYS_GUILD_ASSEMBLY_AWARD, self.transButton)
   end
+  if self.guildDateTipRegister then
+    RedTipProxy.Instance:UnRegisterUI(EREDSYS_GUILD_DATEBATTLE_INVITE, self.transButton)
+    RedTipProxy.Instance:UnRegisterUI(EREDSYS_GUILD_DATEBATTLE_READY, self.transButton)
+  end
+  self.guildDateTipRegister = false
 end
 
 function GuildActivityCell:OnRemove()

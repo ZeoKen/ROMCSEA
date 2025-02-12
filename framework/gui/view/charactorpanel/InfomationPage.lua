@@ -193,6 +193,7 @@ function InfomationPage:RegistRedTip()
     self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_PHOTOFRAME, portraitObj, nil, {-15, -15})
     self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_PORTRAIT_FRAME, portraitObj, nil, {-15, -15})
     self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_BACKGROUND_FRAME, portraitObj, nil, {-15, -15})
+    self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_CHAT_FRAME, portraitObj, nil, {-15, -15})
   end
 end
 

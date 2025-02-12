@@ -79,6 +79,7 @@ function FunctionSkillEnableCheck:AddListener()
   EventManager.Me():AddEventListener(MyselfEvent.SelectTarget_HpChange, self.TargetHpUpdateCheck, self)
   EventManager.Me():AddEventListener(MyselfEvent.InterferenceValueChange, self.InterferenceValueUpdateCheck, self)
   EventManager.Me():AddEventListener(MyselfEvent.RidePlayerChange, self.RidePlayerCheck, self)
+  EventManager.Me():AddEventListener(MyselfEvent.AsEquipChange, self.EquipCheck, self)
 end
 
 function FunctionSkillEnableCheck:Log(arg1, arg2, arg3, arg4, arg5)
@@ -495,6 +496,13 @@ function FunctionSkillEnableCheck:WearEquipCheck(conditionCheck)
       if itemtype ~= nil then
         local num = equipBag:GetNumByItemType(itemtype)
         local weaponNum = equipBag:GetWeapon()
+        local checksite = self.myself:GetAsEquipSite(itemtype)
+        if checksite then
+          local checkNum = equipBag:GetEquipBySite(checksite)
+          if checkNum then
+            num = 1
+          end
+        end
         if itemtype == 0 then
           if not weaponNum then
             self:UpdateReason(conditionCheck, true, skill, preCondition)
@@ -687,6 +695,10 @@ function FunctionSkillEnableCheck:RoleEquipUpdateCheck(item)
     local numType = equipBag:GetNumByItemType(item.staticData.Type)
     local num = equipBag:GetStaticIdMap()[item.staticData.id]
     local weaponNum = equipBag:GetWeapon()
+    local checkAsEquip = self.myself:GetAsEquip(item.index)
+    if not numType or numType < 0 then
+      checkAsEquip = false
+    end
     for k, v in pairs(preConditions) do
       if self:_ProCheckSkillPreCond(v) == false then
         local needChecks = v:GetPrecondtionsByType(SkillPrecondCheck.PreConditionType.WearEquip)
@@ -700,7 +712,7 @@ function FunctionSkillEnableCheck:RoleEquipUpdateCheck(item)
               else
                 self:UpdateReason(v, false, v.skillItemData, preCondition)
               end
-            elseif preCondition.itemtype == item.staticData.Type then
+            elseif preCondition.itemtype == item.staticData.Type or checkAsEquip then
               if numType and 0 < numType then
                 self:UpdateReason(v, true, v.skillItemData, preCondition)
               else
@@ -1266,4 +1278,13 @@ end
 function FunctionSkillEnableCheck:TargetUpdateCheck()
   self:TargetHpUpdateCheck()
   self:RidePlayerCheck()
+end
+
+function FunctionSkillEnableCheck:EquipCheck()
+  local preConditions = self.skillsTypeCheck[SkillPrecondCheck.PreConditionType.WearEquip]
+  if preConditions then
+    for k, v in pairs(preConditions) do
+      self:WearEquipCheck(v)
+    end
+  end
 end

@@ -72,6 +72,7 @@ Table_Appellation = {
   },
   [1004] = {
     id = 1004,
+    Name = "##106480",
     GroupID = 1,
     PostID = 1005,
     Level = "E",
@@ -103,7 +104,6 @@ Table_Appellation = {
   },
   [1008] = {
     id = 1008,
-    Name = "##106396",
     GroupID = 1,
     PostID = 1009,
     Level = "A",
@@ -693,6 +693,7 @@ Table_Appellation = {
   },
   [1202] = {
     id = 1202,
+    Name = "##106480",
     GroupID = 3,
     TitleSort = 1202,
     PostID = 1203,
@@ -1269,7 +1270,6 @@ Table_Appellation = {
   },
   [1290] = {
     id = 1290,
-    Name = "##106396",
     GroupID = 3,
     TitleSort = 1290,
     OrderType = 0,
@@ -1619,6 +1619,12 @@ Table_Appellation = {
     OrderType = 0,
     BaseProp = Table_Appellation_t.BaseProp[1]
   },
+  [3006633] = {
+    id = 3006633,
+    Name = "##42534672",
+    TitleSort = 3006633,
+    OrderType = 0
+  },
   [3007609] = {
     id = 3007609,
     Name = "2023",
@@ -1630,6 +1636,13 @@ Table_Appellation = {
     id = 3010865,
     Name = "2024",
     TitleSort = 3010865,
+    OrderType = 0,
+    BaseProp = Table_Appellation_t.BaseProp[1]
+  },
+  [3012474] = {
+    id = 3012474,
+    Name = "2025",
+    TitleSort = 3012474,
     OrderType = 0,
     BaseProp = Table_Appellation_t.BaseProp[1]
   },
@@ -1646,7 +1659,7 @@ local cell_mt = {
     BaseProp = _EmptyTable,
     GroupID = 2,
     Level = "",
-    Name = "##106480",
+    Name = "##106396",
     id = 3003135
   }
 }

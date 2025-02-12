@@ -8,9 +8,6 @@ end
 
 function PveMonsterTextureCell:SetData(id, tex)
   self.data = id
-  if not id then
-    return
-  end
   if not StringUtil.IsEmpty(tex) and self.tex ~= tex then
     self.tex = tex
     UIModelUtil.Instance:ChangeBGMeshRenderer(tex, self.texture)

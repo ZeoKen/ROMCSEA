@@ -137,9 +137,11 @@ function EquipMemoryAttrDetailCell:SetData(data)
       for i = 1, #waxBuffIds do
         local buffInfo = Table_Buffer[waxBuffIds[i]]
         if buffInfo then
-          _waxDesc = _waxDesc .. buffInfo.Dsc
-          if i < #waxBuffIds then
-            _waxDesc = _waxDesc .. "\n"
+          if buffInfo and buffInfo.BuffEffect and not buffInfo.BuffEffect.NoShow then
+            _waxDesc = _waxDesc .. buffInfo.Dsc
+            if i < #waxBuffIds then
+              _waxDesc = _waxDesc .. "\n"
+            end
           end
         else
           redlog("buffer error", waxBuffIds[i])

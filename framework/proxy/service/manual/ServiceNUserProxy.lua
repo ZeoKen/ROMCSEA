@@ -327,10 +327,10 @@ function ServiceNUserProxy:RecvQueryPortraitListUserCmd(data)
   self:Notify(ServiceEvent.NUserQueryPortraitListUserCmd, data)
 end
 
-function ServiceNUserProxy:RecvNewPortraitFrame(data)
+function ServiceNUserProxy:RecvUpdatePortraitFrame(data)
   helplog("Recv-->NewPortraitFrame")
-  ChangeHeadProxy.Instance:RecvNewPortraitFrame(data)
-  self:Notify(ServiceEvent.NUserNewPortraitFrame, data)
+  ChangeHeadProxy.Instance:RecvUpdatePortraitFrame(data)
+  self:Notify(ServiceEvent.NUserUpdatePortraitFrame, data)
 end
 
 local notifyChatMsg = function(role, data, text, icon)
@@ -1768,4 +1768,9 @@ function ServiceNUserProxy:RecvNewSetOptionUserCmd(data)
     WildMvpProxy.Instance:HandleLuckySettingResult(data)
   end
   self:Notify(ServiceEvent.NUserNewSetOptionUserCmd, data)
+end
+
+function ServiceNUserProxy:RecvSendMarksInfoUserCmd(data)
+  MyselfProxy.Instance:SetSendMarksInfo(data)
+  self:Notify(ServiceEvent.NUserSendMarksInfoUserCmd, data)
 end

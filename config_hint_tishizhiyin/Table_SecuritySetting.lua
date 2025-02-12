@@ -38,6 +38,11 @@ Table_SecuritySetting = {
     id = 13,
     Desc = "##1264280",
     param = _EmptyTable
+  },
+  [14] = {
+    id = 14,
+    Desc = "##42534295",
+    param = _EmptyTable
   }
 }
 Table_SecuritySetting_fields = {

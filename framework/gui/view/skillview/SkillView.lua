@@ -140,6 +140,8 @@ end
 
 function SkillView:AddViewListener()
   self:AddListenEvt(SkillEvent.SkillUpdate, self.RefreshSkills)
+  self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkill, self.RefreshSkills)
+  self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkillEquip, self.RefreshSkills)
   self:AddListenEvt(MyselfEvent.MyProfessionChange, self.RefreshProfess)
 end
 
@@ -572,7 +574,8 @@ end
 function SkillView:SwapSkill(obj)
   local source = obj.data.source
   local target = obj.data.target
-  if self.contentView:IsEditMode() and source.class == SkillCell then
+  redlog("SkillView:SwapSkill", source and source.data.id, target and target.data.id)
+  if self.contentView:IsEditMode() and (source.class == SkillCell or source.class == MasterSkillCell) then
     MsgManager.ShowMsgByIDTable(608)
     return
   end
@@ -681,7 +684,7 @@ function SkillView:CheckNeedShowProfessToggle()
   local professTree = ProfessionProxy.Instance:GetProfessionTreeByClassId(myProfess)
 end
 
-function SkillView:ProcessCurrentJobLevelAndCustomJobId(jobid, JobLevel)
+function SkillView:ProcessCurrentJobLevelAndCustomJobId(jobid, jobLevel)
   local currentJobId = MyselfProxy.Instance:GetMyProfession()
   if jobid < currentJobId then
     if jobid == 1 then
@@ -703,18 +706,34 @@ function SkillView:ProcessCurrentJobLevelAndCustomJobId(jobid, JobLevel)
     end
     return 0
   elseif jobid == currentJobId then
-    return ProfessionProxy:GetThisJobLevelForClient(jobid, JobLevel)
+    local jobLevelConfig = Table_JobLevel[jobLevel]
+    if jobLevelConfig and jobLevelConfig.MasterLv and 0 < jobLevelConfig.MasterLv then
+      jobLevel = jobLevel - jobLevelConfig.ShowLevel
+    end
+    return ProfessionProxy:GetThisJobLevelForClient(jobid, jobLevel)
   elseif jobid > currentJobId then
     return 1
   end
 end
 
-function SkillView:UpdateTopByProfess(myProfess)
+function SkillView:UpdateTopByProfess(myProfess, isMaster)
   local config = Table_Class[myProfess]
   IconManager:SetNewProfessionIcon(config.icon, self.professIcon)
-  local jobLevel = self:ProcessCurrentJobLevelAndCustomJobId(myProfess, self:GetJobLevel())
+  local jobLevel
+  local jobLv = self:GetJobLevel()
+  if isMaster then
+    local jobLevelConfig = Table_JobLevel[jobLv]
+    if jobLevelConfig and jobLevelConfig.MasterLv and jobLevelConfig.MasterLv > 0 then
+      jobLevel = jobLevelConfig.ShowLevel
+    else
+      jobLevel = 0
+    end
+  else
+    jobLevel = self:ProcessCurrentJobLevelAndCustomJobId(myProfess, jobLv)
+  end
   self.professLevelLabel.text = string.format("Lv.%s", jobLevel)
-  self.professNameLabel.text = ProfessionProxy.GetProfessionName(myProfess, MyselfProxy.Instance:GetMySex())
+  local name = ProfessionProxy.GetProfessionName(myProfess, MyselfProxy.Instance:GetMySex())
+  self.professNameLabel.text = name
   local iconColor = ColorUtil["CareerIconBg" .. config.Type]
   if iconColor == nil then
     iconColor = ColorUtil.CareerIconBg1
@@ -726,8 +745,8 @@ function SkillView:ShowProfessSkillPoints(isShow)
   self.professSkillPoint:SetActive(isShow)
 end
 
-function SkillView:UpdateProfessSkillPoints(curPoints)
-  self.currentProfessSkillPoints.text = string.format("%s/%s", curPoints, SkillProxy.UNLOCKPROSKILLPOINTS)
+function SkillView:UpdateProfessSkillPoints(curPoints, totalPoints)
+  self.currentProfessSkillPoints.text = string.format("%s/%s", curPoints, totalPoints or SkillProxy.UNLOCKPROSKILLPOINTS)
 end
 
 function SkillView:UpdateSkillSimulatePoints(points)
@@ -912,4 +931,9 @@ end
 
 function SkillView:SetMaskColliderOn(on)
   self.maskCollider:SetActive(on)
+end
+
+function SkillView:UpdateRecommendBtn(active)
+  self.recommendBtn:SetActive(active)
+  self.resetBtn:SetActive(active)
 end

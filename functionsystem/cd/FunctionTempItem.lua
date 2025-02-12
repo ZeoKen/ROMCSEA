@@ -98,7 +98,7 @@ function FunctionTempItem:RefreshTempItemUseTime()
   local dirty = false
   for itemguid, useTime in pairs(self.useIntervalCheckMap) do
     local item = BagProxy.Instance:GetItemByGuid(itemguid, BagProxy.BagType.MainBag)
-    if item:CanIntervalUse() then
+    if item and item:CanIntervalUse() then
       dirty = true
       GameFacade.Instance:sendNotification(ItemEvent.UseTimeUpdate)
       self:RemoveItemIntervalUseCheck(itemguid)

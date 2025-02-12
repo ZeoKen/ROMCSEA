@@ -187,6 +187,58 @@ Table_QuestVersion = {
       82,
       144
     }
+  },
+  [10] = {
+    id = 10,
+    version = "5.0",
+    name = "尼夫海姆",
+    icon = "taskmanual_btn_SZGD",
+    PuzzleUnder = "taskmanual_bg_jigsaw",
+    VersionStory = "人死后会去哪里呢？\n　　死者之都尼夫海姆是真实存在的吗？\n　　有的人孤独的活着，祈盼着重逢的那一天，而有的人跨越了生死之线去追逐不存在的未来。阴暗的尼夫海姆正是因为有各式各样的灵魂存在，才会充满了情感与思念。我们还能再相见吗？如果你这样问的话，或许能听到一个冰冷的回答：“欢迎来到尼夫海姆。”",
+    StoryName = "死亡与无心之人",
+    VersionPic = "Puzzle_6",
+    FirstMainQuest = 204220001,
+    sortid = 11,
+    KeyReward = {
+      male = {
+        {51241, 1}
+      },
+      female = {
+        {51251, 1}
+      }
+    },
+    VersionBG = "Missiontracking_bottom_heise",
+    MapID = {
+      70,
+      71,
+      72,
+      73,
+      74
+    }
+  },
+  [11] = {
+    id = 11,
+    version = "6.0",
+    name = "里希塔乐镇",
+    icon = "taskmanual_btn_07",
+    PuzzleUnder = "taskmanual_bg_jigsaw",
+    VersionStory = "当光与影在黄昏中交织，里希塔乐镇迎来了它的夜晚。形形色色的人们聚集于此，在这里，富裕和饥贫正前所未有的对立着。平静的表象岌岌可危，而一切如同有只操纵全局的手，将此处暗涌的浪潮压抑至沉寂。在看不见的深处，里希塔乐镇又隐藏着怎样的秘密？带着重重疑问，真相的追寻者们踏上了这片土地。而阳光下的谎言在伪装破碎后，终于渐渐露出了黑暗的爪牙……",
+    StoryName = "光影交织的秘密",
+    VersionPic = "Puzzle_9",
+    FirstMainQuest = 204950001,
+    sortid = 8,
+    KeyReward = {
+      {25139, 1}
+    },
+    VersionBG = "Missiontracking_bottom_guangying",
+    MapID = {
+      76,
+      77,
+      78,
+      79,
+      80,
+      81
+    }
   }
 }
 Table_QuestVersion_fields = {

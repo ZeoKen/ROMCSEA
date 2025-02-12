@@ -173,9 +173,45 @@ function FashionPreviewTip:RefreshByData(parts, class, sex, hideOther, camConfig
     elseif isPreviewMount then
       self.model:PlayAction_Idle()
     end
+    self:RefreshBuffState()
   end)
   self.model:RegisterWeakObserver(self)
   Asset_Role.DestroyPartArray(parts)
+end
+
+function FashionPreviewTip:RefreshBuffState()
+  if not self.id then
+    return
+  end
+  if self.buffEffect and self.buffEffect[self.id] then
+    return
+  end
+  if not self.buffEffect then
+    self.buffEffect = {}
+  end
+  xdlog("RefreshBuffState", self.id)
+  local equipData = Table_Equip[self.id]
+  local fashionBuff = equipData and equipData.FashionBuff
+  if fashionBuff and 0 < #fashionBuff then
+    for i = 1, #fashionBuff do
+      local buffData = Table_Buffer[fashionBuff[i]]
+      local buffStateID = buffData and buffData.BuffStateID
+      if buffStateID then
+        local buffStateData = Table_BuffState[buffStateID]
+        local path = buffStateData.Effect
+        self.model:PlayEffectOn(path, buffStateData.EP)
+        self.uiModelCell:SetCameraCulling({
+          LayerMask.NameToLayer("UIModel"),
+          LayerMask.NameToLayer("UIModelOutline"),
+          LayerMask.NameToLayer("Outline"),
+          LayerMask.NameToLayer("Default")
+        })
+      end
+    end
+    self.buffEffect[self.id] = 1
+  else
+    self.uiModelCell:ResetCameraCulling()
+  end
 end
 
 function FashionPreviewTip:ObserverDestroyed(obj)

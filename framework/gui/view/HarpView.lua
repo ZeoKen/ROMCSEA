@@ -3,13 +3,34 @@ HarpView.ViewType = UIViewType.NormalLayer
 local hideType = {hideClickSound = true, hideClickEffect = false}
 local clickEffect = "Collection_HuashenHarp"
 local soundList = {
-  [1] = {SE = "Npc/do", sound = "Do"},
-  [2] = {SE = "Npc/re", sound = "Re"},
-  [3] = {SE = "Npc/mi", sound = "Mi"},
-  [4] = {SE = "Npc/fa", sound = "Fa"},
-  [5] = {SE = "Npc/so", sound = "So"},
-  [6] = {SE = "Npc/la", sound = "La"},
-  [7] = {SE = "Npc/xi", sound = "Xi"}
+  [1] = {
+    SE = AudioMap.UI.Music_1,
+    sound = "Do"
+  },
+  [2] = {
+    SE = AudioMap.UI.Music_2,
+    sound = "Re"
+  },
+  [3] = {
+    SE = AudioMap.UI.Music_3,
+    sound = "Mi"
+  },
+  [4] = {
+    SE = AudioMap.UI.Music_4,
+    sound = "Fa"
+  },
+  [5] = {
+    SE = AudioMap.UI.Music_5,
+    sound = "So"
+  },
+  [6] = {
+    SE = AudioMap.UI.Music_6,
+    sound = "La"
+  },
+  [7] = {
+    SE = AudioMap.UI.Music_7,
+    sound = "Xi"
+  }
 }
 
 function HarpView:Init()

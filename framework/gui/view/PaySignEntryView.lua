@@ -169,10 +169,18 @@ function PaySignEntryView:OnPurchase()
       FunctionNewRecharge.Instance():OpenUI(PanelConfig.NewRecharge_TDeposit)
     end)
   else
-    MsgManager.ConfirmMsgByID(41357, function()
+    local callback = function()
       ServiceNUserProxy.Instance:CallPaySignBuyUserCmd(self.actID)
       NewRechargeProxy.Instance:readyTriggerEventId(115)
-    end, nil, nil, self.actConfigData:GetLotteryCostDesc())
+    end
+    local lottery_str = self.actConfigData:GetLotteryCostDesc()
+    if OverseaHostHelper:UseOverseaConfirm() then
+      OverseaHostHelper:GachaUseComfirm(lottery_str, callback)
+    else
+      MsgManager.ConfirmMsgByID(41357, function()
+        callback()
+      end, nil, nil, lottery_str)
+    end
   end
 end
 

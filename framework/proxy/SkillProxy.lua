@@ -3,6 +3,7 @@ autoImport("SkillPvpTalentData")
 autoImport("SkillDynamicInfo")
 autoImport("EquipedSkills")
 autoImport("TimeDiskInfo")
+autoImport("MasterSkillProfessData")
 SkillProxy = class("SkillProxy", pm.Proxy)
 SkillProxy.Instance = nil
 SkillProxy.NAME = "SkillProxy"
@@ -143,6 +144,7 @@ function SkillProxy:ctor(proxyName, data)
     0,
     0
   }
+  self.masterSkillShortcuts = {}
 end
 
 function SkillProxy:InitCombo()
@@ -382,6 +384,22 @@ function SkillProxy:ServerReInit(serverData)
   self.alreadyGetFourthSkillReward = serverData.forth_skill_fulled
   if serverData.auto_shortcut and serverData.auto_shortcut ~= 0 then
     ShortCutProxy.Instance:SetCurrentAuto(serverData.auto_shortcut)
+  end
+  self.masterSkillShortcuts = {}
+  local masterSkillData = serverData.master_skill_data
+  if masterSkillData then
+    local pro = masterSkillData.pro
+    local skillIds = masterSkillData.skill_ids
+    local unlockSkillIndex = masterSkillData.unlock_limit_skill_index
+    if not self.masterProfessData or self.masterProfessData.profession ~= pro then
+      self:CreateMasterSkillProfessData(pro, unlockSkillIndex)
+    elseif unlockSkillIndex and 0 < #unlockSkillIndex then
+      self:AddExtraMasterSkills(pro, unlockSkillIndex)
+    end
+    if self.masterProfessData then
+      self:UpdateMasterProfessData(skillIds)
+      self:UpdateMasterSkillShortcuts(masterSkillData.equip_skill_family_id, masterSkillData.shortcuts)
+    end
   end
 end
 
@@ -1942,4 +1960,199 @@ end
 function SkillProxy:CallBalanceModeChooseMess(atk_id, def_id, artifact_id)
   xdlog(string.format("火力全开选择  攻击萃取：%s  防御萃取：%s 遗物：%s", atk_id or self.balancedModeSkill[1], def_id or self.balancedModeSkill[2], artifact_id or self.balancedModeSkill[3]))
   ServiceMessCCmdProxy.Instance:CallBalanceModeChooseMessCCmd(atk_id or self.balancedModeSkill[1], def_id or self.balancedModeSkill[2], artifact_id or self.balancedModeSkill[3])
+end
+
+function SkillProxy:UpdateMasterSkill(data)
+  if self.masterProfessData then
+    self:UpdateMasterProfessData(data.add_ids, data.del_ids, data.updates)
+  end
+end
+
+function SkillProxy:UpdateMasterProfessData(add_ids, del_ids, updates)
+  local shortCutAuto = ShortCutProxy.SkillShortCut.Auto
+  local shortCutAuto2 = ShortCutProxy.SkillShortCut.Auto2
+  if del_ids then
+    for i = 1, #del_ids do
+      local del = del_ids[i]
+      if self.masterProfessData then
+        local skill = self.masterProfessData:RemoveMasterSkill(del)
+        if skill then
+          self:RemoveEquipSkill(skill)
+          self:RemoveEquipSkill(skill, shortCutAuto)
+          self:RemoveEquipSkill(skill, shortCutAuto2)
+          self:RemoveLearnedSkill(skill)
+        end
+      end
+    end
+  end
+  if add_ids then
+    for i = 1, #add_ids do
+      local add = add_ids[i]
+      if self.masterProfessData then
+        local skill = self.masterProfessData:AddMasterSkill(add, true)
+        if skill.sortID == self.equipMasterSkillFamilyId then
+          skill:UpdateShortcuts(self.masterSkillShortcuts)
+          self:UpdateEquipSkill(skill)
+          self:LearnedSkill(skill)
+        end
+      end
+    end
+  end
+  if updates then
+    for i = 1, #updates do
+      if self.masterProfessData then
+        self.masterProfessData:UpdateMasterSkill(updates[i])
+      end
+    end
+  end
+  if self.masterProfessData then
+    self.masterProfessData:SortSkills()
+    self.masterProfessData:UpdateMasterSkillPoints()
+    self.masterProfessData:UpdateSkillActive()
+  end
+end
+
+function SkillProxy:UpdateMasterSkillShortcuts(equip_skill_family_id, shortcuts)
+  local familyId = equip_skill_family_id
+  if self.masterProfessData then
+    if familyId ~= self.equipMasterSkillFamilyId then
+      local oldSkill = self.masterProfessData:FindSkillByFamilyId(self.equipMasterSkillFamilyId)
+      if oldSkill then
+        oldSkill:UpdateShortcuts({})
+        self:UpdateEquipSkill(oldSkill)
+        self:RemoveLearnedSkill(oldSkill)
+        local familyIds = self.masterProfessData:GetEquipMasterSkillGroupIds(self.equipMasterSkillFamilyId)
+        if familyIds then
+          for i = 1, #familyIds do
+            local s = self.masterProfessData:FindSkillByFamilyId(familyIds[i])
+            self:RemoveLearnedSkill(s)
+          end
+        end
+      end
+      self.equipMasterSkillFamilyId = familyId
+    end
+    local skill = self.masterProfessData:FindSkillByFamilyId(familyId)
+    if skill then
+      if shortcuts then
+        TableUtility.ArrayClear(self.masterSkillShortcuts)
+        for i = 1, #shortcuts do
+          local shortcut = shortcuts[i]
+          local data = {}
+          data.type = shortcut.type
+          data.pos = shortcut.pos
+          self.masterSkillShortcuts[i] = data
+        end
+      end
+      skill:UpdateShortcuts(shortcuts)
+      self:UpdateEquipSkill(skill)
+      local familyIds = self.masterProfessData:GetEquipMasterSkillGroupIds(familyId)
+      if familyIds then
+        for i = 1, #familyIds do
+          local s = self.masterProfessData:FindSkillByFamilyId(familyIds[i])
+          if s.learned then
+            self:LearnedSkill(s)
+          end
+        end
+      end
+    end
+    self.masterProfessData:UpdateMasterSkillPoints()
+  end
+end
+
+function SkillProxy:UpdateEquipSkill(skillItemData)
+  local shortCutAuto = ShortCutProxy.SkillShortCut.Auto
+  local shortCutAuto2 = ShortCutProxy.SkillShortCut.Auto2
+  if self:_CheckPosInShortCut(skillItemData) then
+    self:AddEquipSkill(skillItemData)
+  else
+    self:RemoveEquipSkill(skillItemData)
+  end
+  if skillItemData:GetPosInShortCutGroup(shortCutAuto) > 0 then
+    self:AddEquipSkill(skillItemData, shortCutAuto)
+  else
+    self:RemoveEquipSkill(skillItemData, shortCutAuto)
+  end
+  if skillItemData:GetPosInShortCutGroup(shortCutAuto2) > 0 then
+    self:AddEquipSkill(skillItemData, shortCutAuto2)
+  else
+    self:RemoveEquipSkill(skillItemData, shortCutAuto2)
+  end
+end
+
+function SkillProxy:GetMasterSkillProfessData()
+  local pro = self:GetMyProfession()
+  if self.multiSaveId then
+    return SaveInfoProxy.Instance:GetMasterSkillProfessData(self.multiSaveId, self.multiSaveType)
+  else
+    if not self.masterProfessData or self.masterProfessData.profession ~= pro then
+      self:CreateMasterSkillProfessData(pro)
+    end
+    return self.masterProfessData
+  end
+end
+
+function SkillProxy:CreateMasterSkillProfessData(myProfess, unlockSkillIndex)
+  self.masterProfessData = nil
+  local config = Table_Class[myProfess]
+  if config then
+    if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
+      self.masterProfessData = MasterSkillProfessData.new(myProfess, 0, true)
+      for i = 1, #config.MasterSkills do
+        local skillIds = config.MasterSkills[i]
+        for j = 1, #skillIds do
+          self.masterProfessData:AddMasterSkill(skillIds[j], nil, i)
+        end
+      end
+    end
+    self:AddExtraMasterSkills(myProfess, unlockSkillIndex)
+    if self.masterProfessData then
+      self.masterProfessData:SortSkills()
+    end
+  end
+end
+
+function SkillProxy:AddExtraMasterSkills(pro, unlockSkillIndex)
+  local config = Table_Class[pro]
+  if config and unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
+    if not self.masterProfessData then
+      self.masterProfessData = MasterSkillProfessData.new(pro, 0, true)
+    end
+    self.masterProfessData:SetUnlockLimitSkillIndex(unlockSkillIndex)
+    for i = 1, #unlockSkillIndex do
+      local skillIds = config.LimitMasterSkills[unlockSkillIndex[i]]
+      if skillIds then
+        for j = 1, #skillIds do
+          self.masterProfessData:AddExtraMasterSkill(skillIds[j], nil, unlockSkillIndex[i])
+        end
+      end
+    end
+  end
+end
+
+function SkillProxy:GetEquipMasterSkillFamilyId()
+  return self.multiSaveId and SaveInfoProxy.Instance:GetEquipMasterSkillFamilyId(self.multiSaveId, self.multiSaveType) or self.equipMasterSkillFamilyId
+end
+
+function SkillProxy:IsMasterSkillEquiped(skillId)
+  local familyId = skillId // 1000
+  local masterProfessData = self:GetMasterSkillProfessData()
+  local equipMasterSkillFamilyId = self:GetEquipMasterSkillFamilyId()
+  local ids = masterProfessData and masterProfessData:GetEquipMasterSkillGroupIds(equipMasterSkillFamilyId)
+  if ids then
+    return TableUtility.ArrayFindIndex(ids, familyId) > 0
+  end
+  return false
+end
+
+function SkillProxy:GetMasterSkillGroupIndexByFamilyId(familyId)
+  local masterSkillProfessData = self:GetMasterSkillProfessData()
+  return masterSkillProfessData and masterSkillProfessData:GetSkillGroupIndexByFamilyId(familyId) or 0
+end
+
+function SkillProxy:RecvSkillWeatherSyncCmd(skillweather)
+  self.weather = skillweather
+end
+
+function SkillProxy:GetSkillWeather()
+  return self.weather
 end

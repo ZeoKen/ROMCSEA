@@ -1,5 +1,7 @@
 GLandStatusListView = class("GLandStatusListView", ContainerView)
-GLandStatusListView.ViewType = UIViewType.NormalLayer
+GLandStatusListView.ViewType = UIViewType.PopUpLayer
+autoImport("GLandStatusCombineView")
+GLandStatusListView.BrotherView = GLandStatusCombineView
 autoImport("WrapListCtrl")
 autoImport("GLandStatusListCell")
 autoImport("PopupCombineCell")
@@ -123,7 +125,8 @@ function GLandStatusListView:DoTrace(cell)
     return
   end
   local cityid = cell.data_cityid
-  local city2RaidId = Table_Guild_StrongHold[cityid] and Table_Guild_StrongHold[cityid].LobbyRaidID or 0
+  local staticCity = GvgProxy.GetStrongHoldStaticData(cityid)
+  local city2RaidId = staticCity and staticCity.LobbyRaidID or 0
   local groupid = cell.data_groupid
   if curRaidID == city2RaidId and GvgProxy.Instance:GetCurMapGvgGroupID() == groupid then
     MsgManager.ShowMsgByIDTable(2245)

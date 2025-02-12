@@ -8,7 +8,6 @@ LogicManager_RoleDress.Priority = {
   _Count = 5
 }
 local GetSystemMemorySize = ApplicationInfo.GetSystemMemorySize
-local ScreenCountHigh = GameConfig.Setting.ScreenCountHigh
 local ScreenCountHighLM = 20
 local ScreenCountMidLM = 10
 local ScreenCountLowLM = 5
@@ -166,12 +165,14 @@ end
 
 function LogicManager_RoleDress:UpdateLimitCount(count)
   if GetSystemMemorySize() <= 2048 then
-    local setting = FunctionPerformanceSetting.Me():GetSetting()
-    if setting.screenCount == GameConfig.Setting.ScreenCountHigh and setting.screenCount == count then
+    local func = FunctionPerformanceSetting.Me()
+    local setting = func:GetSetting()
+    local screenCountLevel = func:GetScreenCountLevel(setting.screenCount)
+    if screenCountLevel == EScreenCountLevel.High and setting.screenCount == count then
       return ScreenCountHighLM
-    elseif setting.screenCount == GameConfig.Setting.ScreenCountMid and setting.screenCount == count then
+    elseif screenCountLevel == EScreenCountLevel.Mid and setting.screenCount == count then
       return ScreenCountMidLM
-    elseif setting.screenCount == GameConfig.Setting.ScreenCountLow and setting.screenCount == count then
+    elseif screenCountLevel == EScreenCountLevel.Low and setting.screenCount == count then
       return ScreenCountLowLM
     end
   end

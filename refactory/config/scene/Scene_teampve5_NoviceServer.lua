@@ -622,7 +622,7 @@ local Scene_teampve5_NoviceServer = {
         },
         {
           uniqueID = 53,
-          ID = 9341,
+          ID = 9446,
           position = {
             60.4000015258789,
             17.2700004577637,
@@ -654,7 +654,7 @@ local Scene_teampve5_NoviceServer = {
         },
         {
           uniqueID = 56,
-          ID = 9341,
+          ID = 299008,
           position = {
             35.3300018310547,
             38.4000015258789,
@@ -1330,7 +1330,7 @@ local Scene_teampve5_NoviceServer = {
         },
         {
           uniqueID = 53,
-          ID = 9341,
+          ID = 9446,
           position = {
             60.4000015258789,
             17.2700004577637,
@@ -1362,7 +1362,7 @@ local Scene_teampve5_NoviceServer = {
         },
         {
           uniqueID = 56,
-          ID = 9341,
+          ID = 299008,
           position = {
             35.3300018310547,
             38.4000015258789,
@@ -2038,7 +2038,7 @@ local Scene_teampve5_NoviceServer = {
         },
         {
           uniqueID = 53,
-          ID = 9341,
+          ID = 9446,
           position = {
             60.4000015258789,
             17.2700004577637,
@@ -2070,7 +2070,7 @@ local Scene_teampve5_NoviceServer = {
         },
         {
           uniqueID = 56,
-          ID = 9341,
+          ID = 299008,
           position = {
             35.3300018310547,
             38.4000015258789,

@@ -10,6 +10,7 @@ function BagFashionItemCell:Init()
   BagFashionItemCell.super.Init(self)
   self:FindFashionObjs()
   self:AddClickEvent(bagItemCell, function()
+    self:HandleBrowseRedtip()
     self:PassEvent(MouseEvent.MouseClick, self)
   end)
   self.empty:GetComponent(UISprite).depth = self.grey:GetComponent(UISprite).depth - 1
@@ -74,4 +75,29 @@ end
 function BagFashionItemCell:TrySetFashionHide(advFashion, isFashionHide)
   self.advFashion = advFashion
   self.isFashionHide = isFashionHide and true or false
+end
+
+function BagFashionItemCell:CheckRedTip()
+  if self.isActive then
+    local bagItemCell = self:FindGO("Common_BagItemCell")
+    local itemid = (not self.fashionItemData.isAdventureItemData or not self.fashionItemData.staticId) and self.fashionItemData.staticData and self.fashionItemData.staticData.id
+    if itemid then
+      RedTipProxy.Instance:RegisterUI(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, bagItemCell, 60, nil, nil, itemid)
+    else
+      RedTipProxy.Instance:UnRegisterUI(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, bagItemCell)
+    end
+  else
+    local bagItemCell = self:FindGO("Common_BagItemCell")
+    RedTipProxy.Instance:UnRegisterUI(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, bagItemCell)
+  end
+end
+
+function BagFashionItemCell:HandleBrowseRedtip()
+  if self.isActive then
+    local itemid = (not self.fashionItemData.isAdventureItemData or not self.fashionItemData.staticId) and self.fashionItemData.staticData and self.fashionItemData.staticData.id
+    if itemid then
+      xdlog("预览红点", itemid)
+      ServiceSceneTipProxy.Instance:CallBrowseRedTipCmd(SceneTip_pb.EREDSYS_ASTRAL_NEW_FASHION, itemid)
+    end
+  end
 end

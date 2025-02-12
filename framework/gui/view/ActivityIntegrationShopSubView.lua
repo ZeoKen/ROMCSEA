@@ -220,17 +220,17 @@ end
 function ActivityIntegrationShopSubView:HandleClickDepositItem(cellctl)
   local depositID = cellctl.depositID
   local info = cellctl.data and cellctl.data.info
-  local cbfunc = function()
+  local cbfunc = function(count)
     local leftTime = self.endTime - ServerTime.CurServerTime() / 1000
     if 0 < leftTime then
-      self:PurchaseDeposit()
+      self:PurchaseDeposit(count)
     end
   end
-  local m_funcRmbBuy = function()
+  local m_funcRmbBuy = function(count)
     if BranchMgr.IsJapan() or BranchMgr.IsKorea() then
       self:Invoke_DepositConfirmPanel(cbfunc)
     else
-      cbfunc()
+      cbfunc(count)
     end
   end
   local tbItem = Table_Item[info.itemID]
@@ -243,7 +243,7 @@ function ActivityIntegrationShopSubView:HandleClickDepositItem(cellctl)
   end
 end
 
-function ActivityIntegrationShopSubView:PurchaseDeposit()
+function ActivityIntegrationShopSubView:PurchaseDeposit(count)
   if not self.currentItem then
     return
   end
@@ -298,7 +298,7 @@ function ActivityIntegrationShopSubView:PurchaseDeposit()
       local strResult = str_result or "nil"
       LogUtility.Info("NewRechargeRecommendTShopGoodsCell:OnPayPaying, " .. strResult)
     end
-    FuncPurchase.Instance():Purchase(productConf.id, callbacks)
+    FuncPurchase.Instance():Purchase(productConf.id, callbacks, count)
     local interval = GameConfig.PurchaseMonthlyVIP.interval / 1000
     PurchaseDeltaTimeLimit.Instance():Start(productID, interval)
     return true

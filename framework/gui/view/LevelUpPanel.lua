@@ -49,6 +49,14 @@ function LevelUpPanel:FindObjs()
   self.fromLabel = self:FindComponent("FromLabel", UILabel)
   self.toLabel = self:FindComponent("ToLabel", UILabel)
   self.funcLabel = self:FindComponent("FuncLabel", UILabel)
+  self:AddClickEvent(self.mask, function(g)
+    if self.isLocked then
+      return
+    end
+    if not self:UpdateView() then
+      self:CloseSelf()
+    end
+  end)
   self.levelAlpha = self:FindComponent("LevelLabel", TweenAlpha)
   self.info1Alpha = self:FindComponent("info1", TweenAlpha)
   self.info2Alpha = self:FindComponent("info2", TweenAlpha)
@@ -61,14 +69,6 @@ function LevelUpPanel:FindObjs()
   self.toLabelAlpha = self:FindComponent("ToLabel", TweenAlpha)
   self.info2 = self:FindGO("info2")
   self:Lock()
-  self:AddClickEvent(self.mask, function(g)
-    if self.isLocked then
-      return
-    end
-    if not self:UpdateView() then
-      self:CloseSelf()
-    end
-  end)
 end
 
 function LevelUpPanel:Lock()
@@ -122,7 +122,8 @@ function LevelUpPanel:UpdateView(lvType)
   else
     to = myUserdata:Get(UDEnum.JOBLEVEL)
     if not MyselfProxy.Instance:IsHero() then
-      local t = Table_JobLevel[to].ShowLevel
+      local config = Table_JobLevel[to]
+      local t = config.MasterLv and config.MasterLv > 0 and to - 160 or config.ShowLevel
       to = t
     end
   end
@@ -154,15 +155,9 @@ function LevelUpPanel:ShowStaticUIEffects(from, to, lvType)
       self.funcLabel.text = string.format(config.funcText, delta)
       self.info2:SetActive(true)
     end
-    if self.levelLabel then
-      self.levelLabel.text = to
-    end
-    if self.levelLabel_1 then
-      self.levelLabel_1.text = to
-    end
-    if self.toLabel then
-      self.toLabel.text = to
-    end
+    self.levelLabel.text = to
+    self.levelLabel_1.text = to
+    self.toLabel.text = to
   end
 end
 

@@ -45,13 +45,6 @@ function SkillRecommendCell:Init()
   self.gridCtrl = UIGridListCtrl.new(self.grid, ProfessionSkillCell, "ProfessionSkillCell")
   self.gridCtrl:AddEventListener(MouseEvent.MouseClick, self.OnClickCell, self)
   self:AddEventListener(MouseEvent.MouseClick)
-  self.closecomp = self.gameObject:GetComponent(CloseWhenClickOtherPlace)
-  
-  function self.closecomp.callBack(go)
-    GameFacade.Instance:sendNotification(SkillRecommendEvent.CloseRecommendView)
-  end
-  
-  self:AddIgnoreBounds(self.gameObject)
 end
 
 local tempArray = {}
@@ -95,12 +88,6 @@ function SkillRecommendCell:OnClickCell(cell)
   local tip = TipsView.Me().currentTip
   if tip then
     tip.gameObject.transform.localPosition = LuaGeometry.Const_V3_zero
-  end
-end
-
-function SkillRecommendCell:AddIgnoreBounds(obj)
-  if self.gameObject and self.closecomp then
-    self.closecomp:AddTarget(obj.transform)
   end
 end
 

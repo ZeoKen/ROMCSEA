@@ -14,7 +14,7 @@ function CardPosChoosePopUp:InitView()
   title.text = ZhString.CardPosChoosePopUp_Title
   local cost = self:FindGO("Cost")
   local l_zenyIcon = self:FindComponent("Sprite", UISprite, cost)
-  IconManager:SetItemIcon("item_100", l_zenyIcon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, l_zenyIcon)
   local costTipLabel = self:FindComponent("CostTip", UILabel, cost)
   costTipLabel.text = ZhString.CardPosChoosePopUp_CostTip
   self.costLabel = cost:GetComponent(UILabel)

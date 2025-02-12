@@ -106,6 +106,7 @@ function RoleReadyForLogin:Iam(roleID)
       assetRole:SetInvisible(false)
       assetRole:ChangeColorTo(colorTemp, 0)
       assetRole:PlayAction_Idle()
+      self:RefreshBuffState(parts, assetRole, roleID)
       Asset_Role.DestroyPartArray(parts)
       local roleParent = CSharpObjectForLogin:Ins():GetRoleParnet()
       if roleParent then
@@ -249,6 +250,42 @@ function RoleReadyForLogin:RotateDelta(deltaEulerAngle)
   end
 end
 
+function RoleReadyForLogin:RefreshBuffState(parts, role, guid)
+  if not self.buffEffSet then
+    self.buffEffSet = {}
+  end
+  if self.buffEffSet[guid] then
+    return
+  end
+  self.buffEffSet[guid] = 1
+  for _partType, _index in pairs(Asset_Role.PartIndex) do
+    if parts[_index] and 0 < parts[_index] then
+      local equipData = Table_Equip[parts[_index]]
+      local fashionBuff = equipData and equipData.FashionBuff
+      if fashionBuff and 0 < #fashionBuff then
+        self:BuffTableImport()
+        for i = 1, #fashionBuff do
+          local buffData = Table_Buffer[fashionBuff[i]]
+          local buffStateID = buffData and buffData.BuffStateID
+          if buffStateID then
+            local buffStateData = Table_BuffState[buffStateID]
+            local path = buffStateData.Effect
+            role:PlayEffectOn(path, buffStateData.EP)
+          end
+        end
+      end
+    end
+  end
+end
+
+function RoleReadyForLogin:BuffTableImport()
+  if not self.inited then
+    autoImport("Table_Buffer")
+    autoImport("Table_BuffState")
+    self.inited = true
+  end
+end
+
 function RoleReadyForLogin:Release()
   self.currentModelsController = nil
   Game.PerformanceManager:SkinWeightHigh(false)
@@ -266,6 +303,7 @@ function RoleReadyForLogin:Release()
     end
     self.allModelsController = nil
   end
+  self.buffEffSet = nil
 end
 
 function RoleReadyForLogin:Reset()

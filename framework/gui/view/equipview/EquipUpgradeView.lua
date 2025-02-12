@@ -1238,7 +1238,7 @@ function EquipUpgradeView:UpdateCostZeny(zeny)
 end
 
 function EquipUpgradeView:GetCurCostZeny()
-  return tonumber(self.curCostZeny)
+  return self.curCostZeny and tonumber(self.curCostZeny) or 0
 end
 
 function EquipUpgradeView:OnZenyChange()

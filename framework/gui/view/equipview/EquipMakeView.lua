@@ -245,8 +245,8 @@ function EquipMakeView:InitShow()
   self:SelectFirstMakeCell()
   local icon = self:FindComponent("moneySprite", UISprite, self.costInfo)
   local symbol = self:FindComponent("symbol", UISprite, self:FindGO("Silver"))
-  IconManager:SetItemIcon("item_100", icon)
-  IconManager:SetItemIcon("item_100", symbol)
+  IconManager:SetItemIcon(Table_Item[100].Icon, icon)
+  IconManager:SetItemIcon(Table_Item[100].Icon, symbol)
 end
 
 function EquipMakeView:SelectFirstMakeCell()

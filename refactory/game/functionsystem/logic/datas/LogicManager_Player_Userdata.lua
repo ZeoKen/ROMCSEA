@@ -26,6 +26,7 @@ function LogicManager_Player_Userdata:ctor()
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_RIDING_NPC, self.UpdateMultiMountNpc)
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_TWELVEPVP_CAMP, self.UpdateTwelvePvpCamp)
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_HIDE_NAME, self.UpdateAnonymous)
+  self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_EXCELLECT, self.UpdateExcellent)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_JOBLEVEL, self.UpdateJobLevel)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_JOBEXP, self.UpdateJobExpLevel)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_PROFESSION, self.UpdateProfession)
@@ -50,6 +51,7 @@ function LogicManager_Player_Userdata:ctor()
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_RIDING_NPC, self.UpdateMultiMountNpc)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_TWELVEPVP_CAMP, self.UpdateTwelvePvpCamp)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_HIDE_NAME, self.UpdateAnonymous)
+  self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_EXCELLECT, self.UpdateExcellent)
   self:AddDirtyCall(ProtoCommon_pb.EUSERDATATYPE_MOUNT, self.UpdateMount)
   self:AddDirtyCall(ProtoCommon_pb.EUSERDATATYPE_RIDING_NPC, self.UpdateMultiMountNpc)
 end
@@ -229,5 +231,13 @@ function LogicManager_Player_Userdata:UpdateAnonymous(ncreature, id, oldValue, n
     end
     ncreature:ReDress()
     GameFacade.Instance:sendNotification(PlayerEvent.AnonymousStateChange, ncreature)
+  end
+end
+
+function LogicManager_Player_Userdata:UpdateExcellent(ncreature, id, oldValue, newValue)
+  oldValue = oldValue or 0
+  newValue = newValue or 0
+  if oldValue ~= newValue then
+    GvgProxy.Instance:RefreshExcellentRewardRedTip()
   end
 end

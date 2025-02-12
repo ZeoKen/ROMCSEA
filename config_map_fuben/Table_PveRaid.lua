@@ -80,6 +80,15 @@ Table_PveRaid = {
     RoundReward = _EmptyTable,
     RollCoin = 6
   },
+  [10] = {
+    id = 10,
+    RaidID = 64608,
+    Difficulty = 10,
+    Reward = {78710},
+    AccReward = _EmptyTable,
+    RoundReward = _EmptyTable,
+    RollCoin = 6
+  },
   [10001] = {
     id = 10001,
     RaidID = 64608,
@@ -157,6 +166,15 @@ Table_PveRaid = {
     RaidID = 64608,
     Difficulty = 10009,
     Reward = {78609},
+    AccReward = _EmptyTable,
+    RoundReward = _EmptyTable,
+    RollCoin = 6
+  },
+  [10010] = {
+    id = 10010,
+    RaidID = 64608,
+    Difficulty = 10010,
+    Reward = {78610},
     AccReward = _EmptyTable,
     RoundReward = _EmptyTable,
     RollCoin = 6

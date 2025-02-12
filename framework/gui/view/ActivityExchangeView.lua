@@ -42,7 +42,7 @@ function ActivityExchangeView:InitData()
     local phaseTime = StringUtil.FormatTime2TimeStamp2
     if isTFBranch then
       self.startTime = config.TfStartTime and phaseTime(config.TfStartTime)
-      self.endTime = config.TfEndTime and phaseTime(config.TfStartTime)
+      self.endTime = config.TfEndTime and phaseTime(config.TfEndTime)
     else
       self.startTime = config.StartTime and phaseTime(config.StartTime)
       self.endTime = config.EndTime and phaseTime(config.EndTime)

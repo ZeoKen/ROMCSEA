@@ -68,7 +68,6 @@ function QuestLimitTimeView:FindObjs()
   self.totalCell_ConfirmBtnBoxCollider = self.totalCell_ConfirmBtn:GetComponent(BoxCollider)
   self.totalCell_FinishSymbol = self:FindGO("FinishSymbol", self.totalCell)
   self.totalCell_Slider = self:FindGO("Slider", self.totalCell):GetComponent(UISlider)
-  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MISSION_REWARD, self.totalCell_ConfirmBtn, 150, {-15, -15}, nil, 100)
   local cellContainer = self:FindGO("CellContainer", self.totalCell)
   local cellGO = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UICell("RewardGridCellType2"), cellContainer)
   self.totalCellCtrl = RewardGridCell.new(cellGO)
@@ -112,8 +111,9 @@ function QuestLimitTimeView:InitData()
     end
   end
   for i = 1, 3 do
-    self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MISSION_REWARD, self.togs[i].go, 150, {-15, -15}, nil, i)
+    self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MISSION_REWARD, self.togs[i].go, 150, {-15, -15}, nil, self.actid * 100 + i)
   end
+  self:RegisterRedTipCheck(SceneTip_pb.EREDSYS_MISSION_REWARD, self.totalCell_ConfirmBtn, 150, {-15, -15}, nil, self.actid * 100 + 99)
 end
 
 function QuestLimitTimeView:InitShow()

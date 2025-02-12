@@ -252,12 +252,28 @@ function MapManager:IsInGVGRaid()
   return self:IsPVPMode_GVGDetailed() or self:IsGvgMode_Droiyan()
 end
 
-function MapManager:IsInGVG()
-  return self:IsPVPMode_GVGDetailed() or self:IsInGVG_Lobby()
+function MapManager:IsInGVG(exclude_dateBattle)
+  if exclude_dateBattle then
+    return self.dungeonManager:IsGVGMetal() or self.dungeonManager:IsGVG_Lobby()
+  else
+    return self:IsPVPMode_GVGDetailed() or self:IsInGVG_Lobby()
+  end
+end
+
+function MapManager:IsGVG_Date()
+  return self:IsGVG_DateBattle() or self:IsGVG_DateBattle_Lobby()
+end
+
+function MapManager:IsGVG_DateBattle()
+  return self.dungeonManager:IsGVG_DateBattle()
+end
+
+function MapManager:IsGVG_DateBattle_Lobby()
+  return self.dungeonManager:IsGVG_Lobby_Date_Battle()
 end
 
 function MapManager:IsInGVG_Lobby()
-  return self.dungeonManager:IsGVG_Lobby()
+  return self.dungeonManager:IsGVG_Lobby() or self.dungeonManager:IsGVG_Lobby_Date_Battle()
 end
 
 function MapManager:IsPVPMode_PoringFight()
@@ -605,6 +621,7 @@ function MapManager:SetCurrentMap(serverData, force)
   end
   self:RaidIDChanged()
   self:ShutdownAutoBattle(currentMapID)
+  GvgProxy.Instance:QueryCityInfo(self.mapInfo[1])
 end
 
 function MapManager:SetMapIDs(serverData)
@@ -1015,6 +1032,7 @@ function MapManager:Launch()
   InteractLocalManager.Me():Launch()
   LocalSimpleAIManager.Me():Launch()
   QuestUseFuncManager.Me():Launch()
+  FunctionAstral.Me():Launch()
   if MapManager.Mode.Raid == self.mode then
     self.dungeonManager:SetRaidID(self.curActiveMapID)
   else
@@ -1149,6 +1167,7 @@ function MapManager:Shutdown()
   LocalSimpleAIManager.Me():Shutdown()
   self.bigWorldManager:Shutdown()
   QuestUseFuncManager.Me():Shutdown()
+  FunctionAstral.Me():Shutdown()
   self:OnPreviewStop()
   self.sceneAnimation = nil
   self.sceneAnimationAnimator = nil
@@ -1345,6 +1364,9 @@ end
 function MapManager:IsInGVGDetailedRaid()
   if not self.dungeonManager:IsGVG_Detailed() then
     return false
+  end
+  if self:IsGVG_DateBattle() then
+    return true
   end
   local raidId = self:GetRaidID() or 0
   local staticData = Game.Config_GuildStrongHold_RaidMap[raidId]

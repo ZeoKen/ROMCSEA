@@ -131,12 +131,14 @@ function EquipMemoryAttrCellType3:SetData(data)
       if waxBuffId and 0 < #waxBuffId then
         for i = 1, #waxBuffId do
           local buffData = Table_Buffer[waxBuffId[i]]
-          local dsc = buffData and buffData.Dsc
-          if dsc and dsc ~= "" then
-            if descStr ~= "" then
-              descStr = descStr .. "\n"
+          if buffData and buffData.BuffEffect and not buffData.BuffEffect.NoShow then
+            local dsc = buffData and buffData.Dsc
+            if dsc and dsc ~= "" then
+              if descStr ~= "" then
+                descStr = descStr .. "\n"
+              end
+              descStr = descStr .. dsc
             end
-            descStr = descStr .. dsc
           end
         end
       end

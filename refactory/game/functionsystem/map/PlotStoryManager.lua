@@ -189,6 +189,9 @@ function PlotStoryManager:ShutDownProgress(plotProgress)
     end
     Game.AssetManager_Role:SetForceLoadAll(false)
   end
+  if not isFreePlot then
+    FunctionSceneFilter.Me():EndFilter(56)
+  end
 end
 
 function PlotStoryManager:GetNowProgressList()
@@ -770,6 +773,9 @@ function PlotStoryManager:Launch_SEQ_PQTLP(pqtl_name)
     table.insert(self.freePlotList, pstlp)
   else
     table.insert(self.plotList, pstlp)
+  end
+  if not isFreePlot then
+    FunctionSceneFilter.Me():StartFilter(56)
   end
   if self.running then
     pstlp:Launch()

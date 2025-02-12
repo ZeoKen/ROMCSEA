@@ -83,6 +83,9 @@ function SetViewEffectState:FindObj()
     self.outlineToggle = self:FindGO("OutlineToggle"):GetComponent("UIToggle")
     self.effectToggle = self:FindGO("EffectToggle"):GetComponent("UIToggle")
     self.slimToggle = self:FindGO("SlimToggle"):GetComponent("UIToggle")
+    self.weatherEffectToggle = self:FindGO("WeatherEffectToggle"):GetComponent("UIToggle")
+    self.weatherEffectLab = self:FindGO("WeatherEffectSet"):GetComponent("UILabel")
+    self.weatherEffectLab.text = ZhString.SetView_EffectState_WeatherEffect
     self.effectSetToggleLow = self:FindGO("EffectSetToggleLow"):GetComponent("UIToggle")
     self.effectSetToggleMid = self:FindGO("EffectSetToggleMid"):GetComponent("UIToggle")
     self.effectSetToggleHigh = self:FindGO("EffectSetToggleHigh"):GetComponent("UIToggle")
@@ -288,6 +291,9 @@ function SetViewEffectState:AddEvts()
   EventDelegate.Add(self.slimToggle.onChange, function()
     self:NotifySaveStatus()
   end)
+  EventDelegate.Add(self.weatherEffectToggle.onChange, function()
+    self:NotifySaveStatus()
+  end)
   EventDelegate.Add(self.cameraLockCtlToggle.onChange, function()
     self:NotifySaveStatus()
   end)
@@ -456,6 +462,7 @@ function SetViewEffectState:SettingUI()
     local effectLv = setting:GetSetting().effectLv
     self.outlineToggle.value = setting:GetSetting().outLine
     self.slimToggle.value = setting:GetSetting().slim
+    self.weatherEffectToggle.value = setting:GetSetting().weatherEffect
     local rateKey = setting:GetSetting().targetFrameRate
     self.FpsLow.value = rateKey == fpsEnum.Low
     self.FpsHigh.value = rateKey == fpsEnum.High
@@ -470,9 +477,10 @@ function SetViewEffectState:SettingUI()
       resolutionIndex = setting:GetSetting().resolution
     end
     self.ResolutionFilter.value = tab[resolutionIndex]
-    self.screenCountToggleMid.value = screenCount == GameConfig.Setting.ScreenCountMid and true or false
-    self.screenCountToggleHigh.value = screenCount == GameConfig.Setting.ScreenCountHigh and true or false
-    self.screenCountToggleLow.value = screenCount == GameConfig.Setting.ScreenCountLow and true or false
+    local screenCountLevel = setting:GetScreenCountLevel(screenCount)
+    self.screenCountToggleMid.value = screenCountLevel == EScreenCountLevel.Mid and true or false
+    self.screenCountToggleHigh.value = screenCountLevel == EScreenCountLevel.High and true or false
+    self.screenCountToggleLow.value = screenCountLevel == EScreenCountLevel.Low and true or false
     self.effectSetToggleLow.value = effectLv == LogicManager_MapCell.LODLevel.Low and true or false
     self.effectSetToggleMid.value = effectLv == LogicManager_MapCell.LODLevel.Mid and true or false
     self.effectSetToggleHigh.value = effectLv == LogicManager_MapCell.LODLevel.High and true or false
@@ -548,15 +556,16 @@ function SetViewEffectState:SetNormalModeData()
   local setting = FunctionPerformanceSetting.Me()
   local screenCount
   if self.screenCountToggleMid.value == true then
-    screenCount = GameConfig.Setting.ScreenCountMid
+    screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Mid)
   elseif self.screenCountToggleHigh.value == true then
-    screenCount = GameConfig.Setting.ScreenCountHigh
+    screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High)
   else
-    screenCount = GameConfig.Setting.ScreenCountLow
+    screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
   end
   setting:SetBegin()
   setting:SetOutLine(self.outlineToggle.value)
   setting:SetSlim(self.slimToggle.value)
+  setting:SetWeatherEffect(self.weatherEffectToggle.value)
   setting:SetScreenCount(screenCount)
   setting:SetFrameRate(self.frameRateIndex)
   setting:SetPeak(self.peakSet.value)
@@ -597,17 +606,20 @@ function SetViewEffectState:IsChanged()
   local oldSetting = setting.oldSetting
   local screenCount
   if self.screenCountToggleMid.value == true then
-    screenCount = GameConfig.Setting.ScreenCountMid
+    screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Mid)
   elseif self.screenCountToggleHigh.value == true then
-    screenCount = GameConfig.Setting.ScreenCountHigh
+    screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High)
   else
-    screenCount = GameConfig.Setting.ScreenCountLow
+    screenCount = FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.Low)
   end
   local isChanged = false
   if self.outlineToggle.value ~= oldSetting.outLine then
     isChanged = true
   end
   if self.slimToggle.value ~= oldSetting.slim then
+    isChanged = true
+  end
+  if self.weatherEffectToggle.value ~= oldSetting.weatherEffect then
     isChanged = true
   end
   if self.frameRateIndex ~= oldSetting.targetFrameRate then

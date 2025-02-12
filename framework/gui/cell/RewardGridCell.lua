@@ -8,6 +8,7 @@ end
 function RewardGridCell:FindObjs()
   self.icon = self:FindGO("Icon"):GetComponent(UISprite)
   self.count = self:FindGO("Num"):GetComponent(UILabel)
+  self.chooseSymbol = self:FindGO("ChooseSymbol")
   self:AddCellClickEvent()
   self.finishSymbol = self:FindGO("FinishSymbol")
 end
@@ -30,4 +31,8 @@ function RewardGridCell:SetFinishStatus(bool)
     self.finishSymbol:SetActive(bool)
   end
   self.icon.alpha = bool and 0.5 or 1
+end
+
+function RewardGridCell:SetChooseStatus(bool)
+  self.chooseSymbol:SetActive(bool)
 end

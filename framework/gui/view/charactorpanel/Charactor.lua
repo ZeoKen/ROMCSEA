@@ -176,8 +176,10 @@ function Charactor:InitTitle()
   self.topTitle = self:FindGO("topTitle")
   self.profeName = self:FindChild("professionNamePointPage"):GetComponent(UILabel)
   self.UserTitle = self:FindChild("UserTitle"):GetComponent(UILabel)
+  self.baseExpGO = self:FindGO("baseExp")
   self.baseLevel = self:FindChild("baseLv"):GetComponent(UILabel)
   self.baseExp = self:FindChild("baseSlider"):GetComponent(UISlider)
+  self.jobExpGO = self:FindGO("jobExp")
   self.jobLevel = self:FindChild("jobLv"):GetComponent(UILabel)
   self.jobExp = self:FindChild("jobLevelSlider"):GetComponent(UISlider)
   local jobGo = self:FindGO("jobExp")
@@ -188,6 +190,7 @@ function Charactor:InitTitle()
   self.monthCardTime = self:FindGO("monthCardTime"):GetComponent(UILabel)
   local fightPowerName = self:FindGO("fightPowerName"):GetComponent(UILabel)
   fightPowerName.text = ZhString.Charactor_PingFen
+  self.playerIDGO = self:FindGO("playerID")
   self.playerGUID = self:FindGO("ID"):GetComponent(UILabel)
   self.copyIDBtn = self:FindGO("CopyIDBtn")
   self.playerGUID.text = Game.Myself.data.id
@@ -399,6 +402,10 @@ function Charactor:UpdateJobSlider()
   local userData = Game.Myself.data.userdata
   local cur_max = userData:Get(UDEnum.CUR_MAXJOB) or 0
   local curlv = MyselfProxy.Instance:JobLevel()
+  if ISNoviceServerType then
+    local depth = ProfessionProxy.GetJobDepth()
+    cur_max = depth == 4 and curlv < 220 and 220 or cur_max
+  end
   helplog("Server professionid:" .. professionid)
   helplog("Server nowJobLevel:" .. nowJobLevel)
   helplog("Server cur_max:" .. cur_max)
@@ -449,7 +456,15 @@ end
 function Charactor:UpdateMyProfession()
   local nowOcc = Game.Myself.data:GetCurOcc()
   if nowOcc ~= nil then
-    self.profeName.text = ProfessionProxy.GetProfessionName(nowOcc.profession, MyselfProxy.Instance:GetMySex())
+    local name = ProfessionProxy.GetProfessionName(nowOcc.profession, MyselfProxy.Instance:GetMySex())
+    local equipSkillFamilyId = SkillProxy.Instance:GetEquipMasterSkillFamilyId()
+    if equipSkillFamilyId and 0 < equipSkillFamilyId then
+      local skillId = equipSkillFamilyId * 1000 + 1
+      local config = Table_Skill[skillId]
+      local skillName = config and config.NameZh or ""
+      name = name .. "——" .. skillName
+    end
+    self.profeName.text = name
   end
 end
 

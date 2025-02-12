@@ -243,12 +243,12 @@ function FunctionGuild:MyGuildJobChange(old, new)
   helplog("MyGuildJobChange", old, new)
 end
 
-function FunctionGuild:SetStrongHoldFlag(flagID, id)
+function FunctionGuild:SetStrongHoldFlag(city_id)
   local flagManager = Game.GameObjectManagers[Game.GameObjectType.SceneGuildFlag]
   if flagManager == nil then
     return
   end
-  local strongHoldStaticData = Table_Guild_StrongHold[id]
+  local strongHoldStaticData = GvgProxy.GetStrongHoldStaticData(city_id)
   if not strongHoldStaticData then
     return
   end
@@ -266,11 +266,26 @@ function FunctionGuild:SetStrongHoldFlag(flagID, id)
   if not atlas or not spriteData then
     return
   end
-  flagManager:SetIconWithAtlas(id, atlas, spriteData, nil, iconColor)
+  flagManager:SetIconWithAtlas(city_id, atlas, spriteData, nil, iconColor)
+end
+
+function FunctionGuild:SetGuildFlagIcon(flag_guid, city_id)
+  local city_info = GvgProxy.Instance:GetCityInfo(city_id)
+  if not city_info then
+    return
+  end
+  self:SetGuildLandIcon(flag_guid, city_info.portrait, city_info.guildid)
+end
+
+function FunctionGuild:SetGuildDateFlagIcon(flag_guid)
+  local mapId = Game.MapManager:GetMapID()
+  local flag_data = GuildDateBattleProxy.Instance:GetFlagData(mapId, flag_guid)
+  if flag_data then
+    self:SetGuildLandIcon(flag_guid, flag_data.portrait, flag_data.guildId)
+  end
 end
 
 function FunctionGuild:SetGuildLandIcon(flagID, portrait, guildId)
-  redlog("FunctionGuild:SetGuildLandIcon", flagID, portrait, guildId)
   local flagManager = Game.GameObjectManagers[Game.GameObjectType.SceneGuildFlag]
   if flagManager == nil then
     return
@@ -461,7 +476,7 @@ function FunctionGuild:UploadCustomGuildIcon(guildid, index, timestamp, bytes)
 end
 
 function FunctionGuild:GetGuildStrongHoldPosition(id)
-  local configData = Table_Guild_StrongHold[id]
+  local configData = GvgProxy.GetStrongHoldStaticData(id)
   if configData == nil then
     return
   end

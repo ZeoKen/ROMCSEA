@@ -20,8 +20,19 @@ function GVGSandTablePanel:Init()
   self:RegisterGuide()
 end
 
+function GVGSandTablePanel:GetMaxPointScore()
+  local static_data = self.curMapID and GvgProxy.GetStrongHoldStaticData(self.curMapID)
+  if not static_data then
+    return
+  end
+  if static_data.Mode == GuildCmd_pb.EGUILDDATEBATTLEMODE_CLASSIC then
+    return #static_data.Point * (static_data.Point[1].calc_ratio or 1)
+  end
+  return GvgProxy.Instance:GetMaxPointScore()
+end
+
 function GVGSandTablePanel:UpdatePointScore(score)
-  local max = GvgProxy.Instance:GetMaxPointScore()
+  local max = self:GetMaxPointScore()
   self.pointScore.text = string.format(ZhString.NewGvg_PointInfo, score, max)
 end
 
@@ -150,8 +161,6 @@ function GVGSandTablePanel:AddMapEvts()
 end
 
 function GVGSandTablePanel:InitDatas()
-  self.totalPage = Table_Guild_StrongHold and #Table_Guild_StrongHold
-  xdlog("totalPage", self.totalPage)
   self.pageIndex = {}
   self.sandTableInfo = {}
   local curMapID = Game.MapManager:GetMapID()
@@ -222,6 +231,7 @@ end
 function GVGSandTablePanel:InitPoints()
   local totalPoint = 8
   local pointConfigs = GameConfig.GVGSandTable.MapConfig.NodePos
+  pointConfigs = GvgProxy.IsClassicMode() and pointConfigs[2] or pointConfigs[1]
   self.nodeCells = {}
   for i = 1, totalPoint do
     local cellpfb = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UICell("GVGSandTablePointCell"), self.frontPanel)
@@ -264,7 +274,8 @@ function GVGSandTablePanel:RefreshValidTime()
 end
 
 function GVGSandTablePanel:RefreshPage()
-  self.titleLabel.text = Table_Guild_StrongHold[self.curMapID].Name or "???"
+  local staticCity = GvgProxy.GetStrongHoldStaticData(self.curMapID)
+  self.titleLabel.text = staticCity and staticCity.Name or "???"
   local curMapInfo = GvgProxy.Instance:GetSandTableInfoByID(self.curMapID)
   if not curMapInfo then
     redlog("无数据")
@@ -296,7 +307,9 @@ function GVGSandTablePanel:RefreshPage()
   self.crystalCell:SetMainCrystalHP(metalHP)
   local noMoreMetal = GvgProxy.Instance:noMoreMetal()
   local pointInfos = curMapInfo.points
-  local pointConfig = Table_Guild_StrongHold[self.curMapID].Point
+  local static_data = GvgProxy.GetStrongHoldStaticData(self.curMapID)
+  local pointConfig = static_data.Point
+  local IsClassicMode = static_data.Mode == GuildCmd_pb.EGUILDDATEBATTLEMODE_CLASSIC
   for i = 1, 8 do
     if pointConfig and pointConfig[i] then
       self.nodeCells[i]:SetEnable(true)
@@ -306,7 +319,7 @@ function GVGSandTablePanel:RefreshPage()
         self.nodeCells[i]:SetEmpty(noMoreMetal)
       end
     else
-      self.nodeCells[i]:SetEnable(false)
+      self.nodeCells[i]:SetEnable(false, IsClassicMode)
     end
   end
   local state = curMapInfo.cityState or 6
@@ -366,7 +379,8 @@ function GVGSandTablePanel:SendMessage(Channel)
   local curMapInfo = GvgProxy.Instance:GetSandTableInfoByID(self.curMapID)
   local state = curMapInfo.cityState or 6
   local stateStr = gvgConfig.gvg_sandtable_status_desc and gvgConfig.gvg_sandtable_status_desc[state] or ""
-  local message1 = string.format(ZhString.GVGSandTable_Report1, Table_Guild_StrongHold[self.curMapID].Name, stateStr, curMapInfo.attacknum, curMapInfo.defensenum)
+  local staticCity = GvgProxy.GetStrongHoldStaticData(self.curMapID)
+  local message1 = string.format(ZhString.GVGSandTable_Report1, staticCity.Name, stateStr, curMapInfo.attacknum, curMapInfo.defensenum)
   GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
     view = PanelConfig.ChatRoomPage,
     viewdata = {key = "Channel", channel = Channel}

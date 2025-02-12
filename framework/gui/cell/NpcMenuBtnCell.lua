@@ -46,6 +46,8 @@ function NpcMenuBtnCell:Init()
   self.multiplySymbol_label = self:FindComponent("muLabel", UILabel, self.multiplySymbol.gameObject)
   self.redTip = self:FindGO("red")
   self.redTip:SetActive(false)
+  self.checkmark = self:FindGO("Checkmark")
+  self.lockGO = self:FindGO("Lock")
   self:SetEvent(self.button, function()
     self:PassEvent(MouseEvent.MouseClick, self)
   end)
@@ -75,6 +77,8 @@ end
 
 function NpcMenuBtnCell:SetData(data)
   self:AddOrRemoveGuideId(self.button)
+  self.checkmark:SetActive(false)
+  self.lockGO:SetActive(false)
   self.data = data
   local menuType, name = data.menuType, data.name
   local style = NpcMenuBtnCell.Style.Normal
@@ -114,6 +118,12 @@ function NpcMenuBtnCell:SetData(data)
     style = NpcMenuBtnCell.Style.Normal
   elseif menuType == Dialog_MenuData_Type.CustomFunc then
     style = NpcMenuBtnCell.Style.Normal
+  elseif menuType == Dialog_MenuData_Type.PveRaidEntrance and data.pvePassInfo then
+    self.lockGO:SetActive(data.state == NpcFuncState.Grey)
+    self.checkmark:SetActive(data.pvePassInfo:CheckAccPass() or false)
+    if data.pvePassInfo.staticEntranceData.staticDifficulty % 10000 == 1 then
+      self:AddOrRemoveGuideId(self.button, 550)
+    end
   end
   if data.state == NpcFuncState.InActive then
     self.gameObject:SetActive(false)

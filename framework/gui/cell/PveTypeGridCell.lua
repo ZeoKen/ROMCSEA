@@ -26,6 +26,20 @@ function PveTypeGridCell:FindObj()
   self:AddClickEvent(self.label.gameObject, function()
     self:PassEvent(MouseEvent.MouseClick, self)
   end)
+  self.astralPrayProUp = self:FindGO("AstralPrayProUp")
+  self.astralProBtn = self:FindGO("Button", self.astralPrayProUp)
+  self:AddClickEvent(self.astralProBtn, function()
+    if AstralProxy.Instance:IsSeasonEnd() then
+      MsgManager.ShowMsgByID(43567)
+      return
+    end
+    self:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.AstralPrayPopUp,
+      viewdata = self.data.staticEntranceData.groupid
+    })
+  end)
+  self.astralProIcon = self:FindComponent("Icon", UISprite, self.astralPrayProUp)
+  self.astralProColorBg = self:FindComponent("ColorBg", UISprite, self.astralPrayProUp)
 end
 
 function PveTypeGridCell:TrySeenRedTip()
@@ -60,6 +74,7 @@ function PveTypeGridCell:SetData(data)
   self.text = string.format(ZhString.Pve_GridCellText, data.staticEntranceData.lv, data.staticEntranceData.name)
   self:UpdateChoose()
   self:UpdateRedTip()
+  self:UpdateAstralPrayPro()
 end
 
 function PveTypeGridCell:SetChoosen(id)
@@ -92,5 +107,24 @@ end
 function PveTypeGridCell:OnCellDestroy()
   if self.labelCtrl then
     self.labelCtrl:Destroy()
+  end
+end
+
+function PveTypeGridCell:UpdateAstralPrayPro()
+  local isAstral = self.data.staticEntranceData:IsAstral()
+  local isMyProPrayed = self.data:IsMyProAstralPrayed()
+  self.astralPrayProUp:SetActive(isAstral and isMyProPrayed or false)
+  if isMyProPrayed then
+    local myBranch = ProfessionProxy.GetTypeBranchFromProf()
+    local proList = ProfessionProxy.GetProfList(myBranch)
+    local proId = proList[1]
+    local config = Table_Class[proId]
+    local iconName = config and config.icon
+    IconManager:SetProfessionIcon(iconName, self.astralProIcon)
+    local type = config and config.Type or ""
+    local colorKey = "CareerIconBg" .. type
+    if ColorUtil[colorKey] then
+      self.astralProColorBg.color = ColorUtil[colorKey]
+    end
   end
 end

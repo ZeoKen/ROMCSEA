@@ -34,7 +34,9 @@ function NewHappyShopBuyItemCell:AddEvts()
   if self.m_uiBtnMax then
     self:AddClickEvent(self.m_uiBtnMax, function()
       if self.shopdata.isDeposit then
-        self:UpdateTotalPrice(1)
+        local buyCount = self.shopdata.purchaseTimes or 0
+        local limitCount = self.shopdata.purchaseLimit_N or 0
+        self:UpdateTotalPrice(limitCount - buyCount)
       else
         local total = 0
         if self.shopdata.ItemID == 151 then
@@ -46,7 +48,7 @@ function NewHappyShopBuyItemCell:AddEvts()
         end
         if self.shopdata.changeCost then
           if not total then
-            goto lbl_104
+            goto lbl_114
           end
           local finalPrice = 0
           local canBuyCount = 0
@@ -72,7 +74,7 @@ function NewHappyShopBuyItemCell:AddEvts()
           end
         end
       end
-      ::lbl_104::
+      ::lbl_114::
     end)
   end
   if self.getPathBtn then
@@ -176,9 +178,10 @@ function NewHappyShopBuyItemCell:shopDeposit(data)
   self:UpdateConfirmBtn(data.isEnable == nil and true or data.isEnable)
   self:UpdateTopInfo()
   self:UpdateShowFpButton()
-  self:SetCountPlus(0.5)
+  self:SetCountPlus(1 < limitCount - buyCount and 1 or 0.5)
   self:SetCountSubtract(0.5)
   self.countChangeRate = 1
+  self.countInput.value = 1
   local runtimePlatform = ApplicationInfo.GetRunPlatform()
   if runtimePlatform == RuntimePlatform.IPhonePlayer and (BranchMgr.IsNO() or BranchMgr.IsNOTW()) then
     self.m_uiBtnMax.gameObject:SetActive(true)
@@ -186,6 +189,10 @@ function NewHappyShopBuyItemCell:shopDeposit(data)
     self.countSubtractBg.gameObject:SetActive(true)
     self.countInput.enabled = true
     self.countInputBc.enabled = true
+    self.maxcount = limitCount - buyCount
+    if self.maxcount > 10 then
+      self.maxcount = 10
+    end
   else
     self.m_uiBtnMax.gameObject:SetActive(false)
     self.countPlusBg.gameObject:SetActive(false)
@@ -448,27 +455,24 @@ function NewHappyShopBuyItemCell:closeUrlTips()
 end
 
 function NewHappyShopBuyItemCell:InputOnSubmit()
-  if self.shopdata.isDeposit then
-    self.countInput.value = 1
-  else
-    NewHappyShopBuyItemCell.super.InputOnSubmit(self)
-  end
+  NewHappyShopBuyItemCell.super.InputOnSubmit(self)
 end
 
 function NewHappyShopBuyItemCell:UpdateTotalPrice(count)
   if self.shopdata.isDeposit then
     self.totalPrice.text = self.shopdata.productConf.priceStr or string.format("%s%s", self.shopdata.productConf.CurrencyType, StringUtil.NumThousandFormat(self:getRealPrice(), nil, true))
+    self.count = count
+    if self.countInput.value ~= tostring(count) then
+      self.countInput.value = count
+    end
+    xdlog("UpdateTotalPrice", count)
   else
     NewHappyShopBuyItemCell.super.UpdateTotalPrice(self, count)
   end
 end
 
 function NewHappyShopBuyItemCell:InputOnChange()
-  if self.shopdata.isDeposit then
-    self:UpdateTotalPrice(1)
-  else
-    self:_InputOnChange()
-  end
+  self:_InputOnChange()
 end
 
 function NewHappyShopBuyItemCell:_InputOnChange()

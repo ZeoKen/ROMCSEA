@@ -70,7 +70,7 @@ function ServiceNUserAutoProxy:onRegister()
     self:RecvUseFrame(data)
   end)
   self:Listen(9, 20, function(data)
-    self:RecvNewPortraitFrame(data)
+    self:RecvUpdatePortraitFrame(data)
   end)
   self:Listen(9, 24, function(data)
     self:RecvQueryPortraitListUserCmd(data)
@@ -704,6 +704,9 @@ function ServiceNUserAutoProxy:onRegister()
   end)
   self:Listen(9, 254, function(data)
     self:RecvRaceGameFinishUserCmd(data)
+  end)
+  self:Listen(9, 226, function(data)
+    self:RecvSendMarksInfoUserCmd(data)
   end)
 end
 
@@ -2109,88 +2112,66 @@ function ServiceNUserAutoProxy:CallUseFrame(id)
   end
 end
 
-function ServiceNUserAutoProxy:CallNewPortraitFrame(portrait, frame)
+function ServiceNUserAutoProxy:CallUpdatePortraitFrame(portraits)
   if not NetConfig.PBC then
-    local msg = SceneUser2_pb.NewPortraitFrame()
-    if portrait ~= nil then
+    local msg = SceneUser2_pb.UpdatePortraitFrame()
+    if portraits ~= nil then
       if msg == nil then
         msg = {}
       end
-      if msg.portrait == nil then
-        msg.portrait = {}
+      if msg.portraits == nil then
+        msg.portraits = {}
       end
-      for i = 1, #portrait do
-        table.insert(msg.portrait, portrait[i])
-      end
-    end
-    if frame ~= nil then
-      if msg == nil then
-        msg = {}
-      end
-      if msg.frame == nil then
-        msg.frame = {}
-      end
-      for i = 1, #frame do
-        table.insert(msg.frame, frame[i])
+      for i = 1, #portraits do
+        table.insert(msg.portraits, portraits[i])
       end
     end
     self:SendProto(msg)
   else
-    local msgId = ProtoReqInfoList.NewPortraitFrame.id
+    local msgId = ProtoReqInfoList.UpdatePortraitFrame.id
     local msgParam = {}
-    if portrait ~= nil then
+    if portraits ~= nil then
       if msgParam == nil then
         msgParam = {}
       end
-      if msgParam.portrait == nil then
-        msgParam.portrait = {}
+      if msgParam.portraits == nil then
+        msgParam.portraits = {}
       end
-      for i = 1, #portrait do
-        table.insert(msgParam.portrait, portrait[i])
-      end
-    end
-    if frame ~= nil then
-      if msgParam == nil then
-        msgParam = {}
-      end
-      if msgParam.frame == nil then
-        msgParam.frame = {}
-      end
-      for i = 1, #frame do
-        table.insert(msgParam.frame, frame[i])
+      for i = 1, #portraits do
+        table.insert(msgParam.portraits, portraits[i])
       end
     end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceNUserAutoProxy:CallQueryPortraitListUserCmd(portrait)
+function ServiceNUserAutoProxy:CallQueryPortraitListUserCmd(portraits)
   if not NetConfig.PBC then
     local msg = SceneUser2_pb.QueryPortraitListUserCmd()
-    if portrait ~= nil then
+    if portraits ~= nil then
       if msg == nil then
         msg = {}
       end
-      if msg.portrait == nil then
-        msg.portrait = {}
+      if msg.portraits == nil then
+        msg.portraits = {}
       end
-      for i = 1, #portrait do
-        table.insert(msg.portrait, portrait[i])
+      for i = 1, #portraits do
+        table.insert(msg.portraits, portraits[i])
       end
     end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.QueryPortraitListUserCmd.id
     local msgParam = {}
-    if portrait ~= nil then
+    if portraits ~= nil then
       if msgParam == nil then
         msgParam = {}
       end
-      if msgParam.portrait == nil then
-        msgParam.portrait = {}
+      if msgParam.portraits == nil then
+        msgParam.portraits = {}
       end
-      for i = 1, #portrait do
-        table.insert(msgParam.portrait, portrait[i])
+      for i = 1, #portraits do
+        table.insert(msgParam.portraits, portraits[i])
       end
     end
     self:SendProto2(msgId, msgParam)
@@ -12115,6 +12096,45 @@ function ServiceNUserAutoProxy:CallRaceGameFinishUserCmd(success)
   end
 end
 
+function ServiceNUserAutoProxy:CallSendMarksInfoUserCmd(buffid, guids)
+  if not NetConfig.PBC then
+    local msg = SceneUser2_pb.SendMarksInfoUserCmd()
+    if buffid ~= nil then
+      msg.buffid = buffid
+    end
+    if guids ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.guids == nil then
+        msg.guids = {}
+      end
+      for i = 1, #guids do
+        table.insert(msg.guids, guids[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SendMarksInfoUserCmd.id
+    local msgParam = {}
+    if buffid ~= nil then
+      msgParam.buffid = buffid
+    end
+    if guids ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.guids == nil then
+        msgParam.guids = {}
+      end
+      for i = 1, #guids do
+        table.insert(msgParam.guids, guids[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceNUserAutoProxy:RecvGoCity(data)
   self:Notify(ServiceEvent.NUserGoCity, data)
 end
@@ -12187,8 +12207,8 @@ function ServiceNUserAutoProxy:RecvUseFrame(data)
   self:Notify(ServiceEvent.NUserUseFrame, data)
 end
 
-function ServiceNUserAutoProxy:RecvNewPortraitFrame(data)
-  self:Notify(ServiceEvent.NUserNewPortraitFrame, data)
+function ServiceNUserAutoProxy:RecvUpdatePortraitFrame(data)
+  self:Notify(ServiceEvent.NUserUpdatePortraitFrame, data)
 end
 
 function ServiceNUserAutoProxy:RecvQueryPortraitListUserCmd(data)
@@ -13035,6 +13055,10 @@ function ServiceNUserAutoProxy:RecvRaceGameFinishUserCmd(data)
   self:Notify(ServiceEvent.NUserRaceGameFinishUserCmd, data)
 end
 
+function ServiceNUserAutoProxy:RecvSendMarksInfoUserCmd(data)
+  self:Notify(ServiceEvent.NUserSendMarksInfoUserCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.NUserGoCity = "ServiceEvent_NUserGoCity"
 ServiceEvent.NUserSysMsg = "ServiceEvent_NUserSysMsg"
@@ -13054,7 +13078,7 @@ ServiceEvent.NUserEvaluationReward = "ServiceEvent_NUserEvaluationReward"
 ServiceEvent.NUserTeamInfoNine = "ServiceEvent_NUserTeamInfoNine"
 ServiceEvent.NUserUsePortrait = "ServiceEvent_NUserUsePortrait"
 ServiceEvent.NUserUseFrame = "ServiceEvent_NUserUseFrame"
-ServiceEvent.NUserNewPortraitFrame = "ServiceEvent_NUserNewPortraitFrame"
+ServiceEvent.NUserUpdatePortraitFrame = "ServiceEvent_NUserUpdatePortraitFrame"
 ServiceEvent.NUserQueryPortraitListUserCmd = "ServiceEvent_NUserQueryPortraitListUserCmd"
 ServiceEvent.NUserUseDressing = "ServiceEvent_NUserUseDressing"
 ServiceEvent.NUserNewDressing = "ServiceEvent_NUserNewDressing"
@@ -13266,3 +13290,4 @@ ServiceEvent.NUserSendTargetPosUserCmd = "ServiceEvent_NUserSendTargetPosUserCmd
 ServiceEvent.NUserCookGameFinishUserCmd = "ServiceEvent_NUserCookGameFinishUserCmd"
 ServiceEvent.NUserRaceGameStartUserCmd = "ServiceEvent_NUserRaceGameStartUserCmd"
 ServiceEvent.NUserRaceGameFinishUserCmd = "ServiceEvent_NUserRaceGameFinishUserCmd"
+ServiceEvent.NUserSendMarksInfoUserCmd = "ServiceEvent_NUserSendMarksInfoUserCmd"

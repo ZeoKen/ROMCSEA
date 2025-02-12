@@ -245,7 +245,7 @@ function Thanatos:Launch()
   self.beforeSetting[1] = cacheSetting.screenCount
   self.beforeSetting[2] = cacheSetting.skillEffect
   setting:SetBegin()
-  setting:SetScreenCount(GameConfig.Setting.ScreenCountHigh)
+  setting:SetScreenCount(FunctionPerformanceSetting.Me():GetScreenCountByLevel(EScreenCountLevel.High))
   setting:SetSkillEffect(true)
   setting:SetEnd()
   Game.GameHealthProtector:SetForceMinPlayerCount(100)
@@ -667,6 +667,16 @@ function PVEFactory.GetGvgLobby()
   return GvgLobby.new()
 end
 
+local GvgDateBattleLobby = class("GvgDateBattleLobby", GvgLobby)
+
+function GvgDateBattleLobby:ctor()
+  self.IsGvgDateBattleLobby = true
+end
+
+function PVEFactory.GetGvgLobbyDateBattle()
+  return GvgDateBattleLobby.new()
+end
+
 local BossRaid = class("BossRaid", Dungeon_Handle)
 
 function BossRaid:ctor()
@@ -733,4 +743,22 @@ end
 
 function PVEFactory.GetStarArkRaid()
   return StarArkRaid.new()
+end
+
+local AstralRaid = class("AstralRaid", Dungeon_Handle)
+
+function AstralRaid:ctor()
+  self.isAstralRaid = true
+end
+
+function AstralRaid:Launch()
+  notify(PVEEvent.Astral_Launch)
+end
+
+function AstralRaid:Shutdown()
+  notify(PVEEvent.Astral_Shutdown)
+end
+
+function PVEFactory.GetAstralRaid()
+  return AstralRaid.new()
 end

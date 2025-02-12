@@ -7,13 +7,19 @@ autoImport("GvgQuestScoreTip")
 MainViewGvgPage = class("MainViewGvgPage", SubMediatorView)
 
 function MainViewGvgPage:Init()
-  self:ReLoadPerferb("view/MainViewGvgPage")
+  self.isGuildDate = Game.MapManager:IsGVG_DateBattle()
+  local prefab = self:GetPrefabName()
+  self:ReLoadPerferb(prefab)
   self:AddViewEvts()
   self:initView()
   self:initData()
   self:InitShow()
   self:resetData()
   self.isInit = true
+end
+
+function MainViewGvgPage:GetPrefabName()
+  return self.isGuildDate and "view/MainViewGuildDateGvgPage" or "view/MainViewGvgPage"
 end
 
 function MainViewGvgPage:InitShow()
@@ -193,14 +199,34 @@ function MainViewGvgPage:initView()
   end
   
   self.taskCellFoldSymbolSp = self:FindComponent("taskCellFoldSymbol", UISprite)
-  local clickBox = self:FindGO("taskBordFoldSymbol")
-  self:AddClickEvent(clickBox, function(go)
-    if self.effectObj then
-      self:Hide(self.effectObj)
-    end
-    self:stopDelayRemoveEffect()
-    TipManager.Instance:ShowGvgQuestScoreTip(self.taskCellFoldSymbolSp, NGUIUtil.AnchorSide.Left, {-450, 0})
-  end)
+  self.taskBordFold = self:FindGO("taskBordFoldSymbol")
+  if self.taskBordFold then
+    self:AddClickEvent(self.taskBordFold, function()
+      self:OnClickTaskBordFold()
+    end)
+  end
+  self.GvgHonorTraceInfo = self:FindGO("GvgHonorTraceInfo")
+  if self.isGuildDate and self.GvgHonorTraceInfo then
+    self:Hide(self.GvgHonorTraceInfo)
+  end
+  self:InitTraceHonor()
+end
+
+function MainViewGvgPage:OnClickTaskBordFold()
+  if self.isGuildDate then
+    return
+  end
+  if self.effectObj then
+    self:Hide(self.effectObj)
+  end
+  self:stopDelayRemoveEffect()
+  TipManager.Instance:ShowGvgQuestScoreTip(self.taskCellFoldSymbolSp, NGUIUtil.AnchorSide.Left, {-450, 0})
+end
+
+function MainViewGvgPage:InitTraceHonor()
+  if self.isGuildDate then
+    return
+  end
   self.honorValue = self:FindComponent("honorValue", UILabel)
   self.honorFixed = self:FindComponent("honorFixed", UILabel, self.honorValue.gameObject)
   self.honorFixed.text = ZhString.MainViewGvgPage_HonorValue
@@ -211,11 +237,15 @@ function MainViewGvgPage:initView()
   self.coinFixed.text = ZhString.MainViewGvgPage_CoinValue
   local l_sprCoinIcon = self:FindComponent("coinIcon", UISprite, self.coinValue.gameObject)
   IconManager:SetItemIcon("item_5897", l_sprCoinIcon)
-  self.GvgHonorTraceInfo = self:FindGO("GvgHonorTraceInfo")
-  self:InitSmallMetalInfo()
+  self.smallMetalRoot = self:FindGO("SmallMetalRoot")
+  self.smallMetalProgress = self:FindComponent("SmallMetalProgress", UISlider, self.smallMetalRoot)
+  self.smallMetalLab = self:FindComponent("Label", UILabel, self.smallMetalRoot)
 end
 
 function MainViewGvgPage:updateHonorValue()
+  if self.isGuildDate then
+    return
+  end
   local cur = self.gvgIns:GetHonor()
   local max = GameConfig.GVGConfig.reward.max_honor or 3200
   local data = ActivityEventProxy.Instance:GetRewardByType(AERewardType.NewGVGPersonal)
@@ -279,6 +309,9 @@ function MainViewGvgPage:resizeContent()
   local bd = calSize(self.content.transform, false)
   local height = bd.size.y
   self.bg.height = height + 10
+  if self.isGuildDate then
+    return
+  end
   local x, y, z = getLocalPos(self.GvgHonorTraceInfo.transform)
   local x1, y1, z1 = getLocalPos(self.bg.transform)
   self.GvgHonorTraceInfo.transform.localPosition = LuaGeometry.GetTempVector3(x, y1 - height - 20, z)
@@ -355,12 +388,6 @@ function MainViewGvgPage:HandleAchieveEffect()
     self:Show(self.effectObj)
     self:delayRemoveEffect()
   end
-end
-
-function MainViewGvgPage:InitSmallMetalInfo()
-  self.smallMetalRoot = self:FindGO("SmallMetalRoot")
-  self.smallMetalProgress = self:FindComponent("SmallMetalProgress", UISlider, self.smallMetalRoot)
-  self.smallMetalLab = self:FindComponent("Label", UILabel, self.smallMetalRoot)
 end
 
 local _suffix = "%"

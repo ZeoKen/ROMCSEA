@@ -8,4 +8,9 @@ function ActivityExchangeMaterialCell:UpdateNumLabel(num)
   local bagNum = BagProxy.Instance:GetItemNumByStaticID(self.data.staticData.id, checkPackage)
   local colStr = num > bagNum and RedColor or BlackColor
   self.numLab.text = string.format("[c][%s]%s[-][/c]/%s", colStr, bagNum, num)
+  self.symbol.gameObject:SetActive(self.indexInList ~= 1)
+end
+
+function ActivityExchangeMaterialCell:SetSymbol()
+  self.symbol.text = "+"
 end
