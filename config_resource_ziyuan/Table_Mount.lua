@@ -1094,6 +1094,20 @@ Table_Mount = {
     TransformStartSE = "",
     TransformEndSE = ""
   },
+  [25246] = {
+    id = 25246,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [25247] = {
+    id = 25247,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
   [25249] = {
     id = 25249,
     EquipCondition = _EmptyTable,
@@ -1152,6 +1166,34 @@ Table_Mount = {
   },
   [25258] = {
     id = 25258,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [25261] = {
+    id = 25261,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [25262] = {
+    id = 25262,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [25263] = {
+    id = 25263,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [25264] = {
+    id = 25264,
     EquipCondition = _EmptyTable,
     ActionPrefix = "",
     TransformStartSE = "",
@@ -2494,6 +2536,27 @@ Table_Mount = {
     TransformStartSE = "",
     TransformEndSE = ""
   },
+  [900326] = {
+    id = 900326,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [900327] = {
+    id = 900327,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [900328] = {
+    id = 900328,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
   [3000177] = {
     id = 3000177,
     EquipCondition = _EmptyTable,
@@ -2887,6 +2950,41 @@ Table_Mount = {
     id = 3012381,
     EquipCondition = _EmptyTable,
     ActionPrefix = "elegance_ride",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [3012420] = {
+    id = 3012420,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "elegance_ride",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [3012501] = {
+    id = 3012501,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [3012502] = {
+    id = 3012502,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [3012503] = {
+    id = 3012503,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
+    TransformStartSE = "",
+    TransformEndSE = ""
+  },
+  [3012597] = {
+    id = 3012597,
+    EquipCondition = _EmptyTable,
+    ActionPrefix = "",
     TransformStartSE = "",
     TransformEndSE = ""
   },

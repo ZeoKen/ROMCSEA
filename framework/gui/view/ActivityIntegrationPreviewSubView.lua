@@ -51,11 +51,26 @@ function ActivityIntegrationPreviewSubView:LoadCellPfb(cName, parent)
 end
 
 function ActivityIntegrationPreviewSubView:FindObjs()
-  for i = 1, 6 do
-    self["Root" .. i] = self:FindGO("Root" .. i, self.gameObject)
-    self["Root" .. i]:SetActive(self.showType == i)
+  for i = 1, 8 do
+    local targetRoot = self:FindGO("Root" .. i, self.gameObject)
+    if targetRoot then
+      targetRoot:SetActive(i == self.showType)
+      if i == self.showType then
+        self.curRoot = targetRoot
+      end
+    elseif i == self.showType then
+      local rootGO = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UIPart("ActivityIntegrationPreview_Root" .. self.showType))
+      rootGO.name = "Root" .. i
+      rootGO.transform:SetParent(self.gameObject.transform, false)
+      rootGO:SetActive(true)
+      self.curRoot = rootGO
+      local upPanel = Game.GameObjectUtil:FindCompInParents(self.gameObject, UIPanel)
+      local panels = rootGO:GetComponentsInChildren(UIPanel)
+      for i = 1, #panels do
+        panels[i].depth = upPanel.depth + panels[i].depth
+      end
+    end
   end
-  self.curRoot = self["Root" .. self.showType]
   self.helpBtn = self:FindGO("HelpBtn", self.curRoot)
   local titleGO = self:FindGO("TitleLabel", self.curRoot)
   if titleGO then
@@ -104,9 +119,10 @@ function ActivityIntegrationPreviewSubView:FindObjs()
       end
     end
   end
+  self.colliders = {}
   self.itemTipContainer = self:FindGO("ItemTipContainer", self.curRoot)
   if self.itemTipContainer then
-    local childCount = self.itemTipContainer and self.itemTipContainer.gameObject.transform.childCount or 0
+    local childCount = 12
     if 0 < childCount then
       for i = 1, childCount do
         local collider = self:FindGO("Collider" .. i, self.itemTipContainer)
@@ -115,6 +131,7 @@ function ActivityIntegrationPreviewSubView:FindObjs()
             xdlog("click itemtip")
             self:HandleShowItemTip(i, collider)
           end)
+          self.colliders[i] = collider
         end
       end
     end
@@ -122,7 +139,7 @@ function ActivityIntegrationPreviewSubView:FindObjs()
   self.infoLists = {}
   self.itemAndNameContainer = self:FindGO("IconNameContainer", self.curRoot)
   if self.itemAndNameContainer then
-    local childCount = self.itemAndNameContainer and self.itemAndNameContainer.gameObject.transform.childCount or 0
+    local childCount = 12
     if 0 < childCount then
       for i = 1, childCount do
         local bgGO = self:FindGO("Icon" .. i, self.itemAndNameContainer)
@@ -133,7 +150,8 @@ function ActivityIntegrationPreviewSubView:FindObjs()
               go = bgGO,
               bg = bgGO:GetComponent(UISprite),
               icon = self:FindGO("Icon", bgGO):GetComponent(UISprite),
-              label = self:FindGO("Label", bgGO):GetComponent(UILabel)
+              label = self:FindGO("Label", bgGO):GetComponent(UILabel),
+              labelBg = self:FindGO("LabelBG", bgGO) ~= nil and self:FindGO("LabelBG", bgGO):GetComponent(UISprite) or nil
             }
             self.infoLists[i] = singleInfo
           end
@@ -260,6 +278,7 @@ function ActivityIntegrationPreviewSubView:UpdateInfos()
   if shortCutGroup and 0 < #shortCutGroup then
     local _, textColor = ColorUtil.TryParseHexString(params.TextColor)
     local _, bgColor = ColorUtil.TryParseHexString(params.ItemBgColor)
+    local _, textBgColor = ColorUtil.TryParseHexString(params.TextBgColor or "000000")
     for i = 1, 8 do
       if shortCutGroup[i] then
         self.infoLists[i].go:SetActive(true)
@@ -282,6 +301,54 @@ function ActivityIntegrationPreviewSubView:UpdateInfos()
         self.infoLists[i].icon.gameObject.transform.localScale = LuaGeometry.GetTempVector3(0.8, 0.8, 0.8)
       else
         self.infoLists[i].go:SetActive(false)
+      end
+    end
+  else
+    local itemIds = params and params.ItemIDs
+    if itemIds and 0 < #itemIds then
+      local _, textColor = ColorUtil.TryParseHexString(params.TextColor or "000000")
+      local _, bgColor = ColorUtil.TryParseHexString(params.ItemBgColor or "000000")
+      local _, textBgColor = ColorUtil.TryParseHexString(params.TextBgColor or "000000")
+      for i = 1, 12 do
+        if self.infoLists[i] then
+          if itemIds[i] then
+            self.infoLists[i].go:SetActive(true)
+            if self.infoLists[i].labelBg then
+              self.infoLists[i].labelBg.color = textBgColor
+            end
+            if self.infoLists[i].label then
+              self.infoLists[i].label.color = textColor
+            end
+            if self.infoLists[i].bg then
+              self.infoLists[i].bg.color = bgColor
+            end
+            local itemid = itemIds[i]
+            local staticData = Table_Item[itemid]
+            if not staticData then
+              redlog("Item不存在", itemid)
+              return
+            end
+            local setSuc, setFaceSuc = false, false
+            if staticData and staticData.Type == 1200 then
+              setFaceSuc = IconManager:SetFaceIcon(staticData.Icon, self.infoLists[i].icon)
+              if not setFaceSuc then
+                setFaceSuc = IconManager:SetFaceIcon("boli", self.infoLists[i].icon)
+              end
+            else
+              setSuc = IconManager:SetItemIcon(staticData.Icon, self.infoLists[i].icon)
+              setSuc = setSuc or IconManager:SetItemIcon("item_45001", self.infoLists[i].icon)
+            end
+            self.infoLists[i].icon:MakePixelPerfect()
+            self.infoLists[i].icon.gameObject.transform.localScale = LuaGeometry.GetTempVector3(0.8, 0.8, 0.8)
+            self.infoLists[i].label.text = staticData.NameZh
+            local width = self.infoLists[i].label.printedSize.x
+            self.infoLists[i].labelBg.width = width + 10
+            self.colliders[i].gameObject:SetActive(true)
+          else
+            self.infoLists[i].go:SetActive(false)
+            self.colliders[i].gameObject:SetActive(false)
+          end
+        end
       end
     end
   end

@@ -21,7 +21,8 @@ local MonsterType = {
   "TwelveBarrack",
   "Boki",
   "SoulNpc",
-  "EBF_Robot"
+  "EBF_Robot",
+  "GvgDefenseTower"
 }
 local PetType = {"PetNpc", "BeingNpc"}
 

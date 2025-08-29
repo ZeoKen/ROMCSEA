@@ -75,7 +75,7 @@ function GVGRankPopUp:FindObjs()
   self.lvLable = self:FindComponent("LvLable", UILabel, GuildFlagRoot)
   self.guildIcon = self:FindComponent("GuildIcon", UISprite, GuildFlagRoot)
   self.customPic = self:FindComponent("CustomIcon", UITexture, GuildFlagRoot)
-  self.gvgReportBtnGO = self:FindGO("ReportBtn")
+  self.gvgReportBtnGO = self:FindGO("ReportBtn", self.targetGO[1])
   self:AddClickEvent(self.gvgReportBtnGO, function()
     GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
       view = PanelConfig.GVGStatView

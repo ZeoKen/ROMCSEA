@@ -1,11 +1,13 @@
 ServerTime = class("ServerTime")
+local TimeZoneConfig = {NOTW = 8}
 ServerTime.CacheUnscaledTime = 0
 ServerTime.SERVER_TIMEZONE = nil
+ServerTime.DATE_TIMEZONE = nil
 ServerTime.Ori_OsDate = os.date
 
 function os.date(fmt, time)
-  if ServerTime.SERVER_TIMEZONE and time then
-    time = time + 3600 * ServerTime.SERVER_TIMEZONE
+  if ServerTime.DATE_TIMEZONE and time then
+    time = time + 3600 * ServerTime.DATE_TIMEZONE
     local date = ServerTime.Ori_OsDate("!" .. fmt, time)
     if date.isdst then
       date = ServerTime.Ori_OsDate("!" .. fmt, time - 3600)
@@ -45,6 +47,8 @@ function ServerTime.InitTime(serverTime, timeZone)
       redlog("TimeZone Param Error：", timeZone)
     else
       ServerTime.SERVER_TIMEZONE = timeZone
+      local timezone = TimeZoneConfig[BranchMgr.GetBranchName()]
+      ServerTime.DATE_TIMEZONE = timezone or ServerTime.SERVER_TIMEZONE
     end
   end
   if not ServerTime.SERVER_TIMEZONE then

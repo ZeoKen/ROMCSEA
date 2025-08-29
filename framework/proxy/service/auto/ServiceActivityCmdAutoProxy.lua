@@ -1945,6 +1945,24 @@ function ServiceActivityCmdAutoProxy:CallBattleFundNofityActCmd(info)
         table.insert(msg.info.freerewarddays, info.freerewarddays[i])
       end
     end
+    if info ~= nil and info.resetdepositreward ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.info == nil then
+        msg.info = {}
+      end
+      msg.info.resetdepositreward = info.resetdepositreward
+    end
+    if info ~= nil and info.extra_end_time ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.info == nil then
+        msg.info = {}
+      end
+      msg.info.extra_end_time = info.extra_end_time
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.BattleFundNofityActCmd.id
@@ -2007,11 +2025,29 @@ function ServiceActivityCmdAutoProxy:CallBattleFundNofityActCmd(info)
         table.insert(msgParam.info.freerewarddays, info.freerewarddays[i])
       end
     end
+    if info ~= nil and info.resetdepositreward ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      msgParam.info.resetdepositreward = info.resetdepositreward
+    end
+    if info ~= nil and info.extra_end_time ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      msgParam.info.extra_end_time = info.extra_end_time
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceActivityCmdAutoProxy:CallBattleFundRewardActCmd(activityid, rewardday, free)
+function ServiceActivityCmdAutoProxy:CallBattleFundRewardActCmd(activityid, rewardday, free, resetdepositreward)
   if not NetConfig.PBC then
     local msg = ActivityCmd_pb.BattleFundRewardActCmd()
     if activityid ~= nil then
@@ -2022,6 +2058,9 @@ function ServiceActivityCmdAutoProxy:CallBattleFundRewardActCmd(activityid, rewa
     end
     if free ~= nil then
       msg.free = free
+    end
+    if resetdepositreward ~= nil then
+      msg.resetdepositreward = resetdepositreward
     end
     self:SendProto(msg)
   else
@@ -2035,6 +2074,9 @@ function ServiceActivityCmdAutoProxy:CallBattleFundRewardActCmd(activityid, rewa
     end
     if free ~= nil then
       msgParam.free = free
+    end
+    if resetdepositreward ~= nil then
+      msgParam.resetdepositreward = resetdepositreward
     end
     self:SendProto2(msgId, msgParam)
   end

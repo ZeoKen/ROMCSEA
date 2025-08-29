@@ -550,6 +550,326 @@ Table_NewServerChallengeTarget = {
     },
     Title = "全身精炼达到%s级",
     Shop = _EmptyTable
+  },
+  [105826001] = {
+    id = 105826001,
+    ActID = 105826,
+    TargetType = "base_lv",
+    TargetNum = 25,
+    Param = _EmptyTable,
+    MaleReward = {
+      {52835, 50}
+    },
+    FemaleReward = {
+      {52835, 50}
+    },
+    Title = "活动期间登录",
+    Shop = _EmptyTable
+  },
+  [105826002] = {
+    id = 105826002,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {5931, 1}
+    },
+    FemaleReward = {
+      {5931, 1}
+    },
+    Title = "通关混沌入侵·异界1次",
+    Shop = {DepositID = 400003}
+  },
+  [105826003] = {
+    id = 105826003,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 3,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {52836, 200}
+    },
+    FemaleReward = {
+      {52836, 200}
+    },
+    Title = "通关混沌入侵·异界3次",
+    Shop = {DepositID = 400004}
+  },
+  [105826004] = {
+    id = 105826004,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 5,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "通关混沌入侵·异界5次",
+    Shop = {DepositID = 400005}
+  },
+  [105826005] = {
+    id = 105826005,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 10,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "通关混沌入侵·异界10次",
+    Shop = {DepositID = 400006}
+  },
+  [105827001] = {
+    id = 105827001,
+    ActID = 105827,
+    TargetType = "base_lv",
+    TargetNum = 25,
+    Param = _EmptyTable,
+    MaleReward = {
+      {52835, 50}
+    },
+    FemaleReward = {
+      {52835, 50}
+    },
+    Title = "活动期间登录",
+    Shop = _EmptyTable
+  },
+  [105827002] = {
+    id = 105827002,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {5931, 1}
+    },
+    FemaleReward = {
+      {5931, 1}
+    },
+    Title = "通关混沌入侵·异界1次",
+    Shop = {DepositID = 400003}
+  },
+  [105827003] = {
+    id = 105827003,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 3,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {52836, 200}
+    },
+    FemaleReward = {
+      {52836, 200}
+    },
+    Title = "通关混沌入侵·异界3次",
+    Shop = {DepositID = 400004}
+  },
+  [105827004] = {
+    id = 105827004,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 5,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "通关混沌入侵·异界5次",
+    Shop = {DepositID = 400005}
+  },
+  [105827005] = {
+    id = 105827005,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 10,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "通关混沌入侵·异界10次",
+    Shop = {DepositID = 400006}
+  },
+  [105828001] = {
+    id = 105828001,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10001,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000293, 1}
+    },
+    FemaleReward = {
+      {10000293, 1}
+    },
+    Title = "通关神谕副本精英任意难度",
+    Shop = {DepositID = 400007}
+  },
+  [105828002] = {
+    id = 105828002,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10005,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000293, 1}
+    },
+    FemaleReward = {
+      {10000293, 1}
+    },
+    Title = "通关神谕副本精英难度5",
+    Shop = {DepositID = 400008}
+  },
+  [105828003] = {
+    id = 105828003,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10006,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000294, 1}
+    },
+    FemaleReward = {
+      {10000294, 1}
+    },
+    Title = "通关神谕副本精英难度6",
+    Shop = {DepositID = 400009}
+  },
+  [105828004] = {
+    id = 105828004,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10008,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000295, 1}
+    },
+    FemaleReward = {
+      {10000295, 1}
+    },
+    Title = "通关神谕副本精英难度8",
+    Shop = {DepositID = 400010}
+  },
+  [105828005] = {
+    id = 105828005,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10010,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000296, 1}
+    },
+    FemaleReward = {
+      {10000296, 1}
+    },
+    Title = "通关神谕副本精英难度10",
+    Shop = {DepositID = 400011}
+  },
+  [105829001] = {
+    id = 105829001,
+    ActID = 105829,
+    TargetType = "base_lv",
+    TargetNum = 25,
+    Param = _EmptyTable,
+    MaleReward = {
+      {52835, 50}
+    },
+    FemaleReward = {
+      {52835, 50}
+    },
+    Title = "活动期间登录",
+    Shop = _EmptyTable
+  },
+  [105829002] = {
+    id = 105829002,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {5931, 1}
+    },
+    FemaleReward = {
+      {5931, 1}
+    },
+    Title = "通关混沌入侵·异界1次",
+    Shop = {DepositID = 400003}
+  },
+  [105829003] = {
+    id = 105829003,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 3,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {52836, 200}
+    },
+    FemaleReward = {
+      {52836, 200}
+    },
+    Title = "通关混沌入侵·异界3次",
+    Shop = {DepositID = 400004}
+  },
+  [105829004] = {
+    id = 105829004,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 5,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "通关混沌入侵·异界5次",
+    Shop = {DepositID = 400005}
+  },
+  [105829005] = {
+    id = 105829005,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 10,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "通关混沌入侵·异界10次",
+    Shop = {DepositID = 400006}
   }
 }
 Table_NewServerChallengeTarget_fields = {

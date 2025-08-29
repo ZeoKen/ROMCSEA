@@ -12,6 +12,7 @@ function WarbandOpponentCell:FindObj()
   self.myWarbandFlag = self:FindGO("MyWarbandFlag")
   self.winner = self:FindGO("Winner")
   self.root = self:FindGO("Root")
+  self.promotion = self:FindGO("Promotion")
 end
 
 function WarbandOpponentCell:SetData(data)
@@ -23,6 +24,14 @@ function WarbandOpponentCell:SetData(data)
     self.winner:SetActive(data:IsChampionship())
   else
     self.root:SetActive(false)
+  end
+end
+
+function WarbandOpponentCell:SetPromotionSymbol(bool)
+  if bool == true and not self.winner.activeSelf then
+    self.promotion:SetActive(true)
+  else
+    self.promotion:SetActive(false)
   end
 end
 

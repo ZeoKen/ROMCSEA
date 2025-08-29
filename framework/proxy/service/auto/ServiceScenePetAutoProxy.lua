@@ -824,6 +824,15 @@ function ServiceScenePetAutoProxy:CallEquipUpdatePetCmd(petid, update, del)
       end
       msg.update.base.tmp.num_param = update.base.tmp.num_param
     end
+    if update.base.tmp ~= nil and update.base.tmp.from_reward ~= nil then
+      if msg.update.base == nil then
+        msg.update.base = {}
+      end
+      if msg.update.base.tmp == nil then
+        msg.update.base.tmp = {}
+      end
+      msg.update.base.tmp.from_reward = update.base.tmp.from_reward
+    end
     if update.base ~= nil and update.base.mount_fashion_activated ~= nil then
       if msg.update == nil then
         msg.update = {}
@@ -841,6 +850,15 @@ function ServiceScenePetAutoProxy:CallEquipUpdatePetCmd(petid, update, del)
         msg.update.base = {}
       end
       msg.update.base.no_trade_reason = update.base.no_trade_reason
+    end
+    if update.base.card_info ~= nil and update.base.card_info.lv ~= nil then
+      if msg.update.base == nil then
+        msg.update.base = {}
+      end
+      if msg.update.base.card_info == nil then
+        msg.update.base.card_info = {}
+      end
+      msg.update.base.card_info.lv = update.base.card_info.lv
     end
     if update ~= nil and update.equiped ~= nil then
       if msg == nil then
@@ -2291,6 +2309,15 @@ function ServiceScenePetAutoProxy:CallEquipUpdatePetCmd(petid, update, del)
         table.insert(msg.update.memory.effects, update.memory.effects[i])
       end
     end
+    if update ~= nil and update.deletetime ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.update == nil then
+        msg.update = {}
+      end
+      msg.update.deletetime = update.deletetime
+    end
     if del ~= nil then
       msg.del = del
     end
@@ -2600,6 +2627,15 @@ function ServiceScenePetAutoProxy:CallEquipUpdatePetCmd(petid, update, del)
       end
       msgParam.update.base.tmp.num_param = update.base.tmp.num_param
     end
+    if update.base.tmp ~= nil and update.base.tmp.from_reward ~= nil then
+      if msgParam.update.base == nil then
+        msgParam.update.base = {}
+      end
+      if msgParam.update.base.tmp == nil then
+        msgParam.update.base.tmp = {}
+      end
+      msgParam.update.base.tmp.from_reward = update.base.tmp.from_reward
+    end
     if update.base ~= nil and update.base.mount_fashion_activated ~= nil then
       if msgParam.update == nil then
         msgParam.update = {}
@@ -2617,6 +2653,15 @@ function ServiceScenePetAutoProxy:CallEquipUpdatePetCmd(petid, update, del)
         msgParam.update.base = {}
       end
       msgParam.update.base.no_trade_reason = update.base.no_trade_reason
+    end
+    if update.base.card_info ~= nil and update.base.card_info.lv ~= nil then
+      if msgParam.update.base == nil then
+        msgParam.update.base = {}
+      end
+      if msgParam.update.base.card_info == nil then
+        msgParam.update.base.card_info = {}
+      end
+      msgParam.update.base.card_info.lv = update.base.card_info.lv
     end
     if update ~= nil and update.equiped ~= nil then
       if msgParam == nil then
@@ -4066,6 +4111,15 @@ function ServiceScenePetAutoProxy:CallEquipUpdatePetCmd(petid, update, del)
       for i = 1, #update.memory.effects do
         table.insert(msgParam.update.memory.effects, update.memory.effects[i])
       end
+    end
+    if update ~= nil and update.deletetime ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.update == nil then
+        msgParam.update = {}
+      end
+      msgParam.update.deletetime = update.deletetime
     end
     if del ~= nil then
       msgParam.del = del

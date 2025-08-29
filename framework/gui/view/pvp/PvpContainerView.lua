@@ -1,9 +1,11 @@
 PvpContainerView = class("PvpContainerView", ContainerView)
+PvpContainerView.ViewType = UIViewType.ChasingViewLayer
 autoImport("TeamPwsView")
 autoImport("FreeBattleView")
 autoImport("ClassicBattleView")
 autoImport("MultiPvpView")
 autoImport("CupModeView")
+autoImport("CupModeView_MultiServer")
 autoImport("CompetiveModeView")
 autoImport("PvpTypeCell")
 autoImport("TeamPwsFreeModeView")
@@ -45,6 +47,7 @@ function PvpContainerView:FindObjs()
   self.mulitiPvpToggle_OpenLabel = self:FindGO("OpenLabel", self.mulitiPvpToggle):GetComponent(UILabel)
   self.mulitiPvpToggle_OpenLabelBg = self:FindGO("OpenBg", self.mulitiPvpToggle_OpenLabel.gameObject):GetComponent(UISprite)
   self.mulitiPvpToggle_txt_season = self:FindGO("txt_season", self.mulitiPvpToggle_OpenLabel.gameObject):GetComponent(UITexture)
+  self.mobaModeToggle_LabelGO = self:FindGO("OpenLabel", self.mobaModeToggle)
   self.subViewContainer = self:FindGO("SubViewContainer")
   self.subViewContainer_TweenAlpha = self.subViewContainer:GetComponent(TweenAlpha)
   self.competiveViewObj = self:FindGO("TeamPwsView")
@@ -136,6 +139,7 @@ function PvpContainerView:InitShow()
   self.mulitiPvpToggle:SetActive(twelveValid)
   local tripleValid = not Table_FuncState[1014] or FunctionUnLockFunc.checkFuncStateValid(1014)
   self.mobaModeToggle:SetActive(tripleValid)
+  self.mobaModeToggle_LabelGO:SetActive(PvpProxy.Instance:IsTripleTeamPwsSeasonOpen())
   self.pvpTypeGrid:Reposition()
   local defaultTab = PanelConfig.ClassicBattleView.tab
   if teamPwsOpen and teamPwsFunstateValid then
@@ -155,6 +159,7 @@ function PvpContainerView:InitShow()
       self:TabChangeHandler(tab)
     end
   end
+  self:UpdateTabDesc()
 end
 
 function PvpContainerView:TabChangeHandler(key)
@@ -250,9 +255,8 @@ end
 function PvpContainerView:PreQuerySome()
   ServiceMatchCCmdProxy.Instance:CallQueryTwelveSeasonInfoMatchCCmd(PvpProxy.Type.TwelvePVPChampion)
   ServiceMatchCCmdProxy.Instance:CallQueryTwelveSeasonInfoMatchCCmd(PvpProxy.Type.TwelvePVPBattle)
-  WarbandProxy.Instance:DoQuerySeasonRank()
   ServiceMatchCCmdProxy.Instance:CallQueryTwelveSeasonInfoMatchCCmd(PvpProxy.Type.TeamPwsChampion)
-  CupMode6v6Proxy.Instance:DoQuerySeasonRank()
+  ServiceMatchCCmdProxy.Instance:CallQueryTeamPwsTeamInfoMatchCCmd()
 end
 
 function PvpContainerView:OnExit()
@@ -273,8 +277,6 @@ end
 
 function PvpContainerView:HandleQueryTeamPwsTeamInfo(note)
   local serverData = note.body
-  local season = serverData.season or 1
-  PictureManager.Instance:SetPVP("pvp_icon_season_" .. season, self.competiveModeToggle_txt_season)
   local _, pwsConfig = next(GameConfig.PvpTeamRaid)
   local nextOpenTime = serverData.opentime
   local curTime = ServerTime.CurServerTime() / 1000
@@ -286,20 +288,7 @@ function PvpContainerView:HandleQueryTeamPwsTeamInfo(note)
   end
   local weekCount = math.ceil(serverData.count / (pwsConfig.EventCountPerWeek or 1))
   local strWeek
-  if 10 < weekCount then
-    local first, second = math.modf(weekCount / 10)
-    if 0 < second then
-      strWeek = string.format("%s%s", ZhString.ChinaNumber[10], ZhString.ChinaNumber[math.floor(second * 10 + 0.5)])
-    else
-      strWeek = ZhString.ChinaNumber[10]
-    end
-    if 1 < first then
-      strWeek = string.format("%s%s", ZhString.ChinaNumber[math.clamp(first, 1, 9)], strWeek)
-    end
-  else
-    strWeek = 0 < weekCount and ZhString.ChinaNumber[weekCount] or weekCount
-  end
-  self.teamPwsStr = strWeek
+  self.teamPwsStr = string.format(ZhString.NewGVG_Season_Battle, weekCount)
   self:UpdateOpenLabel()
 end
 
@@ -322,6 +311,15 @@ function PvpContainerView:UpdateTabDesc()
     cupModeStr = ZhString.Warband_Tab_TimeSignup
   else
     cupModeStr = ZhString.Warband_Tab_TimeToday
+  end
+  local multiProxy = CupMode6v6Proxy_MultiServer.Instance
+  if multiProxy:IsSeasonNoOpen() or multiProxy:IsSeasonEnd() then
+  elseif curServerTime < multiProxy.warbandStartTime then
+    cupModeStr = CupModeProxy.CupModeStartTimeLeft(multiProxy.warbandStartTime)
+  elseif multiProxy:IsInSignupTime() then
+    cupModeStr = ZhString.Warband_Tab_TimeSignup_MultiServer
+  else
+    cupModeStr = ZhString.Warband_Tab_TimeToday_MultiServer
   end
   self.cupModeStr = cupModeStr
   self:UpdateOpenLabel()
@@ -349,14 +347,23 @@ end
 
 function PvpContainerView:UpdateOpenLabel()
   local str = ""
+  local curSeason
   if self.teamPwsStr and self.teamPwsStr ~= "" then
     str = str .. self.teamPwsStr
+    curSeason = PvpProxy.Instance.teamPwsSeason or 1
+    PictureManager.Instance:SetPVP("pvp_icon_season_" .. curSeason, self.competiveModeToggle_txt_season)
   end
   if self.cupModeStr and self.cupModeStr ~= "" then
     if str ~= "" then
       str = str .. "\n"
     end
     str = str .. self.cupModeStr
+    if CupMode6v6Proxy.Instance.curSeason then
+      curSeason = CupMode6v6Proxy.Instance.curSeason
+    elseif CupMode6v6Proxy_MultiServer.Instance.curSeason then
+      curSeason = CupMode6v6Proxy_MultiServer.Instance.curSeason
+    end
+    PictureManager.Instance:SetPVP("pvp_icon_season_" .. curSeason, self.competiveModeToggle_txt_season)
   end
   if str ~= "" then
     self.competiveModeToggle_OpenLabel.gameObject:SetActive(true)

@@ -38,6 +38,7 @@ autoImport("PvpObDesertWolfObSubview")
 autoImport("DayloginAnniversaryPanel")
 autoImport("DayloginNewbiePanel")
 autoImport("MainViewAstralPage")
+autoImport("MainViewAbyssLakePage")
 MainViewShortCutBord = {
   "ShortCutGrid",
   "SkillBord"
@@ -124,6 +125,7 @@ function MainView:OnEnter()
   GvgProxy.Instance:ManualQuerySettleInfo()
   ServiceSceneUser3Proxy.Instance:CallAuthQueryUserCmd()
   ServiceUserEventProxy.Instance:CallQuerySpeedUpUserEvent()
+  ServiceItemProxy.Instance:CallQueryBossCardComposeRateCmd()
 end
 
 function MainView:OnExit()
@@ -234,6 +236,10 @@ function MainView:MapViewListener()
   self:AddListenEvt(PVPEvent.TripleTeams_Launch, self.HandleTripleTeamsLaunch)
   self:AddListenEvt(ServiceEvent.FuBenCmdAstralInfoSyncCmd, self.HandleAstralLaunch)
   self:AddListenEvt(PVEEvent.Astral_Shutdown, self.HandleAstralShutdown)
+  self:AddListenEvt(TriggerEvent.EnterAybssLakeBattleArea, self.AbyssLakeBoardLaunch)
+  self:AddListenEvt(TriggerEvent.RemoveAybssLakeBattleArea, self.AbyssLakeBoardShutDown)
+  self:AddListenEvt(TriggerEvent.LeaveAybssLakeBattleArea, self.AbyssLakeBoardShutDown)
+  self:AddListenEvt(ServiceEvent.MapAbyssBossUpdateCmd, self.AbyssLakeBoardUpdate)
 end
 
 function MainView:SceneLoadHandler()
@@ -244,6 +250,7 @@ function MainView:SceneLoadHandler()
       view = PanelConfig.ChasingView
     })
   end
+  self:CheckAybssLakeBoard()
 end
 
 function MainView:OnRaidMsg(evt)
@@ -692,6 +699,35 @@ function MainView:HandleAstralShutdown()
   if self.astralPage then
     self:RemoveSubView("AstralPage")
     self.astralPage = nil
+  end
+end
+
+function MainView:AbyssLakeBoardLaunch()
+  if nil == self.abyssLakeBord then
+    self.abyssLakeBord = self:AddSubView("MainViewAbyssLakePage", MainViewAbyssLakePage)
+  end
+  self:CheckAybssLakeBoard()
+end
+
+function MainView:AbyssLakeBoardShutDown()
+  if nil == self.abyssLakeBord then
+    return
+  end
+  self:RemoveSubView("MainViewAbyssLakePage")
+  self.abyssLakeBord = nil
+end
+
+function MainView:AbyssLakeBoardUpdate()
+end
+
+function MainView:CheckAybssLakeBoard()
+  if not self.abyssLakeBord then
+    return
+  end
+  if Game.MapManager:IsRaidMode() then
+    self.abyssLakeBord:Hide()
+  else
+    self.abyssLakeBord:Show()
   end
 end
 

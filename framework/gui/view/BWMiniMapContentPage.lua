@@ -166,6 +166,7 @@ function BWMiniMapContentPage:EnLargeBigMap(b, notCenterMyPos)
     self.window:ActiveSymbolsByType(BWMiniMapWindow.Type.ServerNpc, true)
     self.window:ActiveSymbolsByType(BWMiniMapWindow.Type.ScenicSpot, true)
     self.window:ActiveSymbolsByType(BWMiniMapWindow.Type.Yahaha, true)
+    self.window:ActiveSymbolsByType(BWMiniMapWindow.Type.FakeDragon, true)
     self.window:ActiveFocusArrowUpdate(true)
     self.window:ForceUpdateFocusArrowPos()
   else
@@ -275,6 +276,7 @@ function BWMiniMapContentPage:InitEvents()
   self:AddListenEvt(LoadSceneEvent.BWTransmitFinished, self.UpdateTransmitFinished)
   self:AddDispatcherEvt(WildMvpEvent.OnMiniMapMonsterUpdated, self.UpdateWildMvpMonsters)
   self:AddListenEvt(ServiceEvent.MessCCmdSyncMapStepForeverRewardInfo, self.UpdateZoneTipsProgress)
+  self:AddListenEvt(FakeDragonEvent.UpdateFakeDragonPoses, self.UpdateFakeDragonSymbol)
 end
 
 function BWMiniMapContentPage:HandleUpdateDestPos(note)
@@ -309,6 +311,7 @@ function BWMiniMapContentPage:ResetWindow()
     self:UpdateShowNpcPos()
     self:UpdateShowingCircleAreaMap()
     self:RefreshYahahaSymbol()
+    self:UpdateFakeDragonSymbol()
     self.window:UpdateQuestFocuses(self.focusMap)
     self:UpdateTransmitter()
     self:UpdateBigMapButton()
@@ -606,18 +609,18 @@ function BWMiniMapContentPage:_UpdateYahahaDatas()
   else
     self.yahahaDatas = {}
   end
-  if not MapManager:IsCurBigWorld() then
-    return
-  end
+  local curMapId = MapManager:GetMapID()
   local yahahaStaticConfigs = Table_YahahaQuest
   for k, v in pairs(yahahaStaticConfigs) do
     local data = self.yahahaDatas[k]
-    local show = FunctionUnLockFunc.Me():CheckCanOpen(v.QuestMenu)
+    local mapValid = v.MapID == curMapId
+    local show = FunctionUnLockFunc.Me():CheckCanOpen(v.QuestMenu) and mapValid
     local fin = FunctionUnLockFunc.Me():CheckCanOpen(v.Menu)
     if show then
       if not data then
         data = MiniMapData.CreateAsTable(k)
         self.yahahaDatas[k] = data
+        data:SetParama("Depth", 36)
       end
       local p = v.Pos
       data:SetPos(p[1], p[2], p[3])
@@ -808,7 +811,11 @@ function BWMiniMapContentPage:UpdateNearlyMonsters()
           symbolName = "ui_mvp_dead11_JM"
           depth = 2
         elseif sData.Type == "MVP" then
-          symbolName = "map_mvpboss"
+          if staticMonsterId == 276614 then
+            symbolName = "map_icon_shikonglong"
+          else
+            symbolName = "map_mvpboss"
+          end
           depth = 3
         elseif sData.Type == "MINI" then
           symbolName = "map_miniboss"
@@ -878,6 +885,20 @@ function BWMiniMapContentPage:UpdateNearlyMonsters()
   end
   self.window:UpdateMonstersPoses(self.monsterDataMap, true)
   self.window:UpdateMvpPoses(self.bossDataMap, true)
+  local data = self.fakeDragonDatas and self.fakeDragonDatas[1]
+  local uniqueID, fakeDragonPos = AbyssFakeDragonProxy.Instance:GetFakeDragonPosition()
+  if data and uniqueID then
+    data:SetPos(fakeDragonPos[1], fakeDragonPos[2], fakeDragonPos[3])
+  elseif uniqueID then
+    local data = MiniMapData.CreateAsTable(uniqueID)
+    data:SetParama("Symbol", "map_icon_shikonglong")
+    data:SetPos(fakeDragonPos[1], fakeDragonPos[2], fakeDragonPos[3])
+    if not self.fakeDragonDatas then
+      self.fakeDragonDatas = {}
+    end
+    self.fakeDragonDatas[1] = data
+  end
+  self.window:UpdateFakeDragonPoses(self.fakeDragonDatas, true)
 end
 
 function BWMiniMapContentPage:ClearMonsterDatas()
@@ -1059,7 +1080,9 @@ function BWMiniMapContentPage:CreateLoading()
   if effect ~= nil then
     return
   end
-  effect = self:PlayUIEffect(EffectMap.UI.MapTransfer, self.trans)
+  local map_id = Game.MapManager:GetMapID()
+  local effect_path = map_id and GameConfig.BigMapUIEffect and GameConfig.BigMapUIEffect[map_id] or "ufx_map_transfer_prf"
+  effect = self:PlayUIEffect(effect_path, self.trans)
   effect:SetActive(false)
   self.loadingeffect = effect
 end
@@ -1156,4 +1179,34 @@ function BWMiniMapContentPage:InitQuestFocus()
   focusData:SetPos(pos[1], pos[2], pos[3])
   focusData:SetParama("hideSymbol", hideSymbol)
   focusData:SetShowRange(-1)
+end
+
+function BWMiniMapContentPage:_UpdateFakeDragonDatas()
+  if self.fakeDragonDatas then
+    _TableClearByDeleter(self.fakeDragonDatas, miniMapDataDeleteFunc)
+  else
+    self.fakeDragonDatas = {}
+  end
+  local uniqueID, fakeDragonPos = AbyssFakeDragonProxy.Instance:GetFakeDragonPosition()
+  local data = self.fakeDragonDatas[1]
+  if fakeDragonPos then
+    if not data then
+      data = MiniMapData.CreateAsTable(uniqueID)
+      self.fakeDragonDatas[1] = data
+      data:SetParama("Depth", 32)
+    end
+    data:SetPos(fakeDragonPos[1], fakeDragonPos[2], fakeDragonPos[3])
+    data:SetParama("Symbol", "map_icon_shikonglong")
+  else
+    if data ~= nil then
+      data:Destroy()
+    end
+    self.fakeDragonDatas[1] = nil
+  end
+end
+
+function BWMiniMapContentPage:UpdateFakeDragonSymbol()
+  self:_UpdateFakeDragonDatas()
+  redlog("UpdateFakeDragonSymbol", self.fakeDragonDatas)
+  self.window:UpdateFakeDragonSymbol(self.fakeDragonDatas, true)
 end

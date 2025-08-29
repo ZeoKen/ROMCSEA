@@ -564,6 +564,42 @@ Table_HeadImage = {
     id = 56248,
     Picture = "cardhead_20219"
   },
+  [56249] = {
+    id = 56249,
+    Picture = "monster_10381"
+  },
+  [56250] = {
+    id = 56250,
+    Picture = "monster_10382"
+  },
+  [56251] = {
+    id = 56251,
+    Picture = "monster_10383"
+  },
+  [56252] = {
+    id = 56252,
+    Picture = "monster_10384"
+  },
+  [56253] = {
+    id = 56253,
+    Picture = "monster_10385"
+  },
+  [56254] = {
+    id = 56254,
+    Picture = "monster_10386"
+  },
+  [56255] = {
+    id = 56255,
+    Picture = "monster_10387"
+  },
+  [56256] = {
+    id = 56256,
+    Picture = "monster_10388"
+  },
+  [56257] = {
+    id = 56257,
+    Picture = "Ancient_Mimic"
+  },
   [56501] = {id = 56501, Picture = "Smokie"},
   [56502] = {id = 56502, Picture = "Eclipse"},
   [56503] = {id = 56503, Picture = "Rocker"},
@@ -911,6 +947,14 @@ Table_HeadImage = {
     id = 56891,
     Picture = "n_cardmaster_a"
   },
+  [56892] = {
+    id = 56892,
+    Picture = "n_thackeray"
+  },
+  [56893] = {
+    id = 56893,
+    Picture = "n_lostdragon_003"
+  },
   [56901] = {id = 56901, Picture = "Red_Plant"},
   [56902] = {
     id = 56902,
@@ -1079,6 +1123,10 @@ Table_HeadImage = {
     id = 3010822,
     Picture = "head_3010822"
   },
+  [3012510] = {id = 3012510, Picture = "head_333_2"},
+  [3012511] = {id = 3012511, Picture = "head_333_3"},
+  [3012512] = {id = 3012512, Picture = "head_333_4"},
+  [3012513] = {id = 3012513, Picture = "head_333_5"},
   [3012585] = {
     id = 3012585,
     Picture = "head_3012585"
@@ -1086,6 +1134,18 @@ Table_HeadImage = {
   [3012586] = {
     id = 3012586,
     Picture = "head_3012586"
+  },
+  [3012587] = {
+    id = 3012587,
+    Picture = "head_3012587"
+  },
+  [3012588] = {
+    id = 3012588,
+    Picture = "head_3012588"
+  },
+  [3012589] = {
+    id = 3012589,
+    Picture = "head_3012589"
   },
   [3033924] = {
     id = 3033924,

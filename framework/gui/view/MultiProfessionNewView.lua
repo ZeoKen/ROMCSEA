@@ -414,7 +414,7 @@ function MultiProfessionNewView:OnExit()
       profIdOnce = self.viewdata.viewdata.fromRechargeHero
     })
   end
-  if TriplePlayerPvpProxy.Instance:InPpreparation() then
+  if TriplePlayerPvpProxy.Instance:InPreparation() then
     GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
       view = PanelConfig.TriplePlayerPvpChooseProView
     })

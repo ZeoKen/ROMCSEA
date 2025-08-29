@@ -1657,7 +1657,7 @@ Table_RoleData = {
     RuneName = "",
     class = 3,
     order = 18,
-    DataDesc = "##42536635"
+    DataDesc = "##42629156"
   },
   [482] = {
     id = 482,
@@ -1669,7 +1669,7 @@ Table_RoleData = {
     RuneName = "",
     class = 3,
     order = 19,
-    DataDesc = "##42536637"
+    DataDesc = "##42629157"
   },
   [483] = {
     id = 483,

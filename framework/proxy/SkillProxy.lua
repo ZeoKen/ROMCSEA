@@ -145,6 +145,22 @@ function SkillProxy:ctor(proxyName, data)
     0
   }
   self.masterSkillShortcuts = {}
+  self:InitMonsterSkill()
+end
+
+function SkillProxy:InitMonsterSkill()
+  local config = GameConfig.MonsterSkill and GameConfig.MonsterSkill.UseMasterExecDamMonsterID
+  if not config then
+    return
+  end
+  self.monsterSkillMap = {}
+  for _, id in pairs(config) do
+    self.monsterSkillMap[id] = true
+  end
+end
+
+function SkillProxy:IsMonsterSkill(monsterId)
+  return self.monsterSkillMap and self.monsterSkillMap[monsterId]
 end
 
 function SkillProxy:InitCombo()
@@ -391,15 +407,13 @@ function SkillProxy:ServerReInit(serverData)
     local pro = masterSkillData.pro
     local skillIds = masterSkillData.skill_ids
     local unlockSkillIndex = masterSkillData.unlock_limit_skill_index
-    if not self.masterProfessData or self.masterProfessData.profession ~= pro then
-      self:CreateMasterSkillProfessData(pro, unlockSkillIndex)
-    elseif unlockSkillIndex and 0 < #unlockSkillIndex then
-      self:AddExtraMasterSkills(pro, unlockSkillIndex)
-    end
+    self:CreateMasterSkillProfessData(pro, unlockSkillIndex)
     if self.masterProfessData then
       self:UpdateMasterProfessData(skillIds)
       self:UpdateMasterSkillShortcuts(masterSkillData.equip_skill_family_id, masterSkillData.shortcuts)
     end
+  else
+    self:ClearMasterSkillProfessData()
   end
 end
 
@@ -661,21 +675,7 @@ function SkillProxy:Update(data)
         if data.consume then
           GameFacade.Instance:sendNotification(SkillEvent.SkillWithUseTimesChanged, skill.id)
         end
-        if self:_CheckPosInShortCut(skill) then
-          self:AddEquipSkill(skill)
-        else
-          self:RemoveEquipSkill(skill)
-        end
-        if skill:GetPosInShortCutGroup(shortCutAuto) > 0 then
-          self:AddEquipSkill(skill, shortCutAuto)
-        else
-          self:RemoveEquipSkill(skill, shortCutAuto)
-        end
-        if skill:GetPosInShortCutGroup(shortCutAuto2) > 0 then
-          self:AddEquipSkill(skill, shortCutAuto2)
-        else
-          self:RemoveEquipSkill(skill, shortCutAuto2)
-        end
+        self:UpdateEquipSkill(skill)
         if skill.learned then
           self:LearnedSkill(skill)
         else
@@ -717,21 +717,7 @@ function SkillProxy:Update(data)
         if data.consume then
           GameFacade.Instance:sendNotification(SkillEvent.SkillWithUseTimesChanged, skill.id)
         end
-        if self:_CheckPosInShortCut(skill) then
-          self:AddEquipSkill(skill)
-        else
-          self:RemoveEquipSkill(skill)
-        end
-        if skill:GetPosInShortCutGroup(shortCutAuto) > 0 then
-          self:AddEquipSkill(skill, shortCutAuto)
-        else
-          self:RemoveEquipSkill(skill, shortCutAuto)
-        end
-        if skill:GetPosInShortCutGroup(shortCutAuto2) > 0 then
-          self:AddEquipSkill(skill, shortCutAuto2)
-        else
-          self:RemoveEquipSkill(skill, shortCutAuto2)
-        end
+        self:UpdateEquipSkill(skill)
         self:LearnedSkill(skill)
         dirtyGUIDMap[skill.guid] = 1
       end
@@ -1514,6 +1500,9 @@ function SkillProxy:CanMagicSkillUse(skillItem)
   if skillItem == nil then
     return false
   end
+  if skillItem:IsAllSuperUse() then
+    return true
+  end
   if skillItem:IsMagicType() and Game.Myself.data:NoMagicSkill() then
     return false
   end
@@ -1523,6 +1512,9 @@ end
 function SkillProxy:CanPhySkillUse(skillItem)
   if skillItem == nil then
     return false
+  end
+  if skillItem:IsAllSuperUse() then
+    return true
   end
   if skillItem:IsPhyType() and Game.Myself.data:NoPhySkill() then
     return false
@@ -1737,12 +1729,13 @@ function SkillProxy:InitSkillLeftCD(sortID, time)
   self.skillLeftCD_DirtyMap[sortID] = true
 end
 
-function SkillProxy:UpdateSkillLeftCD(sortID, time)
-  if not self.skillLeftCD_DirtyMap[sortID] then
+function SkillProxy:UpdateSkillLeftCD(sortID, time, force)
+  if not self.skillLeftCD_DirtyMap[sortID] and not force then
     return
   end
   self.skillLeftCD_DirtyMap[sortID] = nil
   self.skillLeftCDMap[sortID] = time
+  return true
 end
 
 function SkillProxy:UseLeftCDTimes(sortID)
@@ -1964,6 +1957,8 @@ end
 
 function SkillProxy:UpdateMasterSkill(data)
   if self.masterProfessData then
+    local pro = self:GetMyProfession()
+    self:AddExtraMasterSkills(pro, data.unlock_skill_index)
     self:UpdateMasterProfessData(data.add_ids, data.del_ids, data.updates)
   end
 end
@@ -1986,6 +1981,7 @@ function SkillProxy:UpdateMasterProfessData(add_ids, del_ids, updates)
     end
   end
   if add_ids then
+    local familyIds = self.masterProfessData:GetEquipMasterSkillGroupIds(self.equipMasterSkillFamilyId)
     for i = 1, #add_ids do
       local add = add_ids[i]
       if self.masterProfessData then
@@ -1993,6 +1989,8 @@ function SkillProxy:UpdateMasterProfessData(add_ids, del_ids, updates)
         if skill.sortID == self.equipMasterSkillFamilyId then
           skill:UpdateShortcuts(self.masterSkillShortcuts)
           self:UpdateEquipSkill(skill)
+          self:LearnedSkill(skill)
+        elseif familyIds and TableUtility.ArrayFindIndex(familyIds, skill.sortID) > 0 then
           self:LearnedSkill(skill)
         end
       end
@@ -2092,7 +2090,7 @@ function SkillProxy:GetMasterSkillProfessData()
 end
 
 function SkillProxy:CreateMasterSkillProfessData(myProfess, unlockSkillIndex)
-  self.masterProfessData = nil
+  self:ClearMasterSkillProfessData()
   local config = Table_Class[myProfess]
   if config then
     if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
@@ -2111,6 +2109,11 @@ function SkillProxy:CreateMasterSkillProfessData(myProfess, unlockSkillIndex)
   end
 end
 
+function SkillProxy:ClearMasterSkillProfessData()
+  self.masterProfessData = nil
+  self.equipMasterSkillFamilyId = nil
+end
+
 function SkillProxy:AddExtraMasterSkills(pro, unlockSkillIndex)
   local config = Table_Class[pro]
   if config and unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
@@ -2119,6 +2122,7 @@ function SkillProxy:AddExtraMasterSkills(pro, unlockSkillIndex)
     end
     self.masterProfessData:SetUnlockLimitSkillIndex(unlockSkillIndex)
     for i = 1, #unlockSkillIndex do
+      redlog("AddExtraMasterSkills unlockSkillIndex", unlockSkillIndex[i])
       local skillIds = config.LimitMasterSkills[unlockSkillIndex[i]]
       if skillIds then
         for j = 1, #skillIds do
@@ -2131,6 +2135,14 @@ end
 
 function SkillProxy:GetEquipMasterSkillFamilyId()
   return self.multiSaveId and SaveInfoProxy.Instance:GetEquipMasterSkillFamilyId(self.multiSaveId, self.multiSaveType) or self.equipMasterSkillFamilyId
+end
+
+function SkillProxy:RecvSkillWeatherSyncCmd(skillweather)
+  self.weather = skillweather
+end
+
+function SkillProxy:GetSkillWeather()
+  return self.weather
 end
 
 function SkillProxy:IsMasterSkillEquiped(skillId)
@@ -2147,12 +2159,4 @@ end
 function SkillProxy:GetMasterSkillGroupIndexByFamilyId(familyId)
   local masterSkillProfessData = self:GetMasterSkillProfessData()
   return masterSkillProfessData and masterSkillProfessData:GetSkillGroupIndexByFamilyId(familyId) or 0
-end
-
-function SkillProxy:RecvSkillWeatherSyncCmd(skillweather)
-  self.weather = skillweather
-end
-
-function SkillProxy:GetSkillWeather()
-  return self.weather
 end

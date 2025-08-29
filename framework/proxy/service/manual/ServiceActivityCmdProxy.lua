@@ -184,6 +184,8 @@ function ServiceActivityCmdProxy:RecvStartGlobalActCmd(data)
     elseif data.type == ActivityCmd_pb.GACTIVITY_NEWPARTNER then
       NewPartnerActProxy.Instance:NewPartnerData(data)
       FunctionActivity.Me():Launch(data.type, nil, data.starttime, data.endtime)
+    elseif data.type == ActivityCmd_pb.GACTIVITY_BATTLE_FUND then
+      BattleFundProxy.Instance:SetGlobalAct(data)
     elseif data.type == ActivityCmd_pb.GACTIVITY_LOTTERY_DAILY_REWARD then
       LotteryProxy.Instance:AddDailyReward(data.id, data.endtime)
       FunctionActivity.Me():Launch(data.type, nil, data.starttime, data.endtime)

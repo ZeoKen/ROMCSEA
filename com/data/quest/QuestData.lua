@@ -46,7 +46,8 @@ QuestData.AutoExecuteQuestAtInit = {
   "remove_local_ai",
   "remove_local_interact",
   "waitui",
-  "battlefield_area"
+  "battlefield_area",
+  "abyss_dragon"
 }
 QuestData.AutoTriggerQuest = {
   QuestDataStepType.QuestDataStepType_SELFIE,
@@ -851,6 +852,7 @@ function QuestData:parseDahuangStaticDataByStepData(questConfig)
   staticData.Auto = questConfig.Auto or 0
   staticData.Content = questConfig.Content
   staticData.Params = questConfig.Params
+  staticData.StartCondition = questConfig.StartCondition
   local stepData = ReusableTable.CreateTable()
   stepData.staticData = staticData
   stepData.process = stepData.process or 0

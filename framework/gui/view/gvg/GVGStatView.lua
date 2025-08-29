@@ -13,7 +13,8 @@ GVGStatView.GvgStatkeyStr = {
   [7] = ZhString.GVGStat_Heal,
   [8] = ZhString.GVGStat_Occupy,
   [9] = ZhString.GVGStat_OccupyTime,
-  [10] = ZhString.GVGStat_MetalDamage
+  [10] = ZhString.GVGStat_MetalDamage,
+  [11] = ZhString.GVGStat_MvpDamage
 }
 local ArrowText = "↓"
 

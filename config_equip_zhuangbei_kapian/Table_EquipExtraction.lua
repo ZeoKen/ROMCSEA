@@ -104,7 +104,7 @@ Table_EquipExtraction_t = {
     },
     {
       {
-        buff = {48005, 48006},
+        buff = {48130},
         lv = 0
       }
     },
@@ -290,31 +290,13 @@ Table_EquipExtraction_t = {
     },
     {
       {
-        buff = {48250},
-        lv = 0
-      }
-    },
-    {
-      {
         buff = {48220},
         lv = 0
       }
     },
     {
       {
-        buff = {48540},
-        lv = 0
-      }
-    },
-    {
-      {
-        buff = {48510},
-        lv = 0
-      }
-    },
-    {
-      {
-        buff = {48130},
+        buff = {48250},
         lv = 0
       }
     },
@@ -335,6 +317,24 @@ Table_EquipExtraction_t = {
         buff = {48023},
         lv = 15
       }
+    },
+    {
+      {
+        buff = {48540},
+        lv = 0
+      }
+    },
+    {
+      {
+        buff = {48510},
+        lv = 0
+      }
+    },
+    {
+      {
+        buff = {48005, 48006},
+        lv = 0
+      }
     }
   },
   ComposeEquip = {
@@ -349,6 +349,13 @@ Table_EquipExtraction_t = {
     {43030, 143030},
     {41867, 141867},
     {41616, 141616},
+    {41272, 141272},
+    {
+      40038,
+      140038,
+      40016,
+      140016
+    },
     {
       42059,
       142059,
@@ -362,22 +369,20 @@ Table_EquipExtraction_t = {
     {41835, 141835},
     {41809, 141809},
     {41582, 141582},
-    {
-      40038,
-      140038,
-      40016,
-      140016
-    },
+    {40319, 140319},
     {40660, 140660},
     {62507, 162507},
     {40661, 140661},
-    {40319, 140319},
+    {40620, 140620},
     {40633, 140633},
     {41510, 141510},
-    {40620, 140620},
-    {44303, 144303},
+    {42584, 142584},
     {41566, 141566},
     {40663, 140663},
+    {44303, 144303},
+    {44309, 144309},
+    {43064, 143064},
+    {41292, 141292},
     {42040, 142040},
     {
       42059,
@@ -385,23 +390,20 @@ Table_EquipExtraction_t = {
       42060,
       142060
     },
-    {44309, 144309},
-    {
-      40038,
-      140038,
-      40059,
-      140059
-    },
-    {42584, 142584},
-    {43064, 143064},
     {
       42060,
       142060,
       42099,
       142099
     },
+    {41868, 141868},
     {40066, 140066},
-    {41868, 141868}
+    {
+      40038,
+      140038,
+      40059,
+      140059
+    }
   },
   RefineLvCost = {
     {
@@ -473,14 +475,14 @@ Table_EquipExtraction = {
     Dsc = "##307609",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[33]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[35]
   },
   [40016] = {
     id = 40016,
     BuffIds = Table_EquipExtraction_t.BuffIds[3],
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[29],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[36],
     AttrType = 2
   },
   [40031] = {
@@ -508,7 +510,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[3],
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[15],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[8],
     AttrType = 2
   },
   [40066] = {
@@ -517,14 +519,14 @@ Table_EquipExtraction = {
     Dsc = "##307609",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[9]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[11]
   },
   [40319] = {
     id = 40319,
     BuffIds = Table_EquipExtraction_t.BuffIds[20],
     Dsc = "##304347",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[8]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[10]
   },
   [40320] = {
     id = 40320,
@@ -543,7 +545,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[20],
     Dsc = "##304347",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[19]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[17]
   },
   [40373] = {
     id = 40373,
@@ -575,14 +577,14 @@ Table_EquipExtraction = {
     Dsc = "##282869",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[16]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[18]
   },
   [40633] = {
     id = 40633,
     BuffIds = Table_EquipExtraction_t.BuffIds[36],
     Dsc = "##300467",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[18]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[20]
   },
   [40660] = {
     id = 40660,
@@ -590,14 +592,14 @@ Table_EquipExtraction = {
     Dsc = "##282869",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[22]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[21]
   },
   [40661] = {
     id = 40661,
     BuffIds = Table_EquipExtraction_t.BuffIds[36],
     Dsc = "##300467",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[20]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[22]
   },
   [40663] = {
     id = 40663,
@@ -605,7 +607,7 @@ Table_EquipExtraction = {
     Dsc = "##282873",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[21]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[23]
   },
   [40679] = {
     id = 40679,
@@ -656,7 +658,7 @@ Table_EquipExtraction = {
   },
   [40784] = {
     id = 40784,
-    BuffIds = Table_EquipExtraction_t.BuffIds[18],
+    BuffIds = Table_EquipExtraction_t.BuffIds[54],
     Dsc = "##282852",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1
@@ -675,14 +677,23 @@ Table_EquipExtraction = {
   },
   [41272] = {
     id = 41272,
-    BuffIds = Table_EquipExtraction_t.BuffIds[53],
+    BuffIds = Table_EquipExtraction_t.BuffIds[18],
     Dsc = "##155081",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
-    RefreshType = 1
+    RefreshType = 1,
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[30]
+  },
+  [41292] = {
+    id = 41292,
+    BuffIds = Table_EquipExtraction_t.BuffIds[18],
+    Dsc = "##155081",
+    RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
+    RefreshType = 1,
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[7]
   },
   [41507] = {
     id = 41507,
-    BuffIds = Table_EquipExtraction_t.BuffIds[50],
+    BuffIds = Table_EquipExtraction_t.BuffIds[49],
     Dsc = "##304345",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2]
   },
@@ -692,7 +703,7 @@ Table_EquipExtraction = {
     Dsc = "##282851",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[24]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[25]
   },
   [41510] = {
     id = 41510,
@@ -700,7 +711,7 @@ Table_EquipExtraction = {
     Dsc = "##282873",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[25]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[26]
   },
   [41566] = {
     BuffIds = Table_EquipExtraction_t.BuffIds[1],
@@ -721,7 +732,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[13],
     Dsc = "##282849",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[14]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[16]
   },
   [41809] = {
     id = 41809,
@@ -786,7 +797,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[11],
     Dsc = "##300413",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[12]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[14]
   },
   [41868] = {
     id = 41868,
@@ -794,7 +805,7 @@ Table_EquipExtraction = {
     Dsc = "##282854",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[13]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[15]
   },
   [41877] = {
     id = 41877,
@@ -805,14 +816,14 @@ Table_EquipExtraction = {
   },
   [42036] = {
     id = 42036,
-    BuffIds = Table_EquipExtraction_t.BuffIds[52],
+    BuffIds = Table_EquipExtraction_t.BuffIds[53],
     Dsc = "##532544",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
     AttrType = 2
   },
   [42039] = {
     id = 42039,
-    BuffIds = Table_EquipExtraction_t.BuffIds[51],
+    BuffIds = Table_EquipExtraction_t.BuffIds[52],
     Dsc = "##532902",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
     AttrType = 2
@@ -837,7 +848,7 @@ Table_EquipExtraction = {
     Dsc = "##532459",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[32],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[33],
     AttrType = 2
   },
   [42060] = {
@@ -846,7 +857,7 @@ Table_EquipExtraction = {
     Dsc = "##532459",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[7],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[9],
     AttrType = 2
   },
   [42099] = {
@@ -855,7 +866,7 @@ Table_EquipExtraction = {
     Dsc = "##532459",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[27],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[32],
     AttrType = 2
   },
   [42105] = {
@@ -863,7 +874,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[5],
     Dsc = "##532923",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[26],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[31],
     AttrType = 2
   },
   [42110] = {
@@ -879,12 +890,12 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[26],
     Dsc = "##532484",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[30],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[24],
     AttrType = 2
   },
   [42569] = {
     id = 42569,
-    BuffIds = Table_EquipExtraction_t.BuffIds[54],
+    BuffIds = Table_EquipExtraction_t.BuffIds[51],
     Dsc = "##282850",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1
@@ -894,7 +905,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[26],
     Dsc = "##532484",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[11],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[13],
     AttrType = 2
   },
   [43005] = {
@@ -917,7 +928,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[8],
     Dsc = "##532565",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[31],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[29],
     AttrType = 2
   },
   [43064] = {
@@ -930,17 +941,17 @@ Table_EquipExtraction = {
   },
   [44303] = {
     id = 44303,
-    BuffIds = Table_EquipExtraction_t.BuffIds[49],
+    BuffIds = Table_EquipExtraction_t.BuffIds[50],
     Dsc = "##282875",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
     ComposeEquip = Table_EquipExtraction_t.ComposeEquip[28]
   },
   [44309] = {
     id = 44309,
-    BuffIds = Table_EquipExtraction_t.BuffIds[49],
+    BuffIds = Table_EquipExtraction_t.BuffIds[50],
     Dsc = "##282875",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[23]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[27]
   },
   [47051] = {
     id = 47051,
@@ -964,7 +975,7 @@ Table_EquipExtraction = {
     Dsc = "##282844",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[10]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[12]
   },
   [62551] = {
     id = 62551,
@@ -972,7 +983,7 @@ Table_EquipExtraction = {
     Dsc = "##282844",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[17]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[19]
   },
   [140007] = {
     id = 140007,
@@ -986,14 +997,14 @@ Table_EquipExtraction = {
     Dsc = "##307609",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[33]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[35]
   },
   [140016] = {
     id = 140016,
     BuffIds = Table_EquipExtraction_t.BuffIds[3],
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[29],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[36],
     AttrType = 2
   },
   [140031] = {
@@ -1021,7 +1032,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[3],
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[15],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[8],
     AttrType = 2
   },
   [140066] = {
@@ -1030,14 +1041,14 @@ Table_EquipExtraction = {
     Dsc = "##307609",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[9]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[11]
   },
   [140319] = {
     id = 140319,
     BuffIds = Table_EquipExtraction_t.BuffIds[20],
     Dsc = "##304347",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[8]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[10]
   },
   [140320] = {
     id = 140320,
@@ -1056,7 +1067,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[20],
     Dsc = "##304347",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[19]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[17]
   },
   [140373] = {
     id = 140373,
@@ -1088,14 +1099,14 @@ Table_EquipExtraction = {
     Dsc = "##282869",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[16]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[18]
   },
   [140633] = {
     id = 140633,
     BuffIds = Table_EquipExtraction_t.BuffIds[36],
     Dsc = "##300467",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[18]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[20]
   },
   [140660] = {
     id = 140660,
@@ -1103,14 +1114,14 @@ Table_EquipExtraction = {
     Dsc = "##282869",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[22]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[21]
   },
   [140661] = {
     id = 140661,
     BuffIds = Table_EquipExtraction_t.BuffIds[36],
     Dsc = "##300467",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[20]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[22]
   },
   [140663] = {
     id = 140663,
@@ -1118,7 +1129,7 @@ Table_EquipExtraction = {
     Dsc = "##282873",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[21]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[23]
   },
   [140679] = {
     id = 140679,
@@ -1169,7 +1180,7 @@ Table_EquipExtraction = {
   },
   [140784] = {
     id = 140784,
-    BuffIds = Table_EquipExtraction_t.BuffIds[18],
+    BuffIds = Table_EquipExtraction_t.BuffIds[54],
     Dsc = "##282852",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1
@@ -1188,14 +1199,23 @@ Table_EquipExtraction = {
   },
   [141272] = {
     id = 141272,
-    BuffIds = Table_EquipExtraction_t.BuffIds[53],
+    BuffIds = Table_EquipExtraction_t.BuffIds[18],
     Dsc = "##155081",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
-    RefreshType = 1
+    RefreshType = 1,
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[30]
+  },
+  [141292] = {
+    id = 141292,
+    BuffIds = Table_EquipExtraction_t.BuffIds[18],
+    Dsc = "##155081",
+    RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
+    RefreshType = 1,
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[7]
   },
   [141507] = {
     id = 141507,
-    BuffIds = Table_EquipExtraction_t.BuffIds[50],
+    BuffIds = Table_EquipExtraction_t.BuffIds[49],
     Dsc = "##304345",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2]
   },
@@ -1205,7 +1225,7 @@ Table_EquipExtraction = {
     Dsc = "##282851",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[24]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[25]
   },
   [141510] = {
     id = 141510,
@@ -1213,7 +1233,7 @@ Table_EquipExtraction = {
     Dsc = "##282873",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[25]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[26]
   },
   [141566] = {
     id = 141566,
@@ -1235,7 +1255,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[13],
     Dsc = "##282849",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[14]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[16]
   },
   [141809] = {
     id = 141809,
@@ -1300,7 +1320,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[11],
     Dsc = "##300413",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[12]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[14]
   },
   [141868] = {
     id = 141868,
@@ -1308,7 +1328,7 @@ Table_EquipExtraction = {
     Dsc = "##282854",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[13]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[15]
   },
   [141877] = {
     id = 141877,
@@ -1319,14 +1339,14 @@ Table_EquipExtraction = {
   },
   [142036] = {
     id = 142036,
-    BuffIds = Table_EquipExtraction_t.BuffIds[52],
+    BuffIds = Table_EquipExtraction_t.BuffIds[53],
     Dsc = "##532544",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
     AttrType = 2
   },
   [142039] = {
     id = 142039,
-    BuffIds = Table_EquipExtraction_t.BuffIds[51],
+    BuffIds = Table_EquipExtraction_t.BuffIds[52],
     Dsc = "##532902",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
     AttrType = 2
@@ -1351,7 +1371,7 @@ Table_EquipExtraction = {
     Dsc = "##532459",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[32],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[33],
     AttrType = 2
   },
   [142060] = {
@@ -1360,7 +1380,7 @@ Table_EquipExtraction = {
     Dsc = "##532459",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[7],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[9],
     AttrType = 2
   },
   [142099] = {
@@ -1369,7 +1389,7 @@ Table_EquipExtraction = {
     Dsc = "##532459",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[1],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[27],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[32],
     AttrType = 2
   },
   [142105] = {
@@ -1377,7 +1397,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[5],
     Dsc = "##532923",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[26],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[31],
     AttrType = 2
   },
   [142110] = {
@@ -1393,12 +1413,12 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[26],
     Dsc = "##532484",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[30],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[24],
     AttrType = 2
   },
   [142569] = {
     id = 142569,
-    BuffIds = Table_EquipExtraction_t.BuffIds[54],
+    BuffIds = Table_EquipExtraction_t.BuffIds[51],
     Dsc = "##282850",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1
@@ -1408,7 +1428,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[26],
     Dsc = "##532484",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[11],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[13],
     AttrType = 2
   },
   [143005] = {
@@ -1431,7 +1451,7 @@ Table_EquipExtraction = {
     BuffIds = Table_EquipExtraction_t.BuffIds[8],
     Dsc = "##532565",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[31],
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[29],
     AttrType = 2
   },
   [143064] = {
@@ -1444,17 +1464,17 @@ Table_EquipExtraction = {
   },
   [144303] = {
     id = 144303,
-    BuffIds = Table_EquipExtraction_t.BuffIds[49],
+    BuffIds = Table_EquipExtraction_t.BuffIds[50],
     Dsc = "##282875",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
     ComposeEquip = Table_EquipExtraction_t.ComposeEquip[28]
   },
   [144309] = {
     id = 144309,
-    BuffIds = Table_EquipExtraction_t.BuffIds[49],
+    BuffIds = Table_EquipExtraction_t.BuffIds[50],
     Dsc = "##282875",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[2],
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[23]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[27]
   },
   [162507] = {
     id = 162507,
@@ -1462,7 +1482,7 @@ Table_EquipExtraction = {
     Dsc = "##282844",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[10]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[12]
   },
   [162551] = {
     id = 162551,
@@ -1470,7 +1490,7 @@ Table_EquipExtraction = {
     Dsc = "##282844",
     RefineLvCost = Table_EquipExtraction_t.RefineLvCost[3],
     RefreshType = 1,
-    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[17]
+    ComposeEquip = Table_EquipExtraction_t.ComposeEquip[19]
   }
 }
 local cell_mt = {

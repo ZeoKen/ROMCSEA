@@ -339,6 +339,17 @@ function ServiceInteractCmdAutoProxy:CallAddMoveMountInterCmd(npcid, user)
       end
       msg.user.user.mercenary.mercenary_name = user.user.mercenary.mercenary_name
     end
+    if user ~= nil and user.user.memory_pos ~= nil then
+      if msg.user.user == nil then
+        msg.user.user = {}
+      end
+      if msg.user.user.memory_pos == nil then
+        msg.user.user.memory_pos = {}
+      end
+      for i = 1, #user.user.memory_pos do
+        table.insert(msg.user.user.memory_pos, user.user.memory_pos[i])
+      end
+    end
     if user ~= nil and user.mountid ~= nil then
       if msg == nil then
         msg = {}
@@ -548,6 +559,17 @@ function ServiceInteractCmdAutoProxy:CallAddMoveMountInterCmd(npcid, user)
         msgParam.user.user.mercenary = {}
       end
       msgParam.user.user.mercenary.mercenary_name = user.user.mercenary.mercenary_name
+    end
+    if user ~= nil and user.user.memory_pos ~= nil then
+      if msgParam.user.user == nil then
+        msgParam.user.user = {}
+      end
+      if msgParam.user.user.memory_pos == nil then
+        msgParam.user.user.memory_pos = {}
+      end
+      for i = 1, #user.user.memory_pos do
+        table.insert(msgParam.user.user.memory_pos, user.user.memory_pos[i])
+      end
     end
     if user ~= nil and user.mountid ~= nil then
       if msgParam == nil then

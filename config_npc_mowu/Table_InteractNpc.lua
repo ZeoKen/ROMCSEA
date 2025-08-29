@@ -920,6 +920,46 @@ Table_InteractNpc = {
     id = 850067,
     Type = 10,
     Range = 2
+  },
+  [852051] = {
+    id = 852051,
+    Type = 10,
+    Range = 2
+  },
+  [852052] = {
+    id = 852052,
+    Type = 10,
+    Range = 2
+  },
+  [852053] = {
+    id = 852053,
+    Type = 10,
+    Range = 2
+  },
+  [852054] = {
+    id = 852054,
+    Type = 10,
+    Range = 2
+  },
+  [852055] = {
+    id = 852055,
+    Type = 10,
+    Range = 2
+  },
+  [852056] = {
+    id = 852056,
+    Type = 10,
+    Range = 2
+  },
+  [852057] = {
+    id = 852057,
+    Type = 10,
+    Range = 5
+  },
+  [852058] = {
+    id = 852058,
+    Type = 10,
+    Range = 2
   }
 }
 local cell_mt = {

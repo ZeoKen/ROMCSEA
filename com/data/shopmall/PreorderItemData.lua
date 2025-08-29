@@ -20,6 +20,8 @@ function PreorderItemData:SetData(data)
   self.status = data.status or 0
   self.expiretime = data.expiretime
   self.pricemin = data.pricemin or 0
+  self.cardlvmin = data.cardlvmin or 0
+  self.cardlvmax = data.cardlvmax or 0
 end
 
 function PreorderItemData:ResetData()
@@ -36,6 +38,9 @@ function PreorderItemData:ResetData()
   self.price = nil
   self.buyprice = nil
   self.expiretime = nil
+  self.pricemin = nil
+  self.cardlvmin = nil
+  self.cardlvmax = nil
 end
 
 function PreorderItemData:GetItemData()

@@ -69,66 +69,6 @@ local XDSDK_Config = {
     ORIENTATION = 0
   }
 }
-AppBundleConfig.SocialShare_Config = {
-  ["com.xd.ro"] = {
-    SINA_WEIBO_APP_KEY = "650343694",
-    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
-    QQ_APP_ID = "1105442815",
-    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
-    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
-    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
-  },
-  ["com.pinidea.ent.generalofgods"] = {},
-  ["com.xd.ro1"] = {},
-  ["com.xd.ro2"] = {
-    SINA_WEIBO_APP_KEY = "650343694",
-    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
-    QQ_APP_ID = "1105442815",
-    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
-    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
-    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
-  },
-  ["com.xd.ro3"] = {},
-  ["com.xd.ro4"] = {},
-  ["com.xd.ro.xdapk"] = {
-    SINA_WEIBO_APP_KEY = "650343694",
-    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
-    QQ_APP_ID = "1105442815",
-    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
-    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
-    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
-  },
-  ["com.xd.ro.apk"] = {},
-  ["com.xd.ro.roapk"] = {
-    SINA_WEIBO_APP_KEY = "650343694",
-    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
-    QQ_APP_ID = "1105442815",
-    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
-    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
-    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
-  },
-  ["com.gravity.ro.ios"] = {},
-  ["com.gravity.ro.and"] = {},
-  ["com.gravity.rom.aos"] = {},
-  ["com.gravity.rom.ios"] = {},
-  ["com.gravity.rom.ones"] = nil,
-  ["jp.gungho.ragnarokm"] = {},
-  ["jp.gungho.ragnarokm.cbt"] = {},
-  ["jptest.xdg.ios.ro"] = {},
-  ["com.gravityus.romzeny.ios"] = {},
-  ["com.gravityus.romzeny.aos"] = {},
-  ["com.gravity.romi"] = {},
-  ["com.gravity.romg"] = {},
-  ["com.gravity.romi.zhb"] = {},
-  ["com.gravity.romg.zhb"] = {},
-  ["com.gravity.romg.cbt"] = {},
-  ["com.gravity.romg.gw"] = {},
-  ["com.gravity.romgi"] = {},
-  ["com.gravity.romNAg"] = {},
-  ["com.gravity.romEUi"] = {},
-  ["com.gravity.romEUg"] = {}
-}
-local SocialShare_Config = AppBundleConfig.SocialShare_Config
 
 function AppBundleConfig.GetXDSDKInfo()
   if ApplicationInfo.IsWindows() then
@@ -166,8 +106,49 @@ function AppBundleConfig.GetXDSDKInfo()
   end
 end
 
+local SocialShare_Config = {
+  ["com.xd.ro"] = {
+    SINA_WEIBO_APP_KEY = "650343694",
+    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
+    QQ_APP_ID = "1105442815",
+    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
+    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
+    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
+  },
+  ["com.xd.ro2"] = {
+    SINA_WEIBO_APP_KEY = "650343694",
+    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
+    QQ_APP_ID = "1105442815",
+    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
+    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
+    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
+  },
+  ["com.xd.ro.xdapk"] = {
+    SINA_WEIBO_APP_KEY = "650343694",
+    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
+    QQ_APP_ID = "1105442815",
+    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
+    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
+    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
+  },
+  ["com.xd.ro.roapk"] = {
+    SINA_WEIBO_APP_KEY = "650343694",
+    SINA_WEIBO_APP_SECRET = "5bd99ffa23bd05cbb649ea540963ab86",
+    QQ_APP_ID = "1105442815",
+    QQ_APP_KEY = "2b723a9b2c445b174b5bc60e6f7234cb",
+    WECHAT_APP_ID = "wx9fdd68bd6b3c85a2",
+    WECHAT_APP_SECRET = "b3558e97106af65d2326d43fcfd606aa"
+  }
+}
+local temp = {}
+
 function AppBundleConfig.GetSocialShareInfo()
-  return SocialShare_Config[AppBundleConfig.BundleID]
+  local config = SocialShare_Config[AppBundleConfig.BundleID]
+  if config then
+    return config
+  else
+    return temp
+  end
 end
 
 function AppBundleConfig.JumpToAppStore()
@@ -188,10 +169,6 @@ function AppBundleConfig.JumpToAndroidAppStore()
 end
 
 function AppBundleConfig.JumpToAppReview()
-  if ApplicationInfo.IsWindows() or ApplicationInfo.IsRunOnEditor() then
-    Application.OpenURL("http://pkg.xindong.com/pages/pkg/?q=com.xd&limit=20&")
-    return
-  end
   local config = GameConfig.AppBundleConfig
   if config == nil then
     config = AppBundleConfig
@@ -289,9 +266,13 @@ if ApplicationInfo.IsWindows() then
   elseif BranchMgr.IsVN() then
     AppBundleConfig.BundleID = "com.n9.romi"
   elseif BranchMgr.IsNO() then
-    AppBundleConfig.BundleID = "com.gravityus.romzeny.ios"
+    if EnvChannel.IsTFBranch() then
+      AppBundleConfig.BundleID = "com.gravityus.romzenybeta.ios"
+    else
+      AppBundleConfig.BundleID = "com.gravityus.romzeny.ios"
+    end
   elseif BranchMgr.IsNOTW() then
-    AppBundleConfig.BundleID = "com.gravityus.romzeny.ios"
+    AppBundleConfig.BundleID = "com.gravityus.romtwzeny.ios"
   end
 end
 AppBundleConfig.TDSG_Config = {
@@ -310,8 +291,10 @@ AppBundleConfig.TDSG_Config = {
   ["com.n9.romg"] = "74mku5hgkzkzqaa9kf",
   ["com.gravityus.romzeny.aos"] = "uwkyu08gfavqeg7ivf",
   ["com.gravityus.romzeny.ios"] = "uwkyu08gfavqeg7ivf",
-  ["com.gravity.novi"] = "74mku5hgkzkzqaa9kf",
-  ["com.gravity.nova"] = "74mku5hgkzkzqaa9kf"
+  ["com.gravityus.romzenybeta.ios"] = "6inbf8qkqgk0hv4da1",
+  ["com.gravityus.romzenybeta.aos"] = "6inbf8qkqgk0hv4da1",
+  ["com.gravityus.romtwzeny.ios"] = "gwhvwhzdyowuchb7dj",
+  ["com.gravityus.romtwzeny.aos"] = "gwhvwhzdyowuchb7dj"
 }
 
 function AppBundleConfig.GetSDKLang_TDSG()

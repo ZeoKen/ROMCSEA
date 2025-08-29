@@ -14,6 +14,9 @@ CardMakeNewPage.SortFilter = {
 function CardMakeNewPage:OnExit()
   PictureManager.Instance:UnLoadUI(BgName, self.bgTex)
   self.targetCardCell:OnCellDestroy()
+  if self.sortFilter then
+    self.sortFilter:Destroy()
+  end
   CardMakeNewPage.super.OnExit(self)
 end
 
@@ -55,7 +58,7 @@ function CardMakeNewPage:FindObjs()
   local container = self:FindGO("CardContainer")
   local wrapConfig = {
     wrapObj = container,
-    pfbNum = 6,
+    pfbNum = 8,
     cellName = "CardMakeNewCell",
     control = CardMakeNewCell,
     dir = 1
@@ -67,11 +70,7 @@ function CardMakeNewPage:FindObjs()
   self.materialCtl = UIGridListCtrl.new(materialGrid, CardMakeMaterialCell, "CardMakeMaterialCell")
   self.materialCtl:AddEventListener(MouseEvent.MouseClick, self.HandleMaterialTip, self)
   local targetCard = self:FindGO("TargetCard")
-  local obj = Game.AssetManager_UI:CreateAsset(CardMakeNewPage.CardNCellResPath, targetCard)
-  LuaVector3.Better_Set(tempVector3, 0, 0, 0)
-  obj.transform.localPosition = tempVector3
-  LuaVector3.Better_Set(tempVector3, 1, 1, 1)
-  obj.transform.localScale = tempVector3
+  local obj = self:FindGO("CardNNewCell")
   self.targetCardCell = CardNCell.new(obj)
   self.targetCardCell:Hide(self.targetCardCell.useButton.gameObject)
 end
@@ -111,17 +110,20 @@ function CardMakeNewPage:InitFilter()
 end
 
 function CardMakeNewPage:InitSortFilter()
-  self.sortFilter = self:FindComponent("SortPop", UIPopupList)
-  EventDelegate.Add(self.sortFilter.onChange, function()
-    self:OnSortChoose()
-  end)
-  self.sortFilter:Clear()
+  local go = self:FindGO("SortPop")
+  local panel = self:FindComponent("ScrollView", UIPanel)
+  self.sortFilter = PopupGridList.new(go, function(self, data)
+    self:OnSortChoose(self, data)
+  end, self, panel.depth + 2)
   local list = CardMakeNewPage.SortFilter
+  local datas = {}
   for i = 1, #list do
-    self.sortFilter:AddItem(list[i], i)
+    local data = {}
+    data.index = i
+    data.text = list[i]
+    datas[i] = data
   end
-  local selectIndex = CardMakeProxy.Instance.CardMakeSortFilterIndex or 1
-  self.sortFilter.value = list[selectIndex]
+  self.sortFilter:SetData(datas)
 end
 
 function CardMakeNewPage:Show()
@@ -144,17 +146,16 @@ function CardMakeNewPage:FilterPropCallback(customProp, propData, keys)
   self:SelectFirst()
 end
 
-function CardMakeNewPage:OnSortChoose()
-  if not self.sortFilter.data then
+function CardMakeNewPage:OnSortChoose(self, data)
+  if not data then
     return
   end
-  local data = self.sortFilter.data
-  local isOwned = data == 1
-  local isMakeable = data == 2
+  local isOwned = data.index == 1
+  local isMakeable = data.index == 2
+  redlog("OnSortChoose", data.text, tostring(isOwned), tostring(isMakeable))
   CardMakeProxy.Instance:SetMakeSortParam(isOwned, isMakeable)
   self:UpdateCard()
   self:SelectFirst()
-  CardMakeProxy.Instance.CardMakeSortFilterIndex = data
 end
 
 function CardMakeNewPage:UpdateCard()

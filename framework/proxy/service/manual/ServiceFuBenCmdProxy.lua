@@ -229,7 +229,10 @@ end
 
 function ServiceFuBenCmdAutoProxy:RecvSuperGvgQueryUserDataFubenCmd(data)
   SuperGvgProxy.Instance:HandleRecvGvgUserDetailFubenCmd(data)
-  self:Notify(ServiceEvent.FuBenCmdSuperGvgQueryUserDataFubenCmd, data)
+  local isEnd = data.is_end
+  if isEnd then
+    self:Notify(ServiceEvent.FuBenCmdSuperGvgQueryUserDataFubenCmd, data)
+  end
 end
 
 function ServiceFuBenCmdProxy:RecvMvpBattleReportFubenCmd(data)
@@ -685,6 +688,7 @@ end
 
 function ServiceFuBenCmdProxy:RecvSyncTripleCampInfoFuBenCmd(data)
   PvpProxy.Instance:InitTripleCampInfo(data)
+  TriplePlayerPvpProxy:InitializeRelaxFlag(data.isrelax)
   if data.endtime and data.endtime > 0 then
     self:Notify(ServiceEvent.FuBenCmdSyncTripleCampInfoFuBenCmd, data)
   end
@@ -699,4 +703,19 @@ end
 function ServiceFuBenCmdProxy:RecvAstralInfoSyncCmd(data)
   AstralProxy.Instance:SyncAstralRoundInfo(data)
   self:Notify(ServiceEvent.FuBenCmdAstralInfoSyncCmd, data)
+end
+
+function ServiceFuBenCmdProxy:RecvSyncStartFightStateCmd(data)
+  FunctionPve.Me():SyncStartFightState(data.barstate)
+  self:Notify(ServiceEvent.FuBenCmdSyncStartFightStateCmd, data)
+end
+
+function ServiceFuBenCmdProxy:RecvGvgMvpInfoUpdateCmd(data)
+  GvgProxy.Instance:HandleMvpUpdate(data.hp_per, data.state)
+  self:Notify(ServiceEvent.FuBenCmdGvgMvpInfoUpdateCmd, data)
+end
+
+function ServiceFuBenCmdProxy:RecvAstralPrayBranchSyncCmd(data)
+  AstralProxy.Instance:SyncAstralPrayBranchInfo(data.groups)
+  self:Notify(ServiceEvent.FuBenCmdAstralPrayBranchSyncCmd, data)
 end

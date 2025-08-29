@@ -47,6 +47,17 @@ Table_QuestPostcard = {
     Reward = {
       {3012472, 1}
     }
+  },
+  [22] = {
+    id = 22,
+    Sender = "##42591285",
+    Content = "##42591294",
+    TF_ImageUrl = "local_dir/postcard_2503",
+    Release_ImageUrl = "local_dir/postcard_2503",
+    PaperStyle = 1,
+    Reward = {
+      {52836, 88}
+    }
   }
 }
 Table_QuestPostcard_fields = {

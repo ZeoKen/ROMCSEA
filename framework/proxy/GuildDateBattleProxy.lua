@@ -28,7 +28,6 @@ E_GuildDateBattle_SortID = {
   InValid = 3,
   UnDefined = 4
 }
-E_GuildDateBattle_Mode = {Base = 1, Classic = 2}
 local _Schedules = {begin_hour = 12, end_hour = 23}
 EGuildDateBattleTip = {
   SecendStamp = 1,
@@ -72,13 +71,8 @@ end
 local _mode_str
 
 function GuildDateBattleProxy.GetModeName(mode)
-  if not _mode_str then
-    _mode_str = {
-      [E_GuildDateBattle_Mode.Base] = ZhString.GVGMode_Type1_Invite,
-      [E_GuildDateBattle_Mode.Classic] = ZhString.GVGMode_Type2_Invite
-    }
-  end
-  return _mode_str[mode]
+  local mode_config = GuildDateBattleProxy.GetModeConfig()
+  return mode_config[mode] and mode_config[mode].name or ""
 end
 
 function GuildDateBattleProxy.GetModeConfig()
@@ -86,6 +80,25 @@ function GuildDateBattleProxy.GetModeConfig()
     GuildDateBattleProxy.modeConfig = GameConfig.GuildDateBattle and GameConfig.GuildDateBattle.mode
   end
   return GuildDateBattleProxy.modeConfig
+end
+
+function GuildDateBattleProxy:GetMiniMapTextureName(mode)
+  self.miniMapTextureName = self.miniMapTextureName or {}
+  local texture_name = self.miniMapTextureName[mode]
+  if not texture_name then
+    local mode_config = GuildDateBattleProxy.GetModeConfig()
+    local city_id = mode_config[mode] and mode_config[mode].city_id
+    if city_id then
+      local raid_id = Table_DateBattleCity[city_id] and Table_DateBattleCity[city_id].RaidId
+      if raid_id then
+        local raid_config = Table_MapRaid[raid_id]
+        if raid_config then
+          self.miniMapTextureName[mode] = "Scene" .. raid_config.NameEn
+        end
+      end
+    end
+  end
+  return self.miniMapTextureName[mode] or ""
 end
 
 function GuildDateBattleProxy:CheckBaseModeOpen()
@@ -496,13 +509,21 @@ function GuildDateBattleProxy:HandleQueryAllRecords(datas, type)
   if not datas then
     return
   end
+  local only_show_same_server = GameConfig.GuildDateBattle and GameConfig.GuildDateBattle.only_show_same_server == true
   local is_end = type == GuildCmd_pb.EGUILDDATEBATTLELISTTYPE_END
   local cacheData = is_end and self.finishedRecords or self.goingRecords
+  local insertValid
   _ArrayClear(cacheData)
   for i = 1, #datas do
     GuildDateBattleProxyDebug(datas[i])
     local data = GuildDateBattleRecordData.new(datas[i])
-    _ArrayPushBack(cacheData, data)
+    if only_show_same_server then
+      if MyselfProxy.Instance:IsSameServer(data:GetServerId()) then
+        _ArrayPushBack(cacheData, data)
+      end
+    else
+      _ArrayPushBack(cacheData, data)
+    end
   end
   table.sort(cacheData, sort_function)
 end
@@ -570,7 +591,7 @@ function GuildDateBattleProxy:CallInvite(guild_id)
 end
 
 function GuildDateBattleProxy:CallDateInvite(guild_id, stamp, mode)
-  mode = mode or E_GuildDateBattle_Mode.Base
+  mode = mode or 1
   stamp = math.floor(stamp)
   self:Debug("[公会约战] 发起邀请CallDateBattleInviteGuildCmd guild_id | stamp | mode ", guild_id, stamp, mode)
   ServiceGuildCmdProxy.Instance:CallDateBattleInviteGuildCmd(guild_id, stamp, mode)
@@ -779,7 +800,8 @@ end
 function GuildDateBattleProxy:GetModeTipData()
   if not self.modeTipData then
     self.modeTipData = {}
-    for _, mode in pairs(E_GuildDateBattle_Mode) do
+    local mode_config = GuildDateBattleProxy.GetModeConfig()
+    for mode, _ in pairs(mode_config) do
       _ArrayPushBack(self.modeTipData, {
         [1] = EGuildDateBattleTip.Mode,
         [2] = mode

@@ -7,7 +7,15 @@ local groupName = {
   "E",
   "F",
   "G",
-  "H"
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P"
 }
 
 function WarbandOpponentGroupTab:Init()
@@ -18,6 +26,7 @@ function WarbandOpponentGroupTab:Init()
     self:SetTog(true)
     self:PassEvent(MouseEvent.MouseClick, self)
   end)
+  self.attendSymbol = self:FindGO("AttendSymbol")
 end
 
 function WarbandOpponentGroupTab:SetTog(v)
@@ -32,4 +41,8 @@ function WarbandOpponentGroupTab:SetData(data)
   else
     self.gameObject:SetActive(false)
   end
+end
+
+function WarbandOpponentGroupTab:SetAttend(bool)
+  self.attendSymbol:SetActive(bool)
 end

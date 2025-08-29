@@ -137,7 +137,19 @@ Table_Pet_FriendLevel_t = {
       {"body", 700090}
     },
     {
+      {"body", 702460}
+    },
+    {
+      {"body", 702450}
+    },
+    {
+      {"body", 702440}
+    },
+    {
       {"body", 700420}
+    },
+    {
+      {"body", 702430}
     },
     {
       {"body", 702420}
@@ -718,7 +730,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[10],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[10],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[11],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[154]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[158]
   },
   [500020] = {
     id = 500020,
@@ -733,7 +745,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[1],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[1],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[1],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[164]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[168]
   },
   [500030] = {
     id = 500030,
@@ -748,7 +760,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[3],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[3],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[3],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[172]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[176]
   },
   [500040] = {
     id = 500040,
@@ -763,7 +775,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[182]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[186]
   },
   [500050] = {
     id = 500050,
@@ -778,7 +790,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[9],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[9],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[10],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[191]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[195]
   },
   [500060] = {
     id = 500060,
@@ -853,7 +865,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[13]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[17]
   },
   [500110] = {
     id = 500110,
@@ -868,7 +880,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[1],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[1],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[1],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[22]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[26]
   },
   [500130] = {
     id = 500130,
@@ -883,7 +895,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[42]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[46]
   },
   [500140] = {
     id = 500140,
@@ -898,7 +910,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[50]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[54]
   },
   [500180] = {
     id = 500180,
@@ -913,7 +925,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[85]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[89]
   },
   [500210] = {
     id = 500210,
@@ -928,7 +940,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[110]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[114]
   },
   [500220] = {
     id = 500220,
@@ -943,7 +955,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[6],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[6],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[6],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[116]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[120]
   },
   [500230] = {
     id = 500230,
@@ -958,7 +970,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[123]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[127]
   },
   [500240] = {
     id = 500240,
@@ -987,7 +999,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[10],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[10],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[11],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[139]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[143]
   },
   [500260] = {
     id = 500260,
@@ -1002,7 +1014,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[10],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[10],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[11],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[149]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[153]
   },
   [500270] = {
     id = 500270,
@@ -1017,7 +1029,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[1],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[1],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[1],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[159]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[163]
   },
   [500280] = {
     id = 500280,
@@ -1032,7 +1044,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[3],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[3],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[3],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[169]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[173]
   },
   [500290] = {
     id = 500290,
@@ -1047,7 +1059,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[1],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[1],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[1],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[177]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[181]
   },
   [500300] = {
     id = 500300,
@@ -1062,7 +1074,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[1],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[1],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[1],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[187]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[191]
   },
   [500310] = {
     AmityReward_1 = Table_Pet_FriendLevel_t.AmityReward_1[1],
@@ -1136,7 +1148,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[9]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[12]
   },
   [500360] = {
     id = 500360,
@@ -1151,7 +1163,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[17]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[21]
   },
   [500370] = {
     id = 500370,
@@ -1166,7 +1178,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[6],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[6],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[6],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[27]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[31]
   },
   [500380] = {
     id = 500380,
@@ -1181,7 +1193,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[1],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[1],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[1],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[37]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[41]
   },
   [500390] = {
     id = 500390,
@@ -1196,7 +1208,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[2],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[2],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[2],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[46]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[50]
   },
   [500400] = {
     id = 500400,
@@ -1225,7 +1237,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[62]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[66]
   },
   [500420] = {
     id = 500420,
@@ -1240,7 +1252,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[70]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[74]
   },
   [500430] = {
     id = 500430,
@@ -1255,7 +1267,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[6],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[6],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[6],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[80]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[84]
   },
   [500440] = {
     id = 500440,
@@ -1270,7 +1282,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[90]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[94]
   },
   [500450] = {
     id = 500450,
@@ -1285,7 +1297,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[97]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[101]
   },
   [500460] = {
     id = 500460,
@@ -1300,7 +1312,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[105]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[109]
   },
   [500470] = {
     id = 500470,
@@ -1315,7 +1327,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[115]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[119]
   },
   [500480] = {
     id = 500480,
@@ -1358,7 +1370,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[144]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[148]
   },
   [500520] = {
     id = 500520,
@@ -1373,7 +1385,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[195]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[199]
   },
   [500530] = {
     id = 500530,
@@ -1402,7 +1414,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[194]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[198]
   },
   [500550] = {
     id = 500550,
@@ -1417,7 +1429,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[193]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[197]
   },
   [500560] = {
     id = 500560,
@@ -1432,7 +1444,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[192]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[196]
   },
   [500570] = {
     id = 500570,
@@ -1447,7 +1459,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[190]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[194]
   },
   [500580] = {
     id = 500580,
@@ -1462,7 +1474,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[189]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[193]
   },
   [500590] = {
     id = 500590,
@@ -1477,7 +1489,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[188]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[192]
   },
   [500600] = {
     id = 500600,
@@ -1506,7 +1518,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[186]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[190]
   },
   [500620] = {
     id = 500620,
@@ -1521,7 +1533,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[185]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[189]
   },
   [500630] = {
     id = 500630,
@@ -1536,7 +1548,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[32]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[36]
   },
   [500640] = {
     id = 500640,
@@ -1551,7 +1563,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[184]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[188]
   },
   [500650] = {
     id = 500650,
@@ -1566,7 +1578,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[183]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[187]
   },
   [500660] = {
     id = 500660,
@@ -1595,7 +1607,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[181]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[185]
   },
   [500700] = {
     id = 500700,
@@ -1610,7 +1622,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[9],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[9],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[10],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[92]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[96]
   },
   [500710] = {
     id = 500710,
@@ -1625,7 +1637,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[100]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[104]
   },
   [500720] = {
     id = 500720,
@@ -1640,7 +1652,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[180]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[184]
   },
   [500730] = {
     id = 500730,
@@ -1655,7 +1667,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[179]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[183]
   },
   [500740] = {
     id = 500740,
@@ -1670,7 +1682,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[178]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[182]
   },
   [500750] = {
     id = 500750,
@@ -1685,7 +1697,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[176]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[180]
   },
   [500760] = {
     id = 500760,
@@ -1700,7 +1712,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[175]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[179]
   },
   [500770] = {
     id = 500770,
@@ -1715,7 +1727,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[174]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[178]
   },
   [500780] = {
     id = 500780,
@@ -1730,7 +1742,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[173]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[177]
   },
   [500790] = {
     id = 500790,
@@ -1773,7 +1785,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[171]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[175]
   },
   [500820] = {
     id = 500820,
@@ -1788,7 +1800,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[170]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[174]
   },
   [500830] = {
     id = 500830,
@@ -1803,7 +1815,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[168]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[172]
   },
   [500840] = {
     id = 500840,
@@ -1818,7 +1830,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[167]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[171]
   },
   [500850] = {
     id = 500850,
@@ -1833,7 +1845,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[166]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[170]
   },
   [500860] = {
     id = 500860,
@@ -1848,7 +1860,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[165]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[169]
   },
   [500870] = {
     id = 500870,
@@ -1863,7 +1875,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[163]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[167]
   },
   [500880] = {
     id = 500880,
@@ -1878,7 +1890,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[162]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[166]
   },
   [500890] = {
     id = 500890,
@@ -1893,7 +1905,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[161]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[165]
   },
   [500900] = {
     id = 500900,
@@ -1908,7 +1920,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[160]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[164]
   },
   [500910] = {
     id = 500910,
@@ -1923,7 +1935,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[158]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[162]
   },
   [500920] = {
     id = 500920,
@@ -1938,7 +1950,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[157]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[161]
   },
   [500930] = {
     id = 500930,
@@ -1953,7 +1965,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[156]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[160]
   },
   [500940] = {
     id = 500940,
@@ -1968,7 +1980,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[155]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[159]
   },
   [500950] = {
     id = 500950,
@@ -1983,7 +1995,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[153]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[157]
   },
   [500960] = {
     id = 500960,
@@ -1998,7 +2010,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[152]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[156]
   },
   [500970] = {
     id = 500970,
@@ -2013,7 +2025,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[151]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[155]
   },
   [500980] = {
     id = 500980,
@@ -2028,7 +2040,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[10],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[10],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[11],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[150]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[154]
   },
   [500990] = {
     id = 500990,
@@ -2043,7 +2055,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[9],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[9],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[10],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[148]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[152]
   },
   [501000] = {
     id = 501000,
@@ -2058,7 +2070,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[147]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[151]
   },
   [501010] = {
     id = 501010,
@@ -2073,7 +2085,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[134]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[138]
   },
   [501020] = {
     id = 501020,
@@ -2088,7 +2100,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[146]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[150]
   },
   [501030] = {
     id = 501030,
@@ -2103,7 +2115,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[6],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[6],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[6],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[145]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[149]
   },
   [501040] = {
     id = 501040,
@@ -2118,7 +2130,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[143]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[147]
   },
   [501050] = {
     id = 501050,
@@ -2133,7 +2145,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[142]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[146]
   },
   [501060] = {
     id = 501060,
@@ -2148,7 +2160,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[141]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[145]
   },
   [501070] = {
     id = 501070,
@@ -2163,7 +2175,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[140]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[144]
   },
   [501080] = {
     id = 501080,
@@ -2178,7 +2190,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[138]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[142]
   },
   [501090] = {
     id = 501090,
@@ -2193,7 +2205,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[137]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[141]
   },
   [501100] = {
     id = 501100,
@@ -2208,7 +2220,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[136]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[140]
   },
   [501110] = {
     id = 501110,
@@ -2223,7 +2235,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[135]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[139]
   },
   [501130] = {
     id = 501130,
@@ -2266,7 +2278,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[133]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[137]
   },
   [501160] = {
     id = 501160,
@@ -2281,7 +2293,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[132]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[136]
   },
   [501170] = {
     id = 501170,
@@ -2296,7 +2308,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[131]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[135]
   },
   [501180] = {
     id = 501180,
@@ -2311,7 +2323,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[65]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[69]
   },
   [501190] = {
     id = 501190,
@@ -2326,7 +2338,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[75]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[79]
   },
   [501200] = {
     id = 501200,
@@ -2341,7 +2353,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[9],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[9],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[10],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[130]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[134]
   },
   [501210] = {
     id = 501210,
@@ -2356,7 +2368,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[129]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[133]
   },
   [501220] = {
     id = 501220,
@@ -2371,7 +2383,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[128]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[132]
   },
   [501230] = {
     id = 501230,
@@ -2386,7 +2398,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[127]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[131]
   },
   [501240] = {
     id = 501240,
@@ -2401,7 +2413,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[126]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[130]
   },
   [501250] = {
     id = 501250,
@@ -2416,7 +2428,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[125]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[129]
   },
   [501260] = {
     id = 501260,
@@ -2431,7 +2443,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[124]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[128]
   },
   [501270] = {
     id = 501270,
@@ -2446,7 +2458,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[122]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[126]
   },
   [501280] = {
     id = 501280,
@@ -2489,7 +2501,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[121]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[125]
   },
   [501310] = {
     id = 501310,
@@ -2504,7 +2516,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[120]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[124]
   },
   [501320] = {
     id = 501320,
@@ -2519,7 +2531,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[119]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[123]
   },
   [501330] = {
     id = 501330,
@@ -2534,7 +2546,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[118]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[122]
   },
   [501340] = {
     id = 501340,
@@ -2549,7 +2561,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[117]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[121]
   },
   [501350] = {
     id = 501350,
@@ -2620,7 +2632,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[114]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[118]
   },
   [501420] = {
     id = 501420,
@@ -2635,7 +2647,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[113]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[117]
   },
   [501430] = {
     id = 501430,
@@ -2650,7 +2662,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[112]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[116]
   },
   [501440] = {
     id = 501440,
@@ -2665,7 +2677,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[9],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[9],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[10],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[111]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[115]
   },
   [501450] = {
     id = 501450,
@@ -2680,7 +2692,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[109]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[113]
   },
   [501460] = {
     id = 501460,
@@ -2695,7 +2707,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[108]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[112]
   },
   [501470] = {
     id = 501470,
@@ -2710,7 +2722,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[107]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[111]
   },
   [501480] = {
     id = 501480,
@@ -2725,7 +2737,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[106]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[110]
   },
   [501490] = {
     id = 501490,
@@ -2740,7 +2752,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[104]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[108]
   },
   [501500] = {
     id = 501500,
@@ -2755,7 +2767,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[103]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[107]
   },
   [501510] = {
     id = 501510,
@@ -2770,7 +2782,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[102]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[106]
   },
   [501520] = {
     id = 501520,
@@ -2785,7 +2797,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[101]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[105]
   },
   [501530] = {
     id = 501530,
@@ -2814,7 +2826,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[99]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[103]
   },
   [501550] = {
     id = 501550,
@@ -2829,7 +2841,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[98]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[102]
   },
   [501570] = {
     id = 501570,
@@ -2858,7 +2870,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[96]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[100]
   },
   [501600] = {
     id = 501600,
@@ -2873,7 +2885,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[95]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[99]
   },
   [501610] = {
     id = 501610,
@@ -2888,7 +2900,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[94]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[98]
   },
   [501620] = {
     id = 501620,
@@ -2903,7 +2915,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[93]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[97]
   },
   [501630] = {
     id = 501630,
@@ -2960,7 +2972,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[91]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[95]
   },
   [501670] = {
     id = 501670,
@@ -2975,7 +2987,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[89]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[93]
   },
   [501680] = {
     id = 501680,
@@ -2990,7 +3002,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[88]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[92]
   },
   [501690] = {
     id = 501690,
@@ -3005,7 +3017,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[87]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[91]
   },
   [501700] = {
     id = 501700,
@@ -3020,7 +3032,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[86]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[90]
   },
   [501710] = {
     id = 501710,
@@ -3035,7 +3047,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[84]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[88]
   },
   [501720] = {
     id = 501720,
@@ -3050,7 +3062,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[9],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[9],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[10],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[83]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[87]
   },
   [501730] = {
     id = 501730,
@@ -3065,7 +3077,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[82]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[86]
   },
   [501740] = {
     id = 501740,
@@ -3080,7 +3092,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[81]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[85]
   },
   [501750] = {
     id = 501750,
@@ -3095,7 +3107,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[79]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[83]
   },
   [501760] = {
     id = 501760,
@@ -3110,7 +3122,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[78]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[82]
   },
   [501770] = {
     id = 501770,
@@ -3125,7 +3137,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[77]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[81]
   },
   [501780] = {
     id = 501780,
@@ -3140,7 +3152,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[76]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[80]
   },
   [501790] = {
     id = 501790,
@@ -3155,7 +3167,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[74]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[78]
   },
   [501800] = {
     id = 501800,
@@ -3170,7 +3182,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[73]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[77]
   },
   [501820] = {
     id = 501820,
@@ -3185,7 +3197,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[7],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[72]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[76]
   },
   [501830] = {
     id = 501830,
@@ -3200,7 +3212,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[9],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[9],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[10],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[71]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[75]
   },
   [501840] = {
     id = 501840,
@@ -3215,7 +3227,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[8],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[8],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[8],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[69]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[73]
   },
   [501860] = {
     id = 501860,
@@ -3230,7 +3242,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[4],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[4],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[4],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[68]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[72]
   },
   [501870] = {
     id = 501870,
@@ -3245,7 +3257,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[67]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[71]
   },
   [501880] = {
     id = 501880,
@@ -3260,7 +3272,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[66]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[70]
   },
   [501890] = {
     id = 501890,
@@ -3275,7 +3287,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[64]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[68]
   },
   [501900] = {
     id = 501900,
@@ -3290,7 +3302,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[63]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[67]
   },
   [501910] = {
     id = 501910,
@@ -3333,7 +3345,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[61]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[65]
   },
   [501940] = {
     id = 501940,
@@ -3348,7 +3360,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[60]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[64]
   },
   [501950] = {
     id = 501950,
@@ -3363,7 +3375,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[59]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[63]
   },
   [501960] = {
     id = 501960,
@@ -3378,7 +3390,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[58]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[62]
   },
   [501970] = {
     id = 501970,
@@ -3393,7 +3405,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[57]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[61]
   },
   [501980] = {
     id = 501980,
@@ -3408,7 +3420,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[56]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[60]
   },
   [501990] = {
     id = 501990,
@@ -3423,7 +3435,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[55]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[59]
   },
   [502000] = {
     id = 502000,
@@ -3438,7 +3450,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[54]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[58]
   },
   [502010] = {
     id = 502010,
@@ -3453,7 +3465,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[53]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[57]
   },
   [502020] = {
     id = 502020,
@@ -3482,7 +3494,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[52]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[56]
   },
   [502040] = {
     id = 502040,
@@ -3497,7 +3509,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[51]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[55]
   },
   [502050] = {
     id = 502050,
@@ -3512,7 +3524,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[49]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[53]
   },
   [502060] = {
     id = 502060,
@@ -3527,7 +3539,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[48]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[52]
   },
   [502070] = {
     id = 502070,
@@ -3542,7 +3554,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[47]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[51]
   },
   [502080] = {
     id = 502080,
@@ -3585,7 +3597,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[45]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[49]
   },
   [502110] = {
     id = 502110,
@@ -3600,7 +3612,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[44]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[48]
   },
   [502120] = {
     id = 502120,
@@ -3615,7 +3627,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[43]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[47]
   },
   [502130] = {
     id = 502130,
@@ -3630,7 +3642,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[41]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[45]
   },
   [502140] = {
     id = 502140,
@@ -3645,7 +3657,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[7],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[7],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[9],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[40]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[44]
   },
   [502190] = {
     id = 502190,
@@ -3660,7 +3672,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[39]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[43]
   },
   [502200] = {
     id = 502200,
@@ -3675,7 +3687,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[38]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[42]
   },
   [502210] = {
     id = 502210,
@@ -3690,7 +3702,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[36]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[40]
   },
   [502220] = {
     id = 502220,
@@ -3705,7 +3717,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[35]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[39]
   },
   [502230] = {
     id = 502230,
@@ -3720,7 +3732,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[34]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[38]
   },
   [502240] = {
     id = 502240,
@@ -3735,7 +3747,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[33]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[37]
   },
   [502250] = {
     id = 502250,
@@ -3750,7 +3762,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[31]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[35]
   },
   [502260] = {
     id = 502260,
@@ -3765,7 +3777,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[30]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[34]
   },
   [502270] = {
     id = 502270,
@@ -3780,7 +3792,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[29]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[33]
   },
   [502280] = {
     id = 502280,
@@ -3795,7 +3807,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[28]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[32]
   },
   [502290] = {
     id = 502290,
@@ -3810,7 +3822,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[26]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[30]
   },
   [502300] = {
     id = 502300,
@@ -3825,7 +3837,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[25]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[29]
   },
   [502310] = {
     id = 502310,
@@ -3840,7 +3852,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[24]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[28]
   },
   [502320] = {
     id = 502320,
@@ -3855,7 +3867,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[23]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[27]
   },
   [502330] = {
     id = 502330,
@@ -3870,7 +3882,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[21]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[25]
   },
   [502340] = {
     id = 502340,
@@ -3885,7 +3897,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[20]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[24]
   },
   [502350] = {
     id = 502350,
@@ -3900,7 +3912,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[19]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[23]
   },
   [502360] = {
     id = 502360,
@@ -3915,7 +3927,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[18]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[22]
   },
   [502370] = {
     id = 502370,
@@ -3930,7 +3942,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[16]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[20]
   },
   [502380] = {
     id = 502380,
@@ -3945,7 +3957,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[15]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[19]
   },
   [502390] = {
     id = 502390,
@@ -3974,7 +3986,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[14]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[18]
   },
   [502410] = {
     id = 502410,
@@ -3989,7 +4001,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[12]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[16]
   },
   [502420] = {
     id = 502420,
@@ -4004,7 +4016,7 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
-    Event_10 = Table_Pet_FriendLevel_t.Event_10[11]
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[15]
   },
   [502430] = {
     id = 502430,
@@ -4019,7 +4031,81 @@ Table_Pet_FriendLevel = {
     AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
     AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
     AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[14]
+  },
+  [502440] = {
+    id = 502440,
+    AmityReward_1 = Table_Pet_FriendLevel_t.AmityReward_1[1],
+    AmityReward_2 = Table_Pet_FriendLevel_t.AmityReward_2[5],
+    AmityReward_3 = Table_Pet_FriendLevel_t.AmityReward_3[5],
+    Event_3 = Table_Pet_FriendLevel_t.Event_3[1],
+    AmityReward_4 = Table_Pet_FriendLevel_t.AmityReward_4[5],
+    AmityReward_5 = Table_Pet_FriendLevel_t.AmityReward_5[5],
+    AmityReward_6 = Table_Pet_FriendLevel_t.AmityReward_6[5],
+    AmityReward_7 = Table_Pet_FriendLevel_t.AmityReward_7[5],
+    AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
+    AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
+    AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[13]
+  },
+  [502450] = {
+    id = 502450,
+    AmityReward_1 = Table_Pet_FriendLevel_t.AmityReward_1[1],
+    AmityReward_2 = Table_Pet_FriendLevel_t.AmityReward_2[5],
+    AmityReward_3 = Table_Pet_FriendLevel_t.AmityReward_3[5],
+    Event_3 = Table_Pet_FriendLevel_t.Event_3[1],
+    AmityReward_4 = Table_Pet_FriendLevel_t.AmityReward_4[5],
+    AmityReward_5 = Table_Pet_FriendLevel_t.AmityReward_5[5],
+    AmityReward_6 = Table_Pet_FriendLevel_t.AmityReward_6[5],
+    AmityReward_7 = Table_Pet_FriendLevel_t.AmityReward_7[5],
+    AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
+    AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
+    AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[11]
+  },
+  [502460] = {
+    id = 502460,
+    AmityReward_1 = Table_Pet_FriendLevel_t.AmityReward_1[1],
+    AmityReward_2 = Table_Pet_FriendLevel_t.AmityReward_2[5],
+    AmityReward_3 = Table_Pet_FriendLevel_t.AmityReward_3[5],
+    Event_3 = Table_Pet_FriendLevel_t.Event_3[1],
+    AmityReward_4 = Table_Pet_FriendLevel_t.AmityReward_4[5],
+    AmityReward_5 = Table_Pet_FriendLevel_t.AmityReward_5[5],
+    AmityReward_6 = Table_Pet_FriendLevel_t.AmityReward_6[5],
+    AmityReward_7 = Table_Pet_FriendLevel_t.AmityReward_7[5],
+    AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
+    AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
+    AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
     Event_10 = Table_Pet_FriendLevel_t.Event_10[10]
+  },
+  [502470] = {
+    id = 502470,
+    AmityReward_1 = Table_Pet_FriendLevel_t.AmityReward_1[1],
+    AmityReward_2 = Table_Pet_FriendLevel_t.AmityReward_2[5],
+    AmityReward_3 = Table_Pet_FriendLevel_t.AmityReward_3[5],
+    Event_3 = Table_Pet_FriendLevel_t.Event_3[1],
+    AmityReward_4 = Table_Pet_FriendLevel_t.AmityReward_4[5],
+    AmityReward_5 = Table_Pet_FriendLevel_t.AmityReward_5[5],
+    AmityReward_6 = Table_Pet_FriendLevel_t.AmityReward_6[5],
+    AmityReward_7 = Table_Pet_FriendLevel_t.AmityReward_7[5],
+    AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
+    AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
+    AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5],
+    Event_10 = Table_Pet_FriendLevel_t.Event_10[9]
+  },
+  [502480] = {
+    id = 502480,
+    AmityReward_1 = Table_Pet_FriendLevel_t.AmityReward_1[1],
+    AmityReward_2 = Table_Pet_FriendLevel_t.AmityReward_2[5],
+    AmityReward_3 = Table_Pet_FriendLevel_t.AmityReward_3[5],
+    Event_3 = Table_Pet_FriendLevel_t.Event_3[1],
+    AmityReward_4 = Table_Pet_FriendLevel_t.AmityReward_4[5],
+    AmityReward_5 = Table_Pet_FriendLevel_t.AmityReward_5[5],
+    AmityReward_6 = Table_Pet_FriendLevel_t.AmityReward_6[5],
+    AmityReward_7 = Table_Pet_FriendLevel_t.AmityReward_7[5],
+    AmityReward_8 = Table_Pet_FriendLevel_t.AmityReward_8[5],
+    AmityReward_9 = Table_Pet_FriendLevel_t.AmityReward_9[5],
+    AmityReward_10 = Table_Pet_FriendLevel_t.AmityReward_10[5]
   }
 }
 local cell_mt = {

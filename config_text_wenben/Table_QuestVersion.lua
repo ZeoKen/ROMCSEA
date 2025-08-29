@@ -239,6 +239,24 @@ Table_QuestVersion = {
       80,
       81
     }
+  },
+  [12] = {
+    id = 12,
+    version = "17.0",
+    name = "##42635503",
+    icon = "taskmanual_btn_YZHX",
+    PuzzleUnder = "taskmanual_bg_jigsaw",
+    VersionStory = "##42637475",
+    StoryName = "##42635503",
+    VersionPic = "",
+    FirstMainQuest = 211580001,
+    Tab = 2,
+    sortid = 25,
+    KeyReward = {
+      {48213, 1}
+    },
+    VersionBG = "Missiontracking_bottom_syzh",
+    MapID = {154}
   }
 }
 Table_QuestVersion_fields = {

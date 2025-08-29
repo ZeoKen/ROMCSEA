@@ -17,6 +17,11 @@ local SettingType = {
   Custom = EWOODTYPE.EWOODTYPE_NORMAL,
   Boss = EWOODTYPE.EWOODTYPE_SPEC_MONSTER
 }
+local BossType = {
+  Normal = 0,
+  MVP = 1,
+  Mini = 2
+}
 local _, c = ColorUtil.TryParseHexString("B36B24")
 local SelectedLabelCol = c
 _, c = ColorUtil.TryParseHexString("4059A8")
@@ -48,6 +53,7 @@ function SkadaSettingView:FindObjs()
   self.listRace = UIGridListCtrl.new(self:FindComponent("gridRace", UIGrid, l_objSettings), SkadaSettingToggleCell, "SkadaSettingToggleCell")
   self.listShape = UIGridListCtrl.new(self:FindComponent("gridShape", UIGrid, l_objSettings), SkadaSettingToggleCell, "SkadaSettingToggleCell")
   self.listNature = UIGridListCtrl.new(self:FindComponent("gridNature", UIGrid, l_objSettings), SkadaSettingToggleCell, "SkadaSettingToggleCell")
+  self.listType = UIGridListCtrl.new(self:FindComponent("gridType", UIGrid, l_objSettings), SkadaSettingToggleCell, "SkadaSettingToggleCell")
   self.objNatureLvAdjust = self:FindGO("NatureLvAdjust", l_objSettings)
   self.labNatureLv = self:FindComponent("labNatureLv", UILabel, self.objNatureLvAdjust)
   self.objPowerAdjust = self:FindGO("PowerAdjust", l_objSettings)
@@ -101,6 +107,7 @@ function SkadaSettingView:AddViewEvt()
   self.listRace:AddEventListener(MouseEvent.MouseClick, self.ClickRace, self)
   self.listShape:AddEventListener(MouseEvent.MouseClick, self.ClickShape, self)
   self.listNature:AddEventListener(MouseEvent.MouseClick, self.ClickNature, self)
+  self.listType:AddEventListener(MouseEvent.MouseClick, self.ClickType, self)
 end
 
 function SkadaSettingView:InitSettings()
@@ -148,6 +155,18 @@ function SkadaSettingView:InitSettings()
     return a.id < b.id
   end)
   self.listShape:ResetDatas(self.shapeDatas)
+  self.typeDatas = ReusableTable.CreateArray()
+  for nameEn, id in pairs(BossType) do
+    singleTable = ReusableTable.CreateTable()
+    singleTable.id = id
+    singleTable.NameEn = nameEn
+    singleTable.NameZh = nameConfig.BossType[nameEn]
+    self.typeDatas[#self.typeDatas + 1] = singleTable
+  end
+  table.sort(self.typeDatas, function(a, b)
+    return a.id < b.id
+  end)
+  self.listType:ResetDatas(self.typeDatas)
 end
 
 function SkadaSettingView:DeleteSettings()
@@ -171,6 +190,13 @@ function SkadaSettingView:DeleteSettings()
     end
     ReusableTable.DestroyAndClearArray(self.shapeDatas)
     self.shapeDatas = nil
+  end
+  if self.typeDatas then
+    for i = 1, #self.typeDatas do
+      ReusableTable.DestroyAndClearTable(self.typeDatas[i])
+    end
+    ReusableTable.DestroyAndClearArray(self.typeDatas)
+    self.typeDatas = nil
   end
 end
 
@@ -202,6 +228,16 @@ function SkadaSettingView:LoadCurSettings()
     for i = 1, #cells do
       if cells[i].id == curSettingID then
         self:ClickShape(cells[i])
+        break
+      end
+    end
+  end
+  curSettingID = furnitureData and furnitureData.woodBossType or 0
+  cells = self.listType:GetCells()
+  if curSettingID then
+    for i = 1, #cells do
+      if cells[i].id == curSettingID then
+        self:ClickType(cells[i])
         break
       end
     end
@@ -329,6 +365,12 @@ function SkadaSettingView:ClickBtnSave()
   newSetting = self.curNatureLv
   oldSetting = furnitureData and furnitureData.woodNatureLv
   settingData.nature_lv = newSetting
+  if newSetting and newSetting ~= oldSetting then
+    isDirty = true
+  end
+  newSetting = self.curTypeCell and self.curTypeCell.id
+  oldSetting = furnitureData and furnitureData.woodBossType
+  settingData.boss_type = newSetting
   if newSetting and newSetting ~= oldSetting then
     isDirty = true
   end
@@ -491,5 +533,6 @@ function SkadaSettingView:OnDestroy()
   self.listRace:Destroy()
   self.listNature:Destroy()
   self.listShape:Destroy()
+  self.listType:Destroy()
   SkadaSettingView.super.OnDestroy(self)
 end

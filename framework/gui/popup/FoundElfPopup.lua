@@ -1,26 +1,26 @@
 FoundElfPopup = class("FoundElfPopup", ContainerView)
 FoundElfPopup.ViewType = UIViewType.PopUpLayer
-FoundElfPopup.Configs = nil
-
-function FoundElfPopup.InitConfig()
-  if FoundElfPopup.Configs then
-    return
-  end
-  FoundElfPopup.Configs = {}
-  for k, v in pairs(Table_Menu) do
-    if v.Condition and v.Condition.found_elf_num then
-      table.insert(FoundElfPopup.Configs, v)
-    end
-  end
-  table.sort(FoundElfPopup.Configs, function(l, r)
-    return l.Condition.found_elf_num < r.Condition.found_elf_num
-  end)
-end
 
 function FoundElfPopup:Init()
   self:FindObj()
   self:AddViewEvts()
   self:InitView()
+end
+
+local field_name = {
+  "found_abyss_lake_elf_num",
+  "found_elf_num"
+}
+
+function FoundElfPopup.GetConfigs()
+  if Game.MapManager:IsInAbyssLake() then
+    return Game.abyssLakeFoundElfConfigs, field_name[1]
+  end
+  return Game.FoundElfConfigs, field_name[2]
+end
+
+function FoundElfPopup.GetVarType()
+  return Game.MapManager:IsInAbyssLake() and Var_pb.EVARTYPE_FOUND_ABYSS_LAKE_ELF_NUM or Var_pb.EVARTYPE_FOUND_ELF_NUM
 end
 
 function FoundElfPopup:FindObj()
@@ -69,21 +69,22 @@ function FoundElfPopup:AddViewEvts()
 end
 
 function FoundElfPopup:InitView()
-  FoundElfPopup.InitConfig()
-  local found_elf_num = self.viewdata.new_var or MyselfProxy.Instance:getVarByType(Var_pb.EVARTYPE_FOUND_ELF_NUM) and MyselfProxy.Instance:getVarByType(Var_pb.EVARTYPE_FOUND_ELF_NUM).value or 0
+  local var_type = FoundElfPopup.GetVarType()
+  local configs, field_name = FoundElfPopup.GetConfigs()
+  local found_elf_num = self.viewdata.new_var or MyselfProxy.Instance:getVarByType(var_type) and MyselfProxy.Instance:getVarByType(var_type).value or 0
   local old_var = self.viewdata.old_var or found_elf_num - 1
   local config, last_config
-  for i = 1, #FoundElfPopup.Configs do
-    if found_elf_num <= FoundElfPopup.Configs[i].Condition.found_elf_num then
-      config = FoundElfPopup.Configs[i]
-      last_config = FoundElfPopup.Configs[i - 1]
+  for i = 1, #configs do
+    if found_elf_num <= configs[i].Condition[field_name] then
+      config = configs[i]
+      last_config = configs[i - 1]
       break
     end
   end
   local base, length, old_p, new_p = 0
   if config then
-    base = last_config and last_config.Condition.found_elf_num or 0
-    length = config.Condition.found_elf_num - base
+    base = last_config and last_config.Condition[field_name] or 0
+    length = config.Condition[field_name] - base
     old_p = old_var - base
     new_p = found_elf_num - base
     local next = length - new_p
@@ -178,6 +179,7 @@ function FoundElfPopup:OnExit()
 end
 
 function FoundElfPopup.TryGetFoundElfNumChange(data)
+  local var_type = FoundElfPopup.GetVarType()
   if data ~= nil and data.vars ~= nil then
     local vars = data.vars
     local varslen = #vars
@@ -185,10 +187,12 @@ function FoundElfPopup.TryGetFoundElfNumChange(data)
     local old_var, new_var
     for i = 1, varslen do
       local single = vars[i]
-      if single and single.type == Var_pb.EVARTYPE_FOUND_ELF_NUM then
+      if single and single.type == var_type then
         new_var = single.value
-        old_var = MyselfProxy.Instance:getVarByType(Var_pb.EVARTYPE_FOUND_ELF_NUM)
+        old_var = MyselfProxy.Instance:getVarByType(var_type)
         old_var = old_var and old_var.value
+        helplog("FoundElfPopup server new_var", new_var)
+        helplog("FoundElfPopup client old_var", old_var)
         if not old_var and new_var == 1 then
           old_var = 0
         end

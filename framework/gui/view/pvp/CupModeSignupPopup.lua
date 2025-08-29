@@ -1,6 +1,6 @@
 autoImport("MyCupModeMemberCell")
 CupModeSignupPopup = class("CupModeSignupPopup", ContainerView)
-CupModeSignupPopup.ViewType = UIViewType.PopUpLayer
+CupModeSignupPopup.ViewType = UIViewType.NormalLayer
 local EMPTY_TEX = "12pvp_bg_pic0"
 local GRAY_LABEL_COLOR = Color(0.5764705882352941, 0.5686274509803921, 0.5686274509803921, 1)
 local BTN_SP = {
@@ -19,7 +19,8 @@ local funkey = {
 }
 
 function CupModeSignupPopup:Init()
-  self.proxy = CupMode6v6Proxy.Instance
+  local viewdata = self.viewdata and self.viewdata.viewdata
+  self.proxy = viewdata and viewdata.proxy or CupMode6v6Proxy.Instance
   self.filterType = GameConfig.MaskWord.WarbandName
   self:FindObj()
   self:AddBtnEvts()
@@ -41,6 +42,7 @@ function CupModeSignupPopup:FindObj()
   self.kickBtn = self:FindComponent("KickBtn", UISprite, self.root)
   self.kickLab = self:FindComponent("Label", UILabel, self.kickBtn.gameObject)
   self.signupBtn = self:FindComponent("SignupBtn", UISprite, self.root)
+  self.signupBtnLab = self:FindComponent("Label", UILabel, self.signupBtn.gameObject)
   self.hasSignupLab = self:FindComponent("hasSignup", UILabel, self.root)
   self.hasSignupLab.text = ZhString.Warband_hasSignup
   self.signupLab = self:FindComponent("Label", UILabel, self.signupBtn.gameObject)
@@ -88,30 +90,33 @@ function CupModeSignupPopup:AddBtnEvts()
   end)
   self:AddClickEvent(self.leaveBtn.gameObject, function()
     local proxy = self.proxy
-    if proxy:CheckHasSignup() then
-      MsgManager.ShowMsgByID(28054)
-      return
-    end
     if self.delMode then
       MsgManager.ShowMsgByID(28051)
       return
     end
-    proxy:DoLeaveWarband()
+    local isCaptain = proxy:CheckBandAuthority()
+    local hasSignup = proxy:CheckHasSignup()
+    if isCaptain then
+      if hasSignup then
+        proxy:DoDisband()
+      else
+        proxy:DoLeaveWarband()
+      end
+    elseif not hasSignup then
+      proxy:DoLeaveWarband()
+    end
   end)
   self:AddClickEvent(self.kickBtn.gameObject, function()
     local proxy = self.proxy
-    if proxy:CheckHasSignup() then
-      MsgManager.ShowMsgByID(28054)
-      return
-    end
-    if proxy.myWarband.memberNum <= 1 then
+    local hasSignup = proxy:CheckHasSignup()
+    if proxy.myWarband.memberNum == 1 or hasSignup then
       return
     end
     self:UpdateKickModel(not self.delMode)
   end)
   self:AddClickEvent(self.signupBtn.gameObject, function()
     if self.delMode then
-      return
+      self:UpdateKickModel(false)
     end
     local proxy = self.proxy
     proxy:DoSignUp()
@@ -159,7 +164,7 @@ function CupModeSignupPopup:UpdateKickModel(var)
     local cells = self.memberCtl:GetCells()
     if cells then
       for i = 1, #cells do
-        cells[i]:SetEditorMode(var)
+        cells[i]:SetEditorMode(var, self.proxy)
       end
     end
   end
@@ -227,6 +232,7 @@ function CupModeSignupPopup:UpdateView()
   self.root:SetActive(true)
   self.emptyRoot:SetActive(false)
   self.preparedBtn:SetActive(not hasAuth and not isready)
+  self.leaveBtnLab.text = hasSignup and hasAuth and ZhString.CupMode_CancelRegister or ZhString.CupMode_LeaveTeam
   self.unpreparedBtn.gameObject:SetActive(not hasAuth and isready)
   self.signupBtn.gameObject:SetActive(hasAuth and not hasSignup)
   self.hasSignupLab.gameObject:SetActive(hasSignup)
@@ -245,11 +251,18 @@ function CupModeSignupPopup:UpdateMember()
   memberData = proxy:GetMyWarbandViewMember()
   self.memberCtl:ResetDatas(memberData)
   local hasSignup = proxy:CheckHasSignup()
+  local signupValid = proxy:CheckSignupTimeValid()
+  local isCaptain = proxy:CheckBandAuthority()
   local cankick = proxy.myWarband.memberNum > 1 and not hasSignup
   self.kickBtn.spriteName = cankick and BTN_SP[1] or BTN_SP[3]
   self.kickLab.effectColor = cankick and ColorUtil.ButtonLabelBlue or GRAY_LABEL_COLOR
-  self.leaveBtn.spriteName = hasSignup and BTN_SP[3] or BTN_SP[4]
-  self.leaveBtnLab.effectColor = hasSignup and GRAY_LABEL_COLOR or redOutLineColor
+  if isCaptain then
+    self.leaveBtn.spriteName = BTN_SP[4]
+    self.leaveBtnLab.effectColor = redOutLineColor
+  else
+    self.leaveBtn.spriteName = hasSignup and BTN_SP[3] or BTN_SP[4]
+    self.leaveBtnLab.effectColor = hasSignup and GRAY_LABEL_COLOR or redOutLineColor
+  end
   self.unpreparedBtn.spriteName = hasSignup and BTN_SP[3] or BTN_SP[4]
   self.UnpreparedLab.effectColor = hasSignup and GRAY_LABEL_COLOR or redOutLineColor
   local isfull = proxy:CheckFull()

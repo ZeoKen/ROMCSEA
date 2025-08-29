@@ -22,6 +22,7 @@ function MsgParserProxy:InitPatterns()
   self.singleIconPattern = "(%w+)=(%w+_*%w*)"
   self.ilItemPattern = "({ilitem=(%d+)(,-)(%x-)})"
   self.equipPosPattern = "({equippos=(%d+)(,-)(%d-)})"
+  self.cardPattern = "({card=(%d+)(,-)(%d+)(,-)(%d+)})"
   self.msgHandler = {
     [24000] = self.OpenUserCenter
   }
@@ -193,11 +194,24 @@ function MsgParserProxy:_ReplaceEquipPosPattern(text)
   return text
 end
 
+function MsgParserProxy:_ReplaceCardPattern(text)
+  local str, itemId, _, count, _, level = string.match(text, self.cardPattern)
+  if str then
+    replaceStr = self:GetCardNameWithQuality(itemId, count, level)
+    if replaceStr ~= nil then
+      text = string.gsub(text, str, replaceStr)
+      return self:_ReplaceCardPattern(text)
+    end
+  end
+  return text
+end
+
 local _ReplaceItemPattern = MsgParserProxy._ReplaceItemPattern
 local _ReplaceNpcPattern = MsgParserProxy._ReplaceNpcPattern
 local _ReplaceMapPattern = MsgParserProxy._ReplaceMapPattern
 local _ReplaceQuestPattern = MsgParserProxy._ReplaceQuestPattern
 local _ReplaceEquipPosPattern = MsgParserProxy._ReplaceEquipPosPattern
+local _ReplaceCardPattern = MsgParserProxy._ReplaceCardPattern
 
 function MsgParserProxy:DoParse(text)
   text = _ReplaceItemPattern(self, text)
@@ -205,6 +219,7 @@ function MsgParserProxy:DoParse(text)
   text = _ReplaceMapPattern(self, text)
   text = _ReplaceQuestPattern(self, text)
   text = _ReplaceEquipPosPattern(self, text)
+  text = _ReplaceCardPattern(self, text)
   text = StringUtil.Replace(text, self.myName, self:GetMyName())
   text = StringUtil.Replace(text, self.upAdvLvCost, self:GetUpAdvLvCostStr())
   return text
@@ -314,6 +329,26 @@ function MsgParserProxy:GetEquipPosStr(id, num)
   local nameConfig = GameConfig.EquipPosName
   local str = nameConfig and nameConfig[tonumber(id)] or "?"
   return str
+end
+
+function MsgParserProxy:GetCardNameWithQuality(itemId, count, level)
+  local data = Table_Item[tonumber(itemId)]
+  if data ~= nil then
+    local countStr = ""
+    if count ~= nil and count ~= "" then
+      countStr = "×" .. count
+    end
+    local levelStr = ""
+    if level ~= nil and level ~= "" and tonumber(level) > 0 then
+      levelStr = "+" .. level
+    end
+    local quality = not StringUtil.IsEmpty(level) and tonumber(level) >= 5 and 5 or data.Quality
+    if quality == 1 then
+      return ItemQualityColor[quality] .. levelStr .. data.NameZh .. countStr .. "[-]"
+    end
+    return "[c]" .. ItemQualityColor[quality] .. levelStr .. data.NameZh .. countStr .. "[-][/c]"
+  end
+  return nil
 end
 
 function MsgParserProxy:GetMsgHandler(id)

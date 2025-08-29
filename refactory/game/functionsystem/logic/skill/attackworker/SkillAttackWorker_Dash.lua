@@ -199,6 +199,10 @@ function SelfClass:GetTargetPosition(skill, creature, init, targetGUID)
   if skill.info:GetTargetType(creature) == SkillTargetType.Point then
     return phaseData:GetPosition()
   end
+  local preAttackParams = self.args[1]
+  if preAttackParams.namelessDistance then
+    return phaseData:GetPosition()
+  end
   if phaseData:GetTargetCount() <= 0 then
     return nil
   end

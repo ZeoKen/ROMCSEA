@@ -40,7 +40,8 @@ function FunctionDialogEvent:ctor()
     Func_QuestRepair = FunctionDialogEvent.Func_QuestRepair,
     Func_ReturnActivityReward = FunctionDialogEvent.Func_ReturnActivityReward,
     Func_ExchangeSand = FunctionDialogEvent.Func_ExchangeSand,
-    Func_CatLitterBox = FunctionDialogEvent.Func_CatLitterBox
+    Func_CatLitterBox = FunctionDialogEvent.Func_CatLitterBox,
+    Func_RetrieveAllArtifacts = FunctionDialogEvent.Func_RetrieveAllArtifacts
   }
   local pacakgeCheck = GameConfig.PackageMaterialCheck
   DEFAULT_MATERIAL_SEARCH_BAGTYPES = pacakgeCheck and pacakgeCheck.default or {1, 9}
@@ -109,6 +110,7 @@ function FunctionDialogEvent:MapEventConfig()
   self.eventMap.Event_CallQuestRepair = FunctionDialogEvent.Event_CallQuestRepair
   self.eventMap.Event_CallExchangeSand = FunctionDialogEvent.Event_CallExchangeSand
   self.eventMap.Event_BuildingSubmitMaterial = FunctionDialogEvent.Event_BuildingSubmitMaterial
+  self.eventMap.Event_RetrieveAllArtifacts = FunctionDialogEvent.Event_RetrieveAllArtifacts
   self.checkEventMap = {}
   self.checkEventMap.Event_BuildingSubmitMaterial = FunctionDialogEvent.Check_Event_BuildingSubmitMaterial
   self.showEventMap = {}
@@ -768,6 +770,12 @@ function FunctionDialogEvent.Check_Event_BuildingSubmitMaterial(param, nnpc)
   return FunctionNpcFunc.CheckOpenBuildingSubmitMat(nnpc, param) == NpcFuncState.Active
 end
 
+function FunctionDialogEvent.Event_RetrieveAllArtifacts(param, nnpc)
+  xdlog("Event_RetrieveAllArtifacts")
+  ServiceGuildCmdProxy:CallArtifactOptGuildCmd(ArtifactProxy.OptionType.RetrieveAll)
+  return FunctionDialogEvent.EventResult_Type.Result_Succes
+end
+
 function FunctionDialogEvent.ShowUpgradeItemEvent(viewPreferb, param)
   local itemData = param.itemData
   if not itemData then
@@ -1179,4 +1187,8 @@ function FunctionDialogEvent.Func_CatLitterBox(npcInfo)
   else
     FunctionDialogEvent.Me():SetEventDialog(87, GuildBuildingProxy.Type.EGUILDBUILDING_CAT_LITTER_BOX, npcInfo)
   end
+end
+
+function FunctionDialogEvent.Func_RetrieveAllArtifacts(npcInfo)
+  FunctionDialogEvent.Me():SetEventDialog(1201, nil, npcInfo)
 end

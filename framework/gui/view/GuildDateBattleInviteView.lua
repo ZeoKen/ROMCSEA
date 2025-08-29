@@ -7,10 +7,6 @@ local _WinTextureName = "pvp_bg_win"
 local _WinTextureName1 = "pvp_bg_win_blue"
 local _LoseTextureName = "pvp_yuezhan_bg_lost"
 local _LoseTextureName1 = "pvp_bg_lost"
-local _miniMapTextureName = {
-  [E_GuildDateBattle_Mode.Base] = "SceneGuild_battle_prt",
-  [E_GuildDateBattle_Mode.Classic] = "Scenesc_gvg3he1_001"
-}
 local _determinedColor = "383838"
 local _BgColor = {
   Approval = "daefff",
@@ -323,7 +319,7 @@ function GuildDateBattleInviteView:SetByConfig()
   self.modeDescLab.text = self.data:GetModeDesc()
   self.modeLab.text = self.data:GetModeName()
   self.modeNameLab.text = self.data:GetModeName()
-  self.mapTextureName = _miniMapTextureName[self.data.mode]
+  self.mapTextureName = _DateProxy:GetMiniMapTextureName(self.data.mode)
   _PictureManager:SetMiniMap(self.mapTextureName, self.mapTexture)
 end
 

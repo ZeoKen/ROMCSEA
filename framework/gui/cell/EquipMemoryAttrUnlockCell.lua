@@ -7,6 +7,8 @@ function EquipMemoryAttrUnlockCell:Init()
   self.unlockTip = self:FindGO("UnlockTip"):GetComponent(UILabel)
   self.unlockLvTip = self:FindGO("UnlockLvTip"):GetComponent(UILabel)
   self.lockSymbol = self:FindGO("LockSymbol")
+  self.newSymbol = self:FindGO("NewSymbol")
+  self.jumpSymbol = self:FindGO("JumpBtn")
   self:AddCellClickEvent()
 end
 
@@ -19,6 +21,7 @@ function EquipMemoryAttrUnlockCell:SetData(data)
     self.unlockTip.gameObject:SetActive(false)
     self.lockSymbol:SetActive(false)
     self.colorSymbol.gameObject:SetActive(true)
+    self.newSymbol:SetActive(false)
     local level = 1
     local staticId = attrConfig.level and attrConfig.level[level]
     local staticData = staticId and Table_ItemMemoryEffect[staticId]
@@ -34,13 +37,20 @@ function EquipMemoryAttrUnlockCell:SetData(data)
     self.colorSymbol.gameObject:SetActive(false)
     local canUnlock = data.canUnlock or false
     if canUnlock then
+      self.jumpSymbol:SetActive(data.isFourth or false)
       self.unlockTip.gameObject:SetActive(true)
-      self.unlockTip.text = string.format(ZhString.EquipMemory_AttrResetUnlockTip2, data.unlockLv)
+      if data.text and data.text ~= "" then
+        self.unlockTip.text = data.text
+      else
+        self.unlockTip.text = string.format(ZhString.EquipMemory_AttrResetUnlockTip2, data.unlockLv)
+      end
       self.unlockLvTip.gameObject:SetActive(false)
+      self.newSymbol:SetActive(true)
     else
       self.unlockTip.gameObject:SetActive(false)
       self.unlockLvTip.gameObject:SetActive(true)
       self.unlockLvTip.text = string.format(ZhString.EquipMemory_AttrResetUnlockTip, data.unlockLv)
+      self.newSymbol:SetActive(false)
     end
     self.bg.height = 46
   end

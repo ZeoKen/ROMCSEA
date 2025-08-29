@@ -169,7 +169,7 @@ function MainViewAutoAimMonster:InitShow()
   local container = self:FindGO("Container", self.contentTable.gameObject)
   local wrapConfig = {
     wrapObj = container,
-    pfbNum = 10,
+    pfbNum = 20,
     cellName = "MainViewAimMonsterCell",
     control = MainViewAimMonsterCell,
     dir = 1

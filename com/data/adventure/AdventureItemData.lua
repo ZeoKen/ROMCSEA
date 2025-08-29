@@ -97,6 +97,9 @@ function AdventureItemData:updateManualData(serverData)
     self.equipInfo:SetRefine(self:TryGetRefineLv(serverData.storeditems))
   end
   self.cup_name = self:TryGetCupName(self.savedItemDatas)
+  if Table_Card[self.staticId] then
+    self:SetCardLevel()
+  end
 end
 
 function AdventureItemData:TryGetCupName(savedItemDatas)
@@ -357,6 +360,7 @@ function AdventureItemData:Clone()
     item.equipInfo:Clone(self.equipInfo)
   end
   item.isAdv = true
+  item.cardLv = self.cardLv
   return item
 end
 
@@ -537,4 +541,23 @@ function AdventureItemData:SetVID()
   self.equipVID = Table_Equip[self.staticId] and Table_Equip[self.staticId].VID
   self.VIDType = math.floor(self.equipVID / 10000)
   self.VID = self.equipVID % 1000
+end
+
+function AdventureItemData:SetCardLevel()
+  local itemData = self.savedItemDatas[1]
+  self.cardLv = itemData and itemData.cardLv or 0
+end
+
+function AdventureItemData:GetCardQuality()
+  if self.cardLv and self.cardLv >= 5 then
+    return 5
+  end
+  return self.staticData.Quality
+end
+
+function AdventureItemData:GetCardAttrs(iconPrefix)
+  local itemData = self.savedItemDatas[1]
+  if itemData then
+    return itemData:GetCardAttrs(iconPrefix)
+  end
 end

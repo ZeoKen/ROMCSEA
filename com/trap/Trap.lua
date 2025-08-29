@@ -93,7 +93,7 @@ function Trap:_CreateEffect(path, pos, lodLevel, priority, effectType, callBack,
     if not self.active then
       return
     end
-    Asset_Effect.PlayOneShotAt(path, pos, callBack, nil, nil, lodLevel, priority, effectType)
+    Asset_Effect.PlayOneShotAt(path, pos, OnEffectCreated, self, nil, lodLevel, priority, effectType)
     return
   end
   self.effect = Asset_Effect.PlayAt(path, pos, OnEffectCreated, self)

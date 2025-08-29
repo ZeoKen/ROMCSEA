@@ -20,6 +20,12 @@ end
 function BossRaidBord:CountdownUpdateBossRaidBord(data)
   tickManager:ClearTick(self)
   self.countdown = data.body.time
+  if "number" ~= type(self.countdown) then
+    return
+  end
+  if self.countdown < 1 then
+    return
+  end
   local mm = math.floor(self.countdown / 60)
   local ss = self.countdown % 60
   self.countDownLb.text = string.format("%02d:%02d", mm, ss)
@@ -61,6 +67,7 @@ function BossRaidBord:InitView()
   self.grid = self:FindComponent("BossGrid", UIGrid)
   self.bossCtrl = UIGridListCtrl.new(self.grid, Simple_BossIconCell, "Simple_BossIconCell")
   self.countDownLb = self:FindComponent("countDown", UILabel)
+  self.countDownLb.text = ""
 end
 
 function BossRaidBord:UpdateBoss()

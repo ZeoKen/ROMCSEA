@@ -1,8 +1,4 @@
 local fixedClock = 24
-local _mode_Str = {
-  [E_GuildDateBattle_Mode.Base] = ZhString.GVGMode_Type1,
-  [E_GuildDateBattle_Mode.Classic] = ZhString.GVGMode_Type2
-}
 GuildDateBattleTipCell = class("GuildDateBattleTipCell", BaseCell)
 
 function GuildDateBattleTipCell:Init()
@@ -30,7 +26,8 @@ function GuildDateBattleTipCell:SetContent()
     local curDate = os.date("*t", self.data)
     self.content.text = string.format(ZhString.GuildDateBattle_DateFmt, curDate.year, curDate.month, curDate.day)
   elseif self.type == EGuildDateBattleTip.Mode then
-    self.content.text = _mode_Str[self.type]
+    local mode_config = GuildDateBattleProxy.GetModeConfig()
+    self.content.text = mode_config and mode_config[self.data.type] and mode_config[self.data.type].name or ""
   end
 end
 

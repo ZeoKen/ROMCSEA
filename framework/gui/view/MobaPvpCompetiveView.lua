@@ -65,48 +65,44 @@ function MobaPvpCompetiveView:UpdateView()
     self.myScoreLabel.text = string.format(ZhString.TeamPws_MyScore, myInfo.score)
   end
   local dayTime = GameConfig.Triple and GameConfig.Triple.DayTime
-  if dayTime then
+  if dayTime and 0 < #dayTime then
     local t = ReusableTable.CreateArray()
-    for i = 1, #dayTime do
-      for j = 1, #dayTime[i] do
-        t[#t + 1] = string.gsub(dayTime[i][j], ":(%d+)", "", 1)
-      end
-    end
+    t[#t + 1] = ZhString.WeekDay[dayTime[1].wday]
+    t[#t + 1] = string.gsub(dayTime[1].begintime, ":(%d+)", "", 1)
+    t[#t + 1] = string.gsub(dayTime[1].endtime, ":(%d+)", "", 1)
     self.seasonBeginLabel.text = string.format(ZhString.Triple_SeasonStartTime, unpack(t))
     ReusableTable.DestroyArray(t)
-    local firstSeasonStartTimeFormat
-    if EnvChannel.IsTFBranch() then
-      firstSeasonStartTimeFormat = GameConfig.Triple and GameConfig.Triple.TfFirstSeasonTime
-    else
-      firstSeasonStartTimeFormat = GameConfig.Triple and GameConfig.Triple.FirstSeasonTime
-    end
-    local firstSeasonStartTime = ClientTimeUtil.GetOSDateTime(firstSeasonStartTimeFormat)
-    local abortTimeFormat = GameConfig.Triple and GameConfig.Triple.AbortTime
-    local abortTime = ClientTimeUtil.GetOSDateTime(abortTimeFormat)
-    local curTime = ServerTime.CurServerTime() / 1000
-    if firstSeasonStartTime and firstSeasonStartTime > curTime or abortTime and abortTime <= curTime then
-      local remainDay = math.floor((firstSeasonStartTime - curTime) / 86400)
-      self.seasonEndLabel.text = ZhString.Triple_SeasonStartSoon
-    else
-      local curTimeDate = os.date("*t", curTime)
-      local time
-      if curTimeDate.month < 12 then
-        time = os.time({
-          year = curTimeDate.year,
-          month = curTimeDate.month + 1,
-          day = 1,
-          hour = 5
-        })
+    local openTimeInfo = PvpProxy.Instance:GetTripleTeamPwsOpenTimeInfo()
+    if openTimeInfo then
+      local curTime = ServerTime.CurServerTime() / 1000
+      local beginTime = openTimeInfo.seasonBegin
+      local breakBeginTime = openTimeInfo.seasonBreakBegin
+      local breakEndTime = openTimeInfo.seasonBreakEnd
+      local openedCount = openTimeInfo.count
+      local totalOpenCount = GameConfig.Triple and GameConfig.Triple.MatchCount or 4
+      if beginTime == 0 or curTime < beginTime then
+        self.seasonEndLabel.text = ZhString.Triple_SeasonStartSoon
+      elseif breakBeginTime == 0 or curTime < breakBeginTime or 0 < breakEndTime and curTime > breakEndTime then
+        if openedCount < totalOpenCount then
+          local curTimeDate = os.date("*t", curTime)
+          local remainCount = totalOpenCount - openedCount
+          local curWday = (curTimeDate.wday - 1) % 7
+          curWday = 0 < curWday and curWday or 7
+          if 1 < remainCount or curWday > dayTime[1].wday then
+            self.seasonEndLabel.text = string.format(ZhString.Triple_SeasonEndRemainWeek, remainCount)
+          else
+            self.seasonEndLabel.text = ZhString.Triple_LastWeek
+          end
+        elseif isOpen then
+          self.seasonEndLabel.text = ZhString.Triple_LastWeek
+        else
+          self.seasonEndLabel.text = ZhString.Triple_SeasonStartSoon
+        end
       else
-        time = os.time({
-          year = curTimeDate.year + 1,
-          month = 1,
-          day = 1,
-          hour = 5
-        })
+        self.seasonEndLabel.text = ZhString.Triple_SeasonBreak
       end
-      local remainDay = math.floor((time - curTime) / 86400)
-      self.seasonEndLabel.text = string.format(ZhString.Triple_SeasonEndRemainDay, remainDay)
+    else
+      self.seasonEndLabel.text = ZhString.Triple_SeasonStartSoon
     end
   end
 end
@@ -137,7 +133,7 @@ end
 
 function MobaPvpCompetiveView:OnMatchBtnClick()
   local matchid = GameConfig.Triple and GameConfig.Triple.SeasonMatchid
-  local valid = PvpProxy.Instance:CheckMatchValid()
+  local valid = PvpProxy.Instance:CheckMatchValid(PvpProxy.Type.Triple)
   if valid then
     valid = TeamProxy.Instance:CheckMatchValid(Table_MatchRaid[matchid])
     if valid then

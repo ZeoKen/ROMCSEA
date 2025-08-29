@@ -50,7 +50,7 @@ function EquipCardEditCell:SetData(data)
     self.activePart:SetActive(true)
     self.emptyPart:SetActive(false)
     local cardInfo = data.cardInfo
-    self.cardName.text = cardInfo.Name
+    self.cardName.text = data:GetName()
     local descStr = ""
     local bufferIds = data.cardInfo.BuffEffect.buff
     if bufferIds then

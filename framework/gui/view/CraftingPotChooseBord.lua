@@ -39,21 +39,18 @@ end
 
 function CraftingPotChooseBord:SetChoose(data)
   local datas = CraftingPotProxy.Instance:GetPurifyProducts()
-  redlog("datas", #datas)
   self.itemList:ResetDatas(datas)
 end
 
 function CraftingPotChooseBord:OnClickProduct(cellctl)
   local data = cellctl and cellctl.data
   CraftingPotProxy.Instance:SetChoosePurifyProducts(data.productItemID)
-  redlog("OnClickProduct")
   self:PassEvent(CraftingPotChooseBord.ChooseItem, data)
   self:UpdateChooseInfo()
 end
 
 function CraftingPotChooseBord:UpdateChooseInfo()
   local datas = CraftingPotProxy.Instance:GetPurifyProducts()
-  redlog("datas", #datas)
   self.itemList:ResetDatas(datas)
 end
 
@@ -62,13 +59,11 @@ function CraftingPotChooseBord:Show(updateInfo, chooseCall, chooseCallParam, che
     self:UpdateChooseInfo()
   end
   self.gameObject:SetActive(true)
-  redlog("CraftingPotChooseBord show")
   self.chooseCall = chooseCall
   self.chooseCallParam = chooseCallParam
 end
 
 function CraftingPotChooseBord:Hide()
-  redlog("CraftingPotChooseBord hide")
   TipManager.CloseTip()
   self.gameObject:SetActive(false)
   self.chooseCall = nil

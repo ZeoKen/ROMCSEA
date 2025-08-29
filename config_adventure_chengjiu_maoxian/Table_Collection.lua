@@ -1475,28 +1475,6 @@ Table_Collection = {
     Name = "##106659",
     RedTip = 10062,
     SortNum = 61
-  },
-  [62] = {
-    id = 62,
-    ItemId = {
-      53946,
-      53947,
-      53948,
-      53949,
-      53950
-    },
-    mapID = 84,
-    Icon = "item_31105",
-    Type = 2,
-    Quests = _EmptyTable,
-    Desc = "##106666",
-    RewardStr = "##106530",
-    Quality = 4,
-    AdventureReward = {60006074},
-    RewardProperty = {MaxHp = 15},
-    Name = "##106638",
-    RedTip = 10064,
-    SortNum = 63
   }
 }
 Table_Collection_fields = {

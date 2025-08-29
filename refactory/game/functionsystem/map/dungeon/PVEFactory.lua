@@ -667,6 +667,25 @@ function PVEFactory.GetGvgLobby()
   return GvgLobby.new()
 end
 
+local HeroJourney = class("HeroJourney", Dungeon_Handle)
+
+function HeroJourney:ctor()
+  self.isHeroJourney = true
+end
+
+function HeroJourney:Launch()
+  notify(PVEEvent.HeroJourney_Launch)
+end
+
+function HeroJourney:Shutdown()
+  FunctionPve.Me():ClearFightState()
+  notify(PVEEvent.HeroJourney_Shutdown)
+end
+
+function PVEFactory.GetHeroJourney()
+  return HeroJourney.new()
+end
+
 local GvgDateBattleLobby = class("GvgDateBattleLobby", GvgLobby)
 
 function GvgDateBattleLobby:ctor()

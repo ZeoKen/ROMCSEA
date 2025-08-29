@@ -39,6 +39,6 @@ function LotteryMagicDetailCell:_setRate(lab)
   if not self.data then
     lab.text = ""
   else
-    lab.text = GameConfig.Lottery.MagicLotteryRateShow == 1 and string.format(ZhString.Lottery_DetailRate, self.data:GetRate()) or ""
+    lab.text = GameConfig.Lottery.MagicLotteryRateShow == 1 and self.data:GetUIRate() or ""
   end
 end

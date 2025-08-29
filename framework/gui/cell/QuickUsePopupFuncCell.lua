@@ -105,11 +105,20 @@ end
 function QuickUsePopupFuncCell:SetData(data)
   self.data = data and data.data or nil
   if data == nil then
+    UIManagerProxy.Instance:NeedEnableAndroidKey(true, function()
+      UIManagerProxy.GetDefaultNeedEnableAndroidKeyCallback()
+    end)
     self:Hide()
   else
     self.type = data.type
     self:Show()
     self:Refresh()
+    UIManagerProxy.Instance:NeedEnableAndroidKey(true, function()
+      if self.type == QuickUseProxy.Type.Common or self.type == QuickUseProxy.Type.Equip or self.type == QuickUseProxy.Type.Item then
+        self:Hide()
+      end
+      UIManagerProxy.GetDefaultNeedEnableAndroidKeyCallback()()
+    end)
   end
 end
 
@@ -194,6 +203,8 @@ end
 
 function QuickUsePopupFuncCell:TriggerShow()
   self:Hide(self.closeBtn.gameObject)
+  self.interactiveStyle:SetActive(false)
+  self.commonStyle:SetActive(true)
   if self.data.data.skill then
     local skill = SkillProxy.Instance:GetLearnedSkillWithSameSort(self.data.data.skill)
     local staticData = skill.staticData
@@ -227,6 +238,8 @@ function QuickUsePopupFuncCell:SkillShow()
     self:Hide()
     return
   end
+  self.interactiveStyle:SetActive(false)
+  self.commonStyle:SetActive(true)
   self.closeBtn.gameObject:SetActive(false)
   local skillData = Table_Skill[skillid]
   self.iconLabel.text = skillData.NameZh
@@ -244,6 +257,8 @@ function QuickUsePopupFuncCell:CatchPetShow()
   if cpatureData == nil then
     return
   end
+  self.interactiveStyle:SetActive(false)
+  self.commonStyle:SetActive(true)
   self.numLabel.gameObject:SetActive(true)
   self.numLabel.text = BagProxy.Instance:GetItemNumByStaticID(cpatureData.GiftItemID) or 0
   local itemSData = Table_Item[cpatureData.GiftItemID]

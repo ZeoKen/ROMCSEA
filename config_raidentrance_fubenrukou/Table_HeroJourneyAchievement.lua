@@ -259,6 +259,243 @@ Table_HeroJourneyAchievement = {
       }
     },
     desc = "##3501772"
+  },
+  [101] = {
+    id = 101,
+    RaidID = 74200,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [102] = {
+    id = 102,
+    RaidID = 74200,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [103] = {
+    id = 103,
+    RaidID = 74200,
+    achieveParams = {
+      pass = 1,
+      MonsterDieCount = {
+        count = 3,
+        npcid = {
+          74045,
+          74046,
+          74047
+        }
+      }
+    },
+    desc = "##42632010"
+  },
+  [104] = {
+    id = 104,
+    RaidID = 74201,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [105] = {
+    id = 105,
+    RaidID = 74201,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [106] = {
+    id = 106,
+    RaidID = 74201,
+    achieveParams = {
+      pass = 1,
+      noHitMonster = {74053}
+    },
+    desc = "##42632011"
+  },
+  [107] = {
+    id = 107,
+    RaidID = 74202,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [108] = {
+    id = 108,
+    RaidID = 74202,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [109] = {
+    id = 109,
+    RaidID = 74202,
+    achieveParams = {
+      pass = 1,
+      MonsterDieCount = {
+        count = 3,
+        npcid = {
+          74055,
+          74056,
+          74058
+        }
+      }
+    },
+    desc = "##42632012"
+  },
+  [110] = {
+    id = 110,
+    RaidID = 74203,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [111] = {
+    id = 111,
+    RaidID = 74203,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [112] = {
+    id = 112,
+    RaidID = 74203,
+    achieveParams = {
+      pass = 1,
+      noHitMonster = {74061}
+    },
+    desc = "##42632013"
+  },
+  [113] = {
+    id = 113,
+    RaidID = 74204,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [114] = {
+    id = 114,
+    RaidID = 74204,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [115] = {
+    id = 115,
+    RaidID = 74204,
+    achieveParams = {
+      pass = 1,
+      noHitSkill = {78961001}
+    },
+    desc = "##42632014"
+  },
+  [116] = {
+    id = 116,
+    RaidID = 74205,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [117] = {
+    id = 117,
+    RaidID = 74205,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [118] = {
+    id = 118,
+    RaidID = 74205,
+    achieveParams = {
+      pass = 1,
+      noHitSkill = {15017001}
+    },
+    desc = "##42632015"
+  },
+  [119] = {
+    id = 119,
+    RaidID = 74206,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [120] = {
+    id = 120,
+    RaidID = 74206,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [121] = {
+    id = 121,
+    RaidID = 74206,
+    achieveParams = {
+      pass = 1,
+      addBuffCount = {
+        buffid = {30033205},
+        count = 1
+      }
+    },
+    desc = "##42632016"
+  },
+  [122] = {
+    id = 122,
+    RaidID = 74207,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [123] = {
+    id = 123,
+    RaidID = 74207,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [124] = {
+    id = 124,
+    RaidID = 74207,
+    achieveParams = {
+      pass = 1,
+      noStateEffectCount = {
+        count = 3,
+        state = {4}
+      }
+    },
+    desc = "##3490962"
+  },
+  [125] = {
+    id = 125,
+    RaidID = 74208,
+    achieveParams = {
+      pass = 1,
+      timeLimit = 60,
+      npcId = 813703
+    },
+    desc = "##42632017"
+  },
+  [126] = {
+    id = 126,
+    RaidID = 74208,
+    achieveParams = {pass = 1, timeLimit = 50},
+    desc = "##3490951"
+  },
+  [127] = {
+    id = 127,
+    RaidID = 74208,
+    achieveParams = {
+      pass = 1,
+      noHitSkill = {25714007, 25714008}
+    },
+    desc = "##42632018"
+  },
+  [128] = {
+    id = 128,
+    RaidID = 74209,
+    achieveParams = {pass = 1},
+    desc = "##259347"
+  },
+  [129] = {
+    id = 129,
+    RaidID = 74209,
+    achieveParams = {pass = 1, timeLimit = 60},
+    desc = "##3490951"
+  },
+  [130] = {
+    id = 130,
+    RaidID = 74209,
+    achieveParams = {
+      pass = 1,
+      addBuffCount = {
+        buffid = {30033205},
+        count = 1
+      }
+    },
+    desc = "##42632019"
   }
 }
 Table_HeroJourneyAchievement_fields = {

@@ -3,6 +3,8 @@ CupModeRankPopup = class("CupModeRankPopup", ContainerView)
 CupModeRankPopup.ViewType = UIViewType.PopUpLayer
 
 function CupModeRankPopup:Init()
+  local viewdata = self.viewdata and self.viewdata.viewdata
+  self.proxy = viewdata and viewdata.proxy or CupMode6v6Proxy.Instance
   self:InitUI()
 end
 
@@ -25,8 +27,7 @@ end
 local result = {}
 
 function CupModeRankPopup:UpdateList()
-  local proxy = CupMode6v6Proxy.Instance
-  local result = proxy:GetSessionRank()
+  local result = self.proxy:GetSessionRank()
   self.rankList:ResetDatas(result)
   self.emptyTip.gameObject:SetActive(#result == 0)
 end

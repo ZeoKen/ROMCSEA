@@ -115,6 +115,7 @@ function MountDressingView:InitRole()
   MountFashionProxy.Instance:SetMountSubParts(subparts, self.mountId)
   MountFashionProxy.Instance:SetMountPartColors(partColors, self.mountId)
   self.role = Asset_RolePart.Create(Asset_Role.PartIndex.Mount, self.mountId, function(rolePart, arg, assetRolePart)
+    redlog("rolePos", tostring(assetRolePart.args[2]), tostring(self.rolePos.name))
     assetRolePart:ResetParent(self.rolePos.transform)
     local pos = GameConfig.MountFashion.ShowPos and GameConfig.MountFashion.ShowPos[self.mountId] and GameConfig.MountFashion.ShowPos[self.mountId] or LuaGeometry.Const_V3_zero
     assetRolePart:ResetLocalPositionXYZ(pos[1], pos[2], pos[3])
@@ -256,6 +257,7 @@ end
 
 function MountDressingView:OnFashionClick(cell)
   self.curStyleId = cell.id
+  redlog("curStyleId", tostring(self.curStyleId))
   self.selectedIndex[self.curTab] = cell.index
   self.isFashionLocked = cell.isLocked
   self.changeBtn:SetActive(not (cell.isEquiped or cell.isLocked) and cell.isActived or false)
@@ -337,6 +339,7 @@ function MountDressingView:OnChangeMountFashionClick()
   end
   local config = Table_MountFashion[self.curStyleId]
   if config then
+    redlog("CallMountFashionChangeCmd", tostring(self.mountId), tostring(config.Pos), tostring(self.curStyleId))
     ServiceItemProxy.Instance:CallMountFashionChangeCmd(self.mountId, config.Pos, self.curStyleId)
   end
 end

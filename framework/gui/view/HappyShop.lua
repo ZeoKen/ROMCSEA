@@ -361,7 +361,7 @@ function HappyShop:InitLeftUpIcon()
 end
 
 function HappyShop:JumpToAppReview(note)
-  if BranchMgr.IsSEA() and self.npcFuctionID == 100013 then
+  if (BranchMgr.IsSEA() or BranchMgr.IsNOTW() or BranchMgr.IsNO()) and self.npcFuctionID == 100013 and ApplicationInfo.IsMobile() then
     for i = 1, #note.body.params do
       if string.find(tostring(note.body.params[i]), "3684", 1) then
         OverSeas_TW.OverSeasManager.GetInstance():StoreReview()
@@ -478,6 +478,7 @@ function HappyShop:OnExit()
   if viewData and viewData.onExit then
     viewData.onExit(viewData.onExitParam)
   end
+  RedTipProxy.Instance:SeenNew(SceneTip_pb.EREDSYS_SHOP_COUPON)
 end
 
 function HappyShop:OnItemUpdate()

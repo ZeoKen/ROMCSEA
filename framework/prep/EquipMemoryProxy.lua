@@ -24,7 +24,6 @@ function EquipMemoryProxy:Init()
 end
 
 function EquipMemoryProxy:RecvUpdateMemoryPosItemCmd(data)
-  xdlog("装备部位属性同步")
   local pos = data.pos
   TableUtility.TableClear(self.equipPosData)
   if pos and 0 < #pos then
@@ -37,7 +36,6 @@ function EquipMemoryProxy:RecvUpdateMemoryPosItemCmd(data)
         memoryData:SetMyServerData(single.memory)
         self.equipPosData[_equipPos] = memoryData
       end
-      xdlog("装备在身上的记忆", _equipPos, single.memory.itemid, single.memory.lv)
     end
   end
 end

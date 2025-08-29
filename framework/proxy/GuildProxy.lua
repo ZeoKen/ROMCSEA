@@ -66,6 +66,10 @@ function GuildProxy:InitProxy()
   self.hasReward = false
 end
 
+function GuildProxy:SetGuildDateBattleFind(var)
+  self.bDataBattleFind = var
+end
+
 function GuildProxy:UpdateGuildList(guildSummarys)
   local my_guild_id = GuildProxy.Instance:GetOwnGuildID()
   self.guildList = {}
@@ -74,7 +78,7 @@ function GuildProxy:UpdateGuildList(guildSummarys)
       summary = guildSummarys[i]
     }
     local guildData = GuildData.new(gd)
-    if my_guild_id ~= guildData.id then
+    if not self.bDataBattleFind or my_guild_id ~= guildData.id then
       table.insert(self.guildList, guildData)
     end
   end

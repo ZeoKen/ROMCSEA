@@ -138,38 +138,42 @@ function FunctionLogin:StartActive(cdKey, callback)
   end
 end
 
-function FunctionLogin:requestGetUrlHost(url, callback, address, privateMode)
+function FunctionLogin:HandleUrl(url, host)
+  if not string.find(url, "http") then
+    if string.find(host, "172.2") then
+      url = string.format("http://%s", url)
+    else
+      url = string.format("https://%s", url)
+    end
+  end
+  return url
+end
+
+function FunctionLogin:requestGetUrlHost(url, callback, host, privateMode)
   local phoneplat = ApplicationInfo.GetRunPlatformStr()
-  local timestamp = os.time()
-  timestamp = string.format("&timestamp=%s&phoneplat=%s", timestamp, phoneplat)
+  local timestamp = string.format("&timestamp=%s&phoneplat=%s", os.time(), phoneplat)
+  local finalUrl
   local requests = HttpWWWSeveralRequests()
   if privateMode or self.privateMode then
     local ip = NetConfig.PrivateAuthServerUrl
-    ip = string.format("http://%s%s%s", ip, url, timestamp)
-    LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost address url:{0}", ip)
-    local order = HttpWWWRequestOrder(ip, NetConfig.HttpRequestTimeOut, nil, false, true)
+    finalUrl = string.format("http://%s%s%s", ip, url, timestamp)
+    LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost host url:{0}", finalUrl)
+    local order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, nil, false, true)
     requests:AddOrder(order)
-  elseif address and "" ~= address then
-    local ip = address
-    if string.find(ip, "172") then
-      ip = string.format("http://%s%s%s", ip, url, timestamp)
-    else
-      ip = string.format("https://%s%s%s", ip, url, timestamp)
-    end
-    LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost address url:{0}", ip)
-    local order = HttpWWWRequestOrder(ip, NetConfig.HttpRequestTimeOut, nil, false, true)
+  elseif host and "" ~= host then
+    finalUrl = string.format("%s%s%s", host, url, timestamp)
+    finalUrl = self:HandleUrl(finalUrl, host)
+    LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost host url:{0}", host)
+    local order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, nil, false, true)
     requests:AddOrder(order)
   else
     local ips = FunctionGetIpStrategy.Me():getRequestAddresss()
     for i = 1, #ips do
-      local ip = ips[i]
-      if string.find(ip, "172") then
-        ip = string.format("http://%s%s%s", ip, url, timestamp)
-      else
-        ip = string.format("https://%s%s%s", ip, url, timestamp)
-      end
-      LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost url:{0}", ip)
-      local order = HttpWWWRequestOrder(ip, NetConfig.HttpRequestTimeOut, nil, false, true)
+      host = ips[i]
+      finalUrl = string.format("%s%s%s", host, url, timestamp)
+      finalUrl = self:HandleUrl(finalUrl, host)
+      LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost url:{0}", host)
+      local order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, nil, false, true)
       requests:AddOrder(order)
     end
   end
@@ -178,7 +182,7 @@ function FunctionLogin:requestGetUrlHost(url, callback, address, privateMode)
   end, function(order)
     local IsOverTime = order.IsOverTime
     LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost IsOverTime:{0}", IsOverTime)
-    LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost occur error,url:{0},address:{1},errorMsg:{2}", url, address, order.orderError)
+    LogUtility.InfoFormat("FunctionLogin:requestGetUrlHost occur error,finalUrl:{0},host:{1},errorMsg:{2}", finalUrl, host, order.orderError)
     callback(FunctionLogin.AuthStatus.OherError, order)
   end)
   requests:StartRequest()
@@ -359,6 +363,7 @@ function FunctionLogin:ImportTableForSelectRole()
   reAutoImport("Table_MapInfo")
   reAutoImport("Table_SkillEffect")
   reAutoImport("PveEntranceData")
+  reAutoImport("Table_MonsterOrigin")
   if ProfessionProxy.Instance then
     ProfessionProxy.Instance:ReInit()
   else
@@ -600,11 +605,9 @@ function FunctionLogin:LoginUserCmd()
   if self.serverData then
     zoneid = tonumber(self.serverData.serverid)
   end
-  if BranchMgr.IsSEA() or BranchMgr.IsNA() or BranchMgr.IsEU() then
-    langzone = OverseaHostHelper.langZone
-    OverseaHostHelper:ResetSectors(self.serverData.sid)
-    helplog("send to server langzong:" .. langzone)
-  end
+  langzone = OverseaHostHelper.langZone
+  OverseaHostHelper:ResetSectors(self.serverData.sid)
+  helplog("send to server langzong:" .. langzone)
   local did = DeviceInfo.GetID()
   local appPreVersion = CompatibilityVersion.appPreVersion
   local smDeviceID = ""

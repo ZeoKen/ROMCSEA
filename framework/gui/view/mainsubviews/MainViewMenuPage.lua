@@ -268,6 +268,7 @@ function MainViewMenuPage:InitUI()
   self:InitDownloadUIButton()
   self.antiAddictionSp = self:FindGO("AntiAddiction")
   self:InitTripleTeamPwsMatchBtn()
+  self:InitAbyssDragonBtn()
 end
 
 function MainViewMenuPage:UpdateDisneyMusicState()
@@ -2033,6 +2034,7 @@ function MainViewMenuPage:MapViewInterests()
   self:AddListenEvt(ServiceEvent.QuestUpdateQuestHeroQuestCmd, self.PreviewSaleRole)
   self:AddListenEvt(ServiceEvent.ActivityCmdMissionRewardInfoSyncCmd, self.UpdateTimeLimitQuestReward, self)
   self:AddListenEvt(ServiceEvent.QuestUpdateQuestStoryIndexQuestCmd, self.UpdateTimeLimitQuestReward, self)
+  self:AddListenEvt(ServiceEvent.QuestAbyssDragonOnOffQuestCmd, self.InitAbyssDragonBtn)
 end
 
 function MainViewMenuPage:HandleRedTipUpdate(note)
@@ -2962,6 +2964,7 @@ function MainViewMenuPage:HandleDeathBegin(note)
   self.bagBtnSprite.gradientTop = colorGray
   self.bagBtnSprite.gradientBottom = colorGray
   self.bagBtn:GetComponent(BoxCollider).enabled = false
+  Game.HotKeyManager:SetHotKeyEnable(37, false)
   local skillButton = self:GetSkillButton()
   if skillButton then
     self:SetTextureGrey(skillButton)
@@ -2973,6 +2976,7 @@ function MainViewMenuPage:HandleReliveStatus(note)
   self.bagBtnSprite.gradientTop = LuaGeometry.GetTempColor(0.8509803921568627, 1, 0.9882352941176471, 1)
   self.bagBtnSprite.gradientBottom = LuaGeometry.GetTempColor()
   self.bagBtn:GetComponent(BoxCollider).enabled = true
+  Game.HotKeyManager:SetHotKeyEnable(37, true)
   self:FindComponent("Label", UILabel, self.bagBtn).effectColor = LuaGeometry.GetTempColor(0.12156862745098039, 0.14901960784313725, 0.23137254901960785, 0.5)
   local skillButton = self:GetSkillButton()
   if skillButton then
@@ -4842,12 +4846,6 @@ end
 local _matchFormat = "(%d+):(%d+):(%d+)"
 
 function MainViewMenuPage:_CheckTripleTeamPwsMatchOpen()
-  local curTime = ServerTime.CurServerTime() / 1000
-  local abortTimeFormat = GameConfig.Triple and GameConfig.Triple.AbortTime
-  local abortTime = ClientTimeUtil.GetOSDateTime(abortTimeFormat)
-  if abortTime and curTime >= abortTime then
-    return false
-  end
   local matchid = GameConfig.Triple and GameConfig.Triple.SeasonMatchid
   local raidConfig = Table_MatchRaid[matchid]
   if raidConfig then
@@ -4857,46 +4855,7 @@ function MainViewMenuPage:_CheckTripleTeamPwsMatchOpen()
       return false
     end
   end
-  local firstSeasonStartTimeFormat
-  if EnvChannel.IsTFBranch() then
-    firstSeasonStartTimeFormat = GameConfig.Triple and GameConfig.Triple.TfFirstSeasonTime
-  else
-    firstSeasonStartTimeFormat = GameConfig.Triple and GameConfig.Triple.FirstSeasonTime
-  end
-  local firstSeasonStartTime = ClientTimeUtil.GetOSDateTime(firstSeasonStartTimeFormat)
-  if firstSeasonStartTime and curTime < firstSeasonStartTime then
-    return false
-  end
-  local dayTime = GameConfig.Triple and GameConfig.Triple.DayTime
-  if dayTime then
-    local curDate = os.date("*t", curTime)
-    for i = 1, #dayTime do
-      local time = dayTime[i]
-      local startTime, endTime = time[1], time[2]
-      local hour, min, sec = startTime:match(_matchFormat)
-      local startTimeStamp = os.time({
-        year = curDate.year,
-        month = curDate.month,
-        day = curDate.day,
-        hour = hour,
-        min = min,
-        sec = sec
-      })
-      hour, min, sec = endTime:match(_matchFormat)
-      local endTimeStamp = os.time({
-        year = curDate.year,
-        month = curDate.month,
-        day = curDate.day,
-        hour = hour,
-        min = min,
-        sec = sec
-      })
-      if curTime >= startTimeStamp and curTime < endTimeStamp then
-        return true
-      end
-    end
-  end
-  return false
+  return PvpProxy.Instance:IsTripleTeamPwsMatchInOpenTime()
 end
 
 function MainViewMenuPage:InitTripleTeamPwsMatchBtn()
@@ -4950,5 +4909,24 @@ function MainViewMenuPage:HandleUpdatePvpMatchInfo(note)
     local curCount = PvpProxy.Instance:GetTriplePwsMatchCurHeadCount()
     local needCount = PvpProxy.Instance:GetTriplePwsMatchNeedHeadCount()
     self.labTeamPwsMatchBtn.text = string.format(ZhString.Triple_Matching, curCount, needCount)
+  end
+end
+
+function MainViewMenuPage:InitAbyssDragonBtn()
+  if self.abyssDragonBtn == nil then
+    self.abyssDragonBtn = self:FindGO("AbyssDragonBtn")
+  end
+  local isOn = AbyssFakeDragonProxy.Instance:GetOnOff()
+  if isOn then
+    local label = self:FindComponent("Label", UILabel, self.abyssDragonBtn)
+    label.text = GameConfig.AbyssDragon.activityTitle
+    self.abyssDragonBtn:SetActive(true)
+    self:RepositionTopRFuncGrid2()
+    self:AddClickEvent(self.abyssDragonBtn, function()
+      self:ToView(PanelConfig.SpaceDragonIntroView)
+    end)
+  else
+    self.abyssDragonBtn:SetActive(false)
+    self:RepositionTopRFuncGrid2()
   end
 end

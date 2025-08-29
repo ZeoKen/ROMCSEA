@@ -4,6 +4,7 @@ autoImport("ProfessionAttrCell")
 autoImport("RoleEquipItemCell")
 autoImport("MyselfEquipItemCell")
 autoImport("ProfessionProecessCell")
+autoImport("MyselfEquipMemoryItemCell")
 local picIns = PictureManager.Instance
 local _ProfessionProxy = ProfessionProxy.Instance
 local _ArrayPushBack = TableUtility.ArrayPushBack
@@ -309,6 +310,14 @@ function ProfessionPageBasePart:FindObjs()
     self.viceEquipList[site] = MyselfEquipItemCell.new(obj, site, nil, true, true)
     self.viceEquipList[site]:AddEventListener(MouseEvent.MouseClick, self.ClickEquip, self)
   end
+  self.equipMemoryList = {}
+  self.equipMemoryGrid = self:FindComponent("EquipMemoryGrid", UIGrid)
+  for i = 1, 12 do
+    local obj = self:LoadPreferb("cell/RoleEquipItemCell", self.equipMemoryGrid)
+    obj.name = "EquipMemoryCell" .. i
+    self.equipMemoryList[i] = MyselfEquipMemoryItemCell.new(obj, i, nil, true, true)
+    self.equipMemoryList[i]:AddEventListener(MouseEvent.MouseClick, self.ClickEquip, self)
+  end
   self.anchor_rightTop = self:FindGO("Anchor_RightTop")
   self.curClassGO = self:FindGO("CurClassSprite", self.anchor_rightTop)
   self.curClassGOCollider = self.curClassGO:GetComponent(BoxCollider)
@@ -390,7 +399,7 @@ function ProfessionPageBasePart:InitViceEquipSwitch()
   self.tog1Icon = self.tog1:GetComponent(UISprite)
   IconManager:SetUIIcon(spriteName .. 1, self.tog1Icon)
   self:AddClickEvent(self.tog1, function()
-    self.isViceEquip = false
+    self.curEquipType = 1
     self:OnEquipTabChange()
   end)
   self.tog2 = self:FindGO("Tog2", self.switchRoot)
@@ -398,24 +407,45 @@ function ProfessionPageBasePart:InitViceEquipSwitch()
   self.tog2Icon = self.tog2:GetComponent(UISprite)
   IconManager:SetUIIcon(spriteName .. 2, self.tog2Icon)
   self:AddClickEvent(self.tog2, function()
-    self.isViceEquip = true
+    self.curEquipType = 2
     self:OnEquipTabChange()
   end)
+  self.tog3 = self:FindGO("Tog3", self.switchRoot)
+  self.tog3Bg = self:FindGO("SpriteBg", self.tog3)
+  self.tog3Icon = self.tog3:GetComponent(UISprite)
+  IconManager:SetUIIcon("tab_icon_pinzhiup", self.tog3Icon)
+  self:AddClickEvent(self.tog3, function()
+    self.curEquipType = 3
+    self:OnEquipTabChange()
+  end)
+  self.curEquipType = 1
 end
 
 function ProfessionPageBasePart:OnEquipTabChange()
-  if self.isViceEquip then
-    self:Show(self.viceEquipGrid)
-    self.viceEquipGrid:Reposition()
-    self:Hide(self.equipGrid)
-    self:Hide(self.tog1Bg)
-    self:Show(self.tog2Bg)
-  else
+  if self.curEquipType == 1 then
     self:Show(self.equipGrid)
     self:Hide(self.viceEquipGrid)
+    self:Hide(self.equipMemoryGrid)
     self.equipGridData:Reposition()
     self:Show(self.tog1Bg)
     self:Hide(self.tog2Bg)
+    self:Hide(self.tog3Bg)
+  elseif self.curEquipType == 2 then
+    self:Show(self.viceEquipGrid)
+    self.viceEquipGrid:Reposition()
+    self:Hide(self.equipGrid)
+    self:Hide(self.equipMemoryGrid)
+    self:Hide(self.tog1Bg)
+    self:Show(self.tog2Bg)
+    self:Hide(self.tog3Bg)
+  elseif self.curEquipType == 3 then
+    self:Hide(self.equipGrid)
+    self:Hide(self.viceEquipGrid)
+    self:Show(self.equipMemoryGrid)
+    self.equipMemoryGrid:Reposition()
+    self:Hide(self.tog1Bg)
+    self:Hide(self.tog2Bg)
+    self:Show(self.tog3Bg)
   end
 end
 
@@ -866,6 +896,8 @@ function ProfessionPageBasePart:UpdateViewInfo_byUserSaveInfoData(dataInfo)
   local saveViceEquips = dataInfo:GetRoleEquipsSaveDatas(BagProxy.BagType.ShadowEquip) or {}
   local roleViceEquipsMap = self:TransRoleEquipData_ByEquipsInfoSaveDatas(saveViceEquips)
   self:UpdatePlayerRoleViceEquips(roleEquipsMap, roleViceEquipsMap, dataInfo.extracts)
+  local equipMemoryDatas = dataInfo:GetEquipMemorySaveDatas()
+  self:UpdatePlayerEquipMemorys(equipMemoryDatas)
 end
 
 function ProfessionPageBasePart:UpdateViewInfo_byMyself()
@@ -875,6 +907,8 @@ function ProfessionPageBasePart:UpdateViewInfo_byMyself()
   local roleViceEquipSiteMap = _BagProxy.shadowBagData.siteMap
   self:UpdatePlayerRoleEquips(roleEquipSiteMap)
   self:UpdatePlayerRoleViceEquips(roleEquipSiteMap, roleViceEquipSiteMap)
+  local roleMemoryData = EquipMemoryProxy.Instance.equipPosData
+  self:UpdatePlayerEquipMemorys(roleMemoryData)
 end
 
 local SearChBagTypes = {
@@ -909,6 +943,7 @@ function ProfessionPageBasePart:TransRoleEquipData_ByEquipsInfoSaveDatas(saveEqu
       TableUtility.TableClear(clone.equipedCardInfo)
       for _, card in pairs(recordCards) do
         local equipedCard = ItemData.new(card.id, card.staticData.id)
+        equipedCard:SetCardLevel(card.cardLv)
         if card.index then
           equipedCard.index = card.index
           clone.equipedCardInfo[card.index] = equipedCard
@@ -942,6 +977,20 @@ function ProfessionPageBasePart:UpdatePlayerRoleViceEquips(equipMap, viceEquipMa
       cell:SetData(data)
     else
       cell:SetData(equipMap and equipMap[site])
+    end
+  end
+end
+
+function ProfessionPageBasePart:UpdatePlayerEquipMemorys(equipMemorys)
+  xdlog("设置装备记忆数据")
+  for i = 1, 12 do
+    local memoryCell = self.equipMemoryList[i]
+    if equipMemorys and equipMemorys[i] then
+      local _itemData = ItemData.new("EquipedMemory", equipMemorys[i].staticId)
+      _itemData.equipMemoryData = equipMemorys[i]:Clone()
+      memoryCell:SetData(_itemData)
+    else
+      memoryCell:SetData()
     end
   end
 end

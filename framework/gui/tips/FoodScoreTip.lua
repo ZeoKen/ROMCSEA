@@ -293,6 +293,7 @@ function FoodScoreTip:UpdateAttriText()
       foodTipTb = {}
       foodTipTb.label = {}
       foodTipTb.hideline = true
+      foodTipTb.labelType = AdventureDataProxy.LabelType.Common
       table.insert(foodTipTb.label, desc)
       content[#content + 1] = foodTipTb
     end

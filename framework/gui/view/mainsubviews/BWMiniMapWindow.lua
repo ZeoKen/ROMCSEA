@@ -41,7 +41,8 @@ BWMiniMapWindow.Type = {
   AreaTips = 33,
   ZoneTips = 34,
   ZoneBlock = 35,
-  Yahaha = 36
+  Yahaha = 36,
+  FakeDragon = 37
 }
 local Type = BWMiniMapWindow.Type
 local _Game = Game
@@ -124,6 +125,7 @@ function BWMiniMapWindow:RegisterAllMapInfos()
   self:RegisterMapInfo(Type.ZoneBlock, BWMiniMapWindow._CreateZoneBlock, BWMiniMapWindow._UpdateZoneBlock, BWMiniMapWindow._RemoveZoneBlock)
   self:RegisterMapInfo(Type.WildMvp, BWMiniMapWindow._CreateWildMvpSymbol, BWMiniMapWindow._UpdateWildMvpSymbol, BWMiniMapWindow._RemoveWildMvpSymbol)
   self:RegisterMapInfo(Type.Yahaha, BWMiniMapWindow._CreateYahahaSymbol, BWMiniMapWindow._UpdateYahahaSymbol)
+  self:RegisterMapInfo(Type.FakeDragon, BWMiniMapWindow._CreateFakeDragonSymbol, BWMiniMapWindow._UpdateFakeDragonSymbol, BWMiniMapWindow._RemoveFakeDragonSymbol)
 end
 
 function BWMiniMapWindow:RegisterMapInfo(type, createFunc, updateFunc, removeFunc)
@@ -457,6 +459,7 @@ function BWMiniMapWindow:UpdateMapTexture(data, size, map2D, setSide)
   self:UpdateFixedInfo()
   self.iMoved = true
   self:RefreshMapSymbols()
+  self:UpdateFakeDragonSymbol()
 end
 
 function BWMiniMapWindow:ClearFixedInfo()
@@ -1451,7 +1454,9 @@ function BWMiniMapWindow:_UpdateMonsterPoints(obj, data, key)
   local sp = obj:GetComponent(UISprite)
   sp.depth = depth + 22
   local bg = self:FindGO("Bg", obj)
-  bg:SetActive(monsterIcon ~= nil)
+  if bg then
+    bg:SetActive(monsterIcon ~= nil)
+  end
   if monsterIcon ~= nil then
     IconManager:SetFaceIcon(monsterIcon, sp)
     sp:MakePixelPerfect()
@@ -1488,6 +1493,10 @@ end
 
 function BWMiniMapWindow:UpdateMvpPoses(datas, isRemoveOther)
   self:UpdateMapSymbolDatas(Type.MVP, datas, isRemoveOther, 1)
+end
+
+function BWMiniMapWindow:UpdateFakeDragonPoses(datas, isRemoveOther)
+  self:UpdateMapSymbolDatas(Type.FakeDragon, datas, isRemoveOther, 1)
 end
 
 function BWMiniMapWindow:UpdateFixedTreasurePoses(datas, isRemoveOther)
@@ -1854,10 +1863,14 @@ end
 function BWMiniMapWindow:_UpdateYahahaSymbol(obj, data)
   if not IsNull(obj) then
     local symbol = data:GetParama("Symbol")
+    local sp = obj:GetComponent(UISprite)
     if symbol ~= obj.name then
-      local sp = obj:GetComponent(UISprite)
       sp.spriteName = symbol
       obj.name = symbol
+    end
+    local depth = data:GetParama("Depth")
+    if depth then
+      sp.depth = depth
     end
   end
   return obj
@@ -1865,6 +1878,38 @@ end
 
 function BWMiniMapWindow:UpdateYahahaSymbol(datas, isRemoveOther)
   self:UpdateMapSymbolDatas(Type.Yahaha, datas, isRemoveOther)
+end
+
+function BWMiniMapWindow:_CreateFakeDragonSymbol(data)
+  local go = _Game.AssetManager_UI:CreateAsset(MonsterPoint_Path, self.monster_symbolParent)
+  self:_UpdateFakeDragonSymbol(go, data)
+  return go
+end
+
+function BWMiniMapWindow:_UpdateFakeDragonSymbol(obj, data)
+  if not IsNull(obj) then
+    local symbol = data:GetParama("Symbol")
+    local sp = obj:GetComponent(UISprite)
+    if symbol ~= obj.name then
+      sp.spriteName = symbol
+      obj.name = symbol
+      IconManager:SetMapIcon("map_icon_shikonglong", sp)
+      sp:MakePixelPerfect()
+    end
+    local depth = data:GetParama("Depth")
+    if depth then
+      sp.depth = depth
+    end
+  end
+  self:HelpUpdatePos(obj, data.pos)
+  return obj
+end
+
+function BWMiniMapWindow:_RemoveFakeDragonSymbol(id, symbolObj)
+  if not Slua.IsNull(symbolObj) then
+    _Game.GOLuaPoolManager:AddToUIPool(MonsterPoint_Path, symbolObj)
+  end
+  return symbolObj
 end
 
 function BWMiniMapWindow:Reset()
@@ -2195,4 +2240,8 @@ function BWMiniMapWindow:UpdateCameraSymbol()
   else
     self.cameraSymbol:SetActive(true)
   end
+end
+
+function BWMiniMapWindow:UpdateFakeDragonSymbol(datas, isRemoveOther)
+  self:UpdateMapSymbolDatas(Type.FakeDragon, datas, isRemoveOther)
 end

@@ -13,6 +13,9 @@ function ItemTipGemExhibitCell:ctor(container)
   end
   obj.transform.localPosition = LuaVector3.Zero()
   ItemTipGemExhibitCell.super.ctor(self, obj)
+  local panel = Game.GameObjectUtil:FindCompInParents(self.gameObject, UIPanel)
+  self.tipPanel = self:FindComponent("ScrollView", UIPanel)
+  self.tipPanel.depth = panel.depth + 1
   self:Init()
 end
 

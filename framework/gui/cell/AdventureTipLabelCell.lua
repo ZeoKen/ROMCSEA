@@ -174,13 +174,13 @@ function AdventureTipLabelCell:SetLabels(labels, labelData)
       width = Line_default_width[1] + width
     end
   end
-  local labelType = labelData.labelType or labelTypeMap.Common
   for i = 1, num do
     local labelInfo = labels[i] or ""
+    local labelType = labelInfo.labelType or labelData.labelType or labelTypeMap.Common
     local lab = self.labelMap[i]
     if lab and lab.labelType ~= labelType then
       GameObject.DestroyImmediate(lab.go)
-      table.remove(self.labelMap, i)
+      self.labelMap[i] = nil
     end
     lab = self.labelMap[i]
     if not (lab and lab.go) or not lab.label then

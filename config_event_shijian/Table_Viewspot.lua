@@ -2569,6 +2569,71 @@ Table_Viewspot_t = {
       54.48,
       109.66,
       227.11
+    },
+    {
+      53.38,
+      167.17,
+      -352.45
+    },
+    {
+      -131.52,
+      156.42,
+      -275.81
+    },
+    {
+      -261.41,
+      155.85,
+      -206.98
+    },
+    {
+      -276.67,
+      160.16,
+      -159.33
+    },
+    {
+      -41.9,
+      187.05,
+      -180.69
+    },
+    {
+      -43.18,
+      175.73,
+      29.17
+    },
+    {
+      -83.88,
+      170.94,
+      -6.57
+    },
+    {
+      -3.25,
+      172.95,
+      179.3
+    },
+    {
+      164.2,
+      190.89,
+      335.49
+    },
+    {
+      -62.13,
+      171.06,
+      153.02
+    },
+    {
+      -150.72,
+      184.75,
+      14.06
+    },
+    {
+      -195.43,
+      181.84,
+      193.93
+    },
+    {
+      -287.21,
+      228.15,
+      354.49
     }
   }
 }
@@ -3438,6 +3503,7 @@ Table_Viewspot = {
     id = 96,
     MapName = 25,
     MapNum = 3,
+    SpotName = "##114136",
     Type = 2,
     Coordinate = Table_Viewspot_t.Coordinate[96],
     AdventureSort = 96,
@@ -4332,7 +4398,6 @@ Table_Viewspot = {
   [200] = {
     id = 200,
     MapName = 66,
-    SpotName = "##114026",
     Coordinate = Table_Viewspot_t.Coordinate[199],
     AdventureSort = 200
   },
@@ -6867,6 +6932,109 @@ Table_Viewspot = {
     SpotName = "##3460094",
     Coordinate = Table_Viewspot_t.Coordinate[514],
     AdventureSort = 520
+  },
+  [521] = {
+    id = 521,
+    MapName = 154,
+    SpotName = "##42635845",
+    Coordinate = Table_Viewspot_t.Coordinate[515],
+    AdventureSort = 521
+  },
+  [522] = {
+    id = 522,
+    MapName = 154,
+    MapNum = 2,
+    SpotName = "##42635846",
+    Coordinate = Table_Viewspot_t.Coordinate[516],
+    AdventureSort = 522
+  },
+  [523] = {
+    id = 523,
+    MapName = 154,
+    MapNum = 3,
+    SpotName = "##42635847",
+    Coordinate = Table_Viewspot_t.Coordinate[517],
+    AdventureSort = 523
+  },
+  [524] = {
+    id = 524,
+    MapName = 154,
+    MapNum = 4,
+    SpotName = "##42635848",
+    Coordinate = Table_Viewspot_t.Coordinate[518],
+    AdventureSort = 524
+  },
+  [525] = {
+    id = 525,
+    MapName = 154,
+    MapNum = 5,
+    SpotName = "##42635849",
+    Coordinate = Table_Viewspot_t.Coordinate[519],
+    AdventureSort = 525
+  },
+  [526] = {
+    id = 526,
+    MapName = 154,
+    MapNum = 6,
+    SpotName = "##42635850",
+    Coordinate = Table_Viewspot_t.Coordinate[520],
+    AdventureSort = 526
+  },
+  [527] = {
+    id = 527,
+    MapName = 154,
+    MapNum = 7,
+    SpotName = "##42635851",
+    Coordinate = Table_Viewspot_t.Coordinate[521],
+    AdventureSort = 527
+  },
+  [528] = {
+    id = 528,
+    MapName = 154,
+    MapNum = 8,
+    SpotName = "##42635852",
+    Coordinate = Table_Viewspot_t.Coordinate[522],
+    AdventureSort = 528
+  },
+  [529] = {
+    id = 529,
+    MapName = 154,
+    MapNum = 9,
+    SpotName = "##42635853",
+    Coordinate = Table_Viewspot_t.Coordinate[523],
+    AdventureSort = 529
+  },
+  [530] = {
+    id = 530,
+    MapName = 154,
+    MapNum = 10,
+    SpotName = "##42635854",
+    Coordinate = Table_Viewspot_t.Coordinate[524],
+    AdventureSort = 530
+  },
+  [531] = {
+    id = 531,
+    MapName = 154,
+    MapNum = 11,
+    SpotName = "##42635855",
+    Coordinate = Table_Viewspot_t.Coordinate[525],
+    AdventureSort = 531
+  },
+  [532] = {
+    id = 532,
+    MapName = 154,
+    MapNum = 12,
+    SpotName = "##42635856",
+    Coordinate = Table_Viewspot_t.Coordinate[526],
+    AdventureSort = 532
+  },
+  [533] = {
+    id = 533,
+    MapName = 154,
+    MapNum = 13,
+    SpotName = "##42635857",
+    Coordinate = Table_Viewspot_t.Coordinate[527],
+    AdventureSort = 533
   }
 }
 local cell_mt = {
@@ -6878,7 +7046,7 @@ local cell_mt = {
     Coordinate = _EmptyTable,
     MapName = 149,
     MapNum = 1,
-    SpotName = "##114136",
+    SpotName = "##114026",
     Type = 1,
     id = 1
   }

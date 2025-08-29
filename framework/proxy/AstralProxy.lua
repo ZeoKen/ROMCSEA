@@ -26,6 +26,7 @@ function AstralProxy:Init()
   self.gotten_reward_num = {}
   self.nextEntranceDataMap = {}
   self.bossIds = {}
+  self.prayGroupInfos = {}
 end
 
 function AstralProxy:RecvSyncAstralInfo(season, reward_nums, pass_num)
@@ -65,6 +66,23 @@ end
 
 function AstralProxy:SyncAstralSeason(season)
   self.season = season
+end
+
+function AstralProxy:SyncAstralPrayBranchInfo(groups)
+  if groups then
+    for i = 1, #groups do
+      local groupId = groups[i].group
+      local branches = self.prayGroupInfos[groupId]
+      if not branches then
+        branches = {}
+        self.prayGroupInfos[groupId] = branches
+      end
+      TableUtility.TableClear(branches)
+      for j = 1, #groups[i].branches do
+        branches[#branches + 1] = groups[i].branches[j]
+      end
+    end
+  end
 end
 
 function AstralProxy:GetBossIds()
@@ -292,15 +310,15 @@ function AstralProxy:IsProAstralPrayed(pro, astral_pray_group)
     local depth = ProfessionProxy.GetJobDepth(pro)
     if 1 < depth then
       local branch = ProfessionProxy.GetTypeBranchFromProf(pro)
-      local season = self:GetSeason()
-      local config = Table_AstralSeason[season]
-      if config then
-        local proGroup = config.ProfessionGroup[astral_pray_group]
-        if proGroup then
-          return branch and TableUtility.ArrayFindIndex(proGroup, branch) > 0 or false
-        end
+      local groupBranches = self.prayGroupInfos[astral_pray_group]
+      if groupBranches then
+        return branch and TableUtility.ArrayFindIndex(groupBranches, branch) > 0 or false
       end
     end
   end
   return false
+end
+
+function AstralProxy:GetPrayedBranches(astral_pray_group)
+  return self.prayGroupInfos[astral_pray_group]
 end

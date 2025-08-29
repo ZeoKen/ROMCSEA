@@ -23,6 +23,7 @@ function SceneTriggerProxy:ctor(proxyName, data)
   self.typeFunc[AreaTrigger_Common_ClientType.MetalGvg_PointArea] = self.MetalGvgCheck_Handle
   self.typeFunc[AreaTrigger_Common_ClientType.EndlessBattleField_EventArea] = self.EndlessBattleField_EventArea_Handle
   self.typeFunc[AreaTrigger_Common_ClientType.EndlessBattleField_Occupy] = self.EndlessBattle_OccupyArea_Handle
+  self.typeFunc[AreaTrigger_Common_ClientType.AybssLake_BattlePoint] = self.AybssLake_BattlePoint_Handle
 end
 
 function SceneTriggerProxy:Reset()
@@ -196,6 +197,15 @@ function SceneTriggerProxy:EndlessBattleField_EventArea_Handle(data)
 end
 
 function SceneTriggerProxy:EndlessBattle_OccupyArea_Handle(data)
+  local result = ReusableTable.CreateTable()
+  result.id = data.id
+  result.pos = LuaVector3(data.pos[1], data.pos[2], data.pos[3])
+  result.reachDis = data.range
+  result.type = data.type
+  return result
+end
+
+function SceneTriggerProxy:AybssLake_BattlePoint_Handle(data)
   local result = ReusableTable.CreateTable()
   result.id = data.id
   result.pos = LuaVector3(data.pos[1], data.pos[2], data.pos[3])

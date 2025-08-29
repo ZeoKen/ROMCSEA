@@ -33,6 +33,13 @@ Table_PrestigeNpc = {
     PrestigeID = 7,
     UnlockCondition = "",
     ShortcutPowerID = 8011
+  },
+  [805193] = {
+    id = 805193,
+    tip = nil,
+    PrestigeID = 8,
+    UnlockCondition = "",
+    ShortcutPowerID = 8034
   }
 }
 Table_PrestigeNpc_fields = {

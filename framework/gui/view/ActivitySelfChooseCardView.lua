@@ -294,14 +294,16 @@ function ActivitySelfChooseCardView:ShowAward(cardId, isDrawed)
     args.leftBtnText = ZhString.FloatAwardView_Confirm
     
     function args.leftBtnCallback()
-      self:RefreshView()
-      local cells = self.cardList:GetCells()
-      for i = 1, #cells do
-        local cell = cells[i]
-        if cell.itemId == cardId then
-          self.cardList:ScrollToIndex(i)
-          cell:PlayEffect()
-          break
+      if self.cardList then
+        self:RefreshView()
+        local cells = self.cardList:GetCells()
+        for i = 1, #cells do
+          local cell = cells[i]
+          if cell.itemId == cardId then
+            self.cardList:ScrollToIndex(i)
+            cell:PlayEffect()
+            break
+          end
         end
       end
     end

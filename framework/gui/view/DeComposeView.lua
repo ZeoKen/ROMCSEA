@@ -396,6 +396,7 @@ function DeComposeView:HandleEquipCompose(note)
   self.cost.text = 0
   self.decomposeBord:SetActive(false)
   self.addbord:SetActive(true)
+  self.waitingCallback = false
 end
 
 function DeComposeView:GetGUIDs()
@@ -428,6 +429,10 @@ function DeComposeView:StartDeCompose()
     return
   end
   if 0 < #result then
+    if self.waitingCallback then
+      return
+    end
+    self.waitingCallback = true
     FunctionSecurity.Me():NormalOperation(function()
       local npcinfo = self:GetCurNpc()
       if npcinfo then

@@ -195,3 +195,28 @@ function ServiceQuestProxy:RecvSyncTreasureBoxNumCmd(data)
   QuestProxy.Instance:RecvSyncTreasureBoxNumCmd(data)
   self:Notify(ServiceEvent.QuestSyncTreasureBoxNumCmd, data)
 end
+
+function ServiceQuestProxy:RecvQueryAbyssQuestListQuestCmd(data)
+  AbyssQuestProxy.Instance:QueryAbyssQuestList(data)
+  self:Notify(ServiceEvent.QuestQueryAbyssQuestListQuestCmd, data)
+end
+
+function ServiceQuestProxy:RecvUpdateAbyssHelpCountQuestCmd(data)
+  AbyssQuestProxy.Instance:UpdateAbyssHelpCount(data)
+  self:Notify(ServiceEvent.QuestUpdateAbyssHelpCountQuestCmd, data)
+end
+
+function ServiceQuestProxy:RecvAbyssDragonInfoNtfQuestCmd(data)
+  AbyssFakeDragonProxy.Instance:UpdateAbyssDragonInfo(data)
+  self:Notify(ServiceEvent.QuestAbyssDragonInfoNtfQuestCmd, data)
+end
+
+function ServiceQuestProxy:RecvAbyssDragonHpUpdateQuestCmd(data)
+  AbyssFakeDragonProxy.Instance:RecvAbyssDragonHpUpdateQuestCmd(data)
+  self:Notify(ServiceEvent.QuestAbyssDragonHpUpdateQuestCmd, data)
+end
+
+function ServiceQuestProxy:RecvAbyssDragonOnOffQuestCmd(data)
+  AbyssFakeDragonProxy.Instance:RecvAbyssDragonOnOffQuestCmd(data)
+  self:Notify(ServiceEvent.QuestAbyssDragonOnOffQuestCmd, data)
+end

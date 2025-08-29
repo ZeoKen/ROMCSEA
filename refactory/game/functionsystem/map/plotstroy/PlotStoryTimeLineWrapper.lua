@@ -46,14 +46,14 @@ function PlotStoryTimeLineWrapper.ProcessStartCMD(pqtl_id, timeline_param_keys, 
   end
 end
 
-function PlotStoryTimeLineWrapper.ProcessCMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, need_result, reference_param, simple_blend_info)
+function PlotStoryTimeLineWrapper.ProcessCMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, need_result, reference_param, simple_blend_info, ff_pct, ff_time)
   local pstls = Game.PlotStoryManager:Get_PQTLP(pqtl_id)
   if not pstls then
     return
   end
   local param = PlotStoryTimeLineWrapper.parse(param_keys, param_values, reference_param)
   if param then
-    pstls:AddStep(caster, trigger_type, action_type, param, need_result, simple_blend_info)
+    pstls:AddStep(caster, trigger_type, action_type, param, need_result, simple_blend_info, ff_pct, ff_time)
   end
 end
 
@@ -74,6 +74,14 @@ function PlotStoryTimeLineWrapper.ProcessCurveCMD(pqtl_id, caster, curvePos, tar
     return
   end
   pstls:UpdateCurvePos(caster, curvePos, targetType)
+end
+
+function PlotStoryTimeLineWrapper.ProcessGetExtraParamCMD(pqtl_id, caster, key)
+  local pstls = Game.PlotStoryManager:Get_PQTLP(pqtl_id)
+  if not pstls then
+    return
+  end
+  return pstls:GetExtraParam(key)
 end
 
 function PlotStoryTimeLineWrapper.QuickFinishCMD(pqtl_id, cmds)

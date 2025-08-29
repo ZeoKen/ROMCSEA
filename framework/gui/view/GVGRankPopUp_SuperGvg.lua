@@ -56,6 +56,19 @@ function GVGRankPopUp_SuperGvg:Init()
   }
   self.rankWrap = WrapCellHelper.new(wraps)
   self.rankWrap:AddEventListener(MouseEvent.MouseClick, self.OnClickRankCell, self)
+  self.gvgReportBtnGO = self:FindGO("ReportBtn", self.root)
+  self:AddClickEvent(self.gvgReportBtnGO, function()
+    local isInGvgMap = Game.MapManager:IsInSuperGvg()
+    if isInGvgMap then
+      GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+        view = PanelConfig.GVGDetailView
+      })
+    else
+      GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+        view = PanelConfig.LastGVGDetailView
+      })
+    end
+  end)
 end
 
 function GVGRankPopUp_SuperGvg:AddToggleChange(toggle, label, handler, grade)
@@ -91,6 +104,6 @@ function GVGRankPopUp_SuperGvg:OnClickGradeSuperGvg(grade, forceUpdate)
   self.superGvgTogs[grade]:Set(true)
   local data = SuperGvgProxy.Instance:GetRankDataByGrade(grade)
   data = _ReUniteCellData(data, 3)
-  self.rankWrap:ResetDatas(data)
+  self.rankWrap:ResetDatas(data, true)
   self.container.emptyRoot:SetActive(#data == 0)
 end

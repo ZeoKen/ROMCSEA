@@ -79,9 +79,9 @@ function GemAppraisePage:Init()
 end
 
 function GemAppraisePage:AddEvents()
-  self:AddListenEvt(ItemEvent.ItemUpdate, self.OnItemUpdate)
-  self:AddListenEvt(GemEvent.ProfessionChanged, self.OnProfessionChanged)
-  self:AddListenEvt(ServiceEvent.ItemGemDataUpdateItemCmd, self.OnGemDataUpdate)
+  self:AddDispatcherEvt(ItemEvent.ItemUpdate, self.OnItemUpdate)
+  self:AddDispatcherEvt(GemEvent.ProfessionChanged, self.OnProfessionChanged)
+  self:AddDispatcherEvt(ItemEvent.GemDataUpdate, self.OnGemDataUpdate)
 end
 
 function GemAppraisePage:OnProfessionChanged()
@@ -220,9 +220,9 @@ function GemAppraisePage:OnItemUpdate()
   self:RemoveSelectTip()
 end
 
-function GemAppraisePage:OnGemDataUpdate(note)
+function GemAppraisePage:OnGemDataUpdate(items)
   if self.gameObject.activeInHierarchy then
-    GemProxy.Instance:ShowNewGemResults(note.body and note.body.items)
+    GemProxy.Instance:ShowNewGemResults(items)
   end
 end
 

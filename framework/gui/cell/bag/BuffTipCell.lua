@@ -89,6 +89,8 @@ function BuffTipCell:SetNormalBuff(data)
       self.mask.fillAmount = 0
     elseif data.starttime and data.endtime then
       self:UpdateCDTime()
+    elseif data.activeNextDay then
+      self.countdown.text = data.active and ZhString.BuffCell_Active or ZhString.BuffCell_ActiveNextDay
     else
       TimeTickManager.Me():ClearTick(self, 1)
       self.mask.fillAmount = 0

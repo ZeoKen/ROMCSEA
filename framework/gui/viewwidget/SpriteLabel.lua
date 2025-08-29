@@ -15,7 +15,8 @@ SpriteLabel.PatternMap = {
   magic = "{(.-)magicicon=(.-)}",
   inlinebutton = "({inlinebutton=(.+)})",
   quickcopy = "({quickcopyicon=(.+)})",
-  communityicon = "({communityicon=(.+)})"
+  communityicon = "({communityicon=(.+)})",
+  inheritskill = "({inheritskill=(.+)})"
 }
 SpriteLabel.SpriteForceColorMap = {
   ["new-com_icon_tips"] = "8693ae",
@@ -379,6 +380,13 @@ function SpriteLabel:AddSprite(data)
     icon.atlas = atlas
     icon.spriteName = str
     self:TryForceSpritePixelPerfect(icon)
+    self:SetSpritePos(icon, data.pos, data.lineWidth)
+  end
+  for _, iconName in string.gmatch(data.info, SpriteLabel.PatternMap.inheritskill) do
+    icon = self:CreateSprite()
+    local atlas = RO.AtlasMap.GetAtlas("UI_InheritSkill")
+    icon.atlas = atlas
+    icon.spriteName = iconName
     self:SetSpritePos(icon, data.pos, data.lineWidth)
   end
 end

@@ -342,18 +342,19 @@ function InviteConfirmView:HandleInvite(note, pvpType)
     msgId = 28052,
     msgParama = {capital}
   }
+  xdlog("受到邀请参与杯赛", pvpType, body.cross_server)
   local myname = Game.Myself.data and Game.Myself.data:GetName() or ""
   
   function data.yesevt(id)
-    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviteeMatchCCmd(true, myname, pvpType)
+    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviteeMatchCCmd(true, myname, pvpType, body.cross_server)
   end
   
   function data.noevt(id)
-    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviteeMatchCCmd(false, myname, pvpType)
+    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviteeMatchCCmd(false, myname, pvpType, body.cross_server)
   end
   
   function data.endevt(id)
-    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviteeMatchCCmd(false, myname, pvpType)
+    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviteeMatchCCmd(false, myname, pvpType, body.cross_server)
   end
   
   self.conformCtl:AddInvite(InviteType.Warband, data)

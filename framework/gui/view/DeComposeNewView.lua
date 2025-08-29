@@ -285,6 +285,7 @@ function DeComposeNewView:HandleEquipCompose(note)
   self.decomposeBord:SetActive(false)
   self.addbord:SetActive(true)
   self.choosenPanel:SetActive(false)
+  self.waitingCallback = false
 end
 
 function DeComposeNewView:ChooseItem(data)

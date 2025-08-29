@@ -27,6 +27,7 @@ function LogicManager_Player_Userdata:ctor()
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_TWELVEPVP_CAMP, self.UpdateTwelvePvpCamp)
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_HIDE_NAME, self.UpdateAnonymous)
   self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_EXCELLECT, self.UpdateExcellent)
+  self:AddSetCall(ProtoCommon_pb.EUSERDATATYPE_BLACK_MUCK, self.UpdateBlackMuck)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_JOBLEVEL, self.UpdateJobLevel)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_JOBEXP, self.UpdateJobExpLevel)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_PROFESSION, self.UpdateProfession)
@@ -52,6 +53,7 @@ function LogicManager_Player_Userdata:ctor()
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_TWELVEPVP_CAMP, self.UpdateTwelvePvpCamp)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_HIDE_NAME, self.UpdateAnonymous)
   self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_EXCELLECT, self.UpdateExcellent)
+  self:AddUpdateCall(ProtoCommon_pb.EUSERDATATYPE_BLACK_MUCK, self.UpdateBlackMuck)
   self:AddDirtyCall(ProtoCommon_pb.EUSERDATATYPE_MOUNT, self.UpdateMount)
   self:AddDirtyCall(ProtoCommon_pb.EUSERDATATYPE_RIDING_NPC, self.UpdateMultiMountNpc)
 end
@@ -239,5 +241,12 @@ function LogicManager_Player_Userdata:UpdateExcellent(ncreature, id, oldValue, n
   newValue = newValue or 0
   if oldValue ~= newValue then
     GvgProxy.Instance:RefreshExcellentRewardRedTip()
+  end
+end
+
+function LogicManager_Player_Userdata:UpdateBlackMuck(ncreature, userDataID, oldValue, newValue)
+  local ui = ncreature:GetSceneUI()
+  if ui then
+    ui.roleBottomUI:UpdateBlackMuck(ncreature)
   end
 end

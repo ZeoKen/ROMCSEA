@@ -8,7 +8,6 @@ function MainUseEquipPopup:Init()
     local popup = Game.AssetManager_UI:CreateAsset(path, rightBottomHide)
     popup.transform.localPosition = LuaGeometry.GetTempVector3()
     self.quickPopUp = QuickUsePopupFuncCell.new(popup)
-    self.container:RegisterChildPopObj(popup)
   end
   self.quickPopUp:Hide()
   self:AddViewListener()

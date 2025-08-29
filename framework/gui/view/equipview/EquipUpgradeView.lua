@@ -774,6 +774,9 @@ function EquipUpgradeView:UpdateUpgradeInfo()
   end
   self.costEquips = self.costEquips or {}
   TableUtility.ArrayClear(self.costEquips)
+  if self.materialChooseBord.gameObject.activeSelf then
+    self.materialChooseBord:Hide()
+  end
   self.upMats = self.upMats or {}
   TableUtility.ArrayClear(self.upMats)
   local _costs = ReusableTable.CreateArray()
@@ -1149,13 +1152,15 @@ function EquipUpgradeView:_DoUpgrade()
   local chooseMat = {}
   local needCheckAgain = false
   for i = 1, #self.costEquips do
-    table.insert(chooseMat, {
-      guid = self.costEquips[i].id,
-      num = self.costEquips[i].num
-    })
-    xdlog("手动选材料", self.costEquips[i].id, self.costEquips[i].num)
-    if self.costEquips[i].equipInfo.refinelv > 0 then
-      needCheckAgain = true
+    if self.costEquips[i].num > 0 then
+      table.insert(chooseMat, {
+        guid = self.costEquips[i].id,
+        num = self.costEquips[i].num
+      })
+      xdlog("手动选材料", self.costEquips[i].id, self.costEquips[i].num)
+      if 0 < self.costEquips[i].equipInfo.refinelv then
+        needCheckAgain = true
+      end
     end
   end
   local func = function()

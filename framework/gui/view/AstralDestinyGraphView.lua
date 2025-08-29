@@ -13,7 +13,7 @@ function AstralDestinyGraphView:Init()
 end
 
 function AstralDestinyGraphView:InitData()
-  local initSeason = AstralProxy.Instance:GetEarliestSeasonHasNoLightenPoint()
+  local initSeason = AstralProxy.Instance:GetSeason()
   self.round = (initSeason - 1) // 4 + 1
   self.graphInfoList = {}
 end
@@ -25,7 +25,7 @@ function AstralDestinyGraphView:FindObjs()
   self.pointScrollView = self:FindComponent("PointPanel", UIScrollView)
   self.pointPanel = self.pointScrollView.gameObject:GetComponent(UIPanel)
   self.seasonCellParent = {}
-  for i = 1, 4 do
+  for i = 1, 12 do
     self.seasonCellParent[i] = self:FindGO("S" .. i)
   end
   self.season0 = self:FindGO("S0")
@@ -72,7 +72,7 @@ function AstralDestinyGraphView:HandleSyncDestinyGraph()
   redlog("AstralDestinyGraphView:HandleSyncDestinyGraph", tostring(self.round))
   if self.isInit then
     self:InitData()
-    self:InitFilter()
+    self:InitFilter(true)
     self:TryScrollToPivot()
     self.isInit = false
   else
@@ -163,19 +163,22 @@ function AstralDestinyGraphView:RefreshView(round)
     local seasonCell = self.graphInfoList[i]
     seasonCell:ClearPointSelectState()
   end
+  local curSeason = AstralProxy.Instance:GetSeason()
   if 1 < #graphInfos then
     for i = 1, #graphInfos do
       local graphData = graphInfos[i]
-      local parent = self.seasonCellParent[i]
+      local parent = self.seasonCellParent[(i + (round - 1) * 4 - 1) % 12 + 1]
       local seasonCell = self.graphInfoList[i]
       if not seasonCell then
         seasonCell = self:CreateSeasonCell(graphData, parent)
         self.graphInfoList[i] = seasonCell
       end
       seasonCell:SetData(graphData)
-      local firstNoLightenPoint = graphData:GetFirstNoLightenPoint()
-      if not self.selectPointCell and firstNoLightenPoint then
-        self.selectPointCell = seasonCell:SetPointSelectState(firstNoLightenPoint.index)
+      if graphData.season == curSeason then
+        local firstNoLightenPoint = graphData:GetFirstNoLightenPoint()
+        if firstNoLightenPoint then
+          self.selectPointCell = seasonCell:SetPointSelectState(firstNoLightenPoint.index)
+        end
       end
     end
   elseif #graphInfos == 1 then
@@ -191,7 +194,6 @@ function AstralDestinyGraphView:RefreshView(round)
       self.selectPointCell = seasonCell:SetPointSelectState(firstNoLightenPoint.index)
     end
   end
-  local graphData, pointData = AstralProxy.Instance:GetFirstNoLightenPointByRound(round)
   local buffEffects = AstralProxy.Instance:GetTotalBuffEffects()
   local datas = ReusableTable.CreateArray()
   for k, v in pairs(buffEffects) do
@@ -222,7 +224,7 @@ function AstralDestinyGraphView:RefreshCostItem()
 end
 
 function AstralDestinyGraphView:CreateSeasonCell(graphData, parent)
-  local pfbSuffix = (graphData.season - 1) % 4 + 1
+  local pfbSuffix = (graphData.season - 1) % 12 + 1
   local prefabName = SeasonCellPfbPrefix .. pfbSuffix
   local seasonCell = AstralDestinyGraphSeasonCell.new(parent, prefabName)
   seasonCell:AddEventListener(MouseEvent.MouseClick, self.OnClickPointCell, self)

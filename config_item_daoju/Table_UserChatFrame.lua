@@ -104,8 +104,26 @@ Table_UserChatFrame = {
     Name = "##42535822",
     IconName = "new_chatroom_decorate_19",
     BubbleName = "new_chatroom_frame_19",
+    TextColor = "#383838",
+    BBCodeColor = "01c3ed"
+  },
+  [17] = {
+    id = 17,
+    ItemID = 3012600,
+    Name = "##42634437",
+    IconName = "new_chatroom_decorate_24",
+    BubbleName = "new_chatroom_frame_24",
     TextColor = "",
     BBCodeColor = ""
+  },
+  [20] = {
+    id = 20,
+    ItemID = 601,
+    Name = "##3351124",
+    IconName = "new_chatroom_decorate_28",
+    BubbleName = "new_chatroom_frame_28",
+    TextColor = "",
+    BBCodeColor = "01c3ed"
   },
   [1001] = {
     id = 1001,
@@ -185,6 +203,51 @@ Table_UserChatFrame = {
     Name = "##42529656",
     IconName = "",
     BubbleName = "",
+    TextColor = "",
+    BBCodeColor = ""
+  },
+  [1011] = {
+    id = 1011,
+    ItemID = 3012530,
+    Name = "##42628518",
+    IconName = "new_chatroom_decorate_20",
+    BubbleName = "new_chatroom_frame_20",
+    TextColor = "",
+    BBCodeColor = ""
+  },
+  [1012] = {
+    id = 1012,
+    ItemID = 3012531,
+    Name = "##42628520",
+    IconName = "new_chatroom_decorate_21",
+    BubbleName = "new_chatroom_frame_21",
+    TextColor = "",
+    BBCodeColor = ""
+  },
+  [1013] = {
+    id = 1013,
+    ItemID = 3012532,
+    Name = "##42628522",
+    IconName = "new_chatroom_decorate_22",
+    BubbleName = "new_chatroom_frame_22",
+    TextColor = "",
+    BBCodeColor = ""
+  },
+  [1014] = {
+    id = 1014,
+    ItemID = 3012533,
+    Name = "##42628524",
+    IconName = "new_chatroom_decorate_23",
+    BubbleName = "new_chatroom_frame_23",
+    TextColor = "",
+    BBCodeColor = ""
+  },
+  [1015] = {
+    id = 1015,
+    ItemID = 3012603,
+    Name = "##42628566",
+    IconName = "new_chatroom_decorate_27",
+    BubbleName = "new_chatroom_frame_27",
     TextColor = "",
     BBCodeColor = ""
   },

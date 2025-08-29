@@ -47,6 +47,7 @@ function ShopItemCell:FindObjs()
     self.fashionUnlock_Icon = self.fashionUnlock:GetComponent(UISprite)
   end
   self.adventureState = self:FindComponent("AdventureStateSp", UIMultiSprite)
+  self.widget = self.gameObject:GetComponent(UIWidget)
 end
 
 function ShopItemCell:UpdateAdventureState(id)
@@ -256,6 +257,11 @@ function ShopItemCell:SetData(data)
       self.fashionUnlock:SetActive(false)
     end
     self:TrySetGemData(itemData)
+    if RedTipProxy.Instance:IsNew(SceneTip_pb.EREDSYS_SHOP_COUPON, id) then
+      RedTipProxy.Instance:RegisterUI(SceneTip_pb.EREDSYS_SHOP_COUPON, self.widget, 100, {0, 0}, NGUIUtil.AnchorSide.TopLeft, id)
+    else
+      RedTipProxy.Instance:UnRegisterUI(SceneTip_pb.EREDSYS_SHOP_COUPON, self.widget)
+    end
   end
   self.data = id
 end

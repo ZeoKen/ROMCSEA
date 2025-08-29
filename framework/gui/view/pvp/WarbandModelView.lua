@@ -35,6 +35,7 @@ function WarbandModelView:UpdateScheduleStatus()
   if warbandProxy:IsSeasonNoOpen() or warbandProxy:IsSeasonEnd() or warbandProxy:IsSigthupPending() then
     self.rankRoot:SetActive(true)
     self.gameRoot:SetActive(false)
+    self.signupOpponentSubView:SwitchSignup(false)
   elseif warbandProxy:IsInSignupTime() then
     self.gameRoot:SetActive(true)
     self.rankRoot:SetActive(false)
@@ -79,4 +80,9 @@ end
 
 function WarbandModelView:UpdateView()
   self:UpdateScheduleStatus()
+end
+
+function WarbandModelView:SetPageStatus(index)
+  self.rankRoot:SetActive(index == 1)
+  self.gameRoot:SetActive(index ~= 1)
 end

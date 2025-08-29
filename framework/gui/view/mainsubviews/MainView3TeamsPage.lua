@@ -112,6 +112,8 @@ function MainView3TeamsPage:AddListener()
   self:AddDispatcherEvt(ServiceEvent.FuBenCmdSyncTripleFireInfoFuBenCmd, self.HandleCampScoreChange)
   self:AddDispatcherEvt(SceneUserEvent.SceneAddRoles, self.HandleTeamMembersChange)
   self:AddDispatcherEvt(SceneUserEvent.SceneRemoveRoles, self.HandleTeamMembersChange)
+  self:AddDispatcherEvt(SceneUserEvent.SceneAddNpcs, self.HandleAddRobots)
+  self:AddDispatcherEvt(SceneUserEvent.SceneRemoveNpcs, self.HandleRemoveRobots)
   self:AddDispatcherEvt(ServiceEvent.NUserUserNineSyncCmd, self.HandleTeamMemberDataChange)
   self:AddDispatcherEvt(CreatureEvent.Hiding_Change, self.HandleTeamMemberHidingChange)
   self:AddDispatcherEvt(MyselfEvent.DeathStatus, self.HandleMyselfDeath)
@@ -144,7 +146,7 @@ function MainView3TeamsPage:OnEnter()
   self:UpdateScoreBoard()
   self:InitTeamBoard()
   for charid, _ in pairs(PvpProxy.Instance.tripleCampUserInfo) do
-    local player = NSceneUserProxy.Instance:Find(charid)
+    local player = SceneCreatureProxy.FindCreature(charid)
     if player then
       local sceneUI = player:GetSceneUI()
       if sceneUI then
@@ -258,6 +260,25 @@ function MainView3TeamsPage:HandleTeamMembersChange()
   for i = 1, #cells do
     cells[i]:UpdateTeamMembers()
   end
+end
+
+function MainView3TeamsPage:HandleAddRobots(npcs)
+  local hasRobot = false
+  if npcs then
+    for i = 1, #npcs do
+      if npcs[i].data.detailedType == NpcData.NpcDetailedType.TriplePvpRobot then
+        hasRobot = true
+        break
+      end
+    end
+  end
+  if hasRobot then
+    self:HandleTeamMembersChange()
+  end
+end
+
+function MainView3TeamsPage:HandleRemoveRobots()
+  self:HandleTeamMembersChange()
 end
 
 function MainView3TeamsPage:HandleTeamMemberDataChange(data)

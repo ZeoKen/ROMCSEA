@@ -85,6 +85,9 @@ function CDProxy:Server_AddSkillCD(id, time, isall, coldtime, leftTimes, maxtime
     if is_tobreak_skill then
       GameFacade.Instance:sendNotification(SkillEvent.BreakSkillEffect, sortID)
     end
+    if SkillProxy.Instance:UpdateSkillLeftCD(sortID, leftTimes, true) then
+      GameFacade.Instance:sendNotification(SkillEvent.SkillStartEvent)
+    end
     return false
   end
   local map = self:GetCDMapByType(CDType.Skill)
@@ -100,10 +103,8 @@ function CDProxy:Server_AddSkillCD(id, time, isall, coldtime, leftTimes, maxtime
   if staticData then
     local logicParam = staticData.Logic_Param
     if logicParam and logicParam.CdTimes then
-      SkillProxy.Instance:UpdateSkillLeftCD(sortID, leftTimes)
       local cdMax = SkillInfo.GetSkillCD(Game.Myself, true, staticData)
       local cd = (time - ServerTime.ServerTime) / 1000
-      SkillProxy.Instance:UpdateSkillLeftCD(sortID, leftTimes)
       if cd < 0 then
         if leftTimes < logicParam.CdTimes then
           cd = cd + cdMax
@@ -114,10 +115,11 @@ function CDProxy:Server_AddSkillCD(id, time, isall, coldtime, leftTimes, maxtime
           data:SetCdCountCall(updateLeftCDTimes, sortID)
           data.cd = cd
         end
+        SkillProxy.Instance:UpdateSkillLeftCD(sortID, leftTimes)
       else
         totalCD = cd
         cd = cd % cdMax
-        cdCount = math.ceil(cd / cdMax)
+        local cdCount = math.ceil(cd / cdMax)
         local maxTimes = skill:GetMaxCDTimes(Game.Myself) or 0
         SkillProxy.Instance:UpdateSkillLeftCD(sortID, maxTimes - cdCount)
       end
@@ -250,8 +252,11 @@ end
 function CDProxy:RemoveSkillCD(id)
   local map = self.cdMap[CDType.Skill]
   local cdData = map[id]
-  if cdData and cdData:TryEnd() then
-    map[id] = nil
+  if cdData then
+    cdData:SetCdCount(0)
+    if cdData:TryEnd() then
+      map[id] = nil
+    end
   end
 end
 

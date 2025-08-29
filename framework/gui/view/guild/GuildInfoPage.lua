@@ -201,14 +201,33 @@ function GuildInfoPage:ClickHelp(data)
     return
   end
   if "number" == type(config_helpid) then
+    self:RebuildHelpData(config_helpid)
     local helpData = Table_Help[config_helpid]
     self:OpenHelpView(helpData)
   elseif "table" == type(config_helpid) then
+    for i = 1, #config_helpid do
+      self:RebuildHelpData(config_helpid[i])
+    end
     if 1 < #config_helpid then
       self:OpenMultiHelp(config_helpid)
     elseif #config_helpid == 1 then
       local helpData = Table_Help[config_helpid[1]]
       self:OpenHelpView(helpData)
+    end
+  end
+end
+
+function GuildInfoPage:RebuildHelpData(helpid)
+  local helpData = Table_Help[helpid]
+  if helpData and not helpData.rebuild then
+    if helpid == 1630 then
+      local timeStr = GvgProxy.Instance:GetGvgFinalTimeStr() or ""
+      helpData.Desc = string.format(helpData.Desc, timeStr)
+      helpData.rebuild = true
+    elseif helpid == 35290 then
+      local timeStr = GvgProxy.Instance:GetGvgTimeStr() or ""
+      helpData.Desc = string.format(helpData.Desc, timeStr)
+      helpData.rebuild = true
     end
   end
 end

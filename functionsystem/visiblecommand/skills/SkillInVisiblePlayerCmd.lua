@@ -67,6 +67,9 @@ function SkillInVisiblePlayerCmd:HidePet(pet)
   if pet.data:IsCopyNpc_Detail() then
     return
   end
+  if pet.data:IsPhantom() then
+    return
+  end
   self:HidePlayer(pet)
 end
 

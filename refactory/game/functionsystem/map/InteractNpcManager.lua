@@ -369,7 +369,7 @@ function InteractNpcManager:UpdateMultiMountStatus(creature)
   elseif ridingNpc == 0 then
     local interactMount = self:GetInteractMount(charid)
     if interactMount and interactMount.npcid ~= 0 then
-      interactMount:RequestGetOff(charid)
+      interactMount:RequestGetOff(charid, not self:IsMyselfPassenger())
       GameFacade:sendNotification(InteractNpcEvent.MyselfPassengerChange)
     end
   end

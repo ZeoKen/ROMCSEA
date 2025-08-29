@@ -1,9 +1,9 @@
 Table_DeathTransferMap = {
   [1] = {
     id = 1,
+    NpcID = 8504,
     MapID = 71,
     MapGroup = 1,
-    NpcID = 8504,
     NpcType = 0,
     Position = {
       87.71,
@@ -15,9 +15,9 @@ Table_DeathTransferMap = {
   },
   [2] = {
     id = 2,
+    NpcID = 8505,
     MapID = 71,
     MapGroup = 1,
-    NpcID = 8505,
     NpcType = 1,
     Position = {
       -28.66,
@@ -29,9 +29,9 @@ Table_DeathTransferMap = {
   },
   [3] = {
     id = 3,
+    NpcID = 8506,
     MapID = 71,
     MapGroup = 1,
-    NpcID = 8506,
     NpcType = 1,
     Position = {
       -76.57,
@@ -43,9 +43,9 @@ Table_DeathTransferMap = {
   },
   [4] = {
     id = 4,
+    NpcID = 8507,
     MapID = 71,
     MapGroup = 1,
-    NpcID = 8507,
     NpcType = 1,
     Position = {
       -9.31,
@@ -57,9 +57,9 @@ Table_DeathTransferMap = {
   },
   [5] = {
     id = 5,
+    NpcID = 8407,
     MapID = 72,
     MapGroup = 1,
-    NpcID = 8407,
     NpcType = 0,
     Position = {
       -52.87,
@@ -71,9 +71,9 @@ Table_DeathTransferMap = {
   },
   [6] = {
     id = 6,
+    NpcID = 8419,
     MapID = 72,
     MapGroup = 1,
-    NpcID = 8419,
     NpcType = 1,
     Position = {
       21.63,
@@ -85,9 +85,9 @@ Table_DeathTransferMap = {
   },
   [7] = {
     id = 7,
+    NpcID = 8421,
     MapID = 72,
     MapGroup = 1,
-    NpcID = 8421,
     NpcType = 1,
     Position = {
       -39.64,
@@ -99,9 +99,9 @@ Table_DeathTransferMap = {
   },
   [8] = {
     id = 8,
+    NpcID = 8423,
     MapID = 72,
     MapGroup = 1,
-    NpcID = 8423,
     NpcType = 1,
     Position = {
       87.63,
@@ -113,9 +113,9 @@ Table_DeathTransferMap = {
   },
   [9] = {
     id = 9,
+    NpcID = 801108,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801108,
     NpcType = 0,
     Position = {
       -10.11,
@@ -127,9 +127,9 @@ Table_DeathTransferMap = {
   },
   [10] = {
     id = 10,
+    NpcID = 801109,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801109,
     NpcType = 1,
     Position = {
       25.13,
@@ -141,9 +141,9 @@ Table_DeathTransferMap = {
   },
   [11] = {
     id = 11,
+    NpcID = 801110,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801110,
     NpcType = 1,
     Position = {
       38.52,
@@ -155,9 +155,9 @@ Table_DeathTransferMap = {
   },
   [12] = {
     id = 12,
+    NpcID = 801111,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801111,
     NpcType = 1,
     Position = {
       33.31,
@@ -169,9 +169,9 @@ Table_DeathTransferMap = {
   },
   [13] = {
     id = 13,
+    NpcID = 801112,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801112,
     NpcType = 1,
     Position = {
       -3.4,
@@ -183,9 +183,9 @@ Table_DeathTransferMap = {
   },
   [14] = {
     id = 14,
+    NpcID = 801113,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801113,
     NpcType = 1,
     Position = {
       -28.77,
@@ -197,9 +197,9 @@ Table_DeathTransferMap = {
   },
   [15] = {
     id = 15,
+    NpcID = 801114,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801114,
     NpcType = 1,
     Position = {
       -40.83,
@@ -211,9 +211,9 @@ Table_DeathTransferMap = {
   },
   [16] = {
     id = 16,
+    NpcID = 801115,
     MapID = 78,
     MapGroup = 2,
-    NpcID = 801115,
     NpcType = 1,
     Position = {
       -6.0,
@@ -225,9 +225,9 @@ Table_DeathTransferMap = {
   },
   [17] = {
     id = 17,
+    NpcID = 802133,
     MapID = 79,
     MapGroup = 2,
-    NpcID = 802133,
     NpcType = 0,
     Position = {
       26.23,
@@ -239,9 +239,9 @@ Table_DeathTransferMap = {
   },
   [18] = {
     id = 18,
+    NpcID = 802134,
     MapID = 79,
     MapGroup = 2,
-    NpcID = 802134,
     NpcType = 1,
     Position = {
       -36.96,
@@ -253,9 +253,9 @@ Table_DeathTransferMap = {
   },
   [19] = {
     id = 19,
+    NpcID = 802135,
     MapID = 79,
     MapGroup = 2,
-    NpcID = 802135,
     NpcType = 1,
     Position = {
       -51.0,
@@ -267,9 +267,9 @@ Table_DeathTransferMap = {
   },
   [20] = {
     id = 20,
+    NpcID = 802136,
     MapID = 79,
     MapGroup = 2,
-    NpcID = 802136,
     NpcType = 1,
     Position = {
       -60.01,
@@ -281,9 +281,9 @@ Table_DeathTransferMap = {
   },
   [21] = {
     id = 21,
+    NpcID = 802137,
     MapID = 79,
     MapGroup = 2,
-    NpcID = 802137,
     NpcType = 1,
     Position = {
       -28.09,
@@ -295,9 +295,9 @@ Table_DeathTransferMap = {
   },
   [22] = {
     id = 22,
+    NpcID = 802138,
     MapID = 79,
     MapGroup = 2,
-    NpcID = 802138,
     NpcType = 1,
     Position = {
       -6.6,
@@ -309,9 +309,9 @@ Table_DeathTransferMap = {
   },
   [23] = {
     id = 23,
+    NpcID = 802139,
     MapID = 79,
     MapGroup = 2,
-    NpcID = 802139,
     NpcType = 1,
     Position = {
       36.17,
@@ -323,9 +323,9 @@ Table_DeathTransferMap = {
   },
   [24] = {
     id = 24,
+    NpcID = 803445,
     MapID = 81,
     MapGroup = 2,
-    NpcID = 803445,
     NpcType = 0,
     Position = {
       -31.1,
@@ -337,9 +337,9 @@ Table_DeathTransferMap = {
   },
   [25] = {
     id = 25,
+    NpcID = 803446,
     MapID = 81,
     MapGroup = 2,
-    NpcID = 803446,
     NpcType = 1,
     Position = {
       34.22,
@@ -351,9 +351,9 @@ Table_DeathTransferMap = {
   },
   [26] = {
     id = 26,
+    NpcID = 803447,
     MapID = 81,
     MapGroup = 2,
-    NpcID = 803447,
     NpcType = 1,
     Position = {
       16.31,
@@ -365,9 +365,9 @@ Table_DeathTransferMap = {
   },
   [27] = {
     id = 27,
+    NpcID = 803448,
     MapID = 81,
     MapGroup = 2,
-    NpcID = 803448,
     NpcType = 1,
     Position = {
       -16.97,
@@ -379,9 +379,9 @@ Table_DeathTransferMap = {
   },
   [28] = {
     id = 28,
+    NpcID = 803449,
     MapID = 81,
     MapGroup = 2,
-    NpcID = 803449,
     NpcType = 1,
     Position = {
       44.34,
@@ -393,9 +393,9 @@ Table_DeathTransferMap = {
   },
   [29] = {
     id = 29,
+    NpcID = 803450,
     MapID = 81,
     MapGroup = 2,
-    NpcID = 803450,
     NpcType = 1,
     Position = {
       -70.87,
@@ -407,9 +407,9 @@ Table_DeathTransferMap = {
   },
   [30] = {
     id = 30,
+    NpcID = 803451,
     MapID = 81,
     MapGroup = 2,
-    NpcID = 803451,
     NpcType = 1,
     Position = {
       -60.61,
@@ -421,9 +421,9 @@ Table_DeathTransferMap = {
   },
   [31] = {
     id = 31,
+    NpcID = 816046,
     MapID = 102,
     MapGroup = 3,
-    NpcID = 816046,
     NpcType = 0,
     Position = {
       77.17,
@@ -434,9 +434,9 @@ Table_DeathTransferMap = {
   },
   [32] = {
     id = 32,
+    NpcID = 816047,
     MapID = 102,
     MapGroup = 3,
-    NpcID = 816047,
     NpcType = 1,
     Position = {
       128.74,
@@ -447,9 +447,9 @@ Table_DeathTransferMap = {
   },
   [33] = {
     id = 33,
+    NpcID = 816048,
     MapID = 102,
     MapGroup = 3,
-    NpcID = 816048,
     NpcType = 1,
     Position = {
       226.27,
@@ -460,9 +460,9 @@ Table_DeathTransferMap = {
   },
   [34] = {
     id = 34,
+    NpcID = 816049,
     MapID = 102,
     MapGroup = 3,
-    NpcID = 816049,
     NpcType = 1,
     Position = {
       77.22,
@@ -473,9 +473,9 @@ Table_DeathTransferMap = {
   },
   [35] = {
     id = 35,
+    NpcID = 816050,
     MapID = 102,
     MapGroup = 3,
-    NpcID = 816050,
     NpcType = 1,
     Position = {
       128.76,
@@ -486,9 +486,9 @@ Table_DeathTransferMap = {
   },
   [36] = {
     id = 36,
+    NpcID = 816051,
     MapID = 102,
     MapGroup = 3,
-    NpcID = 816051,
     NpcType = 1,
     Position = {
       -36.18,
@@ -499,9 +499,9 @@ Table_DeathTransferMap = {
   },
   [37] = {
     id = 37,
+    NpcID = 816052,
     MapID = 102,
     MapGroup = 3,
-    NpcID = 816052,
     NpcType = 1,
     Position = {
       36.23,
@@ -512,9 +512,9 @@ Table_DeathTransferMap = {
   },
   [38] = {
     id = 38,
+    NpcID = 808319,
     MapID = 105,
     MapGroup = 3,
-    NpcID = 808319,
     NpcType = 0,
     Position = {
       78.54,
@@ -525,9 +525,9 @@ Table_DeathTransferMap = {
   },
   [39] = {
     id = 39,
+    NpcID = 808320,
     MapID = 105,
     MapGroup = 3,
-    NpcID = 808320,
     NpcType = 1,
     Position = {
       34.7,
@@ -538,9 +538,9 @@ Table_DeathTransferMap = {
   },
   [40] = {
     id = 40,
+    NpcID = 808321,
     MapID = 105,
     MapGroup = 3,
-    NpcID = 808321,
     NpcType = 1,
     Position = {
       123.8,
@@ -551,9 +551,9 @@ Table_DeathTransferMap = {
   },
   [41] = {
     id = 41,
+    NpcID = 808322,
     MapID = 105,
     MapGroup = 3,
-    NpcID = 808322,
     NpcType = 1,
     Position = {
       78.4,
@@ -564,9 +564,9 @@ Table_DeathTransferMap = {
   },
   [42] = {
     id = 42,
+    NpcID = 808323,
     MapID = 105,
     MapGroup = 3,
-    NpcID = 808323,
     NpcType = 1,
     Position = {
       -15.77,
@@ -577,9 +577,9 @@ Table_DeathTransferMap = {
   },
   [43] = {
     id = 43,
+    NpcID = 808324,
     MapID = 105,
     MapGroup = 3,
-    NpcID = 808324,
     NpcType = 1,
     Position = {
       129.91,
@@ -590,9 +590,9 @@ Table_DeathTransferMap = {
   },
   [44] = {
     id = 44,
+    NpcID = 821157,
     MapID = 123,
     MapGroup = 4,
-    NpcID = 821157,
     NpcType = 0,
     Position = {
       0.33,
@@ -603,9 +603,9 @@ Table_DeathTransferMap = {
   },
   [45] = {
     id = 45,
+    NpcID = 821158,
     MapID = 123,
     MapGroup = 4,
-    NpcID = 821158,
     NpcType = 1,
     Position = {
       9.52,
@@ -616,9 +616,9 @@ Table_DeathTransferMap = {
   },
   [46] = {
     id = 46,
+    NpcID = 821159,
     MapID = 123,
     MapGroup = 4,
-    NpcID = 821159,
     NpcType = 1,
     Position = {
       -72.53,
@@ -629,9 +629,9 @@ Table_DeathTransferMap = {
   },
   [47] = {
     id = 47,
+    NpcID = 821160,
     MapID = 123,
     MapGroup = 4,
-    NpcID = 821160,
     NpcType = 1,
     Position = {
       -61.158,
@@ -642,9 +642,9 @@ Table_DeathTransferMap = {
   },
   [48] = {
     id = 48,
+    NpcID = 821161,
     MapID = 123,
     MapGroup = 4,
-    NpcID = 821161,
     NpcType = 1,
     Position = {
       10.09,
@@ -655,9 +655,9 @@ Table_DeathTransferMap = {
   },
   [49] = {
     id = 49,
+    NpcID = 821162,
     MapID = 123,
     MapGroup = 4,
-    NpcID = 821162,
     NpcType = 1,
     Position = {
       100.85,
@@ -668,9 +668,9 @@ Table_DeathTransferMap = {
   },
   [62] = {
     id = 62,
+    NpcID = 822033,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822033,
     NpcType = 0,
     Position = {
       -11.68,
@@ -680,9 +680,9 @@ Table_DeathTransferMap = {
   },
   [63] = {
     id = 63,
+    NpcID = 822035,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822035,
     NpcType = 1,
     Position = {
       47.69,
@@ -692,9 +692,9 @@ Table_DeathTransferMap = {
   },
   [64] = {
     id = 64,
+    NpcID = 822036,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822036,
     NpcType = 1,
     Position = {
       -57.79,
@@ -704,9 +704,9 @@ Table_DeathTransferMap = {
   },
   [65] = {
     id = 65,
+    NpcID = 822037,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822037,
     NpcType = 1,
     Position = {
       83.52,
@@ -716,9 +716,9 @@ Table_DeathTransferMap = {
   },
   [66] = {
     id = 66,
+    NpcID = 822038,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822038,
     NpcType = 1,
     Position = {
       87.52,
@@ -728,9 +728,9 @@ Table_DeathTransferMap = {
   },
   [67] = {
     id = 67,
+    NpcID = 822039,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822039,
     NpcType = 1,
     Position = {
       -3.72,
@@ -740,9 +740,9 @@ Table_DeathTransferMap = {
   },
   [68] = {
     id = 68,
+    NpcID = 822040,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822040,
     NpcType = 1,
     Position = {
       -61.84,
@@ -752,9 +752,9 @@ Table_DeathTransferMap = {
   },
   [69] = {
     id = 69,
+    NpcID = 822041,
     MapID = 1003523,
     MapGroup = 7,
-    NpcID = 822041,
     NpcType = 1,
     Position = {
       -100.33,
@@ -764,9 +764,9 @@ Table_DeathTransferMap = {
   },
   [70] = {
     id = 70,
+    NpcID = 822077,
     MapID = 129,
     MapGroup = 8,
-    NpcID = 822077,
     NpcType = 1,
     Position = {
       13.32,
@@ -777,9 +777,9 @@ Table_DeathTransferMap = {
   },
   [71] = {
     id = 71,
+    NpcID = 822078,
     MapID = 129,
     MapGroup = 8,
-    NpcID = 822078,
     NpcType = 1,
     Position = {
       48.68,
@@ -790,9 +790,9 @@ Table_DeathTransferMap = {
   },
   [72] = {
     id = 72,
+    NpcID = 822079,
     MapID = 129,
     MapGroup = 8,
-    NpcID = 822079,
     NpcType = 1,
     Position = {
       -22.97,
@@ -803,9 +803,9 @@ Table_DeathTransferMap = {
   },
   [73] = {
     id = 73,
+    NpcID = 822080,
     MapID = 129,
     MapGroup = 8,
-    NpcID = 822080,
     NpcType = 1,
     Position = {
       -0.95,
@@ -816,9 +816,9 @@ Table_DeathTransferMap = {
   },
   [74] = {
     id = 74,
+    NpcID = 822081,
     MapID = 129,
     MapGroup = 8,
-    NpcID = 822081,
     NpcType = 1,
     Position = {
       10.24,
@@ -829,9 +829,9 @@ Table_DeathTransferMap = {
   },
   [75] = {
     id = 75,
+    NpcID = 822082,
     MapID = 129,
     MapGroup = 8,
-    NpcID = 822082,
     NpcType = 1,
     Position = {
       -33.4,
@@ -842,9 +842,9 @@ Table_DeathTransferMap = {
   },
   [76] = {
     id = 76,
+    NpcID = 822083,
     MapID = 129,
     MapGroup = 8,
-    NpcID = 822083,
     NpcType = 1,
     Position = {
       -88.53,
@@ -855,9 +855,9 @@ Table_DeathTransferMap = {
   },
   [77] = {
     id = 77,
+    NpcID = 822435,
     MapID = 130,
     MapGroup = 9,
-    NpcID = 822435,
     NpcType = 1,
     Position = {
       -11.22,
@@ -868,9 +868,9 @@ Table_DeathTransferMap = {
   },
   [78] = {
     id = 78,
+    NpcID = 822436,
     MapID = 130,
     MapGroup = 9,
-    NpcID = 822436,
     NpcType = 1,
     Position = {
       -47.74,
@@ -881,9 +881,9 @@ Table_DeathTransferMap = {
   },
   [79] = {
     id = 79,
+    NpcID = 822437,
     MapID = 130,
     MapGroup = 9,
-    NpcID = 822437,
     NpcType = 1,
     Position = {
       24.18,
@@ -894,9 +894,9 @@ Table_DeathTransferMap = {
   },
   [80] = {
     id = 80,
+    NpcID = 822438,
     MapID = 130,
     MapGroup = 9,
-    NpcID = 822438,
     NpcType = 1,
     Position = {
       1.28,
@@ -907,9 +907,9 @@ Table_DeathTransferMap = {
   },
   [81] = {
     id = 81,
+    NpcID = 822439,
     MapID = 130,
     MapGroup = 9,
-    NpcID = 822439,
     NpcType = 1,
     Position = {
       -9.28,
@@ -920,9 +920,9 @@ Table_DeathTransferMap = {
   },
   [82] = {
     id = 82,
+    NpcID = 822440,
     MapID = 130,
     MapGroup = 9,
-    NpcID = 822440,
     NpcType = 1,
     Position = {
       36.98,
@@ -933,9 +933,9 @@ Table_DeathTransferMap = {
   },
   [83] = {
     id = 83,
+    NpcID = 823130,
     MapID = 128,
     MapGroup = 10,
-    NpcID = 823130,
     NpcType = 1,
     Position = {
       -41.22,
@@ -945,9 +945,9 @@ Table_DeathTransferMap = {
   },
   [84] = {
     id = 84,
+    NpcID = 823131,
     MapID = 128,
     MapGroup = 10,
-    NpcID = 823131,
     NpcType = 1,
     Position = {
       -34.37,
@@ -957,9 +957,9 @@ Table_DeathTransferMap = {
   },
   [85] = {
     id = 85,
+    NpcID = 823132,
     MapID = 128,
     MapGroup = 10,
-    NpcID = 823132,
     NpcType = 1,
     Position = {
       6.7,
@@ -969,9 +969,9 @@ Table_DeathTransferMap = {
   },
   [86] = {
     id = 86,
+    NpcID = 823133,
     MapID = 128,
     MapGroup = 10,
-    NpcID = 823133,
     NpcType = 1,
     Position = {
       21.1,
@@ -981,9 +981,9 @@ Table_DeathTransferMap = {
   },
   [87] = {
     id = 87,
+    NpcID = 823134,
     MapID = 128,
     MapGroup = 10,
-    NpcID = 823134,
     NpcType = 1,
     Position = {
       26.77,
@@ -993,9 +993,9 @@ Table_DeathTransferMap = {
   },
   [88] = {
     id = 88,
+    NpcID = 824137,
     MapID = 137,
     MapGroup = 11,
-    NpcID = 824137,
     NpcType = 1,
     Position = {
       -11.61,
@@ -1006,9 +1006,9 @@ Table_DeathTransferMap = {
   },
   [89] = {
     id = 89,
+    NpcID = 824138,
     MapID = 137,
     MapGroup = 11,
-    NpcID = 824138,
     NpcType = 1,
     Position = {
       -53.4,
@@ -1019,9 +1019,9 @@ Table_DeathTransferMap = {
   },
   [90] = {
     id = 90,
+    NpcID = 824139,
     MapID = 137,
     MapGroup = 11,
-    NpcID = 824139,
     NpcType = 1,
     Position = {
       60.96,
@@ -1032,9 +1032,9 @@ Table_DeathTransferMap = {
   },
   [91] = {
     id = 91,
+    NpcID = 824140,
     MapID = 137,
     MapGroup = 11,
-    NpcID = 824140,
     NpcType = 1,
     Position = {
       18.1,
@@ -1045,9 +1045,9 @@ Table_DeathTransferMap = {
   },
   [92] = {
     id = 92,
+    NpcID = 824141,
     MapID = 137,
     MapGroup = 11,
-    NpcID = 824141,
     NpcType = 1,
     Position = {
       -28.55,
@@ -1058,9 +1058,9 @@ Table_DeathTransferMap = {
   },
   [93] = {
     id = 93,
+    NpcID = 824142,
     MapID = 138,
     MapGroup = 12,
-    NpcID = 824142,
     NpcType = 1,
     Position = {
       -11.61,
@@ -1071,9 +1071,9 @@ Table_DeathTransferMap = {
   },
   [94] = {
     id = 94,
+    NpcID = 824143,
     MapID = 138,
     MapGroup = 12,
-    NpcID = 824143,
     NpcType = 1,
     Position = {
       -46.07,
@@ -1084,9 +1084,9 @@ Table_DeathTransferMap = {
   },
   [95] = {
     id = 95,
+    NpcID = 824144,
     MapID = 138,
     MapGroup = 12,
-    NpcID = 824144,
     NpcType = 1,
     Position = {
       60.96,
@@ -1097,9 +1097,9 @@ Table_DeathTransferMap = {
   },
   [96] = {
     id = 96,
+    NpcID = 824145,
     MapID = 138,
     MapGroup = 12,
-    NpcID = 824145,
     NpcType = 1,
     Position = {
       18.1,
@@ -1110,9 +1110,9 @@ Table_DeathTransferMap = {
   },
   [97] = {
     id = 97,
+    NpcID = 824146,
     MapID = 138,
     MapGroup = 12,
-    NpcID = 824146,
     NpcType = 1,
     Position = {
       -28.55,
@@ -1123,9 +1123,9 @@ Table_DeathTransferMap = {
   },
   [98] = {
     id = 98,
+    NpcID = 824239,
     MapID = 131,
     MapGroup = 13,
-    NpcID = 824239,
     NpcType = 1,
     Position = {
       17.214,
@@ -1136,9 +1136,9 @@ Table_DeathTransferMap = {
   },
   [99] = {
     id = 99,
+    NpcID = 824240,
     MapID = 131,
     MapGroup = 13,
-    NpcID = 824240,
     NpcType = 1,
     Position = {
       47.93,
@@ -1149,9 +1149,9 @@ Table_DeathTransferMap = {
   },
   [100] = {
     id = 100,
+    NpcID = 824241,
     MapID = 131,
     MapGroup = 13,
-    NpcID = 824241,
     NpcType = 1,
     Position = {
       -27.47,
@@ -1162,9 +1162,9 @@ Table_DeathTransferMap = {
   },
   [101] = {
     id = 101,
+    NpcID = 824246,
     MapID = 131,
     MapGroup = 13,
-    NpcID = 824246,
     NpcType = 1,
     Position = {
       12.83,
@@ -1175,9 +1175,9 @@ Table_DeathTransferMap = {
   },
   [102] = {
     id = 102,
+    NpcID = 824242,
     MapID = 132,
     MapGroup = 14,
-    NpcID = 824242,
     NpcType = 1,
     Position = {
       -29.69,
@@ -1188,9 +1188,9 @@ Table_DeathTransferMap = {
   },
   [103] = {
     id = 103,
+    NpcID = 824243,
     MapID = 132,
     MapGroup = 14,
-    NpcID = 824243,
     NpcType = 1,
     Position = {
       21.05,
@@ -1201,9 +1201,9 @@ Table_DeathTransferMap = {
   },
   [104] = {
     id = 104,
+    NpcID = 824244,
     MapID = 132,
     MapGroup = 14,
-    NpcID = 824244,
     NpcType = 1,
     Position = {
       66.91,
@@ -1214,9 +1214,9 @@ Table_DeathTransferMap = {
   },
   [105] = {
     id = 105,
+    NpcID = 824245,
     MapID = 132,
     MapGroup = 14,
-    NpcID = 824245,
     NpcType = 1,
     Position = {
       7.07,
@@ -1227,9 +1227,9 @@ Table_DeathTransferMap = {
   },
   [106] = {
     id = 106,
+    NpcID = 840431,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840431,
     NpcType = 1,
     Position = {
       90.47,
@@ -1240,9 +1240,9 @@ Table_DeathTransferMap = {
   },
   [107] = {
     id = 107,
+    NpcID = 840432,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840432,
     NpcType = 1,
     Position = {
       267.06,
@@ -1253,9 +1253,9 @@ Table_DeathTransferMap = {
   },
   [108] = {
     id = 108,
+    NpcID = 840433,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840433,
     NpcType = 1,
     Position = {
       404.96,
@@ -1266,9 +1266,9 @@ Table_DeathTransferMap = {
   },
   [109] = {
     id = 109,
+    NpcID = 840434,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840434,
     NpcType = 1,
     Position = {
       227.43,
@@ -1279,9 +1279,9 @@ Table_DeathTransferMap = {
   },
   [110] = {
     id = 110,
+    NpcID = 840435,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840435,
     NpcType = 1,
     Position = {
       365.61,
@@ -1292,9 +1292,9 @@ Table_DeathTransferMap = {
   },
   [111] = {
     id = 111,
+    NpcID = 840436,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840436,
     NpcType = 1,
     Position = {
       -43.95,
@@ -1305,9 +1305,9 @@ Table_DeathTransferMap = {
   },
   [112] = {
     id = 112,
+    NpcID = 840437,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840437,
     NpcType = 1,
     Position = {
       -69.9,
@@ -1318,9 +1318,9 @@ Table_DeathTransferMap = {
   },
   [113] = {
     id = 113,
+    NpcID = 840438,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840438,
     NpcType = 1,
     Position = {
       85.82,
@@ -1331,9 +1331,9 @@ Table_DeathTransferMap = {
   },
   [114] = {
     id = 114,
+    NpcID = 840439,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840439,
     NpcType = 1,
     Position = {
       -8.11,
@@ -1344,9 +1344,9 @@ Table_DeathTransferMap = {
   },
   [115] = {
     id = 115,
+    NpcID = 840440,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840440,
     NpcType = 1,
     Position = {
       -74.71,
@@ -1357,9 +1357,9 @@ Table_DeathTransferMap = {
   },
   [116] = {
     id = 116,
+    NpcID = 840441,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840441,
     NpcType = 1,
     Position = {
       48.05,
@@ -1370,9 +1370,9 @@ Table_DeathTransferMap = {
   },
   [117] = {
     id = 117,
+    NpcID = 840442,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 840442,
     NpcType = 1,
     Position = {
       -51.31,
@@ -1383,9 +1383,9 @@ Table_DeathTransferMap = {
   },
   [118] = {
     id = 118,
+    NpcID = 842424,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 842424,
     NpcType = 1,
     Position = {
       -210.28,
@@ -1396,9 +1396,9 @@ Table_DeathTransferMap = {
   },
   [119] = {
     id = 119,
+    NpcID = 842425,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 842425,
     NpcType = 1,
     Position = {
       -357.91,
@@ -1409,9 +1409,9 @@ Table_DeathTransferMap = {
   },
   [120] = {
     id = 120,
+    NpcID = 842426,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 842426,
     NpcType = 1,
     Position = {
       -191.45,
@@ -1422,9 +1422,9 @@ Table_DeathTransferMap = {
   },
   [121] = {
     id = 121,
+    NpcID = 850103,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 850103,
     NpcType = 1,
     Position = {
       -13.8,
@@ -1435,9 +1435,9 @@ Table_DeathTransferMap = {
   },
   [122] = {
     id = 122,
+    NpcID = 850104,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 850104,
     NpcType = 1,
     Position = {
       -42.62,
@@ -1448,9 +1448,9 @@ Table_DeathTransferMap = {
   },
   [123] = {
     id = 123,
+    NpcID = 850105,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 850105,
     NpcType = 1,
     Position = {
       170.0,
@@ -1461,9 +1461,9 @@ Table_DeathTransferMap = {
   },
   [124] = {
     id = 124,
+    NpcID = 850106,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 850106,
     NpcType = 1,
     Position = {
       181.31,
@@ -1474,9 +1474,9 @@ Table_DeathTransferMap = {
   },
   [125] = {
     id = 125,
+    NpcID = 850107,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 850107,
     NpcType = 1,
     Position = {
       277.47,
@@ -1487,9 +1487,9 @@ Table_DeathTransferMap = {
   },
   [126] = {
     id = 126,
+    NpcID = 850108,
     MapID = 149,
     MapGroup = 21,
-    NpcID = 850108,
     NpcType = 1,
     Position = {
       424.75,
@@ -1497,13 +1497,130 @@ Table_DeathTransferMap = {
       403.59
     },
     CdBuff = 159814
+  },
+  [127] = {
+    id = 127,
+    NpcID = 851044,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      46.62,
+      162.05,
+      -351.31
+    },
+    CdBuff = 159814
+  },
+  [128] = {
+    id = 128,
+    NpcID = 851046,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -278.91,
+      155.5,
+      -239.05
+    },
+    CdBuff = 159814
+  },
+  [129] = {
+    id = 129,
+    NpcID = 851048,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -97.74,
+      176.5,
+      -212.87
+    },
+    CdBuff = 159814
+  },
+  [130] = {
+    id = 130,
+    NpcID = 851050,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -2.69,
+      167.64,
+      26.0
+    },
+    CdBuff = 159814
+  },
+  [131] = {
+    id = 131,
+    NpcID = 851052,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -10.11,
+      169.49,
+      151.38
+    },
+    CdBuff = 159814
+  },
+  [132] = {
+    id = 132,
+    NpcID = 851054,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -301.46,
+      186.32,
+      72.45
+    },
+    CdBuff = 159814
+  },
+  [133] = {
+    id = 133,
+    NpcID = 851056,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -170.55,
+      180.93,
+      69.04
+    },
+    CdBuff = 159814
+  },
+  [134] = {
+    id = 134,
+    NpcID = 851058,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -305.01,
+      203.69,
+      213.38
+    },
+    CdBuff = 159814
+  },
+  [135] = {
+    id = 135,
+    NpcID = 851060,
+    MapID = 154,
+    MapGroup = 22,
+    NpcType = 1,
+    Position = {
+      -161.09,
+      177.15,
+      184.669
+    },
+    CdBuff = 159814
   }
 }
 Table_DeathTransferMap_fields = {
   "id",
+  "NpcID",
   "MapID",
   "MapGroup",
-  "NpcID",
   "NpcType",
   "Position",
   "AllActivatedMsg",

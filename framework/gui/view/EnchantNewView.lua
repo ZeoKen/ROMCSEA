@@ -330,6 +330,7 @@ function EnchantNewView:OnClickTargetCell()
 end
 
 function EnchantNewView:OnRemoveTarget(init)
+  self.curChooseResultID = nil
   self:OnClickEnchantInfoCloseBtn()
   self.enchantResult:SetActive(false)
   if self.lockedAdvanceCost then
@@ -681,14 +682,26 @@ function EnchantNewView:UpdateEnchantResult()
   end
   local hasElement = #self.arr > 0
   if hasElement then
+    local openBefore = self.enchantResult.activeSelf
     self.enchantResult:SetActive(hasElement)
     self.enchantResultCtl:ResetDatas(self.arr)
     local cells = self.enchantResultCtl:GetCells()
-    if cells and cells[1] then
+    local targetCell
+    for i = 1, #cells do
+      if self.curChooseResultID and cells[i].index == self.curChooseResultID then
+        targetCell = cells[i]
+        break
+      end
+    end
+    if targetCell then
+      self:OnClickResult(targetCell)
+    elseif cells and cells[1] then
       self:OnClickResult(cells[1])
     end
     self.enchantResultGrid:Reposition()
-    self.enchantResultCtl:ResetPosition()
+    if not openBefore then
+      self.enchantResultCtl:ResetPosition()
+    end
     if self.enchantInfoBord.activeSelf then
       self:OnClickEnchantInfoCloseBtn()
     end
@@ -836,6 +849,7 @@ function EnchantNewView:_Enchant()
     self:SetActionBtnActive(false)
     self:PlayUIEffect(EffectMap.UI.EquipReplaceNew, self.effContainer, true)
     self:PlayUISound(AudioMap.UI.EnchantSuc)
+    self.curChooseResultID = nil
     tickManager:CreateOnceDelayTick(800, self.CallEnchant, self)
   end, self)
 end
@@ -867,6 +881,9 @@ function EnchantNewView:CallEnchant()
     self.clickTimeStamp = ServerTime.CurServerTime() / 1000
     local realLock = self.thirdAttrLocked and self.thirdAttrLockedShow and self.lockCostItemData.num >= self.lockCostItemData.neednum
     ServiceItemProxy.Instance:CallEnchantEquip(enchantType, self.targetData.id, isImprove, mustBuffItem, self.tenPullsTog.value and 10 or 1, realLock)
+    if self.enchantResult.activeSelf then
+      self.enchantResultCtl:ResetPosition()
+    end
   end
 end
 

@@ -38,6 +38,10 @@ function CreatureData:ctor()
   self:SetCamp(RoleDefines_Camp.NEUTRAL)
   self.bodyScale = nil
   self.KickSkills = 0
+  self.ExtraNormalSkills = {}
+  for k, v in pairs(GameConfig.ExtraNormalSkills.skills) do
+    self.ExtraNormalSkills[v] = true
+  end
 end
 
 function CreatureData:GetHoldScale()
@@ -417,6 +421,10 @@ end
 
 function CreatureDataWithPropUserdata:IsAttackSkill(id)
   return self.normalAtkID == id or ExtraAttackSkill[id] == 1 or self:IsTriggerKickSkill(id) == true
+end
+
+function CreatureDataWithPropUserdata:IsExtraNormalSkill(skillid)
+  return self.ExtraNormalSkills[skillid] == true
 end
 
 function CreatureDataWithPropUserdata:DamageAlways1()
@@ -1026,6 +1034,10 @@ function CreatureDataWithPropUserdata:RemoveBuff(buffID, buffeffect)
       if map ~= nil then
         map[buffID] = nil
       end
+      if next(map) == nil then
+        ReusableTable.DestroyAndClearTable(map)
+        self.buffTypes[type] = nil
+      end
     end
   end
 end
@@ -1381,6 +1393,18 @@ end
 
 function CreatureDataWithPropUserdata:GetBuffLayerByIDAndFromID(buffID, guid)
   return self:GetBuffLayer(buffID)
+end
+
+function CreatureDataWithPropUserdata:GetBuffByTypeAndFromID(buffType, fromID)
+  local buffs = self:GetBuffListByType(buffType)
+  if buffs then
+    for _, buff in pairs(buffs) do
+      if self:GetBuffFromID(buff) == fromID then
+        return true
+      end
+    end
+  end
+  return false
 end
 
 function CreatureDataWithPropUserdata:GetMountForm()
@@ -1930,6 +1954,14 @@ function CreatureDataWithPropUserdata:IsAnonymous()
 end
 
 function CreatureDataWithPropUserdata:SetShadowViel(val)
+end
+
+function CreatureDataWithPropUserdata:ForbidClientClient()
+  return false
+end
+
+function CreatureDataWithPropUserdata:IsPhantom()
+  return false
 end
 
 function CreatureDataWithPropUserdata:DoConstruct(asArray, parts)

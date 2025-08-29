@@ -24,6 +24,7 @@ function PackageEquipMemoryPage:InitPage()
   self.effectGrid = self:FindGO("EffectGrid"):GetComponent(UITable)
   self.effectCtrl = UIGridListCtrl.new(self.effectGrid, EquipMemoryAttrCellType3, "EquipMemoryAttrCellType3")
   self.effectCtrl:AddEventListener(MouseEvent.MouseClick, self.HandleSwitchSingle, self)
+  self.waxEffectCtrl = UIGridListCtrl.new(self.effectGrid, EquipMemoryAttrCellType5, "EquipMemoryAttrCellType5")
   self.closeButton = self:FindGO("CloseButton", self.holder)
   self:AddClickEvent(self.closeButton, function()
     self.container:SetLeftViewState(PackageView.LeftViewState.Default)
@@ -42,15 +43,34 @@ end
 
 function PackageEquipMemoryPage:UpdateActiveEffect()
   local result = {}
+  local result2 = {}
   local memoryLevels = EquipMemoryProxy.Instance:GetTotalEquipMemoryLevels() or {}
   for _attrid, _level in pairs(memoryLevels) do
     local _tempData = {id = _attrid, level = _level}
-    table.insert(result, _tempData)
+    xdlog("attrid", _attrid, _level)
+    local attrConfig = Game.ItemMemoryEffect[_attrid]
+    if attrConfig then
+      local level = 3 < _level and 3 or _level
+      local staticId = attrConfig.level and attrConfig.level[level]
+      local staticData = staticId and Table_ItemMemoryEffect[staticId]
+      local waxBuffId = staticData and staticData.WaxBuffID
+      if waxBuffId and 0 < #waxBuffId then
+        table.insert(result2, _tempData)
+      else
+        table.insert(result, _tempData)
+      end
+    end
   end
   table.sort(result, function(l, r)
     return l.id < r.id
   end)
+  table.sort(result2, function(l, r)
+    return l.id < r.id
+  end)
+  self.effectCtrl:RemoveAll()
+  self.waxEffectCtrl:RemoveAll()
   self.effectCtrl:ResetDatas(result)
+  self.waxEffectCtrl:ResetDatas(result2)
   self.scrollView:ResetPosition()
 end
 

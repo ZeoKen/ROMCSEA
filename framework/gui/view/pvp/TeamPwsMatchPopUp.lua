@@ -120,7 +120,10 @@ function TeamPwsMatchPopUp:SetLayout()
   local ispvpChamption = self.pvpType == PvpProxy.Type.TwelvePVPChampion or self.pvpType == PvpProxy.Type.TeamPwsChampion
   self.objLayoutLeader:SetActive(bImLeader and not inpreparation and not ispvpChamption)
   local matchid = PvpProxy.Instance:GetMatchID()
-  if Table_MatchRaid[matchid] and Table_MatchRaid[matchid].RobotAttrRate then
+  local robot_rest_time, robot_match_time
+  robot_rest_time, robot_match_time = PvpProxy.Instance:GetRobotTime(self.pvpType)
+  local is_robot_match = robot_rest_time ~= 0 or robot_match_time ~= 0
+  if Table_MatchRaid[matchid] and Table_MatchRaid[matchid].RobotAttrRate and is_robot_match then
     self:SetRobotTimeLayout()
   else
     self:SetNormalLayout()

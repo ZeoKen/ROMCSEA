@@ -126,9 +126,18 @@ function ServiceSkillAutoProxy:onRegister()
   self:Listen(7, 37, function(data)
     self:RecvSwitchMasterSkill(data)
   end)
+  self:Listen(7, 38, function(data)
+    self:RecvUpdateInheritSkillCmd(data)
+  end)
+  self:Listen(7, 39, function(data)
+    self:RecvLoadInheritSkillCmd(data)
+  end)
+  self:Listen(7, 40, function(data)
+    self:RecvExtendInheritSkillCmd(data)
+  end)
 end
 
-function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fulled, auto_shortcut, master_skill_data)
+function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fulled, auto_shortcut, master_skill_data, inherit_skill_data)
   if not NetConfig.PBC then
     local msg = SceneSkill_pb.ReqSkillData()
     if data ~= nil then
@@ -209,6 +218,35 @@ function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fu
       for i = 1, #master_skill_data.unlock_limit_skill_index do
         table.insert(msg.master_skill_data.unlock_limit_skill_index, master_skill_data.unlock_limit_skill_index[i])
       end
+    end
+    if inherit_skill_data ~= nil and inherit_skill_data.items ~= nil then
+      if msg.inherit_skill_data == nil then
+        msg.inherit_skill_data = {}
+      end
+      if msg.inherit_skill_data.items == nil then
+        msg.inherit_skill_data.items = {}
+      end
+      for i = 1, #inherit_skill_data.items do
+        table.insert(msg.inherit_skill_data.items, inherit_skill_data.items[i])
+      end
+    end
+    if inherit_skill_data ~= nil and inherit_skill_data.extendpoints ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.inherit_skill_data == nil then
+        msg.inherit_skill_data = {}
+      end
+      msg.inherit_skill_data.extendpoints = inherit_skill_data.extendpoints
+    end
+    if inherit_skill_data ~= nil and inherit_skill_data.version ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.inherit_skill_data == nil then
+        msg.inherit_skill_data = {}
+      end
+      msg.inherit_skill_data.version = inherit_skill_data.version
     end
     self:SendProto(msg)
   else
@@ -292,6 +330,35 @@ function ServiceSkillAutoProxy:CallReqSkillData(data, talentdata, forth_skill_fu
       for i = 1, #master_skill_data.unlock_limit_skill_index do
         table.insert(msgParam.master_skill_data.unlock_limit_skill_index, master_skill_data.unlock_limit_skill_index[i])
       end
+    end
+    if inherit_skill_data ~= nil and inherit_skill_data.items ~= nil then
+      if msgParam.inherit_skill_data == nil then
+        msgParam.inherit_skill_data = {}
+      end
+      if msgParam.inherit_skill_data.items == nil then
+        msgParam.inherit_skill_data.items = {}
+      end
+      for i = 1, #inherit_skill_data.items do
+        table.insert(msgParam.inherit_skill_data.items, inherit_skill_data.items[i])
+      end
+    end
+    if inherit_skill_data ~= nil and inherit_skill_data.extendpoints ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.inherit_skill_data == nil then
+        msgParam.inherit_skill_data = {}
+      end
+      msgParam.inherit_skill_data.extendpoints = inherit_skill_data.extendpoints
+    end
+    if inherit_skill_data ~= nil and inherit_skill_data.version ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.inherit_skill_data == nil then
+        msgParam.inherit_skill_data = {}
+      end
+      msgParam.inherit_skill_data.version = inherit_skill_data.version
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -1768,7 +1835,7 @@ function ServiceSkillAutoProxy:CallUseSkillSuccessSync(skillid)
   end
 end
 
-function ServiceSkillAutoProxy:CallUpdateMasterSkill(add_ids, del_ids, unlock_skill_index)
+function ServiceSkillAutoProxy:CallUpdateMasterSkill(add_ids, del_ids, updates, unlock_skill_index)
   if not NetConfig.PBC then
     local msg = SceneSkill_pb.UpdateMasterSkill()
     if add_ids ~= nil then
@@ -1791,6 +1858,17 @@ function ServiceSkillAutoProxy:CallUpdateMasterSkill(add_ids, del_ids, unlock_sk
       end
       for i = 1, #del_ids do
         table.insert(msg.del_ids, del_ids[i])
+      end
+    end
+    if updates ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.updates == nil then
+        msg.updates = {}
+      end
+      for i = 1, #updates do
+        table.insert(msg.updates, updates[i])
       end
     end
     if unlock_skill_index ~= nil then
@@ -1828,6 +1906,17 @@ function ServiceSkillAutoProxy:CallUpdateMasterSkill(add_ids, del_ids, unlock_sk
       end
       for i = 1, #del_ids do
         table.insert(msgParam.del_ids, del_ids[i])
+      end
+    end
+    if updates ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.updates == nil then
+        msgParam.updates = {}
+      end
+      for i = 1, #updates do
+        table.insert(msgParam.updates, updates[i])
       end
     end
     if unlock_skill_index ~= nil then
@@ -1896,6 +1985,85 @@ function ServiceSkillAutoProxy:CallSwitchMasterSkill(skill_family_id)
     local msgParam = {}
     if skill_family_id ~= nil then
       msgParam.skill_family_id = skill_family_id
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSkillAutoProxy:CallUpdateInheritSkillCmd(items)
+  if not NetConfig.PBC then
+    local msg = SceneSkill_pb.UpdateInheritSkillCmd()
+    if items ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.items == nil then
+        msg.items = {}
+      end
+      for i = 1, #items do
+        table.insert(msg.items, items[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.UpdateInheritSkillCmd.id
+    local msgParam = {}
+    if items ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.items == nil then
+        msgParam.items = {}
+      end
+      for i = 1, #items do
+        table.insert(msgParam.items, items[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSkillAutoProxy:CallLoadInheritSkillCmd(id, replaceid, opt)
+  if not NetConfig.PBC then
+    local msg = SceneSkill_pb.LoadInheritSkillCmd()
+    if id ~= nil then
+      msg.id = id
+    end
+    if replaceid ~= nil then
+      msg.replaceid = replaceid
+    end
+    if opt ~= nil then
+      msg.opt = opt
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.LoadInheritSkillCmd.id
+    local msgParam = {}
+    if id ~= nil then
+      msgParam.id = id
+    end
+    if replaceid ~= nil then
+      msgParam.replaceid = replaceid
+    end
+    if opt ~= nil then
+      msgParam.opt = opt
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSkillAutoProxy:CallExtendInheritSkillCmd(extendpoints)
+  if not NetConfig.PBC then
+    local msg = SceneSkill_pb.ExtendInheritSkillCmd()
+    if extendpoints ~= nil then
+      msg.extendpoints = extendpoints
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.ExtendInheritSkillCmd.id
+    local msgParam = {}
+    if extendpoints ~= nil then
+      msgParam.extendpoints = extendpoints
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -2049,6 +2217,18 @@ function ServiceSkillAutoProxy:RecvSwitchMasterSkill(data)
   self:Notify(ServiceEvent.SkillSwitchMasterSkill, data)
 end
 
+function ServiceSkillAutoProxy:RecvUpdateInheritSkillCmd(data)
+  self:Notify(ServiceEvent.SkillUpdateInheritSkillCmd, data)
+end
+
+function ServiceSkillAutoProxy:RecvLoadInheritSkillCmd(data)
+  self:Notify(ServiceEvent.SkillLoadInheritSkillCmd, data)
+end
+
+function ServiceSkillAutoProxy:RecvExtendInheritSkillCmd(data)
+  self:Notify(ServiceEvent.SkillExtendInheritSkillCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.SkillReqSkillData = "ServiceEvent_SkillReqSkillData"
 ServiceEvent.SkillSkillUpdate = "ServiceEvent_SkillSkillUpdate"
@@ -2087,3 +2267,6 @@ ServiceEvent.SkillUseSkillSuccessSync = "ServiceEvent_SkillUseSkillSuccessSync"
 ServiceEvent.SkillUpdateMasterSkill = "ServiceEvent_SkillUpdateMasterSkill"
 ServiceEvent.SkillUpdateMasterSkillEquip = "ServiceEvent_SkillUpdateMasterSkillEquip"
 ServiceEvent.SkillSwitchMasterSkill = "ServiceEvent_SkillSwitchMasterSkill"
+ServiceEvent.SkillUpdateInheritSkillCmd = "ServiceEvent_SkillUpdateInheritSkillCmd"
+ServiceEvent.SkillLoadInheritSkillCmd = "ServiceEvent_SkillLoadInheritSkillCmd"
+ServiceEvent.SkillExtendInheritSkillCmd = "ServiceEvent_SkillExtendInheritSkillCmd"

@@ -224,12 +224,12 @@ local Scene_Guild_battle_prt = {
       {
         ID = 1,
         position = {
-          4.78999996185303,
+          4.79000091552734,
           0.389999985694885,
-          2.10999917984009
+          2.10999965667725
         },
         range = 0,
-        dir = 90.0000076293945
+        dir = 90
       }
     },
     eps = {
@@ -238,7 +238,7 @@ local Scene_Guild_battle_prt = {
         commonEffectID = 16,
         exitType = 0,
         position = {
-          5.61062717437744,
+          5.61062812805176,
           16.7096328735352,
           -10.107458114624
         },
@@ -426,6 +426,17 @@ local Scene_Guild_battle_prt = {
             2.07999992370605,
             -64.2099990844727
           },
+          xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
           xdir = 360
         }
       }
@@ -687,6 +698,17 @@ local Scene_Guild_battle_prt = {
             -64.2099990844727
           },
           xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
+          xdir = 360
         }
       }
     },
@@ -946,6 +968,17 @@ local Scene_Guild_battle_prt = {
             2.07999992370605,
             -64.2099990844727
           },
+          xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
           xdir = 360
         }
       }
@@ -1207,6 +1240,17 @@ local Scene_Guild_battle_prt = {
             -64.2099990844727
           },
           xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
+          xdir = 360
         }
       }
     },
@@ -1466,6 +1510,17 @@ local Scene_Guild_battle_prt = {
             2.07999992370605,
             -64.2099990844727
           },
+          xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
           xdir = 360
         }
       }
@@ -1727,6 +1782,17 @@ local Scene_Guild_battle_prt = {
             -64.2099990844727
           },
           xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
+          xdir = 360
         }
       }
     },
@@ -1986,6 +2052,17 @@ local Scene_Guild_battle_prt = {
             2.07999992370605,
             -64.2099990844727
           },
+          xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
           xdir = 360
         }
       }
@@ -2247,6 +2324,17 @@ local Scene_Guild_battle_prt = {
             -64.2099990844727
           },
           xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
+          xdir = 360
         }
       }
     },
@@ -2506,6 +2594,17 @@ local Scene_Guild_battle_prt = {
             2.07999992370605,
             -64.2099990844727
           },
+          xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
           xdir = 360
         }
       }
@@ -2767,6 +2866,17 @@ local Scene_Guild_battle_prt = {
             -64.2099990844727
           },
           xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
+          xdir = 360
         }
       }
     },
@@ -3026,6 +3136,17 @@ local Scene_Guild_battle_prt = {
             2.07999992370605,
             -64.2099990844727
           },
+          xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
           xdir = 360
         }
       }
@@ -3287,6 +3408,17 @@ local Scene_Guild_battle_prt = {
             -64.2099990844727
           },
           xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
+          xdir = 360
         }
       }
     },
@@ -3546,6 +3678,17 @@ local Scene_Guild_battle_prt = {
             2.07999992370605,
             -64.2099990844727
           },
+          xdir = 360
+        },
+        {
+          uniqueID = 40023,
+          ID = 40023,
+          position = {
+            0,
+            0,
+            -10
+          },
+          dir = 180,
           xdir = 360
         }
       }

@@ -150,6 +150,15 @@ function ServiceSceneUser3AutoProxy:onRegister()
   self:Listen(82, 47, function(data)
     self:RecvGvgExcellectQueryUserCmd(data)
   end)
+  self:Listen(82, 49, function(data)
+    self:RecvEffectInfoSyncUserCmd(data)
+  end)
+  self:Listen(82, 50, function(data)
+    self:RecvEffectInfoUpdateUserCmd(data)
+  end)
+  self:Listen(82, 51, function(data)
+    self:RecvEffectInfoUseUserCmd(data)
+  end)
   self:Listen(82, 48, function(data)
     self:RecvGvgExcellectRewardUserCmd(data)
   end)
@@ -2206,6 +2215,15 @@ function ServiceSceneUser3AutoProxy:CallActivityExchangeGiftsRewardUserCmd(activ
       end
       msg.itemcost.tmp.num_param = itemcost.tmp.num_param
     end
+    if itemcost.tmp ~= nil and itemcost.tmp.from_reward ~= nil then
+      if msg.itemcost == nil then
+        msg.itemcost = {}
+      end
+      if msg.itemcost.tmp == nil then
+        msg.itemcost.tmp = {}
+      end
+      msg.itemcost.tmp.from_reward = itemcost.tmp.from_reward
+    end
     if itemcost ~= nil and itemcost.mount_fashion_activated ~= nil then
       if msg == nil then
         msg = {}
@@ -2223,6 +2241,15 @@ function ServiceSceneUser3AutoProxy:CallActivityExchangeGiftsRewardUserCmd(activ
         msg.itemcost = {}
       end
       msg.itemcost.no_trade_reason = itemcost.no_trade_reason
+    end
+    if itemcost.card_info ~= nil and itemcost.card_info.lv ~= nil then
+      if msg.itemcost == nil then
+        msg.itemcost = {}
+      end
+      if msg.itemcost.card_info == nil then
+        msg.itemcost.card_info = {}
+      end
+      msg.itemcost.card_info.lv = itemcost.card_info.lv
     end
     if success ~= nil then
       msg.success = success
@@ -2533,6 +2560,15 @@ function ServiceSceneUser3AutoProxy:CallActivityExchangeGiftsRewardUserCmd(activ
       end
       msgParam.itemcost.tmp.num_param = itemcost.tmp.num_param
     end
+    if itemcost.tmp ~= nil and itemcost.tmp.from_reward ~= nil then
+      if msgParam.itemcost == nil then
+        msgParam.itemcost = {}
+      end
+      if msgParam.itemcost.tmp == nil then
+        msgParam.itemcost.tmp = {}
+      end
+      msgParam.itemcost.tmp.from_reward = itemcost.tmp.from_reward
+    end
     if itemcost ~= nil and itemcost.mount_fashion_activated ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -2550,6 +2586,15 @@ function ServiceSceneUser3AutoProxy:CallActivityExchangeGiftsRewardUserCmd(activ
         msgParam.itemcost = {}
       end
       msgParam.itemcost.no_trade_reason = itemcost.no_trade_reason
+    end
+    if itemcost.card_info ~= nil and itemcost.card_info.lv ~= nil then
+      if msgParam.itemcost == nil then
+        msgParam.itemcost = {}
+      end
+      if msgParam.itemcost.card_info == nil then
+        msgParam.itemcost.card_info = {}
+      end
+      msgParam.itemcost.card_info.lv = itemcost.card_info.lv
     end
     if success ~= nil then
       msgParam.success = success
@@ -2576,6 +2621,107 @@ function ServiceSceneUser3AutoProxy:CallGvgExcellectQueryUserCmd(rewardid, leisu
     end
     if leisure ~= nil then
       msgParam.leisure = leisure
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSceneUser3AutoProxy:CallEffectInfoSyncUserCmd(datas)
+  if not NetConfig.PBC then
+    local msg = SceneUser3_pb.EffectInfoSyncUserCmd()
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.EffectInfoSyncUserCmd.id
+    local msgParam = {}
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSceneUser3AutoProxy:CallEffectInfoUpdateUserCmd(type, datas, del)
+  if not NetConfig.PBC then
+    local msg = SceneUser3_pb.EffectInfoUpdateUserCmd()
+    if type ~= nil then
+      msg.type = type
+    end
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    if del ~= nil then
+      msg.del = del
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.EffectInfoUpdateUserCmd.id
+    local msgParam = {}
+    if type ~= nil then
+      msgParam.type = type
+    end
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    if del ~= nil then
+      msgParam.del = del
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceSceneUser3AutoProxy:CallEffectInfoUseUserCmd(id, type)
+  if not NetConfig.PBC then
+    local msg = SceneUser3_pb.EffectInfoUseUserCmd()
+    if id ~= nil then
+      msg.id = id
+    end
+    if type ~= nil then
+      msg.type = type
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.EffectInfoUseUserCmd.id
+    local msgParam = {}
+    if id ~= nil then
+      msgParam.id = id
+    end
+    if type ~= nil then
+      msgParam.type = type
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -2801,6 +2947,18 @@ function ServiceSceneUser3AutoProxy:RecvGvgExcellectQueryUserCmd(data)
   self:Notify(ServiceEvent.SceneUser3GvgExcellectQueryUserCmd, data)
 end
 
+function ServiceSceneUser3AutoProxy:RecvEffectInfoSyncUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3EffectInfoSyncUserCmd, data)
+end
+
+function ServiceSceneUser3AutoProxy:RecvEffectInfoUpdateUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3EffectInfoUpdateUserCmd, data)
+end
+
+function ServiceSceneUser3AutoProxy:RecvEffectInfoUseUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3EffectInfoUseUserCmd, data)
+end
+
 function ServiceSceneUser3AutoProxy:RecvGvgExcellectRewardUserCmd(data)
   self:Notify(ServiceEvent.SceneUser3GvgExcellectRewardUserCmd, data)
 end
@@ -2855,5 +3013,8 @@ ServiceEvent.SceneUser3SetYearMemoryTitleUserCmd = "ServiceEvent_SceneUser3SetYe
 ServiceEvent.SceneUser3ActivityExchangeGiftsQueryUserCmd = "ServiceEvent_SceneUser3ActivityExchangeGiftsQueryUserCmd"
 ServiceEvent.SceneUser3ActivityExchangeGiftsRewardUserCmd = "ServiceEvent_SceneUser3ActivityExchangeGiftsRewardUserCmd"
 ServiceEvent.SceneUser3GvgExcellectQueryUserCmd = "ServiceEvent_SceneUser3GvgExcellectQueryUserCmd"
+ServiceEvent.SceneUser3EffectInfoSyncUserCmd = "ServiceEvent_SceneUser3EffectInfoSyncUserCmd"
+ServiceEvent.SceneUser3EffectInfoUpdateUserCmd = "ServiceEvent_SceneUser3EffectInfoUpdateUserCmd"
+ServiceEvent.SceneUser3EffectInfoUseUserCmd = "ServiceEvent_SceneUser3EffectInfoUseUserCmd"
 ServiceEvent.SceneUser3GvgExcellectRewardUserCmd = "ServiceEvent_SceneUser3GvgExcellectRewardUserCmd"
 ServiceEvent.SceneUser3BattleTimeOffUserCmd = "ServiceEvent_SceneUser3BattleTimeOffUserCmd"

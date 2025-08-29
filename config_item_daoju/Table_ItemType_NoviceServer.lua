@@ -1580,6 +1580,11 @@ Table_ItemType = {
     Name = "古城之泪",
     AdventureLogGroup = 1121
   },
+  [4022] = {
+    id = 4022,
+    Name = "深渊之湖",
+    AdventureLogGroup = 1122
+  },
   [4100] = {
     id = 4100,
     Name = "结婚证书",
@@ -1695,6 +1700,11 @@ Table_ItemType = {
     Name = "古城之泪",
     AdventureLogGroup = 20020
   },
+  [5021] = {
+    id = 5021,
+    Name = "深渊之湖",
+    AdventureLogGroup = 20021
+  },
   [5100] = {
     id = 5100,
     Name = "其他区域",
@@ -1799,6 +1809,11 @@ Table_ItemType = {
     id = 6020,
     Name = "古城之泪",
     AdventureLogGroup = 30020
+  },
+  [6021] = {
+    id = 6021,
+    Name = "深渊之湖",
+    AdventureLogGroup = 30021
   },
   [6100] = {
     id = 6100,

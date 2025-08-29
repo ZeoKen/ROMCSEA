@@ -15,6 +15,7 @@ autoImport("MainViewMultiBossBase")
 autoImport("MainViewHeartLockPage")
 autoImport("BossRaidBord")
 autoImport("MainViewStarArkPage")
+autoImport("MainViewHeroJourneyPage")
 MainViewTraceInfoPage = class("MainViewTraceInfoPage", SubView)
 
 function MainViewTraceInfoPage:OnShow()
@@ -58,6 +59,10 @@ function MainViewTraceInfoPage:AddViewEvts()
   self:AddListenEvt(ServiceEvent.FuBenCmdGuildFireInfoFubenCmd, self.HandleGuildGvg)
   self:AddListenEvt(ServiceEvent.FuBenCmdGvgRaidStateUpdateFubenCmd, self.HandleGuildGvg)
   self:AddListenEvt(GVGEvent.GVGDungeonShutDown, self.HandleGuildGvg)
+  self:AddListenEvt(PVEEvent.HeroJourney_Launch, self.HandleHeroJourney)
+  self:AddListenEvt(PVEEvent.HeroJourney_Shutdown, self.HideHeroJourney)
+  self:AddListenEvt(PVEEvent.HeroJourney_RemoveCD, self.HideHeroJourney)
+  self:AddListenEvt(ServiceEvent.FuBenCmdSyncStartFightStateCmd, self.HandleHeroJourney)
   self:AddListenEvt(PVPEvent.PVP_TransferFightLaunch, self.HandleTransferFightDungeonLaunch)
   self:AddListenEvt(PVPEvent.PVP_TransferFightShutDown, self.HandleTransferFightDungeonShutDown)
   self:AddListenEvt(ServiceEvent.FuBenCmdSuperGvgSyncFubenCmd, self.HandleGVGFinalLaunch)
@@ -606,6 +611,53 @@ function MainViewTraceInfoPage:HandleCountDownEnd()
     self:RemoveSubView("MainViewRaidCountDownBordPage")
   end
   self.commonCountDownBord = nil
+  self.curBord = nil
+end
+
+function MainViewTraceInfoPage:HandleHeroJourney()
+  local show = FunctionPve.Me():CheckShowFightCD()
+  if show then
+    local endTime, npcID, duration = FunctionPve.Me():TrySetStartFightInfo()
+    if not endTime or not npcID then
+      self:HideHeroJourney()
+    elseif FunctionPve.Me():IsFightPause() then
+      self:PauseHeroJournery()
+    else
+      self:ShowHeroJourney(endTime, npcID, duration)
+    end
+  else
+    self:HideHeroJourney()
+  end
+end
+
+function MainViewTraceInfoPage:ShowHeroJourney(time_stamp, npc_id, duration)
+  if not self.heroJourneyBord then
+    self.heroJourneyBord = self:AddSubView("MainViewHeroJourney", MainViewHeroJourneyPage)
+  elseif self.heroJourneyBord then
+    self.heroJourneyBord:Show()
+  end
+  self.heroJourneyBord:UpdatePage({
+    time_stamp,
+    npc_id,
+    duration
+  })
+  self.taskBord:Hide()
+  self.curBord = self.heroJourneyBord
+end
+
+function MainViewTraceInfoPage:PauseHeroJournery()
+  if not self.heroJourneyBord then
+    return
+  end
+  self.heroJourneyBord:PauseTick()
+end
+
+function MainViewTraceInfoPage:HideHeroJourney()
+  if not self.heroJourneyBord then
+    return
+  end
+  self.heroJourneyBord:Hide()
+  self.taskBord:Show()
   self.curBord = nil
 end
 

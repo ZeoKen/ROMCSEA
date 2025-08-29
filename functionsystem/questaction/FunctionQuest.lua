@@ -613,6 +613,16 @@ function FunctionQuest:executeQuest(questData, clientClick)
       FuncShortCutFunc.Me():CallByID(shortCutPowerID)
     end
     return
+  elseif questData.questDataStepType == "client_delay" then
+    local params = questData.params
+    local time = params and params.time
+    if time then
+      TimeTickManager.Me():CreateOnceDelayTick(time * 1000, function()
+        QuestProxy.Instance:notifyQuestState(questData.scope, questData.id, questData.staticData.FinishJump)
+      end, self)
+    else
+      QuestProxy.Instance:notifyQuestState(questData.scope, questData.id, questData.staticData.FinishJump)
+    end
   else
     if self.cmdData and self.cmdData.id == questData.id and self.cmdData.step == questData.step then
       return
@@ -1601,6 +1611,8 @@ function FunctionQuest:handleAutoTrigger(questData)
     end
     local curImageId = ServicePlayerProxy.Instance:GetCurMapImageId() or 0
     self.triggerCheck:AddCallBackCheck(questData.id, questData.map, questData.pos, questData.params.distance, qData, nil, enterFunc, exitFunc, curImageId, qData.params.rectPos, qData.params.waittime)
+  elseif questData.questDataStepType == "abyss_stage" then
+    AbyssFakeDragonProxy.Instance:SetFakeDragonStepInfo(questData)
   end
 end
 

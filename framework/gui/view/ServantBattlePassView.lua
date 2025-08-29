@@ -334,7 +334,9 @@ function ServantBattlePassView:UpdateExhibition(data)
     date.min = 0
     date.sec = 0
     local subVerEndTimeStamp = os.time(date)
-    endTime = os.date("%Y-%m-%d %H:%M:%S", math.min(verEndTimeStamp, subVerEndTimeStamp))
+    endTime = os.date("%Y-%m-%d", math.min(verEndTimeStamp, subVerEndTimeStamp))
+  else
+    endTime = ClientTimeUtil.ConvertTimeToDateFormat(endTime)
   end
   self.exhibitDefault1.text = string.format(ZhString.ServantBattlePassView_text7, endTime)
   self.exhibitDefault2.text = string.format(ZhString.ServantBattlePassView_text8, versionTitle)

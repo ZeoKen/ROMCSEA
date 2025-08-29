@@ -426,6 +426,7 @@ function GuildDonateView:DoDonate()
         count = needNum - hasNum
       }
       if QuickBuyProxy.Instance:TryOpenView({needItem}) then
+        self.confirmTip.closecomp.enabled = false
         return
       end
       MsgManager.ShowMsgByIDTable(8)
@@ -530,9 +531,32 @@ function GuildDonateView:MapEvent()
   self:AddListenEvt(ServiceEvent.GuildCmdUpdateDonateItemGuildCmd, self.UpdateDonateItemList)
   self:AddListenEvt(ServiceEvent.GuildCmdGuildDataUpdateGuildCmd, self.UpdateDonateItemList)
   self:AddListenEvt(ServiceEvent.GuildCmdGuildMemberDataUpdateGuildCmd, self.HandleMemeberDataUpdate)
-  self:AddListenEvt(ItemEvent.ItemUpdate, self.UpdateDonateItemList)
+  self:AddListenEvt(ItemEvent.ItemUpdate, self.HandleItemUpdate)
   self:AddListenEvt(ServiceEvent.GuildCmdApplyRewardConGuildCmd, self.HandleUpdateDonateTip)
   self:AddListenEvt(ServiceEvent.ActivityEventActivityEventNtf, self.UpdateDonateItemList)
+  EventManager.Me():AddEventListener(QuickBuyEvent.CloseUI, self.HandleQuickClose, self)
+end
+
+function GuildDonateView:HandleQuickClose()
+  if not self.confirmTip then
+    return
+  end
+  self.confirmTip.closecomp.enabled = true
+end
+
+function GuildDonateView:RefreshConfirmTip()
+  if not self.confirmTip then
+    return
+  end
+  if not self.selectGuildItemData then
+    return
+  end
+  self.confirmTip:SetData(self.selectGuildItemData)
+end
+
+function GuildDonateView:HandleItemUpdate()
+  self:UpdateDonateItemList()
+  self:RefreshConfirmTip()
 end
 
 function GuildDonateView:HandleUpdateDonateTip(note)
@@ -576,6 +600,7 @@ function GuildDonateView:OnEnter()
 end
 
 function GuildDonateView:OnExit()
+  EventManager.Me():RemoveEventListener(QuickBuyEvent.CloseUI, self.HandleQuickClose, self)
   GuildDonateView.super.OnExit(self)
   ServiceGuildCmdProxy.Instance:CallDonateFrameGuildCmd(false)
   TimeTickManager.Me():ClearTick(self, 1)

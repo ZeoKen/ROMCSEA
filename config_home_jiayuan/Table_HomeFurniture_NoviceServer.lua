@@ -130,6 +130,12 @@ Table_HomeFurniture_t = {
     },
     {
       {
+        param = {OffAction = 200, OnAction = 200},
+        type = 8
+      }
+    },
+    {
+      {
         param = {
           OffAction = 502,
           OnAction = 502,
@@ -165,12 +171,6 @@ Table_HomeFurniture_t = {
     {
       {
         param = {OffAction = 502, OnAction = 500},
-        type = 8
-      }
-    },
-    {
-      {
-        param = {OffAction = 200, OnAction = 200},
         type = 8
       }
     },
@@ -375,6 +375,11 @@ Table_HomeFurniture_t = {
     },
     {
       0,
+      -2.2,
+      0
+    },
+    {
+      0,
       0.4,
       0
     },
@@ -435,12 +440,12 @@ Table_HomeFurniture_t = {
     },
     {
       0,
-      -0.94,
+      -0.18,
       0
     },
     {
       0,
-      -0.18,
+      -1.3,
       0
     },
     {
@@ -480,12 +485,17 @@ Table_HomeFurniture_t = {
     },
     {
       0,
-      -1.2,
+      -0.02,
+      0
+    },
+    {
+      0.05,
+      0.2,
       0
     },
     {
       0,
-      -0.02,
+      -1.2,
       0
     },
     {
@@ -514,23 +524,13 @@ Table_HomeFurniture_t = {
       -0.31
     },
     {
-      0.05,
-      0.2,
-      0
-    },
-    {
       0,
       -1.28,
       0
     },
     {
       0,
-      -2.2,
-      0
-    },
-    {
-      0,
-      -1.3,
+      -0.94,
       0
     },
     {
@@ -651,6 +651,11 @@ Table_HomeFurniture_t = {
   },
   Npc = {
     {
+      id = 900120,
+      life = 0,
+      search = 0
+    },
+    {
       id = 900030,
       life = 0,
       search = 0
@@ -666,22 +671,12 @@ Table_HomeFurniture_t = {
       search = 0
     },
     {
-      id = 900070,
+      id = 900140,
       life = 0,
       search = 0
     },
     {
-      id = 900080,
-      life = 0,
-      search = 0
-    },
-    {
-      id = 900090,
-      life = 0,
-      search = 0
-    },
-    {
-      id = 900100,
+      id = 900130,
       life = 0,
       search = 0
     },
@@ -691,17 +686,22 @@ Table_HomeFurniture_t = {
       search = 0
     },
     {
-      id = 900120,
+      id = 900100,
       life = 0,
       search = 0
     },
     {
-      id = 900140,
+      id = 900090,
       life = 0,
       search = 0
     },
     {
-      id = 900130,
+      id = 900080,
+      life = 0,
+      search = 0
+    },
+    {
+      id = 900070,
       life = 0,
       search = 0
     },
@@ -733,7 +733,8 @@ Table_HomeFurniture = {
     HomeScore = 29,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30001] = {
     id = 30001,
@@ -753,7 +754,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.2,
     FurnitureEffect = Table_HomeFurniture_t.FurnitureEffect[5],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30002] = {
     id = 30002,
@@ -784,7 +786,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 0.7,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30004] = {
     id = 30004,
@@ -805,9 +808,10 @@ Table_HomeFurniture = {
     HomeScore = 8,
     IdleAction = 0,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[64],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[66],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30005] = {
     id = 30005,
@@ -875,7 +879,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30009] = {
     id = 30009,
@@ -888,7 +893,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 1,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30010] = {
     id = 30010,
@@ -900,7 +906,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 0.7,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30011] = {
     id = 30011,
@@ -918,7 +925,8 @@ Table_HomeFurniture = {
     HomeScore = 40,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30012] = {
     id = 30012,
@@ -936,9 +944,10 @@ Table_HomeFurniture = {
     Theme = 20001,
     HomeScore = 20,
     LoadShowSize = 0.7,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[65],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[67],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30013] = {
     id = 30013,
@@ -953,7 +962,8 @@ Table_HomeFurniture = {
     HomeScore = 22,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30014] = {
     id = 30014,
@@ -1002,7 +1012,8 @@ Table_HomeFurniture = {
     HomeScore = 22,
     LoadShowSize = 1,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30017] = {
     id = 30017,
@@ -1016,7 +1027,8 @@ Table_HomeFurniture = {
     HomeScore = 22,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30018] = {
     id = 30018,
@@ -1030,7 +1042,8 @@ Table_HomeFurniture = {
     HomeScore = 42,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30100] = {
     id = 30100,
@@ -1048,7 +1061,8 @@ Table_HomeFurniture = {
     HomeScore = 100,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30101] = {
     id = 30101,
@@ -1068,7 +1082,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[76],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30102] = {
     id = 30102,
@@ -1083,7 +1098,8 @@ Table_HomeFurniture = {
     HomeScore = 55,
     LoadShowSize = 0.4,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30103] = {
     id = 30103,
@@ -1096,7 +1112,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 0.8,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30104] = {
     id = 30104,
@@ -1152,7 +1169,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.2,
     FurnitureEffect = Table_HomeFurniture_t.FurnitureEffect[6],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30107] = {
     id = 30107,
@@ -1175,7 +1193,8 @@ Table_HomeFurniture = {
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[77],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30108] = {
     id = 30108,
@@ -1230,7 +1249,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30119] = {
     id = 30119,
@@ -1259,7 +1279,8 @@ Table_HomeFurniture = {
     Theme = 20005,
     LoadShowSize = 0.7,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30121] = {
     id = 30121,
@@ -1272,7 +1293,8 @@ Table_HomeFurniture = {
     HomeScore = 66,
     LoadShowSize = 0.7,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30122] = {
     id = 30122,
@@ -1305,7 +1327,8 @@ Table_HomeFurniture = {
     HomeScore = 55,
     LoadShowSize = 0.4,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30201] = {
     id = 30201,
@@ -1319,7 +1342,8 @@ Table_HomeFurniture = {
     HomeScore = 25,
     LoadShowSize = 1,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30202] = {
     id = 30202,
@@ -1376,7 +1400,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.2,
     FurnitureEffect = Table_HomeFurniture_t.FurnitureEffect[1],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30205] = {
     id = 30205,
@@ -1393,7 +1418,8 @@ Table_HomeFurniture = {
     HomeScore = 45,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30206] = {
     id = 30206,
@@ -1416,7 +1442,8 @@ Table_HomeFurniture = {
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[14],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30207] = {
     id = 30207,
@@ -1488,7 +1515,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30211] = {
     id = 30211,
@@ -1520,7 +1548,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.7,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[17],
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30213] = {
     id = 30213,
@@ -1556,7 +1585,8 @@ Table_HomeFurniture = {
     HomeScore = 36,
     LoadShowSize = 0.5,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30220] = {
     id = 30220,
@@ -1574,7 +1604,8 @@ Table_HomeFurniture = {
     HomeScore = 100,
     LoadShowSize = 0.3,
     MenuID = 9902,
-    UnlockDesc = "家园功能开放后解锁"
+    UnlockDesc = "家园功能开放后解锁",
+    AreaLimit = 1
   },
   [30300] = {
     id = 30300,
@@ -1661,7 +1692,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.3,
     FurnitureEffect = Table_HomeFurniture_t.FurnitureEffect[3],
     MenuID = 5342,
-    UnlockDesc = "梅尔区声望达到4级后解锁"
+    UnlockDesc = "梅尔区声望达到4级后解锁",
+    AreaLimit = 1
   },
   [30305] = {
     id = 30305,
@@ -1691,7 +1723,8 @@ Table_HomeFurniture = {
     Theme = 20002,
     LoadShowSize = 0.6,
     MenuID = 5346,
-    UnlockDesc = "梅尔区声望达到8级后解锁"
+    UnlockDesc = "梅尔区声望达到8级后解锁",
+    AreaLimit = 1
   },
   [30307] = {
     id = 30307,
@@ -1710,7 +1743,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.4,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[28],
     MenuID = 5341,
-    UnlockDesc = "梅尔区声望达到3级后解锁"
+    UnlockDesc = "梅尔区声望达到3级后解锁",
+    AreaLimit = 1
   },
   [30308] = {
     id = 30308,
@@ -1740,7 +1774,8 @@ Table_HomeFurniture = {
     HomeScore = 55,
     LoadShowSize = 0.4,
     MenuID = 5347,
-    UnlockDesc = "梅尔区声望达到9级后解锁"
+    UnlockDesc = "梅尔区声望达到9级后解锁",
+    AreaLimit = 1
   },
   [30310] = {
     id = 30310,
@@ -1760,7 +1795,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[3],
     MenuID = 5341,
-    UnlockDesc = "梅尔区声望达到3级后解锁"
+    UnlockDesc = "梅尔区声望达到3级后解锁",
+    AreaLimit = 1
   },
   [30311] = {
     id = 30311,
@@ -1783,7 +1819,8 @@ Table_HomeFurniture = {
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[14],
     MenuID = 5345,
-    UnlockDesc = "梅尔区声望达到7级后解锁"
+    UnlockDesc = "梅尔区声望达到7级后解锁",
+    AreaLimit = 1
   },
   [30312] = {
     id = 30312,
@@ -1844,7 +1881,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 1,
     MenuID = 5340,
-    UnlockDesc = "梅尔区声望达到2级后解锁"
+    UnlockDesc = "梅尔区声望达到2级后解锁",
+    AreaLimit = 1
   },
   [30316] = {
     id = 30316,
@@ -1861,7 +1899,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.3,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[29],
     MenuID = 5340,
-    UnlockDesc = "梅尔区声望达到2级后解锁"
+    UnlockDesc = "梅尔区声望达到2级后解锁",
+    AreaLimit = 1
   },
   [30317] = {
     id = 30317,
@@ -1900,7 +1939,8 @@ Table_HomeFurniture = {
     IdleAction = 0,
     LoadShowSize = 0.7,
     MenuID = 5350,
-    UnlockDesc = "梅尔区声望达到12级后解锁"
+    UnlockDesc = "梅尔区声望达到12级后解锁",
+    AreaLimit = 1
   },
   [30319] = {
     id = 30319,
@@ -1920,7 +1960,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.5,
     MenuID = 5349,
-    UnlockDesc = "梅尔区声望达到11级后解锁"
+    UnlockDesc = "梅尔区声望达到11级后解锁",
+    AreaLimit = 1
   },
   [30325] = {
     id = 30325,
@@ -1934,7 +1975,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 1,
     MenuID = 5345,
-    UnlockDesc = "梅尔区声望达到7级后解锁"
+    UnlockDesc = "梅尔区声望达到7级后解锁",
+    AreaLimit = 1
   },
   [30326] = {
     id = 30326,
@@ -1951,7 +1993,8 @@ Table_HomeFurniture = {
     HomeScore = 29,
     LoadShowSize = 0.5,
     MenuID = 5346,
-    UnlockDesc = "梅尔区声望达到8级后解锁"
+    UnlockDesc = "梅尔区声望达到8级后解锁",
+    AreaLimit = 1
   },
   [30400] = {
     id = 30400,
@@ -2026,7 +2069,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.2,
     FurnitureEffect = Table_HomeFurniture_t.FurnitureEffect[4],
     MenuID = 5321,
-    UnlockDesc = "贝勒区声望达到3级后解锁"
+    UnlockDesc = "贝勒区声望达到3级后解锁",
+    AreaLimit = 1
   },
   [30404] = {
     id = 30404,
@@ -2041,7 +2085,7 @@ Table_HomeFurniture = {
     Theme = 20003,
     HomeScore = 10,
     LoadShowSize = 0.4,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[46],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[47],
     AreaLimit = 3
   },
   [30405] = {
@@ -2068,7 +2112,8 @@ Table_HomeFurniture = {
     Type = 5,
     Theme = 20003,
     HomeScore = 42,
-    LoadShowSize = 0.7
+    LoadShowSize = 0.7,
+    AreaLimit = 1
   },
   [30409] = {
     id = 30409,
@@ -2086,7 +2131,8 @@ Table_HomeFurniture = {
     HomeScore = 120,
     LoadShowSize = 0.5,
     MenuID = 5327,
-    UnlockDesc = "贝勒区声望达到9级后解锁"
+    UnlockDesc = "贝勒区声望达到9级后解锁",
+    AreaLimit = 1
   },
   [30410] = {
     id = 30410,
@@ -2115,7 +2161,8 @@ Table_HomeFurniture = {
     HomeScore = 36,
     LoadShowSize = 0.5,
     MenuID = 5328,
-    UnlockDesc = "贝勒区声望达到10级后解锁"
+    UnlockDesc = "贝勒区声望达到10级后解锁",
+    AreaLimit = 1
   },
   [30412] = {
     id = 30412,
@@ -2133,9 +2180,10 @@ Table_HomeFurniture = {
     Theme = 20003,
     HomeScore = 20,
     LoadShowSize = 0.5,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[47],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[48],
     MenuID = 5322,
-    UnlockDesc = "贝勒区声望达到4级后解锁"
+    UnlockDesc = "贝勒区声望达到4级后解锁",
+    AreaLimit = 1
   },
   [30413] = {
     id = 30413,
@@ -2156,9 +2204,10 @@ Table_HomeFurniture = {
     HomeScore = 8,
     IdleAction = 0,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[48],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[49],
     MenuID = 5328,
-    UnlockDesc = "贝勒区声望达到10级后解锁"
+    UnlockDesc = "贝勒区声望达到10级后解锁",
+    AreaLimit = 1
   },
   [30414] = {
     id = 30414,
@@ -2189,7 +2238,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 0.6,
     MenuID = 5324,
-    UnlockDesc = "贝勒区声望达到6级后解锁"
+    UnlockDesc = "贝勒区声望达到6级后解锁",
+    AreaLimit = 1
   },
   [30416] = {
     id = 30416,
@@ -2227,9 +2277,10 @@ Table_HomeFurniture = {
     Theme = 20003,
     HomeScore = 29,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[49],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[50],
     MenuID = 5329,
-    UnlockDesc = "贝勒区声望达到11级后解锁"
+    UnlockDesc = "贝勒区声望达到11级后解锁",
+    AreaLimit = 1
   },
   [30418] = {
     id = 30418,
@@ -2268,7 +2319,8 @@ Table_HomeFurniture = {
     LoadShowSize = 1,
     SeatCount = 1,
     MenuID = 5330,
-    UnlockDesc = "贝勒区声望达到12级后解锁"
+    UnlockDesc = "贝勒区声望达到12级后解锁",
+    AreaLimit = 1
   },
   [30420] = {
     id = 30420,
@@ -2288,7 +2340,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.5,
     MenuID = 5325,
-    UnlockDesc = "贝勒区声望达到7级后解锁"
+    UnlockDesc = "贝勒区声望达到7级后解锁",
+    AreaLimit = 1
   },
   [30426] = {
     id = 30426,
@@ -2303,7 +2356,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[9],
     HomeScore = 29,
-    LoadShowSize = 0.5
+    LoadShowSize = 0.5,
+    AreaLimit = 1
   },
   [30427] = {
     id = 30427,
@@ -2316,7 +2370,8 @@ Table_HomeFurniture = {
     HomeScore = 16,
     LoadShowSize = 1,
     MenuID = 5327,
-    UnlockDesc = "贝勒区声望达到9级后解锁"
+    UnlockDesc = "贝勒区声望达到9级后解锁",
+    AreaLimit = 1
   },
   [30505] = {
     id = 30505,
@@ -2337,8 +2392,9 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[7],
     HomeScore = 20,
     IdleAction = 0,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[62],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[64],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30506] = {
     id = 30506,
@@ -2389,8 +2445,9 @@ Table_HomeFurniture = {
     Catagory = 2,
     Theme = 20008,
     HomeScore = 52,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[63],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[65],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30509] = {
     id = 30509,
@@ -2408,7 +2465,8 @@ Table_HomeFurniture = {
     HomeScore = 54,
     IdleAction = 500,
     LoadShowSize = 0.7,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30510] = {
     id = 30510,
@@ -2483,7 +2541,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[91],
     SeatCount = 1,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30521] = {
     id = 30521,
@@ -2494,7 +2553,8 @@ Table_HomeFurniture = {
     Type = 3,
     Theme = 20008,
     HomeScore = 25,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30522] = {
     id = 30522,
@@ -2507,7 +2567,8 @@ Table_HomeFurniture = {
     Theme = 20008,
     HomeScore = 16,
     LoadShowSize = 0.8,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30523] = {
     id = 30523,
@@ -2545,7 +2606,8 @@ Table_HomeFurniture = {
     HomeScore = 36,
     LoadShowSize = 0.7,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[83],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30525] = {
     id = 30525,
@@ -2580,7 +2642,8 @@ Table_HomeFurniture = {
     HomeScore = 70,
     IdleAction = 0,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[88],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30527] = {
     id = 30527,
@@ -2633,7 +2696,8 @@ Table_HomeFurniture = {
     Theme = 20008,
     HomeScore = 29,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[86],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30604] = {
     id = 30604,
@@ -2655,6 +2719,7 @@ Table_HomeFurniture = {
   },
   [30612] = {
     id = 30612,
+    Name = "Museum_02_Art",
     NameZh = "裁决骑士雕像",
     Row = 3,
     EndHeight = 4,
@@ -2710,7 +2775,8 @@ Table_HomeFurniture = {
     Theme = 20009,
     HomeScore = 29,
     LoadShowSize = 0.6,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[11]
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[11],
+    AreaLimit = 1
   },
   [30708] = {
     id = 30708,
@@ -2729,7 +2795,8 @@ Table_HomeFurniture = {
     Theme = 20009,
     HomeScore = 29,
     LoadShowSize = 1.2,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[12]
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[12],
+    AreaLimit = 1
   },
   [30709] = {
     id = 30709,
@@ -2809,7 +2876,7 @@ Table_HomeFurniture = {
     HomeScore = 70,
     IdleAction = 0,
     LoadShowSize = 0.72,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[57],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[58],
     AreaLimit = 3
   },
   [30714] = {
@@ -2846,7 +2913,8 @@ Table_HomeFurniture = {
     Theme = 20009,
     HomeScore = 29,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[69]
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[52],
+    AreaLimit = 1
   },
   [30716] = {
     id = 30716,
@@ -2865,7 +2933,8 @@ Table_HomeFurniture = {
     Theme = 20009,
     HomeScore = 29,
     LoadShowSize = 1.2,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[85]
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[85],
+    AreaLimit = 1
   },
   [30717] = {
     id = 30717,
@@ -2943,7 +3012,8 @@ Table_HomeFurniture = {
     Theme = 20009,
     HomeScore = 23,
     LoadShowSize = 0.7,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[82]
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[82],
+    AreaLimit = 1
   },
   [30722] = {
     id = 30722,
@@ -2964,7 +3034,7 @@ Table_HomeFurniture = {
     HomeScore = 35,
     IdleAction = 500,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[41],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[42],
     AreaLimit = 3
   },
   [30723] = {
@@ -2984,7 +3054,8 @@ Table_HomeFurniture = {
     Theme = 20009,
     HomeScore = 45,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[81]
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[81],
+    AreaLimit = 1
   },
   [30724] = {
     id = 30724,
@@ -3019,7 +3090,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.3,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[21],
     FurnitureEffect = Table_HomeFurniture_t.FurnitureEffect[2],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30801] = {
     id = 30801,
@@ -3084,7 +3156,8 @@ Table_HomeFurniture = {
     IdleAction = 0,
     LoadShowSize = 0.9,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[22],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30804] = {
     id = 30804,
@@ -3108,7 +3181,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[23],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30805] = {
     id = 30805,
@@ -3128,7 +3202,8 @@ Table_HomeFurniture = {
     HomeScore = 29,
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[2],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30806] = {
     id = 30806,
@@ -3167,7 +3242,8 @@ Table_HomeFurniture = {
     HomeScore = 36,
     LoadShowSize = 0.8,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[22],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30808] = {
     id = 30808,
@@ -3185,7 +3261,8 @@ Table_HomeFurniture = {
     HomeScore = 100,
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[25],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30809] = {
     id = 30809,
@@ -3219,7 +3296,8 @@ Table_HomeFurniture = {
     HomeScore = 40,
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[21],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30811] = {
     id = 30811,
@@ -3253,7 +3331,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.8,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[31],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [30813] = {
     id = 30813,
@@ -3386,7 +3465,7 @@ Table_HomeFurniture = {
     AccessType = 10,
     HomeScore = 80,
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[11]
+    Npc = Table_HomeFurniture_t.Npc[6]
   },
   [31010] = {
     id = 31010,
@@ -3406,7 +3485,8 @@ Table_HomeFurniture = {
     HomeScore = 40,
     IdleAction = 0,
     LoadShowSize = 0.8,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[59]
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[62],
+    AreaLimit = 1
   },
   [31015] = {
     id = 31015,
@@ -3421,7 +3501,7 @@ Table_HomeFurniture = {
     NearbyRange = 2,
     IdleAction = 0,
     LoadShowSize = 0.5,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[61],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[63],
     AreaLimit = 3
   },
   [31101] = {
@@ -3444,7 +3524,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[72],
     MenuID = 3000018,
     UnlockDesc = "完成主线·异途陌路",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31102] = {
     id = 31102,
@@ -3461,7 +3542,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[13],
     MenuID = 3000018,
     UnlockDesc = "完成主线·异途陌路",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31103] = {
     id = 31103,
@@ -3482,7 +3564,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[73],
     MenuID = 3000018,
     UnlockDesc = "完成主线·异途陌路",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31104] = {
     id = 31104,
@@ -3630,7 +3713,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[1],
     MenuID = 5417,
     UnlockDesc = "荒境声望达到12级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31201] = {
     id = 31201,
@@ -3646,7 +3730,8 @@ Table_HomeFurniture = {
     HomeScore = 13,
     IdleAction = 500,
     LoadShowSize = 0.8,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31202] = {
     id = 31202,
@@ -3664,7 +3749,8 @@ Table_HomeFurniture = {
     Theme = 20012,
     HomeScore = 29,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[2],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31203] = {
     id = 31203,
@@ -3686,6 +3772,7 @@ Table_HomeFurniture = {
     MenuID = 5409,
     UnlockDesc = "荒境声望达到4级解锁",
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31204] = {
@@ -3711,7 +3798,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[4],
     MenuID = 5408,
     UnlockDesc = "荒境声望达到3级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31205] = {
     id = 31205,
@@ -3730,7 +3818,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.7,
     MenuID = 5411,
     UnlockDesc = "荒境声望达到6级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31206] = {
     id = 31206,
@@ -3750,7 +3839,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[5],
     MenuID = 5407,
     UnlockDesc = "荒境声望达到2级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31207] = {
     id = 31207,
@@ -3769,7 +3859,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[6],
     MenuID = 5409,
     UnlockDesc = "荒境声望达到4级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31208] = {
     id = 31208,
@@ -3788,7 +3879,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[7],
     MenuID = 5407,
     UnlockDesc = "荒境声望达到2级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31209] = {
     id = 31209,
@@ -3807,7 +3899,8 @@ Table_HomeFurniture = {
     HomeScore = 29,
     LoadShowSize = 0.8,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[8],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31210] = {
     id = 31210,
@@ -3826,7 +3919,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     MenuID = 5411,
     UnlockDesc = "荒境声望达到6级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31211] = {
     id = 31211,
@@ -3848,6 +3942,7 @@ Table_HomeFurniture = {
     MenuID = 5413,
     UnlockDesc = "荒境声望达到8级解锁",
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31212] = {
@@ -3870,6 +3965,7 @@ Table_HomeFurniture = {
     MenuID = 5413,
     UnlockDesc = "荒境声望达到8级解锁",
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31213] = {
@@ -3894,7 +3990,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[10],
     MenuID = 5408,
     UnlockDesc = "荒境声望达到3级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31214] = {
     id = 31214,
@@ -3912,7 +4009,8 @@ Table_HomeFurniture = {
     Theme = 20012,
     HomeScore = 20,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[9],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31215] = {
     id = 31215,
@@ -3931,7 +4029,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     MenuID = 5414,
     UnlockDesc = "荒境声望达到9级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31216] = {
     id = 31216,
@@ -3946,7 +4045,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     MenuID = 5410,
     UnlockDesc = "荒境声望达到5级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31217] = {
     id = 31217,
@@ -3963,7 +4063,8 @@ Table_HomeFurniture = {
     HomeScore = 13,
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[7],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31218] = {
     id = 31218,
@@ -3976,7 +4077,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     HomeScore = 13,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31219] = {
     id = 31219,
@@ -3997,7 +4099,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[75],
     MenuID = 5416,
     UnlockDesc = "荒境声望达到11级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31220] = {
     id = 31220,
@@ -4013,7 +4116,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.8,
     MenuID = 5410,
     UnlockDesc = "荒境声望达到5级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31221] = {
     id = 31221,
@@ -4028,7 +4132,8 @@ Table_HomeFurniture = {
     HomeScore = 31,
     MenuID = 5418,
     UnlockDesc = "荒境声望达到13级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31222] = {
     id = 31222,
@@ -4046,7 +4151,8 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[13],
     MenuID = 5419,
     UnlockDesc = "荒境声望达到14级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31223] = {
     id = 31223,
@@ -4061,7 +4167,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.6,
     MenuID = 5420,
     UnlockDesc = "荒境声望达到15级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31224] = {
     id = 31224,
@@ -4079,7 +4186,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.8,
     MenuID = 5410,
     UnlockDesc = "荒境声望达到5级解锁",
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31225] = {
     id = 31225,
@@ -4207,7 +4315,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[9],
     HomeScore = 32,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31301] = {
     id = 31301,
@@ -4224,7 +4333,8 @@ Table_HomeFurniture = {
     HomeScore = 100,
     LoadShowSize = 0.4,
     MenuID = 5402,
-    UnlockDesc = "影枫司声望达到8级解锁"
+    UnlockDesc = "影枫司声望达到8级解锁",
+    AreaLimit = 1
   },
   [31302] = {
     id = 31302,
@@ -4267,7 +4377,8 @@ Table_HomeFurniture = {
     Theme = 20013,
     LoadShowSize = 0.8,
     MenuID = 5397,
-    UnlockDesc = "影枫司声望达到3级解锁"
+    UnlockDesc = "影枫司声望达到3级解锁",
+    AreaLimit = 1
   },
   [31305] = {
     id = 31305,
@@ -4284,7 +4395,8 @@ Table_HomeFurniture = {
     HomeScore = 45,
     LoadShowSize = 0.5,
     MenuID = 5399,
-    UnlockDesc = "影枫司声望达到5级解锁"
+    UnlockDesc = "影枫司声望达到5级解锁",
+    AreaLimit = 1
   },
   [31306] = {
     id = 31306,
@@ -4302,7 +4414,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.5,
     MenuID = 5406,
-    UnlockDesc = "影枫司声望达到12级解锁"
+    UnlockDesc = "影枫司声望达到12级解锁",
+    AreaLimit = 1
   },
   [31307] = {
     id = 31307,
@@ -4377,6 +4490,7 @@ Table_HomeFurniture = {
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[20],
     MenuID = 5398,
     UnlockDesc = "影枫司声望达到4级解锁",
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31311] = {
@@ -4395,9 +4509,10 @@ Table_HomeFurniture = {
     Theme = 20013,
     HomeScore = 29,
     LoadShowSize = 0.8,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[50],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[69],
     MenuID = 5398,
     UnlockDesc = "影枫司声望达到4级解锁",
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31312] = {
@@ -4446,7 +4561,8 @@ Table_HomeFurniture = {
     HomeScore = 40,
     LoadShowSize = 0.5,
     MenuID = 5401,
-    UnlockDesc = "影枫司声望达到7级解锁"
+    UnlockDesc = "影枫司声望达到7级解锁",
+    AreaLimit = 1
   },
   [31404] = {
     id = 31404,
@@ -4464,8 +4580,9 @@ Table_HomeFurniture = {
     Theme = 20014,
     HomeScore = 25,
     LoadShowSize = 0.8,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[40],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[41],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31405] = {
@@ -4484,7 +4601,8 @@ Table_HomeFurniture = {
     HomeScore = 100,
     LoadShowSize = 0.36,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[7],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31406] = {
     id = 31406,
@@ -4505,8 +4623,9 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[7],
     HomeScore = 15,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[41],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[42],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31407] = {
     id = 31407,
@@ -4523,7 +4642,8 @@ Table_HomeFurniture = {
     HomeScore = 60,
     LoadShowSize = 0.7,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[19],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31408] = {
     id = 31408,
@@ -4538,7 +4658,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     HomeScore = 50,
     LoadShowSize = 0.8,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31409] = {
     id = 31409,
@@ -4556,7 +4677,8 @@ Table_HomeFurniture = {
     HomeScore = 70,
     LoadShowSize = 0.6,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[7],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31410] = {
     id = 31410,
@@ -4572,7 +4694,8 @@ Table_HomeFurniture = {
     HomeScore = 25,
     LoadShowSize = 0.6,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[7],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31411] = {
     id = 31411,
@@ -4589,7 +4712,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     HomeScore = 50,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31412] = {
     id = 31412,
@@ -4624,6 +4748,7 @@ Table_HomeFurniture = {
     HomeScore = 30,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[12],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31601] = {
@@ -4640,7 +4765,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31602] = {
     id = 31602,
@@ -4658,7 +4784,8 @@ Table_HomeFurniture = {
     Theme = 20016,
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[70],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31603] = {
     id = 31603,
@@ -4706,7 +4833,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31607] = {
     id = 31607,
@@ -4722,7 +4850,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[19],
     LoadShowSize = 0.7,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31608] = {
     id = 31608,
@@ -4738,9 +4867,10 @@ Table_HomeFurniture = {
     Catagory = 4,
     Theme = 20016,
     AccessType = 2,
-    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[29],
+    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[24],
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[71],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31610] = {
     id = 31610,
@@ -4751,7 +4881,8 @@ Table_HomeFurniture = {
     Type = 9,
     Theme = 20016,
     LoadShowSize = 0.7,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31612] = {
     id = 31612,
@@ -4763,7 +4894,8 @@ Table_HomeFurniture = {
     Type = 5,
     Theme = 20016,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31613] = {
     id = 31613,
@@ -4776,7 +4908,8 @@ Table_HomeFurniture = {
     Type = 9,
     Theme = 20016,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31614] = {
     id = 31614,
@@ -4808,7 +4941,8 @@ Table_HomeFurniture = {
     AccessType = 1,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[7],
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31616] = {
     id = 31616,
@@ -4835,7 +4969,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     HomeScore = 60,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31618] = {
     id = 31618,
@@ -4851,7 +4986,8 @@ Table_HomeFurniture = {
     AccessRange = 3,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     LoadShowSize = 0.4,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31619] = {
     id = 31619,
@@ -4883,7 +5019,8 @@ Table_HomeFurniture = {
     Theme = 20017,
     LoadShowSize = 0.3,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[5],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31621] = {
     id = 31621,
@@ -4895,7 +5032,8 @@ Table_HomeFurniture = {
     Type = 17,
     Catagory = 2,
     Theme = 20017,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31622] = {
     id = 31622,
@@ -4911,7 +5049,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[30],
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31623] = {
     id = 31623,
@@ -4925,7 +5064,8 @@ Table_HomeFurniture = {
     Catagory = 4,
     Theme = 20017,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31625] = {
     id = 31625,
@@ -4936,7 +5076,8 @@ Table_HomeFurniture = {
     Height = 3,
     Type = 9,
     Theme = 20017,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31626] = {
     id = 31626,
@@ -4964,7 +5105,8 @@ Table_HomeFurniture = {
     AccessType = 2,
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31628] = {
     id = 31628,
@@ -4975,7 +5117,8 @@ Table_HomeFurniture = {
     Type = 3,
     Theme = 20017,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31629] = {
     id = 31629,
@@ -4988,7 +5131,8 @@ Table_HomeFurniture = {
     AccessType = 4,
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[9],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31700] = {
     Name = "Princess_01_LargeDecoration",
@@ -5055,7 +5199,8 @@ Table_HomeFurniture = {
     AccessRange = 2,
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[4],
     LoadShowSize = 0.7,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31704] = {
     id = 31704,
@@ -5120,7 +5265,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     HomeScore = 100,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31801] = {
     id = 31801,
@@ -5137,7 +5283,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[12],
     HomeScore = 50,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31802] = {
     id = 31802,
@@ -5150,7 +5297,8 @@ Table_HomeFurniture = {
     Theme = 20015,
     HomeScore = 20,
     LoadShowSize = 0.7,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31803] = {
     id = 31803,
@@ -5168,7 +5316,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[11],
     HomeScore = 60,
     LoadShowSize = 0.6,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31804] = {
     id = 31804,
@@ -5203,7 +5352,8 @@ Table_HomeFurniture = {
     HomeScore = 40,
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[7],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31806] = {
     id = 31806,
@@ -5219,7 +5369,8 @@ Table_HomeFurniture = {
     HomeScore = 30,
     LoadShowSize = 0.7,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[7],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31807] = {
     id = 31807,
@@ -5234,7 +5385,8 @@ Table_HomeFurniture = {
     HomeScore = 40,
     LoadShowSize = 0.7,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[19],
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31812] = {
     id = 31812,
@@ -5248,7 +5400,8 @@ Table_HomeFurniture = {
     Theme = 20015,
     HomeScore = 40,
     LoadShowSize = 0.5,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31813] = {
     id = 31813,
@@ -5281,7 +5434,8 @@ Table_HomeFurniture = {
     HomeScore = 120,
     LoadShowSize = 0.5,
     SeatCount = 2,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31901] = {
     id = 31901,
@@ -5298,7 +5452,8 @@ Table_HomeFurniture = {
     HomeScore = 50,
     LoadShowSize = 0.6,
     SeatCount = 1,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31902] = {
     id = 31902,
@@ -5312,7 +5467,8 @@ Table_HomeFurniture = {
     Theme = 20018,
     HomeScore = 25,
     LoadShowSize = 0.6,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31903] = {
     id = 31903,
@@ -5333,8 +5489,9 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[7],
     HomeScore = 13,
     LoadShowSize = 1.3,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[68],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[38],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31904] = {
@@ -5353,7 +5510,8 @@ Table_HomeFurniture = {
     HomeScore = 60,
     LoadShowSize = 0.5,
     SeatCount = 4,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31905] = {
     id = 31905,
@@ -5366,7 +5524,8 @@ Table_HomeFurniture = {
     Theme = 20018,
     HomeScore = 42,
     LoadShowSize = 0.7,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31906] = {
     id = 31906,
@@ -5382,8 +5541,9 @@ Table_HomeFurniture = {
     Theme = 20018,
     HomeScore = 23,
     LoadShowSize = 0.7,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[38],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[39],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [31907] = {
     id = 31907,
@@ -5450,8 +5610,9 @@ Table_HomeFurniture = {
     Theme = 20018,
     HomeScore = 29,
     LoadShowSize = 1.3,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[39],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[40],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31911] = {
@@ -5471,8 +5632,9 @@ Table_HomeFurniture = {
     Theme = 20018,
     HomeScore = 46,
     LoadShowSize = 1.3,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[39],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[40],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31912] = {
@@ -5550,8 +5712,9 @@ Table_HomeFurniture = {
     Type = 8,
     Theme = 20018,
     HomeScore = 14,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[67],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[68],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [31917] = {
@@ -5584,7 +5747,7 @@ Table_HomeFurniture = {
     Theme = 20018,
     AccessType = 2,
     AccessRange = 2,
-    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[27],
+    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[28],
     HomeScore = 34,
     LoadShowSize = 0.5,
     HideInAdventure = 1,
@@ -5721,7 +5884,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     AccessType = 2,
     AccessRange = 2,
-    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[28],
+    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[29],
     HomeScore = 40,
     LoadShowSize = 0.5,
     HideInAdventure = 1,
@@ -5747,6 +5910,7 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[3],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [32106] = {
@@ -5847,7 +6011,7 @@ Table_HomeFurniture = {
     MenuID = 5370,
     UnlockDesc = "家园声望达到12级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[1]
+    Npc = Table_HomeFurniture_t.Npc[2]
   },
   [38005] = {
     id = 38005,
@@ -6018,7 +6182,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.6,
     MenuID = 5377,
-    UnlockDesc = "家园声望达到19级后解锁"
+    UnlockDesc = "家园声望达到19级后解锁",
+    AreaLimit = 1
   },
   [38016] = {
     id = 38016,
@@ -6038,7 +6203,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[33],
     MenuID = 5360,
-    UnlockDesc = "家园声望达到2级后解锁"
+    UnlockDesc = "家园声望达到2级后解锁",
+    AreaLimit = 1
   },
   [38018] = {
     id = 38018,
@@ -6059,7 +6225,8 @@ Table_HomeFurniture = {
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[34],
     MenuID = 5366,
-    UnlockDesc = "家园声望达到8级后解锁"
+    UnlockDesc = "家园声望达到8级后解锁",
+    AreaLimit = 1
   },
   [38019] = {
     id = 38019,
@@ -6081,7 +6248,8 @@ Table_HomeFurniture = {
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[35],
     MenuID = 5363,
-    UnlockDesc = "家园声望达到5级后解锁"
+    UnlockDesc = "家园声望达到5级后解锁",
+    AreaLimit = 1
   },
   [38020] = {
     id = 38020,
@@ -6097,7 +6265,8 @@ Table_HomeFurniture = {
     HomeScore = 45,
     LoadShowSize = 0.7,
     MenuID = 5363,
-    UnlockDesc = "家园声望达到5级后解锁"
+    UnlockDesc = "家园声望达到5级后解锁",
+    AreaLimit = 1
   },
   [38021] = {
     id = 38021,
@@ -6134,7 +6303,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.5,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[36],
     MenuID = 5378,
-    UnlockDesc = "家园声望达到20级后解锁"
+    UnlockDesc = "家园声望达到20级后解锁",
+    AreaLimit = 1
   },
   [38023] = {
     id = 38023,
@@ -6169,7 +6339,8 @@ Table_HomeFurniture = {
     LoadShowSize = 1,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[9],
     MenuID = 5374,
-    UnlockDesc = "家园声望达到16级后解锁"
+    UnlockDesc = "家园声望达到16级后解锁",
+    AreaLimit = 1
   },
   [38025] = {
     id = 38025,
@@ -6218,7 +6389,8 @@ Table_HomeFurniture = {
     LoadShowSize = 0.8,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[37],
     MenuID = 5371,
-    UnlockDesc = "家园声望达到13级后解锁"
+    UnlockDesc = "家园声望达到13级后解锁",
+    AreaLimit = 1
   },
   [38030] = {
     id = 38030,
@@ -6233,7 +6405,7 @@ Table_HomeFurniture = {
     MenuID = 5363,
     UnlockDesc = "家园声望达到5级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[2]
+    Npc = Table_HomeFurniture_t.Npc[3]
   },
   [38031] = {
     id = 38031,
@@ -6248,7 +6420,7 @@ Table_HomeFurniture = {
     MenuID = 5368,
     UnlockDesc = "家园声望达到10级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[3]
+    Npc = Table_HomeFurniture_t.Npc[4]
   },
   [38032] = {
     id = 38032,
@@ -6263,7 +6435,7 @@ Table_HomeFurniture = {
     MenuID = 5371,
     UnlockDesc = "家园声望达到13级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[4]
+    Npc = Table_HomeFurniture_t.Npc[11]
   },
   [38033] = {
     id = 38033,
@@ -6278,7 +6450,7 @@ Table_HomeFurniture = {
     MenuID = 5371,
     UnlockDesc = "家园声望达到13级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[5]
+    Npc = Table_HomeFurniture_t.Npc[10]
   },
   [38034] = {
     id = 38034,
@@ -6293,7 +6465,7 @@ Table_HomeFurniture = {
     MenuID = 5374,
     UnlockDesc = "家园声望达到16级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[6]
+    Npc = Table_HomeFurniture_t.Npc[9]
   },
   [38035] = {
     id = 38035,
@@ -6308,7 +6480,7 @@ Table_HomeFurniture = {
     MenuID = 5378,
     UnlockDesc = "家园声望达到20级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[7]
+    Npc = Table_HomeFurniture_t.Npc[8]
   },
   [38036] = {
     id = 38036,
@@ -6323,7 +6495,7 @@ Table_HomeFurniture = {
     MenuID = 5382,
     UnlockDesc = "家园声望达到24级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[8]
+    Npc = Table_HomeFurniture_t.Npc[7]
   },
   [38037] = {
     id = 38037,
@@ -6338,7 +6510,7 @@ Table_HomeFurniture = {
     MenuID = 5383,
     UnlockDesc = "家园声望达到25级后解锁",
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[9]
+    Npc = Table_HomeFurniture_t.Npc[1]
   },
   [38038] = {
     id = 38038,
@@ -6504,7 +6676,7 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[8],
     HomeScore = 26,
     LoadShowSize = 0.2,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[66],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[61],
     SeatCount = 15,
     AreaLimit = 2,
     AreaForceLimit = 2
@@ -6605,7 +6777,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 13,
     LoadShowSize = 0.35,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[58],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[59],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6658,7 +6830,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 16,
     LoadShowSize = 0.9,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[42],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[43],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6674,7 +6846,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 16,
     LoadShowSize = 0.8,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[43],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[44],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6732,7 +6904,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 25,
     LoadShowSize = 0.6,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[44],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[45],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6748,7 +6920,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 16,
     LoadShowSize = 0.55,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[45],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[46],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6763,7 +6935,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 25,
     LoadShowSize = 0.4,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[57],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[58],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6794,7 +6966,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 16,
     LoadShowSize = 0.3,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[56],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[57],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6934,7 +7106,7 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 46,
     LoadShowSize = 0.6,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[55],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[56],
     AreaLimit = 2,
     AreaForceLimit = 2
   },
@@ -6985,7 +7157,6 @@ Table_HomeFurniture = {
   },
   [38080] = {
     id = 38080,
-    Name = "Normal_06_Tree",
     NameZh = "秋雨微枫",
     Row = 3,
     Col = 4,
@@ -7190,11 +7361,11 @@ Table_HomeFurniture = {
     Catagory = 4,
     AccessType = 2,
     AccessRange = 3,
-    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[26],
+    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[27],
     HomeScore = 180,
     IdleAction = 0,
     LoadShowSize = 0.3,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[54],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[55],
     MenuID = 5372,
     UnlockDesc = "家园声望达到14级后解锁",
     AreaLimit = 3
@@ -7215,7 +7386,7 @@ Table_HomeFurniture = {
     HomeScore = 180,
     IdleAction = 0,
     LoadShowSize = 0.5,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[53],
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[54],
     MenuID = 5379,
     UnlockDesc = "家园声望达到21级后解锁",
     AreaLimit = 3
@@ -7231,7 +7402,7 @@ Table_HomeFurniture = {
     Catagory = 4,
     AccessType = 2,
     AccessRange = 2,
-    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[25],
+    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[26],
     HomeScore = 180,
     NearbyAction = 200,
     NearbyRange = 2,
@@ -7275,7 +7446,8 @@ Table_HomeFurniture = {
     IdleAction = 500,
     LoadShowSize = 0.4,
     MenuID = 5380,
-    UnlockDesc = "家园声望达到22级后解锁"
+    UnlockDesc = "家园声望达到22级后解锁",
+    AreaLimit = 1
   },
   [39005] = {
     id = 39005,
@@ -7289,7 +7461,7 @@ Table_HomeFurniture = {
     Catagory = 4,
     AccessType = 2,
     AccessRange = 2,
-    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[24],
+    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[25],
     HomeScore = 180,
     IdleAction = 500,
     LoadShowSize = 0.4,
@@ -7388,8 +7560,9 @@ Table_HomeFurniture = {
     Catagory = 2,
     HomeScore = 54,
     LoadShowSize = 1,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[52],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[53],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [39501] = {
     id = 39501,
@@ -7476,7 +7649,7 @@ Table_HomeFurniture = {
     HomeScore = 30,
     HideInAdventure = 1,
     AreaLimit = 3,
-    Npc = Table_HomeFurniture_t.Npc[10]
+    Npc = Table_HomeFurniture_t.Npc[5]
   },
   [39507] = {
     id = 39507,
@@ -7553,8 +7726,9 @@ Table_HomeFurniture = {
     NormalType = 4,
     Type = 8,
     HomeScore = 70,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[69],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[52],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [39512] = {
     id = 39512,
@@ -7571,7 +7745,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[11],
     HomeScore = 70,
     LoadShowSize = 0.7,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [39513] = {
     id = 39513,
@@ -7585,8 +7760,9 @@ Table_HomeFurniture = {
     NormalType = 4,
     Type = 8,
     HomeScore = 70,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[69],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[52],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [39514] = {
     id = 39514,
@@ -7603,8 +7779,9 @@ Table_HomeFurniture = {
     Type = 14,
     Catagory = 2,
     HomeScore = 30,
-    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[39],
-    HideInAdventure = 1
+    LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[40],
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [39515] = {
     id = 39515,
@@ -7620,7 +7797,8 @@ Table_HomeFurniture = {
     FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[11],
     HomeScore = 50,
     LoadShowSize = 0.8,
-    HideInAdventure = 1
+    HideInAdventure = 1,
+    AreaLimit = 1
   },
   [39516] = {
     id = 39516,
@@ -7683,6 +7861,7 @@ Table_HomeFurniture = {
     HomeScore = 30,
     LoadShowPosition = Table_HomeFurniture_t.LoadShowPosition[12],
     HideInAdventure = 1,
+    AreaLimit = 1,
     AreaForceLimit = 1
   },
   [39520] = {
@@ -7717,6 +7896,100 @@ Table_HomeFurniture = {
     SeatCount = 4,
     HideInAdventure = 1,
     AreaLimit = 3
+  },
+  [39700] = {
+    id = 39700,
+    Name = "Shenyuan_01_Landscape",
+    NameZh = "龙之旗帜",
+    Col = 2,
+    EndHeight = 9,
+    Height = 9,
+    Type = 27,
+    Catagory = 2,
+    HomeScore = 10,
+    LoadShowSize = 0.3,
+    AreaLimit = 2,
+    AreaForceLimit = 2
+  },
+  [39701] = {
+    id = 39701,
+    Name = "Shenyuan_01_Statue",
+    NameZh = "守财者",
+    Row = 4,
+    Col = 4,
+    EndHeight = 7,
+    Height = 7,
+    Type = 15,
+    Catagory = 2,
+    HomeScore = 30,
+    LoadShowSize = 0.3
+  },
+  [39702] = {
+    id = 39702,
+    Name = "Shenyuan_02_Statue",
+    NameZh = "龙之晶石",
+    Col = 2,
+    EndHeight = 3,
+    Height = 3,
+    Type = 15,
+    Catagory = 2,
+    HomeScore = 20,
+    LoadShowSize = 0.3
+  },
+  [39703] = {
+    id = 39703,
+    Name = "Shenyuan_01_Hobby",
+    NameZh = "古旧熔炉",
+    Row = 4,
+    Col = 5,
+    EndHeight = 4,
+    Height = 4,
+    Type = 19,
+    AccessType = 2,
+    AccessRange = 2,
+    FurnitureFunction = Table_HomeFurniture_t.FurnitureFunction[24],
+    HomeScore = 30,
+    LoadShowSize = 0.3
+  },
+  [39704] = {
+    id = 39704,
+    Name = "Shenyuan_01_Lighting",
+    NameZh = "秘境之光",
+    Col = 2,
+    EndHeight = 6,
+    Height = 6,
+    Type = 4,
+    Catagory = 4,
+    HomeScore = 10,
+    LoadShowSize = 0.3
+  },
+  [39705] = {
+    id = 39705,
+    Name = "Shenyuan_01_Tree",
+    NameZh = "迷幻菇",
+    Row = 4,
+    Col = 4,
+    EndHeight = 7,
+    Height = 7,
+    Type = 28,
+    Catagory = 2,
+    HomeScore = 20,
+    LoadShowSize = 0.3,
+    AreaLimit = 2,
+    AreaForceLimit = 2
+  },
+  [39706] = {
+    id = 39706,
+    Name = "Shenyuan_01_Art",
+    NameZh = "苍龙的巢穴",
+    Row = 9,
+    Col = 13,
+    EndHeight = 7,
+    Height = 7,
+    Type = 22,
+    Catagory = 2,
+    HomeScore = 50,
+    LoadShowSize = 0.3
   },
   [3000708] = {
     id = 3000708,
@@ -7868,7 +8141,6 @@ Table_HomeFurniture = {
 local cell_mt = {
   __index = {
     AlternativePlanes = _EmptyTable,
-    AreaLimit = 1,
     BeginHeight = 1,
     Catagory = 1,
     Col = 3,
@@ -7878,7 +8150,7 @@ local cell_mt = {
     FurnitureFunction = _EmptyTable,
     HomeScore = 65,
     LoadShowPosition = _EmptyTable,
-    Name = "Museum_02_Art",
+    Name = "Normal_06_Tree",
     NameZh = "南瓜马车",
     NormalType = 1,
     Npc = _EmptyTable,

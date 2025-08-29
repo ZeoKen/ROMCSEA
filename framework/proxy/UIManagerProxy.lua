@@ -507,13 +507,15 @@ end
 function UIManagerProxy:InitMyMobileScreenAdaption()
   self.isLandscapeLeft = true
   EventManager.Me():AddEventListener(AppStateEvent.OrientationChange, self.HandleOrientationChange, self)
-  for _, v in pairs(Table_MobileScreenAdaption) do
-    if v.IsValid == 1 then
-      if v.DeviceInfo == self.myModelName then
-        self:UpdateLocalMobileScreenAdaptionMap(v, true)
-        break
-      elseif string.sub(v.DeviceInfo, 1, 1) == "@" and string.find(string.lower(self.myModelName), string.lower(string.sub(v.DeviceInfo, 2))) then
-        self:UpdateLocalMobileScreenAdaptionMap(v, false)
+  if not ApplicationInfo.IsRunOnWindowns() then
+    for _, v in pairs(Table_MobileScreenAdaption) do
+      if v.IsValid == 1 then
+        if v.DeviceInfo == self.myModelName then
+          self:UpdateLocalMobileScreenAdaptionMap(v, true)
+          break
+        elseif string.sub(v.DeviceInfo, 1, 1) == "@" and string.find(string.lower(self.myModelName), string.lower(string.sub(v.DeviceInfo, 2))) then
+          self:UpdateLocalMobileScreenAdaptionMap(v, false)
+        end
       end
     end
   end

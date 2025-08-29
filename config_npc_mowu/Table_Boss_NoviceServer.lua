@@ -224,6 +224,18 @@ Table_Boss = {
     NameZh = "欧德姆布拉",
     Map = {84}
   },
+  [30062] = {
+    id = 30062,
+    Type = 1,
+    NameZh = "天地树之种",
+    Map = {120}
+  },
+  [30063] = {
+    id = 30063,
+    Type = 1,
+    NameZh = "灵魂奏者",
+    Map = {110}
+  },
   [20001] = {
     id = 20001,
     Type = 2,
@@ -427,6 +439,18 @@ Table_Boss = {
     Type = 2,
     NameZh = "火焰鸟啾利",
     Map = {83}
+  },
+  [20040] = {
+    id = 20040,
+    Type = 2,
+    NameZh = "莉姆露",
+    Map = {110}
+  },
+  [20041] = {
+    id = 20041,
+    Type = 2,
+    NameZh = "宝石灵兽",
+    Map = {120}
   }
 }
 Table_Boss_fields = {

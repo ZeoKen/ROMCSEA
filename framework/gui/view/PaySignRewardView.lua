@@ -254,6 +254,41 @@ function PaySignRewardView:InitGiftItemCell()
   self.giftCell.gameObject:SetActive(false)
 end
 
+local itemClickUrlTipData = {}
+
+function PaySignRewardView:OnClickItemUrl(id)
+  if not next(itemClickUrlTipData) then
+    itemClickUrlTipData.itemdata = ItemData.new()
+  end
+  itemClickUrlTipData.itemdata:ResetData("itemClickUrl", id)
+  
+  function itemClickUrlTipData.clickItemUrlCallback(tip, itemid)
+    TipManager.Instance:CloseTip()
+    itemClickUrlTipData.itemdata:ResetData("itemClickUrl", itemid)
+    self:ShowClickItemUrlTip(itemClickUrlTipData)
+  end
+  
+  self:ShowClickItemUrlTip(itemClickUrlTipData)
+end
+
+local clickItemUrlTipOffset = {196, 0}
+
+function PaySignRewardView:ShowClickItemUrlTip(data)
+  local tip = self:ShowItemTip(data, self.buyCell.bg, NGUIUtil.AnchorSide.Right, clickItemUrlTipOffset)
+  if tip then
+    tip:AddEventListener(ItemTipEvent.ShowFashionPreview, self.OnTipFashionPreviewShow, self)
+    tip:AddEventListener(FashionPreviewEvent.Close, self.OnTipFashionPreviewClose, self)
+  end
+end
+
+function PaySignRewardView:OnTipFashionPreviewShow(preview)
+  self.CloseWhenClickOtherPlace:AddTarget(preview.gameObject.transform)
+end
+
+function PaySignRewardView:OnTipFashionPreviewClose()
+  self.CloseWhenClickOtherPlace:ReCalculateBound()
+end
+
 function PaySignRewardView:AddEvts()
   self:AddListenEvt(ServiceEvent.NUserPaySignRewardUserCmd, self.HandleSign)
   self:AddListenEvt(ServiceEvent.SessionShopUpdateShopConfigCmd, self.HandleShopUpdate)

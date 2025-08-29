@@ -4,14 +4,8 @@ RoguelikeDungeonLoadPage = class("RoguelikeDungeonLoadPage", SubView)
 function RoguelikeDungeonLoadPage:Init()
   self:ReLoadPerferb("view/RoguelikeDungeonLoadPage")
   self.trans:SetParent(self.container.pageContainer.transform, false)
-  self:AddEvents()
   self:InitView()
   self:InitData()
-end
-
-function RoguelikeDungeonLoadPage:AddEvents()
-  self:AddListenEvt(ServiceEvent.RoguelikeCmdRoguelikeQueryArchiveDataCmd, self.OnRecvSaveDatas)
-  self:AddListenEvt(ServiceEvent.RoguelikeCmdRoguelikeArchiveCmd, self.OnRecvSaveDatas)
 end
 
 function RoguelikeDungeonLoadPage:DoDelete()

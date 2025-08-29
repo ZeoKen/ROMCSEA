@@ -18,6 +18,7 @@ function SkillContentPage:Init()
   self:InitCommonSkill()
   self:InitProfessSkill()
   self:InitMasterSkill()
+  self:InitInheritSkills()
   self:AddViewListener()
   self:RegisterGuide()
 end
@@ -56,6 +57,7 @@ function SkillContentPage:AddViewListener()
   self:AddListenEvt(GuideEvent.TargetGuideSuccess, self.ResetGuideView)
   self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkill, self.RefreshSkills)
   self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkillEquip, self.UpdateMasterSkillEquipState)
+  self:AddListenEvt(ServiceEvent.SkillUpdateInheritSkillCmd, self.RefreshSkills)
 end
 
 function SkillContentPage:ResetGuideView(note)
@@ -108,7 +110,8 @@ function SkillContentPage:FindObjs()
   self.cellWidth = 80
   self.professBtnGrid.cellHeight = self.cellHeight
   self.commonGrid.cellHeight = self.cellHeight
-  self.commonGrid.transform.localPosition = LuaGeometry.GetTempVector3(0, self.cellHeight + self.comContentPanel.baseClipRegion.y, 0)
+  self.commonSkillGO = self:FindGO("CommonSkills")
+  self.commonSkillGO.transform.localPosition = Vector3(0, self.cellHeight + self.comContentPanel.baseClipRegion.y, 0)
   self:AddClickEvent(self.cancelBtn.gameObject, function()
     self:CancelSimulate()
   end)
@@ -172,6 +175,15 @@ function SkillContentPage:FindObjs()
   local helpBtn = self:FindGO("HelpBtn", self.masterSkillsGO)
   self:RegistShowGeneralHelpByHelpID(32628, helpBtn)
   self.masterSkillsGO:SetActive(false)
+  self.inheritSkillGO = self:FindGO("InheritSkills")
+  self.inheritGrid = self:FindComponent("InheritGrid", UIGrid, self.inheritSkillGO)
+  self.inheritGrid.cellHeight = self.cellHeight
+  self.inheritSperate = self:FindGO("InheritSperate")
+  self.inheritSkillGO.transform.localPosition = Vector3(0, self.cellHeight + self.comContentPanel.baseClipRegion.y, 0)
+  self.inheritSkillGotoBtn = self:FindGO("GotoBtn", self.inheritSkillGO)
+  self:AddClickEvent(self.inheritSkillGotoBtn, function()
+    self:OnInheritSkillGotoBtnClick()
+  end)
 end
 
 function SkillContentPage:OnSwitch(val)
@@ -202,6 +214,11 @@ function SkillContentPage:InitMasterSkill()
   self.masterSkillList:AddEventListener(MouseEvent.MouseClick, self.ShowTipHandler, self)
   self.masterSkillList:AddEventListener(MasterSkillCell.SimulationUpgrade, self.MasterSkillSimulationUpgradeHandler, self)
   self.masterSkillList:AddEventListener(MasterSkillCell.SimulationDowngrade, self.MasterSkillSimulationDowngradeHandler, self)
+end
+
+function SkillContentPage:InitInheritSkills()
+  self.inheritSkillList = ListCtrl.new(self.inheritGrid, AdventureSkillCell, "SkillCell")
+  self.inheritSkillList:AddEventListener(MouseEvent.MouseClick, self.ShowTipHandler, self)
 end
 
 function SkillContentPage:ShowTipHandler(cell)
@@ -474,7 +491,8 @@ function SkillContentPage:SetCommonSkills()
         num = num + 1
       end
     end
-    local pos = self.commonGrid.transform.localPosition
+    self:SetInheritSkills()
+    local pos = self.inheritSkillGO.transform.localPosition
     if num <= self.commonGrid.maxPerLine then
       pos.x = 0
     else
@@ -482,7 +500,14 @@ function SkillContentPage:SetCommonSkills()
       pos.x = -num * self.commonGrid.cellWidth / 2
     end
     pos.x = pos.x - 80
-    self.commonGrid.transform.localPosition = pos
+    if self.inheritSkillGO.activeSelf then
+      self.inheritSkillGO.transform.localPosition = pos
+      pos.x = pos.x + self.inheritSperate.transform.localPosition.x + 50
+      local x = LuaGameObject.GetLocalPositionGO(self.inheritSkillGO)
+      self.comContentUSV:MoveRelative(LuaVector3(-x, 0, 0))
+      self.comContentUSV:RestrictWithinBounds(true)
+    end
+    self.commonSkillGO.transform.localPosition = pos
     self.commonList:ResetDatas(filteredSkill, nil, true)
     self.commonGrid.repositionNow = true
   end
@@ -838,6 +863,8 @@ end
 function SkillContentPage:OnDestroy()
   self.professList:Destroy()
   self.commonList:Destroy()
+  self.masterSkillList:Destroy()
+  self.inheritSkillList:Destroy()
   SkillContentPage.super.OnDestroy(self)
 end
 
@@ -884,11 +911,7 @@ function SkillContentPage:SetMasterSkills(professes)
       local config = Table_Class[pro]
       if config then
         local unlockSkillIndex = masterProfessSkill:GetUnlockLimitSkillIndex()
-        local groupNum = 0
-        if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
-          groupNum = groupNum + #config.MasterSkills
-        end
-        groupNum = groupNum + #unlockSkillIndex
+        local groupNum = masterProfessSkill:GetSkillGroupNum()
         for i = 1, 3 - groupNum do
           skills[#skills + 1] = SkillItemData.Empty
         end
@@ -985,32 +1008,8 @@ function SkillContentPage:UpdateMasterSkillEquipState()
   local cells = self.masterSkillList:GetCells()
   redlog("SkillContentPage:UpdateMasterSkillEquipState", tostring(equipMasterSkillFamilyId))
   if equipMasterSkillFamilyId then
-    local pro = SkillProxy.Instance:GetMyProfession()
-    local config = Table_Class[pro]
-    if config then
-      if config.MasterSkills and config.MasterSkills ~= _EmptyTable then
-        for i = 1, #config.MasterSkills do
-          local skills = config.MasterSkills[i]
-          if skills[1] // 1000 == equipMasterSkillFamilyId then
-            selectIndex = i
-          end
-        end
-      end
-      if selectIndex == 0 then
-        local masterProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
-        if masterProfessData then
-          local unlockSkillIndex = masterProfessData:GetUnlockLimitSkillIndex()
-          if unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
-            for i = 1, #unlockSkillIndex do
-              local skills = config.LimitMasterSkills[unlockSkillIndex[i]]
-              if skills and skills[1] // 1000 == equipMasterSkillFamilyId then
-                selectIndex = unlockSkillIndex[i]
-              end
-            end
-          end
-        end
-      end
-    end
+    local masterSkillProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
+    selectIndex = masterSkillProfessData and masterSkillProfessData:GetEquipMasterSkillGroupIndex(equipMasterSkillFamilyId) or 0
     local cell = TableUtility.ArrayFindByPredicate(cells, function(v, args)
       return v.data and v.data.sortID == args
     end, equipMasterSkillFamilyId)
@@ -1047,34 +1046,42 @@ function SkillContentPage:UpdateMasterSkillEquipState()
 end
 
 function SkillContentPage:GetMasterSkillFamilyIdByIndex(index)
-  local pro = SkillProxy.Instance:GetMyProfession()
-  local config = Table_Class[pro]
-  if config and config.MasterSkills and config.MasterSkills ~= _EmptyTable then
-    local skills = config.MasterSkills[index]
-    if skills and skills[1] then
-      return skills[1] // 1000
-    end
-  end
-  local masterProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
-  if masterProfessData then
-    local unlockSkillIndex = masterProfessData:GetUnlockLimitSkillIndex()
-    if unlockSkillIndex and config.LimitMasterSkills and config.LimitMasterSkills ~= _EmptyTable then
-      for i = 1, #unlockSkillIndex do
-        if index == unlockSkillIndex[i] then
-          local skills = config.LimitMasterSkills[index]
-          if skills and skills[1] then
-            return skills[1] // 1000
-          end
-        end
-      end
-    end
-  end
+  local masterSkillProfessData = SkillProxy.Instance:GetMasterSkillProfessData()
+  local ids = masterSkillProfessData and masterSkillProfessData:GetSkillGroupFamilyIdsByGroupIndex(index)
+  return ids and ids[1]
 end
 
 function SkillContentPage:OnMasterSkillActiveBtnClick(index)
   local familyId = self:GetMasterSkillFamilyIdByIndex(index)
   if familyId then
-    redlog("CallSwitchMasterSkill", familyId)
-    ServiceSkillProxy.Instance:CallSwitchMasterSkill(familyId)
+    local skillId = familyId * 1000 + 1
+    local config = Table_Skill[skillId]
+    local skillName = config and config.NameZh or ""
+    MsgManager.DontAgainConfirmMsgByID(43597, function()
+      redlog("CallSwitchMasterSkill", familyId)
+      ServiceSkillProxy.Instance:CallSwitchMasterSkill(familyId)
+    end, nil, nil, skillName)
   end
+end
+
+function SkillContentPage:SetInheritSkills()
+  local loadInheritSkills = InheritSkillProxy.Instance:GetLoadSkills()
+  local count = #loadInheritSkills
+  self.inheritSkillGO:SetActive(0 < count)
+  self.inheritSkillList:ResetDatas(loadInheritSkills)
+  self.inheritGrid.repositionNow = true
+  self.inheritSperate:SetActive(0 < count)
+  local x, y, z = LuaGameObject.GetLocalPositionGO(self.inheritSperate)
+  if 0 < count then
+    x = self.inheritGrid.transform.localPosition.x + ((count - 1) // 3 + 1) * self.inheritGrid.cellWidth
+  else
+    x = 0
+  end
+  LuaGameObject.SetLocalPositionGO(self.inheritSperate, x, y, z)
+end
+
+function SkillContentPage:OnInheritSkillGotoBtnClick()
+  MsgManager.DontAgainConfirmMsgByID(43614, function()
+    FuncShortCutFunc.Me():CallByID(8362)
+  end)
 end

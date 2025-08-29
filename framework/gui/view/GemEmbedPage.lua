@@ -4,6 +4,7 @@ autoImport("GemEmbedPreviewPage")
 autoImport("GemSkillProfitCell")
 autoImport("GemAttributeProfitCell")
 autoImport("GemSecretLandCell")
+autoImport("GemEmbedDescCell")
 local _TexName = "Rune_normal-matrix_fuse"
 GemEmbedPage = class("GemEmbedPage", GemEmbedPreviewPage)
 GemEmbedPage.DownCtrlMode = {
@@ -11,6 +12,15 @@ GemEmbedPage.DownCtrlMode = {
   EmbedBtn = 1,
   GemCtrl = 2
 }
+local LoadCellPfb = function(cName, parent)
+  local cellpfb = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UICell(cName))
+  if not cellpfb then
+    return
+  end
+  cellpfb.transform:SetParent(parent.transform, false)
+  cellpfb.transform.localPosition = LuaGeometry.GetTempVector3()
+  return cellpfb
+end
 local pageZoomInScaleFactor, pageZoomOutScaleFactor = 1.5, 1
 local isAttributeSortOrderDescending = true
 local isSecretLandSortOrderDescending = true
@@ -43,6 +53,18 @@ function GemEmbedPage:Init()
   self:InitNewProfitBord()
   self:InitHelpButton()
   self:InitDraggingTip()
+  self:InitEmbedDescCell()
+end
+
+function GemEmbedPage:InitEmbedDescCell()
+  local container = self:FindGO("EmbedDescContainer")
+  local embedDescCellGo = LoadCellPfb("GemEmbedDescCell", container)
+  self.embedDescCell = GemEmbedDescCell.new(embedDescCellGo, self.gemPage.pageData)
+  self.embedDescCell:SetPage(self.gemPage.pageData)
+end
+
+function GemEmbedPage:UpdateEmbedDesc()
+  self.embedDescCell:SetData()
 end
 
 function GemEmbedPage:InitRight()
@@ -57,11 +79,11 @@ function GemEmbedPage:InitGemTipCell()
 end
 
 function GemEmbedPage:AddEvents()
-  self:AddListenEvt(ServiceEvent.ItemGemMountItemCmd, self.OnEmbed)
-  self:AddListenEvt(ServiceEvent.ItemGemUnmountItemCmd, self.OnRemove)
-  self:AddListenEvt(ItemEvent.GemUpdate, self.OnGemUpdate)
-  self:AddListenEvt(ItemEvent.GemPageUpdate, self.OnGemPageUpdate)
-  self:AddListenEvt(SkillEvent.SkillUpdate, self.UpdateHeroLv)
+  self:AddDispatcherEvt(ServiceEvent.ItemGemMountItemCmd, self.OnEmbed)
+  self:AddDispatcherEvt(ServiceEvent.ItemGemUnmountItemCmd, self.OnRemove)
+  self:AddDispatcherEvt(ItemEvent.GemUpdate, self.OnGemUpdate)
+  self:AddDispatcherEvt(ItemEvent.GemPageUpdate, self.OnGemPageUpdate)
+  self:AddDispatcherEvt(SkillEvent.SkillUpdate, self.UpdateHeroLv)
 end
 
 function GemEmbedPage:DoEmbed(gemType)
@@ -465,6 +487,7 @@ end
 function GemEmbedPage:OnGemPageUpdate()
   self.gemPage:Update()
   self:ShowGemTipWith()
+  self:UpdateEmbedDesc()
 end
 
 function GemEmbedPage:OnEmbed(note)
@@ -617,7 +640,7 @@ end
 function GemEmbedPage:TryUpdateHeroSkill()
   if self.heroSkillFamilyId then
     self:Show(self.heroSkillInfoRoot)
-    self.heroFeatureLv = self.gemPage:GetHeroFeatureLv()
+    self.heroFeatureLv = Game.Myself.data:GetLernedSkillLevel(self.heroSkillFamilyId)
     local featureLv = self.heroSkillFamilyId * 1000 + self.heroFeatureLv
     self.heroSkillStaticData = Table_Skill[featureLv]
     self:Show(self.heroLvLab)

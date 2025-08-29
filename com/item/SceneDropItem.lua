@@ -15,13 +15,16 @@ local ArrayIndexOf = TableUtil.ArrayIndexOf
 local ConfigPrivateOwnTime = GameConfig.SceneDropItem.privateOwnTime
 local tempVector3 = LuaVector3.Zero()
 local MyselfID
+local FlyModel = 10
+local FIXED_FLYING_TIME = 2.0
+local DEFAULT_HEIGHT_FACTOR = 2.0
 
 function SceneDropItem:ctor()
   SceneDropItem.super.ctor(self)
   MyselfID = Game.Myself and Game.Myself.data.id
 end
 
-function SceneDropItem:ResetData(guid, staticData, equipStaticData, privateTime, disappeartime, pos, owners, config, sourceID, refinelv)
+function SceneDropItem:ResetData(guid, staticData, equipStaticData, privateTime, disappeartime, pos, owners, config, sourceID, refinelv, stage, from_pos)
   self.id = guid
   self.failedGetCount = 0
   self:SetState(SceneDropItem.State.Wait)
@@ -41,7 +44,22 @@ function SceneDropItem:ResetData(guid, staticData, equipStaticData, privateTime,
   self.isskill = config == GameConfig.SceneDropItem.Skill
   self.sourceID = sourceID
   self.refinelv = refinelv
+  self.stage = stage
   self:GetConfig()
+  if self.stage and self.stage == 1 then
+    local sourceNpc = NSceneNpcProxy.Instance:Find(sourceID)
+    if sourceNpc then
+      local posX, posY, posZ = sourceNpc.assetRole:GetEPPosition(RoleDefines_EP.Top)
+      if posX then
+        self.from_pos = LuaVector3(posX, posY, posZ)
+      end
+    end
+    if not self.from_pos then
+      self.from_pos = LuaVector3(from_pos.x, from_pos.y + 8000, from_pos.z)
+      ProtolUtility.Better_S2C_Vector3(self.from_pos, self.from_pos)
+    end
+    self:StartProjectile()
+  end
 end
 
 function SceneDropItem:CanShow()
@@ -74,6 +92,8 @@ function SceneDropItem:GetConfig()
   if self.config == nil then
     if self.equipStaticData ~= nil then
       self.config = GameConfig.SceneDropItem.EquipBox
+    elseif self.stage and self.stage > 0 then
+      self.config = GameConfig.SceneDropItem.DragonReward
     else
       self.config = GameConfig.SceneDropItem.ItemBox
     end
@@ -299,14 +319,127 @@ function SceneDropItem:DestroyUI()
   self.ui = nil
 end
 
+local F_ProjectileModelCreated = function(self, obj)
+  if not obj then
+    return
+  end
+  if not self.isProjectileCreate then
+    Game.AssetManager_SceneItem:DestroySceneDrop(FlyModel, obj)
+    return
+  end
+  self.projectileModel = obj
+  self.projectileModel.name = "Item_Projectile_" .. self.id
+  self.projectileModel.transform.localScale = LuaGeometry.GetTempVector3(1, 1, 1, tempVector3)
+  self.projectileModel.transform.localPosition = self.from_pos
+end
+
+function SceneDropItem:StartProjectile()
+  if not self.isProjectileCreate and self.projectileModel == nil then
+    self.isProjectileCreate = true
+    Game.AssetManager_SceneItem:CreateSceneDrop(self.id * 10, FlyModel, nil, F_ProjectileModelCreated, self)
+  end
+  if self.flyTimeTick then
+    TimeTickManager.Me():ClearTick(self, 33)
+    self.flyTimeTick = nil
+  end
+  self:InitProjectileParams()
+  self.flyTimeTick = TimeTickManager.Me():CreateTick(0, 33, function(self)
+    self:UpdateFlying()
+  end, self, 33)
+end
+
+function SceneDropItem:InitProjectileParams()
+  if not self.from_pos or not self.pos then
+    return
+  end
+  self.flyStartTime = Time.time
+  self:SetControlPoint()
+  self.flyProgress = 0
+end
+
+function SceneDropItem:SetControlPoint()
+  if not self.from_pos or not self.pos then
+    return
+  end
+  local midX = (self.from_pos.x + self.pos.x) * 0.5
+  local midZ = (self.from_pos.z + self.pos.z) * 0.5
+  local dirX = self.pos.x - self.from_pos.x
+  local dirZ = self.pos.z - self.from_pos.z
+  local length = math.sqrt(dirX * dirX + dirZ * dirZ)
+  local offsetX, offsetZ = 0, 0
+  local offsetY = 0
+  if 0.001 < length then
+    dirX, dirZ = dirX / length, dirZ / length
+    local perpX, perpZ = -dirZ, dirX
+    local lateralOffset = math.min(length * 0.2, 3.0) * (math.random() * 2 - 1)
+    offsetX = perpX * lateralOffset
+    offsetZ = perpZ * lateralOffset
+    offsetY = math.max(length * 0.3, 3.0) * DEFAULT_HEIGHT_FACTOR
+  else
+    offsetY = 3.0 * DEFAULT_HEIGHT_FACTOR
+  end
+  local highPoint = math.max(self.from_pos.y, self.pos.y) + offsetY
+  if not self.bezierStartTangent then
+    self.bezierStartTangent = LuaVector3.New(midX + offsetX, highPoint, midZ + offsetZ)
+  else
+    self.bezierStartTangent:Set(midX + offsetX, highPoint, midZ + offsetZ)
+  end
+  if not self.bezierStart then
+    self.bezierStart = LuaVector3.New(self.from_pos.x, self.from_pos.y, self.from_pos.z)
+  else
+    self.bezierStart:Set(self.from_pos.x, self.from_pos.y, self.from_pos.z)
+  end
+  if not self.endPos then
+    self.endPos = LuaVector3.New(self.pos.x, self.pos.y, self.pos.z)
+  else
+    self.endPos:Set(self.pos.x, self.pos.y, self.pos.z)
+  end
+end
+
+local Better_Bezier = VectorUtility.Better_Bezier
+local tempVector3 = LuaVector3.Zero()
+
+function SceneDropItem:UpdateFlying()
+  if not (self.projectileModel and self.bezierStart and self.bezierStartTangent) or not self.endPos then
+    return false
+  end
+  local elapsedTime = Time.time - self.flyStartTime
+  self.flyProgress = math.min(elapsedTime / FIXED_FLYING_TIME, 1.0)
+  Better_Bezier(self.bezierStart, self.bezierStartTangent, self.endPos, tempVector3, self.flyProgress)
+  if not Slua.IsNull(self.projectileModel) then
+    self.projectileModel.transform.position = tempVector3
+  end
+  if self.flyProgress >= 1.0 then
+    if self.flyTimeTick then
+      TimeTickManager.Me():ClearTick(self, 33)
+      self.flyTimeTick = nil
+    end
+    if self.projectileModel and not Slua.IsNull(self.projectileModel) then
+      Game.AssetManager_SceneItem:DestroySceneDrop(FlyModel, self.projectileModel)
+      self.projectileModel = nil
+    end
+    return false
+  end
+  return true
+end
+
+function SceneDropItem:ResetLocalPosition(pos)
+  if self.projectileModel and not Slua.IsNull(self.projectileModel) then
+    self.projectileModel.transform.position = pos
+  end
+end
+
 function SceneDropItem:DoConstruct(asArray, data)
   self.isCreate = false
+  self.isProjectileCreate = false
   self.isPicked = false
   self.needPickedUp = false
+  self.flyProgress = 0
 end
 
 function SceneDropItem:DoDeconstruct(asArray)
   self:DestroyUI()
+  self:ClearProjectileArgs()
   if self.pos then
     LuaVector3.Destroy(self.pos)
   end
@@ -339,4 +472,35 @@ function SceneDropItem:DoDeconstruct(asArray)
     TimeTickManager.Me():ClearTick(self, 22)
     self.pickLt = nil
   end
+  if self.flyTimeTick then
+    TimeTickManager.Me():ClearTick(self, 33)
+    self.flyTimeTick = nil
+  end
+end
+
+function SceneDropItem:ClearProjectileArgs()
+  Game.AssetManager_SceneItem:CancelCreateSceneDrop(self.id * 10)
+  if self.projectileModel and not Slua.IsNull(self.projectileModel) then
+    Game.AssetManager_SceneItem:DestroySceneDrop(FlyModel, self.projectileModel)
+    self.projectileModel = nil
+  end
+  if self.from_pos then
+    self.from_pos:Destroy()
+    self.from_pos = nil
+  end
+  if self.bezierStart then
+    self.bezierStart:Destroy()
+    self.bezierStart = nil
+  end
+  if self.bezierStartTangent then
+    self.bezierStartTangent:Destroy()
+    self.bezierStartTangent = nil
+  end
+  if self.endPos then
+    self.endPos:Destroy()
+    self.endPos = nil
+  end
+  self.flyProgress = 0
+  self.flyStartTime = nil
+  self.isProjectileCreate = false
 end

@@ -776,7 +776,8 @@ function ItemCell:UpdateCardSlot(data, isEquip)
     for i = 1, #symbols do
       if i <= slotNum then
         symbols[-i]:SetActive(true)
-        symbols[i].spriteName = cardDatas[i] and string.format("card_icon_%02d", cardDatas[i].staticData.Quality) or "card_icon_0"
+        local quality = cardDatas[i] and cardDatas[i]:GetCardQuality()
+        symbols[i].spriteName = quality and string.format("card_icon_%02d", quality) or "card_icon_0"
         count = count + 1
       elseif i <= slotNum + replaceCount then
         symbols[-i]:SetActive(true)

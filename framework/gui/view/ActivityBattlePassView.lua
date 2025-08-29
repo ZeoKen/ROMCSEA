@@ -392,7 +392,9 @@ function ActivityBattlePassView:OnBuyBtnClick()
       FunctionNewRecharge.Instance():OpenUI(PanelConfig.NewRecharge_TDeposit)
     end)
   else
-    self:ShopItemPurchase()
+    OverseaHostHelper:GachaUseComfirm(needCatGold, function()
+      self:ShopItemPurchase()
+    end)
   end
 end
 

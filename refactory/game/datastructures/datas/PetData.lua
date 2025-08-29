@@ -140,7 +140,7 @@ function PetData:IsFollowMaster()
 end
 
 function PetData:GetGuildData()
-  if self.ownerID and (self:IsCopyNpc() or self:IsFollowMaster()) then
+  if self.ownerID and (self:IsCopyNpc() or self:IsFollowMaster() or self:IsPerfectPhantom()) then
     local owner = SceneCreatureProxy.FindCreature(self.ownerID)
     if owner then
       return owner.data:GetGuildData()

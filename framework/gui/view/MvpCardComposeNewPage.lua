@@ -1,13 +1,16 @@
 autoImport("BossComposeCardCell")
-autoImport("BossCardComposeMaterialCell")
+autoImport("MvpCardComposeMaterialCell")
 autoImport("CardMakeRateUpCell")
 MvpCardComposeNewPage = class("MvpCardComposeNewPage", BossCardComposeNewPage)
 local skipType = SKIPTYPE.MvpCardCompose
 local Prefab_Path = ResourcePathHelper.UIView("MvpCardComposeNewPage")
-local CardPartDefaultPosY = 250
-local CardPartPosOffsetY = 14
+local CardPartDefaultPosY = 240
+local CardPartPosOffsetY = 52
+local MaxComposeNum = 100
 
 function MvpCardComposeNewPage:Init(initParam)
+  self.makeType = CardMakeProxy.MakeType.MvpCardCompose
+  self.upTimesVarType = Var_pb.EACCVARTYPE_BOSSCARD_MVPCOMPOSE_UPTIMES
   MvpCardComposeNewPage.super.Init(self, initParam)
   self.skipType = skipType
 end
@@ -24,10 +27,11 @@ function MvpCardComposeNewPage:FindObjs()
   self.rateUpGrid = self.rateUpCardsGo:GetComponent(UIGrid)
   self.rateUpListCtrl = UIGridListCtrl.new(self.rateUpGrid, CardMakeRateUpCell, "CardMakeRateUpCell")
   self.rateUpListCtrl:AddEventListener(MouseEvent.LongPress, self.OnSelectLongPress, self)
-  self.cardContainerBg = self:FindGO("CardContainerBg")
-  self.cardContainerBg2 = self:FindGO("CardContainerBg2")
   self.upTipLabel = self:FindComponent("UpTip", UILabel)
   self.cardPartGo = self:FindGO("CardPart")
+  local materialGrid = self:FindComponent("MaterialGrid", UIGrid)
+  self.materialCtl = UIGridListCtrl.new(materialGrid, MvpCardComposeMaterialCell, "CardMakeMaterialCell")
+  self.materialCtl:AddEventListener(MouseEvent.MouseClick, self.HandleMaterialTip, self)
 end
 
 function MvpCardComposeNewPage:InitCardList()
@@ -37,18 +41,34 @@ end
 
 function MvpCardComposeNewPage:InitMaterial()
   local beCostItem = GameConfig.Card.MvpCardComposeMaterial
-  if beCostItem then
+  if beCostItem and beCostItem[self.makeType] then
     self.materialItems = {}
-    for i = 1, #beCostItem do
-      local costItem = beCostItem[i]
+    local costItems = beCostItem[self.makeType]
+    for i = 1, #costItems do
+      local costItem = costItems[i]
+      local itemId, ownNum = nil, 0
+      itemId = costItem.items and costItem.items[1]
       local data = CardMakeMaterialData.new({
-        id = costItem[1],
-        num = costItem[2]
+        id = itemId,
+        num = costItem.count,
+        extraItems = costItem.items
       }, i)
       TableUtility.ArrayPushBack(self.materialItems, data)
     end
   end
   self:UpdateMaterial()
+end
+
+function MvpCardComposeNewPage:UpdateMaterial()
+  if self.materialItems then
+    for i = 1, #self.materialItems do
+      local data = self.materialItems[i]
+      data.itemData.num = data.costNum * self.composeNum
+      data:UpdateOwnNum()
+    end
+    self.materialCtl:ResetDatas(self.materialItems)
+  end
+  self:UpdateConfirmBtn()
 end
 
 function MvpCardComposeNewPage:UpdateCardList()
@@ -59,38 +79,50 @@ function MvpCardComposeNewPage:UpdateCardList()
   end
 end
 
-function MvpCardComposeNewPage:CallExchangeCardItem()
-  local skipValue = CardMakeProxy.Instance:IsSkipGetEffect(skipType)
-  ServiceItemProxy.Instance:CallExchangeCardItemCmd(CardMakeProxy.MakeType.MvpCardCompose, self.npcId, nil, nil, nil, not skipValue, nil, self.composeNum)
-end
-
-function MvpCardComposeNewPage:UpdateComposeNum()
-  local count
+function MvpCardComposeNewPage:CanMake()
   if self.materialItems then
     for i = 1, #self.materialItems do
       local material = self.materialItems[i]
-      local ownNum = CardMakeProxy.Instance:GetItemNumByStaticID(material.id)
-      local curCount = math.floor(ownNum / material.costNum)
-      count = count or curCount
-      count = math.min(curCount, count)
+      if material.costNum and material.costNum > material.ownNum then
+        return false
+      end
+    end
+  end
+  return true
+end
+
+function MvpCardComposeNewPage:CallExchangeCardItem()
+  local skipValue = CardMakeProxy.Instance:IsSkipGetEffect(self.skipType)
+  ServiceItemProxy.Instance:CallExchangeCardItemCmd(self.makeType, self.npcId, nil, nil, nil, not skipValue, nil, self.composeNum)
+end
+
+function MvpCardComposeNewPage:UpdateComposeNum()
+  local count = MaxComposeNum
+  if self.materialItems and #self.materialItems > 0 then
+    for i = 1, #self.materialItems do
+      local material = self.materialItems[i]
+      local ownNum = material.ownNum or 0
+      if material.costNum and 0 < material.costNum then
+        local curCount = math.floor(ownNum / material.costNum)
+        count = count or curCount
+        count = math.min(curCount, count)
+      end
     end
   end
   self.composeNum = math.min(count, self.composeNum)
-  self.composeNum = math.max(1, self.composeNum)
+  self.composeNum = math.clamp(self.composeNum, 1, MaxComposeNum)
   self.composeNumLabel.text = self.composeNum
 end
 
 function MvpCardComposeNewPage:UpdateRateUpCardList()
-  local rateUpCards = CardMakeProxy.Instance:GetRateUpCardList(CardMakeProxy.MakeType.MvpCardCompose)
+  local rateUpCards = CardMakeProxy.Instance:GetRateUpCardList(self.makeType)
   if rateUpCards then
     self.rateUpListCtrl:ResetDatas(rateUpCards)
   end
   local upCount = #rateUpCards
   self.rateUpCardsGo:SetActive(0 < upCount)
-  self.cardContainerBg:SetActive(0 < upCount)
-  self.cardContainerBg2:SetActive(0 < upCount)
   self.upTipLabel.gameObject:SetActive(0 < upCount)
-  local myUpTimes = MyselfProxy.Instance:GetAccVarValueByType(Var_pb.EACCVARTYPE_BOSSCARD_MVPCOMPOSE_UPTIMES) or 0
+  local myUpTimes = MyselfProxy.Instance:GetAccVarValueByType(self.upTimesVarType) or 0
   local safety_count = GameConfig.Card and GameConfig.Card.safety_count and GameConfig.Card.safety_count or 1
   local leftCount = safety_count - myUpTimes
   if leftCount <= 1 then
@@ -99,7 +131,7 @@ function MvpCardComposeNewPage:UpdateRateUpCardList()
     self.upTipLabel.text = string.format(ZhString.CardMake_RateUpTip, leftCount)
   end
   if 0 < upCount then
-    local posY = CardPartDefaultPosY - self.rateUpGrid.cellHeight * upCount - CardPartPosOffsetY
+    local posY = self.rateUpGrid.transform.localPosition.y - self.rateUpGrid.cellHeight * upCount - CardPartPosOffsetY
     LuaGameObject.SetLocalPositionGO(self.cardPartGo, 0, posY, 0)
   else
     LuaGameObject.SetLocalPositionGO(self.cardPartGo, 0, CardPartDefaultPosY, 0)

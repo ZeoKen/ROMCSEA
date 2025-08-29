@@ -431,15 +431,21 @@ function UIModelCell:AutoAdjust()
       return
     end
     local extents = bounds.extents
-    local raduis = math.max(extents.x, extents.y)
-    if 0 < raduis then
-      local targetdistance = raduis / math.tan(math.rad(self.camera.fieldOfView * 0.5))
+    local completeTransform = self.model.completeTransform
+    if extents.z > (self.modelBack.transform.localScale.x - 3) / 2 then
+      LuaVector3.Better_Set(tempV3, 0.3, 0.3, 0.3)
+      completeTransform.localScale = tempV3
+      completeTransform.localPosition = LuaVector3.Zero()
+      return
+    end
+    local radius = math.max(extents.x, extents.y)
+    if 0 < radius then
+      local targetdistance = radius / math.tan(math.rad(self.camera.fieldOfView * 0.5))
       local transform = self.camera.transform
       tempV3:Set(LuaGameObject.GetPosition(transform))
       tempV3_1:Set(self.model:GetPositionXYZ())
       local distance = LuaVector3.Distance(tempV3, tempV3_1)
       if 0 < targetdistance - distance then
-        local completeTransform = self.model.completeTransform
         local vec = transform.forward * targetdistance - completeTransform.up * extents.y * 0.75
         tempV3_1:Set(vec.x, vec.y, vec.z)
         completeTransform.position = tempV3 + tempV3_1
@@ -449,7 +455,7 @@ function UIModelCell:AutoAdjust()
           local pos = mainSMR.transform.localPosition
           if 1 < pos.y then
             tempV3:Set(0, -pos.y / 2, 0)
-            self.model.completeTransform.localPosition = tempV3
+            completeTransform.localPosition = tempV3
           end
         end
       end

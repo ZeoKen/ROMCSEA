@@ -77,6 +77,8 @@ function ItemNormalList:Init()
   if self.isAddMouseClickEvent then
     self.wraplist:AddEventListener(MouseEvent.MouseClick, self.HandleClickItem, self)
     self.wraplist:AddEventListener(MouseEvent.DoubleClick, self.HandleDClickItem, self)
+    self.wraplist:AddEventListener(DragDropEvent.StartDrag, self.HandleStartDrag, self)
+    self.wraplist:AddEventListener(DragDropEvent.EndDrag, self.HandleEndDrag, self)
   end
   self.waitting = self:FindComponent("Waitting", UILabel)
   self.scrollView = self:FindComponent("ItemScrollView", self.scrollType)
@@ -284,6 +286,14 @@ end
 
 function ItemNormalList:HandleDClickItem(cellCtl)
   self:PassEvent(ItemEvent.DoubleClickItem, cellCtl)
+end
+
+function ItemNormalList:HandleStartDrag(cellCtl)
+  self:PassEvent(DragDropEvent.StartDrag, cellCtl)
+end
+
+function ItemNormalList:HandleEndDrag(cellCtl)
+  self:PassEvent(DragDropEvent.EndDrag, cellCtl)
 end
 
 function ItemNormalList:ChooseTab(tab, resetPos)

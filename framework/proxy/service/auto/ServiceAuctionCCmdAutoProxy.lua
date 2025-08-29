@@ -733,6 +733,15 @@ function ServiceAuctionCCmdAutoProxy:CallUpdateAuctionInfoCCmd(iteminfo, batchid
       end
       msg.iteminfo.itemdata.base.tmp.num_param = iteminfo.itemdata.base.tmp.num_param
     end
+    if iteminfo.itemdata.base.tmp ~= nil and iteminfo.itemdata.base.tmp.from_reward ~= nil then
+      if msg.iteminfo.itemdata.base == nil then
+        msg.iteminfo.itemdata.base = {}
+      end
+      if msg.iteminfo.itemdata.base.tmp == nil then
+        msg.iteminfo.itemdata.base.tmp = {}
+      end
+      msg.iteminfo.itemdata.base.tmp.from_reward = iteminfo.itemdata.base.tmp.from_reward
+    end
     if iteminfo.itemdata.base ~= nil and iteminfo.itemdata.base.mount_fashion_activated ~= nil then
       if msg.iteminfo.itemdata == nil then
         msg.iteminfo.itemdata = {}
@@ -750,6 +759,15 @@ function ServiceAuctionCCmdAutoProxy:CallUpdateAuctionInfoCCmd(iteminfo, batchid
         msg.iteminfo.itemdata.base = {}
       end
       msg.iteminfo.itemdata.base.no_trade_reason = iteminfo.itemdata.base.no_trade_reason
+    end
+    if iteminfo.itemdata.base.card_info ~= nil and iteminfo.itemdata.base.card_info.lv ~= nil then
+      if msg.iteminfo.itemdata.base == nil then
+        msg.iteminfo.itemdata.base = {}
+      end
+      if msg.iteminfo.itemdata.base.card_info == nil then
+        msg.iteminfo.itemdata.base.card_info = {}
+      end
+      msg.iteminfo.itemdata.base.card_info.lv = iteminfo.itemdata.base.card_info.lv
     end
     if iteminfo.itemdata ~= nil and iteminfo.itemdata.equiped ~= nil then
       if msg.iteminfo == nil then
@@ -2200,6 +2218,15 @@ function ServiceAuctionCCmdAutoProxy:CallUpdateAuctionInfoCCmd(iteminfo, batchid
         table.insert(msg.iteminfo.itemdata.memory.effects, iteminfo.itemdata.memory.effects[i])
       end
     end
+    if iteminfo.itemdata ~= nil and iteminfo.itemdata.deletetime ~= nil then
+      if msg.iteminfo == nil then
+        msg.iteminfo = {}
+      end
+      if msg.iteminfo.itemdata == nil then
+        msg.iteminfo.itemdata = {}
+      end
+      msg.iteminfo.itemdata.deletetime = iteminfo.itemdata.deletetime
+    end
     if batchid ~= nil then
       msg.batchid = batchid
     end
@@ -2614,6 +2641,15 @@ function ServiceAuctionCCmdAutoProxy:CallUpdateAuctionInfoCCmd(iteminfo, batchid
       end
       msgParam.iteminfo.itemdata.base.tmp.num_param = iteminfo.itemdata.base.tmp.num_param
     end
+    if iteminfo.itemdata.base.tmp ~= nil and iteminfo.itemdata.base.tmp.from_reward ~= nil then
+      if msgParam.iteminfo.itemdata.base == nil then
+        msgParam.iteminfo.itemdata.base = {}
+      end
+      if msgParam.iteminfo.itemdata.base.tmp == nil then
+        msgParam.iteminfo.itemdata.base.tmp = {}
+      end
+      msgParam.iteminfo.itemdata.base.tmp.from_reward = iteminfo.itemdata.base.tmp.from_reward
+    end
     if iteminfo.itemdata.base ~= nil and iteminfo.itemdata.base.mount_fashion_activated ~= nil then
       if msgParam.iteminfo.itemdata == nil then
         msgParam.iteminfo.itemdata = {}
@@ -2631,6 +2667,15 @@ function ServiceAuctionCCmdAutoProxy:CallUpdateAuctionInfoCCmd(iteminfo, batchid
         msgParam.iteminfo.itemdata.base = {}
       end
       msgParam.iteminfo.itemdata.base.no_trade_reason = iteminfo.itemdata.base.no_trade_reason
+    end
+    if iteminfo.itemdata.base.card_info ~= nil and iteminfo.itemdata.base.card_info.lv ~= nil then
+      if msgParam.iteminfo.itemdata.base == nil then
+        msgParam.iteminfo.itemdata.base = {}
+      end
+      if msgParam.iteminfo.itemdata.base.card_info == nil then
+        msgParam.iteminfo.itemdata.base.card_info = {}
+      end
+      msgParam.iteminfo.itemdata.base.card_info.lv = iteminfo.itemdata.base.card_info.lv
     end
     if iteminfo.itemdata ~= nil and iteminfo.itemdata.equiped ~= nil then
       if msgParam.iteminfo == nil then
@@ -4080,6 +4125,15 @@ function ServiceAuctionCCmdAutoProxy:CallUpdateAuctionInfoCCmd(iteminfo, batchid
       for i = 1, #iteminfo.itemdata.memory.effects do
         table.insert(msgParam.iteminfo.itemdata.memory.effects, iteminfo.itemdata.memory.effects[i])
       end
+    end
+    if iteminfo.itemdata ~= nil and iteminfo.itemdata.deletetime ~= nil then
+      if msgParam.iteminfo == nil then
+        msgParam.iteminfo = {}
+      end
+      if msgParam.iteminfo.itemdata == nil then
+        msgParam.iteminfo.itemdata = {}
+      end
+      msgParam.iteminfo.itemdata.deletetime = iteminfo.itemdata.deletetime
     end
     if batchid ~= nil then
       msgParam.batchid = batchid

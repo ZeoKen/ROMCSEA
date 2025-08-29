@@ -270,6 +270,7 @@ function QuickBuyProxy:RecvQueryItemCountTradeCmd(serviceData)
               end
             end
             item:SetReason()
+            table.remove(map[data.itemid], j)
           end
         end
       end

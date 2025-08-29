@@ -1,7 +1,10 @@
-local ModeName = {
-  [1] = ZhString.GVGMode_Type1,
-  [2] = ZhString.GVGMode_Type2
+local EMvpState = GvgProxy.EMvpState
+local Mvp_StateStr = {
+  [EMvpState.Will_Summon] = ZhString.GvgLand_Mvp_State_WillSommon,
+  [EMvpState.Summoned] = ZhString.GvgLand_Mvp_State_Sommoned,
+  [EMvpState.Die] = ZhString.GvgLand_Mvp_State_Die
 }
+local _SetLocalPositionGo = LuaGameObject.SetLocalPositionGO
 local BaseCell = autoImport("BaseCell")
 GLandStatusListCell = class("GLandStatusListCell", BaseCell)
 GLandStatusList_CellEvent_Trace = "GLandStatusList_CellEvent_Trace"
@@ -13,8 +16,13 @@ function GLandStatusListCell:Init()
   self.headCell:SetCallIndex(UnionLogo.CallerIndex.UnionList)
   self.city_name = self:FindComponent("CityName", UILabel)
   self.mode_name = self:FindComponent("ModeName", UILabel)
+  if self.mode_name then
+    self.mode_name.text = ""
+  end
   self.guild_name = self:FindComponent("GuildName", UILabel)
   self.status_desc = self:FindComponent("StatusDesc", UILabel)
+  self.status_descXAxis = self.status_desc.gameObject.transform.localPosition.x
+  self.mvp_status_desc = self:FindComponent("MvpStatusDesc", UILabel)
   self.trace_button = self:FindGO("TraceButton")
   self:AddClickEvent(self.trace_button, function(go)
     self:DoTrace()
@@ -34,7 +42,76 @@ function GLandStatusListCell:DoTrace()
   self:PassEvent(GLandStatusList_CellEvent_Trace, self)
 end
 
+local debug_error_state = "NO CONFIG DESC:%d"
+
+function GLandStatusListCell:SetStateDesc()
+  if not self.data then
+    return
+  end
+  local mvp_state = self.data.mvp_state
+  local statueDescYAxis = 0
+  if mvp_state and mvp_state ~= GvgProxy.EMvpState.None then
+    self:Show(self.mvp_status_desc)
+    statueDescYAxis = 5
+    if mvp_state == GvgProxy.EMvpState.Will_Summon then
+      if self.data.mvp_summon_time > ServerTime.CurServerTime() / 1000 then
+        self.tick_str = Mvp_StateStr[mvp_state]
+        self:CreateMvpSummonTick()
+      else
+        redlog("服务器设置状态未召唤， mvp_summon_time小于服务器时间| cityid", self.data.mvp_summon_time, self.data.cityid)
+        TableUtil.Print(self.data)
+        self.mvp_status_desc.text = Mvp_StateStr[EMvpState.Summoned]
+      end
+    else
+      self.mvp_status_desc.text = Mvp_StateStr[mvp_state]
+    end
+  else
+    self:Hide(self.mvp_status_desc)
+  end
+  _SetLocalPositionGo(self.status_desc.gameObject, self.status_descXAxis, statueDescYAxis, 0)
+  local state = self.data.state
+  if state then
+    local gland_status_desc = GameConfig.GVGConfig.gland_status_desc or _EmptyTable
+    self.status_desc.text = gland_status_desc[self.data.state] or string.format(debug_error_state, self.data.state)
+  end
+end
+
+function GLandStatusListCell:CreateMvpSummonTick()
+  self.mvpSummonTick = TimeTickManager.Me():CreateTick(0, 1000, self._UpdateSummonTick, self)
+end
+
+function GLandStatusListCell:_UpdateSummonTick()
+  local server_time = ServerTime.CurServerTime() / 1000
+  local mvp_summon_time = self.data and self.data.mvp_summon_time
+  if not mvp_summon_time or server_time > mvp_summon_time or not self.tick_str then
+    self:ClearMvpSummonTick()
+    return
+  end
+  local left_time = mvp_summon_time - server_time
+  if 0 < left_time then
+    self.mvp_status_desc.text = string.format(self.tick_str, left_time)
+  else
+    self:ClearMvpSummonTick()
+    GameFacade.Instance:sendNotification(GVGEvent.GVG_GLandStatueDirty)
+  end
+end
+
+function GLandStatusListCell:OnCellDestroy()
+  self:ClearMvpSummonTick()
+end
+
+function GLandStatusListCell:ClearMvpSummonTick()
+  if not self.mvpSummonTick then
+    return
+  end
+  self.mvpSummonTick:Destroy()
+  self.mvpSummonTick = nil
+  self.tick_str = nil
+end
+
 function GLandStatusListCell:SetData(data)
+  self.data = data
+  self:ClearMvpSummonTick()
   if data == nil then
     self.gameObject:SetActive(false)
     return
@@ -47,15 +124,12 @@ function GLandStatusListCell:SetData(data)
   local land_config = GvgProxy.GetStrongHoldStaticData(data.cityid)
   if land_config ~= nil then
     self.city_name.text = land_config.Name
-    local mode = land_config.Mode or 1
-    self.mode_name.text = ModeName[mode]
   else
     self.city_name.text = "NO CONFIG LAND:" .. tostring(data.cityid)
     self.gameObject:SetActive(false)
     return
   end
-  local gland_status_desc = GameConfig.GVGConfig.gland_status_desc or _EmptyTable
-  self.status_desc.text = gland_status_desc[data.state] or "NO CONFIG DESC:" .. data.state
+  self:SetStateDesc()
   self.is_neutral = data.name == nil or data.name == ""
   if self.is_neutral then
     self.guild_name.text = "[c][6c6c6cff]------------[-][/c]"

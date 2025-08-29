@@ -14,6 +14,15 @@ Astrolabe_Plate_Bg = {
 }
 local tempV3_1 = LuaVector3()
 local isRunOnEditor = ApplicationInfo.IsRunOnEditor()
+local handleLineCell = function(lineCell, action)
+  if lineCell and lineCell.isLine then
+    action(lineCell)
+  else
+    for j = 1, #lineCell do
+      action(lineCell[j])
+    end
+  end
+end
 
 function Astrolabe_PlateCell:Init()
   self.pointMap = {}
@@ -68,7 +77,9 @@ function Astrolabe_PlateCell:ClearCellMap()
 end
 
 function Astrolabe_PlateCell.DeleteLine(lineCell)
-  AstrolabeCellPool.Instance:AddLineCellToPool(lineCell)
+  handleLineCell(lineCell, function(c)
+    AstrolabeCellPool.Instance:AddLineCellToPool(c)
+  end)
 end
 
 function Astrolabe_PlateCell:ClearLines()
@@ -124,7 +135,9 @@ function Astrolabe_PlateCell:UpdatePoint(pointid, priStateMap, bordData)
   for i = 1, #innerConnect do
     local pointData2 = pointMap[innerConnect[i]]
     local lineCell = self:GetInnerline(pointData, pointData2)
-    lineCell:SetData(pointData, pointData2, priStateMap)
+    handleLineCell(lineCell, function(c)
+      c:SetData(pointData, pointData2, priStateMap)
+    end)
     local pointCell2 = self.pointMap[pointData2.id]
     pointCell2:SetData(pointData2, priStateMap, bordData)
   end
@@ -142,10 +155,106 @@ function Astrolabe_PlateCell:GetInnerline(point1, point2, noCreate)
   local cid = lpoint.id .. "_" .. bpoint.id
   local lineCell = self.lineMap[cid]
   if noCreate ~= true and lineCell == nil then
-    lineCell = AstrolabeCellPool.Instance:GetLineCellFromPool(self.gameObject)
-    local x1, y1, z1 = lpoint:GetLocalPos_XYZ()
-    local x2, y2, z2 = bpoint:GetLocalPos_XYZ()
-    lineCell:ReSetPos(x1, y1, z1, x2, y2, z2)
+    local lDir = lpoint.dir_index
+    local bDir = bpoint.dir_index
+    local lRingWidth = lpoint.pos_Width
+    local bRingWidth = bpoint.pos_Width
+    local deltaDir = math.abs(lDir - bDir)
+    if lRingWidth == bRingWidth and 1 < deltaDir and deltaDir < 5 then
+      lineCell = {}
+      local dPointMap = self.data:GetPointMap()
+      local ring_min, ring_max = lRingWidth * 6 - 5, lRingWidth * 6
+      local ring_points = {}
+      for i = ring_min, ring_max do
+        if dPointMap[i] then
+          ring_points[#ring_points + 1] = i
+        end
+      end
+      if #ring_points == 2 then
+        for i = ring_min, ring_max do
+          local i_next = i + 1
+          if ring_max < i_next then
+            i_next = ring_min
+          end
+          local lp = dPointMap[i]
+          local bp = dPointMap[i_next]
+          local lc = AstrolabeCellPool.Instance:GetLineCellFromPool(self.gameObject)
+          local x1, y1, z1 = lp:GetLocalPos_XYZ()
+          local x2, y2, z2 = bp:GetLocalPos_XYZ()
+          lc:ReSetPos(x1, y1, z1, x2, y2, z2)
+          lineCell[#lineCell + 1] = lc
+        end
+      else
+        local d = bpoint.id - lpoint.id <= 3 and 1 or -1
+        local dt = {
+          d,
+          d * -1
+        }
+        local nd
+        for i = 1, 2 do
+          d = dt[i]
+          local k = lpoint.id
+          local check = true
+          while check do
+            k = k + d
+            if ring_min > k then
+              k = ring_max
+            end
+            if ring_max < k then
+              k = ring_min
+            end
+            if k == bpoint.id then
+              break
+            end
+            if dPointMap[k] then
+              check = false
+            end
+          end
+          if check then
+            nd = d
+            break
+          end
+        end
+        if not nd then
+          return nil
+        end
+        local i = lpoint.id
+        while true do
+          local i_next = i + d
+          if ring_min > i_next then
+            i_next = ring_max
+          end
+          if ring_max < i_next then
+            i_next = ring_min
+          end
+          local lp = dPointMap[i]
+          local bp = dPointMap[i_next]
+          local lc = AstrolabeCellPool.Instance:GetLineCellFromPool(self.gameObject)
+          local x1, y1, z1, x2, y2, z2
+          if lp then
+            x1, y1, z1 = lp:GetLocalPos_XYZ()
+          else
+            x1, y1, z1 = Astrolabe_PointData.GetRingDirLocalPos_XYZ(lRingWidth, i)
+          end
+          if bp then
+            x2, y2, z2 = bp:GetLocalPos_XYZ()
+          else
+            x2, y2, z2 = Astrolabe_PointData.GetRingDirLocalPos_XYZ(lRingWidth, i_next)
+          end
+          lc:ReSetPos(x1, y1, z1, x2, y2, z2)
+          lineCell[#lineCell + 1] = lc
+          i = i_next
+          if i == bpoint.id then
+            break
+          end
+        end
+      end
+    else
+      lineCell = AstrolabeCellPool.Instance:GetLineCellFromPool(self.gameObject)
+      local x1, y1, z1 = lpoint:GetLocalPos_XYZ()
+      local x2, y2, z2 = bpoint:GetLocalPos_XYZ()
+      lineCell:ReSetPos(x1, y1, z1, x2, y2, z2)
+    end
     self.lineMap[cid] = lineCell
   end
   return lineCell
@@ -170,18 +279,20 @@ function Astrolabe_PlateCell:SetMaskInfo(maskidMap)
       pointCell:RemoveMask(nil)
     end
   end
-  local p1_mtype, p2_mtype
-  for cid, lineCell in pairs(self.lineMap) do
-    if lineCell.point1 == nil then
-      helplog("SetMaskInfo Error", cid, self.data.id)
-    end
-    p1_mtype = maskidMap[lineCell.point1.guid]
-    p2_mtype = maskidMap[lineCell.point2.guid]
-    if p1_mtype and p2_mtype then
-      lineCell:SetMaskType(math.min(p1_mtype, p2_mtype))
-    else
-      lineCell:RemoveMask(nil)
-    end
+  for cid, lc in pairs(self.lineMap) do
+    handleLineCell(lc, function(lineCell)
+      local p1_mtype, p2_mtype
+      if lineCell.point1 == nil then
+        helplog("SetMaskInfo Error", cid, self.data.id)
+      end
+      p1_mtype = maskidMap[lineCell.point1.guid]
+      p2_mtype = maskidMap[lineCell.point2.guid]
+      if p1_mtype and p2_mtype then
+        lineCell:SetMaskType(math.min(p1_mtype, p2_mtype))
+      else
+        lineCell:RemoveMask(nil)
+      end
+    end)
   end
 end
 

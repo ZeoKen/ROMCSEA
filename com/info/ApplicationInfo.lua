@@ -20,6 +20,14 @@ function ApplicationInfo.IsWindows()
   return ApplicationInfo.IsRunOnWindowns()
 end
 
+function ApplicationInfo.IsMobile()
+  local runtimePlatform = ApplicationInfo.GetRunPlatform()
+  if runtimePlatform == RuntimePlatform.Android or runtimePlatform == RuntimePlatform.IPhonePlayer then
+    return true
+  end
+  return false
+end
+
 function ApplicationInfo.IsRunOnMSWindows()
   return Application.platform == RuntimePlatform.WindowsPlayer
 end

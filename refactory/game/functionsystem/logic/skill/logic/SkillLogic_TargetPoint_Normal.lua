@@ -113,4 +113,8 @@ function SelfClass:Client_PreUpdate_FreeCast(time, deltaTime, creature)
   return self:CheckTargetPosition(creature, p)
 end
 
+function SelfClass:Client_PreUpdate_Cast(time, deltaTime, creature)
+  return true
+end
+
 return SelfClass

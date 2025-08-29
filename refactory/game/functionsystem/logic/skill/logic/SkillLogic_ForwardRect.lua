@@ -15,7 +15,11 @@ function SelfClass:Client_DoDeterminTargets(creature, creatureArray, maxCount, s
   local angleY = creature:GetAngleY()
   if not skillInfo:IsArc() then
     skillInfo:GetTargetForwardRect(creature, tempVector2, tempVector2_1)
-    SkillLogic_Base.SearchTargetInRect(creatureArray, p, tempVector2, tempVector2_1, angleY, skillInfo, creature, nil, sortFunc)
+    local filterFunc = skillInfo:SearchSignAssassinate() and function(targetCreature, args)
+      local signAssassinate = targetCreature.data:GetBuffByTypeAndFromID(BuffType.SignAssassinate, creature.data.id)
+      return signAssassinate
+    end or nil
+    SkillLogic_Base.SearchTargetInRect(creatureArray, p, tempVector2, tempVector2_1, angleY, skillInfo, creature, filterFunc, sortFunc)
   else
     local range = skillInfo.logicParam.distance
     if 0 < range then

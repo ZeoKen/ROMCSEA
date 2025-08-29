@@ -500,16 +500,40 @@ Table_TeamPwsRewards_t = {
     {149047},
     {900187},
     {48690},
-    {900183},
-    {900182},
-    {900181},
+    {
+      900183,
+      3720,
+      3006025
+    },
+    {
+      900182,
+      3720,
+      3006025
+    },
+    {
+      900181,
+      3720,
+      3006025
+    },
     {149077},
     {48698},
     {900180},
     {48067},
-    {900169},
-    {900168},
-    {900167},
+    {
+      900169,
+      3720,
+      3006025
+    },
+    {
+      900168,
+      3720,
+      3006025
+    },
+    {
+      900167,
+      3720,
+      3006025
+    },
     {48061},
     {47158},
     {149013},
@@ -585,18 +609,18 @@ Table_TeamPwsRewards = {
   [7] = {
     id = 7,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[7],
     Season = 23
   },
   [8] = {
     id = 8,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[8],
     Season = 23
   },
   [9] = {
     id = 9,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[9],
     Season = 23
@@ -651,18 +675,18 @@ Table_TeamPwsRewards = {
   [16] = {
     id = 16,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[16],
     Season = 22
   },
   [17] = {
     id = 17,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[17],
     Season = 22
   },
   [18] = {
     id = 18,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[18],
     Season = 22
@@ -717,18 +741,18 @@ Table_TeamPwsRewards = {
   [25] = {
     id = 25,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[25],
     Season = 21
   },
   [26] = {
     id = 26,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[26],
     Season = 21
   },
   [27] = {
     id = 27,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[27],
     Season = 21
@@ -783,18 +807,18 @@ Table_TeamPwsRewards = {
   [34] = {
     id = 34,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[34],
     Season = 20
   },
   [35] = {
     id = 35,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[35],
     Season = 20
   },
   [36] = {
     id = 36,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[36],
     Season = 20
@@ -849,18 +873,18 @@ Table_TeamPwsRewards = {
   [43] = {
     id = 43,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[43],
     Season = 19
   },
   [44] = {
     id = 44,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[44],
     Season = 19
   },
   [45] = {
     id = 45,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[45],
     Season = 19
@@ -915,18 +939,18 @@ Table_TeamPwsRewards = {
   [52] = {
     id = 52,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[52],
     Season = 18
   },
   [53] = {
     id = 53,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[53],
     Season = 18
   },
   [54] = {
     id = 54,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[54],
     Season = 18
@@ -981,18 +1005,18 @@ Table_TeamPwsRewards = {
   [61] = {
     id = 61,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[61],
     Season = 17
   },
   [62] = {
     id = 62,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[62],
     Season = 17
   },
   [63] = {
     id = 63,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[63],
     Season = 17
@@ -1047,18 +1071,18 @@ Table_TeamPwsRewards = {
   [70] = {
     id = 70,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[70],
     Season = 16
   },
   [71] = {
     id = 71,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[71],
     Season = 16
   },
   [72] = {
     id = 72,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[72],
     Season = 16
@@ -1113,18 +1137,18 @@ Table_TeamPwsRewards = {
   [79] = {
     id = 79,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[79],
     Season = 15
   },
   [80] = {
     id = 80,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[80],
     Season = 15
   },
   [81] = {
     id = 81,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[81],
     Season = 15
@@ -1163,18 +1187,18 @@ Table_TeamPwsRewards = {
   [86] = {
     id = 86,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[86],
     Season = 14
   },
   [87] = {
     id = 87,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[87],
     Season = 14
   },
   [88] = {
     id = 88,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[88],
     Season = 14
@@ -1213,18 +1237,18 @@ Table_TeamPwsRewards = {
   [93] = {
     id = 93,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[93],
     Season = 13
   },
   [94] = {
     id = 94,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[94],
     Season = 13
   },
   [95] = {
     id = 95,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[95],
     Season = 13
@@ -1263,18 +1287,18 @@ Table_TeamPwsRewards = {
   [100] = {
     id = 100,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[100],
     Season = 12
   },
   [101] = {
     id = 101,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[101],
     Season = 12
   },
   [102] = {
     id = 102,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[102],
     Season = 12
@@ -1313,18 +1337,18 @@ Table_TeamPwsRewards = {
   [107] = {
     id = 107,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[107],
     Season = 11
   },
   [108] = {
     id = 108,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[108],
     Season = 11
   },
   [109] = {
     id = 109,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[109],
     Season = 11
@@ -1363,18 +1387,18 @@ Table_TeamPwsRewards = {
   [114] = {
     id = 114,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[114],
     Season = 10
   },
   [115] = {
     id = 115,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[115],
     Season = 10
   },
   [116] = {
     id = 116,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[116],
     Season = 10
@@ -1413,18 +1437,18 @@ Table_TeamPwsRewards = {
   [121] = {
     id = 121,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[121],
     Season = 9
   },
   [122] = {
     id = 122,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[122],
     Season = 9
   },
   [123] = {
     id = 123,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[123],
     Season = 9
@@ -1463,18 +1487,18 @@ Table_TeamPwsRewards = {
   [128] = {
     id = 128,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[128],
     Season = 8
   },
   [129] = {
     id = 129,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[129],
     Season = 8
   },
   [130] = {
     id = 130,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[130],
     Season = 8
@@ -1513,18 +1537,18 @@ Table_TeamPwsRewards = {
   [135] = {
     id = 135,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[135],
     Season = 7
   },
   [136] = {
     id = 136,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[136],
     Season = 7
   },
   [137] = {
     id = 137,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[137],
     Season = 7
@@ -1563,18 +1587,18 @@ Table_TeamPwsRewards = {
   [142] = {
     id = 142,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[142],
     Season = 6
   },
   [143] = {
     id = 143,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[143],
     Season = 6
   },
   [144] = {
     id = 144,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[144],
     Season = 6
@@ -1613,18 +1637,18 @@ Table_TeamPwsRewards = {
   [149] = {
     id = 149,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[149],
     Season = 5
   },
   [150] = {
     id = 150,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[150],
     Season = 5
   },
   [151] = {
     id = 151,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[151],
     Season = 5
@@ -1663,186 +1687,218 @@ Table_TeamPwsRewards = {
   [156] = {
     id = 156,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[156],
     Season = 4
   },
   [157] = {
     id = 157,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[157],
     Season = 4
   },
   [158] = {
     id = 158,
-    NameZh = "斗士段位奖励",
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[158],
     Season = 4
   },
   [159] = {
     id = 159,
-    NameZh = "传说前30名",
-    Desc = "传说组1~30名玩家可以获得",
+    NameZh = "杯赛冠军",
+    Desc = "杯赛冠军队伍可以获得",
     Icon = "successes_03",
     Items = Table_TeamPwsRewards_t.Items[159],
     Season = 3
   },
   [160] = {
     id = 160,
-    NameZh = "传说前60名",
-    Desc = "传说组31~60名玩家可以获得",
+    NameZh = "杯赛亚军",
+    Desc = "杯赛亚军队伍可以获得",
     Icon = "successes_02",
-    Items = Table_TeamPwsRewards_t.Items[160],
+    Items = Table_TeamPwsRewards_t.Items[159],
     Season = 3
   },
   [161] = {
     id = 161,
-    NameZh = "传说前120名",
-    Desc = "传说组61~120名玩家可以获得",
+    NameZh = "杯赛八强",
+    Desc = "杯赛前8名队伍可以获得",
     Icon = "successes_01",
-    Items = Table_TeamPwsRewards_t.Items[161],
+    Items = Table_TeamPwsRewards_t.Items[159],
     Season = 3
   },
   [162] = {
     id = 162,
+    NameZh = "杯赛十六强",
+    Desc = "杯赛前16名队伍可以获得",
+    Icon = "successes_01",
+    Items = Table_TeamPwsRewards_t.Items[160],
+    Season = 3
+  },
+  [163] = {
+    id = 163,
+    NameZh = "杯赛三十二强",
+    Desc = "杯赛前32名队伍与积分前200名玩家可以获得",
+    Icon = "successes_01",
+    Items = Table_TeamPwsRewards_t.Items[161],
+    Season = 3
+  },
+  [164] = {
+    id = 164,
     NameZh = "传说段位奖励",
     Desc = "达到传说段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[162],
     Season = 3
   },
-  [163] = {
-    id = 163,
-    NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
-    Items = Table_TeamPwsRewards_t.Items[163],
-    Season = 3
-  },
-  [164] = {
-    id = 164,
-    Items = Table_TeamPwsRewards_t.Items[164],
-    Season = 3
-  },
   [165] = {
     id = 165,
-    NameZh = "斗士段位奖励",
-    Desc = "达到斗士段位玩家可以解锁购买",
-    Items = Table_TeamPwsRewards_t.Items[165],
+    NameZh = "战神段位奖励",
+    Items = Table_TeamPwsRewards_t.Items[163],
     Season = 3
   },
   [166] = {
     id = 166,
-    NameZh = "传说前30名",
-    Desc = "传说组1~30名玩家可以获得",
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
+    Items = Table_TeamPwsRewards_t.Items[164],
+    Season = 3
+  },
+  [167] = {
+    id = 167,
+    Desc = "达到斗士段位玩家可以解锁购买",
+    Items = Table_TeamPwsRewards_t.Items[165],
+    Season = 3
+  },
+  [168] = {
+    id = 168,
+    NameZh = "杯赛冠军",
+    Desc = "杯赛冠军队伍可以获得",
     Icon = "successes_03",
     Items = Table_TeamPwsRewards_t.Items[166],
     Season = 2
   },
-  [167] = {
-    id = 167,
-    NameZh = "传说前60名",
-    Desc = "传说组31~60名玩家可以获得",
+  [169] = {
+    id = 169,
+    NameZh = "杯赛亚军",
+    Desc = "杯赛亚军队伍可以获得",
     Icon = "successes_02",
+    Items = Table_TeamPwsRewards_t.Items[166],
+    Season = 2
+  },
+  [170] = {
+    id = 170,
+    NameZh = "杯赛八强",
+    Desc = "杯赛前8名队伍可以获得",
+    Icon = "successes_01",
+    Items = Table_TeamPwsRewards_t.Items[166],
+    Season = 2
+  },
+  [171] = {
+    id = 171,
+    NameZh = "杯赛十六强",
+    Desc = "杯赛前16名队伍可以获得",
+    Icon = "successes_01",
     Items = Table_TeamPwsRewards_t.Items[167],
     Season = 2
   },
-  [168] = {
-    id = 168,
-    NameZh = "传说前120名",
-    Desc = "传说组61~120名玩家可以获得",
+  [172] = {
+    id = 172,
+    NameZh = "杯赛三十二强",
+    Desc = "杯赛前32名队伍与积分前200名玩家可以获得",
     Icon = "successes_01",
     Items = Table_TeamPwsRewards_t.Items[168],
     Season = 2
   },
-  [169] = {
-    id = 169,
+  [173] = {
+    id = 173,
     NameZh = "传说段位奖励",
     Desc = "达到传说段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[169],
     Season = 2
   },
-  [170] = {
-    id = 170,
+  [174] = {
+    id = 174,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[170],
     Season = 2
   },
-  [171] = {
-    id = 171,
+  [175] = {
+    id = 175,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[171],
     Season = 2
   },
-  [172] = {
-    id = 172,
-    NameZh = "斗士段位奖励",
+  [176] = {
+    id = 176,
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[172],
     Season = 2
   },
-  [173] = {
-    id = 173,
+  [177] = {
+    id = 177,
     NameZh = "杯赛冠军",
     Desc = "杯赛冠军队伍可以获得",
     Icon = "successes_03",
     Items = Table_TeamPwsRewards_t.Items[173]
   },
-  [174] = {
-    id = 174,
+  [178] = {
+    id = 178,
     NameZh = "杯赛亚军",
     Desc = "杯赛亚军队伍可以获得",
     Icon = "successes_02",
     Items = Table_TeamPwsRewards_t.Items[173]
   },
-  [175] = {
-    id = 175,
+  [179] = {
+    id = 179,
     NameZh = "杯赛八强",
     Desc = "杯赛前8名队伍可以获得",
     Icon = "successes_01",
     Items = Table_TeamPwsRewards_t.Items[173]
   },
-  [176] = {
-    id = 176,
+  [180] = {
+    id = 180,
     NameZh = "杯赛十六强",
     Desc = "杯赛前16名队伍可以获得",
     Icon = "successes_01",
     Items = Table_TeamPwsRewards_t.Items[174]
   },
-  [177] = {
-    id = 177,
+  [181] = {
+    id = 181,
     NameZh = "杯赛三十二强",
     Desc = "杯赛前32名队伍与积分前200名玩家可以获得",
     Icon = "successes_01",
     Items = Table_TeamPwsRewards_t.Items[175]
   },
-  [178] = {
-    id = 178,
+  [182] = {
+    id = 182,
     NameZh = "传说段位奖励",
     Desc = "达到传说段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[176]
   },
-  [179] = {
-    id = 179,
+  [183] = {
+    id = 183,
     NameZh = "战神段位奖励",
-    Desc = "达到战神段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[177]
   },
-  [180] = {
-    id = 180,
+  [184] = {
+    id = 184,
+    NameZh = "精英段位奖励",
+    Desc = "达到精英段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[178]
   },
-  [181] = {
-    id = 181,
-    NameZh = "斗士段位奖励",
+  [185] = {
+    id = 185,
     Desc = "达到斗士段位玩家可以解锁购买",
     Items = Table_TeamPwsRewards_t.Items[179]
   }
 }
 local cell_mt = {
   __index = {
-    Desc = "达到精英段位玩家可以解锁购买",
+    Desc = "达到战神段位玩家可以解锁购买",
     Icon = "successes_04",
     Items = _EmptyTable,
-    NameZh = "精英段位奖励",
+    NameZh = "斗士段位奖励",
     Season = 1,
     id = 1
   }

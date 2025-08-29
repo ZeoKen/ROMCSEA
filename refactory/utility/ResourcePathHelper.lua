@@ -78,6 +78,10 @@ function ResourcePathHelper.UIPopup(viewName)
   return "GUI/v1/popup/" .. viewName
 end
 
+function ResourcePathHelper.UIPart(viewName)
+  return "GUI/v1/part/" .. viewName
+end
+
 function ResourcePathHelper.Public(name)
   return PATH_PUBLIC .. name
 end

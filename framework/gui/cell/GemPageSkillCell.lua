@@ -1,15 +1,18 @@
 autoImport("GemPageAttributeCell")
 GemPageSkillCell = class("GemPageSkillCell", GemPageAttributeCell)
 local tempTable = {}
-GemAttributeIndicatorTypeColors = {
-  "rune_daicon_baoshi_hong_bg",
-  "rune_daicon_baoshi_lan_bg",
-  "rune_daicon_baoshi_huang_bg"
+local unlimitedColor = "Rune_bg_dot_star"
+local GemAttributeIndicatorTypeColors = {
+  [0] = unlimitedColor,
+  [1] = "rune_daicon_baoshi_hong_bg",
+  [2] = "rune_daicon_baoshi_lan_bg",
+  [3] = "rune_daicon_baoshi_huang_bg"
 }
 GemAttributeIndicatorTypeColorEffect = {
-  "rune_daicon_baoshi_hong_fb",
-  "rune_daicon_baoshi_lan_fb",
-  "rune_daicon_baoshi_huang_fb"
+  [0] = unlimitedColor,
+  [1] = "rune_daicon_baoshi_hong_fb",
+  [2] = "rune_daicon_baoshi_lan_fb",
+  [3] = "rune_daicon_baoshi_huang_fb"
 }
 GemAttributeIndicatorEffectNames = {
   "Redlight",
@@ -65,14 +68,14 @@ function GemPageSkillCell:SetIndicatorBasics()
   if next(sculptData) then
     sculptPos = sculptData[1].pos
     self.indicatorSps[sculptPos].spriteName = "Rune_bg_dot01"
-    self.indicatorTypeSps[sculptPos].spriteName = "Rune_bg_dot_star"
+    self.indicatorTypeSps[sculptPos].spriteName = unlimitedColor
   end
   local needType, sp
   for i = 1, 3 do
     needType = self.needAttributeGemTypes[i]
     sp = needType and GemAttributeIndicatorTypeColors[needType]
     if not sculptPos or sculptPos ~= i then
-      self.indicatorTypeSps[i].spriteName = sp
+      self.indicatorTypeSps[i].spriteName = sp or unlimitedColor
     end
   end
   for i = 1, 3 do
@@ -86,14 +89,22 @@ function GemPageSkillCell:SetIndicatorValid()
   if not self.available then
     return
   end
-  self.pageData:ForEachFitTypeNeighborOfGemPageSkillCell(self.id, function(self, needTypeIndex, fitTypeNeighborData)
-    local _spriteName = GemAttributeIndicatorTypeColorEffect[fitTypeNeighborData.gemAttrData.type]
-    if not _spriteName then
-      return
+  local needTypes = self.needAttributeGemTypes
+  if not needTypes then
+    return
+  end
+  local sculptData = self.data.gemSkillData:GetSculptData()
+  local sculptPos = sculptData and sculptData[1] and sculptData[1].pos
+  for i = 1, 3 do
+    local needType = needTypes[i]
+    if sculptPos and sculptPos == i then
+      self.indicatorTypeSps[i].spriteName = unlimitedColor
+      self.indicatorTypeSps[i]:MakePixelPerfect()
+    elseif self.pageData:CheckAttrGemActive(needType) then
+      self.indicatorTypeSps[i].spriteName = GemAttributeIndicatorTypeColorEffect[needType]
+      self.indicatorTypeSps[i]:MakePixelPerfect()
     end
-    self.indicatorTypeSps[needTypeIndex].spriteName = _spriteName
-    self.indicatorTypeSps[needTypeIndex]:MakePixelPerfect()
-  end, self)
+  end
 end
 
 function GemPageSkillCell:UpdateFrame()

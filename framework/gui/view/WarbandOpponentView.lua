@@ -10,6 +10,8 @@ local BTN_SP = {
 local PVP_LINE_TEXTURE_NAME = "pvp_bg_01"
 local view_Path = ResourcePathHelper.UIView("WarbandOpponentView")
 local warbandProxy
+local _cellName = "CupModeForbiddenPro"
+local _cellSize = 0.4
 
 function WarbandOpponentView:Init()
   self:_loadSelf()
@@ -45,7 +47,10 @@ function WarbandOpponentView:InitUI()
   self.tabCtl = UIGridListCtrl.new(self.tabGrid, WarbandOpponentGroupTab, "WarbandOpponentGroupTab")
   self.tabCtl:AddEventListener(MouseEvent.MouseClick, self.OnClickGroupTab, self)
   self.opponentRoot = self:FindGO("OpponentRoot", self.objRoot)
+  self.tabScrollView = self:FindComponent("TabScrollView", UIScrollView, self.opponentRoot)
   self.signupRoot = self:FindGO("SignupRoot", self.objRoot)
+  self.signupScrollView = self:FindComponent("ListScrollView", UIScrollView, self.signupRoot)
+  self.signupPanel = self:FindComponent("ListScrollView", UIPanel, self.signupRoot)
   local container = self:FindGO("Wrap", self.objRoot)
   local config = {
     wrapObj = container,
@@ -67,17 +72,51 @@ function WarbandOpponentView:InitUI()
   self.myWarbandBtn = self:FindGO("WarbandInfoBtn", self.objRoot)
   self.matchBtn = self:FindComponent("MatchBtn", UISprite, self.opponentRoot)
   self.matchLab = self:FindComponent("Label", UILabel, self.matchBtn.gameObject)
+  local proPrefab = self:_loadForbiddenProPfb()
+  self.cupModeForbiddenPro = CupModeForbiddenPro.new(proPrefab)
+  self.curTab = 2
+end
+
+function WarbandOpponentView:_loadForbiddenProPfb()
+  local cellpfb = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UICell(_cellName))
+  if nil == cellpfb then
+    redlog("can not find cellpfb", _cellName)
+    return
+  end
+  cellpfb.transform:SetParent(self.objRoot.transform, false)
+  cellpfb.transform.localScale = LuaGeometry.GetTempVector3(_cellSize, _cellSize, _cellSize)
+  return cellpfb
 end
 
 function WarbandOpponentView:FirstClickTab()
-  if self.battleisInit then
-    return
+  local myGroup = 0
+  if self.curTab == 1 then
+    myGroup = warbandProxy:CheckInPreParticipants()
+  elseif self.curTab == 2 then
+    myGroup = warbandProxy:CheckInParticipants()
+  elseif self.curTab == 3 then
+    myGroup = warbandProxy:CheckInFinal()
   end
-  local first = self.tabCtl:GetCells()[1]
-  if first then
-    self:OnClickGroupTab(first)
-    first:SetTog(true)
-    self.battleisInit = true
+  local myBandGroup
+  local tabCells = self.tabCtl:GetCells()
+  for i = 1, #tabCells do
+    if i == myGroup then
+      self:OnClickGroupTab(tabCells[i])
+      tabCells[i]:SetTog(true)
+      myBandGroup = tabCells[i]
+    end
+    tabCells[i]:SetAttend(i == myGroup)
+  end
+  if not myBandGroup then
+    self:OnClickGroupTab(tabCells[1])
+    tabCells[1]:SetTog(true)
+  else
+    self.tabScrollView:ResetPosition()
+    local panel = self.tabScrollView.panel
+    local bound = NGUIMath.CalculateRelativeWidgetBounds(panel.cachedTransform, myBandGroup.gameObject.transform)
+    local offset = panel:CalculateConstrainOffset(bound.min, bound.max)
+    offset = Vector3(0, offset.y, 0)
+    self.tabScrollView:MoveRelative(offset)
   end
 end
 
@@ -160,14 +199,60 @@ function WarbandOpponentView:UpdateMatchBtn()
 end
 
 function WarbandOpponentView:UpdateBattleView()
-  local bandcount = warbandProxy:GetOpponentCount()
-  self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(bandcount))
+  local bandcount = 0
+  if self.curTab and self.curTab == 1 then
+    bandcount = warbandProxy:GetPreRoundOpponentCount()
+    self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(bandcount))
+  elseif self.curTab and self.curTab == 3 then
+    local curStage = warbandProxy:GetCurStage()
+    if curStage and curStage == 3 then
+      self.teamNumLab.text = ZhString.Warband_FinalIsReady
+    elseif curStage and curStage < 3 then
+      self.teamNumLab.text = ZhString.Warband_StageReady
+    else
+      self.teamNumLab.text = ZhString.Warband_StageFinish
+    end
+  else
+    bandcount = warbandProxy:GetOpponentCount()
+    self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(bandcount))
+  end
   self:UpdateMatchBtn()
   self:UpdateFightingTime()
+  local invalidData = warbandProxy.forbiddenPro
+  self.cupModeForbiddenPro:SetData(invalidData)
+  if invalidData and 0 < #invalidData then
+    self:ResizeSignUpListScrollView(2)
+  else
+    self:ResizeSignUpListScrollView(1)
+  end
+end
+
+local signUpSVParam = {
+  [1] = {offsetY = -12, height = 374},
+  [2] = {offsetY = 10, height = 330}
+}
+
+function WarbandOpponentView:ResizeSignUpListScrollView(type)
+  local param = signUpSVParam[type]
+  if not param then
+    return
+  end
+  local clip = self.signupPanel.baseClipRegion
+  local pos = self.signupPanel.gameObject.transform.localPosition
+  local targetOffsetY = param.offsetY - pos.y
+  self.signupPanel.clipOffset = LuaGeometry.GetTempVector2(self.signupPanel.clipOffset.x, targetOffsetY)
+  self.signupPanel.baseClipRegion = LuaGeometry.GetTempVector4(clip.x, clip.y, clip.z, param.height)
 end
 
 function WarbandOpponentView:UpdateFightingTime()
-  self.scheduleLab.text = warbandProxy:GetFightCDTime()
+  local curStage = warbandProxy:GetCurStage()
+  if curStage < self.curTab then
+    self.scheduleLab.text = ZhString.Warband_StageReady
+  elseif curStage > self.curTab then
+    self.scheduleLab.text = ZhString.Warband_StageFinish
+  else
+    self.scheduleLab.text = warbandProxy:GetFightCDTime()
+  end
 end
 
 function WarbandOpponentView:UpdateBtnByMyband()
@@ -191,7 +276,17 @@ function WarbandOpponentView:UpdateBattleLine(noResetTab)
     redlog("未同步对战图数据")
     return
   end
-  local opponentData = warbandProxy:GetOpponentData(self.curTabData)
+  if self.firstRoundLine == nil then
+    return
+  end
+  local opponentData
+  if self.curTab == 1 then
+    opponentData = warbandProxy:GetPreRoundOpponentData(self.curTabData)
+  elseif self.curTab == 2 then
+    opponentData = warbandProxy:GetOpponentData(self.curTabData)
+  elseif self.curTab == 3 then
+    opponentData = warbandProxy:GetFinalRoundOpponentData(self.curTabData)
+  end
   local leftData, rightData = {}, {}
   for index = 1, 8 do
     if index < 5 then
@@ -212,26 +307,44 @@ function WarbandOpponentView:UpdateBattleLine(noResetTab)
       self.firstRoundLine[j + 1][i].height = opponentData[j + 1].wintimes > opponentData[j].wintimes and 6 or 2
     end
   end
-  local winnerIndex, maxWintime = 0, 0
+  local winnerIndex_left, maxWintime_left, stars_left = 0, 0, 0
   for i = 1, 4 do
-    if maxWintime < opponentData[i].wintimes then
-      maxWintime = opponentData[i].wintimes
-      winnerIndex = i
+    if maxWintime_left < opponentData[i].wintimes then
+      maxWintime_left = opponentData[i].wintimes
+      winnerIndex_left = i
     end
   end
-  winnerIndex = maxWintime < 2 and 0 or winnerIndex
-  self:UpdateSecondRoundLine(1, winnerIndex)
-  self:UpdateSecondRoundLine(2, winnerIndex)
-  winnerIndex, maxWintime = 0, 0
+  winnerIndex_left = maxWintime_left < 2 and 0 or winnerIndex_left
+  self:UpdateSecondRoundLine(1, winnerIndex_left)
+  self:UpdateSecondRoundLine(2, winnerIndex_left)
+  local winnerIndex_right, maxWintime_right, stars_right = 0, 0, 0
   for i = 5, 8 do
-    if maxWintime < opponentData[i].wintimes then
-      maxWintime = opponentData[i].wintimes
-      winnerIndex = i
+    if maxWintime_right < opponentData[i].wintimes then
+      maxWintime_right = opponentData[i].wintimes
+      winnerIndex_right = i
     end
   end
-  winnerIndex = maxWintime < 2 and 0 or winnerIndex
-  self:UpdateSecondRoundLine(3, winnerIndex)
-  self:UpdateSecondRoundLine(4, winnerIndex)
+  winnerIndex_right = maxWintime_right < 2 and 0 or winnerIndex_right
+  self:UpdateSecondRoundLine(3, winnerIndex_right)
+  self:UpdateSecondRoundLine(4, winnerIndex_right)
+  local curStage = warbandProxy:GetCurStage()
+  local isStageFinish = curStage > self.curTab
+  local leftCells = self.groupBandLeftCtl:GetCells()
+  local rightCells = self.groupBandRightCtl:GetCells()
+  for i = 1, #leftCells do
+    if self.curTab == 1 or self.curTab == 2 then
+      leftCells[i]:SetPromotionSymbol(isStageFinish and leftCells[i].data.wintimes == maxWintime_left or false)
+    else
+      leftCells[i]:SetPromotionSymbol(false)
+    end
+  end
+  for i = 1, #rightCells do
+    if self.curTab == 1 or self.curTab == 2 then
+      rightCells[i]:SetPromotionSymbol(isStageFinish and rightCells[i].data.wintimes == maxWintime_right or false)
+    else
+      rightCells[i]:SetPromotionSymbol(false)
+    end
+  end
 end
 
 function WarbandOpponentView:UpdateSecondRoundLine(group, winnerIndex)
@@ -259,6 +372,13 @@ function WarbandOpponentView:UpdateSignupTeamList()
   self.signupEmpty.gameObject:SetActive(#data < 1)
   self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(#data))
   self.scheduleLab.text = ZhString.Warband_IsInSignup
+  local invalidData = warbandProxy.forbiddenPro
+  self.cupModeForbiddenPro:SetData(invalidData)
+  if invalidData and 0 < #invalidData then
+    self:ResizeSignUpListScrollView(2)
+  else
+    self:ResizeSignUpListScrollView(1)
+  end
 end
 
 function WarbandOpponentView:SwitchSignup(isSignup)
@@ -304,9 +424,34 @@ function WarbandOpponentView:AddUIEvt()
 end
 
 function WarbandOpponentView:HandleQueryOpponent()
-  local tabData = warbandProxy:GetGroupTabData()
+  local preRoundData = warbandProxy:GetPreRoundGroupTabData()
+  local hasPreRound = preRoundData and 0 < #preRoundData and true or false
+  local finalRoundData = warbandProxy:GetFinalRoundGroupTabData()
+  local hasFinalRound = finalRoundData and 0 < #finalRoundData and true or false
+  if not self.curTab then
+    if hasFinalRound then
+      self.curTab = 3
+    elseif hasPreRound then
+      self.curTab = 1
+    else
+      self.curTab = 2
+    end
+  end
+  self:UpdateBattleInfo()
+end
+
+function WarbandOpponentView:UpdateBattleInfo()
+  local tabData
+  xdlog("当前类型选项", self.curTab)
+  if self.curTab == 1 then
+    tabData = warbandProxy:GetPreRoundGroupTabData()
+  elseif self.curTab == 2 then
+    tabData = warbandProxy:GetGroupTabData()
+  elseif self.curTab == 3 then
+    tabData = warbandProxy:GetFinalRoundGroupTabData()
+  end
   if #tabData < 1 then
-    redlog("服务器推送对战图数据为空")
+    redlog("[cup] 服务器推送对战图数据为空")
     return
   end
   self.tabCtl:ResetDatas(tabData)
@@ -334,4 +479,13 @@ function WarbandOpponentView:OnExit()
   PictureManager.Instance:UnLoadPVP(PVP_LINE_TEXTURE_NAME, self.tex2)
   warbandProxy:SetOpponentStatus(false)
   WarbandOpponentView.super.OnExit(self)
+end
+
+function WarbandOpponentView:UpdateStepChoose(tab)
+  if not tab then
+    return
+  end
+  xdlog("UpdateStepChoose", tab)
+  self.curTab = tab
+  self:UpdateBattleInfo()
 end

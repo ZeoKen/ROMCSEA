@@ -4721,17 +4721,53 @@ Table_ActionEffect = {
     NameAction = "playshow",
     EffectID = 371
   },
-  [831] = {
-    id = 831,
+  [788] = {
+    id = 788,
     BodyID = 62012,
     NameAction = "playshow",
     EffectID = 372
   },
-  [832] = {
-    id = 832,
+  [789] = {
+    id = 789,
     BodyID = 62014,
     NameAction = "playshow",
     EffectID = 372
+  },
+  [790] = {
+    id = 790,
+    BodyID = 62002,
+    NameAction = "playshow",
+    EffectID = 358
+  },
+  [791] = {
+    id = 791,
+    BodyID = 62011,
+    NameAction = "playshow",
+    EffectID = 363
+  },
+  [792] = {
+    id = 792,
+    BodyID = 61921,
+    NameAction = "playshow",
+    EffectID = 374
+  },
+  [793] = {
+    id = 793,
+    BodyID = 61926,
+    NameAction = "playshow",
+    EffectID = 375
+  },
+  [794] = {
+    id = 794,
+    BodyID = 61931,
+    NameAction = "playshow",
+    EffectID = 376
+  },
+  [795] = {
+    id = 795,
+    BodyID = 61936,
+    NameAction = "playshow",
+    EffectID = 377
   }
 }
 Table_ActionEffect_fields = {

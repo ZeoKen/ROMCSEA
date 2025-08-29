@@ -179,6 +179,7 @@ function FunctionNpcFunc:ctor()
   self.funcMap.ArtifactMake = FunctionNpcFunc.ArtifactMake
   self.funcMap.ArtifactDecompose = FunctionNpcFunc.ArtifactDecompose
   self.funcMap.ReturnArtifact = FunctionNpcFunc.ReturnArtifact
+  self.funcMap.RetrieveAllArtifacts = FunctionNpcFunc.RetrieveAllArtifacts
   self.funcMap.ServerOpenFunction = FunctionNpcFunc.ServerOpenFunction
   self.funcMap.YoyoSeat = FunctionNpcFunc.YoyoSeat
   self.funcMap.UpJobLevel = FunctionNpcFunc.UpJobLevel
@@ -215,7 +216,9 @@ function FunctionNpcFunc:ctor()
   if not GameConfig.SystemForbid.BossCardCompose then
     self.funcMap.BossCardCompose = FunctionNpcFunc.BossCardCompose
     self.funcMap.MvpCardCompose = FunctionNpcFunc.MvpCardCompose
+    self.funcMap.DungeonMvpCardCompose = FunctionNpcFunc.DungeonMvpCardCompose
   end
+  self.funcMap.CardUpgrade = FunctionNpcFunc.CardUpgrade
   self.funcMap.GVGPortal = FunctionNpcFunc.OpenGVGPortal
   self.funcMap.EnterAltmanRaid = FunctionNpcFunc.EnterAltmanRaid
   self.funcMap.GetAltmanRankInfo = FunctionNpcFunc.GetAltmanRankInfo
@@ -343,6 +346,20 @@ function FunctionNpcFunc:ctor()
   self.funcMap.AstralRaidExitRaid = FunctionNpcFunc.AstralRaidExitRaid
   self.funcMap.OpenAstralDestinyGraph = FunctionNpcFunc.OpenAstralDestinyGraph
   self.funcMap.CraftingPot = FunctionNpcFunc.CraftingPot
+  self.funcMap.OpenRankPop = FunctionNpcFunc.OpenRankPop
+  self.funcMap.OpenCupModeView = FunctionNpcFunc.OpenCupModeView
+  self.funcMap.ChangePVPAvatar = FunctionNpcFunc.ChangePVPAvatar
+  self.funcMap.ChangePVPAction = FunctionNpcFunc.ChangePVPAction
+  self.funcMap.ChangeMaterial = FunctionNpcFunc.ChangeMaterial
+  self.funcMap.ReceiveTeamPwsTargetReward = FunctionNpcFunc.ReceiveTeamPwsTargetReward
+  self.funcMap.ReceiveTeamPwsTargetRewardMix = FunctionNpcFunc.ReceiveTeamPwsTargetRewardMix
+  self.funcMap.ReceiveTwelveTargetReward = FunctionNpcFunc.ReceiveTwelveTargetReward
+  self.funcMap.ReceiveTwelveTargetRewardMix = FunctionNpcFunc.ReceiveTwelveTargetRewardMix
+  self.funcMap.PresidentPvpRule = FunctionNpcFunc.PresidentPvpRule
+  self.funcMap.OpenAbyssQuestBoard = FunctionNpcFunc.OpenAbyssQuestBoard
+  self.funcMap.OpenInheritSkillView = FunctionNpcFunc.OpenInheritSkillView
+  self.funcMap.OpenInheritSkillExtendCostPointPopUp = FunctionNpcFunc.OpenInheritSkillExtendCostPointPopUp
+  self.funcMap.OpenAchieveRewardView = FunctionNpcFunc.OpenAchieveRewardView
   self.checkMap.CreateGuild = FunctionNpcFunc.CheckCreateGuild
   self.checkMap.ApplyGuild = FunctionNpcFunc.CheckCreateGuild
   self.checkMap.QuickTeam = FunctionNpcFunc.CheckQuickTeam
@@ -410,6 +427,7 @@ function FunctionNpcFunc:ctor()
   self.checkMap.ChangeHairEye = FunctionNpcFunc.CheckHairEye
   self.checkMap.HeadWearStart = FunctionNpcFunc.CheckHeadWearStart
   self.checkMap.ReturnArtifact = FunctionNpcFunc.CheckReturnArtifact
+  self.checkMap.RetrieveAllArtifacts = FunctionNpcFunc.CheckRetrieveAllArtifacts
   self.checkMap.GuildPray = FunctionNpcFunc.CheckPray
   self.checkMap.GvGPvPPray = FunctionNpcFunc.CheckBless
   self.checkMap.HolyPray = FunctionNpcFunc.CheckHolyBless
@@ -454,6 +472,20 @@ function FunctionNpcFunc:ctor()
   self.checkMap.ReceiveTripleTeamPwsRankReward = FunctionNpcFunc.CheckReceiveTripleTeamPwsRankReward
   self.checkMap.AstralRaidNextLevel = FunctionNpcFunc.CheckAstralRaidNextLevel
   self.checkMap.OpenAstralDestinyGraph = FunctionNpcFunc.CheckAstralDestinyGraph
+  self.checkMap.ChangePVPAvatar = FunctionNpcFunc.CheckPVPOptStatue
+  self.checkMap.ChangePVPAction = FunctionNpcFunc.CheckPVPOptStatue
+  self.checkMap.ChangeMaterial = FunctionNpcFunc.CheckPVPOptStatue
+  self.checkMap.ReceiveTeamPwsTargetReward = FunctionNpcFunc.CheckCanReceiveTeamPwsTargetReward
+  self.checkMap.ReceiveTeamPwsTargetRewardMix = FunctionNpcFunc.CheckCanReceiveTeamPwsTargetRewardMix
+  self.checkMap.ReceiveTwelveTargetReward = FunctionNpcFunc.CheckCanReceiveTwelveTargetReward
+  self.checkMap.ReceiveTwelveTargetRewardMix = FunctionNpcFunc.CheckCanReceiveTwelveTargetRewardMix
+  if not GameConfig.SystemForbid.BossCardCompose then
+    self.checkMap.DungeonMvpCardCompose = FunctionNpcFunc.CheckDungeonMvpCardCompose
+  end
+  self.checkMap.OpenAbyssQuestBoard = FunctionNpcFunc.CheckOpenAbyssQuestBoard
+  self.checkMap.OpenInheritSkillView = FunctionNpcFunc.CheckOpenInheritSkillView
+  self.checkMap.CardUpgrade = FunctionNpcFunc.CheckCardUpgrade
+  self.checkMap.OpenInheritSkillExtendCostPointPopUp = FunctionNpcFunc.CheckOpenInheritSkillExtendCostPointPopUp
   self.updateCheckCache = {}
 end
 
@@ -1190,19 +1222,12 @@ function FunctionNpcFunc.PicMake(nnpc, params)
   end
 end
 
-function FunctionNpcFunc.GetStaticStrongHold()
-  local raidId = Game.MapManager:GetMapID()
-  local lobbyMap = Game.MapManager:IsGVG_DateBattle_Lobby() and Game.Config_DateBattleCity_Lobby or Game.Config_GuildStrongHold_Lobby
-  local staticData = lobbyMap[raidId]
-  return staticData
-end
-
 function FunctionNpcFunc.GvgLand()
   local groupid = GvgProxy.Instance:GetCurMapGvgGroupID()
   if groupid < 0 then
     return
   end
-  local staticData = FunctionNpcFunc.GetStaticStrongHold()
+  local staticData = GvgProxy.TryGetStaticLobbyStrongHold()
   if not staticData then
     return
   end
@@ -2184,6 +2209,11 @@ function FunctionNpcFunc.ArtifactDecompose(npc, param)
   FunctionNpcFunc.JumpPanel(PanelConfig.ArtifactDecomposeView, {npcdata = npc})
 end
 
+function FunctionNpcFunc.RetrieveAllArtifacts(npc, param)
+  FunctionDialogEvent.SetDialogEventEnter("Func_RetrieveAllArtifacts", npc)
+  return true
+end
+
 function FunctionNpcFunc.ServerOpenFunction(npc, param)
   GameFacade.Instance:sendNotification(DialogEvent.ServerOpenFunction, {npcdata = npc, param = param})
 end
@@ -2555,7 +2585,10 @@ function FunctionNpcFunc.GemLock(nnpc, param)
   if lockFlag == NpcFuncState.Active then
     return FunctionNpcFunc.CommonMenuLock(nnpc, param)
   else
-    FunctionNpcFunc.JumpPanel(PanelConfig.GemContainerView)
+    FunctionNpcFunc.JumpPanel(PanelConfig.GemContainerView, {
+      page = "GemFunctionPage",
+      fromNpc = true
+    })
   end
 end
 
@@ -2569,6 +2602,10 @@ end
 
 function FunctionNpcFunc.MvpCardCompose(npc, param)
   FunctionNpcFunc.JumpPanel(PanelConfig.CardContainerView, {npcdata = npc, tabIndex = 1704})
+end
+
+function FunctionNpcFunc.DungeonMvpCardCompose(npc, param)
+  FunctionNpcFunc.JumpPanel(PanelConfig.CardContainerView, {npcdata = npc, tabIndex = 1705})
 end
 
 function FunctionNpcFunc.MountLottery(npc, param)
@@ -3102,24 +3139,55 @@ function FunctionNpcFunc.CardLottery(npc, param, npcFunctionData)
 end
 
 function FunctionNpcFunc.ChangeAvatar(npc, param)
-  ServiceUserEventProxy.Instance:CallGvgOptStatueEvent(true)
+  if npc.data.staticData.id == GameConfig.GVGConfig.StatuePedestalNpcID then
+    ServiceUserEventProxy.Instance:CallGvgOptStatueEvent(true)
+    return
+  end
+  local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+  local city_id = GvgProxy.GetStatueCity(npc.data.uniqueid)
+  if not city_id then
+    return
+  end
+  GvgProxy.Instance:Debug("[GVG雕像]更改形象 group_id|city_id ", group_id, city_id)
+  ServiceGuildCmdProxy.Instance:CallGvgCityStatueUpdateGuildCmd(group_id, city_id, true, {info = nil})
 end
 
 function FunctionNpcFunc.ChangeAction(npc, param)
+  local npc_static_id = npc.data.staticData.id
+  local is_old = npc_static_id == GameConfig.GVGConfig.StatuePedestalNpcID
   local config = GameConfig.GVGConfig.StatuePose
-  local hasaction = false
-  local npcs = NSceneNpcProxy.Instance:FindNpcs(GameConfig.GVGConfig.StatueNpcID)
-  if npcs ~= nil and 0 < #npcs then
-    local action
-    for i = 1, #config do
-      action = Table_ActionAnime[config[i]]
-      if action and npcs[1].assetRole:HasAction(action.Name) then
-        hasaction = true
-        break
+  local my_guild_group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+  local city_id = GvgProxy.GetStatueCity(npc.data.uniqueid)
+  GvgProxy.Instance:SetCurStatueCityId(city_id)
+  local npcs, changePoseFunc, savePoseFunc
+  if is_old then
+    npcs = NSceneNpcProxy.Instance:FindNpcs(GameConfig.GVGConfig.StatueNpcID)
+    
+    function changePoseFunc(pose)
+      GvgProxy.Instance:UpdateStatuePose(pose)
+    end
+    
+    function savePoseFunc(pose)
+      ServiceUserEventProxy.Instance:CallGvgOptStatueEvent(nil, pose)
+    end
+  else
+    function changePoseFunc(pose)
+      GvgProxy.Instance:ChangeStatuePos(pose)
+    end
+    
+    function savePoseFunc(pose)
+      if not pose or pose == 0 then
+        return
       end
+      local send_info = {
+        cityid = city_id,
+        info = {pose = pose}
+      }
+      GvgProxy.Instance:Debug("[GVG雕像]请求更改动作pose: ", pose)
+      ServiceGuildCmdProxy.Instance:CallGvgCityStatueUpdateGuildCmd(my_guild_group_id, city_id, false, send_info)
     end
   end
-  if not hasaction then
+  if Game.Myself.data:IsTransformState() then
     MsgManager.ShowMsgByID(31078)
     return
   end
@@ -3128,15 +3196,25 @@ function FunctionNpcFunc.ChangeAction(npc, param)
     dialoglist = {
       DialogUtil.GetDialogData(396138).Text
     },
-    callback = function()
+    forceNotify = true
+  }
+  local cur_pos
+  if is_old then
+    local info = GvgProxy.Instance:GetStatueInfo()
+    cur_pos = info.pose
+    
+    function viewdata.callback()
       if Game.Myself.data:HasBuffID(GameConfig.GVGConfig.PoseCdBuff) then
         GvgProxy.Instance:UpdateStatuePose()
       end
-    end,
-    forceNotify = true
-  }
-  local info = GvgProxy.Instance:GetStatueInfo()
-  local index = info and TableUtility.ArrayFindIndex(config, info.pose) or 0
+    end
+  else
+    cur_pos = GvgProxy.Instance:GetPoseByCityId(my_guild_group_id, city_id)
+  end
+  local index = cur_pos and TableUtility.ArrayFindIndex(config, cur_pos) or 0
+  if index == 0 then
+    index = 1
+  end
   viewdata.addfunc = {
     [1] = {
       NameZh = ZhString.FunctionNpcFunc_ChangeActionLast,
@@ -3145,7 +3223,7 @@ function FunctionNpcFunc.ChangeAction(npc, param)
         if index < 1 then
           index = #config
         end
-        GvgProxy.Instance:UpdateStatuePose(config[index])
+        changePoseFunc(config[index])
       end
     },
     [2] = {
@@ -3155,13 +3233,13 @@ function FunctionNpcFunc.ChangeAction(npc, param)
         if index > #config then
           index = 1
         end
-        GvgProxy.Instance:UpdateStatuePose(config[index])
+        changePoseFunc(config[index])
       end
     },
     [3] = {
       NameZh = ZhString.FunctionNpcFunc_ChangeActionSave,
       event = function()
-        ServiceUserEventProxy.Instance:CallGvgOptStatueEvent(nil, config[index])
+        savePoseFunc(config[index])
       end,
       closeDialog = true
     }
@@ -3414,6 +3492,106 @@ end
 
 function FunctionNpcFunc.OpenAstralDestinyGraph(npc, params, npcFunctionData)
   FunctionNpcFunc.JumpPanel(PanelConfig.AstralDestinyGraphView)
+end
+
+function FunctionNpcFunc.OpenRankPop(npc, params, npcFunctionData)
+  local rankType = npcFunctionData.Parama and npcFunctionData.Parama.rankType
+  if rankType == 1 then
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.TripleTeamRankPopUp
+    })
+  elseif rankType == 2 then
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.TeamPwsRankPopUp
+    })
+  elseif rankType == 3 then
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.MultiPvpView,
+      viewdata = {
+        tab = PanelConfig.WarbandModelView.tab
+      }
+    })
+  end
+end
+
+function FunctionNpcFunc.OpenCupModeView()
+  if CupMode6v6Proxy_MultiServer.Instance:IsCurSeasonRunning() then
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.CompetiveModeView,
+      viewdata = "MergeServerCupModeTab"
+    })
+  else
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.CompetiveModeView,
+      viewdata = "CupModeTab"
+    })
+  end
+end
+
+function FunctionNpcFunc.ChangePVPAvatar(npc, param, npcFunctionData)
+  local sType = PvpProxy.Instance:GetStatueType(npc.data.staticData.id)
+  ServiceMessCCmdProxy.Instance:CallSetPvpChampionStatueMessCCmd(sType, {
+    type = MessCCmd_pb.ESTATUE_OPTION_APPEARANCE
+  })
+end
+
+function FunctionNpcFunc.ChangePVPAction(npc, param, npcFunctionData)
+  local npcid = npc.data.staticData.id
+  local sType = PvpProxy.Instance:GetStatueType(npcid)
+  local config = GameConfig.PvpStatue.Pose
+  local hasaction = false
+  local TableActionAnime = Table_ActionAnime
+  local npcs = NSceneNpcProxy.Instance:FindNpcs(npcid)
+  local statueInfo = PvpProxy.Instance:GetStatueInfo(sType)
+  local viewdata = {
+    viewname = "DialogView",
+    dialoglist = {
+      DialogUtil.GetDialogData(396138).Text
+    },
+    callback = function()
+      statueInfo:UpdatePose()
+    end,
+    forceNotify = true
+  }
+  local index = statueInfo and TableUtility.ArrayFindIndex(config, statueInfo.pose) or 0
+  viewdata.addfunc = {
+    [1] = {
+      NameZh = ZhString.FunctionNpcFunc_ChangeActionLast,
+      event = function()
+        index = index - 1
+        if index < 1 then
+          index = #config
+        end
+        statueInfo:UpdatePose(config[index])
+      end
+    },
+    [2] = {
+      NameZh = ZhString.FunctionNpcFunc_ChangeActionNext,
+      event = function()
+        index = index + 1
+        if index > #config then
+          index = 1
+        end
+        statueInfo:UpdatePose(config[index])
+      end
+    },
+    [3] = {
+      NameZh = ZhString.FunctionNpcFunc_ChangeActionSave,
+      event = function()
+        ServiceMessCCmdProxy.Instance:CallSetPvpChampionStatueMessCCmd(sType, {
+          type = MessCCmd_pb.ESTATUE_OPTION_POSE,
+          value = config[index]
+        })
+      end,
+      closeDialog = true
+    }
+  }
+  FunctionNpcFunc.ShowUI(viewdata)
+  return true
+end
+
+function FunctionNpcFunc.OpenAchieveRewardView(npc, params, npcFunctionData)
+  FunctionNpcFunc.JumpPanel(PanelConfig.AchieveRewardView, {groupid = params, npc = npc})
 end
 
 function FunctionNpcFunc.CheckWildTransfer(npc, param)
@@ -3689,7 +3867,7 @@ function FunctionNpcFunc.CheckGvgLand()
   if groupid < 0 then
     return NpcFuncState.InActive
   end
-  local staticData = FunctionNpcFunc.GetStaticStrongHold()
+  local staticData = GvgProxy.TryGetStaticLobbyStrongHold()
   if not staticData then
     return NpcFuncState.InActive
   end
@@ -3698,6 +3876,17 @@ end
 
 function FunctionNpcFunc.CheckReturnArtifact(npc, param)
   return FunctionNpcFunc.checkBuildingActiveSelf(GuildBuildingProxy.Type.EGUILDBUILDING_ARTIFACT_HEAD) or FunctionNpcFunc.checkBuildingActiveSelf(GuildBuildingProxy.Type.EGUILDBUILDING_HIGH_REFINE)
+end
+
+function FunctionNpcFunc.CheckRetrieveAllArtifacts(npc, param)
+  local myGuildData = GuildProxy.Instance.myGuildData
+  if myGuildData then
+    local myMemberData = GuildProxy.Instance:GetMyGuildMemberData()
+    if myMemberData.job == 1 then
+      return NpcFuncState.Active
+    end
+  end
+  return NpcFuncState.InActive
 end
 
 function FunctionNpcFunc.CheckHeadWearStart(npc, param)
@@ -4256,7 +4445,28 @@ function FunctionNpcFunc.CheckEquipRecoveryPlus(npc, params)
 end
 
 function FunctionNpcFunc.CheckOptStatue(npc, param)
-  return GvgProxy.Instance:CanOptStatue() and NpcFuncState.Active or NpcFuncState.InActive
+  local npc_static_id = npc.data.staticData.id
+  if npc_static_id == GameConfig.GVGConfig.StatuePedestalNpcID then
+    return GvgProxy.Instance:CanOptStatue() and NpcFuncState.Active or NpcFuncState.InActive
+  else
+    local newGvgStatue = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.StatuePedestalNpcID
+    if newGvgStatue and npc_static_id == newGvgStatue then
+      local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+      if not group_id or group_id == 0 then
+        return NpcFuncState.InActive
+      end
+      local unique_id = npc.data.uniqueid
+      local city_id = GvgProxy.GetStatueCity(unique_id)
+      if city_id then
+        local leaderId = GvgProxy.Instance:GetStatueLeaderIdByCityId(group_id, city_id)
+        if leaderId and leaderId == Game.Myself.data.id then
+          return NpcFuncState.Active
+        end
+      end
+      return NpcFuncState.InActive
+    end
+  end
+  return NpcFuncState.InActive
 end
 
 function FunctionNpcFunc.CheckOpenSandTable(npc, param)
@@ -4388,7 +4598,7 @@ function FunctionNpcFunc.CheckOpenSpecialSkillUpgradeView(npc, param)
 end
 
 function FunctionNpcFunc.CheckGVGRoadBlock(npc, param)
-  return not GvgProxy.Instance:IsInRoadBlockActivedTime() and GuildProxy.Instance:ImGuildChairman() and NpcFuncState.Active or NpcFuncState.InActive
+  return NpcFuncState.InActive
 end
 
 function FunctionNpcFunc.CheckLaunchFirework(npc, param)
@@ -4463,4 +4673,171 @@ function FunctionNpcFunc.CheckAstralDestinyGraph(npc, params)
     return NpcFuncState.Active
   end
   return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.CheckPVPOptStatue(npc, param, funcStaticId)
+  local staticFunc = Table_NpcFunction[funcStaticId]
+  local stype = PvpProxy.Instance:GetStatueType(npc.data.staticData.id)
+  return PvpProxy.Instance:CanOptStatue(stype) and NpcFuncState.Active or NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.ReceiveTeamPwsTargetReward(npc, param, funcStaticId)
+  ServiceMatchCCmdProxy.Instance:CallChampionPvpPickRewardCmd(MatchCCmd_pb.CHAMPION_REWARD_TEAMPWS)
+end
+
+function FunctionNpcFunc.CheckCanReceiveTeamPwsTargetReward(npc, param, funcStaticId)
+  if PvpProxy.Instance:CheckChampionPvpRewardStatusCmd(MatchCCmd_pb.CHAMPION_REWARD_TEAMPWS) then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.ReceiveTeamPwsTargetRewardMix(npc, param, funcStaticId)
+  ServiceMatchCCmdProxy.Instance:CallChampionPvpPickRewardCmd(MatchCCmd_pb.CHAMPION_REWARD_TEAMPWS_CROSS)
+end
+
+function FunctionNpcFunc.CheckCanReceiveTeamPwsTargetRewardMix(npc, param, funcStaticId)
+  if PvpProxy.Instance:CheckChampionPvpRewardStatusCmd(MatchCCmd_pb.CHAMPION_REWARD_TEAMPWS_CROSS) then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.ReceiveTwelveTargetReward(npc, param, funcStaticId)
+  ServiceMatchCCmdProxy.Instance:CallChampionPvpPickRewardCmd(MatchCCmd_pb.CHAMPION_REWARD_TWELVE)
+end
+
+function FunctionNpcFunc.CheckCanReceiveTwelveTargetReward(npc, param, funcStaticId)
+  if PvpProxy.Instance:CheckChampionPvpRewardStatusCmd(MatchCCmd_pb.CHAMPION_REWARD_TWELVE) then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.ReceiveTwelveTargetRewardMix(npc, param, funcStaticId)
+  ServiceMatchCCmdProxy.Instance:CallChampionPvpPickRewardCmd(MatchCCmd_pb.CHAMPION_REWARD_TWELVE_CROSS)
+end
+
+function FunctionNpcFunc.CheckCanReceiveTwelveTargetRewardMix(npc, param, funcStaticId)
+  if PvpProxy.Instance:CheckChampionPvpRewardStatusCmd(MatchCCmd_pb.CHAMPION_REWARD_TWELVE_CROSS) then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.PresidentPvpRule(npc, param, npcFunctionData)
+  local data = Table_Help[npcFunctionData.Parama.helpId]
+  if data then
+    TipsView.Me():ShowGeneralHelp(data.Desc, data.Title)
+  end
+end
+
+function FunctionNpcFunc.ChangeMaterial(npc, param, funcStaticId)
+  local PvpStatueConfig = GameConfig.PvpStatue
+  if not PvpStatueConfig then
+    return
+  end
+  local materialDialogs = PvpStatueConfig.MaterialDialog
+  local sType = PvpProxy.Instance:GetStatueType(npc.data.staticData.id)
+  local dialogid = PvpStatueConfig.DefaultDialog[sType]
+  local materialCount = materialDialogs and #materialDialogs or 0
+  local viewdata = {
+    viewname = "DialogView",
+    dialoglist = {dialogid},
+    npcinfo = npc
+  }
+  viewdata.addfunc = {}
+  for i = 1, materialCount do
+    local addfunc = {}
+    
+    function addfunc.event()
+      ServiceMessCCmdProxy.Instance:CallSetPvpChampionStatueMessCCmd(sType, {
+        type = MessCCmd_pb.ESTATUE_OPTION_MATERIAL,
+        value = materialDialogs[i].buffID
+      })
+    end
+    
+    addfunc.closeDialog = true
+    addfunc.NameZh = materialDialogs[i].name
+    viewdata.addfunc[i] = addfunc
+  end
+  FunctionNpcFunc.ShowUI(viewdata)
+  return true
+end
+
+function FunctionNpcFunc.CheckDungeonMvpCardCompose(npc, param, npcFunctionData)
+  local activitys = {}
+  for _, v in pairs(Table_ActivityIntegration) do
+    if v.Type == 12 then
+      activitys[#activitys + 1] = v
+    end
+  end
+  local isUp = false
+  for i = 1, #activitys do
+    if ActivityIntegrationProxy.Instance:CheckGroupValid(activitys[i].Group) then
+      isUp = true
+      break
+    end
+  end
+  if isUp then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.OpenAbyssQuestBoard(npc, param, npcFunctionData)
+  GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+    view = PanelConfig.AbyssDailyQuestBoardView,
+    viewdata = param
+  })
+end
+
+function FunctionNpcFunc.CheckOpenAbyssQuestBoard(npc, param)
+  local config = GameConfig.Prestige and GameConfig.Prestige.PrestigeUnlockMenu
+  local menuId = config and config[param]
+  redlog("CheckOpenAbyssQuestBoard", menuId)
+  if FunctionUnLockFunc.Me():CheckCanOpen(menuId) then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.OpenInheritSkillView(npc, param, npcFunctionData)
+  GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+    view = PanelConfig.InheritSkillView
+  })
+end
+
+function FunctionNpcFunc.OpenInheritSkillExtendCostPointPopUp(npc, param, npcFunctionData)
+  GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+    view = PanelConfig.InheritSkillExtendCostPointPopUp
+  })
+end
+
+function FunctionNpcFunc.CheckOpenInheritSkillView(npc, param, npcFunctionData)
+  local menuId = param and param.menuid
+  redlog("FunctionNpcFunc.CheckOpenInheritSkillView", tostring(menuId), tostring(FunctionUnLockFunc.Me():CheckCanOpen(menuId)))
+  if FunctionUnLockFunc.Me():CheckCanOpen(menuId) then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.CheckOpenInheritSkillExtendCostPointPopUp(npc, param, npcFunctionData)
+  local menuId = param and param.menuid
+  if FunctionUnLockFunc.Me():CheckCanOpen(menuId) then
+    return NpcFuncState.Active
+  end
+  return NpcFuncState.InActive
+end
+
+function FunctionNpcFunc.CardUpgrade(npc, param, npcFunctionData)
+  FunctionNpcFunc.JumpPanel(PanelConfig.CardContainerView, {npcdata = npc, tabIndex = 1706})
+end
+
+function FunctionNpcFunc.CheckCardUpgrade(npc, param, npcFunctionData)
+  if not Game.CardUpgradeMap or not next(Game.CardUpgradeMap) then
+    return NpcFuncState.InActive
+  end
+  return NpcFuncState.Active
 end

@@ -38,7 +38,6 @@ function EquipMemoryData:SetMyServerData(serverData)
     if _singleAttrData.previewid and 0 < #_singleAttrData.previewid then
       debugStr = debugStr .. string.format(" 预览词条数量  %s 条", #_singleAttrData.previewid)
     end
-    xdlog(debugStr)
     table.insert(self.memoryAttrs, _singleAttrData)
   end
 end
@@ -121,6 +120,22 @@ function EquipMemoryData:GetWaxCount()
     end
   end
   return count
+end
+
+function EquipMemoryData:GetAttrID(index)
+  if self.memoryAttrs[index] then
+    return self.memoryAttrs[index].id
+  end
+  return 0
+end
+
+function EquipMemoryData:CheckCanAdvance()
+  local staticData = Table_ItemMemory[self.staticId]
+  if staticData then
+    local upgradeID = staticData.UpgradeID
+    return upgradeID ~= nil
+  end
+  return false
 end
 
 function EquipMemoryData:Clone()

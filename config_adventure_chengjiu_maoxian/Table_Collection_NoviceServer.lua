@@ -37,8 +37,7 @@ Table_Collection_t = {
     {60006076},
     {60006067},
     {60006069},
-    {60006071},
-    {60006074}
+    {60006071}
   },
   ItemId = {
     {
@@ -519,13 +518,6 @@ Table_Collection_t = {
       53939,
       53940,
       53941
-    },
-    {
-      53946,
-      53947,
-      53948,
-      53949,
-      53950
     }
   },
   Quests = {
@@ -679,7 +671,6 @@ Table_Collection = {
     Desc = "许多年以前，兰特克利斯掌管着通往天界和人间的天国之门，可以自由往返两个世界。出于兴趣，他有时会来到人间，化名莫特利，成为一名勇者。很快，勇者莫特利的光辉事迹传遍了大陆。他斩杀魔物，保护百姓，深受人们的爱戴。然而，在他成功打败了怪兽凯美拉后，怪兽的尸体上掉落了一枚红色宝石。那是吸血鬼德古拉伯爵的血咒。血咒召唤出了德古拉，他看穿了眼前人心中对至高权利的渴望，将恶魔的宝珠送给了兰特克利斯。在宝珠的蛊惑下，兰特克利斯的野心一发不可收拾。他回到天界没过多久，诸神的黄昏就爆发了。这场战役让神代陨落，而其中出现的恶魔军团，正是兰特克利斯偷偷打开天国之门，从人间带来的罪恶。在一切归于寂静时，只剩下几片雪白的羽翼在空中飞舞，仿佛在讲述这段传说。",
     RewardStr = "完成永恒之翼的收集%s",
     RewardProperty = Table_Collection_t.RewardProperty[1],
-    Name = "永恒之翼",
     RedTip = 10004,
     SortNum = 16
   },
@@ -765,7 +756,6 @@ Table_Collection = {
     id = 11,
     ItemId = Table_Collection_t.ItemId[11],
     Icon = "item_40736",
-    Desc = "古书中记载，生命魔剑为战斗而生，是传说中的武器。曾有五个人拥有过这把剑。第一个是位勇士，他用魔剑砍下了八岐大蛇的头颅；第二个是位壮汉，他用魔剑杀死了自己，拯救了一座城；第三个是名盗贼，他用魔剑除掉了目击者，也让自己的鲜血洒满了窗台；第四个是须佐之男，他无法忍受妻子的逝去，用魔剑自我了断；最后一个是位叫村正的年轻人，嫉妒之火让他用魔剑杀了师父和师兄，自己也被魔剑吞噬。没有人知道，生命魔剑有着自己的意志。如果持剑者违抗，它就会背叛主人。最终死去的，就不知道是谁了……",
     RewardStr = "完成生命魔剑的收集%s",
     RewardProperty = Table_Collection_t.RewardProperty[1],
     Name = "生命魔剑",
@@ -825,7 +815,6 @@ Table_Collection = {
     mapID = 44,
     Icon = "item_task_31",
     Desc = "诺德温是研究时间的学者。他根据黑魔女体内的魔女印记，构筑出了一套时间理论：永恒维度。根据永恒维度的说法，人类可以通过魔法窥伺未来，改变过去也并非不可能。然而在完成理论的那天，诺德温看到了万物毁灭的景象。大地上的一切被黑暗吞噬，曾经熟悉的景象化为乌有，诺德温惊醒时，手中出现了一个轮盘。轮盘发着光，然而无论诺德温怎么尝试，它都无法被打开。冥冥中传来一个声音：“当你眼中的未来降临，时间的轮盘将会再次开启……”",
-    RewardStr = "完成时间轮盘的收集%s",
     RewardProperty = Table_Collection_t.RewardProperty[1],
     Name = "时间轮盘",
     SortNum = 24
@@ -874,6 +863,7 @@ Table_Collection = {
     Type = 1,
     Quests = Table_Collection_t.Quests[5],
     Desc = "森灵一族的至宝，木、水、土三灵石被伊米尔之心的力量所污染，三灵石滋养下的森灵之心即将受到污染的时候，森灵王果断切断了森灵之心与灵石的联系，虽然森灵之心没有遭受污染，但是失去了三灵石的供养，森灵之心逐渐失去了力量，现在森灵王正在寻找让森灵之心重新恢复活力的方法。",
+    RewardStr = "完成森灵之心的收集%s",
     AdventureReward = Table_Collection_t.AdventureReward[12],
     RewardProperty = Table_Collection_t.RewardProperty[1],
     Name = "森灵之心",
@@ -1302,6 +1292,7 @@ Table_Collection = {
     ItemId = Table_Collection_t.ItemId[53],
     mapID = 78,
     Icon = "Firefighting",
+    Desc = "英勇的消防队长带着一队消防员受雷根贝勒公司的委托前来救火，让他们没想到的是，这次的行动因为雷根贝勒公司对研究所地下构造的隐瞒而导致全军覆没，康尼…鲍恩…莱克…杰夫…拉瑞…海拉米…汉克……这些英勇的消防员被魔物袭击全部葬身在了研究所地下，怨念和愤怒让他们死后变为了魔物中的一员，再也无法离开研究所。",
     RewardStr = "完成研究所地下1F的收集后%s",
     RewardProperty = Table_Collection_t.RewardProperty[1],
     Name = "烈士的执念",
@@ -1409,36 +1400,23 @@ Table_Collection = {
     RewardStr = "完成微笑的稻草人收集%s",
     AdventureReward = Table_Collection_t.AdventureReward[38],
     RewardProperty = Table_Collection_t.RewardProperty[1],
+    Name = "微笑的稻草人",
     RedTip = 10062,
     SortNum = 61
-  },
-  [62] = {
-    id = 62,
-    ItemId = Table_Collection_t.ItemId[62],
-    mapID = 84,
-    Icon = "item_31105",
-    Desc = "在圣域冰洞的中心，有着一个巨大的冰雕，它散发着强大的魔力，没有人能摧毁它。然而人们不知道的是，这个冰雕其实是一个被冰雪魔力冰冻住的喷泉，名为祈祷之泉。它的诞生是为了祝福一对双生子，为了感谢女神赐予阿卢纳贝兹这份礼物。然而，随着双生子的长大，阿卢纳贝兹全国经历了一场历时多年的寒灾。那段故事却成为了阿卢纳贝兹教国史书上的空白，后人已经无人知晓当年的真相了。当笼罩着阿卢纳贝兹多年的寒灾退去，当原本的圣域被冰雪之力冻结起来，当祈祷之泉里的水流不再流动，唯一在时间的轨迹中留下的，只有一段神谕：“双生双宿，异途陌路。王无二者，唯留一人。”",
-    RewardStr = "完成祈祷之泉收集%s",
-    Quality = 4,
-    AdventureReward = Table_Collection_t.AdventureReward[39],
-    RewardProperty = Table_Collection_t.RewardProperty[1],
-    Name = "祈祷之泉",
-    RedTip = 10064,
-    SortNum = 63
   }
 }
 local cell_mt = {
   __index = {
     AdventureReward = _EmptyTable,
-    Desc = "英勇的消防队长带着一队消防员受雷根贝勒公司的委托前来救火，让他们没想到的是，这次的行动因为雷根贝勒公司对研究所地下构造的隐瞒而导致全军覆没，康尼…鲍恩…莱克…杰夫…拉瑞…海拉米…汉克……这些英勇的消防员被魔物袭击全部葬身在了研究所地下，怨念和愤怒让他们死后变为了魔物中的一员，再也无法离开研究所。",
+    Desc = "古书中记载，生命魔剑为战斗而生，是传说中的武器。曾有五个人拥有过这把剑。第一个是位勇士，他用魔剑砍下了八岐大蛇的头颅；第二个是位壮汉，他用魔剑杀死了自己，拯救了一座城；第三个是名盗贼，他用魔剑除掉了目击者，也让自己的鲜血洒满了窗台；第四个是须佐之男，他无法忍受妻子的逝去，用魔剑自我了断；最后一个是位叫村正的年轻人，嫉妒之火让他用魔剑杀了师父和师兄，自己也被魔剑吞噬。没有人知道，生命魔剑有着自己的意志。如果持剑者违抗，它就会背叛主人。最终死去的，就不知道是谁了……",
     Icon = "task_certificate",
     ItemId = _EmptyTable,
-    Name = "微笑的稻草人",
+    Name = "永恒之翼",
     Quality = 3,
     Quests = _EmptyTable,
     RedTip = 10017,
     RewardProperty = _EmptyTable,
-    RewardStr = "完成森灵之心的收集%s",
+    RewardStr = "完成时间轮盘的收集%s",
     SortNum = 1,
     Type = 2,
     id = 1,

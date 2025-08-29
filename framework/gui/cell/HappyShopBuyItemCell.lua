@@ -198,35 +198,7 @@ function HappyShopBuyItemCell:SetData(data)
     if canBuyCount ~= nil then
       self.maxcount = canBuyCount
       if self.todayCanBuy.gameObject.activeSelf == false then
-        local repStr
-        if limitType == _HappyShopProxyLimitType.OneDay then
-          repStr = ZhString.HappyShop_todayCanBuy
-        elseif limitType == _HappyShopProxyLimitType.AccUser then
-          repStr = ZhString.HappyShop_AccUserCanBuy
-        elseif limitType == _HappyShopProxyLimitType.AccUserAlways then
-          repStr = ZhString.HappyShop_AlwaysCanBuy
-        elseif limitType == _HappyShopProxyLimitType.UserAlways then
-          if _HappyShopProxy:IsNewGVGShop() then
-            repStr = ZhString.HappyShop_SeasonCanBuy
-          else
-            repStr = ZhString.HappyShop_AlwaysCanBuy
-          end
-        elseif limitType == _HappyShopProxyLimitType.AccWeek then
-          repStr = ZhString.HappyShop_AccWeekCanBuy
-        elseif limitType == _HappyShopProxyLimitType.AccMonth then
-          repStr = ZhString.HappyShop_AccMonthCanBuy
-        elseif limitType == _HappyShopProxyLimitType.UserWeek then
-          repStr = ZhString.HappyShop_AccUserWeekCanBuy
-        end
-        if repStr then
-          local maxLimitStr = ""
-          if data.maxlimitnum ~= nil and 0 < data.maxlimitnum then
-            maxLimitStr = string.format(ZhString.HappyShop_MaxLimitCount, data.maxlimitnum)
-          end
-          self.todayCanBuy.text = string.format(repStr, maxLimitStr, self.maxcount)
-        else
-          self.todayCanBuy.text = ""
-        end
+        self.todayCanBuy.text = _HappyShopProxy:GetTodayCanBuyCountStr(data)
         self.todayCanBuy.gameObject:SetActive(limitType ~= _HappyShopProxyLimitType.GuildMaterialWeek)
       end
     end

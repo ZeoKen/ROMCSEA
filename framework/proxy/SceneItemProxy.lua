@@ -36,7 +36,7 @@ function SceneItemProxy:Add(data)
       error(string.format("服务器要求添加道具%s,配置未找到", data.id))
     end
     item = SceneDropItem.CreateAsTable()
-    item:ResetData(data.guid, staticData, Table_Equip[data.id], data.time, data.disappear_time, data.pos, data.owners, self.typeConfig[staticData.Type], data.sourceid, data.refinelv)
+    item:ResetData(data.guid, staticData, Table_Equip[data.id], data.time, data.disappear_time, data.pos, data.owners, self.typeConfig[staticData.Type], data.sourceid, data.refinelv, data.stage, data.from_pos)
     self.userMap[data.guid] = item
   else
     item = nil

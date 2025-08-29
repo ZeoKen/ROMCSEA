@@ -45,7 +45,10 @@ function Game.Preprocess_Table()
   Game.Preprocess_Table_WindowsHotKey()
   Game.Preprocess_ItemMemory()
   Game.Preprocess_Table_EndlessBattleFieldEvent()
+  Game.Preprocess_Table_HeroJourney()
   Game.Preprocess_Table_AstralDestinyGraph()
+  Game.Preprocess_Table_TriplePvpRobot()
+  Game.Preprocess_Table_CardLevel()
 end
 
 function Game.Preprocess_TableByTime()
@@ -508,6 +511,8 @@ end
 function Game.Preprocess_Menu()
   Game.Config_UnlockActionIds = {}
   Game.Config_UnlockEmojiIds = {}
+  Game.FoundElfConfigs = {}
+  Game.abyssLakeFoundElfConfigs = {}
   for k, v in pairs(Table_Menu) do
     local evt = v.event
     if evt then
@@ -523,7 +528,21 @@ function Game.Preprocess_Menu()
         end
       end
     end
+    if v.Condition then
+      if v.Condition.found_elf_num then
+        table.insert(Game.FoundElfConfigs, v)
+      end
+      if v.Condition.found_abyss_lake_elf_num then
+        table.insert(Game.abyssLakeFoundElfConfigs, v)
+      end
+    end
   end
+  table.sort(Game.FoundElfConfigs, function(l, r)
+    return l.Condition.found_elf_num < r.Condition.found_elf_num
+  end)
+  table.sort(Game.abyssLakeFoundElfConfigs, function(l, r)
+    return l.Condition.found_abyss_lake_elf_num < r.Condition.found_abyss_lake_elf_num
+  end)
 end
 
 function Game.Preprocess_PoemStory()
@@ -1304,6 +1323,21 @@ function Game.Preprocess_Table_EndlessBattleFieldEvent()
   Game.EB_StatueEventId = statueEventId
 end
 
+function Game.Preprocess_Table_HeroJourney()
+  local cdMap = {}
+  if Table_HeroJourneyAchievement then
+    for _, config in pairs(Table_HeroJourneyAchievement) do
+      if config.achieveParams and config.achieveParams.npcId then
+        cdMap[config.RaidID] = {
+          config.achieveParams.timeLimit,
+          config.achieveParams.npcId
+        }
+      end
+    end
+  end
+  Game.PveStartFightCD = cdMap
+end
+
 function Game.Process_Table_BattlePassLevel()
   local curServerTime = ServerTime.CurServerTime() / 1000
   local date = os.date("*t", curServerTime)
@@ -1430,4 +1464,27 @@ function Game.Preprocess_Table_AstralDestinyGraph()
     t[v.Season][v.Point] = v
   end
   Game.AstralDestinyGraphSeasonPointMap = t
+end
+
+function Game.Preprocess_Table_TriplePvpRobot()
+  if not Table_TriplePvpRobot then
+    return
+  end
+  local t = {}
+  for _, v in pairs(Table_TriplePvpRobot) do
+    t[v.MonsterID] = v.Profession
+  end
+  Game.TriplePvpRobotProfessionMap = t
+end
+
+function Game.Preprocess_Table_CardLevel()
+  if not Table_CardLevel then
+    return
+  end
+  local t = {}
+  for _, v in pairs(Table_CardLevel) do
+    t[v.CardID] = t[v.CardID] or {}
+    t[v.CardID][v.Level] = v
+  end
+  Game.CardUpgradeMap = t
 end

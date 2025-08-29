@@ -32,6 +32,10 @@ function GOManager_SceneBossAnime:RegisterGameObject(obj)
           self:SwitchToAnimation(objID, self.pendingAnimID[objID])
           break
         end
+        local abyssAnime = FunctionAbyssLake.Me():GetObjState(objID)
+        if abyssAnime then
+          self:PlayAnimation(objID, abyssAnime, 1)
+        end
         break
       end
       return true
@@ -50,6 +54,7 @@ end
 function GOManager_SceneBossAnime:PlayAnimation(objID, anim, progress)
   progress = progress or 0
   local animator = self.animators[objID]
+  FunctionAbyssLake.Me():RecordObjState(objID, anim)
   if animator then
     if anim and anim:find("show:") then
       animator.gameObject:SetActive(tonumber(anim:sub(6)) == 1)

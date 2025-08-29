@@ -317,6 +317,11 @@ function TeamPwsView:ClickButtonMatch()
     if not TeamProxy.Instance:CheckTeamTwsProfValid() then
       return
     end
+    if PvpProxy.Instance:CheckHasInvalidPro() then
+      local param = PvpProxy.Instance:GetForbiddenProStr()
+      MsgManager.ConfirmMsgByID(28088, nil, nil, nil, param)
+      return
+    end
     if TeamProxy.Instance:IHaveTeam() then
       local memberlst = TeamProxy.Instance.myTeam:GetPlayerMemberList(true, true)
       if #memberlst < GameConfig.Team.maxmember then

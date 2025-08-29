@@ -7,6 +7,7 @@ autoImport("GuildInfoForQuery")
 autoImport("GvgSandTableData")
 autoImport("GVGCookingHelper")
 autoImport("MiniMapGvgStrongHoldData")
+autoImport("GvgStatueInfo")
 local _fubenCmd = FuBenCmd_pb
 local _queueEnterCmd = QueueEnterCmd_pb
 local _debugSeasonDesc = {
@@ -36,6 +37,7 @@ local _ArrayClear = TableUtility.ArrayClear
 local _ArrayFindIndex = TableUtility.ArrayFindIndex
 local _ArrayPushBack = TableUtility.ArrayPushBack
 local _InsertArray = TableUtil.InsertArray
+local _TableClearByDeleter = TableUtility.TableClearByDeleter
 local _TimeDate_format = "%Y-%m-%d %H:%M:%S"
 local _DateTime = function(time_stamp)
   return os.date(_TimeDate_format, time_stamp)
@@ -63,6 +65,12 @@ GvgProxy.EpointState = {
   None = _fubenCmd.EGVGPOINT_STATE_MIN,
   Occupied = _fubenCmd.EGVGPOINT_STATE_OCCUPIED
 }
+GvgProxy.EMvpState = {
+  None = 0,
+  Will_Summon = 1,
+  Summoned = 2,
+  Die = 3
+}
 GvgProxy.MaxQuestRound = 3
 GvgProxy.GvgQuestMap = {
   [_fubenCmd.EGVGDATA_PARTINTIME] = "partin_time",
@@ -74,7 +82,8 @@ GvgProxy.GvgQuestMap = {
   [_fubenCmd.EGVGDATA_HONOR] = "get_honor",
   [_fubenCmd.EGVGDATA_OCCUPY_POINT] = "occupy_point",
   [_fubenCmd.EGVGDATA_DEF_POINT_TIME] = "def_point_time",
-  [_fubenCmd.EGVGDATA_PARTIN_KILLMETAL] = "partin_kill_metal"
+  [_fubenCmd.EGVGDATA_PARTIN_KILLMETAL] = "partin_kill_metal",
+  [_fubenCmd.EGVGDATA_DAM_MVP] = "dam_mvp"
 }
 GvgProxy.GvgQuestListp = {
   _fubenCmd.EGVGDATA_HONOR,
@@ -86,7 +95,8 @@ GvgProxy.GvgQuestListp = {
   _fubenCmd.EGVGDATA_KILLMETAL,
   _fubenCmd.EGVGDATA_PARTIN_KILLMETAL,
   _fubenCmd.EGVGDATA_OCCUPY_POINT,
-  _fubenCmd.EGVGDATA_DEF_POINT_TIME
+  _fubenCmd.EGVGDATA_DEF_POINT_TIME,
+  _fubenCmd.EGVGDATA_DAM_MVP
 }
 
 function GvgProxy.GVGBuildingUniqueID(npcid, lv)
@@ -115,17 +125,25 @@ function GvgProxy:Debug(...)
   end
 end
 
+function GvgProxy.Print(msg)
+  if GvgProxy.newGVGDebug then
+    TableUtil.Print(msg)
+  end
+end
+
 function GvgProxy.ClientGroupId(id)
   return math.fmod(id, 10000) + 1
 end
 
 function GvgProxy:InitProxy()
+  self.cityStatueMap = {}
   self.ruleGuild_Map = {}
   self.questInfoData = {}
   self.glandstatus_map = {}
   self.gLandStatusGroupList = {}
   self.GvgSandTableInfo = {}
   self:InitNewGVG()
+  self.mvp_id = nil
 end
 
 function GvgProxy.SetDungeonCalmDown(calm)
@@ -271,7 +289,7 @@ end
 
 function GvgProxy:RecvQueryGvgZoneGroupGuildCCmd(data)
   self:Debug("NewGVG 服务器初始化赛季信息")
-  TableUtil.Print(data)
+  GvgProxy.Print(data)
   if self.season and self.season ~= data.season then
     self:SeasonDirtyCall()
   end
@@ -303,7 +321,7 @@ function GvgProxy:RecvQueryGvgZoneGroupGuildCCmd(data)
     return
   end
   self:Debug("NewGVG 后端推送战线分组信息 infoCount ", #infos)
-  TableUtil.Print(infos)
+  GvgProxy.Print(infos)
   self.groupCnt = #infos
   self:Debug("NewGVG 公会线分组数: ", self.groupCnt)
   for i = 1, #infos do
@@ -483,7 +501,7 @@ function GvgProxy:_RecvPoint(points, isInit)
     return
   end
   if isInit then
-    _TableClear(self.pointInfoMap)
+    self:ClearPoints()
     _ArrayClear(self.myGuildPoints)
   end
   local point
@@ -536,7 +554,7 @@ end
 
 function GvgProxy:RecvGvgPointUpdateFubenCmd(data)
   self:Debug("NewGVG 服务器更新据点信息")
-  TableUtil.Print(data)
+  GvgProxy.Print(data)
   self:_RecvPoint(data.info)
 end
 
@@ -624,6 +642,7 @@ function GvgProxy:RecvQueueEnterRetCmd(data)
 end
 
 function GvgProxy:HandleNewGvgRankInfo(data)
+  GvgProxy.Print(data)
   local page = data.page
   if not page or "number" ~= type(page) then
     return
@@ -823,8 +842,14 @@ function GvgProxy:IsCrystalInvincible()
   return self.crystalInvincible == true
 end
 
+function GvgProxy:ClearPoints()
+  _TableClearByDeleter(self.pointInfoMap, function(v)
+    v:OnClear()
+  end)
+end
+
 function GvgProxy:ClearFightInfo()
-  _TableClear(self.pointInfoMap)
+  self:ClearPoints()
   _TableClear(self.lobbyFlagData)
   self.curOccupingPointID = nil
   self.gvgRaidState = EGvgState.None
@@ -835,6 +860,8 @@ function GvgProxy:ClearFightInfo()
   self.isPerfect = nil
   _ArrayClear(self.gvgStrongHoldDataArray)
   _TableClear(self.gvgStrongHoldDatas)
+  self:ResetMvp()
+  self:ClearRoadBlock()
 end
 
 function GvgProxy:ClearQuestInfo()
@@ -927,15 +954,248 @@ function GvgProxy:QueryCityInfo(mapid)
     return
   end
   mapid = mapid or Game.MapManager:GetMapID()
-  if flag_map[mapid] then
-    local query_group_id
-    if not GuildProxy.Instance:IHaveGuild() then
-      query_group_id = 0
-    else
-      query_group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
-    end
+  if flag_map[mapid] or Game.MapManager:IsInGVG_Lobby() then
+    local query_group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+    self:Debug("[Debug 旗帜] 请求主城占城信息 groupid ", query_group_id)
     ServiceGuildCmdProxy.Instance:CallQueryGCityShowInfoGuildCmd(nil, query_group_id)
   end
+  local city_id = 0
+  local lobby_static_data = Game.Config_GuildStrongHold_Lobby[mapid] or Game.Config_DateBattleCity_Lobby[mapid]
+  if nil ~= lobby_static_data then
+    city_id = lobby_static_data.id
+  end
+  local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+  if (mapid == GameConfig.System.maincity_map_id or 0 < city_id) and ServiceGuildCmdProxy.Instance.CallGvgCityStatueQueryGuildCmd then
+    self:Debug("[GVG雕像] 公会战城池雕像请求 group_id |city_id", group_id, city_id)
+    ServiceGuildCmdProxy.Instance:CallGvgCityStatueQueryGuildCmd(group_id, city_id)
+  end
+end
+
+function GvgProxy.GetStatueCity(unique_id)
+  local static_data = GvgProxy.TryGetStaticLobbyStrongHold()
+  if static_data then
+    return static_data.id
+  end
+  if not unique_id then
+    return nil
+  end
+  local config = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.NpcUniqueId2CityId
+  if config then
+    return config[unique_id]
+  end
+  return nil
+end
+
+function GvgProxy:SetCurStatueCityId(id)
+  self.cur_statue_unique_id = self:GetStatueUniqueId(id)
+end
+
+function GvgProxy:GetStatueUniqueId(city_id)
+  if not city_id then
+    return
+  end
+  if not self.statue_unique_map then
+    self.statue_unique_map = {}
+    local config = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.NpcUniqueId2CityId
+    if config then
+      for statue_unique_id, cityId in pairs(config) do
+        if statue_unique_id ~= cityId then
+          self.statue_unique_map[cityId] = statue_unique_id
+        end
+      end
+    end
+  end
+  return self.statue_unique_map[city_id]
+end
+
+function GvgProxy:HandleCityStatue(server_data)
+  self:Debug("[GVG雕像] GvgCityStatueQueryGuildCmd")
+  GvgProxy.Print(server_data)
+  local infos = server_data.infos
+  if not infos then
+    return
+  end
+  local group_id = server_data.groupid
+  local city_map = self.cityStatueMap[group_id]
+  if not city_map then
+    city_map = {}
+    self.cityStatueMap[group_id] = city_map
+  end
+  for i = 1, #infos do
+    city_map[infos[i].cityid] = GvgStatueInfo.new(infos[i].info)
+  end
+  self.cacheStatueGroupID = group_id
+end
+
+function GvgProxy:GetCurMapStatueBattleGroupID()
+  local id = GuildProxy.Instance:GetMyGuildGvgGroup()
+  if id == 0 then
+    return self.cacheStatueGroupID or 0
+  end
+  return id
+end
+
+function GvgProxy:GetCurMapStatueBattleClientGroupID()
+  local id = self:GetCurMapStatueBattleGroupID()
+  return GvgProxy.ClientGroupId(id)
+end
+
+function GvgProxy:GetNewStatueNpc()
+  local statue_id = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.StatueNpcID
+  if not statue_id then
+    return nil
+  end
+  if Game.MapManager:IsInGVG_Lobby() then
+    local statue_npc = NSceneNpcProxy.Instance:FindNpcs(statue_id)
+    return statue_npc and statue_npc[1]
+  end
+  if not self.cur_statue_unique_id then
+    return
+  end
+  local statue_npc = NSceneNpcProxy.Instance:FindNpcByUniqueId(self.cur_statue_unique_id)
+  if statue_npc then
+    return statue_npc[1]
+  end
+  return nil
+end
+
+function GvgProxy:HandleCityStatueUpdate(server_data)
+  self:Debug("[GVG雕像] GvgCityStatueUpdateGuildCmd")
+  GvgProxy.Print(server_data)
+  local group_id = server_data.groupid
+  local city_map = self.cityStatueMap[group_id]
+  if not city_map then
+    city_map = {}
+    self.cityStatueMap[group_id] = city_map
+  end
+  local city_id = server_data.cityid
+  local statue = city_map[city_id]
+  if not statue then
+    statue = GvgStatueInfo.new(server_data.info.info)
+    city_map[city_id] = statue
+  end
+  if server_data.exterior then
+    statue:UpdateAvatar(server_data.info.info)
+    self:Debug("[GVG雕像] 更新外观")
+    local statue_npc = self:GetNewStatueNpc()
+    if statue_npc then
+      statue_npc:ReDress()
+    end
+  else
+    local pose = server_data.info.info.pose
+    local cache_pos = statue:GetPose()
+    if pose and pose ~= cache_pos then
+      statue:UpdatePose(pose)
+      self:Debug("[GVG雕像] 更新Pose ", pose)
+      self:ChangeStatuePos(pose)
+    else
+      self:Debug("[GVG雕像] 更新雕像")
+      statue:Update(server_data.info.info)
+    end
+  end
+  GvgProxy.Print(self.cityStatueMap)
+end
+
+function GvgProxy:GetStatueByCityId(group_id, city_id)
+  local city_map = self.cityStatueMap[group_id]
+  if city_map then
+    return city_map[city_id]
+  end
+  return nil
+end
+
+function GvgProxy:CheckMyGroupCityStatueEmpty(city_id)
+  local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+  local key, city_map
+  if Game.MapManager:IsInGVG_Lobby() then
+    local mapid = Game.MapManager:GetMapID()
+    local lobby_static_data = Game.Config_GuildStrongHold_Lobby[mapid] or Game.Config_DateBattleCity_Lobby[mapid]
+    if nil ~= lobby_static_data then
+      city_id = lobby_static_data.id
+      for groupid, data in pairs(self.cityStatueMap) do
+        if data[city_id] then
+          city_map = self.cityStatueMap[groupid]
+          break
+        end
+      end
+    end
+  elseif not group_id or group_id == 0 then
+    key, city_map = next(self.cityStatueMap)
+  else
+    city_map = self.cityStatueMap[group_id]
+  end
+  local statue_info = city_map and city_map[city_id]
+  if not statue_info then
+    return true
+  end
+  return statue_info:IsEmpty()
+end
+
+function GvgProxy:GetPoseByCityId(group_id, city_id)
+  local data = self:GetStatueByCityId(group_id, city_id)
+  if data then
+    return data:GetPose()
+  end
+  return nil
+end
+
+function GvgProxy:GetStatueLeaderIdByCityId(group_id, city_id)
+  local data = self:GetStatueByCityId(group_id, city_id)
+  if data then
+    return data:GetLeaderId()
+  end
+  return nil
+end
+
+function GvgProxy:GetLeaderNameByStatusCity(group_id, city_id)
+  local data = self:GetStatueByCityId(group_id, city_id)
+  if data then
+    return data:GetLeaderName()
+  end
+  return nil
+end
+
+function GvgProxy:GetGuildNameByStatusCity(group_id, city_id)
+  local data = self:GetStatueByCityId(group_id, city_id)
+  if data then
+    return data:GetGuildName()
+  end
+  return nil
+end
+
+function GvgProxy.TryGetStaticLobbyStrongHold()
+  local raidId = Game.MapManager:GetMapID()
+  local lobbyMap = Game.MapManager:IsGVG_DateBattle_Lobby() and Game.Config_DateBattleCity_Lobby or Game.Config_GuildStrongHold_Lobby
+  return raidId and lobbyMap[raidId]
+end
+
+function GvgProxy:InitializeStatuePos(city_id, nnpc)
+  local gvg_group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+  local pose = self:GetPoseByCityId(gvg_group_id, city_id)
+  pose = pose or self:GetPoseByCityId(0, city_id)
+  if not pose then
+    return
+  end
+  local config = Table_ActionAnime[pose]
+  if not config then
+    return
+  end
+  nnpc:Server_PlayActionCmd(config.Name, nil, true)
+end
+
+function GvgProxy:ChangeStatuePos(pose)
+  if not pose then
+    return
+  end
+  local nnpc = self:GetNewStatueNpc()
+  if not nnpc then
+    return
+  end
+  local config = Table_ActionAnime[pose]
+  if not config then
+    return
+  end
+  nnpc:Server_PlayActionCmd(config.Name, nil, true)
 end
 
 function GvgProxy:ClearRuleGuildInfos()
@@ -1022,10 +1282,14 @@ function GvgProxy:RecvGuildFireNewDefFubenCmd(data)
   self.def_guildname = data.guildname
   self.metal_hpper = 100
   self:ClearMetalNpcMap()
+  self:UpdateRoadBlock()
   self:Debug("NewGVG 切换攻守方，重置华丽水晶血量。新的防守方同步|防守方公会名： ", data.guildid, data.guildname)
 end
 
 function GvgProxy:RecvGvgDataSyncCmd(data)
+  if not Game.MapManager:IsInGVG() then
+    self:ClearQuestInfo()
+  end
   local datas = data.datas
   for i = 1, #datas do
     local single = datas[i]
@@ -1046,6 +1310,10 @@ end
 
 function GvgProxy:GetCoin()
   return self.questInfoData[FuBenCmd_pb.EGVGDATA_COIN] or 0
+end
+
+function GvgProxy:GetMvpDamage()
+  return self.questInfoData[FuBenCmd_pb.EGVGDATA_DAM_MVP] or 0
 end
 
 function GvgProxy:CheckIfAchieve(oldData, data)
@@ -1128,7 +1396,7 @@ end
 
 function GvgProxy:RecvGuildFireInfoFubenCmd(data)
   self:Debug("NewGVG 玩家进入时同步公会战信息 ")
-  TableUtil.Print(data)
+  GvgProxy.Print(data)
   self:_UpdateRaidState(data.raidstate)
   self:_UpdateNextRaidState(data.perfect)
   self:_TryShowCDTime(data.calm_time)
@@ -1142,7 +1410,7 @@ function GvgProxy:RecvGuildFireInfoFubenCmd(data)
   self:Debug("NewGVGDebug防守方公会名 进入副本防守公会名字 ", self.def_guildname)
   self.def_perfect = data.def_perfect
   self.danger = data.danger
-  _TableClear(self.pointInfoMap)
+  self:ClearPoints()
   self:_RecvPoint(data.points, true)
   if data.my_smallmetal_cnt then
     self:HandleSmallMetalCnt(self:GetGuildID(), data.my_smallmetal_cnt)
@@ -1158,6 +1426,25 @@ function GvgProxy:RecvGuildFireInfoFubenCmd(data)
     self.roadBlock = data.roadblock
   end
   self:UpdateCurMapGvgGroupId(data.gvg_group)
+  self:HandleMvpUpdate(data.mvp_hp_per, data.mvp_state)
+  self:UpdateRoadBlock()
+end
+
+function GvgProxy:UpdateRoadBlock()
+  local npcid = GameConfig.GvgNewConfig.roadblock_npcid
+  if npcid then
+    local npcs = NSceneNpcProxy.Instance:FindNpcs(npcid)
+    if npcs then
+      for _, v in pairs(npcs) do
+        if v then
+          v:TryUpdateRoadBlock()
+        end
+      end
+    end
+  end
+end
+
+function GvgProxy:ClearRoadBlock()
 end
 
 function GvgProxy:UpdateCurMapGvgGroupId(id)
@@ -1201,6 +1488,10 @@ function GvgProxy:_resetPerfectDefense(perfect)
   end
 end
 
+function GvgProxy:CheckPerfectDefense()
+  return self.isPerfectDefense == true
+end
+
 function GvgProxy:ClearCurPerfectDefenseState()
   self.isPerfectDefense = nil
   self.perfectTimeInfo = nil
@@ -1226,6 +1517,7 @@ function GvgProxy:HandleRecvGvgScoreInfoUpdateGuildCmd(server_data)
   self.scoreInfo.defense = info.defense_score
   self.scoreInfo.attack = info.attack_score
   self.scoreInfo.perfect = info.perfect_score
+  self.scoreInfo.kill_mvp = info.mvp_score
   self:Debug("[NewGVG] 本场公会战积分信息 保卫城池得分|击破华丽金属得分|完美防守得分 ", info.defense_score, info.attack_score, info.perfect_score)
   self.scoreInfo.scoreDefenseCityMap = {}
   local defensecitys = info.defensecitys
@@ -1271,35 +1563,24 @@ function GvgProxy:GetMaxPointScore()
   return self.maxPointScore
 end
 
-function GvgProxy.IsClassicMode()
+function GvgProxy:GetCurRaidMode()
   local curRaidId = Game.MapManager:GetRaidID()
   local raid_config = Game.Config_GuildStrongHold_RaidMap
   local config = raid_config and raid_config[curRaidId]
   if not config then
     raid_config = Game.Config_GuildStrongHold_Lobby
     config = raid_config and raid_config[curRaidId]
-    if not config then
-      raid_config = Game.Config_DateBattleCity_RaidMap
-      config = raid_config and raid_config[curRaidId]
-      if not config then
-        raid_config = Game.Config_DateBattleCity_Lobby
-        config = raid_config and raid_config[curRaidId]
-      end
-    end
   end
   if config then
-    return config.Mode == GuildCmd_pb.EGUILDDATEBATTLEMODE_CLASSIC
+    return config.Mode
   end
-  return false
+  return 1
 end
 
 local no_lostColor = "[c][0087FF]%s[-][/c]"
 local lostColor = "[c][909090]%s[-][/c]"
 
 function GvgProxy:GetPointScoreDesc(desc)
-  if GvgProxy.IsClassicMode() then
-    return self:GetClassicPointScoreDesc()
-  end
   local score_points = GameConfig.GvgNewConfig.score_points
   if not score_points then
     redlog("GameConfig.GvgNewConfig.score_points未配置")
@@ -1308,7 +1589,7 @@ function GvgProxy:GetPointScoreDesc(desc)
   local result = ""
   for i = 1, #score_points do
     local single_point = string.format(desc, score_points[i])
-    local displayLostColor = self:CheckPointIsLost(score_points[i]) or not GvgProxy.Instance:HasPreCity()
+    local displayLostColor = self:CheckPointIsLost(score_points[i]) or not self:HasPreCity()
     local colorFormat = displayLostColor and lostColor or no_lostColor
     single_point = string.format(colorFormat, single_point)
     if i ~= #score_points then
@@ -1317,13 +1598,6 @@ function GvgProxy:GetPointScoreDesc(desc)
       result = result .. single_point
     end
   end
-  return result
-end
-
-function GvgProxy:GetClassicPointScoreDesc()
-  local displayLostColor = self:CheckPointIsLost(1) or not GvgProxy.Instance:HasPreCity()
-  local colorFormat = displayLostColor and lostColor or no_lostColor
-  local result = string.format(colorFormat, ZhString.GVGMode_ScoreTipBattle_Desc)
   return result
 end
 
@@ -1460,7 +1734,71 @@ function GvgProxy:initGvgRaidStrongHold()
   self.curStrongHoldStaticData = staticData
 end
 
+local _invalid_mvp_id = 0
+
+function GvgProxy:GetCurMvpId()
+  if not self.mvp_id then
+    local static_data = self:GetCurStrongHoldConfig()
+    local city_type = static_data and static_data.CityType
+    if city_type then
+      local config = GameConfig.GvgNewConfig and GameConfig.GvgNewConfig.city_type_to_mvp
+      self.mvp_id = config and config[city_type] and config[city_type].monster or _invalid_mvp_id
+    else
+      self.mvp_id = _invalid_mvp_id
+    end
+  end
+  return self.mvp_id
+end
+
+function GvgProxy:HasMapMvp()
+  local mvp = self:GetCurMvpId()
+  return nil ~= mvp and 0 < mvp
+end
+
+function GvgProxy:ResetMvp()
+  self.mvp_id = nil
+  self.mvp_state = GvgProxy.EMvpState.None
+  self.mvp_hp_per = 0
+end
+
+local mvp_state_debug_str
+local Get_mvp_state_str = function(state)
+  if not mvp_state_debug_str then
+    local EMvpState = GvgProxy.EMvpState
+    mvp_state_debug_str = {
+      [EMvpState.None] = ZhString.GvgLand_Mvp_State_None,
+      [EMvpState.Will_Summon] = ZhString.GvgLand_Mvp_State_WillSommon,
+      [EMvpState.Summoned] = ZhString.GvgLand_Mvp_State_Sommoned,
+      [EMvpState.Die] = ZhString.GvgLand_Mvp_State_Die
+    }
+  end
+  return mvp_state_debug_str[state]
+end
+
+function GvgProxy:HandleMvpUpdate(hp_per, mvp_state)
+  self.mvp_hp_per, self.mvp_state = hp_per, mvp_state
+  self:Debug("NewGVG MVP 血量百分比|mvp 状态： ", self.mvp_hp_per, Get_mvp_state_str(self.mvp_state))
+  GameFacade.Instance:sendNotification(GVGEvent.GVG_MvpStateUpdate)
+end
+
+function GvgProxy:GetMvpHpPer()
+  return self.mvp_hp_per
+end
+
+function GvgProxy:IsMvpAlive()
+  return self.mvp_state == GvgProxy.EMvpState.Summoned
+end
+
+function GvgProxy:IsMvpDead()
+  return self.mvp_state == GvgProxy.EMvpState.Die
+end
+
+function GvgProxy:GetCurStrongHoldConfig()
+  return self.curStrongHoldStaticData
+end
+
 function GvgProxy:InitCurRaidStrongHold()
+  self:ResetMvp()
   if Game.MapManager:IsGVG_DateBattle() then
     self:initGuildDateRaidStrongHold()
     return
@@ -1601,6 +1939,7 @@ local _GLandStatusInfos_dirty = {}
 
 function GvgProxy:Update_GLandStatusInfos(server_infos, groupid)
   self:Debug("[NewGVG] 更新战线城池界面信息groupid server_infos length ", groupid, #server_infos)
+  GvgProxy.Print(server_infos)
   if self.glandstatus_map[groupid] then
     _TableClear(self.glandstatus_map[groupid])
   else
@@ -1624,6 +1963,8 @@ function GvgProxy:Update_GLandStatusInfos(server_infos, groupid)
     tdata.lv = server_info.lv
     tdata.groupid = groupid
     tdata.membercount = server_info.membercount
+    tdata.mvp_state = server_info.mvp_state
+    tdata.mvp_summon_time = server_info.mvp_summon_time
     tdata.leadername = server_info.leadername
     tdata.oldguildid = server_info.oldguild
     if nil ~= server_info.roadblock then
@@ -1692,12 +2033,6 @@ function GvgProxy:SetGvgOpenFireState(data)
   self.gvgStartTime = data.start_time
   if self.gvgStartTime and self.gvgStartTime > 0 and self.gvgStartTime - ServerTime.CurServerTime() / 1000 <= 300 then
     RedTipProxy.Instance:UpdateRedTip(10773)
-  end
-  if self.gvgOpenFireState == false then
-    if self.groupTask then
-      TableUtility.TableClear(self.groupTask)
-    end
-    self:ClearQuestInfo()
   end
   self:Debug("[NewGVG] GvgOpenFireGuildCmd fire | settleTime ", self.gvgOpenFireState, os.date("%Y-%m-%d-%H-%M-%S", self.gvgFireSettleTime), os.date("%Y-%m-%d-%H-%M-%S", self.gvgStartTime))
   self:ManualQuerySettleInfo()
@@ -1812,7 +2147,7 @@ function GvgProxy:SetStatuePose(pose)
   self:UpdateStatuePose(pose)
 end
 
-local _ObstacleAction = {Defensive = "state2001", Offensive = "state1001"}
+local _ObstacleAction = {Defensive = "state3001", Offensive = "state1001"}
 
 function GvgProxy:InitObstacleAction(npc)
   if not Game.MapManager:IsPVPMode_GVGDetailed() then
@@ -1883,6 +2218,9 @@ function GvgProxy:RecvGvgTaskUpdateGuildCmd(data)
   xdlog("GVG团队任务")
   if not self.groupTask then
     self.groupTask = {}
+  end
+  if not Game.MapManager:IsInGVG() then
+    TableUtility.TableClear(self.groupTask)
   end
   local tasks = data.tasks
   if tasks and 0 < #tasks then
@@ -2085,4 +2423,48 @@ end
 function GvgProxy:GetCityRoadBlock(groupid, cityid)
   local tdata = self.glandstatus_map[groupid][cityid]
   return tdata and tdata.roadBlock and tdata.roadBlock > 0
+end
+
+function GvgProxy:GetGvgFinalTimeStr()
+  local startTimes = GameConfig.GVGConfig.start_time
+  if not startTimes or #startTimes == 0 then
+    return ""
+  end
+  local finalConfig
+  for i = 1, #startTimes do
+    if startTimes[i].super then
+      finalConfig = startTimes[i]
+      break
+    end
+  end
+  if not finalConfig then
+    return ""
+  end
+  local lastTime = GameConfig.GvgDroiyan and GameConfig.GvgDroiyan.LastTime or GameConfig.GVGConfig.last_time or 3600
+  local lastTimeHours = math.floor(lastTime / 3600)
+  local lastTimeMinutes = math.floor(lastTime % 3600 / 60)
+  local endHour = finalConfig.hour + lastTimeHours
+  local endMin = finalConfig.min + lastTimeMinutes
+  if 60 <= endMin then
+    endHour = endHour + 1
+    endMin = endMin - 60
+  end
+  if 24 <= endHour then
+    endHour = endHour - 24
+  end
+  local timeStr = string.format("%02d:%02d ~ %02d:%02d", finalConfig.hour, finalConfig.min, endHour, endMin)
+  return timeStr
+end
+
+function GvgProxy:GetGvgTimeStr()
+  local startTime = GameConfig.GVGConfig.start_time[1]
+  local lastTime = GameConfig.GVGConfig.last_time
+  local day = startTime.day
+  local hour = startTime.hour
+  local min = startTime.min or 0
+  local totalMinutes = hour * 60 + min + math.floor(lastTime / 60)
+  local endHour = math.floor(totalMinutes / 60) % 24
+  local endMin = totalMinutes % 60
+  local timeRangeStr = string.format("%02d:%02d ~ %02d:%02d", hour, min, endHour, endMin)
+  return timeRangeStr
 end

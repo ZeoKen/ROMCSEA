@@ -30,13 +30,31 @@ local tempV3 = LuaVector3()
 local tempRot = LuaQuaternion()
 local _MyselfProxy
 local EffectAnimationTime = 1500
+local IsNull = Slua.IsNull
 
 function LevelUpPanel:Init()
   _MyselfProxy = MyselfProxy.Instance
+  self:DisableAnimatorDuringInit()
   self:FindObjs()
   self:AddEvents()
   local lvType = self.viewdata and self.viewdata.viewdata and self.viewdata.viewdata.lvType
   self:UpdateView(lvType)
+end
+
+function LevelUpPanel:DisableAnimatorDuringInit()
+  local animator = self.gameObject:GetComponent(Animator)
+  if animator then
+    animator.enabled = false
+    if self.animatorEnableTick then
+      self.animatorEnableTick:Destroy()
+      self.animatorEnableTick = nil
+    end
+    self.animatorEnableTick = TimeTickManager.Me():CreateOnceDelayTick(0, function()
+      if animator and animator.gameObject and animator.gameObject.activeInHierarchy then
+        animator.enabled = true
+      end
+    end, self)
+  end
 end
 
 function LevelUpPanel:FindObjs()
@@ -49,6 +67,10 @@ function LevelUpPanel:FindObjs()
   self.fromLabel = self:FindComponent("FromLabel", UILabel)
   self.toLabel = self:FindComponent("ToLabel", UILabel)
   self.funcLabel = self:FindComponent("FuncLabel", UILabel)
+  self.levelLabel_1 = self:FindComponent("LevelLabel_1", UILabel)
+  self.toSprite = self:FindGO("ToSprite"):GetComponent(UISprite)
+  self.info2 = self:FindGO("info2")
+  self:Lock()
   self:AddClickEvent(self.mask, function(g)
     if self.isLocked then
       return
@@ -57,24 +79,13 @@ function LevelUpPanel:FindObjs()
       self:CloseSelf()
     end
   end)
-  self.levelAlpha = self:FindComponent("LevelLabel", TweenAlpha)
-  self.info1Alpha = self:FindComponent("info1", TweenAlpha)
-  self.info2Alpha = self:FindComponent("info2", TweenAlpha)
-  self.levelLabel_1 = self:FindComponent("LevelLabel_1", UILabel)
-  self.levelAlpha:ResetToBeginning()
-  self.info1Alpha:ResetToBeginning()
-  self.info2Alpha:ResetToBeginning()
-  self.toSprite = self:FindGO("ToSprite"):GetComponent(UISprite)
-  self.toSpAlpha = self:FindComponent("ToSprite", TweenAlpha)
-  self.toLabelAlpha = self:FindComponent("ToLabel", TweenAlpha)
-  self.info2 = self:FindGO("info2")
-  self:Lock()
 end
 
 function LevelUpPanel:Lock()
   self.isLocked = true
   if self.lockTimer then
     self.lockTimer:Destroy()
+    self.lockTimer = nil
   end
   self.lockTimer = TimeTickManager.Me():CreateOnceDelayTick(EffectAnimationTime, function()
     self:Unlock()
@@ -155,9 +166,15 @@ function LevelUpPanel:ShowStaticUIEffects(from, to, lvType)
       self.funcLabel.text = string.format(config.funcText, delta)
       self.info2:SetActive(true)
     end
-    self.levelLabel.text = to
-    self.levelLabel_1.text = to
-    self.toLabel.text = to
+    if self.levelLabel and not IsNull(self.levelLabel) then
+      self.levelLabel.text = to
+    end
+    if self.levelLabel_1 and not IsNull(self.levelLabel_1) then
+      self.levelLabel_1.text = to
+    end
+    if self.toLabel and not IsNull(self.toLabel) then
+      self.toLabel.text = to
+    end
   end
 end
 
@@ -170,23 +187,12 @@ function LevelUpPanel:ShowUIEffects(from, to, lvType)
     return
   end
   self.to = to
-  self.levelAlpha:ResetToBeginning()
-  self.info1Alpha:ResetToBeginning()
-  self.info2Alpha:ResetToBeginning()
-  self.toSpAlpha:ResetToBeginning()
-  self.toLabelAlpha:ResetToBeginning()
-  self.levelAlpha:PlayForward()
-  self.info1Alpha:PlayForward()
-  self.info2Alpha:PlayForward()
-  self.toSpAlpha:PlayForward()
-  self.toLabelAlpha:PlayForward()
   if self.tick then
     self.tick:Destroy()
     self.tick = nil
   end
   self.tick = TimeTickManager.Me():CreateOnceDelayTick(410, function()
     self.levelLabel.text = self.to
-    self.levelAlpha:PlayReverse()
   end, self)
   self.textName = config.bgTex
   PictureManager.Instance:SetUI(config.bgTex, self.levelTex)
@@ -195,10 +201,10 @@ function LevelUpPanel:ShowUIEffects(from, to, lvType)
     self.effect = nil
   end
   self.effect = self:PlayUIEffect(config.lvUPEffect, self.topEffect)
-  TimeTickManager.Me():CreateOnceDelayTick(300, function()
+  self.tick1 = TimeTickManager.Me():CreateOnceDelayTick(300, function()
     self:PlayUIEffect(config.lineBGEffect, self.lineEffect1, true)
   end, self)
-  TimeTickManager.Me():CreateOnceDelayTick(500, function()
+  self.tick2 = TimeTickManager.Me():CreateOnceDelayTick(500, function()
     self:PlayUIEffect(config.lineBGEffect, self.lineEffect2, true)
   end, self)
   self.levelLabel.effectColor = config.outlineColor
@@ -229,6 +235,22 @@ function LevelUpPanel:OnExit()
   if self.tick then
     self.tick:Destroy()
     self.tick = nil
+  end
+  if self.tick1 then
+    self.tick1:Destroy()
+    self.tick1 = nil
+  end
+  if self.tick2 then
+    self.tick2:Destroy()
+    self.tick2 = nil
+  end
+  if self.lockTimer then
+    self.lockTimer:Destroy()
+    self.lockTimer = nil
+  end
+  if self.animatorEnableTick then
+    self.animatorEnableTick:Destroy()
+    self.animatorEnableTick = nil
   end
   self.topEffect = nil
 end

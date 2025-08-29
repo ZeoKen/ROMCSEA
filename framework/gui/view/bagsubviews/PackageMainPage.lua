@@ -56,6 +56,8 @@ function PackageMainPage:InitItemList()
   self.itemlist:AddEventListener(ItemEvent.ClickItem, self.ClickItem, self)
   self.itemlist:AddEventListener(ItemEvent.DoubleClickItem, self.DoubleClickItem, self)
   self.itemlist:AddEventListener(ItemEvent.ClickItemTab, self.ClickItemTab, self)
+  self.itemlist:AddEventListener(DragDropEvent.StartDrag, self.OnDragStart, self)
+  self.itemlist:AddEventListener(DragDropEvent.EndDrag, self.OnDragEnd, self)
   self.itemlist.GetTabDatas = PackageMainPage.GetTabDatas
   self.itemlist.UpdateTabList = PackageMainPage.UpdateTabList
   
@@ -129,7 +131,8 @@ function PackageMainPage:InitRefreshSymbol()
         tabs = {
           PanelConfig.EquipMemoryUpgradeView,
           PanelConfig.EquipMemoryDecomposeView,
-          PanelConfig.EquipMemoryAttrResetView
+          PanelConfig.EquipMemoryAttrResetView,
+          PanelConfig.EquipMemoryAdvanceView
         }
       }
     })
@@ -565,7 +568,6 @@ function PackageMainPage:ClickItemTab(cellCtrl)
     self.scrollBg2.transform.localPosition = LuaGeometry.GetTempVector3(0, -515, 0)
     self.memoryRecoverBtn:SetActive(true)
     self.isMemoryPage = true
-    self:SetItemDragEnabled(false)
     ServiceItemProxy.Instance:CallBrowsePackage(SceneItem_pb.EPACKTYPE_MEMORY)
   else
     self:ResizeScrollView(1)
@@ -581,6 +583,18 @@ function PackageMainPage:ClickItemTab(cellCtrl)
     end
   end
   self.refreshSymbol_Grid:Reposition()
+end
+
+function PackageMainPage:OnDragStart(cellCtrl)
+  xdlog("PackageMainPage OnDragStart")
+  local data = cellCtrl.data
+  self.container:OnBagItemDragStart(data)
+end
+
+function PackageMainPage:OnDragEnd(cellCtrl)
+  xdlog("PackageMainPage OnDragEnd")
+  local data = cellCtrl.data
+  self.container:OnBagItemDragEnd(data)
 end
 
 function PackageMainPage:ResizeScrollView(type)

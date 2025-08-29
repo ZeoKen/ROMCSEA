@@ -27,11 +27,9 @@ function ChatRoomPage:GetShowHideMode()
 end
 
 function ChatRoomPage:OnShow()
-  if not ApplicationInfo.IsRunOnWindowns() then
-    UIUtil.ResetAndUpdateAllAnchors(self.gameObject)
-    self.gameObject:SetActive(true)
-    self.anchorsHasResetByOnShow = true
-  end
+  UIUtil.ResetAndUpdateAllAnchors(self.gameObject)
+  self.gameObject:SetActive(true)
+  self.anchorsHasResetByOnShow = true
   local view = self:GetViewByState()
   if view ~= nil and view.itemContent ~= nil then
     view.itemContent.table:Reposition()

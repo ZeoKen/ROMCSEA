@@ -127,7 +127,7 @@ Table_MapBgm = {
   [26] = {
     id = 26,
     NameEn = "glt_1",
-    SceneBgm = ""
+    SceneBgm = "gef_goblin"
   },
   [27] = {
     id = 27,
@@ -1658,6 +1658,11 @@ Table_MapBgm = {
     id = 332,
     NameEn = "sc_jfzc_001",
     SceneBgm = "moc_fild"
+  },
+  [337] = {
+    id = 337,
+    NameEn = "sc_ygfb_001",
+    SceneBgm = "Bgm_Task_Bossfight_01"
   }
 }
 Table_MapBgm_fields = {

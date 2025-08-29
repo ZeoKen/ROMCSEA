@@ -760,3 +760,7 @@ function SkillItemData:UpdateShortcuts(shortcuts)
     end
   end
 end
+
+function SkillItemData:IsAllSuperUse()
+  return self.staticData.Logic_Param.allSuperUse == 1
+end

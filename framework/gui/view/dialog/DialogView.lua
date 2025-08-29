@@ -724,6 +724,7 @@ function DialogView:DoMenuEvent(cellData)
     elseif FunctionPve.Me():DoChallenge() then
       self:CloseSelf()
     end
+  elseif menuType == Dialog_MenuData_Type.ChangeMaterial then
   end
 end
 
@@ -742,6 +743,7 @@ function DialogView:MapEvent()
   self:AddListenEvt(SceneUserEvent.NpcSyncMove, self.HandleNpcMove)
   self:AddListenEvt(QuestEvent.DelDahuangEvent, self.HandleDahuangEventDel)
   self:AddListenEvt(ServiceEvent.PhotoCmdBoardQueryAwardPhotoCmd, self.HandlePhotoCmdBoardQueryAwardPhoto)
+  self:AddListenEvt(ServiceEvent.SceneTipGameTipCmd, self.HandleSceneTipGameTipCmd)
   self:AddListenEvt(HotKeyEvent.DialogPushOn, self.HandleHotKeyDialogPushOn)
   self:AddListenEvt(HotKeyEvent.DialogSelectOption, self.HandleHotKeyDialogSelectOption)
   self:AddListenEvt(PVEEvent.SyncPvePassInfo, self.HandleSyncPvePassInfo)
@@ -878,6 +880,17 @@ function DialogView:HandleGoToUserCmd(note)
 end
 
 function DialogView:HandlePhotoCmdBoardQueryAwardPhoto(note)
+  local cells = self.menuCtl:GetCells()
+  if cells and 0 < #cells then
+    for i = 1, #cells do
+      if cells[i].UpdateRedTip then
+        cells[i]:UpdateRedTip()
+      end
+    end
+  end
+end
+
+function DialogView:HandleSceneTipGameTipCmd(note)
   local cells = self.menuCtl:GetCells()
   if cells and 0 < #cells then
     for i = 1, #cells do

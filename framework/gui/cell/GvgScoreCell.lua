@@ -4,7 +4,8 @@ local _GvgNewConfig = GameConfig.GvgNewConfig
 local _MaxValueMap = {
   defense = _GvgNewConfig.defense_score,
   attack = _GvgNewConfig.max_attack_score,
-  perfect = _GvgNewConfig.perfect_score
+  perfect = _GvgNewConfig.perfect_score,
+  kill_mvp = _GvgNewConfig.max_mvp_score
 }
 local baseCell = autoImport("BaseCell")
 GvgScoreCell = class("GvgScoreCell", baseCell)
@@ -19,19 +20,18 @@ end
 
 function GvgScoreCell:SetData(configData)
   local key = configData.type
-  self.descLab.text = key == "pointScore" and GvgProxy.Instance:GetPointScoreDesc(configData.desc) or configData.desc
+  self.descLab.text = configData.desc
   local score = GvgProxy.Instance:GetScoreInfoByKey(key)
   local name
   if GvgProxy.Instance:IsLeisureSeason() then
     name = 0 < score and key ~= "defense" and string.format(ZhString.MainViewGvgPage_GvgQuestTip_Complete, configData.title) or configData.title
   else
-    local max_value
-    if key == "pointScore" then
-      max_value = GvgProxy.Instance:GetMaxPointScore()
+    local max_value = _MaxValueMap[key]
+    if max_value then
+      name = string.format(configData.title, score, max_value)
     else
-      max_value = _MaxValueMap[key]
+      name = string.format(configData.title, score)
     end
-    name = string.format(configData.title, score, max_value)
   end
   self.nameLab.text = name
   if key == "perfect" then

@@ -173,7 +173,7 @@ function ServerSkill:_CheckAttackResult(ret, actionPlayed)
   if ret and actionPlayed then
     return ServerSkill.super._CheckAttackResult(self, ret, actionPlayed)
   end
-  return false
+  return self.info and self.info:NoActionNeedFire() or false
 end
 
 function ServerSkill:Update_Cast(time, deltaTime, creature)

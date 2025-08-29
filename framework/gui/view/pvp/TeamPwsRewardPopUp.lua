@@ -3,6 +3,8 @@ TeamPwsRewardPopUp = class("TeamPwsRewardPopUp", BaseView)
 TeamPwsRewardPopUp.ViewType = UIViewType.PopUpLayer
 
 function TeamPwsRewardPopUp:Init()
+  local viewdata = self.viewdata and self.viewdata.viewdata
+  self.proxy = viewdata and viewdata.proxy or CupMode6v6Proxy.Instance
   self.rewardDatas = {}
   self:FindObjs()
   self:InitList()
@@ -39,12 +41,17 @@ function TeamPwsRewardPopUp:AddButtonEvts()
   self:AddClickEvent(self:FindGO("FindNpcButton"), function()
     local useless, config = next(GameConfig.PvpTeamRaid)
     FuncShortCutFunc.Me():CallByID(config.RewardNpcShortCut)
+    GameFacade.Instance:sendNotification(UIEvent.CloseUI, UIViewType.ChasingViewLayer)
+    self:CloseSelf()
   end)
 end
 
 function TeamPwsRewardPopUp:HandleQueryTeamPwsTeamInfo(note)
-  local teamInfoData = note.body
-  local curSeason = teamInfoData and teamInfoData.season
+  local curSeason = self.proxy.season
+  if not curSeason then
+    local teamInfoData = note.body
+    curSeason = teamInfoData and teamInfoData.season
+  end
   if not curSeason then
     self.emptyTipGO:SetActive(true)
     return

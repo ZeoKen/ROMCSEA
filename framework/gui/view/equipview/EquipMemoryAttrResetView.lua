@@ -140,13 +140,11 @@ function EquipMemoryAttrResetView:GetChooseBordDataFunc()
       _itemData.equipMemoryData = _memoryData:Clone()
       _itemData.equiped = 1
       _itemData.sitePos = _pos
-      xdlog("加入装备中的记忆列表", _memoryData.staticId)
       table.insert(result, _itemData)
     end
   end
   for i = 1, #_PACKAGECHECK do
     local items = _BagProxy:GetBagByType(_PACKAGECHECK[i]):GetItems()
-    xdlog("背包数量", _PACKAGECHECK[i], #items)
     for j = 1, #items do
       if items[j].equipMemoryData then
         table.insert(result, items[j])
@@ -180,10 +178,18 @@ function EquipMemoryAttrResetView:InitView()
   self.targetChooseBord:SetNoneTip(ZhString.EquipMemory_NoResult)
   self.targetChooseBord.needSetCheckValidFuncOnShow = true
   self.targetChooseBord:Show(true, nil, nil, self.checkChooseBoardValid, self, ZhString.EnchantThirdAttrReset_InValid)
+  self.topTips = self:FindGO("TopTips"):GetComponent(UIWidget)
+  self.showDetailBtn = self:FindGO("ShowDetailBtn")
+  self.showDetailBtn_Sprite = self.showDetailBtn:GetComponent(UISprite)
+  self:AddClickEvent(self.showDetailBtn, function()
+    self.extended = not self.extended
+    self:RefreshMemoryAttrExtend()
+  end)
   self.memoryScrollViewBG = self:FindGO("ScrollViewBg"):GetComponent(UISprite)
+  self.memoryScrollViewBG_TweenHeight = self:FindGO("ScrollViewBg"):GetComponent(TweenHeight)
   self.memoryAttrScrollView = self:FindGO("MemoryAttrScrollView"):GetComponent(UIScrollView)
   self.memoryAttrGrid = self:FindGO("MemoryAttrGrid"):GetComponent(UITable)
-  self.memoryListCtrl = UIGridListCtrl.new(self.memoryAttrGrid, EquipMemoryAttrCell, "EquipMemoryAttrCell")
+  self.memoryListCtrl = UIGridListCtrl.new(self.memoryAttrGrid, EquipMemoryAttrCell, "EquipMemoryAttrCellType4")
   self.memoryListCtrl:AddEventListener(MouseEvent.MouseClick, self.handleChooseAttr, self)
   self.fixedCostCtl = ListCtrl.new(self.fixedCostGrid, MaterialItemCell, "MaterialItemCell")
   self.fixedCostCtl:AddEventListener(MouseEvent.MouseClick, self.OnClickFixedCostItemTip, self)
@@ -202,6 +208,7 @@ function EquipMemoryAttrResetView:InitView()
   self.attrResultBord = EquipMemoryAttrResultBord.new(self.chooseContainer)
   self.attrResultBord:Hide()
   self.attrBrifBtn = self:FindGO("AttrBrifBtn")
+  self.extended = false
 end
 
 function EquipMemoryAttrResetView:OnClickResetResult(cell)
@@ -461,7 +468,6 @@ function EquipMemoryAttrResetView:UpdateViewByTargetCell()
     self:SetActionBtnActive(false)
     return
   end
-  self.chosenEffectId = nil
   self:Hide(self.emptyTip)
   self:Show(self.attrBrifBtn)
   self:Hide(self.targetCellAddIcon)
@@ -491,13 +497,19 @@ function EquipMemoryAttrResetView:updateTargetMemoryInfo()
   local firstValidAttrIndex = 0
   local result = {}
   for i = 1, maxAttrCount do
-    if attrs[i] then
+    if attrs[i] and attrs[i].previewid ~= nil and 0 < #attrs[i].previewid then
       local _tempData = {
         id = attrs[i].id
       }
+      if i == maxAttrCount then
+        _tempData.text = ZhString.EquipMemory_NotChosen
+        _tempData.CanUnlock = true
+        if attrs[i].id == 0 then
+          firstValidAttrIndex = i
+        end
+      end
       table.insert(result, _tempData)
       if firstValidAttrIndex == 0 then
-        xdlog("设置默认选择属性", i)
         firstValidAttrIndex = i
       end
     else
@@ -510,24 +522,15 @@ function EquipMemoryAttrResetView:updateTargetMemoryInfo()
     end
   end
   self.memoryListCtrl:ResetDatas(result)
-  local size = NGUIMath.CalculateRelativeWidgetBounds(self.memoryAttrGrid.transform)
-  local height = size.size.y + 10
-  xdlog("height", height)
-  if 180 < height then
-    height = 180
-  elseif height < 123 then
-    height = 123
-  end
-  self.memoryScrollViewBG.height = height
-  local panel = self.memoryAttrScrollView.panel
-  panel:UpdateAnchors()
-  self.memoryAttrScrollView:ResetPosition()
-  local widget = self.attrBrifBtn:GetComponent(UISprite)
-  widget:UpdateAnchors()
-  local hasCacheAttr, cacheIndex = self.targetData.equipMemoryData:HasCacheRefreshAttr()
+  self:RefreshMemoryAttrExtend()
   if not self.targetEffectIndex then
-    if hasCacheAttr then
-      self.targetEffectIndex = cacheIndex
+    if firstValidAttrIndex == 0 then
+      local hasCacheAttr, cacheIndex = self.targetData.equipMemoryData:HasCacheRefreshAttr()
+      if hasCacheAttr then
+        self.targetEffectIndex = cacheIndex
+      else
+        self.targetEffectIndex = firstValidAttrIndex
+      end
     else
       self.targetEffectIndex = firstValidAttrIndex
     end
@@ -541,6 +544,30 @@ function EquipMemoryAttrResetView:updateTargetMemoryInfo()
   if self.targetEffectIndex == 0 then
     self:SetActionBtnActive(false)
   end
+end
+
+function EquipMemoryAttrResetView:RefreshMemoryAttrExtend()
+  self.showDetailBtn_Sprite.flip = self.extended and 2 or 0
+  local size = NGUIMath.CalculateRelativeWidgetBounds(self.memoryAttrGrid.transform)
+  local height = size.size.y + 5
+  if height < 128 then
+    self.extended = false
+    self.showDetailBtn:SetActive(false)
+  else
+    self.showDetailBtn:SetActive(true)
+  end
+  if self.extended and 127 < height then
+    height = height + 40
+  else
+    height = 167
+  end
+  self.memoryScrollViewBG.height = height
+  local panel = self.memoryAttrScrollView.panel
+  panel:UpdateAnchors()
+  self.memoryAttrScrollView:ResetPosition()
+  local widget = self.attrBrifBtn:GetComponent(UISprite)
+  widget:UpdateAnchors()
+  self.topTips:UpdateAnchors()
 end
 
 function EquipMemoryAttrResetView:updateFixedCostItems()
@@ -566,7 +593,12 @@ function EquipMemoryAttrResetView:updateFixedCostItems()
   if config then
     local costConfig
     if self.targetData.equipMemoryData:CheckHasPreviewAttr(self.targetEffectIndex) then
-      costConfig = config and config.save
+      if self.targetEffectIndex == 4 and self.targetData.equipMemoryData:GetAttrID(self.targetEffectIndex) == 0 then
+        xdlog("首次免费！")
+        costConfig = {}
+      else
+        costConfig = config and config.save
+      end
     else
       costConfig = config and config.rand
     end
@@ -608,6 +640,7 @@ function EquipMemoryAttrResetView:_UpdateMemoryPreviewResult()
     self:Hide(self.memoryPreview)
     return
   end
+  local openBefore = self.memoryPreview.activeSelf
   xdlog("刷新中的条目", cacheIndex, self.targetEffectIndex)
   local attrs = self.targetData.equipMemoryData.memoryAttrs
   local chooseList = {}
@@ -645,15 +678,24 @@ function EquipMemoryAttrResetView:_UpdateMemoryPreviewResult()
   self.memoryPreviewCtrl:ResetDatas(chooseList)
   local cells = self.memoryPreviewCtrl:GetCells()
   if cells and 0 < #cells then
+    local hasChosen = false
     for i = 1, #cells do
-      cells[i]:SetChoose(i == 1)
-      if i == 1 then
-        self.chosenEffectId = cells[i].data.id
-        xdlog("默认选择", self.chosenEffectId)
+      if cells[i].data and cells[i].data.id == self.chosenEffectId then
+        hasChosen = true
+        cells[i]:SetChoose(true)
+      else
+        cells[i]:SetChoose(false)
       end
     end
+    if not hasChosen and cells[1] then
+      cells[1]:SetChoose(true)
+      self.chosenEffectId = cells[1].data.id
+      xdlog("默认选择", self.chosenEffectId)
+    end
   end
-  self.memoryPreviewScrollView:ResetPosition()
+  if not openBefore then
+    self.memoryPreviewScrollView:ResetPosition()
+  end
   self:SetActionBtnActive()
 end
 
@@ -864,23 +906,25 @@ function EquipMemoryAttrResetView:SetActionBtnStatus(type)
 end
 
 function EquipMemoryAttrResetView:RefreshAttrChoose()
-  local _inited = false
   local cells = self.memoryListCtrl:GetCells()
   if cells and 0 < #cells then
     for i = 1, #cells do
       if i == self.targetEffectIndex then
         cells[i]:SetChoose(true)
-        _inited = true
       else
         cells[i]:SetChoose(false)
       end
     end
   end
+  if 1 < self.targetEffectIndex then
+    self.extended = true
+    self:RefreshMemoryAttrExtend()
+  end
 end
 
 function EquipMemoryAttrResetView:handleChooseAttr(cell)
   xdlog("选择重置目标")
-  if cell.data and cell.data.id and cell.data.id == 0 then
+  if cell.data and cell.data.id and cell.data.id == 0 and not cell.data.CanUnlock then
     redlog("未随机的词条不可选")
     return
   end

@@ -398,6 +398,270 @@ Table_PrestigeLevel = {
     Effect = _EmptyTable,
     Reward = 7525,
     Level = 25
+  },
+  [301] = {
+    id = 301,
+    Type = 3,
+    UnlockCondition = {301},
+    Effect = {2121, 2122},
+    Reward = 8301,
+    Level = 1
+  },
+  [302] = {
+    id = 302,
+    Type = 3,
+    UnlockCondition = {302},
+    Effect = {2129, 2146},
+    Reward = 8302,
+    Level = 2
+  },
+  [303] = {
+    id = 303,
+    Type = 3,
+    UnlockCondition = {303},
+    Effect = {2130, 2140},
+    Reward = 8303,
+    Level = 3
+  },
+  [304] = {
+    id = 304,
+    Type = 3,
+    UnlockCondition = {304},
+    Effect = {
+      2123,
+      2131,
+      2147
+    },
+    Reward = 8304,
+    Level = 4
+  },
+  [305] = {
+    id = 305,
+    Type = 3,
+    UnlockCondition = {305},
+    Effect = {2132, 2141},
+    Reward = 8305,
+    Level = 5
+  },
+  [306] = {
+    id = 306,
+    Type = 3,
+    UnlockCondition = {306},
+    Effect = {
+      2124,
+      2133,
+      2148
+    },
+    Reward = 8306,
+    Level = 6
+  },
+  [307] = {
+    id = 307,
+    Type = 3,
+    UnlockCondition = {307},
+    Effect = {2134, 2142},
+    Reward = 8307,
+    Level = 7
+  },
+  [308] = {
+    id = 308,
+    Type = 3,
+    UnlockCondition = {308},
+    Effect = {
+      2125,
+      2135,
+      2149
+    },
+    Reward = 8308,
+    Level = 8
+  },
+  [309] = {
+    id = 309,
+    Type = 3,
+    UnlockCondition = {309},
+    Effect = {2136, 2143},
+    Reward = 8309,
+    Level = 9
+  },
+  [310] = {
+    id = 310,
+    Type = 3,
+    UnlockCondition = {310},
+    Effect = {2126, 2150},
+    Reward = 8310,
+    Level = 10
+  },
+  [311] = {
+    id = 311,
+    Type = 3,
+    UnlockCondition = {311},
+    Effect = {2137, 2144},
+    Reward = 8311,
+    Level = 11
+  },
+  [312] = {
+    id = 312,
+    Type = 3,
+    UnlockCondition = {312},
+    Effect = {2127, 2145},
+    Reward = 8312,
+    Level = 12
+  },
+  [313] = {
+    id = 313,
+    Type = 3,
+    UnlockCondition = {313},
+    Effect = {2138},
+    Reward = 8313,
+    Level = 13
+  },
+  [314] = {
+    id = 314,
+    Type = 3,
+    UnlockCondition = {314},
+    Effect = {2128},
+    Reward = 8314,
+    Level = 14
+  },
+  [315] = {
+    id = 315,
+    Type = 3,
+    UnlockCondition = {315},
+    Effect = {2139},
+    Reward = 8315,
+    Level = 15
+  },
+  [401] = {
+    id = 401,
+    Type = 4,
+    UnlockCondition = {401},
+    Effect = {2151, 2157},
+    Reward = 8321,
+    Level = 1
+  },
+  [402] = {
+    id = 402,
+    Type = 4,
+    UnlockCondition = {402},
+    Effect = {2152, 2164},
+    Reward = 8322,
+    Level = 2
+  },
+  [403] = {
+    id = 403,
+    Type = 4,
+    UnlockCondition = {403},
+    Effect = {2175, 2165},
+    Reward = 8323,
+    Level = 3
+  },
+  [404] = {
+    id = 404,
+    Type = 4,
+    UnlockCondition = {404},
+    Effect = {
+      2153,
+      2166,
+      2158
+    },
+    Reward = 8324,
+    Level = 4
+  },
+  [405] = {
+    id = 405,
+    Type = 4,
+    UnlockCondition = {405},
+    Effect = {2176, 2167},
+    Reward = 8325,
+    Level = 5
+  },
+  [406] = {
+    id = 406,
+    Type = 4,
+    UnlockCondition = {406},
+    Effect = {
+      2154,
+      2168,
+      2159
+    },
+    Reward = 8326,
+    Level = 6
+  },
+  [407] = {
+    id = 407,
+    Type = 4,
+    UnlockCondition = {407},
+    Effect = {2177, 2169},
+    Reward = 8327,
+    Level = 7
+  },
+  [408] = {
+    id = 408,
+    Type = 4,
+    UnlockCondition = {408},
+    Effect = {
+      2155,
+      2170,
+      2160
+    },
+    Reward = 8328,
+    Level = 8
+  },
+  [409] = {
+    id = 409,
+    Type = 4,
+    UnlockCondition = {409},
+    Effect = {2178, 2171},
+    Reward = 8329,
+    Level = 9
+  },
+  [410] = {
+    id = 410,
+    Type = 4,
+    UnlockCondition = {410},
+    Effect = {2156, 2161},
+    Reward = 8330,
+    Level = 10
+  },
+  [411] = {
+    id = 411,
+    Type = 4,
+    UnlockCondition = {411},
+    Effect = {2179, 2172},
+    Reward = 8331,
+    Level = 11
+  },
+  [412] = {
+    id = 412,
+    Type = 4,
+    UnlockCondition = {412},
+    Effect = {2180, 2162},
+    Reward = 8332,
+    Level = 12
+  },
+  [413] = {
+    id = 413,
+    Type = 4,
+    UnlockCondition = {413},
+    Effect = {2173},
+    Reward = 8333,
+    Level = 13
+  },
+  [414] = {
+    id = 414,
+    Type = 4,
+    UnlockCondition = {414},
+    Effect = {2163},
+    Reward = 8334,
+    Level = 14
+  },
+  [415] = {
+    id = 415,
+    Type = 4,
+    UnlockCondition = {415},
+    Effect = {2174},
+    Reward = 8335,
+    Level = 15
   }
 }
 Table_PrestigeLevel_fields = {

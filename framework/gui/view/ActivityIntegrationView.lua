@@ -12,6 +12,7 @@ autoImport("ActivityIntegrationMemorySubView")
 autoImport("ActivityIntegrationBriefSubView")
 autoImport("ActivitySelfChooseCardView")
 autoImport("ActivityExchangeView")
+autoImport("ActivityDungeonMvpCardView")
 local picIns = PictureManager.Instance
 local DefaultDecorateTexName = "activityintegration_bg_bottom_01"
 
@@ -471,6 +472,13 @@ function ActivityIntegrationView:LoadSubView(tabList)
     end
     return self.exchangeView
   end
+  local loadDungeonMvpCardPage = function(viewdata)
+    if not self.dungeonMvpCardView then
+      self.dungeonMvpCardView = self:AddSubView("ActivityDungeonMvpCardView", ActivityDungeonMvpCardView, nil, viewdata)
+      self.dungeonMvpCardView.parentView = self
+    end
+    return self.dungeonMvpCardView
+  end
   self.subViews = {}
   self.subViews[1] = loadBPPage
   self.subViews[2] = loadSignInPage
@@ -483,6 +491,7 @@ function ActivityIntegrationView:LoadSubView(tabList)
   self.subViews[9] = loadBriefPage
   self.subViews[10] = loadSelfChooseCardPage
   self.subViews[11] = loadExchangePage
+  self.subViews[12] = loadDungeonMvpCardPage
   for i = 1, #tabList do
     local staticData = tabList[i].staticData
     if staticData then

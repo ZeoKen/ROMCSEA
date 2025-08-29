@@ -3,6 +3,7 @@ Logic_Transform = class("Logic_Transform")
 local Thread_CheckThroughWall = 0.4
 local IsCloseToWall = NavMeshUtils.IsCloseToWall
 local tempVector3_1 = LuaVector3.New()
+local tempAsign_V3 = LuaVector3.New()
 
 function Logic_Transform:ctor()
   self.speed = {
@@ -93,7 +94,86 @@ function Logic_Transform:GetFastForwardSpeed()
 end
 
 function Logic_Transform:SetTargetPosition(p)
-  self.targetPosition = VectorUtility.Asign_3(self.targetPosition, p)
+  local newP = self:RaycastAndSlideWall(self.currentPosition, p)
+  self.targetPosition = VectorUtility.Asign_3(self.targetPosition, newP)
+  return newP
+end
+
+function Logic_Transform:RaycastAndSlideWall(startPos, targetPos)
+  if not self.owner then
+    return targetPos, false
+  end
+  local roadblock_map = GameConfig.GvgNewConfig.roadblock_map
+  if roadblock_map then
+    local mapId = Game.MapManager:GetMapID()
+    if TableUtility.ArrayFindIndex(roadblock_map, mapId) <= 0 then
+      return targetPos, false
+    end
+  end
+  local dir = LuaVector3.New()
+  LuaVector3.Better_Sub(targetPos, startPos, dir)
+  local distance = LuaVector3.Magnitude(dir)
+  LuaVector3.Normalized(dir)
+  local isHit, hitInfo = Physics.Raycast(startPos, dir, LuaOut, distance, 1 << Game.ELayer.Barrage)
+  local newPos = targetPos
+  if isHit then
+    local collider = hitInfo and hitInfo.collider
+    if collider and collider.name == "RoadBlock" then
+      local distanceToHit = hitInfo.distance
+      local moveThreshold = self:GetMoveSpeedWithFastForward() * 0.1
+      if distanceToHit < moveThreshold * 2 then
+        local hitPoint = hitInfo.point
+        local normal = hitInfo.normal
+        local projectionDir = LuaVector3.New()
+        local dot = LuaVector3.Dot(dir, normal)
+        if 0.1 < math.abs(dot) then
+          local tempV = LuaVector3.New()
+          LuaVector3.Better_Mul(normal, dot, tempV)
+          LuaVector3.Better_Sub(dir, tempV, projectionDir)
+          LuaVector3.Destroy(tempV)
+          local projectionLength = LuaVector3.Magnitude(projectionDir)
+          if 0.01 < projectionLength then
+            LuaVector3.Better_Div(projectionDir, projectionLength, projectionDir)
+            local remainingDistance = (distance - distanceToHit) * 0.95
+            local moveOffset = LuaVector3.New()
+            LuaVector3.Better_Mul(projectionDir, remainingDistance, moveOffset)
+            local safeSlide, slideHitInfo = Physics.Raycast(hitPoint, projectionDir, LuaOut, remainingDistance, 1 << Game.ELayer.Barrage)
+            if safeSlide then
+              LuaVector3.Better_Mul(projectionDir, slideHitInfo.distance * 0.9, moveOffset)
+            end
+            newPos = LuaVector3.New()
+            LuaVector3.Better_Add(hitPoint, moveOffset, newPos)
+            local normalOffset = LuaVector3.New()
+            LuaVector3.Better_Mul(normal, 0.05, normalOffset)
+            LuaVector3.Better_Add(newPos, normalOffset, newPos)
+            LuaVector3.Destroy(normalOffset)
+            LuaVector3.Destroy(moveOffset)
+          else
+            local normalOffset = LuaVector3.New()
+            LuaVector3.Better_Mul(normal, 0.1, normalOffset)
+            newPos = LuaVector3.New()
+            LuaVector3.Better_Add(hitPoint, normalOffset, newPos)
+            LuaVector3.Destroy(normalOffset)
+          end
+          LuaVector3.Destroy(projectionDir)
+        else
+          local normalOffset = LuaVector3.New()
+          LuaVector3.Better_Mul(normal, 0.05, normalOffset)
+          newPos = LuaVector3.New()
+          LuaVector3.Better_Add(hitPoint, normalOffset, newPos)
+          LuaVector3.Destroy(normalOffset)
+        end
+      else
+        local offsetDir = LuaVector3.New()
+        LuaVector3.Better_Mul(dir, -0.1, offsetDir)
+        newPos = LuaVector3.New()
+        LuaVector3.Better_Add(hitInfo.point, offsetDir, newPos)
+        LuaVector3.Destroy(offsetDir)
+      end
+    end
+  end
+  LuaVector3.Destroy(dir)
+  return newPos, isHit
 end
 
 function Logic_Transform:NavMeshMoveTo(p, sampleRange)
@@ -109,7 +189,7 @@ function Logic_Transform:NavMeshMoveTo(p, sampleRange)
     self:PlaceTo(newP)
     return true
   end
-  self.targetPosition = VectorUtility.Asign_3(self.targetPosition, newP)
+  self:SetTargetPosition(newP)
   if nil == self.navMeshPathAgent then
     self.navMeshPathAgent = NavMeshPathAgent()
     if not BackwardCompatibilityUtil.CompatibilityMode_V37 then
@@ -127,8 +207,8 @@ end
 
 function Logic_Transform:MoveTo(p, rotateToP)
   self.useNavMesh = false
-  self.targetPosition = VectorUtility.Asign_3(self.targetPosition, p)
-  self:RotateTo(rotateToP or p)
+  local newP = self:SetTargetPosition(p)
+  self:RotateTo(rotateToP or newP)
 end
 
 function Logic_Transform:NavMeshPlaceTo(p, sampleRange)
@@ -266,10 +346,12 @@ function Logic_Transform:_MoveToNextCorner()
   self.cornerIndex = self.cornerIndex + 1
   local ret, x, y, z = self.navMeshPathAgent:GetCorner(self.cornerIndex)
   if ret then
+    LuaVector3.Better_Set(tempAsign_V3, x, y, z)
+    local newP = self:RaycastAndSlideWall(self.currentPosition, tempAsign_V3)
     if nil == self.nextCorner then
-      self.nextCorner = LuaVector3.New(x, y, z)
+      self.nextCorner = LuaVector3.New(newP[1], newP[2], newP[3])
     else
-      LuaVector3.Better_Set(self.nextCorner, x, y, z)
+      LuaVector3.Better_Set(self.nextCorner, newP[1], newP[2], newP[3])
     end
     self:RotateTo(self.nextCorner)
     if nil ~= self.owner then
@@ -320,7 +402,8 @@ function Logic_Transform:_CalcNavMeshPath()
   local ret, x, y, z, samePath = self:_TryCalcNavMeshPath(self.currentPosition, self.targetPosition)
   if ret then
     if self.navMeshPathAgent.complete or self.navMeshPathAgent.completePartial then
-      LuaVector3.Better_Set(self.targetPosition, x, y, z)
+      LuaVector3.Better_Set(tempAsign_V3, x, y, z)
+      self:SetTargetPosition(tempAsign_V3)
       if not samePath or self.cornerIndex == nil then
         self.cornerIndex = 0
       end

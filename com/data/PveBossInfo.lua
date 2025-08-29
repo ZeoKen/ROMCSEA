@@ -1,4 +1,5 @@
 autoImport("PveDropItemData")
+autoImport("PveServerRewardData")
 PveBossInfo = class("PveBossInfo")
 local rewardTeamids, rate
 local hashToArray = TableUtil.HashToArray
@@ -12,7 +13,7 @@ function PveBossInfo:ctor(serverdata)
   local monsterStaticData = Table_Monster[self.id]
   if monsterStaticData then
     self.isMvp = monsterStaticData.Type == "MVP"
-    self:SetData(serverdata.randrewardid, serverdata.randnorewardid)
+    self:ResetData(serverdata.showrewards, serverdata.randrewardid, serverdata.randnorewardid)
   else
     redlog("Table_Monster 未配置id：", self.id)
   end
@@ -63,14 +64,40 @@ function PveBossInfo:_preprocessRewardBossId(bossid)
   end
 end
 
-function PveBossInfo:SetData(rewardBossId, monsterIds)
+function PveBossInfo:ParseServerRewards(serverRewards)
+  if not serverRewards or not next(serverRewards) then
+    return
+  end
+  local rewardMap, itemId, rewardType
+  for i = 1, #serverRewards do
+    local parseRewardData = PveServerRewardData.new(serverRewards[i])
+    local dropItemDatas = parseRewardData:GetRewards()
+    for i = 1, #dropItemDatas do
+      rewardType = dropItemDatas[i].dropType
+      if rewardType == PveDropItemData.Type.E_Probability then
+        rewardMap = self.probabilityRewardMap
+      else
+        rewardMap = self.fixedRewardMap
+      end
+      itemId = dropItemDatas[i].staticData.id
+      local mapData = rewardMap[itemId]
+      if nil ~= mapData and mapData.dropType and mapData.dropType == rewardType then
+        mapData.num = mapData.num + dropItemDatas[i].num
+      else
+        rewardMap[itemId] = dropItemDatas[i]
+      end
+    end
+  end
+end
+
+function PveBossInfo:ResetData(serverRewards, rewardBossId, monsterIds)
+  self:ParseServerRewards(serverRewards)
   if rewardBossId then
     for i = 1, #rewardBossId do
       self:_preprocessRewardBossId(rewardBossId[i])
     end
   end
-  self:setRewards()
-  if monsterIds then
+  if monsterIds and next(monsterIds) then
     for i = 1, #monsterIds do
       self.monsters[#self.monsters + 1] = monsterIds[i]
     end
@@ -97,5 +124,8 @@ function PveBossInfo:setRewards()
 end
 
 function PveBossInfo:GetRewards()
+  if not next(self.rewards) then
+    self:setRewards()
+  end
   return self.rewards
 end

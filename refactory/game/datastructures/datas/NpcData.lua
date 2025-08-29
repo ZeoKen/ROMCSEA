@@ -66,7 +66,10 @@ NpcData.NpcDetailedType = {
   GiftNpc = "GiftNpc",
   Firework = "Firework",
   PippiNpc = "PippiNpc",
-  EBF_Robot = "EBF_Robot"
+  EBF_Robot = "EBF_Robot",
+  TriplePvpRobot = "TriplePvpRobot",
+  PerfectPhantom = "PerfectPhantom",
+  NormalPhantom = "NormalPhantom"
 }
 NpcData.ZoneType = {
   ZONE_MIN = 0,
@@ -80,7 +83,9 @@ NpcData.ZoneType = {
   ZONE_STORM = 22,
   ZONE_EQUIPUP = 24,
   ZONE_MemoryPalace = 25,
-  ZONE_MemoryRaid = 26
+  ZONE_MemoryRaid = 26,
+  ZONE_MemoryThird = 27,
+  ZONE_ABYSSDRAGON = 28
 }
 NpcData.BossType = {
   Mvp = 1,
@@ -396,6 +401,10 @@ function NpcData:IsEBFRobot()
   return self.detailedType == NpcData.NpcDetailedType.EBF_Robot
 end
 
+function NpcData:IsTripleTeamRobot()
+  return self.detailedType == NpcData.NpcDetailedType.TriplePvpRobot
+end
+
 local ElementNpcMap
 local GetElementNpcMap = function()
   local nowRaid = Game.MapManager:GetRaidID()
@@ -534,7 +543,7 @@ end
 
 function NpcData:GetName(isInScene)
   local name = self.name and self.name or self:GetOriginName()
-  return self:WithPrefixName(isInScene) .. name
+  return self:WithPrefixName(isInScene) .. OverSea.LangManager.Instance():GetLangByKey(name)
 end
 
 function NpcData:GetNpcID()
@@ -707,6 +716,10 @@ function NpcData.GetZoneTypeByStaticData(staticData)
     return NpcData.ZoneType.ZONE_MemoryPalace
   elseif str == "MemoryRaid" then
     return NpcData.ZoneType.ZONE_MemoryRaid
+  elseif str == "MemoryThird" then
+    return NpcData.ZoneType.ZONE_MemoryThird
+  elseif str == "AbyssDragon" then
+    return NpcData.ZoneType.ZONE_ABYSSDRAGON
   end
 end
 
@@ -879,6 +892,20 @@ function NpcData:IsGvgStatuePedestal()
   return self.staticData.id == GameConfig.GVGConfig.StatuePedestalNpcID
 end
 
+function NpcData:IsNewGvgStatuePedestal()
+  local pedestalNpcID = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.StatuePedestalNpcID or 851041
+  return self.staticData.id == pedestalNpcID
+end
+
+function NpcData:IsNewGvgStatue()
+  local statueNpcID = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.StatueNpcID or 851042
+  return self.staticData.id == statueNpcID
+end
+
+function NpcData:TrySetGvgStatueCityId()
+  self.statue_city_id = GvgProxy.GetStatueCity(self.uniqueid)
+end
+
 function NpcData:SpecialProcessParts(parts)
   if self:IsNightmareStatus() then
     local bodyConfig = Table_NightmareBody and Table_NightmareBody[parts[Asset_Role.PartIndex.Body] or 0]
@@ -899,6 +926,43 @@ function NpcData:SpecialProcessParts(parts)
       parts[PartIndex.Mouth] = info.mouth
       parts[PartIndex.Wing] = info.back
       parts[PartIndex.Tail] = info.tail
+    end
+  elseif self:IsNewGvgStatue() then
+    local city_id = self.statue_city_id
+    local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+    local statue_info = GvgProxy.Instance:GetStatueByCityId(group_id, city_id)
+    if statue_info then
+      local PartIndex = Asset_Role.PartIndex
+      if statue_info.body ~= nil then
+        parts[PartIndex.Body] = statue_info.body
+      end
+      local PartIndexEx = Asset_Role.PartIndexEx
+      parts[PartIndex.Hair] = statue_info.hair
+      parts[PartIndex.Head] = statue_info.head
+      parts[PartIndex.Face] = statue_info.face
+      parts[PartIndex.Eye] = statue_info.eye
+      parts[PartIndex.Mouth] = statue_info.mouth
+      parts[PartIndex.Wing] = statue_info.back
+      parts[PartIndex.Tail] = statue_info.tail
+    end
+  elseif self:IsTripleStatue() or self:IsTeamPwsStatue() or self:IsTwelveStatue() then
+    local sType = PvpProxy.Instance:GetStatueType(self.staticData.id)
+    local info = PvpProxy.Instance:GetStatueInfo(sType)
+    if info and info.statueInfo then
+      local statue_info = info.statueInfo
+      local PartIndex = Asset_Role.PartIndex
+      if statue_info.body ~= nil then
+        parts[PartIndex.Body] = statue_info.body
+      end
+      local PartIndexEx = Asset_Role.PartIndexEx
+      parts[PartIndex.Hair] = statue_info.hair
+      parts[PartIndex.Head] = statue_info.head
+      parts[PartIndex.Face] = statue_info.face
+      parts[PartIndex.Eye] = statue_info.eye
+      parts[PartIndex.Mouth] = statue_info.mouth
+      parts[PartIndex.Wing] = statue_info.back
+      parts[PartIndex.Tail] = statue_info.tail
+      parts[PartIndexEx.HairColorIndex] = statue_info.haircolor
     end
   end
   NpcData.super.SpecialProcessParts(self, parts)
@@ -928,7 +992,7 @@ function NpcData:GetMasterUser()
 end
 
 function NpcData:GetDamageData()
-  if self:IsGhostNpc_Detail() then
+  if self:IsGhostNpc_Detail() or SkillProxy.Instance:IsMonsterSkill(self.staticData.id) then
     local masterdata = self:GetMasterUser()
     if masterdata ~= nil then
       return masterdata
@@ -1106,7 +1170,8 @@ function NpcData:InitByServerData(serverData)
   self.initedByServer = true
   self.id = serverData.id
   self.uniqueid = serverData.uniqueid
-  self.name = serverData.name and OverSea.LangManager.Instance():GetLangByKey(serverData.name) or serverData.name
+  self:TrySetGvgStatueCityId()
+  self.name = serverData.name
   if serverData.waitaction == "" then
   end
   self.idleAction = serverData.waitaction
@@ -1180,6 +1245,9 @@ function NpcData:InitByServerData(serverData)
       self:SetGuildData(tempArray)
     end
   end
+  if self:IsTripleTeamRobot() and not self.campHandler then
+    self.campHandler = CampHandler.new()
+  end
   self.bosstype = serverData.npcID and _Table_Boss(serverData.npcID) and _Table_Boss(serverData.npcID).Type
   self.boss = self:IsBoss() or self:IsRareElite_Detail() or self:IsWorldBoss_Detail()
   self.mini = self:IsMini() or self:GetFeature_FakeMini()
@@ -1251,7 +1319,8 @@ end
 
 function NpcData:SetBossType(bossType)
   if self:IsMonster_Detail() then
-    self.boss = bossType
+    self.boss = bossType == 1
+    self.mini = bossType == 2
   end
 end
 
@@ -1329,4 +1398,59 @@ function NpcData:isCostBattleCount()
     return true
   end
   return self.staticData.Condition and self.staticData.Condition ~= 0 and self.staticData.IsStar ~= 1 and self.detailedType ~= "MINI" and self.detailedType ~= "MVP" and not self:GetFeature_NotCostTime()
+end
+
+function NpcData:ForbidClientClient()
+  return self.staticData.Params and self.staticData.Params.ForbidClientClick == 1
+end
+
+function NpcData:IsTriplePed()
+  local statueNpcID = GameConfig.PvpStatue and GameConfig.PvpStatue.TriplePedestalNpcID or 851003
+  return self.staticData.id == statueNpcID
+end
+
+function NpcData:IsTeamPwsPed()
+  local statueNpcID = GameConfig.PvpStatue and GameConfig.PvpStatue.TeampwsPedestalNpcID or 851004
+  return self.staticData.id == statueNpcID
+end
+
+function NpcData:IsTwelvePed()
+  local statueNpcID = GameConfig.PvpStatue and GameConfig.PvpStatue.TwelvePedestalNpcID or 851005
+  return self.staticData.id == statueNpcID
+end
+
+function NpcData:IsTripleStatue()
+  local statueNpcID = GameConfig.PvpStatue and GameConfig.PvpStatue.TripleNpcID or 851006
+  return self.staticData.id == statueNpcID
+end
+
+function NpcData:IsTeamPwsStatue()
+  local statueNpcID = GameConfig.PvpStatue and GameConfig.PvpStatue.TeampwsNpcID or 851007
+  return self.staticData.id == statueNpcID
+end
+
+function NpcData:IsTwelveStatue()
+  local statueNpcID = GameConfig.PvpStatue and GameConfig.PvpStatue.TwelveNpcID or 851008
+  return self.staticData.id == statueNpcID
+end
+
+function NpcData:GetPvpStatueType()
+  if self:IsTripleStatue() then
+    return PvpProxy.StatueType.Triple
+  end
+  if self:IsTeamPwsStatue() then
+    return PvpProxy.StatueType.Teampws
+  end
+  if self:IsTwelveStatue() then
+    return PvpProxy.StatueType.Twelve
+  end
+  return nil
+end
+
+function NpcData:IsPhantom()
+  return self.detailedType == NpcData.NpcDetailedType.NormalPhantom or self.detailedType == NpcData.NpcDetailedType.PerfectPhantom
+end
+
+function NpcData:IsPerfectPhantom()
+  return self.detailedType == NpcData.NpcDetailedType.PerfectPhantom
 end

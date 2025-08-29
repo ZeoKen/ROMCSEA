@@ -36,7 +36,7 @@ function CreatureVisibleHandler:Visible(creature, v, reason)
         creature.assetRole:SetHideBodyOnly(false)
       end
       creature.assetRole:SetInvisible(false)
-      if creature.data then
+      if creature.data and not creature.data:ForbidClientClient() then
         creature:SetClickable(true)
       end
     end

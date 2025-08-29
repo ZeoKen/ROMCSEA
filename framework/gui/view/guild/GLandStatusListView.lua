@@ -28,7 +28,6 @@ function GLandStatusListView:InitUI()
   self.title.text = ZhString.GLandStatusListView_Title
   local container = self:FindGO("WrapContent")
   self.listCtl = WrapListCtrl.new(container, GLandStatusListCell, "GLandStatusListCell")
-  self.listCtl:AddEventListener(MouseEvent.MouseClick, self.ClickGLandStatusCell, self)
   self.listCtl:AddEventListener(GLandStatusList_CellEvent_Trace, self.DoTrace, self)
   self.popUp = self:FindGO("PopUp")
   self.popUpCtl = PopupCombineCell.new(self.popUp, PopupCombineCellType.GVGLand)
@@ -76,38 +75,7 @@ function GLandStatusListView:OnClickFilter()
     return
   end
   self.groupid = self.popUpCtl.goal
-  local groupid = _GetRealGroupId(self.groupid)
-  GvgProxy.Instance:Debug("[NewGVG] CallQueryGCityShowInfoGuildCmd :", groupid)
-  ServiceGuildCmdProxy.Instance:CallQueryGCityShowInfoGuildCmd(nil, groupid)
-end
-
-function GLandStatusListView:ClickGLandStatusCell(cell)
-  local cityid = cell.data_cityid
-  local groupid = cell.data_groupid
-  local guildid = cell.data_guildid
-  local view
-  local isBlockActived = GvgProxy.Instance:IsInRoadBlockActivedTime()
-  local hasRoadBlock = GvgProxy.Instance:GetCityRoadBlock(groupid, cityid)
-  if isBlockActived then
-    if not hasRoadBlock then
-      MsgManager.ShowMsgByID(2679)
-      return
-    end
-    view = PanelConfig.GVGRoadBlockView
-  elseif GuildProxy.Instance:IsMyGuild(guildid) then
-    view = GuildProxy.Instance:ImGuildChairman() and PanelConfig.GVGRoadBlockEditorView or PanelConfig.GVGRoadBlockView
-  else
-    view = GuildProxy.Instance:IsMyMercenaryGuild(guildid) and PanelConfig.GVGRoadBlockView
-  end
-  if not view then
-    MsgManager.ShowMsgByID(2675)
-    return
-  end
-  local viewdata = {
-    view = view,
-    viewdata = {cityId = cityid, groupId = groupid}
-  }
-  self:sendNotification(UIEvent.JumpPanel, viewdata)
+  self:DoQuery()
 end
 
 local posV3 = LuaVector3(0, 0, 0)
@@ -138,6 +106,7 @@ function GLandStatusListView:DoTrace(cell)
 end
 
 function GLandStatusListView:MapEvent()
+  self:AddListenEvt(GVGEvent.GVG_GLandStatueDirty, self.DoQuery)
   self:AddListenEvt(ServiceEvent.GuildCmdQueryGCityShowInfoGuildCmd, self.UpdateInfo)
   self:AddListenEvt(ServiceEvent.PlayerMapChange, self.CloseSelf)
   self:AddListenEvt(ServiceEvent.GuildCmdQueryGvgZoneGroupGuildCCmd, self.UpdateByGvgZone)
@@ -158,6 +127,10 @@ end
 
 function GLandStatusListView:InitQueryGCity()
   self.groupid = self.popUpCtl.goal
+  self:DoQuery()
+end
+
+function GLandStatusListView:DoQuery()
   if not self.groupid then
     return
   end

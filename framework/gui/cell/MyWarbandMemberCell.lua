@@ -62,8 +62,9 @@ function MyWarbandMemberCell:SetData(data)
   end
 end
 
-function MyWarbandMemberCell:SetEditorMode(enterDelModel)
+function MyWarbandMemberCell:SetEditorMode(enterDelModel, proxyIns)
   self.kickBtn:SetActive(enterDelModel and self.data.id ~= Game.Myself.data.id)
+  self.proxy = proxyIns or self.proxy
 end
 
 function MyWarbandMemberCell:IsEmpty()

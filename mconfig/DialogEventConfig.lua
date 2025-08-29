@@ -296,6 +296,13 @@ EventDialog = {
   },
   [1104] = {
     DialogText = "暂无可以兑换的时光流沙。"
+  },
+  [1201] = {
+    DialogText = "即将回收所有公会成员处的公会神器到公会仓库中，是否确认？",
+    Option = {12011, 12012}
+  },
+  [1202] = {
+    DialogText = "公会神器已经全部收回！请到公会仓库中查看。"
   }
 }
 EventDialogOption = {
@@ -551,13 +558,27 @@ EventDialogOption = {
   [1001] = {
     Name = "谢谢",
     FuncType = "ReturnPlayerRaidReward"
-  }
+  },
+  [12011] = {
+    Name = "确认",
+    FuncType = "Event_RetrieveAllArtifacts",
+    Result1 = {NextDialog = 1202}
+  },
+  [12012] = {Name = "再想想"}
 }
 DialogParamType = {
   StoragePrice = "Dialog_ParamType_StoragePrice",
   GuildName = "Dialog_ParamType_GuildName",
   GuildLeaderName = "Dialog_ParamType_GuildLeaderName",
-  GvgSeason = "Dialog_ParamType_GvgSeason"
+  GvgSeason = "Dialog_ParamType_GvgSeason",
+  TrippleChampion = "Dialog_ParamType_TrippleChampion",
+  TeampwsChampion = "Dialog_ParamType_TeampwsChampion",
+  TwelveChampion = "Dialog_ParamType_Twelvechampion",
+  TrippleChampionScore = "Dialog_ParamType_TrippleChampionScore",
+  GvgStatueBattleLine = "Dialog_ParamType_GvgStatueBattleLine",
+  GvgStatueCity = "Dialog_ParamType_GvgStatueCity",
+  GvgStatueGuildName = "Dialog_ParamType_GvgStatueGuildName",
+  GvgStatueLeaderName = "Dialog_ParamType_GvgStatueLeaderName"
 }
 Dialog_ReplaceParam = {
   [2015] = {
@@ -805,5 +826,24 @@ Dialog_ReplaceParam = {
     DialogParamType.GuildName,
     DialogParamType.GuildLeaderName,
     DialogParamType.GvgSeason
+  },
+  [396847] = {
+    DialogParamType.TrippleChampion
+  },
+  [396848] = {
+    DialogParamType.TeampwsChampion
+  },
+  [396849] = {
+    DialogParamType.TwelveChampion
+  },
+  [396859] = {
+    DialogParamType.GvgStatueBattleLine,
+    DialogParamType.GvgStatueGuildName,
+    DialogParamType.GvgStatueLeaderName,
+    DialogParamType.GvgStatueCity
+  },
+  [396860] = {
+    DialogParamType.GvgStatueBattleLine,
+    DialogParamType.GvgStatueCity
   }
 }

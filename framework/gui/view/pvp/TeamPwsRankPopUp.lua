@@ -1,6 +1,8 @@
 autoImport("TeamPwsRankCell")
 TeamPwsRankPopUp = class("TeamPwsRankPopUp", BaseView)
 TeamPwsRankPopUp.ViewType = UIViewType.PopUpLayer
+local SelectCol = "B36B24"
+local UnselectCol = "3E59A7"
 
 function TeamPwsRankPopUp:Init()
   self:FindObjs()
@@ -28,11 +30,39 @@ function TeamPwsRankPopUp:FindObjs()
   self.labName = self:FindComponent("labName", UILabel)
   self.labGrade = self:FindComponent("labGrade", UILabel)
   self.labScore = self:FindComponent("labScore", UILabel)
+  local go = self:FindGO("LastSeason")
+  if go then
+    self.hasDiffSeason = true
+    self.lastSeasonSp = self:FindComponent("LastSeason", UIMultiSprite)
+    self.lastSeasonLabel = self:FindComponent("Label", UILabel, self.lastSeasonSp.gameObject)
+    self.currentSeasonSp = self:FindComponent("CurrentSeason", UIMultiSprite)
+    self.currentSeasonLabel = self:FindComponent("Label", UILabel, self.currentSeasonSp.gameObject)
+  end
+  local currentSeason = self:FindGO("CurrentSeason")
+  if currentSeason then
+    currentSeason.gameObject:SetActive(ISNoviceServerType ~= true)
+  end
+  if go then
+    go:SetActive(ISNoviceServerType ~= true)
+  end
 end
 
 function TeamPwsRankPopUp:InitView()
   self.listRanks = WrapListCtrl.new(self:FindGO("rankContainer"), TeamPwsRankCell, "TeamPwsRankCell", WrapListCtrl_Dir.Vertical)
   self.listRanks:AddEventListener(MouseEvent.MouseClick, self.ClickCellHead, self)
+  self.selectLast = false
+  if self.hasDiffSeason then
+    self:SetButtonState(self.lastSeasonSp, self.lastSeasonLabel, 0)
+    self:SetButtonState(self.currentSeasonSp, self.currentSeasonLabel, 1)
+  end
+end
+
+function TeamPwsRankPopUp:SetButtonState(sp, label, state)
+  state = state or 0
+  sp.CurrentState = state
+  local colStr = state == 1 and SelectCol or UnselectCol
+  local _, c = ColorUtil.TryParseHexString(colStr)
+  label.color = c
 end
 
 function TeamPwsRankPopUp:AddButtonEvt()
@@ -42,6 +72,28 @@ function TeamPwsRankPopUp:AddButtonEvt()
   self:AddButtonEvent("Mask", function()
     self:CloseSelf()
   end)
+  self:AddButtonEvent("LastSeason", function()
+    self:ShowLastRankData()
+  end)
+  self:AddButtonEvent("CurrentSeason", function()
+    self:ShowCurrentRankData()
+  end)
+end
+
+function TeamPwsRankPopUp:ShowLastRankData()
+  self.selectLast = true
+  self:SetButtonState(self.lastSeasonSp, self.lastSeasonLabel, 1)
+  self:SetButtonState(self.currentSeasonSp, self.currentSeasonLabel, 0)
+  self:RefreshRankData(nil, true)
+  self:UpdateData()
+end
+
+function TeamPwsRankPopUp:ShowCurrentRankData()
+  self.selectLast = false
+  self:SetButtonState(self.lastSeasonSp, self.lastSeasonLabel, 0)
+  self:SetButtonState(self.currentSeasonSp, self.currentSeasonLabel, 1)
+  self:RefreshRankData()
+  self:UpdateData()
 end
 
 function TeamPwsRankPopUp:AddListenEvts()
@@ -49,15 +101,15 @@ function TeamPwsRankPopUp:AddListenEvts()
 end
 
 function TeamPwsRankPopUp:HandleQueryTeamPwsRankMatchCCmd(note)
-  self:RefreshRankData()
+  self:RefreshRankData(nil, self.selectLast)
   self:UpdateData()
 end
 
-function TeamPwsRankPopUp:RefreshRankData(searchInput)
+function TeamPwsRankPopUp:RefreshRankData(searchInput, last)
   if searchInput and 0 < #searchInput then
-    self.data = PvpProxy.Instance:GetTeamPwsRankSearchResult(searchInput)
+    self.data = PvpProxy.Instance:GetTeamPwsRankSearchResult(searchInput, self.selectLast)
   else
-    self.data = PvpProxy.Instance:GetTeamPwsRankData()
+    self.data = PvpProxy.Instance:GetTeamPwsRankData(last)
   end
 end
 

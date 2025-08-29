@@ -68,3 +68,16 @@ function ServiceMessCCmdProxy:RecvAstralSyncSeasonInfoMessCCmd(data)
   AstralProxy.Instance:SyncAstralSeason(data.season)
   self:Notify(ServiceEvent.MessCCmdAstralSyncSeasonInfoMessCCmd, data)
 end
+
+function ServiceMessCCmdProxy:RecvSyncQuickPassItemInfoMessCCmd(data)
+  PveEntranceProxy.Instance:HandleSyncQuickPassItemInfoMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdSyncQuickPassItemInfoMessCCmd, data)
+end
+
+function ServiceMessCCmdProxy:RecvSyncPvpChampionStatueMessCCmd(data)
+  local pvp_champion_statue = data.pvp_champion_statue
+  if pvp_champion_statue then
+    PvpProxy.Instance:UpdateStatueInfo(pvp_champion_statue.statue_type, pvp_champion_statue)
+  end
+  self:Notify(ServiceEvent.MessCCmdSetPvpChampionStatueMessCCmd, data)
+end

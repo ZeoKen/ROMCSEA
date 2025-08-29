@@ -32,6 +32,7 @@ function GemPageData:ctor(dataTable)
   self.skillCellFitTypeNeighborMap = {}
   self.validSkillEffectGems = {}
   self.validSkillEffectParamMap = {}
+  self.embedAttrGemCountMap = {}
   self:SetData(dataTable)
 end
 
@@ -55,10 +56,61 @@ function GemPageData:SetData(dataTable)
         self.dataMap[pos] = data
       end
     end
+    self:ResetAttrGemCountMap()
   end
   self:UpdateNeighborItemDataOfSkillCells()
   self:UpdateValidSkillEffectGems()
   self:UpdateValidSkillEffectParamMap()
+end
+
+function GemPageData:ResetAttrGemCountMap()
+  self.activeCountMap = {
+    [0] = 0,
+    [1] = 0,
+    [2] = 0,
+    [3] = 0
+  }
+  tableClear(self.embedAttrGemCountMap)
+  for cellId, itemData in pairs(self.dataMap) do
+    if GemProxy.CheckContainsGemSkillData(itemData) then
+      local needAttributeGemTypes = itemData.gemSkillData.needAttributeGemTypes
+      local sculptData = itemData.gemSkillData:GetSculptData()
+      local sculptPos = sculptData and sculptData[1] and sculptData[1].pos
+      for i = 1, #needAttributeGemTypes do
+        if not sculptPos or sculptPos ~= i then
+          local attrType = needAttributeGemTypes[i]
+          if attrType ~= 0 then
+            self.activeCountMap[attrType] = self.activeCountMap[attrType] + 1
+          end
+        end
+      end
+    elseif GemProxy.CheckContainsGemAttrData(itemData) then
+      local attrGemType = itemData.gemAttrData.type
+      self.embedAttrGemCountMap[attrGemType] = (self.embedAttrGemCountMap[attrGemType] or 0) + 1
+    end
+  end
+  for i = 1, 3 do
+    self.activeCountMap[i] = math.ceil(self.activeCountMap[i] / 3)
+  end
+end
+
+function GemPageData:GetAttrGemCountMap()
+  return self.activeCountMap
+end
+
+function GemPageData:CheckAttrGemActive(attrGemType)
+  local needCount = self.activeCountMap[attrGemType] or 9999
+  local ownCount = self.embedAttrGemCountMap[attrGemType] or 0
+  return needCount <= ownCount
+end
+
+function GemPageData:GetAttrGemCountByType(attrGemType)
+  local needCountMap = self:GetAttrGemCountMap()
+  return needCountMap and needCountMap[attrGemType] or 0
+end
+
+function GemPageData:GetEmbedAttrGemCountByType(attrGemType)
+  return self.embedAttrGemCountMap[attrGemType] or 0
 end
 
 function GemPageData:UpdateNeighborItemDataOfSkillCells()
@@ -87,59 +139,31 @@ end
 
 function GemPageData:UpdateValidSkillEffectGems()
   tableClear(self.validSkillEffectGems)
-  if not next(self.skillCellFitTypeNeighborMap) then
-    for id, _ in pairs(pageCfg) do
-      self.skillCellFitTypeNeighborMap[id] = {}
-    end
-  end
-  for _, t in pairs(self.skillCellFitTypeNeighborMap) do
-    tableClear(t)
-  end
-  local skillItemData, skillData, fitTypeNeighborDatas, typeFitCount
-  for skillCellId, neighborDatas in pairs(self.skillCellNeighborDataMap) do
-    skillItemData = self.dataMap[skillCellId]
-    if skillItemData then
-      skillData = skillItemData.gemSkillData
-      fitTypeNeighborDatas = self.skillCellFitTypeNeighborMap[skillCellId]
-      tableClear(tempTable)
-      arrayShallowCopy(tempTable, neighborDatas)
-      tableClear(tempArr)
-      arrayShallowCopy(tempArr, skillData.needAttributeGemTypes)
-      if GemProxy.CheckGemIsSculpted(skillItemData) then
-        local sculptData = skillData:GetSculptData()
-        tempArr[sculptData[1].pos] = 0
-      end
-      for typeIndex = 1, #tempArr do
-        if tempArr[typeIndex] ~= 0 then
-          for neighborIndex = 1, maxNeighborCount do
-            if tempTable[neighborIndex] and tempTable[neighborIndex].gemAttrData.type == tempArr[typeIndex] then
-              fitTypeNeighborDatas[typeIndex] = tempTable[neighborIndex]
-              tempTable[neighborIndex] = nil
-              break
-            end
+  GemProxy.allSkilGemActive = true
+  for cellId, itemData in pairs(self.dataMap) do
+    if GemProxy.CheckContainsGemSkillData(itemData) and itemData.gemSkillData.available then
+      local skillData = itemData.gemSkillData
+      local needTypes = skillData.needAttributeGemTypes
+      local allTypesActive = true
+      local sculptData = skillData:GetSculptData()
+      local sculptPos = sculptData and sculptData[1] and sculptData[1].pos
+      for i = 1, #needTypes do
+        if not sculptPos or sculptPos ~= i then
+          local needType = needTypes[i]
+          if needType == 0 then
+          elseif not self:CheckAttrGemActive(needType) then
+            allTypesActive = false
+            GemProxy.allSkilGemActive = false
+            break
           end
         end
       end
-      for typeIndex = 1, #tempArr do
-        if tempArr[typeIndex] == 0 then
-          for neighborIndex = 1, maxNeighborCount do
-            if tempTable[neighborIndex] then
-              fitTypeNeighborDatas[typeIndex] = tempTable[neighborIndex]
-              tempTable[neighborIndex] = nil
-              break
-            end
-          end
-        end
-      end
-      typeFitCount = 0
-      self:ForEachFitTypeNeighborOfGemPageSkillCell(skillCellId, function()
-        typeFitCount = typeFitCount + 1
-      end)
-      if typeFitCount == maxNeighborCount and skillData.available then
-        arrayPushBack(self.validSkillEffectGems, skillItemData)
+      if allTypesActive then
+        arrayPushBack(self.validSkillEffectGems, itemData)
       end
     end
   end
+  self:UpdateValidSkillEffectParamMap()
 end
 
 function GemPageData:ForEachFitTypeNeighborOfGemPageSkillCell(skillCellId, action, args)

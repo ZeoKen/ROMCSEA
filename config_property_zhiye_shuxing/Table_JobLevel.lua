@@ -1441,210 +1441,210 @@ Table_JobLevel = {
   },
   [221] = {
     id = 221,
-    JobExp = 4561926,
+    JobExp = 10492430,
     JobPhase = "##42625271",
     ShowLevel = 1,
     MasterLv = 1
   },
   [222] = {
     id = 222,
-    JobExp = 9123852,
+    JobExp = 20984860,
     JobPhase = "##42625271",
     ShowLevel = 2,
     MasterLv = 1
   },
   [223] = {
     id = 223,
-    JobExp = 13685778,
+    JobExp = 31477290,
     JobPhase = "##42625271",
     ShowLevel = 3,
     MasterLv = 1
   },
   [224] = {
     id = 224,
-    JobExp = 18247704,
+    JobExp = 41969720,
     JobPhase = "##42625271",
     ShowLevel = 4,
     MasterLv = 1
   },
   [225] = {
     id = 225,
-    JobExp = 20528667,
+    JobExp = 47215930,
     JobPhase = "##42625271",
     ShowLevel = 5,
     MasterLv = 1
   },
   [226] = {
     id = 226,
-    JobExp = 22809630,
+    JobExp = 52462150,
     JobPhase = "##42625271",
     ShowLevel = 6,
     MasterLv = 1
   },
   [227] = {
     id = 227,
-    JobExp = 25090593,
+    JobExp = 57708360,
     JobPhase = "##42625271",
     ShowLevel = 7,
     MasterLv = 1
   },
   [228] = {
     id = 228,
-    JobExp = 27371556,
+    JobExp = 62954580,
     JobPhase = "##42625271",
     ShowLevel = 8,
     MasterLv = 1
   },
   [229] = {
     id = 229,
-    JobExp = 29652519,
+    JobExp = 68200790,
     JobPhase = "##42625271",
     ShowLevel = 9,
     MasterLv = 1
   },
   [230] = {
     id = 230,
-    JobExp = 31933482,
+    JobExp = 73447010,
     JobPhase = "##42625271",
     ShowLevel = 10,
     MasterLv = 1
   },
   [231] = {
     id = 231,
-    JobExp = 34214445,
+    JobExp = 78693220,
     JobPhase = "##42625271",
     ShowLevel = 11,
     MasterLv = 1
   },
   [232] = {
     id = 232,
-    JobExp = 36495408,
+    JobExp = 83939440,
     JobPhase = "##42625271",
     ShowLevel = 12,
     MasterLv = 1
   },
   [233] = {
     id = 233,
-    JobExp = 38776371,
+    JobExp = 89185650,
     JobPhase = "##42625271",
     ShowLevel = 13,
     MasterLv = 1
   },
   [234] = {
     id = 234,
-    JobExp = 41057334,
+    JobExp = 94431870,
     JobPhase = "##42625271",
     ShowLevel = 14,
     MasterLv = 1
   },
   [235] = {
     id = 235,
-    JobExp = 43338297,
+    JobExp = 99678080,
     JobPhase = "##42625271",
     ShowLevel = 15,
     MasterLv = 1
   },
   [236] = {
     id = 236,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 16,
     MasterLv = 1
   },
   [237] = {
     id = 237,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 17,
     MasterLv = 1
   },
   [238] = {
     id = 238,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 18,
     MasterLv = 1
   },
   [239] = {
     id = 239,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 19,
     MasterLv = 1
   },
   [240] = {
     id = 240,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 20,
     MasterLv = 1
   },
   [241] = {
     id = 241,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 21,
     MasterLv = 1
   },
   [242] = {
     id = 242,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 22,
     MasterLv = 1
   },
   [243] = {
     id = 243,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 23,
     MasterLv = 1
   },
   [244] = {
     id = 244,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 24,
     MasterLv = 1
   },
   [245] = {
     id = 245,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 25,
     MasterLv = 1
   },
   [246] = {
     id = 246,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 26,
     MasterLv = 1
   },
   [247] = {
     id = 247,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 27,
     MasterLv = 1
   },
   [248] = {
     id = 248,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 28,
     MasterLv = 1
   },
   [249] = {
     id = 249,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 29,
     MasterLv = 1
   },
   [250] = {
     id = 250,
-    JobExp = 45619260,
+    JobExp = 104924300,
     JobPhase = "##42625271",
     ShowLevel = 30,
     MasterLv = 1

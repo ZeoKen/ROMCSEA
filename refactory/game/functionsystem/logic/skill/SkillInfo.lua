@@ -741,7 +741,7 @@ function SkillInfo:GetEffectInfoByPhase(creature, effectPhase)
   local paths
   if self.specialEffectHandler[effectPhase] then
     local GetEffectPath = self.specialEffectHandler[effectPhase]._GetEffectPath
-    return GetEffectPath(self)
+    return GetEffectPath(self, creature)
   end
   paths = self.effectsPathMap[effectPhase] or {}
   return self:GetEffectPath(creature, paths)
@@ -1052,6 +1052,9 @@ function SkillInfo:NoSelect(creature)
   if 1 == self.logicParam.no_select and logicName ~= "SkillTargetPoint" and logicName ~= "MultiLockedTarget" and logicName ~= "SkillTargetBehindRect" and logicName ~= "SkillTargetRect" then
     return true
   end
+  if self.logicParam.Search_SignAssassinate == 1 then
+    return false
+  end
   if Game.MapManager:IsNoSelectTarget() and ("SkillSelfRange" == logicName or "SkillForwardRect" == logicName or "SkillPointRange" == logicName or "SkillPointRect" == logicName or "SkillDirectionRect" == logicName) then
     return true
   end
@@ -1227,7 +1230,12 @@ function SkillInfo:GetDamageCount(creature, targetCreature, damageType, damage)
     elseif damageCountInfo.type == 3 then
       local value = damageCountInfo.value
       local layer = creature and creature:GetBuffLayer(value.buffid) or 0
-      damageCount = layer + value.default
+      if not value.calc then
+        damageCount = layer + value.default
+      else
+        local calcParam = value.calc
+        damageCount = CommonFun.calcBuffValue(creature.data, targetCreature.data, calcParam.type, calcParam.a, calcParam.b, calcParam.c, calcParam.d, layer, 0) or 0
+      end
     end
   end
   if damage < damageCount then
@@ -1907,7 +1915,7 @@ function SkillInfo:HasRandomIntervalEffect()
   return self.logicParam.random_interval_effect and self.logicParam.random_interval_effect ~= _EmptyTable
 end
 
-function SkillInfo:GetRandomIntervalEffect()
+function SkillInfo:GetRandomIntervalEffect(creature)
   if not self:HasRandomIntervalEffect() then
     return nil
   end
@@ -1917,7 +1925,9 @@ function SkillInfo:GetRandomIntervalEffect()
   local random_interval_effect = self.logicParam.random_interval_effect
   local length = #self.logicParam.random_interval_effect
   local randomIndex = math.random(length)
-  return random_interval_effect[randomIndex]
+  local effectPath = random_interval_effect[randomIndex]
+  effectPath = Table_EffectLodPaths[effectPath]
+  return self:GetEffectPath(creature, effectPath)
 end
 
 function SkillInfo:GetCastParams(creature)
@@ -2151,4 +2161,20 @@ end
 
 function SkillInfo:IsHideInShadowViel()
   return self.logicParam.HideInShadowViel == 1
+end
+
+function SkillInfo:GetForceDelay()
+  return self.logicParam.force_delay_time
+end
+
+function SkillInfo:GetCheckBufftType()
+  return self.logicParam.checkBuffType
+end
+
+function SkillInfo:NoActionNeedFire()
+  return 1 == self.logicParam.no_action_need_fire
+end
+
+function SkillInfo:SearchSignAssassinate()
+  return self.logicParam.Search_SignAssassinate == 1
 end

@@ -20,6 +20,7 @@ function GemProfessionTip:OnClickProfession(classid)
   if GemProxy.Instance.startChooseTargetProfession then
     GemProxy.Instance:SetCurTargetProfession(classid)
     GameFacade.Instance:sendNotification(GemEvent.ChooseTargetProfession, classid)
+    EventManager.Me():PassEvent(GemEvent.ChooseTargetProfession, classid)
   elseif GemProxy.Instance.newProfession ~= classid then
     GemProxy.Instance:SetCurNewProfessionFilterData(classid)
     EventManager.Me():PassEvent(GemEvent.ProfessionChanged, classid)

@@ -21,6 +21,8 @@ function ItemCardCell:FindObj()
   self.cardQuality = self:FindComponent("CardQuality", UISprite)
   self.cardpos = self:FindComponent("CardPosition", UISprite)
   self.cardicon = self:FindComponent("CardIcon", UISpriteEx)
+  self.cardLvBg = self:FindGO("CardLvBg")
+  self.cardLvLabel = self:FindComponent("CardLv", UILabel)
 end
 
 function ItemCardCell:SetData(data)
@@ -41,6 +43,7 @@ function ItemCardCell:SetData(data)
           else
             anchor = Vector2(0.5, 0.5)
           end
+          self.cardicon.gameObject:SetActive(true)
           self.cardicon.anchor = anchor
           local setSuc = IconManager:SetFaceIcon(Table_Monster[monsterID].Icon, self.cardicon)
           if not setSuc then
@@ -63,15 +66,16 @@ function ItemCardCell:SetData(data)
     if self.numLab then
       self.numLab.text = data.num
     end
+    local quality = data:GetCardQuality()
     if self.cardQuality then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.cardQualityColor)
         self.cardQuality.color = color
       end
     end
     if self.cardQuality1 then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.bgColor)
         self.cardQuality1.color = color
@@ -79,6 +83,14 @@ function ItemCardCell:SetData(data)
     end
     self.cardpos.color = Color(1, 1, 1)
     self.cardicon.color = Color(1, 1, 1)
+    if data.cardLv and data.cardLv > 0 then
+      self:ShowCardLv(true)
+      if self.cardLvLabel then
+        self.cardLvLabel.text = "+" .. data.cardLv
+      end
+    else
+      self:ShowCardLv(false)
+    end
   else
     self.gameObject:SetActive(false)
   end
@@ -101,15 +113,16 @@ function ItemCardCell:SetCardGrey(grey)
     if not data then
       return
     end
+    local quality = data:GetCardQuality()
     if self.cardQuality then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.cardQualityColor)
         self.cardQuality.color = color
       end
     end
     if self.cardQuality1 then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.bgColor)
         self.cardQuality1.color = color
@@ -117,5 +130,11 @@ function ItemCardCell:SetCardGrey(grey)
     end
     self.cardpos.color = Color(1, 1, 1)
     self.cardicon.color = Color(1, 1, 1)
+  end
+end
+
+function ItemCardCell:ShowCardLv(show)
+  if self.cardLvBg then
+    self.cardLvBg:SetActive(show)
   end
 end

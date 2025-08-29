@@ -148,10 +148,24 @@ Table_PveMonsterIntroduction = {
   [147] = {id = 147, Content = "##42535952"},
   [148] = {id = 148, Content = "##42535953"},
   [149] = {id = 149, Content = "##42535954"},
-  [150] = {id = 150, Content = "##42535955"},
-  [151] = {id = 151, Content = "##42535956"},
-  [152] = {id = 152, Content = "##42535957"},
-  [153] = {id = 153, Content = "##42535958"}
+  [150] = {id = 150, Content = "##42629972"},
+  [151] = {id = 151, Content = "##42629973"},
+  [152] = {id = 152, Content = "##42629974"},
+  [153] = {id = 153, Content = "##42629975"},
+  [154] = {id = 154, Content = "##42628626"},
+  [155] = {id = 155, Content = "##42628627"},
+  [156] = {id = 156, Content = "##42628627"},
+  [157] = {id = 157, Content = "##42632277"},
+  [158] = {id = 158, Content = "##42629977"},
+  [159] = {id = 159, Content = "##42629978"},
+  [160] = {id = 160, Content = "##42629979"},
+  [161] = {id = 161, Content = "##42629980"},
+  [162] = {id = 162, Content = "##42628626"},
+  [163] = {id = 163, Content = "##42628627"},
+  [164] = {id = 164, Content = "##42628627"},
+  [165] = {id = 165, Content = "##42628626"},
+  [166] = {id = 166, Content = "##42628627"},
+  [167] = {id = 167, Content = "##42628627"}
 }
 Table_PveMonsterIntroduction_fields = {"id", "Content"}
 return Table_PveMonsterIntroduction

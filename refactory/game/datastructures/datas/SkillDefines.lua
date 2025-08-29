@@ -83,7 +83,10 @@ BuffType = {
   Transform = "Transform",
   ShadowViel = "ShadowViel",
   RegardAsEquip = "RegardAsEquip",
-  SkillWeather = "SkillWeather"
+  SkillWeather = "SkillWeather",
+  SummonElement = "SummonElement",
+  HideHP = "HideHP",
+  SignAssassinate = "SignAssassinate"
 }
 SkillTargetType = {
   None = 1,

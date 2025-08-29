@@ -447,6 +447,15 @@ function ServiceFuBenCmdAutoProxy:onRegister()
   self:Listen(11, 163, function(data)
     self:RecvAstralInfoSyncCmd(data)
   end)
+  self:Listen(11, 164, function(data)
+    self:RecvGvgMvpInfoUpdateCmd(data)
+  end)
+  self:Listen(11, 165, function(data)
+    self:RecvAstralPrayBranchSyncCmd(data)
+  end)
+  self:Listen(11, 166, function(data)
+    self:RecvSyncStartFightStateCmd(data)
+  end)
 end
 
 function ServiceFuBenCmdAutoProxy:CallTrackFuBenUserCmd(data, dmapid, endtime)
@@ -1144,7 +1153,7 @@ function ServiceFuBenCmdAutoProxy:CallGuildGateOptCmd(gatenpcid, opt, uplockleve
   end
 end
 
-function ServiceFuBenCmdAutoProxy:CallGuildFireInfoFubenCmd(raidstate, def_guildid, endfire_time, metal_hpper, calm_time, def_guildname, points, my_smallmetal_cnt, perfect_time, metal_god, perfect, roadblock, gvg_group)
+function ServiceFuBenCmdAutoProxy:CallGuildFireInfoFubenCmd(raidstate, def_guildid, endfire_time, metal_hpper, calm_time, def_guildname, points, my_smallmetal_cnt, perfect_time, metal_god, perfect, roadblock, gvg_group, mvp_hp_per, mvp_state)
   if not NetConfig.PBC then
     local msg = FuBenCmd_pb.GuildFireInfoFubenCmd()
     if raidstate ~= nil then
@@ -1208,6 +1217,12 @@ function ServiceFuBenCmdAutoProxy:CallGuildFireInfoFubenCmd(raidstate, def_guild
     end
     if gvg_group ~= nil then
       msg.gvg_group = gvg_group
+    end
+    if mvp_hp_per ~= nil then
+      msg.mvp_hp_per = mvp_hp_per
+    end
+    if mvp_state ~= nil then
+      msg.mvp_state = mvp_state
     end
     self:SendProto(msg)
   else
@@ -1274,6 +1289,12 @@ function ServiceFuBenCmdAutoProxy:CallGuildFireInfoFubenCmd(raidstate, def_guild
     end
     if gvg_group ~= nil then
       msgParam.gvg_group = gvg_group
+    end
+    if mvp_hp_per ~= nil then
+      msgParam.mvp_hp_per = mvp_hp_per
+    end
+    if mvp_state ~= nil then
+      msgParam.mvp_state = mvp_state
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -1836,7 +1857,7 @@ function ServiceFuBenCmdAutoProxy:CallSuperGvgRewardInfoFubenCmd(rewardinfo)
   end
 end
 
-function ServiceFuBenCmdAutoProxy:CallSuperGvgQueryUserDataFubenCmd(guilduserdata)
+function ServiceFuBenCmdAutoProxy:CallSuperGvgQueryUserDataFubenCmd(guilduserdata, is_end)
   if not NetConfig.PBC then
     local msg = FuBenCmd_pb.SuperGvgQueryUserDataFubenCmd()
     if guilduserdata ~= nil then
@@ -1849,6 +1870,9 @@ function ServiceFuBenCmdAutoProxy:CallSuperGvgQueryUserDataFubenCmd(guilduserdat
       for i = 1, #guilduserdata do
         table.insert(msg.guilduserdata, guilduserdata[i])
       end
+    end
+    if is_end ~= nil then
+      msg.is_end = is_end
     end
     self:SendProto(msg)
   else
@@ -1864,6 +1888,9 @@ function ServiceFuBenCmdAutoProxy:CallSuperGvgQueryUserDataFubenCmd(guilduserdat
       for i = 1, #guilduserdata do
         table.insert(msgParam.guilduserdata, guilduserdata[i])
       end
+    end
+    if is_end ~= nil then
+      msgParam.is_end = is_end
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -2195,6 +2222,17 @@ function ServiceFuBenCmdAutoProxy:CallTeamPwsReportFubenCmd(teaminfo, mvpuserinf
       end
       msg.mvpuserinfo.mercenary.mercenary_name = mvpuserinfo.mercenary.mercenary_name
     end
+    if mvpuserinfo ~= nil and mvpuserinfo.memory_pos ~= nil then
+      if msg.mvpuserinfo == nil then
+        msg.mvpuserinfo = {}
+      end
+      if msg.mvpuserinfo.memory_pos == nil then
+        msg.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #mvpuserinfo.memory_pos do
+        table.insert(msg.mvpuserinfo.memory_pos, mvpuserinfo.memory_pos[i])
+      end
+    end
     if msg == nil then
       msg = {}
     end
@@ -2407,6 +2445,17 @@ function ServiceFuBenCmdAutoProxy:CallTeamPwsReportFubenCmd(teaminfo, mvpuserinf
         msgParam.mvpuserinfo.mercenary = {}
       end
       msgParam.mvpuserinfo.mercenary.mercenary_name = mvpuserinfo.mercenary.mercenary_name
+    end
+    if mvpuserinfo ~= nil and mvpuserinfo.memory_pos ~= nil then
+      if msgParam.mvpuserinfo == nil then
+        msgParam.mvpuserinfo = {}
+      end
+      if msgParam.mvpuserinfo.memory_pos == nil then
+        msgParam.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #mvpuserinfo.memory_pos do
+        table.insert(msgParam.mvpuserinfo.memory_pos, mvpuserinfo.memory_pos[i])
+      end
     end
     if msgParam == nil then
       msgParam = {}
@@ -3280,6 +3329,17 @@ function ServiceFuBenCmdAutoProxy:CallOthelloReportFubenCmd(winteam, teaminfo, m
       end
       msg.mvpuserinfo.mercenary.mercenary_name = mvpuserinfo.mercenary.mercenary_name
     end
+    if mvpuserinfo ~= nil and mvpuserinfo.memory_pos ~= nil then
+      if msg.mvpuserinfo == nil then
+        msg.mvpuserinfo = {}
+      end
+      if msg.mvpuserinfo.memory_pos == nil then
+        msg.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #mvpuserinfo.memory_pos do
+        table.insert(msg.mvpuserinfo.memory_pos, mvpuserinfo.memory_pos[i])
+      end
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.OthelloReportFubenCmd.id
@@ -3492,6 +3552,17 @@ function ServiceFuBenCmdAutoProxy:CallOthelloReportFubenCmd(winteam, teaminfo, m
         msgParam.mvpuserinfo.mercenary = {}
       end
       msgParam.mvpuserinfo.mercenary.mercenary_name = mvpuserinfo.mercenary.mercenary_name
+    end
+    if mvpuserinfo ~= nil and mvpuserinfo.memory_pos ~= nil then
+      if msgParam.mvpuserinfo == nil then
+        msgParam.mvpuserinfo = {}
+      end
+      if msgParam.mvpuserinfo.memory_pos == nil then
+        msgParam.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #mvpuserinfo.memory_pos do
+        table.insert(msgParam.mvpuserinfo.memory_pos, mvpuserinfo.memory_pos[i])
+      end
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -6117,6 +6188,17 @@ function ServiceFuBenCmdAutoProxy:CallSyncStarArkStatisticsFuBenCmd(sailingtime,
       end
       msg.fightinfo.mvpuserinfo.mercenary.mercenary_name = fightinfo.mvpuserinfo.mercenary.mercenary_name
     end
+    if fightinfo ~= nil and fightinfo.mvpuserinfo.memory_pos ~= nil then
+      if msg.fightinfo.mvpuserinfo == nil then
+        msg.fightinfo.mvpuserinfo = {}
+      end
+      if msg.fightinfo.mvpuserinfo.memory_pos == nil then
+        msg.fightinfo.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #fightinfo.mvpuserinfo.memory_pos do
+        table.insert(msg.fightinfo.mvpuserinfo.memory_pos, fightinfo.mvpuserinfo.memory_pos[i])
+      end
+    end
     if difficulty ~= nil then
       msg.difficulty = difficulty
     end
@@ -6395,6 +6477,17 @@ function ServiceFuBenCmdAutoProxy:CallSyncStarArkStatisticsFuBenCmd(sailingtime,
         msgParam.fightinfo.mvpuserinfo.mercenary = {}
       end
       msgParam.fightinfo.mvpuserinfo.mercenary.mercenary_name = fightinfo.mvpuserinfo.mercenary.mercenary_name
+    end
+    if fightinfo ~= nil and fightinfo.mvpuserinfo.memory_pos ~= nil then
+      if msgParam.fightinfo.mvpuserinfo == nil then
+        msgParam.fightinfo.mvpuserinfo = {}
+      end
+      if msgParam.fightinfo.mvpuserinfo.memory_pos == nil then
+        msgParam.fightinfo.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #fightinfo.mvpuserinfo.memory_pos do
+        table.insert(msgParam.fightinfo.mvpuserinfo.memory_pos, fightinfo.mvpuserinfo.memory_pos[i])
+      end
     end
     if difficulty ~= nil then
       msgParam.difficulty = difficulty
@@ -6770,6 +6863,17 @@ function ServiceFuBenCmdAutoProxy:CallSyncTripleFireInfoFuBenCmd(camps, mvpuseri
       end
       msg.mvpuserinfo.mercenary.mercenary_name = mvpuserinfo.mercenary.mercenary_name
     end
+    if mvpuserinfo ~= nil and mvpuserinfo.memory_pos ~= nil then
+      if msg.mvpuserinfo == nil then
+        msg.mvpuserinfo = {}
+      end
+      if msg.mvpuserinfo.memory_pos == nil then
+        msg.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #mvpuserinfo.memory_pos do
+        table.insert(msg.mvpuserinfo.memory_pos, mvpuserinfo.memory_pos[i])
+      end
+    end
     if isfinish ~= nil then
       msg.isfinish = isfinish
     end
@@ -6987,6 +7091,17 @@ function ServiceFuBenCmdAutoProxy:CallSyncTripleFireInfoFuBenCmd(camps, mvpuseri
         msgParam.mvpuserinfo.mercenary = {}
       end
       msgParam.mvpuserinfo.mercenary.mercenary_name = mvpuserinfo.mercenary.mercenary_name
+    end
+    if mvpuserinfo ~= nil and mvpuserinfo.memory_pos ~= nil then
+      if msgParam.mvpuserinfo == nil then
+        msgParam.mvpuserinfo = {}
+      end
+      if msgParam.mvpuserinfo.memory_pos == nil then
+        msgParam.mvpuserinfo.memory_pos = {}
+      end
+      for i = 1, #mvpuserinfo.memory_pos do
+        table.insert(msgParam.mvpuserinfo.memory_pos, mvpuserinfo.memory_pos[i])
+      end
     end
     if isfinish ~= nil then
       msgParam.isfinish = isfinish
@@ -7228,7 +7343,7 @@ function ServiceFuBenCmdAutoProxy:CallSyncTripleProfessionTimeFuBenCmd(phase_end
   end
 end
 
-function ServiceFuBenCmdAutoProxy:CallSyncTripleCampInfoFuBenCmd(camps, endtime)
+function ServiceFuBenCmdAutoProxy:CallSyncTripleCampInfoFuBenCmd(camps, endtime, isrelax)
   if not NetConfig.PBC then
     local msg = FuBenCmd_pb.SyncTripleCampInfoFuBenCmd()
     if camps ~= nil then
@@ -7244,6 +7359,9 @@ function ServiceFuBenCmdAutoProxy:CallSyncTripleCampInfoFuBenCmd(camps, endtime)
     end
     if endtime ~= nil then
       msg.endtime = endtime
+    end
+    if isrelax ~= nil then
+      msg.isrelax = isrelax
     end
     self:SendProto(msg)
   else
@@ -7262,6 +7380,9 @@ function ServiceFuBenCmdAutoProxy:CallSyncTripleCampInfoFuBenCmd(camps, endtime)
     end
     if endtime ~= nil then
       msgParam.endtime = endtime
+    end
+    if isrelax ~= nil then
+      msgParam.isrelax = isrelax
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -7650,6 +7771,79 @@ function ServiceFuBenCmdAutoProxy:CallAstralInfoSyncCmd(kill_limit_time, round, 
       for i = 1, #boss_ids do
         table.insert(msgParam.boss_ids, boss_ids[i])
       end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceFuBenCmdAutoProxy:CallGvgMvpInfoUpdateCmd(hp_per, state)
+  if not NetConfig.PBC then
+    local msg = FuBenCmd_pb.GvgMvpInfoUpdateCmd()
+    if hp_per ~= nil then
+      msg.hp_per = hp_per
+    end
+    if state ~= nil then
+      msg.state = state
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.GvgMvpInfoUpdateCmd.id
+    local msgParam = {}
+    if hp_per ~= nil then
+      msgParam.hp_per = hp_per
+    end
+    if state ~= nil then
+      msgParam.state = state
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceFuBenCmdAutoProxy:CallAstralPrayBranchSyncCmd(groups)
+  if not NetConfig.PBC then
+    local msg = FuBenCmd_pb.AstralPrayBranchSyncCmd()
+    if groups ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.groups == nil then
+        msg.groups = {}
+      end
+      for i = 1, #groups do
+        table.insert(msg.groups, groups[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.AstralPrayBranchSyncCmd.id
+    local msgParam = {}
+    if groups ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.groups == nil then
+        msgParam.groups = {}
+      end
+      for i = 1, #groups do
+        table.insert(msgParam.groups, groups[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceFuBenCmdAutoProxy:CallSyncStartFightStateCmd(barstate)
+  if not NetConfig.PBC then
+    local msg = FuBenCmd_pb.SyncStartFightStateCmd()
+    if barstate ~= nil then
+      msg.barstate = barstate
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SyncStartFightStateCmd.id
+    local msgParam = {}
+    if barstate ~= nil then
+      msgParam.barstate = barstate
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -8231,6 +8425,18 @@ function ServiceFuBenCmdAutoProxy:RecvAstralInfoSyncCmd(data)
   self:Notify(ServiceEvent.FuBenCmdAstralInfoSyncCmd, data)
 end
 
+function ServiceFuBenCmdAutoProxy:RecvGvgMvpInfoUpdateCmd(data)
+  self:Notify(ServiceEvent.FuBenCmdGvgMvpInfoUpdateCmd, data)
+end
+
+function ServiceFuBenCmdAutoProxy:RecvAstralPrayBranchSyncCmd(data)
+  self:Notify(ServiceEvent.FuBenCmdAstralPrayBranchSyncCmd, data)
+end
+
+function ServiceFuBenCmdAutoProxy:RecvSyncStartFightStateCmd(data)
+  self:Notify(ServiceEvent.FuBenCmdSyncStartFightStateCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.FuBenCmdTrackFuBenUserCmd = "ServiceEvent_FuBenCmdTrackFuBenUserCmd"
 ServiceEvent.FuBenCmdFailFuBenUserCmd = "ServiceEvent_FuBenCmdFailFuBenUserCmd"
@@ -8376,3 +8582,6 @@ ServiceEvent.FuBenCmdEBFKickTimeCmd = "ServiceEvent_FuBenCmdEBFKickTimeCmd"
 ServiceEvent.FuBenCmdEBFContinueCmd = "ServiceEvent_FuBenCmdEBFContinueCmd"
 ServiceEvent.FuBenCmdEBFEventAreaUpdateCmd = "ServiceEvent_FuBenCmdEBFEventAreaUpdateCmd"
 ServiceEvent.FuBenCmdAstralInfoSyncCmd = "ServiceEvent_FuBenCmdAstralInfoSyncCmd"
+ServiceEvent.FuBenCmdGvgMvpInfoUpdateCmd = "ServiceEvent_FuBenCmdGvgMvpInfoUpdateCmd"
+ServiceEvent.FuBenCmdAstralPrayBranchSyncCmd = "ServiceEvent_FuBenCmdAstralPrayBranchSyncCmd"
+ServiceEvent.FuBenCmdSyncStartFightStateCmd = "ServiceEvent_FuBenCmdSyncStartFightStateCmd"

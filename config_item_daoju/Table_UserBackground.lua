@@ -635,6 +635,36 @@ Table_UserBackground = {
     Condition = _EmptyTable,
     Background = "Bg_zuduibeijing_4thjp"
   },
+  [67] = {
+    id = 67,
+    ItemID = 633,
+    Name = "##42636082",
+    Icon = "Avatarbox_S25_Kuang_Lv1",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_25"
+  },
+  [68] = {
+    id = 68,
+    ItemID = 634,
+    Name = "##42636083",
+    Icon = "Avatarbox_S25_Kuang_Lv2",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_25"
+  },
+  [69] = {
+    id = 69,
+    ItemID = 635,
+    Name = "##42636084",
+    Icon = "Avatarbox_S25_Kuang_Lv3",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_25"
+  },
   [1001] = {
     id = 1001,
     ItemID = 1501,
@@ -1174,6 +1204,56 @@ Table_UserBackground = {
     GroupEffect = "",
     Condition = _EmptyTable,
     Background = "Bg_zuduibeijing_23"
+  },
+  [1059] = {
+    id = 1059,
+    ItemID = 3012540,
+    Name = "##42628526",
+    Icon = "Avatarbox_3v3v3_1",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_qrj2"
+  },
+  [1060] = {
+    id = 1060,
+    ItemID = 3012541,
+    Name = "##42628528",
+    Icon = "Avatarbox_3v3v3_2",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_13"
+  },
+  [1061] = {
+    id = 1061,
+    ItemID = 3012542,
+    Name = "##42628530",
+    Icon = "Avatarbox_3v3v3_3",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_21"
+  },
+  [1062] = {
+    id = 1062,
+    ItemID = 3012543,
+    Name = "##42628532",
+    Icon = "Avatarbox_3v3v3_4",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_23"
+  },
+  [10035] = {
+    id = 10035,
+    ItemID = 3012904,
+    Name = "##42632076",
+    Icon = "Avatarbox_6thjp_kuang",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable,
+    Background = "Bg_zuduibeijing_4thjp"
   }
 }
 Table_UserBackground_fields = {

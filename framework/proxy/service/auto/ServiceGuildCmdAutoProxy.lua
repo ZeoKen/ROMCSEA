@@ -333,6 +333,15 @@ function ServiceGuildCmdAutoProxy:onRegister()
   self:Listen(50, 113, function(data)
     self:RecvDateBattleReportUIStateCmd(data)
   end)
+  self:Listen(50, 115, function(data)
+    self:RecvGvgCityStatueQueryGuildCmd(data)
+  end)
+  self:Listen(50, 116, function(data)
+    self:RecvGvgCityStatueUpdateGuildCmd(data)
+  end)
+  self:Listen(50, 114, function(data)
+    self:RecvQuerySuperGvgStatCmd(data)
+  end)
 end
 
 function ServiceGuildCmdAutoProxy:CallQueryGuildListGuildCmd(keyword, page, conds, list)
@@ -4057,7 +4066,7 @@ function ServiceGuildCmdAutoProxy:CallEnterPunishTimeNtfGuildCmd(exittime)
   end
 end
 
-function ServiceGuildCmdAutoProxy:CallQuerySuperGvgDataGuildCmd(datas)
+function ServiceGuildCmdAutoProxy:CallQuerySuperGvgDataGuildCmd(datas, end_flag)
   if not NetConfig.PBC then
     local msg = GuildCmd_pb.QuerySuperGvgDataGuildCmd()
     if datas ~= nil then
@@ -4070,6 +4079,9 @@ function ServiceGuildCmdAutoProxy:CallQuerySuperGvgDataGuildCmd(datas)
       for i = 1, #datas do
         table.insert(msg.datas, datas[i])
       end
+    end
+    if end_flag ~= nil then
+      msg.end_flag = end_flag
     end
     self:SendProto(msg)
   else
@@ -4085,6 +4097,9 @@ function ServiceGuildCmdAutoProxy:CallQuerySuperGvgDataGuildCmd(datas)
       for i = 1, #datas do
         table.insert(msgParam.datas, datas[i])
       end
+    end
+    if end_flag ~= nil then
+      msgParam.end_flag = end_flag
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -4871,6 +4886,15 @@ function ServiceGuildCmdAutoProxy:CallGvgStatueSyncGuildCmd(appearance, pose, se
       end
       msg.appearance.tail = appearance.tail
     end
+    if appearance ~= nil and appearance.pose ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.appearance == nil then
+        msg.appearance = {}
+      end
+      msg.appearance.pose = appearance.pose
+    end
     if pose ~= nil then
       msg.pose = pose
     end
@@ -4985,6 +5009,15 @@ function ServiceGuildCmdAutoProxy:CallGvgStatueSyncGuildCmd(appearance, pose, se
         msgParam.appearance = {}
       end
       msgParam.appearance.tail = appearance.tail
+    end
+    if appearance ~= nil and appearance.pose ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.appearance == nil then
+        msgParam.appearance = {}
+      end
+      msgParam.appearance.pose = appearance.pose
     end
     if pose ~= nil then
       msgParam.pose = pose
@@ -5209,6 +5242,15 @@ function ServiceGuildCmdAutoProxy:CallGvgScoreInfoUpdateGuildCmd(info)
         table.insert(msg.info.lose_points, info.lose_points[i])
       end
     end
+    if info ~= nil and info.mvp_score ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.info == nil then
+        msg.info = {}
+      end
+      msg.info.mvp_score = info.mvp_score
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.GvgScoreInfoUpdateGuildCmd.id
@@ -5270,6 +5312,15 @@ function ServiceGuildCmdAutoProxy:CallGvgScoreInfoUpdateGuildCmd(info)
       for i = 1, #info.lose_points do
         table.insert(msgParam.info.lose_points, info.lose_points[i])
       end
+    end
+    if info ~= nil and info.mvp_score ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      msgParam.info.mvp_score = info.mvp_score
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -5809,6 +5860,15 @@ function ServiceGuildCmdAutoProxy:CallGvgFireReportGuildCmd(firetime, datas, myd
       end
       msg.mydata.damage = mydata.damage
     end
+    if mydata ~= nil and mydata.mvp_damage ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.mydata == nil then
+        msg.mydata = {}
+      end
+      msg.mydata.mvp_damage = mydata.mvp_damage
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.GvgFireReportGuildCmd.id
@@ -5943,6 +6003,15 @@ function ServiceGuildCmdAutoProxy:CallGvgFireReportGuildCmd(firetime, datas, myd
         msgParam.mydata = {}
       end
       msgParam.mydata.damage = mydata.damage
+    end
+    if mydata ~= nil and mydata.mvp_damage ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.mydata == nil then
+        msgParam.mydata = {}
+      end
+      msgParam.mydata.mvp_damage = mydata.mvp_damage
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -6965,6 +7034,353 @@ function ServiceGuildCmdAutoProxy:CallDateBattleReportUIStateCmd(open)
   end
 end
 
+function ServiceGuildCmdAutoProxy:CallGvgCityStatueQueryGuildCmd(groupid, cityid, infos)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.GvgCityStatueQueryGuildCmd()
+    if groupid ~= nil then
+      msg.groupid = groupid
+    end
+    if cityid ~= nil then
+      msg.cityid = cityid
+    end
+    if infos ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.infos == nil then
+        msg.infos = {}
+      end
+      for i = 1, #infos do
+        table.insert(msg.infos, infos[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.GvgCityStatueQueryGuildCmd.id
+    local msgParam = {}
+    if groupid ~= nil then
+      msgParam.groupid = groupid
+    end
+    if cityid ~= nil then
+      msgParam.cityid = cityid
+    end
+    if infos ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.infos == nil then
+        msgParam.infos = {}
+      end
+      for i = 1, #infos do
+        table.insert(msgParam.infos, infos[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallGvgCityStatueUpdateGuildCmd(groupid, cityid, exterior, info)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.GvgCityStatueUpdateGuildCmd()
+    if groupid ~= nil then
+      msg.groupid = groupid
+    end
+    if cityid ~= nil then
+      msg.cityid = cityid
+    end
+    if exterior ~= nil then
+      msg.exterior = exterior
+    end
+    if info ~= nil and info.cityid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.info == nil then
+        msg.info = {}
+      end
+      msg.info.cityid = info.cityid
+    end
+    if info.info ~= nil and info.info.body ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.body = info.info.body
+    end
+    if info.info ~= nil and info.info.hair ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.hair = info.info.hair
+    end
+    if info.info ~= nil and info.info.head ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.head = info.info.head
+    end
+    if info.info ~= nil and info.info.face ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.face = info.info.face
+    end
+    if info.info ~= nil and info.info.eye ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.eye = info.info.eye
+    end
+    if info.info ~= nil and info.info.mouth ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.mouth = info.info.mouth
+    end
+    if info.info ~= nil and info.info.guildname ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.guildname = info.info.guildname
+    end
+    if info.info ~= nil and info.info.leadername ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.leadername = info.info.leadername
+    end
+    if info.info ~= nil and info.info.leaderid ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.leaderid = info.info.leaderid
+    end
+    if info.info ~= nil and info.info.back ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.back = info.info.back
+    end
+    if info.info ~= nil and info.info.tail ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.tail = info.info.tail
+    end
+    if info.info ~= nil and info.info.pose ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.info == nil then
+        msg.info.info = {}
+      end
+      msg.info.info.pose = info.info.pose
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.GvgCityStatueUpdateGuildCmd.id
+    local msgParam = {}
+    if groupid ~= nil then
+      msgParam.groupid = groupid
+    end
+    if cityid ~= nil then
+      msgParam.cityid = cityid
+    end
+    if exterior ~= nil then
+      msgParam.exterior = exterior
+    end
+    if info ~= nil and info.cityid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      msgParam.info.cityid = info.cityid
+    end
+    if info.info ~= nil and info.info.body ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.body = info.info.body
+    end
+    if info.info ~= nil and info.info.hair ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.hair = info.info.hair
+    end
+    if info.info ~= nil and info.info.head ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.head = info.info.head
+    end
+    if info.info ~= nil and info.info.face ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.face = info.info.face
+    end
+    if info.info ~= nil and info.info.eye ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.eye = info.info.eye
+    end
+    if info.info ~= nil and info.info.mouth ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.mouth = info.info.mouth
+    end
+    if info.info ~= nil and info.info.guildname ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.guildname = info.info.guildname
+    end
+    if info.info ~= nil and info.info.leadername ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.leadername = info.info.leadername
+    end
+    if info.info ~= nil and info.info.leaderid ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.leaderid = info.info.leaderid
+    end
+    if info.info ~= nil and info.info.back ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.back = info.info.back
+    end
+    if info.info ~= nil and info.info.tail ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.tail = info.info.tail
+    end
+    if info.info ~= nil and info.info.pose ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.info == nil then
+        msgParam.info.info = {}
+      end
+      msgParam.info.info.pose = info.info.pose
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceGuildCmdAutoProxy:CallQuerySuperGvgStatCmd(datas, is_end)
+  if not NetConfig.PBC then
+    local msg = GuildCmd_pb.QuerySuperGvgStatCmd()
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    if is_end ~= nil then
+      msg.is_end = is_end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.QuerySuperGvgStatCmd.id
+    local msgParam = {}
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    if is_end ~= nil then
+      msgParam.is_end = is_end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceGuildCmdAutoProxy:RecvQueryGuildListGuildCmd(data)
   self:Notify(ServiceEvent.GuildCmdQueryGuildListGuildCmd, data)
 end
@@ -7389,6 +7805,18 @@ function ServiceGuildCmdAutoProxy:RecvDateBattleReportUIStateCmd(data)
   self:Notify(ServiceEvent.GuildCmdDateBattleReportUIStateCmd, data)
 end
 
+function ServiceGuildCmdAutoProxy:RecvGvgCityStatueQueryGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdGvgCityStatueQueryGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvGvgCityStatueUpdateGuildCmd(data)
+  self:Notify(ServiceEvent.GuildCmdGvgCityStatueUpdateGuildCmd, data)
+end
+
+function ServiceGuildCmdAutoProxy:RecvQuerySuperGvgStatCmd(data)
+  self:Notify(ServiceEvent.GuildCmdQuerySuperGvgStatCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.GuildCmdQueryGuildListGuildCmd = "ServiceEvent_GuildCmdQueryGuildListGuildCmd"
 ServiceEvent.GuildCmdCreateGuildGuildCmd = "ServiceEvent_GuildCmdCreateGuildGuildCmd"
@@ -7496,3 +7924,6 @@ ServiceEvent.GuildCmdRedtipOptGuildCmd = "ServiceEvent_GuildCmdRedtipOptGuildCmd
 ServiceEvent.GuildCmdRedtipBrowseGuildCmd = "ServiceEvent_GuildCmdRedtipBrowseGuildCmd"
 ServiceEvent.GuildCmdDateBattleFlagGuildCmd = "ServiceEvent_GuildCmdDateBattleFlagGuildCmd"
 ServiceEvent.GuildCmdDateBattleReportUIStateCmd = "ServiceEvent_GuildCmdDateBattleReportUIStateCmd"
+ServiceEvent.GuildCmdGvgCityStatueQueryGuildCmd = "ServiceEvent_GuildCmdGvgCityStatueQueryGuildCmd"
+ServiceEvent.GuildCmdGvgCityStatueUpdateGuildCmd = "ServiceEvent_GuildCmdGvgCityStatueUpdateGuildCmd"
+ServiceEvent.GuildCmdQuerySuperGvgStatCmd = "ServiceEvent_GuildCmdQuerySuperGvgStatCmd"

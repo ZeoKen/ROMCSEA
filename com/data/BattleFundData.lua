@@ -20,6 +20,8 @@ function BattleFundData:SetData(serverData)
   self.loginDay = serverData.loginday or 0
   self.rewardDays = serverData.rewarddays
   self.freeRewardDays = serverData.freerewarddays
+  self.resetDepositReward = serverData.resetdepositreward
+  self.extraEndTime = serverData.extra_end_time
   local config = GameConfig.BattleFund[self.actId]
   if not config then
     return
@@ -141,13 +143,30 @@ function BattleFundData:IsActive()
     return false
   end
   if not self.startTime or self.startTime <= 0 then
+    redlog("BattleFundData:IsActive() 没开始")
     return false
   end
   if not self.rewardDatas or self.rewardDays and #self.rewardDays >= #self.rewardDatas then
-    return false
+    if self.extraEndTime and 0 < self.extraEndTime then
+      if self.extraEndTime < ServerTime.CurServerTime() / 1000 then
+        redlog("BattleFundData:IsActive() 超过可领奖时间")
+        return false
+      end
+    else
+      redlog("BattleFundData:IsActive() 奖励已经领完了")
+      return false
+    end
   end
-  if (not self.buyTime or self.buyTime == 0) and ServerTime.CurServerTime() / 1000 > self.startTime + config.BuyLimitTime then
-    return false
+  if not self.buyTime or self.buyTime == 0 then
+    if config.BuyLimitTime and 0 < config.BuyLimitTime then
+      if ServerTime.CurServerTime() / 1000 < self.startTime + config.BuyLimitTime then
+        redlog("BattleFundData:IsActive() 没购买，并且超过时间了")
+        return false
+      end
+    elseif config.BuyLimitTime and config.BuyLimitTime == 0 then
+      redlog("BattleFundData:IsActive() 配置为0的情况，以globalAct时间为准", BattleFundProxy.Instance:IsGlobalActActive())
+      return BattleFundProxy.Instance:IsGlobalActActive()
+    end
   end
   return true
 end
@@ -201,5 +220,25 @@ function BattleFundData:GetLeftBuyTime()
   if not config then
     return 0
   end
-  return self.startTime + config.BuyLimitTime - ServerTime.CurServerTime() / 1000
+  if config.BuyLimitTime and 0 < config.BuyLimitTime then
+    return self.startTime + config.BuyLimitTime - ServerTime.CurServerTime() / 1000
+  elseif config.BuyLimitTime and config.BuyLimitTime == 0 then
+    return BattleFundProxy.Instance:GetGlobalActEndLeftTime()
+  end
+end
+
+function BattleFundData:GetResetDepositReward()
+  return self.resetDepositReward
+end
+
+function BattleFundData:HasResetDepositReward()
+  local config = self:GetConfig()
+  if not config then
+    return false
+  end
+  local resetDepositReward = config.ResetDepositReward
+  if not resetDepositReward or not next(resetDepositReward) then
+    return false
+  end
+  return true
 end

@@ -142,6 +142,7 @@ function SkillView:AddViewListener()
   self:AddListenEvt(SkillEvent.SkillUpdate, self.RefreshSkills)
   self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkill, self.RefreshSkills)
   self:AddListenEvt(ServiceEvent.SkillUpdateMasterSkillEquip, self.RefreshSkills)
+  self:AddListenEvt(ServiceEvent.SkillUpdateInheritSkillCmd, self.RefreshSkills)
   self:AddListenEvt(MyselfEvent.MyProfessionChange, self.RefreshProfess)
 end
 

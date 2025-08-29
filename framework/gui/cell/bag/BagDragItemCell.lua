@@ -10,6 +10,16 @@ end
 function BagDragItemCell:InitDragEvent()
   self.dragDrop = DragDropCell.new(self.gameObject:GetComponent(UIDragItem))
   self.dragDrop.dragDropComponent.OnCursor = self.OnCursor
+  
+  function self.dragDrop.onManualStartDrag()
+    xdlog("开始拖拽")
+    self:PassEvent(DragDropEvent.StartDrag, self)
+  end
+  
+  function self.dragDrop.onManualEndDrag()
+    xdlog("结束拖拽")
+    self:PassEvent(DragDropEvent.EndDrag, self)
+  end
 end
 
 function BagDragItemCell:SetData(data)
@@ -53,5 +63,9 @@ end
 
 function BagDragItemCell.OnCursor(dragItem)
   DragCursorPanel.Instance.ShowItemCell(dragItem)
-  EventManager.Me():PassEvent(PackageEvent.ActivateSetShortCut)
+  local itemData = dragItem.data.itemdata
+  local isMemory = itemData and itemData:HasMemoryInfo()
+  if not isMemory then
+    EventManager.Me():PassEvent(PackageEvent.ActivateSetShortCut)
+  end
 end

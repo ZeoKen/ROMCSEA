@@ -103,8 +103,6 @@ function PersonalArtifactProxy:Init()
 end
 
 function PersonalArtifactProxy:InitStaticData()
-  self:InitStaticAttrData()
-  self:InitStaticFormulaItemIds()
 end
 
 function PersonalArtifactProxy:SetPreviewFlag(var)
@@ -120,6 +118,7 @@ function PersonalArtifactProxy:InitStaticAttrData()
   self.fragmentStaticAttrDataMap = {}
   self.fragmentQualityItemIdsMap = {}
   local fId, attrBoundMap, sDataMap, qItemIds, q
+  local _Table_Item = Table_Item
   for _, d in pairs(Table_PersonalArtifactAttr) do
     fId = d.FlagmentId
     attrBoundMap = self.fragmentAttrBoundsMap[fId] or {}
@@ -128,7 +127,7 @@ function PersonalArtifactProxy:InitStaticAttrData()
     sDataMap = self.fragmentStaticAttrDataMap[fId] or {}
     sDataMap[d.id] = d
     self.fragmentStaticAttrDataMap[fId] = sDataMap
-    q = Table_Item[fId].Quality
+    q = _Table_Item[fId].Quality
     qItemIds = self.fragmentQualityItemIdsMap[q] or {}
     arrayPushBack(qItemIds, fId)
     self.fragmentQualityItemIdsMap[q] = qItemIds
@@ -143,6 +142,8 @@ function PersonalArtifactProxy:InitStaticFormulaItemIds()
   self.formulaId = {}
   self.typeMap = {}
   local cfg, t, element = GameConfig.PersonalArtifactFilter
+  local _Table_PersonalArtifactCompose = Table_PersonalArtifactCompose
+  local _Table_Item = Table_Item
   for i = 1, #cfg do
     element = {
       class = cfg[i].name
@@ -150,8 +151,8 @@ function PersonalArtifactProxy:InitStaticFormulaItemIds()
     for j = 1, #cfg[i].types do
       t = cfg[i].types[j]
       self.typeMap[t] = 1
-      for id, _ in pairs(Table_PersonalArtifactCompose) do
-        if Table_Item[id] and Table_Item[id].Type == t then
+      for id, _ in pairs(_Table_PersonalArtifactCompose) do
+        if _Table_Item[id] and _Table_Item[id].Type == t then
           arrayPushBack(self.formulaId, id)
         end
       end
@@ -160,11 +161,17 @@ function PersonalArtifactProxy:InitStaticFormulaItemIds()
 end
 
 function PersonalArtifactProxy:IsPersonalArtifactByItemType(t)
+  if not self.typeMap then
+    self:InitStaticFormulaItemIds()
+  end
   return nil ~= self.typeMap[t]
 end
 
 function PersonalArtifactProxy:GetStaticAttrDataByIdAndValue(id, value)
   value = PersonalArtifactProxy.GetRealValue(value)
+  if not self.fragmentAttrBoundsMap then
+    self:InitStaticAttrData()
+  end
   local attrBoundMap, sId = self.fragmentAttrBoundsMap[id]
   if attrBoundMap then
     for aId, attrBound in pairs(attrBoundMap) do
@@ -269,6 +276,9 @@ function PersonalArtifactProxy:GetCurEquipedPersonalArtifactGuid()
 end
 
 function PersonalArtifactProxy:GetAllFormulaItems()
+  if not self.formulaId then
+    self:InitStaticFormulaItemIds()
+  end
   local formulaData = {}
   local IDs = self.formulaId
   for i = 1, #IDs do
@@ -304,6 +314,9 @@ function PersonalArtifactProxy:GetAllFormulaItems()
 end
 
 function PersonalArtifactProxy:GetFragmentItemIdsByQuality(quality)
+  if not self.fragmentQualityItemIdsMap then
+    self:InitStaticAttrData()
+  end
   return quality and self.fragmentQualityItemIdsMap[quality]
 end
 

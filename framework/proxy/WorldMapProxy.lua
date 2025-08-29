@@ -65,7 +65,15 @@ function WorldMapProxy:InitMapDatas()
   self.mapTransmitterNpcMap = {}
   local mapGroup, mapID
   if Table_DeathTransferMap then
-    for id, transferData in pairs(Table_DeathTransferMap) do
+    local datas = {}
+    for _, transferData in pairs(Table_DeathTransferMap) do
+      datas[#datas + 1] = transferData
+    end
+    table.sort(datas, function(a, b)
+      return a.id < b.id
+    end)
+    for i = 1, #datas do
+      local transferData = datas[i]
       mapGroup = transferData.MapGroup
       if mapGroup then
         if not self.mapTransmitterDatas[mapGroup] then
@@ -79,11 +87,11 @@ function WorldMapProxy:InitMapDatas()
       else
         redlog("Missing MapGroup")
       end
-      mapid = transferData.MapID
+      local mapid = transferData.MapID
       if not self.availableTransmitterMap[mapid] then
         self.availableTransmitterMap[mapid] = mapid
       end
-      self.mapTransmitterNpcMap[transferData.NpcID] = id
+      self.mapTransmitterNpcMap[transferData.NpcID] = transferData.id
     end
   end
   self.activeMaps = {}

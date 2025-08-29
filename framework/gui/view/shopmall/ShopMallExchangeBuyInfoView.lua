@@ -31,7 +31,7 @@ function ShopMallExchangeBuyInfoView:InitShow()
     self.currentDetalData = self.viewdata.viewdata.data
     self.cell = nil
     local offsetTip
-    if self.currentDetalData.itemid and Table_Equip[self.currentDetalData.itemid] then
+    if self.currentDetalData.itemid and ShopMallProxy.IsForceOverlap(self.currentDetalData.itemid) then
       self.forceOverlap = true
     end
     if self.currentDetalData.overlap or self.forceOverlap then

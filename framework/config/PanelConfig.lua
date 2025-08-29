@@ -135,6 +135,14 @@ PanelConfig = {
     prefab = "DynamicSkillEffView",
     class = "DynamicSkillEffView"
   },
+  RewardEffectView = {
+    id = 20,
+    tab = 3,
+    name = "奖励特效",
+    desc = "",
+    prefab = "RewardEffectView",
+    class = "RewardEffectView"
+  },
   UseCardPopUp = {
     id = 15,
     tab = nil,
@@ -1619,6 +1627,14 @@ PanelConfig = {
     prefab = "",
     class = ""
   },
+  SetViewServiceNOTWPage = {
+    id = 643,
+    tab = 4,
+    name = "东南亚服设置",
+    desc = "",
+    prefab = "",
+    class = ""
+  },
   PCSetView = {
     id = 640,
     name = "PC设置",
@@ -2219,19 +2235,19 @@ PanelConfig = {
   },
   CupModeView = {
     id = 933,
-    tab = 2,
+    tab = 18,
     name = "杯赛模式",
     desc = "",
-    prefab = "CupModeView",
-    class = "CupModeView"
+    prefab = "PvpContainerView",
+    class = "PvpContainerView"
   },
   CompetiveModeView = {
     id = 934,
     tab = 11,
     name = "竞技模式",
     desc = "",
-    prefab = "CompetiveModeView",
-    class = "CompetiveModeView"
+    prefab = "PvpContainerView",
+    class = "PvpContainerView"
   },
   FreeBattleView = {
     id = 926,
@@ -2254,8 +2270,8 @@ PanelConfig = {
     tab = 14,
     name = "12人PVP",
     desc = "",
-    prefab = "MultiPvpView",
-    class = "MultiPvpView"
+    prefab = "PvpContainerView",
+    class = "PvpContainerView"
   },
   LeisureModelView = {
     id = 929,
@@ -2267,11 +2283,11 @@ PanelConfig = {
   },
   WarbandModelView = {
     id = 945,
-    tab = 2,
+    tab = 17,
     name = "12人PVP杯赛模式",
     desc = "",
-    prefab = "WarbandModelView",
-    class = "WarbandModelView"
+    prefab = "PvpContainerView",
+    class = "PvpContainerView"
   },
   WarbandRewardPopUp = {
     id = 946,
@@ -3031,6 +3047,14 @@ PanelConfig = {
     prefab = "CardContainerView",
     class = "CardContainerView"
   },
+  CardUpgradeShareView = {
+    id = 1582,
+    tab = nil,
+    name = "卡片强化分享",
+    desc = "",
+    prefab = "CardUpgradeShareView",
+    class = "CardUpgradeShareView"
+  },
   EnchantTransferView = {
     id = 1590,
     name = "附魔转移",
@@ -3215,6 +3239,14 @@ PanelConfig = {
     desc = "",
     prefab = "GVGDetailView",
     class = "GVGDetailView"
+  },
+  LastGVGDetailView = {
+    id = 1633,
+    tab = nil,
+    name = "上一期GVG决战详细信息",
+    desc = "",
+    prefab = "GVGDetailView",
+    class = "LastGVGDetailView"
   },
   GVGStatView = {
     id = 1638,
@@ -3436,8 +3468,7 @@ PanelConfig = {
     name = "组队竞技赛排名",
     desc = "",
     prefab = "TeamPwsRankPopUp",
-    class = "TeamPwsRankPopUp",
-    hideCollider = true
+    class = "TeamPwsRankPopUp"
   },
   MatchPreparePopUp = {
     id = 1693,
@@ -5123,6 +5154,14 @@ PanelConfig = {
     class = "EquipMemoryAutoDecomposePopup",
     hideCollider = true
   },
+  EquipMemoryAdvanceView = {
+    id = 2948,
+    tab = nil,
+    name = "记忆升阶",
+    desc = "",
+    prefab = "EquipMemoryAdvanceView",
+    class = "EquipMemoryAdvanceView"
+  },
   RefineIntegerCombineView = {
     id = 2950,
     tab = nil,
@@ -5856,6 +5895,14 @@ PanelConfig = {
     prefab = "AstralDestinyGraphView",
     class = "AstralDestinyGraphView"
   },
+  AbyssDailyQuestBoardView = {
+    id = 4300,
+    tab = nil,
+    name = "深渊任务",
+    desc = "",
+    prefab = "AbyssDailyQuestBoardView",
+    class = "AbyssDailyQuestBoardView"
+  },
   RedPacketSendView = {
     id = 5101,
     tab = nil,
@@ -5911,6 +5958,38 @@ PanelConfig = {
     prefab = "SetAutoHealingView",
     class = "SetAutoHealingView",
     hideCollider = true
+  },
+  InheritSkillView = {
+    id = 4310,
+    tab = nil,
+    name = "技能传承",
+    desc = "",
+    prefab = "InheritSkillView",
+    class = "InheritSkillView"
+  },
+  InheritSkillExtendCostPointPopUp = {
+    id = 4311,
+    tab = nil,
+    name = "技能传承扩展点数",
+    desc = "",
+    prefab = "InheritSkillExtendCostPointPopUp",
+    class = "InheritSkillExtendCostPointPopUp"
+  },
+  AchieveRewardView = {
+    id = 4312,
+    tab = nil,
+    name = "地图成就领奖",
+    desc = "",
+    prefab = "AchieveRewardView",
+    class = "AchieveRewardView"
+  },
+  PveMatchPopup = {
+    id = 4313,
+    tab = nil,
+    name = "Pve副本队伍职责匹配",
+    desc = "",
+    prefab = "PveMatchPopup",
+    class = "PveMatchPopup"
   },
   CupModeRankPopup = {
     id = 5002,
@@ -6423,6 +6502,14 @@ PanelConfig = {
     desc = "",
     prefab = "ResetSecretLandGemPopUp",
     class = "ResetSecretLandGemPopUp"
+  },
+  SpaceDragonIntroView = {
+    id = 30040,
+    tab = nil,
+    name = "时空龙入口",
+    desc = "",
+    prefab = "SpaceDragonIntroView",
+    class = "SpaceDragonIntroView"
   },
   FaceBookFavPanel = {
     id = 100001,

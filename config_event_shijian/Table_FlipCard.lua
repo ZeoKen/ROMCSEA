@@ -68,7 +68,22 @@ Table_FlipCard_t = {
     {3012576, 1},
     {3012674, 1},
     {3012681, 1},
-    {3012676, 1}
+    {3012676, 1},
+    {3013714, 1},
+    {3013723, 1},
+    {3013716, 1},
+    {3012874, 1},
+    {3012883, 1},
+    {3012876, 1},
+    {3012914, 1},
+    {3012923, 1},
+    {3012916, 1},
+    {3012984, 1},
+    {3012993, 1},
+    {3012986, 1},
+    {3013054, 1},
+    {3013061, 1},
+    {3013056, 1}
   }
 }
 Table_FlipCard = {
@@ -2049,6 +2064,531 @@ Table_FlipCard = {
     Type = 4,
     Index = 13,
     Reward = Table_FlipCard_t.Reward[69]
+  },
+  [305] = {
+    id = 305,
+    ActID = 105720,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[1]
+  },
+  [306] = {
+    id = 306,
+    ActID = 105720,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [307] = {
+    id = 307,
+    ActID = 105720,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[3]
+  },
+  [308] = {
+    id = 308,
+    ActID = 105720,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[4]
+  },
+  [309] = {
+    id = 309,
+    ActID = 105720,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[5]
+  },
+  [310] = {
+    id = 310,
+    ActID = 105720,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[6]
+  },
+  [311] = {
+    id = 311,
+    ActID = 105720,
+    Type = 2,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [312] = {
+    id = 312,
+    ActID = 105720,
+    Type = 2,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[7]
+  },
+  [313] = {
+    id = 313,
+    ActID = 105720,
+    Type = 2,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[8]
+  },
+  [314] = {
+    id = 314,
+    ActID = 105720,
+    Type = 2,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[9]
+  },
+  [315] = {
+    id = 315,
+    ActID = 105720,
+    Type = 2,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[10]
+  },
+  [316] = {
+    id = 316,
+    ActID = 105720,
+    Type = 2,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[11]
+  },
+  [317] = {
+    id = 317,
+    ActID = 105720,
+    Type = 3,
+    Reward = Table_FlipCard_t.Reward[12]
+  },
+  [318] = {
+    id = 318,
+    ActID = 105720,
+    Type = 4,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[70]
+  },
+  [319] = {
+    id = 319,
+    ActID = 105720,
+    Type = 4,
+    Index = 7,
+    Reward = Table_FlipCard_t.Reward[71]
+  },
+  [320] = {
+    id = 320,
+    ActID = 105720,
+    Type = 4,
+    Index = 13,
+    Reward = Table_FlipCard_t.Reward[72]
+  },
+  [321] = {
+    id = 321,
+    ActID = 105721,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[1]
+  },
+  [322] = {
+    id = 322,
+    ActID = 105721,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [323] = {
+    id = 323,
+    ActID = 105721,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[3]
+  },
+  [324] = {
+    id = 324,
+    ActID = 105721,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[4]
+  },
+  [325] = {
+    id = 325,
+    ActID = 105721,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[5]
+  },
+  [326] = {
+    id = 326,
+    ActID = 105721,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[6]
+  },
+  [327] = {
+    id = 327,
+    ActID = 105721,
+    Type = 2,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [328] = {
+    id = 328,
+    ActID = 105721,
+    Type = 2,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[7]
+  },
+  [329] = {
+    id = 329,
+    ActID = 105721,
+    Type = 2,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[8]
+  },
+  [330] = {
+    id = 330,
+    ActID = 105721,
+    Type = 2,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[9]
+  },
+  [331] = {
+    id = 331,
+    ActID = 105721,
+    Type = 2,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[10]
+  },
+  [332] = {
+    id = 332,
+    ActID = 105721,
+    Type = 2,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[11]
+  },
+  [333] = {
+    id = 333,
+    ActID = 105721,
+    Type = 3,
+    Reward = Table_FlipCard_t.Reward[12]
+  },
+  [334] = {
+    id = 334,
+    ActID = 105721,
+    Type = 4,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[73]
+  },
+  [335] = {
+    id = 335,
+    ActID = 105721,
+    Type = 4,
+    Index = 7,
+    Reward = Table_FlipCard_t.Reward[74]
+  },
+  [336] = {
+    id = 336,
+    ActID = 105721,
+    Type = 4,
+    Index = 13,
+    Reward = Table_FlipCard_t.Reward[75]
+  },
+  [337] = {
+    id = 337,
+    ActID = 105722,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[1]
+  },
+  [338] = {
+    id = 338,
+    ActID = 105722,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [339] = {
+    id = 339,
+    ActID = 105722,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[3]
+  },
+  [340] = {
+    id = 340,
+    ActID = 105722,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[4]
+  },
+  [341] = {
+    id = 341,
+    ActID = 105722,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[5]
+  },
+  [342] = {
+    id = 342,
+    ActID = 105722,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[6]
+  },
+  [343] = {
+    id = 343,
+    ActID = 105722,
+    Type = 2,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [344] = {
+    id = 344,
+    ActID = 105722,
+    Type = 2,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[7]
+  },
+  [345] = {
+    id = 345,
+    ActID = 105722,
+    Type = 2,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[8]
+  },
+  [346] = {
+    id = 346,
+    ActID = 105722,
+    Type = 2,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[9]
+  },
+  [347] = {
+    id = 347,
+    ActID = 105722,
+    Type = 2,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[10]
+  },
+  [348] = {
+    id = 348,
+    ActID = 105722,
+    Type = 2,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[11]
+  },
+  [349] = {
+    id = 349,
+    ActID = 105722,
+    Type = 3,
+    Reward = Table_FlipCard_t.Reward[12]
+  },
+  [350] = {
+    id = 350,
+    ActID = 105722,
+    Type = 4,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[76]
+  },
+  [351] = {
+    id = 351,
+    ActID = 105722,
+    Type = 4,
+    Index = 7,
+    Reward = Table_FlipCard_t.Reward[77]
+  },
+  [352] = {
+    id = 352,
+    ActID = 105722,
+    Type = 4,
+    Index = 13,
+    Reward = Table_FlipCard_t.Reward[78]
+  },
+  [353] = {
+    id = 353,
+    ActID = 105723,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[1]
+  },
+  [354] = {
+    id = 354,
+    ActID = 105723,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [355] = {
+    id = 355,
+    ActID = 105723,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[3]
+  },
+  [356] = {
+    id = 356,
+    ActID = 105723,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[4]
+  },
+  [357] = {
+    id = 357,
+    ActID = 105723,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[5]
+  },
+  [358] = {
+    id = 358,
+    ActID = 105723,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[6]
+  },
+  [359] = {
+    id = 359,
+    ActID = 105723,
+    Type = 2,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [360] = {
+    id = 360,
+    ActID = 105723,
+    Type = 2,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[7]
+  },
+  [361] = {
+    id = 361,
+    ActID = 105723,
+    Type = 2,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[8]
+  },
+  [362] = {
+    id = 362,
+    ActID = 105723,
+    Type = 2,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[9]
+  },
+  [363] = {
+    id = 363,
+    ActID = 105723,
+    Type = 2,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[10]
+  },
+  [364] = {
+    id = 364,
+    ActID = 105723,
+    Type = 2,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[11]
+  },
+  [365] = {
+    id = 365,
+    ActID = 105723,
+    Type = 3,
+    Reward = Table_FlipCard_t.Reward[12]
+  },
+  [366] = {
+    id = 366,
+    ActID = 105723,
+    Type = 4,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[79]
+  },
+  [367] = {
+    id = 367,
+    ActID = 105723,
+    Type = 4,
+    Index = 7,
+    Reward = Table_FlipCard_t.Reward[80]
+  },
+  [368] = {
+    id = 368,
+    ActID = 105723,
+    Type = 4,
+    Index = 13,
+    Reward = Table_FlipCard_t.Reward[81]
+  },
+  [369] = {
+    id = 369,
+    ActID = 105724,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[1]
+  },
+  [370] = {
+    id = 370,
+    ActID = 105724,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [371] = {
+    id = 371,
+    ActID = 105724,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[3]
+  },
+  [372] = {
+    id = 372,
+    ActID = 105724,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[4]
+  },
+  [373] = {
+    id = 373,
+    ActID = 105724,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[5]
+  },
+  [374] = {
+    id = 374,
+    ActID = 105724,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[6]
+  },
+  [375] = {
+    id = 375,
+    ActID = 105724,
+    Type = 2,
+    Index = 1,
+    Reward = Table_FlipCard_t.Reward[2]
+  },
+  [376] = {
+    id = 376,
+    ActID = 105724,
+    Type = 2,
+    Index = 2,
+    Reward = Table_FlipCard_t.Reward[7]
+  },
+  [377] = {
+    id = 377,
+    ActID = 105724,
+    Type = 2,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[8]
+  },
+  [378] = {
+    id = 378,
+    ActID = 105724,
+    Type = 2,
+    Index = 4,
+    Reward = Table_FlipCard_t.Reward[9]
+  },
+  [379] = {
+    id = 379,
+    ActID = 105724,
+    Type = 2,
+    Index = 5,
+    Reward = Table_FlipCard_t.Reward[10]
+  },
+  [380] = {
+    id = 380,
+    ActID = 105724,
+    Type = 2,
+    Index = 6,
+    Reward = Table_FlipCard_t.Reward[11]
+  },
+  [381] = {
+    id = 381,
+    ActID = 105724,
+    Type = 3,
+    Reward = Table_FlipCard_t.Reward[12]
+  },
+  [382] = {
+    id = 382,
+    ActID = 105724,
+    Type = 4,
+    Index = 3,
+    Reward = Table_FlipCard_t.Reward[82]
+  },
+  [383] = {
+    id = 383,
+    ActID = 105724,
+    Type = 4,
+    Index = 7,
+    Reward = Table_FlipCard_t.Reward[83]
+  },
+  [384] = {
+    id = 384,
+    ActID = 105724,
+    Type = 4,
+    Index = 13,
+    Reward = Table_FlipCard_t.Reward[84]
   }
 }
 local cell_mt = {

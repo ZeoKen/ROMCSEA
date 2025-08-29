@@ -39,6 +39,46 @@ Table_ShopShow = {
     Picture = "libao_3897",
     IconTip = _EmptyTable
   },
+  [1006] = {
+    id = 1006,
+    Type = 1,
+    ShopID = 20000085,
+    Icon = "",
+    Picture = "libao_3720",
+    IconTip = _EmptyTable
+  },
+  [1007] = {
+    id = 1007,
+    Type = 1,
+    ShopID = 20000086,
+    Icon = "",
+    Picture = "libao_52836",
+    IconTip = _EmptyTable
+  },
+  [1008] = {
+    id = 1008,
+    Type = 1,
+    ShopID = 20000473,
+    Icon = "",
+    Picture = "libao_52836",
+    IconTip = _EmptyTable
+  },
+  [1009] = {
+    id = 1009,
+    Type = 1,
+    ShopID = 20000607,
+    Icon = "",
+    Picture = "libao_5856",
+    IconTip = _EmptyTable
+  },
+  [1010] = {
+    id = 1010,
+    Type = 1,
+    ShopID = 20000608,
+    Icon = "",
+    Picture = "libao_52836",
+    IconTip = _EmptyTable
+  },
   [2001] = {
     id = 2001,
     Type = 2,

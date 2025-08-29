@@ -33,7 +33,9 @@ SKIPTYPE = {
   LotteryCard_New = "LotteryCard_New",
   AfricanPoring = "AfricanPoring",
   MvpCardCompose = "MvpCardCompose",
-  Crafting = "Crafting"
+  Crafting = "Crafting",
+  DungeonMvpCardCompose = "DungeonMvpCardCompose",
+  CardUpgrade = "CardUpgrade"
 }
 
 function SkipAnimationTip:OnEnter()

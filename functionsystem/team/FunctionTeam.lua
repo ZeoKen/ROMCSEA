@@ -131,7 +131,7 @@ function FunctionTeam.DoApply(teamData)
   end
 end
 
-function FunctionTeam:OnClickMatch(goal, only_myserver, entranceid, bossid)
+function FunctionTeam:OnClickMatch(goal, only_myserver, entranceid, bossid, ai, heal)
   if Game.Myself:IsDead() then
     MsgManager.ShowMsgByIDTable(2500)
     return false
@@ -171,7 +171,7 @@ function FunctionTeam:OnClickMatch(goal, only_myserver, entranceid, bossid)
   end
   local matchFunc = function()
     local roomid = bossid or sData.RaidConfigID
-    ServiceMatchCCmdProxy.Instance:CallJoinRoomCCmd(sData.Type, roomid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, only_myserver, entranceid)
+    ServiceMatchCCmdProxy.Instance:CallJoinRoomCCmd(sData.Type, roomid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, only_myserver, entranceid, ai, heal)
   end
   if sData.Type == PvpProxy.Type.GroupRaid then
     if LocalSaveProxy.Instance:GetDontShowAgain(39105) == nil then

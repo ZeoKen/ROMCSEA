@@ -540,6 +540,10 @@ function MyselfData:InitBuffHandler()
     [BuffType.SkillWeather] = {
       Add = self.SkillWeather_Start,
       Remove = self.SkillWeather_End
+    },
+    [BuffType.SummonElement] = {
+      Add = self.SummonElement_Add,
+      Remove = self.SummonElement_Remove
     }
   }
   self.buffClientPropsHandler = {
@@ -1721,6 +1725,14 @@ function MyselfData:SkillWeather_End(buffeffect, level, buffID)
       GameFacade.Instance:sendNotification(UIEvent.RemoveFullScreenEffect)
     end, self)
   end
+end
+
+function MyselfData:SummonElement_Add(buffeffect, fromID, isInit, level, active, buffID)
+  self.extraElementID = buffID
+end
+
+function MyselfData:SummonElement_Remove(buffeffect, level, buffID)
+  self.extraElementID = nil
 end
 
 function MyselfData:DoConstruct(asArray, serverData)

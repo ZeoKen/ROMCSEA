@@ -50,8 +50,10 @@ function AstrolabeTipView:CloseSelf()
   self:sendNotification(AstrolabeEvent.TipClose)
 end
 
-function AstrolabeTipView:SetData(data)
-  self.name.text = data:GetName()
+function AstrolabeTipView:SetData(aadata)
+  local data = aadata[1]
+  local is_recommend = aadata[2]
+  self.name.text = string.format("%s%s", is_recommend and ZhString.AstrolabeTipView_RecommendPrefix or "", data:GetName())
   self:_ParseAttr(data)
   local materialData = data:GetCost()
   for i = #materialData, 1, -1 do

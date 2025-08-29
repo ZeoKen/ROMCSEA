@@ -1,3 +1,4 @@
+local _rateFormat = "%s%%"
 LotteryItemData = class("LotteryItemData")
 
 function LotteryItemData:ctor(data)
@@ -42,6 +43,11 @@ function LotteryItemData:SetData(data)
   end
 end
 
+function LotteryItemData:ResetServerItemRate(totalRate, cumulativeRate)
+  self.rate = totalRate - cumulativeRate
+  self.isLastServerItem = true
+end
+
 function LotteryItemData:HasConfigTime()
   return self.timeShow and self.timeShow > 0
 end
@@ -74,11 +80,17 @@ function LotteryItemData:GetRate()
         tempRate = 0.01
       end
       return tempRate
+    elseif BranchMgr.IsKorea() then
+      return self.rate / 10000000
     else
       return self.rate / 10000
     end
   end
   return 0
+end
+
+function LotteryItemData:GetUIRate()
+  return string.format(ZhString.Lottery_DetailRate, self:GetRate())
 end
 
 function LotteryItemData:CheckGoodsGot()
@@ -102,6 +114,9 @@ function LotteryItemData:GetDisplayRate()
     tempRate = math.floor(baseRate / 100 + 0.5) / 100
     tempSafety = math.floor(safetyRate / 100 + 0.5) / 100
     tempRate = math.max(tempRate, 0.01)
+  elseif BranchMgr.IsKorea() then
+    tempRate = baseRate / 10000000
+    tempSafety = safetyRate / 10000000
   else
     tempRate = baseRate / 10000
     tempSafety = safetyRate / 10000

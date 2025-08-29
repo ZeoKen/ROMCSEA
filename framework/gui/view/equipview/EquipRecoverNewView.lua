@@ -220,6 +220,7 @@ function EquipRecoverNewView:ChooseItem(itemData)
   self.targetBtn:SetActive(itemData ~= nil)
   self.addItemButton:SetActive(itemData == nil)
   self.emptyTip:SetActive(itemData == nil)
+  self:HandleSelect()
 end
 
 function EquipRecoverNewView:ClickTargetCell()

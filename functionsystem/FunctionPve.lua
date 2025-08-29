@@ -581,7 +581,7 @@ function FunctionPve:DoChallenge()
   return true
 end
 
-function FunctionPve:DoMatch()
+function FunctionPve:DoMatch(ai, heal)
   if not self.client_staticData then
     return
   end
@@ -590,7 +590,7 @@ function FunctionPve:DoMatch()
     MsgManager.FloatMsg(nil, "未配Goal字段，Table_PveRaidEntrance ID " .. self.client_staticData.id)
     return
   end
-  local matchResult = FunctionTeam.Me():OnClickMatch(goal, false, self.client_staticData.id, self.client_bossId)
+  local matchResult = FunctionTeam.Me():OnClickMatch(goal, false, self.client_staticData.id, self.client_bossId, ai, heal)
   return matchResult
 end
 
@@ -1054,4 +1054,40 @@ end
 function FunctionPve:OnCreateMyTeam()
   self:TryInviteAfterCreatTeam()
   self:TryDelayPublish()
+end
+
+function FunctionPve:SyncStartFightState(state)
+  self.eFightState = state
+  helplog("[DebugPve] SyncStartFightState state", state)
+end
+
+function FunctionPve:TrySetStartFightInfo()
+  local raid_id = Game.MapManager:GetRaidID()
+  local data = Game.PveStartFightCD[raid_id]
+  if not data then
+    return
+  end
+  local startFight_Duration = data[1]
+  if not startFight_Duration then
+    return
+  end
+  local startFight_NpcId = data[2]
+  local startFight_EndTime = startFight_Duration + ServerTime.CurServerTime() / 1000
+  return startFight_EndTime, startFight_NpcId, startFight_Duration
+end
+
+function FunctionPve:IsFightStart()
+  return self.eFightState == FuBenCmd_pb.EFIGHT_BAR_STATE_BEGIN
+end
+
+function FunctionPve:IsFightPause()
+  return self.eFightState == FuBenCmd_pb.EFIGHT_BAR_STATE_PAUSE
+end
+
+function FunctionPve:ClearFightState()
+  self.eFightState = nil
+end
+
+function FunctionPve:CheckShowFightCD()
+  return (self:IsFightStart() or self:IsFightPause()) and Game.MapManager:IsHeroJournery()
 end

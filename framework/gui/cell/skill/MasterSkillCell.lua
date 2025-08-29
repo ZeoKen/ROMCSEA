@@ -46,3 +46,10 @@ function MasterSkillCell:UpdateUpgradeBtn(skillData)
     self:ShowUpgrade(false)
   end
 end
+
+function MasterSkillCell:GetGridXY()
+  local x, y = MasterSkillCell.super.GetGridXY(self)
+  local groupIndex = SkillProxy.Instance:GetMasterSkillGroupIndexByFamilyId(self.data.sortID)
+  y = groupIndex + 1
+  return x, y
+end

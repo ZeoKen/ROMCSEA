@@ -235,11 +235,13 @@ function ProfessionSaveLoadNewPage:SetProcess()
   local unusedSkill
   if self:IsMyCurrentRole(self.curSaveId) then
     local typeBranch = ProfessionProxy.GetTypeBranchFromProf(classid)
-    unusedSkill = classid == MyselfProxy.Instance:GetMyProfession() and Game.Myself.data.userdata:Get(UDEnum.SKILL_POINT) or BranchInfoSaveProxy.Instance:GetUnusedSkillPoint(typeBranch)
+    local myTypeBranch = ProfessionProxy.GetTypeBranchFromProf()
+    unusedSkill = typeBranch == myTypeBranch and Game.Myself.data.userdata:Get(UDEnum.SKILL_POINT) or BranchInfoSaveProxy.Instance:GetUnusedSkillPoint(typeBranch)
   else
     unusedSkill = MultiProfessionSaveProxy.Instance:GetUnusedSkillPoint(self.curSaveId)
   end
-  local usedSkill = MultiProfessionSaveProxy.Instance:GetUsedPoints(self.curSaveId)
+  unusedSkill = unusedSkill or 0
+  local usedSkill = MultiProfessionSaveProxy.Instance:GetUsedPoints(self.curSaveId) or 0
   local totalSkill = unusedSkill + usedSkill
   data = {
     order = 1,
@@ -328,11 +330,11 @@ function ProfessionSaveLoadNewPage:SetProcess()
   if not FunctionUnLockFunc.CheckForbiddenByFuncState("extraction_forbidden") then
     local extractData = MultiProfessionSaveProxy.Instance:GetExtract(self.curSaveId)
     local activeCount = extractData and extractData:GetActiveCount() or 0
-    local gridCount = GameConfig.EquipExtraction and GameConfig.EquipExtraction.GridCountDefault or 2
+    local extractLimit = GameConfig.Profession.maxExtract or 2
     data = {
       order = 8,
       curValue = activeCount,
-      maxValue = gridCount
+      maxValue = extractLimit
     }
     data.clickFunc = self.OnExtractBtnClick
     data.owner = self
@@ -356,7 +358,8 @@ function ProfessionSaveLoadNewPage:SetRoleInfo()
   local lv
   if self:IsMyCurrentRole(self.curSaveId) then
     local typeBranch = ProfessionProxy.GetTypeBranchFromProf(classID)
-    lv = classID == MyselfProxy.Instance:GetMyProfession() and MyselfProxy.Instance:JobLevel() or BranchInfoSaveProxy.Instance:GetJobLevel(typeBranch)
+    local myTypeBranch = ProfessionProxy.GetTypeBranchFromProf()
+    lv = typeBranch == myTypeBranch and MyselfProxy.Instance:JobLevel() or BranchInfoSaveProxy.Instance:GetJobLevel(typeBranch)
   else
     lv = MultiProfessionSaveProxy.Instance:GetJobLevel(self.curSaveId)
   end
@@ -513,7 +516,10 @@ function ProfessionSaveLoadNewPage:HandleRecvUpdateRecordInfoUserCmd(note)
     local classID = MultiProfessionSaveProxy.Instance:GetProfession(self.curSaveId)
     local typeBranch = ProfessionProxy.GetTypeBranchFromProf(classID)
     if not BranchInfoSaveProxy.Instance:HasRecordData(typeBranch) then
-      return false, typeBranch
+      local curTypeBranch = ProfessionProxy.GetTypeBranchFromProf()
+      if curTypeBranch ~= typeBranch then
+        return false, typeBranch
+      end
     end
   end
   self:CancelLockCall()

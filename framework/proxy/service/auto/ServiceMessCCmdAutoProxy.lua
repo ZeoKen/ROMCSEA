@@ -66,6 +66,15 @@ function ServiceMessCCmdAutoProxy:onRegister()
   self:Listen(83, 17, function(data)
     self:RecvAstralSyncSeasonInfoMessCCmd(data)
   end)
+  self:Listen(83, 18, function(data)
+    self:RecvSetPvpChampionStatueMessCCmd(data)
+  end)
+  self:Listen(83, 19, function(data)
+    self:RecvSyncQuickPassItemInfoMessCCmd(data)
+  end)
+  self:Listen(83, 20, function(data)
+    self:RecvSyncPvpChampionStatueMessCCmd(data)
+  end)
 end
 
 function ServiceMessCCmdAutoProxy:CallChooseNewProfessionMessCCmd(bornprofession, chooseprofession)
@@ -473,7 +482,7 @@ function ServiceMessCCmdAutoProxy:CallPurifyProductsMaterialsMessCCmd(materials)
   end
 end
 
-function ServiceMessCCmdAutoProxy:CallPurifyProductsRefineMessCCmd(productid, times)
+function ServiceMessCCmdAutoProxy:CallPurifyProductsRefineMessCCmd(productid, times, use_deduction, use_coupon)
   if not NetConfig.PBC then
     local msg = MessCCmd_pb.PurifyProductsRefineMessCCmd()
     if productid ~= nil then
@@ -481,6 +490,12 @@ function ServiceMessCCmdAutoProxy:CallPurifyProductsRefineMessCCmd(productid, ti
     end
     if times ~= nil then
       msg.times = times
+    end
+    if use_deduction ~= nil then
+      msg.use_deduction = use_deduction
+    end
+    if use_coupon ~= nil then
+      msg.use_coupon = use_coupon
     end
     self:SendProto(msg)
   else
@@ -491,6 +506,12 @@ function ServiceMessCCmdAutoProxy:CallPurifyProductsRefineMessCCmd(productid, ti
     end
     if times ~= nil then
       msgParam.times = times
+    end
+    if use_deduction ~= nil then
+      msgParam.use_deduction = use_deduction
+    end
+    if use_coupon ~= nil then
+      msgParam.use_coupon = use_coupon
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -508,6 +529,417 @@ function ServiceMessCCmdAutoProxy:CallAstralSyncSeasonInfoMessCCmd(season)
     local msgParam = {}
     if season ~= nil then
       msgParam.season = season
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallSetPvpChampionStatueMessCCmd(type, data, success)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.SetPvpChampionStatueMessCCmd()
+    if type ~= nil then
+      msg.type = type
+    end
+    if data ~= nil and data.type ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.type = data.type
+    end
+    if data ~= nil and data.value ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.value = data.value
+    end
+    if success ~= nil then
+      msg.success = success
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SetPvpChampionStatueMessCCmd.id
+    local msgParam = {}
+    if type ~= nil then
+      msgParam.type = type
+    end
+    if data ~= nil and data.type ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.type = data.type
+    end
+    if data ~= nil and data.value ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.value = data.value
+    end
+    if success ~= nil then
+      msgParam.success = success
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallSyncQuickPassItemInfoMessCCmd(type, status, guid, roguelikepass)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.SyncQuickPassItemInfoMessCCmd()
+    if type ~= nil then
+      msg.type = type
+    end
+    if status ~= nil then
+      msg.status = status
+    end
+    if guid ~= nil then
+      msg.guid = guid
+    end
+    if roguelikepass ~= nil then
+      msg.roguelikepass = roguelikepass
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SyncQuickPassItemInfoMessCCmd.id
+    local msgParam = {}
+    if type ~= nil then
+      msgParam.type = type
+    end
+    if status ~= nil then
+      msgParam.status = status
+    end
+    if guid ~= nil then
+      msgParam.guid = guid
+    end
+    if roguelikepass ~= nil then
+      msgParam.roguelikepass = roguelikepass
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMessCCmdAutoProxy:CallSyncPvpChampionStatueMessCCmd(pvp_champion_statue)
+  if not NetConfig.PBC then
+    local msg = MessCCmd_pb.SyncPvpChampionStatueMessCCmd()
+    if pvp_champion_statue ~= nil and pvp_champion_statue.serverid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      msg.pvp_champion_statue.serverid = pvp_champion_statue.serverid
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.body ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.body = pvp_champion_statue.statue_info.body
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.hair ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.hair = pvp_champion_statue.statue_info.hair
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.haircolor ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.haircolor = pvp_champion_statue.statue_info.haircolor
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.head ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.head = pvp_champion_statue.statue_info.head
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.face ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.face = pvp_champion_statue.statue_info.face
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.eye ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.eye = pvp_champion_statue.statue_info.eye
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.mouth ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.mouth = pvp_champion_statue.statue_info.mouth
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.back ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.back = pvp_champion_statue.statue_info.back
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.tail ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.tail = pvp_champion_statue.statue_info.tail
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.charid ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.charid = pvp_champion_statue.statue_info.charid
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.username ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.username = pvp_champion_statue.statue_info.username
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.guildname ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.guildname = pvp_champion_statue.statue_info.guildname
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.pose ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.pose = pvp_champion_statue.statue_info.pose
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.material ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.material = pvp_champion_statue.statue_info.material
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.season ~= nil then
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      if msg.pvp_champion_statue.statue_info == nil then
+        msg.pvp_champion_statue.statue_info = {}
+      end
+      msg.pvp_champion_statue.statue_info.season = pvp_champion_statue.statue_info.season
+    end
+    if pvp_champion_statue ~= nil and pvp_champion_statue.statue_type ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.pvp_champion_statue == nil then
+        msg.pvp_champion_statue = {}
+      end
+      msg.pvp_champion_statue.statue_type = pvp_champion_statue.statue_type
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.SyncPvpChampionStatueMessCCmd.id
+    local msgParam = {}
+    if pvp_champion_statue ~= nil and pvp_champion_statue.serverid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      msgParam.pvp_champion_statue.serverid = pvp_champion_statue.serverid
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.body ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.body = pvp_champion_statue.statue_info.body
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.hair ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.hair = pvp_champion_statue.statue_info.hair
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.haircolor ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.haircolor = pvp_champion_statue.statue_info.haircolor
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.head ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.head = pvp_champion_statue.statue_info.head
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.face ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.face = pvp_champion_statue.statue_info.face
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.eye ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.eye = pvp_champion_statue.statue_info.eye
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.mouth ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.mouth = pvp_champion_statue.statue_info.mouth
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.back ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.back = pvp_champion_statue.statue_info.back
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.tail ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.tail = pvp_champion_statue.statue_info.tail
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.charid ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.charid = pvp_champion_statue.statue_info.charid
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.username ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.username = pvp_champion_statue.statue_info.username
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.guildname ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.guildname = pvp_champion_statue.statue_info.guildname
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.pose ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.pose = pvp_champion_statue.statue_info.pose
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.material ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.material = pvp_champion_statue.statue_info.material
+    end
+    if pvp_champion_statue.statue_info ~= nil and pvp_champion_statue.statue_info.season ~= nil then
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      if msgParam.pvp_champion_statue.statue_info == nil then
+        msgParam.pvp_champion_statue.statue_info = {}
+      end
+      msgParam.pvp_champion_statue.statue_info.season = pvp_champion_statue.statue_info.season
+    end
+    if pvp_champion_statue ~= nil and pvp_champion_statue.statue_type ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.pvp_champion_statue == nil then
+        msgParam.pvp_champion_statue = {}
+      end
+      msgParam.pvp_champion_statue.statue_type = pvp_champion_statue.statue_type
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -581,6 +1013,18 @@ function ServiceMessCCmdAutoProxy:RecvAstralSyncSeasonInfoMessCCmd(data)
   self:Notify(ServiceEvent.MessCCmdAstralSyncSeasonInfoMessCCmd, data)
 end
 
+function ServiceMessCCmdAutoProxy:RecvSetPvpChampionStatueMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdSetPvpChampionStatueMessCCmd, data)
+end
+
+function ServiceMessCCmdAutoProxy:RecvSyncQuickPassItemInfoMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdSyncQuickPassItemInfoMessCCmd, data)
+end
+
+function ServiceMessCCmdAutoProxy:RecvSyncPvpChampionStatueMessCCmd(data)
+  self:Notify(ServiceEvent.MessCCmdSyncPvpChampionStatueMessCCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.MessCCmdChooseNewProfessionMessCCmd = "ServiceEvent_MessCCmdChooseNewProfessionMessCCmd"
 ServiceEvent.MessCCmdInviterSendLoveConfessionMessCCmd = "ServiceEvent_MessCCmdInviterSendLoveConfessionMessCCmd"
@@ -599,3 +1043,6 @@ ServiceEvent.MessCCmdAstralRewardMessCCmd = "ServiceEvent_MessCCmdAstralRewardMe
 ServiceEvent.MessCCmdPurifyProductsMaterialsMessCCmd = "ServiceEvent_MessCCmdPurifyProductsMaterialsMessCCmd"
 ServiceEvent.MessCCmdPurifyProductsRefineMessCCmd = "ServiceEvent_MessCCmdPurifyProductsRefineMessCCmd"
 ServiceEvent.MessCCmdAstralSyncSeasonInfoMessCCmd = "ServiceEvent_MessCCmdAstralSyncSeasonInfoMessCCmd"
+ServiceEvent.MessCCmdSetPvpChampionStatueMessCCmd = "ServiceEvent_MessCCmdSetPvpChampionStatueMessCCmd"
+ServiceEvent.MessCCmdSyncQuickPassItemInfoMessCCmd = "ServiceEvent_MessCCmdSyncQuickPassItemInfoMessCCmd"
+ServiceEvent.MessCCmdSyncPvpChampionStatueMessCCmd = "ServiceEvent_MessCCmdSyncPvpChampionStatueMessCCmd"

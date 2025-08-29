@@ -210,6 +210,10 @@ function MyselfEquipItemCell:IsEffective()
     if equip then
       return equip.equipInfo.equipData.Type == self.data.equipInfo.equipData.Type
     end
+    local roleEquip = BagProxy.Instance:GetEquipBySite(self.index)
+    if not roleEquip then
+      return false
+    end
   end
   return true
 end

@@ -1496,6 +1496,11 @@ Table_ItemType = {
     Name = "##2835115",
     AdventureLogGroup = 1121
   },
+  [4022] = {
+    id = 4022,
+    Name = "##42635503",
+    AdventureLogGroup = 1122
+  },
   [4100] = {
     id = 4100,
     Name = "##137614",
@@ -1611,6 +1616,11 @@ Table_ItemType = {
     Name = "##2835115",
     AdventureLogGroup = 20020
   },
+  [5021] = {
+    id = 5021,
+    Name = "##42635503",
+    AdventureLogGroup = 20021
+  },
   [5100] = {
     id = 5100,
     Name = "##137647",
@@ -1715,6 +1725,11 @@ Table_ItemType = {
     id = 6020,
     Name = "##2835115",
     AdventureLogGroup = 30020
+  },
+  [6021] = {
+    id = 6021,
+    Name = "##42635503",
+    AdventureLogGroup = 30021
   },
   [6100] = {
     id = 6100,

@@ -29,6 +29,16 @@ local HandleRolesBase = function(roles)
     end
   end
 end
+local HandleAddNpcs = function(npcs, npcDetailType)
+  local teamProxy = TeamProxy.Instance
+  for i = 1, #npcs do
+    local npc = npcs[i]
+    if npc.data.detailedType == npcDetailType then
+      npc.data:Camp_SetIsInPVP(true)
+      npc.data:Camp_SetIsInMyTeam(teamProxy:IsInMyGroup(npc.data.id))
+    end
+  end
+end
 local HandleRolesGVG = function(roles, isGVGStart, ignoreTeam, includeMercenary)
   local myselfData = Game.Myself.data
   local myselfTeamID = myselfData:GetRealTeamID()
@@ -51,13 +61,20 @@ local HandleRolesGVG = function(roles, isGVGStart, ignoreTeam, includeMercenary)
     end
   end
 end
-local HandleNpcsGVG = function(roles, isGVGStart, includeMercenary)
+local HandleNpcsGVG = function(roles, isGVGStart, includeMercenary, isMetal)
   local myselfData = Game.Myself.data
   local myselfGuildData = includeMercenary and myselfData:GetMercenaryGuildData() or myselfData:GetGuildData()
   local role, guildData
   local gvgProxy = GvgProxy.Instance
+  local mvpid = GvgProxy.Instance:GetCurMvpId()
   for k, role in pairs(roles) do
-    if myself ~= role and not role.data:IsNpc() then
+    if isMetal then
+      if mvpid and mvpid ~= 0 and role.data.staticData.id == mvpid then
+        role.data:Camp_SetIsInMyGuild(false)
+      else
+        role.data:Camp_SetIsInMyGuild(GvgProxy.Instance:IsDefSide())
+      end
+    else
       guildData = includeMercenary and role.data:GetMercenaryGuildData() or role.data:GetGuildData()
       role.data:Camp_SetIsInGVG(isGVGStart)
       if myselfGuildData ~= nil and guildData ~= nil then
@@ -103,7 +120,11 @@ local HandleAddPets = function(pets, isGVGStart, isTeamsPVP, isGroupPVP, isPVP3T
     else
       if isTeamsPVP then
         teamid = nPet.data:GetTeamID()
-        nPet.data:Camp_SetIsInMyTeam(myselfTeamID == teamid)
+        if myselfTeamID == teamid then
+          nPet.data:SetCamp(RoleDefines_Camp.FRIEND)
+        else
+          nPet.data:SetCamp(RoleDefines_Camp.ENEMY)
+        end
       end
       if isGroupPVP then
         teamid = nPet.data:GetGroupTeamID()
@@ -115,11 +136,14 @@ local HandleAddPets = function(pets, isGVGStart, isTeamsPVP, isGroupPVP, isPVP3T
       end
       if isGVGStart then
         guildData = nPet.data:GetGuildData()
-        nPet.data:Camp_SetIsInGVG(isGVGStart)
-        if myselfGuildData ~= nil and guildData ~= nil then
-          nPet.data:Camp_SetIsInMyGuild(myselfGuildData.id == guildData.id)
+        if myselfGuildData and guildData then
+          if myselfGuildData.id == guildData.id then
+            nPet.data:SetCamp(RoleDefines_Camp.FRIEND)
+          else
+            nPet.data:SetCamp(RoleDefines_Camp.ENEMY)
+          end
         else
-          nPet.data:Camp_SetIsInMyGuild(false)
+          nPet.data:SetCamp(RoleDefines_Camp.ENEMY)
         end
       end
       if isPVP3Teams then
@@ -348,12 +372,21 @@ function GuildMetalGVG:InitPointAreaTrigger()
   for k, v in pairs(pointConfig) do
     self:_AddMetalGvgTrigger(k, v.pos, v.range)
   end
+  self:_InitSceneGuildFlag()
+end
+
+function GuildMetalGVG:_InitSceneGuildFlag()
   local flagManager = Game.GameObjectManagers[Game.GameObjectType.SceneGuildFlag]
   if not flagManager then
     return
   end
   for i = 1, 8 do
-    flagManager:HideNewGvgFlag(i)
+    local point_map = flagManager:GetPointMap(i)
+    if point_map and next(point_map) then
+      for config_point_id, _ in pairs(point_map) do
+        flagManager:HideNewGvgFlag(config_point_id)
+      end
+    end
   end
 end
 
@@ -373,6 +406,15 @@ function GuildMetalGVG:DeInitPointAreaTrigger()
     self:_RemoveMetalGvgTrigger(k)
   end
   GvgProxy.Instance:ClearMetalNpcMap()
+  self:_DeInitSceneGuildFlag()
+end
+
+function GuildMetalGVG:_DeInitSceneGuildFlag()
+  local flagManager = Game.GameObjectManagers[Game.GameObjectType.SceneGuildFlag]
+  if not flagManager then
+    return
+  end
+  flagManager:ClearPointMap()
 end
 
 function GuildMetalGVG:_RemoveMetalGvgTrigger(id)
@@ -391,7 +433,7 @@ end
 
 function GuildMetalGVG:HandleSomeGuildChange(note)
   local roles = NSceneNpcProxy.Instance.userMap
-  HandleNpcsGVG(roles, not self.calmDown, true)
+  HandleNpcsGVG(roles, not self.calmDown, true, true)
 end
 
 function GuildMetalGVG:HandleAddRoles(roles)
@@ -399,7 +441,7 @@ function GuildMetalGVG:HandleAddRoles(roles)
 end
 
 function GuildMetalGVG:HandleAddNpcs(roles)
-  HandleNpcsGVG(roles, not self.calmDown, true)
+  HandleNpcsGVG(roles, not self.calmDown, true, true)
 end
 
 function GuildMetalGVG:HandleAddPets(pets)
@@ -444,12 +486,12 @@ function GuildDateBattle:HandleAddRoles(roles)
 end
 
 function GuildDateBattle:HandleAddNpcs(roles)
-  HandleNpcsGVG(roles, not self.calmDown, false)
+  HandleNpcsGVG(roles, not self.calmDown, false, true)
 end
 
 function GuildDateBattle:HandleSomeGuildChange(note)
   local roles = NSceneNpcProxy.Instance.userMap
-  HandleNpcsGVG(roles, not self.calmDown, false)
+  HandleNpcsGVG(roles, not self.calmDown, false, true)
 end
 
 autoImport("PoringFightTipView")
@@ -739,7 +781,7 @@ function GvgDroiyan:HandleAddRoles(roles)
 end
 
 function GvgDroiyan:HandleAddNpcs(roles)
-  HandleNpcsGVG(roles, true)
+  HandleNpcsGVG(roles, true, nil, false)
 end
 
 function GvgDroiyan:HandleAddPets(pets)
@@ -1348,6 +1390,7 @@ function PVP3Teams:Launch()
   notify(PVPEvent.TripleTeams_Launch)
   EventManager.Me():AddEventListener(SceneUserEvent.SceneAddRoles, self.HandleAddRoles, self)
   EventManager.Me():AddEventListener(SceneUserEvent.SceneAddPets, self.HandleAddPets, self)
+  EventManager.Me():AddEventListener(SceneUserEvent.SceneAddNpcs, self.HandleAddNpcs, self)
 end
 
 function PVP3Teams:Update()
@@ -1400,10 +1443,15 @@ function PVP3Teams:Shutdown()
   TriplePlayerPvpProxy.Instance:Reset()
   EventManager.Me():RemoveEventListener(SceneUserEvent.SceneAddRoles, self.HandleAddRoles, self)
   EventManager.Me():RemoveEventListener(SceneUserEvent.SceneAddPets, self.HandleAddPets, self)
+  EventManager.Me():RemoveEventListener(SceneUserEvent.SceneAddNpcs, self.HandleAddNpcs, self)
 end
 
 function PVP3Teams:HandleAddRoles(roles)
   HandleRolesBase(roles)
+end
+
+function PVP3Teams:HandleAddNpcs(npcs)
+  HandleAddNpcs(npcs, NpcData.NpcDetailedType.TriplePvpRobot)
 end
 
 function PVP3Teams:HandleAddPets(pets)

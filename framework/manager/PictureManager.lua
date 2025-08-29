@@ -75,7 +75,9 @@ PictureManager.Config = {
     HeroRoad = "GUI/pic/HeroRoad/",
     Astral = "GUI/pic/Astral/",
     ChatRoom = "GUI/pic/ChatRoom/",
-    MasterSkill = "GUI/pic/MasterSkill/"
+    MasterSkill = "GUI/pic/MasterSkill/",
+    Abyss = "GUI/pic/Abyss/",
+    InheritSkill = "GUI/pic/InheritSkill/"
   }
 }
 PictureManager.Instance = nil
@@ -156,6 +158,8 @@ function PictureManager:ctor()
   self.astralCache = {}
   self.chatRoomCache = {}
   self.masterSkillCache = {}
+  self.abyssCache = {}
+  self.inheritSkillCache = {}
   PictureManager.Instance = self
 end
 
@@ -460,6 +464,14 @@ end
 
 function PictureManager:SetMasterSkillTexture(sName, uiTexture)
   return self:SetTexture(sName, uiTexture, PictureManager.Config.Pic.MasterSkill, self.masterSkillCache)
+end
+
+function PictureManager:SetAbyssTexture(sName, uiTexture)
+  return self:SetTexture(sName, uiTexture, PictureManager.Config.Pic.Abyss, self.abyssCache)
+end
+
+function PictureManager:SetInheritSkillTexture(sName, uiTexture)
+  return self:SetTexture(sName, uiTexture, PictureManager.Config.Pic.InheritSkill, self.inheritSkillCache)
 end
 
 function PictureManager:SetTexture(sName, uiTexture, path, cache)
@@ -808,6 +820,14 @@ end
 
 function PictureManager:UnloadMasterSkillTexture(sName, uiTexture)
   self:UnLoadTexture(self.masterSkillCache, sName, uiTexture)
+end
+
+function PictureManager:UnloadAbyssTexture(sName, uiTexture)
+  self:UnLoadTexture(self.abyssCache, sName, uiTexture)
+end
+
+function PictureManager:UnloadInheritSkillTexture(sName, uiTexture)
+  self:UnLoadTexture(self.inheritSkillCache, sName, uiTexture)
 end
 
 function PictureManager:UnLoadTexture(cache, sName, uiTexture)

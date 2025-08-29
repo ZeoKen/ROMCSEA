@@ -38,6 +38,14 @@ Table_PrestigeItem = {
     AddPre = {
       [7] = 100
     }
+  },
+  [9] = {
+    id = 9,
+    PreID = 8,
+    ItemID = 760000,
+    AddPre = {
+      [8] = 10
+    }
   }
 }
 Table_PrestigeItem_fields = {

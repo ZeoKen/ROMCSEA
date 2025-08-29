@@ -1,6 +1,7 @@
 local BaseCell = autoImport("BaseCell")
 SinglePropTypeCell = class("SinglePropTypeCell", BaseCell)
-local selectedLabel = "514F7B"
+local selectedLabel = "497cc2"
+local normalLabel = "555b6e"
 
 function SinglePropTypeCell:Init()
   self:initView()
@@ -23,7 +24,8 @@ function SinglePropTypeCell:SetIsSelect(ret)
       self.bg:SetActive(false)
       self.selectBg:SetActive(true)
     else
-      self.name.color = LuaGeometry.GetTempColor(1, 1, 1, 1)
+      local _, c = ColorUtil.TryParseHexString(normalLabel)
+      self.name.color = c
       self.bg:SetActive(true)
       self.selectBg:SetActive(false)
     end

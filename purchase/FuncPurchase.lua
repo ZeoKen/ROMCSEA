@@ -121,6 +121,7 @@ function FuncPurchase:PurchaseWithConf(productConf, callbacks, buycount)
         local roleGrade = MyselfProxy.Instance:RoleLevel() or 0
         local server = FunctionLogin.Me():getCurServerData()
         local serverID = server ~= nil and server.serverid or nil
+        local sid = server ~= nil and server.sid or nil
         if serverID then
           local currentServerTime = ServerTime.CurServerTime() / 1000
           self.purchaseFlags[product_conf_id] = true
@@ -128,12 +129,12 @@ function FuncPurchase:PurchaseWithConf(productConf, callbacks, buycount)
           if not BranchMgr.IsChina() then
             if FunctionSDK.Instance.CurrentType == FunctionSDK.E_SDKType.TDSG then
               local orderID = MyMD5.HashString(roleID .. "_" .. currentServerTime)
-              local ext = serverID .. "|" .. orderID
+              local ext = sid .. "|" .. orderID
               if buycount and 1 < buycount then
                 ext = ext .. "|" .. buycount
               end
               Debug.Log("=============TDSGPay===============")
-              FunctionSDK.Instance:TDSGPay(orderID, productID, roleID, serverID, ext, function(x)
+              FunctionSDK.Instance:TDSGPay(orderID, productID, roleID, sid, ext, function(x)
                 self:OnPaySuccess(productConf, x)
               end, function(x)
                 self:OnPayCancel(productConf, x)

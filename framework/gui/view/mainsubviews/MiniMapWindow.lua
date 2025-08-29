@@ -4,8 +4,10 @@ autoImport("MiniMapWorldQuestButton")
 autoImport("WildMvpMapSymbol")
 autoImport("GvgStrongHoldMapSymbol")
 autoImport("MiniMapSymbol")
+autoImport("GvgSymbol")
 MiniMapWindow.MiniMapSymbolPath = ResourcePathHelper.UICell("MiniMapSymbol")
 MiniMapWindow.MiniMapCustomGuildIconPath = ResourcePathHelper.UICell("MiniMapCustomGuildIcon")
+MiniMapWindow.GvgSymbolPath = ResourcePathHelper.UICell("MiniMapSymbol_GvgSymbol")
 MiniMapWindow.DefaultMapTextureSize = 365
 MiniMapWindow.MAPSCALE_NORMAL = 1
 MiniMapWindow.MAPSCALE_LARGE = 2.3
@@ -64,7 +66,8 @@ MiniMapWindow.Type = {
   TrainEscort = 37,
   TripleTeams = 38,
   EBFEventArea = 39,
-  Astral = 40
+  Astral = 40,
+  FakeDragon = 41
 }
 local Type = MiniMapWindow.Type
 local MiniMapDataRemoveFunc = function(data)
@@ -139,10 +142,11 @@ function MiniMapWindow:RegisterAllMapInfos()
   self:RegisterMapInfo(Type.EBFEventArea, MiniMapWindow._CreateEBFEventAreaSymbol, MiniMapWindow._UpdateEBFEventAreaSymbol, MiniMapWindow._RemoveEBFEventAreaSymbol)
   self:RegisterMapInfo(Type.Astral)
   self:RegisterMapInfo(Type.GvgStrongHold, MiniMapWindow._CreateGvgStrongHold, MiniMapWindow._UpdateGvgStrongHold, MiniMapWindow._RemoveGvgStrongHold)
-  self:RegisterMapInfo(Type.MetalGvg_MetalIcon, MiniMapWindow._CreateMetalIconInfos)
+  self:RegisterMapInfo(Type.MetalGvg_MetalIcon, MiniMapWindow._CreateGvgSymbol, MiniMapWindow._UpdateGvgSymbol, MiniMapWindow._RemoveGvgSymbol)
   self:RegisterMapInfo(Type.WildMvp, MiniMapWindow._CreateWildMvpSymbol, MiniMapWindow._UpdateWildMvpSymbol, MiniMapWindow._RemoveWildMvpSymbol)
   self:RegisterMapInfo(Type.ZoneBlock, MiniMapWindow._CreateZoneBlock, MiniMapWindow._UpdateZoneBlock, MiniMapWindow._RemoveZoneBlock)
   self:RegisterMapInfo(Type.Yahaha, MiniMapWindow._CreateYahahaSymbol, MiniMapWindow._UpdateYahahaSymbol)
+  self:RegisterMapInfo(Type.FakeDragon, MiniMapWindow._CreateFakeDragonSymbol, MiniMapWindow._UpdateFakeDragonSymbol, MiniMapWindow._RemoveFakeDragonSymbol)
 end
 
 function MiniMapWindow:RegisterMapInfo(type, createFunc, updateFunc, removeFunc)
@@ -536,6 +540,11 @@ function MiniMapWindow:ClearFixedInfo()
   end
   self.allMapDatas[Type.ZoneBlock] = {}
   self:RemoveAllSymbolsByType(Type.ZoneBlock)
+  if self.fakeDragonDatas then
+    TableUtility.TableClearByDeleter(self.fakeDragonDatas, MiniMapDataRemoveFunc)
+  end
+  self.allMapDatas[Type.FakeDragon] = {}
+  self:RemoveAllSymbolsByType(Type.FakeDragon)
 end
 
 local miniMapPrefab = GameConfig.MiniMapPrefab or {}
@@ -1677,6 +1686,33 @@ function MiniMapWindow:_UpdateScenicSpot(obj, data)
   return obj
 end
 
+function MiniMapWindow:_CreateGvgSymbol(data)
+  self.gvgSymbols = self.gvgSymbols or {}
+  local symbol = _Game.AssetManager_UI:CreateAsset(MiniMapWindow.GvgSymbolPath, self.s_symbolParent)
+  self.gvgSymbols[data.id] = GvgSymbol.new(symbol)
+  self:_UpdateGvgSymbol(symbol, data)
+  return symbol
+end
+
+function MiniMapWindow:_UpdateGvgSymbol(obj, data)
+  if not IsNull(obj) then
+    local symbol = self.gvgSymbols[data.id]
+    if symbol then
+      symbol:SetData(data)
+    end
+  end
+  return obj
+end
+
+function MiniMapWindow:_RemoveGvgSymbol(id, symbolObj)
+  if not Slua.IsNull(symbolObj) then
+    _Game.GOLuaPoolManager:AddToUIPool(MiniMapWindow.GvgSymbolPath, symbolObj)
+  end
+  if self.gvgSymbols then
+    self.gvgSymbols[id] = nil
+  end
+end
+
 function MiniMapWindow:UpdateScenicSpotSymbol(datas, isRemoveOther)
   self:UpdateMapSymbolDatas(Type.ScenicSpot, datas, isRemoveOther)
 end
@@ -1889,7 +1925,9 @@ function MiniMapWindow:_UpdateMonsterPoints(obj, data, key)
   local sp = obj:GetComponent(UISprite)
   sp.depth = depth + 22
   local bg = self:FindGO("Bg", obj)
-  bg:SetActive(monsterIcon ~= nil)
+  if bg then
+    bg:SetActive(monsterIcon ~= nil)
+  end
   if monsterIcon ~= nil then
     IconManager:SetFaceIcon(monsterIcon, sp)
     sp:MakePixelPerfect()
@@ -2713,13 +2751,7 @@ function MiniMapWindow:_RemoveAreaTips(symbolObj)
   LuaGameObject.DestroyObject(symbolObj)
 end
 
-function MiniMapWindow:_CreateMetalIconInfos(data)
-  local symbolName = data:GetParama("Symbol")
-  local symbol = self:GetMapSymbol(symbolName, 27, 0.4)
-  return symbol
-end
-
-function MiniMapWindow:UpdateGvgMetalIcon(datas, isRemoveOther)
+function MiniMapWindow:UpdateGvgSymbol(datas, isRemoveOther)
   self:UpdateMapSymbolDatas(Type.MetalGvg_MetalIcon, datas, isRemoveOther)
 end
 
@@ -2941,10 +2973,14 @@ end
 function MiniMapWindow:_UpdateYahahaSymbol(obj, data)
   if not IsNull(obj) then
     local symbol = data:GetParama("Symbol")
+    local sp = obj:GetComponent(UISprite)
     if symbol ~= obj.name then
-      local sp = obj:GetComponent(UISprite)
       sp.spriteName = symbol
       obj.name = symbol
+    end
+    local depth = data:GetParama("Depth")
+    if depth then
+      sp.depth = depth
     end
   end
   return obj
@@ -3188,4 +3224,42 @@ end
 
 function MiniMapWindow:UpdateAstralTowerSymbol(datas, isRemoveOther)
   self:UpdateMapSymbolDatas(Type.Astral, datas, isRemoveOther)
+end
+
+function MiniMapWindow:_CreateFakeDragonSymbol(data)
+  local symbol = data:GetParama("Symbol")
+  local obj = self:GetMapSymbol(symbol, 32, nil, self.monster_symbolParent)
+  obj.name = symbol
+  self:_UpdateFakeDragonSymbol(obj, data)
+  return obj
+end
+
+function MiniMapWindow:_RemoveFakeDragonSymbol(id, symbolObj)
+  redlog("MiniMapWindow:_RemoveFakeDragonSymbol", symbolObj, data)
+  if not Slua.IsNull(symbolObj) then
+    _Game.GOLuaPoolManager:AddToUIPool(MonsterPoint_Path, symbolObj)
+  end
+end
+
+function MiniMapWindow:_UpdateFakeDragonSymbol(obj, data)
+  if not IsNull(obj) then
+    local symbol = data:GetParama("Symbol")
+    local sp = obj:GetComponent(UISprite)
+    if symbol ~= obj.name then
+      sp.spriteName = symbol
+      obj.name = symbol
+      IconManager:SetMapIcon("map_icon_shikonglong", sp)
+      sp:MakePixelPerfect()
+    end
+    local depth = data:GetParama("Depth")
+    if depth then
+      sp.depth = depth
+    end
+    self:HelpUpdatePos(obj, data.pos)
+  end
+  return obj
+end
+
+function MiniMapWindow:UpdateFakeDragonSymbol(datas, isRemoveOther)
+  self:UpdateMapSymbolDatas(Type.FakeDragon, datas, isRemoveOther)
 end

@@ -639,3 +639,31 @@ function Astrolabe_BordData:MatchSpecialPointByName(keyword, refTable, overlap)
     end
   end
 end
+
+function Astrolabe_BordData:GetAllRecommendPoints()
+  if self.recommendPoints then
+    return self.recommendPoints
+  end
+  self.recommendPoints = {}
+  local plateMap = self:GetPlateMap()
+  local pointMap, special
+  for plateid, plateData in pairs(plateMap) do
+    if true or plateData:IsUnlock() then
+      pointMap = plateData:GetPointMap()
+      for pid, pointData in pairs(pointMap) do
+        special = pointData:GetSpecialEffect()
+        if special then
+          local specialConfig = Table_RuneSpecial[special]
+          if specialConfig and specialConfig.Recommend then
+            self.recommendPoints[#self.recommendPoints + 1] = pointData
+          end
+        end
+      end
+    end
+  end
+  return self.recommendPoints
+end
+
+function Astrolabe_BordData:ClearRecommendPointsCache()
+  self.recommendPoints = nil
+end

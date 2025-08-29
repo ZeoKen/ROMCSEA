@@ -114,7 +114,7 @@ function ShopMallExchangeBuyCell:SetData(data)
         else
           errorLog("ShopMallExchangeBuyCell SetData : data.price is nil")
         end
-        if Table_Equip[data.itemid] then
+        if ShopMallProxy.IsForceOverlap(data.itemid) then
           self.forceOverlap = true
         end
         if (data.overlap or self.forceOverlap) and data.count and self.sellCount then
@@ -158,7 +158,7 @@ function ShopMallExchangeBuyCell:UpdateBuyCount(change)
     return
   end
   count = count + self.countChangeRate * change
-  local forceOverlap = Table_Equip[self.infoData.itemid] or false
+  local forceOverlap = ShopMallProxy.IsForceOverlap(self.infoData.itemid) or false
   local maxCount = self.infoData.count
   if forceOverlap and (not (maxCount < EquipPurchaseLimit) or not maxCount) then
     maxCount = EquipPurchaseLimit
@@ -199,7 +199,7 @@ function ShopMallExchangeBuyCell:InputOnChange()
     return
   end
   if self.infoData then
-    local forceOverlap = Table_Equip[self.infoData.itemid] or false
+    local forceOverlap = ShopMallProxy.IsForceOverlap(self.infoData.itemid) or false
     local maxCount = self.infoData.count
     if forceOverlap and (not (maxCount < EquipPurchaseLimit) or not maxCount) then
       maxCount = EquipPurchaseLimit
@@ -318,7 +318,7 @@ function ShopMallExchangeBuyCell:BuyItem()
       return
     end
   end
-  local forceOverlap = Table_Equip[infoData.itemid] or false
+  local forceOverlap = Table_Equip[infoData.itemid] or infoData:HasCardLv() or false
   if not forceOverlap or count == 1 then
     TableUtility.TableClear(itemInfo)
     itemInfo.itemid = infoData.itemid

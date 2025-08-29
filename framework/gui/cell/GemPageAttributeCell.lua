@@ -203,13 +203,15 @@ function GemPageAttributeCell:PlayEmbedSuccessEffect(container, ignoreAvailabili
   self.embedEffect = self:PlayPageCellEffect(self:GetEmbedSuccessEffectId(), container, true)
 end
 
-function GemPageAttributeCell:PlaySkillValidEffect(container, ignoreAvailability)
-  if self.validEffect then
-    self.validEffect:Destroy()
-  end
-  if not ignoreAvailability and not self.available then
+function GemPageAttributeCell:PlaySkillValidEffect(container, forcePlay)
+  if not GemProxy.allSkilGemActive and not forcePlay then
+    self:DestroySkillValidEffect()
     return
   end
+  if self.validEffect and not forcePlay then
+    return
+  end
+  self:DestroySkillValidEffect()
   self.validEffect = self:PlayPageCellEffect(self:GetSkillValidEffectId(), container, true)
 end
 

@@ -219,6 +219,9 @@ function ServiceRecordTradeProxy:CallResellPendingRecordTrade(item_info, charid,
     if item_info ~= nil and item_info.down_rate ~= nil then
       msgParam.item_info.down_rate = item_info.down_rate
     end
+    if item_info ~= nil and item_info.item_data ~= nil then
+      msgParam.item_info.item_data = item_info.item_data
+    end
     if charid ~= nil then
       msgParam.charid = charid
     end
@@ -248,6 +251,9 @@ function ServiceRecordTradeProxy:CallResellPendingRecordTrade(item_info, charid,
     end
     if item_info ~= nil and item_info.down_rate ~= nil then
       msg.item_info.down_rate = item_info.down_rate
+    end
+    if item_info ~= nil and item_info.item_data ~= nil then
+      msgParam.item_info.item_data = item_info.item_data
     end
     if charid ~= nil then
       msg.charid = charid

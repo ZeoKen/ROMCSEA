@@ -26,6 +26,9 @@ function GvgScoreDetailInfo:SetServerData(server_detail)
   self.dataArray[5] = server_detail.occupy_score or 0
   self.dataArray[6] = server_detail.continue_score or 0
   self.dataArray[7] = server_detail.point_score or 0
+  if GameConfig.GvgNewConfig.kill_mvp_score then
+    self.dataArray[7] = server_detail.mvp_score or 0
+  end
   local result = 0
   for i = 2, 7 do
     result = self.dataArray[i] + result

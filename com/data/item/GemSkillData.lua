@@ -1,9 +1,14 @@
+local _ArrayPushBack = TableUtility.ArrayPushBack
+local _TableClear = TableUtility.TableClear
+local _ArrayClear = TableUtility.ArrayClear
+local _ArrayFindByPredicate = TableUtility.ArrayFindByPredicate
 GemSkillData = class("GemSkillData")
 
 function GemSkillData:ctor(guid, skillData)
   self.itemGuid = guid or nil
   self.buffs = {}
   self.buffParamMap = {}
+  self.buffParam2BuffIdMap = {}
   self.sculptures = {}
   self:SetData(skillData)
 end
@@ -17,7 +22,7 @@ function GemSkillData:SetData(data)
   self.pos = data.pos
   self.charId = data.charid or data.charId
   if data.issame ~= nil then
-    self.isComposed = data.issame
+    self.isComGetEffectDescArrayposed = data.issame
   else
     self.isComposed = data.isComposed
   end
@@ -27,21 +32,23 @@ function GemSkillData:SetData(data)
     self.available = data.available
   end
   self.isFull = data.isfull
-  TableUtility.ArrayClear(self.buffs)
-  TableUtility.TableClear(self.buffParamMap)
+  _ArrayClear(self.buffs)
+  _TableClear(self.buffParamMap)
+  _TableClear(self.buffParam2BuffIdMap)
   for i = 1, #data.buffs do
-    TableUtility.ArrayPushBack(self.buffs, GemBuffData.new(data.buffs[i]))
+    _ArrayPushBack(self.buffs, GemBuffData.new(data.buffs[i]))
   end
   for _, buff in pairs(self.buffs) do
     for paramId, paramValue in pairs(buff.paramMap) do
       self.buffParamMap[paramId] = paramValue
+      self.buffParam2BuffIdMap[paramId] = buff.id
     end
   end
   TableUtility.ArrayClear(self.sculptures)
   local sculpt = data.carves or data.sculptures
   if sculpt then
     for i = 1, #sculpt do
-      TableUtility.ArrayPushBack(self.sculptures, GemSculptData.new(sculpt[i]))
+      _ArrayPushBack(self.sculptures, GemSculptData.new(sculpt[i]))
     end
   end
   local staticData = Table_GemRate[data.id]
@@ -75,7 +82,6 @@ local tempParamDescArr = {}
 
 function GemSkillData:GetEffectDescArray(isWithInvalidEffect, useMax)
   local tempDescArr = {}
-  local arrayPushBack = TableUtility.ArrayPushBack
   local sData, paramId, paramValue, paramStaticData, paramDescFormat, paramDesc, foundBuff, desc
   for i = 1, #self.effectStaticDatas do
     sData = self.effectStaticDatas[i]
@@ -95,11 +101,11 @@ function GemSkillData:GetEffectDescArray(isWithInvalidEffect, useMax)
         else
           paramDesc = tostring(paramValue)
         end
-        arrayPushBack(tempParamDescArr, paramDesc)
+        _ArrayPushBack(tempParamDescArr, paramDesc)
       end
-      arrayPushBack(tempDescArr, string.format(sData.Desc, unpack(tempParamDescArr)))
+      _ArrayPushBack(tempDescArr, string.format(sData.Desc, unpack(tempParamDescArr)))
     else
-      foundBuff = TableUtility.ArrayFindByPredicate(self.buffs, function(buff)
+      foundBuff = _ArrayFindByPredicate(self.buffs, function(buff)
         return buff.id == sData.BufferID
       end)
       desc = nil
@@ -109,7 +115,93 @@ function GemSkillData:GetEffectDescArray(isWithInvalidEffect, useMax)
         desc = useMax and sData.Desc or string.format(ZhString.Gem_SkillEffectInvalidEffectFormat, sData.Desc)
       end
       if desc then
-        arrayPushBack(tempDescArr, desc)
+        _ArrayPushBack(tempDescArr, desc)
+      end
+    end
+  end
+  return tempDescArr
+end
+
+function GemSkillData:GetEffectDescData()
+  local tempDescArr = {}
+  local sData, paramId, paramValue, paramStaticData, paramDescFormat, paramDesc, foundBuff, desc, paramBuffID
+  for i = 1, #self.effectStaticDatas do
+    sData = self.effectStaticDatas[i]
+    if next(sData.ParamsID) then
+      _ArrayClear(tempParamDescArr)
+      local maxStarSign = 0
+      for j = 1, #sData.ParamsID do
+        local minGoldValue
+        paramId = sData.ParamsID[j]
+        paramValue = self.buffParamMap[paramId] or 0
+        paramBuffID = self.buffParam2BuffIdMap[paramId] or 0
+        paramValue = paramValue / 1000
+        if GemProxy.ToInteger(paramValue) then
+          paramValue = GemProxy.ToInteger(paramValue)
+        end
+        paramStaticData = GemProxy.Instance:GetStaticDataOfSkillGemParam(paramId)
+        if paramStaticData then
+          if paramStaticData.list and next(paramStaticData.list) then
+            if paramValue == paramStaticData.max then
+              maxStarSign = paramStaticData.list[#paramStaticData.list].StarSign
+            else
+              for i = 1, #paramStaticData.list do
+                local d = paramStaticData.list[i]
+                if (paramValue >= d.Nor_Min and paramValue < d.Nor_Max or paramValue > d.Nor_Max and paramValue <= d.Nor_Min) and d.StarSign and maxStarSign < d.StarSign then
+                  maxStarSign = d.StarSign
+                end
+                if d.StarSign == 2 and not minGoldValue then
+                  minGoldValue = d.Nor_Min
+                end
+              end
+            end
+          end
+          if minGoldValue and maxStarSign < 2 then
+            local delta
+            delta = minGoldValue - paramValue
+            if paramStaticData.isPercent then
+              paramDescFormat = 0 < delta and ZhString.Gem_SkillEffectParamWithPercentFormat_MinGoldValue or ZhString.Gem_SkillEffectParamWithPercentFormat_MinGoldValue_Minus
+            else
+              paramDescFormat = 0 < delta and ZhString.Gem_SkillEffectParamFormat_MinGoldValue or ZhString.Gem_SkillEffectParamFormat_MinGoldValue_Minus
+            end
+            paramDesc = string.format(paramDescFormat, paramValue, string.format("%.2f", math.abs(delta)), paramStaticData.min, paramStaticData.max)
+          else
+            paramDescFormat = paramStaticData.isPercent and ZhString.Gem_SkillEffectParamWithPercentFormat or ZhString.Gem_SkillEffectParamFormat
+            paramDesc = string.format(paramDescFormat, paramValue, paramStaticData.min, paramStaticData.max)
+          end
+        else
+          paramDesc = tostring(paramValue)
+        end
+        _ArrayPushBack(tempParamDescArr, paramDesc)
+      end
+      _ArrayPushBack(tempDescArr, {
+        desc = string.format(sData.Desc, unpack(tempParamDescArr)),
+        buffId = paramBuffID,
+        goldStarCount = maxStarSign == 2 and 1 or 0,
+        paramId = paramId
+      })
+    else
+      local sBuffId = sData.BufferID
+      foundBuff = _ArrayFindByPredicate(self.buffs, function(buff)
+        return buff.id == sBuffId
+      end)
+      desc = nil
+      if foundBuff then
+        desc = sData.Desc
+        _ArrayPushBack(tempDescArr, {
+          desc = desc,
+          buffId = sBuffId,
+          goldStarCount = 1,
+          paramId = 0
+        })
+      else
+        desc = string.format(ZhString.Gem_SkillEffectInvalidEffectFormat, sData.Desc)
+        _ArrayPushBack(tempDescArr, {
+          desc = desc,
+          buffId = sBuffId,
+          goldStarCount = 0,
+          paramId = 0
+        })
       end
     end
   end
@@ -147,7 +239,7 @@ function GemSkillData:GetStarCounts()
           goldStarCount = goldStarCount + 1
         end
       else
-        foundBuff = TableUtility.ArrayFindByPredicate(self.buffs, function(buff)
+        foundBuff = _ArrayFindByPredicate(self.buffs, function(buff)
           return buff.id == sData.BufferID
         end)
         if foundBuff then

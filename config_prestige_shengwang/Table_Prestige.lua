@@ -58,6 +58,18 @@ Table_Prestige = {
     ItemID = 750070,
     MenuID = 5421,
     Slogan = "##149011"
+  },
+  [8] = {
+    id = 8,
+    Type = 1,
+    Name = "##532048",
+    Emblem = "item_750080",
+    Member = {805193},
+    ManualMap = 109,
+    Present = "##532132",
+    ItemID = 750080,
+    MenuID = 5423,
+    Slogan = "##532133"
   }
 }
 Table_Prestige_fields = {

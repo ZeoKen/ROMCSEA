@@ -217,6 +217,17 @@ function SkillClickUseManager:ClickSkill(shortcutSkillCell, auto)
         end
         AskUseSkillData.auto = auto
         AskUseSkillData.quickuse = quickuse
+        local info = Game.Myself.skill.info
+        if Game.Myself:IsMoving() and info and info:IsKnightSkill() then
+          Game.Myself:Logic_StopMove()
+          Game.Myself:Logic_PlayAction_Idle()
+        end
+        local skillInfo = Game.LogicManager_Skill:GetSkillInfo(id)
+        local bufftype = skillInfo and skillInfo:GetCheckBufftType()
+        if bufftype and Game.Myself.data:GetBuffTypes(bufftype) then
+          Game.Myself:Client_QuickUseSkill(id)
+          return
+        end
         GameFacade.Instance:sendNotification(MyselfEvent.AskUseSkill, AskUseSkillData)
       end
     elseif self.running then

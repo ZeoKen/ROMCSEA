@@ -2615,7 +2615,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[135],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [201] = {
@@ -2623,7 +2622,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[136],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [202] = {
@@ -2631,7 +2629,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[137],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [203] = {
@@ -2639,7 +2636,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[138],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [204] = {
@@ -2647,7 +2643,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[139],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [205] = {
@@ -2655,7 +2650,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[140],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [206] = {
@@ -2663,7 +2657,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[141],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [207] = {
@@ -2671,7 +2664,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[142],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[2],
     SameTeam = 11,
-    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     EffectDesc = "全属性＋3"
   },
   [210] = {
@@ -2679,6 +2671,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[145],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [211] = {
@@ -2686,6 +2679,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[146],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [212] = {
@@ -2693,6 +2687,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[147],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [213] = {
@@ -2700,6 +2695,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[148],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [214] = {
@@ -2707,6 +2703,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[149],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [215] = {
@@ -2714,6 +2711,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[150],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [216] = {
@@ -2721,6 +2719,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[151],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [217] = {
@@ -2728,6 +2727,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[152],
     SuitFourAdd = Table_EquipSuit_t.SuitFourAdd[3],
     SameTeam = 12,
+    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
     EffectDesc = "体质＋5、生命上限＋15%、魔法上限＋5%、受到毒属性、圣属性、暗属性、念属性伤害－15%"
   },
   [220] = {
@@ -8885,7 +8885,7 @@ Table_EquipSuit = {
 local cell_mt = {
   __index = {
     EffectDesc = "【赞歌】伤害＋10%",
-    EquipSuitDsc = "[哥夫内的铠甲][哥夫内军靴][哥夫内肩饰][哥夫内的头具]",
+    EquipSuitDsc = "[迪斯凯特的头盔][迪斯凯特的便靴][迪斯凯特的软甲][迪斯凯特的披风]",
     RefineBuff = _EmptyTable,
     SameTeam = 1,
     SuitFiveAdd = _EmptyTable,

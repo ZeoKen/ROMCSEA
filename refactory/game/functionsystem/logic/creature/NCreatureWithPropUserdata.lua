@@ -345,11 +345,15 @@ function NCreatureWithPropUserdata:TryHandleAddSpecialBuff(buffInfo, fromID, par
       self.data:AddElementAttrBuff(buffInfo)
       EventManager.Me():PassEvent(CreatureEvent.NatureChange, self)
     elseif buffType == BuffType.SetShader then
-      local configid = buffeffect.ShaderConfigID
-      local shaderConfig = configid and GameConfig.ShaderConfig[configid]
-      if shaderConfig then
-        self:SetMaterialInfo(shaderConfig)
-        self.assetRole:SetMaterials(true)
+      redlog("SetShader", buffeffect.ShaderConfigID, self.shaderConfigID)
+      if self.shaderConfigID ~= buffeffect.ShaderConfigID then
+        self:ResetMaterials()
+        self.shaderConfigID = buffeffect.ShaderConfigID
+        local shaderConfig = self.shaderConfigID and GameConfig.ShaderConfig[self.shaderConfigID]
+        if shaderConfig then
+          self:SetMaterialInfo(shaderConfig)
+          self.assetRole:SetMaterials(true)
+        end
       end
     elseif buffType == BuffType.UpgradeRefineLv then
       if self == Game.Myself then
@@ -390,6 +394,8 @@ function NCreatureWithPropUserdata:TryHandleAddSpecialBuff(buffInfo, fromID, par
         self.data.id,
         buffInfo.id
       })
+    elseif buffType == BuffType.HideHP and self ~= Game.Myself then
+      self:SetHideHp(true)
     end
   end
 end
@@ -517,7 +523,10 @@ function NCreatureWithPropUserdata:TryHandleRemoveSpecialBuff(buffInfo)
     self.data:RemoveElementAttrBuff(buffInfo)
     EventManager.Me():PassEvent(CreatureEvent.NatureChange, self)
   elseif buffType == BuffType.SetShader then
-    self:ResetMaterials()
+    redlog("SetShader remove", buffeffect.ShaderConfigID, self.shaderConfigID)
+    if self.shaderConfigID == buffeffect.ShaderConfigID then
+      self:ResetMaterials()
+    end
   elseif buffType == BuffType.UpgradeRefineLv then
     if self == Game.Myself then
       GameFacade.Instance:sendNotification(MyselfEvent.UpdateRefineBuff, self.data)
@@ -554,6 +563,8 @@ function NCreatureWithPropUserdata:TryHandleRemoveSpecialBuff(buffInfo)
       self.data.id,
       buffInfo.id
     })
+  elseif buffType == BuffType.HideHP and self ~= Game.Myself then
+    self:SetHideHp(false)
   end
 end
 
@@ -584,6 +595,10 @@ function NCreatureWithPropUserdata:TryUpdateSpecialBuff(buffInfo, active, fromID
   elseif buffType == BuffType.Dirlndicator then
     if self == Game.Myself then
       if active then
+        local lastContract = self:GetDragonContract()
+        if lastContract then
+          self:RemoveContractEffect(lastContract)
+        end
         self:SetDragonContractEffect(fromID)
         Game.Myself:SetDragonContract(fromID)
       else
@@ -678,6 +693,8 @@ function NCreatureWithPropUserdata:TryUpdateSpecialBuff(buffInfo, active, fromID
     self.asEquipMap[buffeffect.typeID] = active and buffeffect.site
     self.asEquipSite[buffeffect.site] = active and buffeffect.typeID
     EventManager.Me():PassEvent(MyselfEvent.AsEquipChange)
+  elseif buffType == BuffType.HideHP and self ~= Game.Myself then
+    self:SetHideHp(active)
   end
 end
 
@@ -858,6 +875,7 @@ function NCreatureWithPropUserdata:DoDeconstruct(asArray)
       self.asEquipMap[k] = nil
     end
   end
+  self.shaderConfigID = nil
 end
 
 function NCreatureWithPropUserdata:Client_StopNotifyServerAngleY()
@@ -1109,7 +1127,6 @@ end
 
 function NCreatureWithPropUserdata:GetAsEquip(site)
   if not self.asEquipSite then
-    redlog("GetAsEquip false", self)
     return false
   end
   return self.asEquipSite[site]

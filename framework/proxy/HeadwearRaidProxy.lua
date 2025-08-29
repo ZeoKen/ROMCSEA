@@ -86,7 +86,7 @@ function HeadwearRaidProxy:_initializeActivityHeadwearConfig()
   end
 end
 
-function HeadwearRaidProxy:RecvActivityHeadwearNpcUserCmd(server_data)
+function HeadwearRaidProxy:RecvHeadwearNpcUserCmd(server_data)
   for i = 1, #server_data.npcs do
     self.monsters[server_data.npcs[i].round] = {
       round = server_data.npcs[i].round,

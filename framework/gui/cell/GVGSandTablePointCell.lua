@@ -102,7 +102,7 @@ function GVGSandTablePointCell:SetData(data, defguild, noMoreMetal, hasPointScor
   self:SetColor(colorIndex)
   guildportrait = Table_Guild_Icon[guildportrait] and Table_Guild_Icon[guildportrait].Icon or ""
   IconManager:SetGuildIcon(guildportrait, self.guildIcon)
-  self.guildInfo.transform.localPosition = LuaGeometry.GetTempVector3(0, self.statusIcon.height, 0)
+  self.guildInfo.transform.localPosition = LuaGeometry.GetTempVector3(0, self.statusIcon.height - 10, 0)
   self:UpdateRatio()
 end
 
@@ -110,7 +110,7 @@ function GVGSandTablePointCell:SetEmpty(noMoreMetal)
   self.statusIcon.CurrentState = noMoreMetal and 3 or 2
   self.guildName.text = "--"
   self:SetColor(0)
-  self.guildInfo.transform.localPosition = LuaGeometry.GetTempVector3(0, self.statusIcon.height, 0)
+  self.guildInfo.transform.localPosition = LuaGeometry.GetTempVector3(0, self.statusIcon.height - 10, 0)
 end
 
 function GVGSandTablePointCell:SetCrystalData(data)
@@ -148,17 +148,15 @@ function GVGSandTablePointCell:SetHP(percent)
   self.statusIcon.CurrentState = percent ~= 0 and 2 or 3
 end
 
-function GVGSandTablePointCell:SetEnable(bool, isClassic)
-  self.guildInfo:SetActive(bool)
-  if not bool then
-    self:Hide(self.pointScore)
-    self.statusIcon.CurrentState = 3
-  else
+function GVGSandTablePointCell:SetEnable(var)
+  if var then
     self:Show(self.pointScore)
-  end
-  if isClassic then
-    self.statusIcon.enabled = bool
-  else
     self.statusIcon.enabled = true
+    self.guildInfo:SetActive(true)
+  else
+    self:Hide(self.pointScore)
+    self.statusIcon.enabled = false
+    self.statusIcon.CurrentState = 3
+    self.guildInfo:SetActive(false)
   end
 end

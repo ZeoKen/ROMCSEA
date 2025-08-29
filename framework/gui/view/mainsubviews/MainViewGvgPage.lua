@@ -130,9 +130,11 @@ function MainViewGvgPage:_updatePerfectDefenseCD()
   end
   local leftTime = self.perfectTimeInfo.time - ServerTime.CurServerTime() / 1000
   if leftTime <= 0 then
+    self.bPerfect = true
     self:HandleDefensePerfectSuccess()
     return
   end
+  self.bPerfect = false
   local min, sec = ClientTimeUtil.GetFormatSecTimeStr(leftTime)
   self.perfectDefenseCDLab.text = orginStringFormat(ZhString.MainViewGvgPage_PerfectDefense, min, sec)
 end
@@ -171,12 +173,12 @@ function MainViewGvgPage:initView()
   self.countDownLabel = self:FindComponent("DescriptionText", UILabel)
   self.stateLab = self:FindComponent("StateLab", UILabel)
   self.scoreLabel = self:FindComponent("score", UILabel)
+  self.l_sprProgressIcon = self:FindComponent("progressIcon", UISprite)
+  IconManager:SetItemIcon("item_5500", self.l_sprProgressIcon)
   self.progressLabel = self:FindComponent("progressLabel", UILabel)
   self.perfectDefenseCDLab = self:FindComponent("perfectDefenseLab", UILabel)
   self.bg = self:FindComponent("contentBg", UISprite)
   self.content = self:FindGO("content")
-  local l_sprProgressIcon = self:FindComponent("progressIcon", UISprite)
-  IconManager:SetItemIcon("item_5500", l_sprProgressIcon)
   self.effectObj = self:FindGO("EffectHolder")
   local resPath = ResourcePathHelper.EffectUI(EffectMap.UI.HlightBox)
   local effect = Game.AssetManager_UI:CreateAsset(resPath, self.effectObj)
@@ -265,14 +267,19 @@ function MainViewGvgPage:updateHonorValue()
   end
 end
 
-function MainViewGvgPage:updateMetal_hpper()
-  local metal_hpper = self.gvgIns.metal_hpper
-  metal_hpper = metal_hpper and metal_hpper or 0
-  self.progressSlider.value = metal_hpper / 100
-  self.progressLabel.text = math.floor(metal_hpper) .. "%"
-  if 70 <= metal_hpper then
+function MainViewGvgPage:updatehpper()
+  local hp_per
+  if self.gvgIns:IsMvpAlive() then
+    hp_per = self.gvgIns:GetMvpHpPer()
+  else
+    hp_per = self.gvgIns.metal_hpper
+  end
+  hp_per = hp_per or 0
+  self.progressSlider.value = hp_per / 100
+  self.progressLabel.text = math.floor(hp_per) .. "%"
+  if 70 <= hp_per then
     self.progressForebg.spriteName = "com_bg_hp"
-  elseif 25 <= metal_hpper then
+  elseif 25 <= hp_per then
     self.progressForebg.spriteName = "com_bg_hp_3s"
   else
     self.progressForebg.spriteName = "com_bg_hp_2s"
@@ -280,7 +287,8 @@ function MainViewGvgPage:updateMetal_hpper()
 end
 
 function MainViewGvgPage:AddViewEvts()
-  self:AddListenEvt(ServiceEvent.FuBenCmdGuildFireMetalHpFubenCmd, self.updateMetal_hpper)
+  self:AddListenEvt(ServiceEvent.FuBenCmdGuildFireMetalHpFubenCmd, self.updatehpper)
+  self:AddListenEvt(ServiceEvent.FuBenCmdGvgMvpInfoUpdateCmd, self.updatehpper)
   self:AddListenEvt(ServiceEvent.FuBenCmdGuildFireNewDefFubenCmd, self.UpdateNewDef)
   self:AddListenEvt(ServiceEvent.FuBenCmdGuildFireInfoFubenCmd, self.SetData)
   self:AddListenEvt(ServiceEvent.FuBenCmdGuildFireRestartFubenCmd, self.SetData)
@@ -297,6 +305,7 @@ end
 function MainViewGvgPage:HandleDefensePerfectSuccess()
   self:RemovePerfectDefenseTick()
   self.perfectDefenseCDLab.text = ZhString.MainViewGvgPage_PerfectDefense_Success
+  self:SetState()
 end
 
 function MainViewGvgPage:resizeContent()
@@ -317,29 +326,35 @@ function MainViewGvgPage:resizeContent()
   self.GvgHonorTraceInfo.transform.localPosition = LuaGeometry.GetTempVector3(x, y1 - height - 20, z)
 end
 
+function MainViewGvgPage:SetState()
+  local str
+  if self.gvgIns:IsMvpAlive() then
+    str = (self.gvgIns:CheckPerfectDefense() or self.bPerfect or self.gvgIns:IsPerfectDefense()) and ZhString.MainViewGvgPage_FinishState_Attack_MVP_PerfectDefend or ZhString.MainViewGvgPage_FinishState_Attack_MVP
+    IconManager:SetMapIcon("GVG_icon_map_mvp", self.l_sprProgressIcon)
+  else
+    IconManager:SetItemIcon("item_5500", self.l_sprProgressIcon)
+    if self.gvgIns:IsFireState() then
+      if self.isDefSide then
+        str = ZhString.MainViewGvgPage_NormalState_Def
+      else
+        str = ZhString.MainViewGvgPage_NormalState_Attack
+      end
+    elseif self.gvgIns:IsPerfectDefense() and self.isDefSide then
+      str = ZhString.MainViewGvgPage_FinishState_DefSusCountLabel
+    end
+  end
+  self.stateLab.text = str or ""
+end
+
 function MainViewGvgPage:updateCountTime(totalTime, type)
   if not self.isInit then
     return
   end
-  local isFire = self.gvgIns:IsFireState()
-  local isPerfectDefense = self.gvgIns:IsPerfectDefense()
   local result = self.gvgIns.result
   local endfire_time = self.gvgIns.endfire_time
   result = result and result or FuBenCmd_pb.EGUILDFIRERESULT_DEFSPEC
   endfire_time = endfire_time and endfire_time or self.curServerT + 3000
-  local leftTime
-  local str = ""
-  local countLabel
-  if isFire then
-    if self.isDefSide then
-      str = ZhString.MainViewGvgPage_NormalState_Def
-    else
-      str = ZhString.MainViewGvgPage_NormalState_Attack
-    end
-  elseif isPerfectDefense and self.isDefSide then
-    str = ZhString.MainViewGvgPage_FinishState_DefSusCountLabel
-  end
-  self.stateLab.text = str
+  self:SetState()
   local titleLeftTime = endfire_time - ServerTime.CurServerTime() / 1000
   if titleLeftTime < 0 then
     titleLeftTime = 0
@@ -354,13 +369,13 @@ function MainViewGvgPage:updateCountTime(totalTime, type)
   else
     self.countDownLabel.text = string.format(ZhString.MainViewGvgPage_GvgPageTitleDes, self.gvgIns:GetDefGuildName())
   end
-  self:updateMetal_hpper()
+  self:updatehpper()
   self:resizeContent()
 end
 
 function MainViewGvgPage:UpdateNewDef()
   self.isDefSide = self.gvgIns:IsDefSide()
-  self:updateMetal_hpper()
+  self:updatehpper()
 end
 
 function MainViewGvgPage:stopDelayRemoveEffect()

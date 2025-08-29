@@ -3960,6 +3960,12 @@ Table_GuideID = {
     ButtonID = 549,
     press = 1
   },
+  [551] = {
+    id = 551,
+    Explain = "##42635948",
+    ButtonID = 551,
+    press = 1
+  },
   [1001] = {
     id = 1001,
     Explain = "##1242836",

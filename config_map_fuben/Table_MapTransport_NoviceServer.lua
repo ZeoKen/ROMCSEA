@@ -170,6 +170,23 @@ Table_MapTransport = {
       100,
       101
     }
+  },
+  [16] = {
+    id = 16,
+    ZoneName = "艾卡拉奇区域",
+    MapID = {
+      109,
+      110,
+      117,
+      119,
+      120,
+      121
+    }
+  },
+  [17] = {
+    id = 17,
+    ZoneName = "深渊之湖",
+    MapID = {154}
   }
 }
 Table_MapTransport_fields = {

@@ -18104,10 +18104,15 @@ Table_EffectLodMap = {
     Path = "Skill/sfx_herondhg_hit_prf",
     LodPaths = "Skill/sfx_herondhg_hit_prf,Skill/sfx_herondhg_hit_lod1_prf,Skill/sfx_herondhg_hit_lod2_prf"
   },
-  [103659] = {
-    id = 103659,
+  [103660] = {
+    id = 103660,
     Path = "Skill/sfx_herodnts_yi_new_atk_prf",
     LodPaths = "Skill/sfx_herodnts_yi_new_atk_prf,Skill/sfx_herodnts_yi_new_atk_lod1_prf,Skill/sfx_herodnts_yi_new_atk_lod2_prf"
+  },
+  [103661] = {
+    id = 103661,
+    Path = "Skill/sfx_frostdiver_hit_prf",
+    LodPaths = "Skill/sfx_frostdiver_hit_prf,Skill/sfx_frostdiver_hit_lod1_prf,Skill/sfx_frostdiver_hit_lod2_prf"
   },
   [103662] = {
     id = 103662,
@@ -18376,326 +18381,501 @@ Table_EffectLodMap = {
   },
   [103715] = {
     id = 103715,
-    Path = "Skill/sfx_magicsnake_yq_hit_prf",
-    LodPaths = "Skill/sfx_magicsnake_yq_hit_prf,Skill/sfx_magicsnake_yq_hit_lod1_prf,Skill/sfx_magicsnake_yq_hit_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_zg_atk_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_zg_atk_001_prf,Skill/sfx_darklaicorpse_zg_atk_001_lod1_prf,Skill/sfx_darklaicorpse_zg_atk_001_lod2_prf"
   },
   [103716] = {
     id = 103716,
-    Path = "Skill/sfx_magicsnake_yq_hit_01_prf",
-    LodPaths = "Skill/sfx_magicsnake_yq_hit_01_prf,Skill/sfx_magicsnake_yq_hit_01_lod1_prf,Skill/sfx_magicsnake_yq_hit_01_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_zxenjs_atk_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_zxenjs_atk_001_prf,Skill/sfx_darklaicorpse_zxenjs_atk_001_lod1_prf,Skill/sfx_darklaicorpse_zxenjs_atk_001_lod2_prf"
   },
   [103717] = {
     id = 103717,
-    Path = "Skill/sfx_magicsnake_sy_hit_prf",
-    LodPaths = "Skill/sfx_magicsnake_sy_hit_prf,Skill/sfx_magicsnake_sy_hit_lod1_prf,Skill/sfx_magicsnake_sy_hit_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_xg_buff_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_xg_buff_001_prf,Skill/sfx_darklaicorpse_xg_buff_001_lod1_prf,Skill/sfx_darklaicorpse_xg_buff_001_lod2_prf"
   },
   [103718] = {
     id = 103718,
-    Path = "Skill/sfx_magicsnake_sy_atk_prf",
-    LodPaths = "Skill/sfx_magicsnake_sy_atk_prf,Skill/sfx_magicsnake_sy_atk_lod1_prf,Skill/sfx_magicsnake_sy_atk_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_tf_atk_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_tf_atk_001_prf,Skill/sfx_darklaicorpse_tf_atk_001_lod1_prf,Skill/sfx_darklaicorpse_tf_atk_001_lod1_prf"
   },
   [103719] = {
     id = 103719,
-    Path = "Skill/sfx_magicsnake_sqly_floor_lod2_prf",
-    LodPaths = "Skill/sfx_magicsnake_sqly_floor_lod2_prf,Skill/sfx_magicsnake_sqly_floor_lod2_prf,Skill/sfx_magicsnake_sqly_floor_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_buff_yan_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_buff_yan_001_prf,Skill/sfx_darklaicorpse_buff_yan_001_lod1_prf,Skill/sfx_darklaicorpse_buff_yan_001_lod2_prf"
   },
   [103720] = {
     id = 103720,
-    Path = "Skill/sfx_magicsnake_skpz_buff_prf",
-    LodPaths = "Skill/sfx_magicsnake_skpz_buff_prf,Skill/sfx_magicsnake_skpz_buff_lod1_prf,Skill/sfx_magicsnake_skpz_buff_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_buff_yan_buff_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_buff_yan_buff_prf,Skill/sfx_darklaicorpse_buff_yan_buff_prf,Skill/sfx_darklaicorpse_buff_yan_buff_prf"
   },
   [103721] = {
     id = 103721,
-    Path = "Skill/sfx_magicsnake_skpz_buff02_prf",
-    LodPaths = "Skill/sfx_magicsnake_skpz_buff02_prf,Skill/sfx_magicsnake_skpz_buff02_lod1_prf,Skill/sfx_magicsnake_skpz_buff02_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_buff_yan_bomb_atk_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_buff_yan_bomb_atk_prf,Skill/sfx_darklaicorpse_buff_yan_bomb_atk_lod1_prf,Skill/sfx_darklaicorpse_buff_yan_bomb_atk_lod2_prf"
   },
   [103722] = {
     id = 103722,
-    Path = "Skill/sfx_magicsnake_sjtz_buff_03_prf",
-    LodPaths = "Skill/sfx_magicsnake_sjtz_buff_03_prf,Skill/sfx_magicsnake_sjtz_buff_03_lod1_prf,Skill/sfx_magicsnake_sjtz_buff_03_lod1_prf"
+    Path = "Skill/sfx_darklaicorpse_cfenjs_atk_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_cfenjs_atk_001_prf,Skill/sfx_darklaicorpse_cfenjs_atk_001_lod1_prf,Skill/sfx_darklaicorpse_cfenjs_atk_001_lod2_prf"
   },
   [103723] = {
     id = 103723,
-    Path = "Skill/sfx_magicsnake_sjtz_buff_02_prf",
-    LodPaths = "Skill/sfx_magicsnake_sjtz_buff_02_prf,Skill/sfx_magicsnake_sjtz_buff_02_lod1_prf,Skill/sfx_magicsnake_sjtz_buff_02_lod1_prf"
+    Path = "Skill/sfx_darklaicorpse_buff_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_buff_001_prf,Skill/sfx_darklaicorpse_buff_001_lod1_prf,Skill/sfx_darklaicorpse_buff_001_lod1_prf"
   },
   [103724] = {
     id = 103724,
-    Path = "Skill/sfx_magicsnake_sjtz_buff_01_prf",
-    LodPaths = "Skill/sfx_magicsnake_sjtz_buff_01_prf,Skill/sfx_magicsnake_sjtz_buff_01_lod1_prf,Skill/sfx_magicsnake_sjtz_buff_01_lod1_prf"
+    Path = "Skill/sfx_darklaicorpse_tf_atk_002_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_tf_atk_002_prf,Skill/sfx_darklaicorpse_tf_atk_002_lod1_prf,Skill/sfx_darklaicorpse_tf_atk_002_lod2_prf"
   },
   [103725] = {
     id = 103725,
-    Path = "Skill/sfx_magicsnake_sgdl_buff_prf",
-    LodPaths = "Skill/sfx_magicsnake_sgdl_buff_prf,Skill/sfx_magicsnake_sgdl_buff_lod1_prf,Skill/sfx_magicsnake_sgdl_buff_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_tf_buff_002_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_tf_buff_002_prf,Skill/sfx_darklaicorpse_tf_buff_002_lod1_prf,Skill/sfx_darklaicorpse_tf_buff_002_lod2_prf"
   },
   [103726] = {
     id = 103726,
-    Path = "Skill/sfx_magicsnake_scxj_atk_prf",
-    LodPaths = "Skill/sfx_magicsnake_scxj_atk_prf,Skill/sfx_magicsnake_scxj_atk_lod1_prf,Skill/sfx_magicsnake_scxj_atk_lod2_prf"
+    Path = "Skill/sfx_darklaicorpse_xg_atk_001_prf",
+    LodPaths = "Skill/sfx_darklaicorpse_xg_atk_001_prf,Skill/sfx_darklaicorpse_xg_atk_001_lod1_prf,Skill/sfx_darklaicorpse_xg_atk_001_lod2_prf"
   },
   [103727] = {
     id = 103727,
-    Path = "Skill/sfx_magicsnake_s_atk_03_prf",
-    LodPaths = "Skill/sfx_magicsnake_s_atk_03_prf,Skill/sfx_magicsnake_s_atk_03_lod1_prf,Skill/sfx_magicsnake_s_atk_03_lod2_prf"
+    Path = "Skill/sfx_rootofcorruption_jdzs_atk01_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_jdzs_atk01_prf,Skill/sfx_rootofcorruption_jdzs_atk01_lod1_prf,Skill/sfx_rootofcorruption_jdzs_atk01_lod2_prf"
   },
   [103728] = {
     id = 103728,
-    Path = "Skill/sfx_magicsnake_s_atk_02_prf",
-    LodPaths = "Skill/sfx_magicsnake_s_atk_02_prf,Skill/sfx_magicsnake_s_atk_02_lod1_prf,Skill/sfx_magicsnake_s_atk_02_lod1_prf"
+    Path = "Skill/sfx_rootofcorruption_jsbf_hit001_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_jsbf_hit001_prf,Skill/sfx_rootofcorruption_jsbf_hit001_lod1_prf,Skill/sfx_rootofcorruption_jsbf_hit001_lod2_prf"
   },
   [103729] = {
     id = 103729,
-    Path = "Skill/sfx_magicsnake_s_atk_01_prf",
-    LodPaths = "Skill/sfx_magicsnake_s_atk_01_prf,Skill/sfx_magicsnake_s_atk_01_lod1_prf,Skill/sfx_magicsnake_s_atk_01_lod2_prf"
+    Path = "Skill/sfx_rootofcorruption_jdzs_atk02_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_jdzs_atk02_prf,Skill/sfx_rootofcorruption_jdzs_atk02_lod1_prf,Skill/sfx_rootofcorruption_jdzs_atk02_lod2_prf"
   },
   [103730] = {
     id = 103730,
-    Path = "Skill/sfx_magicsnake_ryps_floor_prf",
-    LodPaths = "Skill/sfx_magicsnake_ryps_floor_prf,Skill/sfx_magicsnake_ryps_floor_lod1_prf,Skill/sfx_magicsnake_ryps_floor_lod2_prf"
+    Path = "Skill/sfx_rootofcorruption_jsbf_atk01_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_jsbf_atk01_prf,Skill/sfx_rootofcorruption_jsbf_atk01_lod1_prf,Skill/sfx_rootofcorruption_jsbf_atk01_lod1_prf"
   },
   [103731] = {
     id = 103731,
-    Path = "Skill/sfx_magicsnake_ryps_bullet_prf",
-    LodPaths = "Skill/sfx_magicsnake_ryps_bullet_prf,Skill/sfx_magicsnake_ryps_bullet_lod1_prf,Skill/sfx_magicsnake_ryps_bullet_lod2_prf"
+    Path = "Skill/sfx_rootofcorruption_js_buff_001_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_js_buff_001_prf,Skill/sfx_rootofcorruption_js_buff_001_lod1_prf,Skill/sfx_rootofcorruption_js_buff_001_lod1_prf"
   },
   [103732] = {
     id = 103732,
-    Path = "Skill/sfx_magicsnake_myjl_buff_prf",
-    LodPaths = "Skill/sfx_magicsnake_myjl_buff_prf,Skill/sfx_magicsnake_myjl_buff_lod1_prf,Skill/sfx_magicsnake_myjl_buff_lod1_prf"
+    Path = "Skill/sfx_rootofcorruption_dltx_bomb_atk_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_dltx_bomb_atk_prf,Skill/sfx_rootofcorruption_dltx_bomb_atk_lod1_prf,Skill/sfx_rootofcorruption_dltx_bomb_atk_lod2_prf"
   },
   [103733] = {
     id = 103733,
-    Path = "Skill/sfx_magicsnake_mfzy_buff_prf",
-    LodPaths = "Skill/sfx_magicsnake_mfzy_buff_prf,Skill/sfx_magicsnake_mfzy_buff_lod1_prf,Skill/sfx_magicsnake_mfzy_buff_lod1_prf"
+    Path = "Skill/sfx_rootofcorruption_ttbd_atk01_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_ttbd_atk01_prf,Skill/sfx_rootofcorruption_ttbd_atk01_lod1_prf,Skill/sfx_rootofcorruption_ttbd_atk01_lod2_prf"
   },
   [103734] = {
     id = 103734,
-    Path = "Skill/sfx_magicsnake_ds_buff_01_prf",
-    LodPaths = "Skill/sfx_magicsnake_ds_buff_01_prf,Skill/sfx_magicsnake_ds_buff_01_lod1_prf,Skill/sfx_magicsnake_ds_buff_01_lod2_prf"
+    Path = "Skill/sfx_rootofcorruption_pzsb_atk01_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_pzsb_atk01_prf,Skill/sfx_rootofcorruption_pzsb_atk01_lod1_prf,Skill/sfx_rootofcorruption_pzsb_atk01_lod2_prf"
   },
   [103735] = {
     id = 103735,
-    Path = "Skill/sfx_magicsnake_ds_atk_01_prf",
-    LodPaths = "Skill/sfx_magicsnake_ds_atk_01_prf,Skill/sfx_magicsnake_ds_atk_01_lod1_prf,Skill/sfx_magicsnake_ds_atk_01_lod2_prf"
+    Path = "Skill/sfx_rootofcorruption_dltx_atk01_prf",
+    LodPaths = "Skill/sfx_rootofcorruption_dltx_atk01_prf,Skill/sfx_rootofcorruption_dltx_atk01_lod1_prf,Skill/sfx_rootofcorruption_dltx_atk01_lod1_prf"
   },
   [103736] = {
     id = 103736,
-    Path = "Skill/sfx_magicsnake_cd_atk_prf",
-    LodPaths = "Skill/sfx_magicsnake_cd_atk_prf,Skill/sfx_magicsnake_cd_atk_lod1_prf,Skill/sfx_magicsnake_cd_atk_lod2_prf"
+    Path = "Skill/sfx_earlymutantdragon_fire_atk_prf",
+    LodPaths = "Skill/sfx_earlymutantdragon_fire_atk_prf,Skill/sfx_earlymutantdragon_fire_atk_lod1_prf,Skill/sfx_earlymutantdragon_fire_atk_lod1_prf"
   },
   [103737] = {
     id = 103737,
-    Path = "Skill/sfx_magicsnake_atk_hit_prf",
-    LodPaths = "Skill/sfx_magicsnake_atk_hit_prf,Skill/sfx_magicsnake_atk_hit_lod1_prf,Skill/sfx_magicsnake_atk_hit_lod2_prf"
+    Path = "Skill/sfx_earlymutantdragon_huochong_atk_01_prf",
+    LodPaths = "Skill/sfx_earlymutantdragon_huochong_atk_01_prf,Skill/sfx_earlymutantdragon_huochong_atk_01_lod1_prf,Skill/sfx_earlymutantdragon_huochong_atk_01_lod2_prf"
   },
   [103738] = {
     id = 103738,
-    Path = "Skill/sfx_magicsnake_anjf_buff_01_prf",
-    LodPaths = "Skill/sfx_magicsnake_anjf_buff_01_prf,Skill/sfx_magicsnake_anjf_buff_01_lod1_prf,Skill/sfx_magicsnake_anjf_buff_01_lod2_prf"
+    Path = "Skill/sfx_earlymutantdragon_buff_prf",
+    LodPaths = "Skill/sfx_earlymutantdragon_buff_prf,Skill/sfx_earlymutantdragon_buff_lod1_prf,Skill/sfx_earlymutantdragon_buff_lod1_prf"
   },
   [103739] = {
     id = 103739,
-    Path = "Skill/sfx_magicsnake_atk_bullet_prf",
-    LodPaths = "Skill/sfx_magicsnake_atk_bullet_prf,Skill/sfx_magicsnake_atk_bullet_lod1_prf,Skill/sfx_magicsnake_atk_bullet_lod1_prf"
+    Path = "Skill/sfx_earlymutantdragon_huochong_atk_prf",
+    LodPaths = "Skill/sfx_earlymutantdragon_huochong_atk_prf,Skill/sfx_earlymutantdragon_huochong_atk_lod1_prf,Skill/sfx_earlymutantdragon_huochong_atk_lod1_prf"
   },
   [103740] = {
     id = 103740,
-    Path = "Skill/sfx_heinrich_dzy_buff03_prf",
-    LodPaths = "Skill/sfx_heinrich_dzy_buff03_prf,Skill/sfx_heinrich_dzy_buff03_lod1_prf,Skill/sfx_heinrich_dzy_buff03_lod2_prf"
+    Path = "Skill/sfx_earlymutantdragon_wind_atk_prf",
+    LodPaths = "Skill/sfx_earlymutantdragon_wind_atk_prf,Skill/sfx_earlymutantdragon_wind_atk_lod1_prf,Skill/sfx_earlymutantdragon_wind_atk_lod2_prf"
   },
   [103741] = {
     id = 103741,
-    Path = "Skill/sfx_heinrich_ys_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_ys_atk_prf,Skill/sfx_heinrich_ys_atk_lod1_prf,Skill/sfx_heinrich_ys_atk_lod1_prf"
+    Path = "Skill/sfx_earlymutantdragon_huochong_floor_prf",
+    LodPaths = "Skill/sfx_earlymutantdragon_huochong_floor_prf,Skill/sfx_earlymutantdragon_huochong_floor_lod1_prf,Skill/sfx_earlymutantdragon_huochong_floor_lod2_prf"
   },
   [103742] = {
     id = 103742,
-    Path = "Skill/sfx_heinrich_yjss_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_yjss_atk_prf,Skill/sfx_heinrich_yjss_atk_lod1_prf,Skill/sfx_heinrich_yjss_atk_lod2_prf"
+    Path = "Skill/sfx_magicsnake_yq_hit_prf",
+    LodPaths = "Skill/sfx_magicsnake_yq_hit_prf,Skill/sfx_magicsnake_yq_hit_lod1_prf,Skill/sfx_magicsnake_yq_hit_lod2_prf"
   },
   [103743] = {
     id = 103743,
-    Path = "Skill/sfx_heinrich_yjss_atk02_prf",
-    LodPaths = "Skill/sfx_heinrich_yjss_atk02_prf,Skill/sfx_heinrich_yjss_atk02_lod1_prf,Skill/sfx_heinrich_yjss_atk02_lod2_prf"
+    Path = "Skill/sfx_magicsnake_yq_hit_01_prf",
+    LodPaths = "Skill/sfx_magicsnake_yq_hit_01_prf,Skill/sfx_magicsnake_yq_hit_01_lod1_prf,Skill/sfx_magicsnake_yq_hit_01_lod2_prf"
   },
   [103744] = {
     id = 103744,
-    Path = "Skill/sfx_heinrich_xw_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_xw_atk_prf,Skill/sfx_heinrich_xw_atk_lod1_prf,Skill/sfx_heinrich_xw_atk_lod1_prf"
+    Path = "Skill/sfx_magicsnake_sy_hit_prf",
+    LodPaths = "Skill/sfx_magicsnake_sy_hit_prf,Skill/sfx_magicsnake_sy_hit_lod1_prf,Skill/sfx_magicsnake_sy_hit_lod2_prf"
   },
   [103745] = {
     id = 103745,
-    Path = "Skill/sfx_heinrich_tzy_buff_prf",
-    LodPaths = "Skill/sfx_heinrich_tzy_buff_prf,Skill/sfx_heinrich_tzy_buff_lod1_prf,Skill/sfx_heinrich_tzy_buff_lod2_prf"
+    Path = "Skill/sfx_magicsnake_sy_atk_prf",
+    LodPaths = "Skill/sfx_magicsnake_sy_atk_prf,Skill/sfx_magicsnake_sy_atk_lod1_prf,Skill/sfx_magicsnake_sy_atk_lod2_prf"
   },
   [103746] = {
     id = 103746,
-    Path = "Skill/sfx_heinrich_tzy_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_tzy_atk_prf,Skill/sfx_heinrich_tzy_atk_lod1_prf,Skill/sfx_heinrich_tzy_atk_lod1_prf"
+    Path = "Skill/sfx_magicsnake_sqly_floor_lod2_prf",
+    LodPaths = "Skill/sfx_magicsnake_sqly_floor_lod2_prf,Skill/sfx_magicsnake_sqly_floor_lod2_prf,Skill/sfx_magicsnake_sqly_floor_lod2_prf"
   },
   [103747] = {
     id = 103747,
-    Path = "Skill/sfx_heinrich_ty_buff_prf",
-    LodPaths = "Skill/sfx_heinrich_ty_buff_prf,Skill/sfx_heinrich_ty_buff_lod1_prf,Skill/sfx_heinrich_ty_buff_lod2_prf"
+    Path = "Skill/sfx_magicsnake_skpz_buff_prf",
+    LodPaths = "Skill/sfx_magicsnake_skpz_buff_prf,Skill/sfx_magicsnake_skpz_buff_lod1_prf,Skill/sfx_magicsnake_skpz_buff_lod2_prf"
   },
   [103748] = {
     id = 103748,
-    Path = "Skill/sfx_heinrich_ty_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_ty_atk_prf,Skill/sfx_heinrich_ty_atk_lod1_prf,Skill/sfx_heinrich_ty_atk_lod2_prf"
+    Path = "Skill/sfx_magicsnake_skpz_buff02_prf",
+    LodPaths = "Skill/sfx_magicsnake_skpz_buff02_prf,Skill/sfx_magicsnake_skpz_buff02_lod1_prf,Skill/sfx_magicsnake_skpz_buff02_lod2_prf"
   },
   [103749] = {
     id = 103749,
-    Path = "Skill/sfx_heinrich_rfsm_buff01_prf",
-    LodPaths = "Skill/sfx_heinrich_rfsm_buff01_prf,Skill/sfx_heinrich_rfsm_buff01_lod1_prf,Skill/sfx_heinrich_rfsm_buff01_lod2_prf"
+    Path = "Skill/sfx_magicsnake_sjtz_buff_03_prf",
+    LodPaths = "Skill/sfx_magicsnake_sjtz_buff_03_prf,Skill/sfx_magicsnake_sjtz_buff_03_lod1_prf,Skill/sfx_magicsnake_sjtz_buff_03_lod1_prf"
   },
   [103750] = {
     id = 103750,
-    Path = "Skill/sfx_heinrich_rfsm_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_rfsm_atk_prf,Skill/sfx_heinrich_rfsm_atk_lod1_prf,Skill/sfx_heinrich_rfsm_atk_lod2_prf"
+    Path = "Skill/sfx_magicsnake_sjtz_buff_02_prf",
+    LodPaths = "Skill/sfx_magicsnake_sjtz_buff_02_prf,Skill/sfx_magicsnake_sjtz_buff_02_lod1_prf,Skill/sfx_magicsnake_sjtz_buff_02_lod1_prf"
   },
   [103751] = {
     id = 103751,
-    Path = "Skill/sfx_heinrich_n_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_n_atk_prf,Skill/sfx_heinrich_n_atk_lod1_prf,Skill/sfx_heinrich_n_atk_lod2_prf"
+    Path = "Skill/sfx_magicsnake_sjtz_buff_01_prf",
+    LodPaths = "Skill/sfx_magicsnake_sjtz_buff_01_prf,Skill/sfx_magicsnake_sjtz_buff_01_lod1_prf,Skill/sfx_magicsnake_sjtz_buff_01_lod1_prf"
   },
   [103752] = {
     id = 103752,
-    Path = "Skill/sfx_heinrich_hy_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_hy_atk_prf,Skill/sfx_heinrich_hy_atk_lod1_prf,Skill/sfx_heinrich_hy_atk_lod2_prf"
+    Path = "Skill/sfx_magicsnake_sgdl_buff_prf",
+    LodPaths = "Skill/sfx_magicsnake_sgdl_buff_prf,Skill/sfx_magicsnake_sgdl_buff_lod1_prf,Skill/sfx_magicsnake_sgdl_buff_lod2_prf"
   },
   [103753] = {
     id = 103753,
-    Path = "Skill/sfx_heinrich_hit_02_prf",
-    LodPaths = "Skill/sfx_heinrich_hit_02_prf,Skill/sfx_heinrich_hit_02_lod1_prf,Skill/sfx_heinrich_hit_02_lod2_prf"
+    Path = "Skill/sfx_magicsnake_scxj_atk_prf",
+    LodPaths = "Skill/sfx_magicsnake_scxj_atk_prf,Skill/sfx_magicsnake_scxj_atk_lod1_prf,Skill/sfx_magicsnake_scxj_atk_lod2_prf"
   },
   [103754] = {
     id = 103754,
-    Path = "Skill/sfx_heinrich_hit_01_prf",
-    LodPaths = "Skill/sfx_heinrich_hit_01_prf,Skill/sfx_heinrich_hit_01_lod1_prf,Skill/sfx_heinrich_hit_01_lod1_prf"
+    Path = "Skill/sfx_magicsnake_s_atk_03_prf",
+    LodPaths = "Skill/sfx_magicsnake_s_atk_03_prf,Skill/sfx_magicsnake_s_atk_03_lod1_prf,Skill/sfx_magicsnake_s_atk_03_lod2_prf"
   },
   [103755] = {
     id = 103755,
-    Path = "Skill/sfx_heinrich_gqbb_hit_prf",
-    LodPaths = "Skill/sfx_heinrich_gqbb_hit_prf,Skill/sfx_heinrich_gqbb_hit_lod1_prf,Skill/sfx_heinrich_gqbb_hit_lod2_prf"
+    Path = "Skill/sfx_magicsnake_s_atk_02_prf",
+    LodPaths = "Skill/sfx_magicsnake_s_atk_02_prf,Skill/sfx_magicsnake_s_atk_02_lod1_prf,Skill/sfx_magicsnake_s_atk_02_lod1_prf"
   },
   [103756] = {
     id = 103756,
-    Path = "Skill/sfx_heinrich_gqbb_buff_prf",
-    LodPaths = "Skill/sfx_heinrich_gqbb_buff_prf,Skill/sfx_heinrich_gqbb_buff_lod1_prf,Skill/sfx_heinrich_gqbb_buff_lod2_prf"
+    Path = "Skill/sfx_magicsnake_s_atk_01_prf",
+    LodPaths = "Skill/sfx_magicsnake_s_atk_01_prf,Skill/sfx_magicsnake_s_atk_01_lod1_prf,Skill/sfx_magicsnake_s_atk_01_lod2_prf"
   },
   [103757] = {
     id = 103757,
-    Path = "Skill/sfx_heinrich_gqbb_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_gqbb_atk_prf,Skill/sfx_heinrich_gqbb_atk_lod1_prf,Skill/sfx_heinrich_gqbb_atk_lod2_prf"
+    Path = "Skill/sfx_magicsnake_ryps_floor_prf",
+    LodPaths = "Skill/sfx_magicsnake_ryps_floor_prf,Skill/sfx_magicsnake_ryps_floor_lod1_prf,Skill/sfx_magicsnake_ryps_floor_lod2_prf"
   },
   [103758] = {
     id = 103758,
-    Path = "Skill/sfx_heinrich_fl_atk_prf",
-    LodPaths = "Skill/sfx_heinrich_fl_atk_prf,Skill/sfx_heinrich_fl_atk_lod1_prf,Skill/sfx_heinrich_fl_atk_lod2_prf"
+    Path = "Skill/sfx_magicsnake_ryps_bullet_prf",
+    LodPaths = "Skill/sfx_magicsnake_ryps_bullet_prf,Skill/sfx_magicsnake_ryps_bullet_lod1_prf,Skill/sfx_magicsnake_ryps_bullet_lod2_prf"
   },
   [103759] = {
     id = 103759,
-    Path = "Skill/sfx_heinrich_dzy_buff04_prf",
-    LodPaths = "Skill/sfx_heinrich_dzy_buff04_prf,Skill/sfx_heinrich_dzy_buff04_lod1_prf,Skill/sfx_heinrich_dzy_buff04_lod2_prf"
+    Path = "Skill/sfx_magicsnake_myjl_buff_prf",
+    LodPaths = "Skill/sfx_magicsnake_myjl_buff_prf,Skill/sfx_magicsnake_myjl_buff_lod1_prf,Skill/sfx_magicsnake_myjl_buff_lod1_prf"
   },
   [103760] = {
     id = 103760,
-    Path = "Skill/sfx_heinrich_dzy_buff02_prf",
-    LodPaths = "Skill/sfx_heinrich_dzy_buff02_prf,Skill/sfx_heinrich_dzy_buff02_lod1_prf,Skill/sfx_heinrich_dzy_buff02_lod2_prf"
+    Path = "Skill/sfx_magicsnake_mfzy_buff_prf",
+    LodPaths = "Skill/sfx_magicsnake_mfzy_buff_prf,Skill/sfx_magicsnake_mfzy_buff_lod1_prf,Skill/sfx_magicsnake_mfzy_buff_lod1_prf"
   },
   [103761] = {
     id = 103761,
-    Path = "Skill/sfx_heinrich_dzy_buff01_prf",
-    LodPaths = "Skill/sfx_heinrich_dzy_buff01_prf,Skill/sfx_heinrich_dzy_buff01_lod1_prf,Skill/sfx_heinrich_dzy_buff01_lod2_prf"
+    Path = "Skill/sfx_magicsnake_ds_buff_01_prf",
+    LodPaths = "Skill/sfx_magicsnake_ds_buff_01_prf,Skill/sfx_magicsnake_ds_buff_01_lod1_prf,Skill/sfx_magicsnake_ds_buff_01_lod2_prf"
   },
   [103762] = {
     id = 103762,
-    Path = "Skill/sfx_heinrich_dzy_atk01_prf",
-    LodPaths = "Skill/sfx_heinrich_dzy_atk01_prf,Skill/sfx_heinrich_dzy_atk01_lod1_prf,Skill/sfx_heinrich_dzy_atk01_lod2_prf"
+    Path = "Skill/sfx_magicsnake_ds_atk_01_prf",
+    LodPaths = "Skill/sfx_magicsnake_ds_atk_01_prf,Skill/sfx_magicsnake_ds_atk_01_lod1_prf,Skill/sfx_magicsnake_ds_atk_01_lod2_prf"
   },
   [103763] = {
     id = 103763,
-    Path = "Skill/sfx_thor_dcdh_sing_prf",
-    LodPaths = "Skill/sfx_thor_dcdh_sing_prf,Skill/sfx_thor_dcdh_sing_lod1_prf,Skill/sfx_thor_dcdh_sing_lod2_prf"
+    Path = "Skill/sfx_magicsnake_cd_atk_prf",
+    LodPaths = "Skill/sfx_magicsnake_cd_atk_prf,Skill/sfx_magicsnake_cd_atk_lod1_prf,Skill/sfx_magicsnake_cd_atk_lod2_prf"
   },
   [103764] = {
     id = 103764,
-    Path = "Skill/sfx_thor_tszl_sing_prf",
-    LodPaths = "Skill/sfx_thor_tszl_sing_prf,Skill/sfx_thor_tszl_sing_lod1_prf,Skill/sfx_thor_tszl_sing_lod2_prf"
+    Path = "Skill/sfx_magicsnake_atk_hit_prf",
+    LodPaths = "Skill/sfx_magicsnake_atk_hit_prf,Skill/sfx_magicsnake_atk_hit_lod1_prf,Skill/sfx_magicsnake_atk_hit_lod2_prf"
   },
   [103765] = {
     id = 103765,
-    Path = "Skill/sfx_thor_zsyl_hit_prf",
-    LodPaths = "Skill/sfx_thor_zsyl_hit_prf,Skill/sfx_thor_zsyl_hit_lod1_prf,Skill/sfx_thor_zsyl_hit_lod2_prf"
+    Path = "Skill/sfx_magicsnake_anjf_buff_01_prf",
+    LodPaths = "Skill/sfx_magicsnake_anjf_buff_01_prf,Skill/sfx_magicsnake_anjf_buff_01_lod1_prf,Skill/sfx_magicsnake_anjf_buff_01_lod2_prf"
   },
   [103766] = {
     id = 103766,
-    Path = "Skill/sfx_thor_hit_01_prf",
-    LodPaths = "Skill/sfx_thor_hit_01_prf,Skill/sfx_thor_hit_01_lod1_prf,Skill/sfx_thor_hit_01_lod1_prf"
+    Path = "Skill/sfx_magicsnake_atk_bullet_prf",
+    LodPaths = "Skill/sfx_magicsnake_atk_bullet_prf,Skill/sfx_magicsnake_atk_bullet_lod1_prf,Skill/sfx_magicsnake_atk_bullet_lod1_prf"
   },
   [103767] = {
     id = 103767,
-    Path = "Skill/sfx_thor_cj_floor_prf",
-    LodPaths = "Skill/sfx_thor_cj_floor_prf,Skill/sfx_thor_cj_floor_lod1_prf,Skill/sfx_thor_cj_floor_lod2_prf"
+    Path = "Skill/sfx_heinrich_dzy_buff03_prf",
+    LodPaths = "Skill/sfx_heinrich_dzy_buff03_prf,Skill/sfx_heinrich_dzy_buff03_lod1_prf,Skill/sfx_heinrich_dzy_buff03_lod2_prf"
   },
   [103768] = {
     id = 103768,
-    Path = "Skill/sfx_thor_zsyl_atk_prf",
-    LodPaths = "Skill/sfx_thor_zsyl_atk_prf,Skill/sfx_thor_zsyl_atk_lod1_prf,Skill/sfx_thor_zsyl_atk_lod2_prf"
+    Path = "Skill/sfx_heinrich_ys_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_ys_atk_prf,Skill/sfx_heinrich_ys_atk_lod1_prf,Skill/sfx_heinrich_ys_atk_lod1_prf"
   },
   [103769] = {
     id = 103769,
-    Path = "Skill/sfx_thor_dnhd_buff_02_prf",
-    LodPaths = "Skill/sfx_thor_dnhd_buff_02_prf,Skill/sfx_thor_dnhd_buff_02_lod1_prf,Skill/sfx_thor_dnhd_buff_02_lod1_prf"
+    Path = "Skill/sfx_heinrich_yjss_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_yjss_atk_prf,Skill/sfx_heinrich_yjss_atk_lod1_prf,Skill/sfx_heinrich_yjss_atk_lod2_prf"
   },
   [103770] = {
     id = 103770,
-    Path = "Skill/sfx_thor_cj_floor_buff_prf",
-    LodPaths = "Skill/sfx_thor_cj_floor_buff_prf,Skill/sfx_thor_cj_floor_buff_lod1_prf,Skill/sfx_thor_cj_floor_buff_lod2_prf"
+    Path = "Skill/sfx_heinrich_yjss_atk02_prf",
+    LodPaths = "Skill/sfx_heinrich_yjss_atk02_prf,Skill/sfx_heinrich_yjss_atk02_lod1_prf,Skill/sfx_heinrich_yjss_atk02_lod2_prf"
   },
   [103771] = {
     id = 103771,
-    Path = "Skill/sfx_thor_zsyl_buff_prf",
-    LodPaths = "Skill/sfx_thor_zsyl_buff_prf,Skill/sfx_thor_zsyl_buff_prf,Skill/sfx_thor_zsyl_buff_prf"
+    Path = "Skill/sfx_heinrich_xw_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_xw_atk_prf,Skill/sfx_heinrich_xw_atk_lod1_prf,Skill/sfx_heinrich_xw_atk_lod1_prf"
   },
   [103772] = {
     id = 103772,
-    Path = "Skill/sfx_thor_gm_sing_prf",
-    LodPaths = "Skill/sfx_thor_gm_sing_prf,Skill/sfx_thor_gm_sing_lod1_prf,Skill/sfx_thor_gm_sing_lod1_prf"
+    Path = "Skill/sfx_heinrich_tzy_buff_prf",
+    LodPaths = "Skill/sfx_heinrich_tzy_buff_prf,Skill/sfx_heinrich_tzy_buff_lod1_prf,Skill/sfx_heinrich_tzy_buff_lod2_prf"
   },
   [103773] = {
     id = 103773,
-    Path = "Skill/sfx_thor_dnhd_buff_01_prf",
-    LodPaths = "Skill/sfx_thor_dnhd_buff_01_prf,Skill/sfx_thor_dnhd_buff_01_lod1_prf,Skill/sfx_thor_dnhd_buff_01_lod2_prf"
+    Path = "Skill/sfx_heinrich_tzy_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_tzy_atk_prf,Skill/sfx_heinrich_tzy_atk_lod1_prf,Skill/sfx_heinrich_tzy_atk_lod1_prf"
   },
   [103774] = {
     id = 103774,
-    Path = "Skill/sfx_thor_tszl_buff_01_prf",
-    LodPaths = "Skill/sfx_thor_tszl_buff_01_prf,Skill/sfx_thor_tszl_buff_01_lod1_prf,Skill/sfx_thor_tszl_buff_01_lod1_prf"
+    Path = "Skill/sfx_heinrich_ty_buff_prf",
+    LodPaths = "Skill/sfx_heinrich_ty_buff_prf,Skill/sfx_heinrich_ty_buff_lod1_prf,Skill/sfx_heinrich_ty_buff_lod2_prf"
   },
   [103775] = {
     id = 103775,
-    Path = "Skill/sfx_thor_jdyl_buff_prf",
-    LodPaths = "Skill/sfx_thor_jdyl_buff_prf,Skill/sfx_thor_jdyl_buff_lod1_prf,Skill/sfx_thor_jdyl_buff_lod1_prf"
+    Path = "Skill/sfx_heinrich_ty_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_ty_atk_prf,Skill/sfx_heinrich_ty_atk_lod1_prf,Skill/sfx_heinrich_ty_atk_lod2_prf"
   },
   [103776] = {
     id = 103776,
-    Path = "Skill/sfx_thor_dnhd_atk_prf",
-    LodPaths = "Skill/sfx_thor_dnhd_atk_prf,Skill/sfx_thor_dnhd_atk_lod1_prf,Skill/sfx_thor_dnhd_atk_lod1_prf"
+    Path = "Skill/sfx_heinrich_rfsm_buff01_prf",
+    LodPaths = "Skill/sfx_heinrich_rfsm_buff01_prf,Skill/sfx_heinrich_rfsm_buff01_lod1_prf,Skill/sfx_heinrich_rfsm_buff01_lod2_prf"
   },
   [103777] = {
     id = 103777,
-    Path = "Skill/sfx_thor_jdyl_floor_prf",
-    LodPaths = "Skill/sfx_thor_jdyl_floor_prf,Skill/sfx_thor_jdyl_floor_lod1_prf,Skill/sfx_thor_jdyl_floor_lod2_prf"
+    Path = "Skill/sfx_heinrich_rfsm_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_rfsm_atk_prf,Skill/sfx_heinrich_rfsm_atk_lod1_prf,Skill/sfx_heinrich_rfsm_atk_lod2_prf"
   },
   [103778] = {
     id = 103778,
-    Path = "Skill/sfx_thor_dcdh_bullet_prf",
-    LodPaths = "Skill/sfx_thor_dcdh_bullet_prf,Skill/sfx_thor_dcdh_bullet_lod1_prf,Skill/sfx_thor_dcdh_bullet_lod2_prf"
+    Path = "Skill/sfx_heinrich_n_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_n_atk_prf,Skill/sfx_heinrich_n_atk_lod1_prf,Skill/sfx_heinrich_n_atk_lod2_prf"
   },
   [103779] = {
     id = 103779,
+    Path = "Skill/sfx_heinrich_hy_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_hy_atk_prf,Skill/sfx_heinrich_hy_atk_lod1_prf,Skill/sfx_heinrich_hy_atk_lod2_prf"
+  },
+  [103780] = {
+    id = 103780,
+    Path = "Skill/sfx_heinrich_hit_02_prf",
+    LodPaths = "Skill/sfx_heinrich_hit_02_prf,Skill/sfx_heinrich_hit_02_lod1_prf,Skill/sfx_heinrich_hit_02_lod2_prf"
+  },
+  [103781] = {
+    id = 103781,
+    Path = "Skill/sfx_heinrich_hit_01_prf",
+    LodPaths = "Skill/sfx_heinrich_hit_01_prf,Skill/sfx_heinrich_hit_01_lod1_prf,Skill/sfx_heinrich_hit_01_lod1_prf"
+  },
+  [103782] = {
+    id = 103782,
+    Path = "Skill/sfx_heinrich_gqbb_hit_prf",
+    LodPaths = "Skill/sfx_heinrich_gqbb_hit_prf,Skill/sfx_heinrich_gqbb_hit_lod1_prf,Skill/sfx_heinrich_gqbb_hit_lod2_prf"
+  },
+  [103783] = {
+    id = 103783,
+    Path = "Skill/sfx_heinrich_gqbb_buff_prf",
+    LodPaths = "Skill/sfx_heinrich_gqbb_buff_prf,Skill/sfx_heinrich_gqbb_buff_lod1_prf,Skill/sfx_heinrich_gqbb_buff_lod2_prf"
+  },
+  [103784] = {
+    id = 103784,
+    Path = "Skill/sfx_heinrich_gqbb_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_gqbb_atk_prf,Skill/sfx_heinrich_gqbb_atk_lod1_prf,Skill/sfx_heinrich_gqbb_atk_lod2_prf"
+  },
+  [103785] = {
+    id = 103785,
+    Path = "Skill/sfx_heinrich_fl_atk_prf",
+    LodPaths = "Skill/sfx_heinrich_fl_atk_prf,Skill/sfx_heinrich_fl_atk_lod1_prf,Skill/sfx_heinrich_fl_atk_lod2_prf"
+  },
+  [103786] = {
+    id = 103786,
+    Path = "Skill/sfx_heinrich_dzy_buff04_prf",
+    LodPaths = "Skill/sfx_heinrich_dzy_buff04_prf,Skill/sfx_heinrich_dzy_buff04_lod1_prf,Skill/sfx_heinrich_dzy_buff04_lod2_prf"
+  },
+  [103787] = {
+    id = 103787,
+    Path = "Skill/sfx_heinrich_dzy_buff02_prf",
+    LodPaths = "Skill/sfx_heinrich_dzy_buff02_prf,Skill/sfx_heinrich_dzy_buff02_lod1_prf,Skill/sfx_heinrich_dzy_buff02_lod2_prf"
+  },
+  [103788] = {
+    id = 103788,
+    Path = "Skill/sfx_heinrich_dzy_buff01_prf",
+    LodPaths = "Skill/sfx_heinrich_dzy_buff01_prf,Skill/sfx_heinrich_dzy_buff01_lod1_prf,Skill/sfx_heinrich_dzy_buff01_lod2_prf"
+  },
+  [103789] = {
+    id = 103789,
+    Path = "Skill/sfx_heinrich_dzy_atk01_prf",
+    LodPaths = "Skill/sfx_heinrich_dzy_atk01_prf,Skill/sfx_heinrich_dzy_atk01_lod1_prf,Skill/sfx_heinrich_dzy_atk01_lod2_prf"
+  },
+  [103790] = {
+    id = 103790,
+    Path = "Skill/sfx_thor_dcdh_sing_prf",
+    LodPaths = "Skill/sfx_thor_dcdh_sing_prf,Skill/sfx_thor_dcdh_sing_lod1_prf,Skill/sfx_thor_dcdh_sing_lod2_prf"
+  },
+  [103791] = {
+    id = 103791,
+    Path = "Skill/sfx_thor_dcdh_bullet_prf",
+    LodPaths = "Skill/sfx_thor_dcdh_bullet_prf,Skill/sfx_thor_dcdh_bullet_lod1_prf,Skill/sfx_thor_dcdh_bullet_lod2_prf"
+  },
+  [103792] = {
+    id = 103792,
+    Path = "Skill/sfx_thor_cj_chui_bullet_prf",
+    LodPaths = "Skill/sfx_thor_cj_chui_bullet_prf,Skill/sfx_thor_cj_chui_bullet_lod1_prf,Skill/sfx_thor_cj_chui_bullet_lod2_prf"
+  },
+  [103793] = {
+    id = 103793,
+    Path = "Skill/sfx_thor_cj_bomb_buff_prf",
+    LodPaths = "Skill/sfx_thor_cj_bomb_buff_prf,Skill/sfx_thor_cj_bomb_buff_lod1_prf,Skill/sfx_thor_cj_bomb_buff_lod2_prf"
+  },
+  [103794] = {
+    id = 103794,
+    Path = "Skill/sfx_thor_bwddl_buff_01_prf",
+    LodPaths = "Skill/sfx_thor_bwddl_buff_01_prf,Skill/sfx_thor_bwddl_buff_01_lod1_prf,Skill/sfx_thor_bwddl_buff_01_lod1_prf"
+  },
+  [103795] = {
+    id = 103795,
+    Path = "Skill/sfx_thor_bwddl_buff_02_prf",
+    LodPaths = "Skill/sfx_thor_bwddl_buff_02_prf,Skill/sfx_thor_bwddl_buff_02_lod1_prf,Skill/sfx_thor_bwddl_buff_02_lod1_prf"
+  },
+  [103796] = {
+    id = 103796,
+    Path = "Skill/sfx_thor_bwddl_buff_03_prf",
+    LodPaths = "Skill/sfx_thor_bwddl_buff_03_prf,Skill/sfx_thor_bwddl_buff_03_lod1_prf,Skill/sfx_thor_bwddl_buff_03_lod2_prf"
+  },
+  [103797] = {
+    id = 103797,
+    Path = "Skill/sfx_thor_cj_body_bullet_prf",
+    LodPaths = "Skill/sfx_thor_cj_body_bullet_prf,Skill/sfx_thor_cj_body_bullet_lod1_prf,Skill/sfx_thor_cj_body_bullet_lod2_prf"
+  },
+  [103798] = {
+    id = 103798,
+    Path = "Skill/sfx_thor_dcdh_sing_prf",
+    LodPaths = "Skill/sfx_thor_dcdh_sing_prf,Skill/sfx_thor_dcdh_sing_lod1_prf,Skill/sfx_thor_dcdh_sing_lod2_prf"
+  },
+  [103799] = {
+    id = 103799,
+    Path = "Skill/sfx_thor_tszl_sing_prf",
+    LodPaths = "Skill/sfx_thor_tszl_sing_prf,Skill/sfx_thor_tszl_sing_lod1_prf,Skill/sfx_thor_tszl_sing_lod2_prf"
+  },
+  [103800] = {
+    id = 103800,
+    Path = "Skill/sfx_thor_zsyl_hit_prf",
+    LodPaths = "Skill/sfx_thor_zsyl_hit_prf,Skill/sfx_thor_zsyl_hit_lod1_prf,Skill/sfx_thor_zsyl_hit_lod2_prf"
+  },
+  [103801] = {
+    id = 103801,
+    Path = "Skill/sfx_thor_hit_01_prf",
+    LodPaths = "Skill/sfx_thor_hit_01_prf,Skill/sfx_thor_hit_01_lod1_prf,Skill/sfx_thor_hit_01_lod1_prf"
+  },
+  [103802] = {
+    id = 103802,
+    Path = "Skill/sfx_thor_cj_floor_prf",
+    LodPaths = "Skill/sfx_thor_cj_floor_prf,Skill/sfx_thor_cj_floor_lod1_prf,Skill/sfx_thor_cj_floor_lod2_prf"
+  },
+  [103803] = {
+    id = 103803,
+    Path = "Skill/sfx_thor_zsyl_atk_prf",
+    LodPaths = "Skill/sfx_thor_zsyl_atk_prf,Skill/sfx_thor_zsyl_atk_lod1_prf,Skill/sfx_thor_zsyl_atk_lod2_prf"
+  },
+  [103804] = {
+    id = 103804,
+    Path = "Skill/sfx_thor_dnhd_buff_02_prf",
+    LodPaths = "Skill/sfx_thor_dnhd_buff_02_prf,Skill/sfx_thor_dnhd_buff_02_lod1_prf,Skill/sfx_thor_dnhd_buff_02_lod1_prf"
+  },
+  [103805] = {
+    id = 103805,
+    Path = "Skill/sfx_thor_cj_floor_buff_prf",
+    LodPaths = "Skill/sfx_thor_cj_floor_buff_prf,Skill/sfx_thor_cj_floor_buff_lod1_prf,Skill/sfx_thor_cj_floor_buff_lod2_prf"
+  },
+  [103806] = {
+    id = 103806,
+    Path = "Skill/sfx_thor_zsyl_buff_prf",
+    LodPaths = "Skill/sfx_thor_zsyl_buff_prf,Skill/sfx_thor_zsyl_buff_prf,Skill/sfx_thor_zsyl_buff_prf"
+  },
+  [103807] = {
+    id = 103807,
+    Path = "Skill/sfx_thor_gm_sing_prf",
+    LodPaths = "Skill/sfx_thor_gm_sing_prf,Skill/sfx_thor_gm_sing_lod1_prf,Skill/sfx_thor_gm_sing_lod1_prf"
+  },
+  [103808] = {
+    id = 103808,
+    Path = "Skill/sfx_thor_dnhd_buff_01_prf",
+    LodPaths = "Skill/sfx_thor_dnhd_buff_01_prf,Skill/sfx_thor_dnhd_buff_01_lod1_prf,Skill/sfx_thor_dnhd_buff_01_lod2_prf"
+  },
+  [103809] = {
+    id = 103809,
+    Path = "Skill/sfx_thor_tszl_buff_01_prf",
+    LodPaths = "Skill/sfx_thor_tszl_buff_01_prf,Skill/sfx_thor_tszl_buff_01_lod1_prf,Skill/sfx_thor_tszl_buff_01_lod1_prf"
+  },
+  [103810] = {
+    id = 103810,
+    Path = "Skill/sfx_thor_jdyl_buff_prf",
+    LodPaths = "Skill/sfx_thor_jdyl_buff_prf,Skill/sfx_thor_jdyl_buff_lod1_prf,Skill/sfx_thor_jdyl_buff_lod1_prf"
+  },
+  [103811] = {
+    id = 103811,
+    Path = "Skill/sfx_thor_dnhd_atk_prf",
+    LodPaths = "Skill/sfx_thor_dnhd_atk_prf,Skill/sfx_thor_dnhd_atk_lod1_prf,Skill/sfx_thor_dnhd_atk_lod1_prf"
+  },
+  [103812] = {
+    id = 103812,
+    Path = "Skill/sfx_thor_jdyl_floor_prf",
+    LodPaths = "Skill/sfx_thor_jdyl_floor_prf,Skill/sfx_thor_jdyl_floor_lod1_prf,Skill/sfx_thor_jdyl_floor_lod2_prf"
+  },
+  [103813] = {
+    id = 103813,
+    Path = "Skill/sfx_thor_dcdh_bullet_prf",
+    LodPaths = "Skill/sfx_thor_dcdh_bullet_prf,Skill/sfx_thor_dcdh_bullet_lod1_prf,Skill/sfx_thor_dcdh_bullet_lod2_prf"
+  },
+  [103814] = {
+    id = 103814,
     Path = "Skill/sfx_thor_tszl_buff_02_prf",
     LodPaths = "Skill/sfx_thor_tszl_buff_02_prf,Skill/sfx_thor_tszl_buff_02_lod1_prf,Skill/sfx_thor_tszl_buff_02_lod1_prf"
   },
@@ -19638,6 +19818,446 @@ Table_EffectLodMap = {
     id = 104002,
     Path = "Skill/sfx_youxia_DS_BFBJ_Buff_start_prf",
     LodPaths = "Skill/sfx_youxia_DS_BFBJ_Buff_start_prf,Skill/sfx_youxia_DS_BFBJ_Buff_start_prf_lod1,Skill/sfx_youxia_DS_BFBJ_Buff_start_prf_lod2"
+  },
+  [104003] = {
+    id = 104003,
+    Path = "Skill/sfx_sunshine_Tyxt_Hit_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyxt_Hit_01_prf,Skill/sfx_sunshine_Tyxt_Hit_01_prf_lod1,Skill/sfx_sunshine_Tyxt_Hit_01_prf_lod2"
+  },
+  [104004] = {
+    id = 104004,
+    Path = "Skill/sfx_sunshine_Tyxt_release_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyxt_release_01_prf,Skill/sfx_sunshine_Tyxt_release_01_prf_lod1,Skill/sfx_sunshine_Tyxt_release_01_prf_lod2"
+  },
+  [104005] = {
+    id = 104005,
+    Path = "Skill/sfx_sunshine_clearday_buff_start_prf",
+    LodPaths = "Skill/sfx_sunshine_clearday_buff_start_prf,Skill/sfx_sunshine_clearday_buff_start_prf,Skill/sfx_sunshine_clearday_buff_start_prf"
+  },
+  [104006] = {
+    id = 104006,
+    Path = "Skill/sfx_sunshine_Ft_Buff_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Ft_Buff_01_prf,Skill/sfx_sunshine_Ft_Buff_01_prf_lod1,Skill/sfx_sunshine_Ft_Buff_01_prf_lod1"
+  },
+  [104007] = {
+    id = 104007,
+    Path = "Skill/sfx_sunshine_wndf_release_prf",
+    LodPaths = "Skill/sfx_sunshine_wndf_release_prf,Skill/sfx_sunshine_wndf_release_prf_lod1,Skill/sfx_sunshine_wndf_release_prf_lod1"
+  },
+  [104008] = {
+    id = 104008,
+    Path = "Skill/sfx_sunshine_Tyj_Hit_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyj_Hit_01_prf,Skill/sfx_sunshine_Tyj_Hit_01_prf_lod1,Skill/sfx_sunshine_Tyj_Hit_01_prf_lod2"
+  },
+  [104009] = {
+    id = 104009,
+    Path = "Skill/sfx_sunshine_clearday_buff_end_prf",
+    LodPaths = "Skill/sfx_sunshine_clearday_buff_end_prf,Skill/sfx_sunshine_clearday_buff_end_prf,Skill/sfx_sunshine_clearday_buff_end_prf"
+  },
+  [104010] = {
+    id = 104010,
+    Path = "Skill/sfx_sunshine_Tyj_Floor_02_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyj_Floor_02_prf,Skill/sfx_sunshine_Tyj_Floor_02_prf_lod1,Skill/sfx_sunshine_Tyj_Floor_02_prf_lod2"
+  },
+  [104011] = {
+    id = 104011,
+    Path = "Skill/sfx_sunshine_Rizhizi_buff_03_prf",
+    LodPaths = "Skill/sfx_sunshine_Rizhizi_buff_03_prf,Skill/sfx_sunshine_Rizhizi_buff_03_prf_lod1,Skill/sfx_sunshine_Rizhizi_buff_03_prf_lod1"
+  },
+  [104012] = {
+    id = 104012,
+    Path = "Skill/sfx_sunshine_Tyj_Floor_03_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyj_Floor_03_prf,Skill/sfx_sunshine_Tyj_Floor_03_prf_lod1,Skill/sfx_sunshine_Tyj_Floor_03_prf_lod2"
+  },
+  [104013] = {
+    id = 104013,
+    Path = "Skill/sfx_sunshine_Tyj_Floor_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyj_Floor_01_prf,Skill/sfx_sunshine_Tyj_Floor_01_prf_lod1,Skill/sfx_sunshine_Tyj_Floor_01_prf_lod2"
+  },
+  [104014] = {
+    id = 104014,
+    Path = "Skill/sfx_sunshine_Rizhizi_buff_04_prf",
+    LodPaths = "Skill/sfx_sunshine_Rizhizi_buff_04_prf,Skill/sfx_sunshine_Rizhizi_buff_04_prf_lod1,Skill/sfx_sunshine_Rizhizi_buff_04_prf_lod1"
+  },
+  [104015] = {
+    id = 104015,
+    Path = "Skill/sfx_sunshine_tydxy_release_prf",
+    LodPaths = "Skill/sfx_sunshine_tydxy_release_prf,Skill/sfx_sunshine_tydxy_release_prf_lod1,Skill/sfx_sunshine_tydxy_release_prf_lod1"
+  },
+  [104016] = {
+    id = 104016,
+    Path = "Skill/sfx_sunshine_Rizhizi_buff_05_prf",
+    LodPaths = "Skill/sfx_sunshine_Rizhizi_buff_05_prf,Skill/sfx_sunshine_Rizhizi_buff_05_prf_lod1,Skill/sfx_sunshine_Rizhizi_buff_05_prf_lod1"
+  },
+  [104017] = {
+    id = 104017,
+    Path = "Skill/sfx_sunshine_Tyxt_buff_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyxt_buff_01_prf,Skill/sfx_sunshine_Tyxt_buff_01_prf_lod1,Skill/sfx_sunshine_Tyxt_buff_01_prf_lod1"
+  },
+  [104018] = {
+    id = 104018,
+    Path = "Skill/sfx_sunshine_Rizhizi_buff_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Rizhizi_buff_01_prf,Skill/sfx_sunshine_Rizhizi_buff_01_prf_lod1,Skill/sfx_sunshine_Rizhizi_buff_01_prf_lod1"
+  },
+  [104019] = {
+    id = 104019,
+    Path = "Skill/sfx_sunshine_Tyxt_release_02_prf",
+    LodPaths = "Skill/sfx_sunshine_Tyxt_release_02_prf,Skill/sfx_sunshine_Tyxt_release_02_prf_lod1,Skill/sfx_sunshine_Tyxt_release_02_prf_lod2"
+  },
+  [104020] = {
+    id = 104020,
+    Path = "Skill/sfx_sunshine_xr_release_prf",
+    LodPaths = "Skill/sfx_sunshine_xr_release_prf,Skill/sfx_sunshine_xr_release_prf_lod1,Skill/sfx_sunshine_xr_release_prf_lod2"
+  },
+  [104021] = {
+    id = 104021,
+    Path = "Skill/sfx_sunshine_Rizhizi_buff_02_prf",
+    LodPaths = "Skill/sfx_sunshine_Rizhizi_buff_02_prf,Skill/sfx_sunshine_Rizhizi_buff_02_prf_lod1,Skill/sfx_sunshine_Rizhizi_buff_02_prf_lod1"
+  },
+  [104022] = {
+    id = 104022,
+    Path = "Skill/sfx_sunshine_wndf_hit_prf",
+    LodPaths = "Skill/sfx_sunshine_wndf_hit_prf,Skill/sfx_sunshine_wndf_hit_prf_lod1,Skill/sfx_sunshine_wndf_hit_prf_lod1"
+  },
+  [104023] = {
+    id = 104023,
+    Path = "Skill/sfx_sunshine_Ft_release_prf",
+    LodPaths = "Skill/sfx_sunshine_Ft_release_prf,Skill/sfx_sunshine_Ft_release_prf_lod1,Skill/sfx_sunshine_Ft_release_prf_lod2"
+  },
+  [104024] = {
+    id = 104024,
+    Path = "Skill/sfx_sunshine_Lhj_Bullet_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Lhj_Bullet_01_prf,Skill/sfx_sunshine_Lhj_Bullet_01_prf_lod1,Skill/sfx_sunshine_Lhj_Bullet_01_prf_lod1"
+  },
+  [104025] = {
+    id = 104025,
+    Path = "Skill/sfx_sunshine_Lhj_Hit_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Lhj_Hit_01_prf,Skill/sfx_sunshine_Lhj_Hit_01_prf_lod1,Skill/sfx_sunshine_Lhj_Hit_01_prf_lod2"
+  },
+  [104026] = {
+    id = 104026,
+    Path = "Skill/sfx_sunshine_Lhj_release_01_prf",
+    LodPaths = "Skill/sfx_sunshine_Lhj_release_01_prf,Skill/sfx_sunshine_Lhj_release_01_prf_lod1,Skill/sfx_sunshine_Lhj_release_01_prf_lod2"
+  },
+  [104027] = {
+    id = 104027,
+    Path = "Skill/sfx_wuseng_DS_WSXN_Buff_01_prf",
+    LodPaths = "Skill/sfx_wuseng_DS_WSXN_Buff_01_prf,Skill/sfx_wuseng_DS_WSXN_Buff_01_prf_lod1,Skill/sfx_wuseng_DS_WSXN_Buff_01_prf_lod2"
+  },
+  [104028] = {
+    id = 104028,
+    Path = "Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_01_prf",
+    LodPaths = "Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_01_prf,Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_01_prf_lod1,Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_01_prf_lod1"
+  },
+  [104029] = {
+    id = 104029,
+    Path = "Skill/sfx_shiwu_DS_HDLY_Buff_prf",
+    LodPaths = "Skill/sfx_shiwu_DS_HDLY_Buff_prf,Skill/sfx_shiwu_DS_HDLY_Buff_prf_lod1,Skill/sfx_shiwu_DS_HDLY_Buff_prf_lod2"
+  },
+  [104030] = {
+    id = 104030,
+    Path = "Skill/sfx_shiwu_DS_HDLY_Buff01_prf",
+    LodPaths = "Skill/sfx_shiwu_DS_HDLY_Buff01_prf,Skill/sfx_shiwu_DS_HDLY_Buff01_prf_lod1,Skill/sfx_shiwu_DS_HDLY_Buff01_prf_lod2"
+  },
+  [104031] = {
+    id = 104031,
+    Path = "Skill/sfx_wuseng_DS_WSXN_Buff_02_prf",
+    LodPaths = "Skill/sfx_wuseng_DS_WSXN_Buff_02_prf,Skill/sfx_wuseng_DS_WSXN_Buff_02_prf_lod1,Skill/sfx_wuseng_DS_WSXN_Buff_02_prf_lod2"
+  },
+  [104032] = {
+    id = 104032,
+    Path = "Skill/sfx_mushi_DS_QMFB_Floor_prf",
+    LodPaths = "Skill/sfx_mushi_DS_QMFB_Floor_prf,Skill/sfx_mushi_DS_QMFB_Floor_prf_lod1,Skill/sfx_mushi_DS_QMFB_Floor_prf_lod2"
+  },
+  [104033] = {
+    id = 104033,
+    Path = "Skill/sfx_mushi_DS_QMFB_Floor_01_prf",
+    LodPaths = "Skill/sfx_mushi_DS_QMFB_Floor_01_prf,Skill/sfx_mushi_DS_QMFB_Floor_01_prf_lod1,Skill/sfx_mushi_DS_QMFB_Floor_01_prf_lod2"
+  },
+  [104034] = {
+    id = 104034,
+    Path = "Skill/sfx_liumang_DS_SYFC_Floor_prf",
+    LodPaths = "Skill/sfx_liumang_DS_SYFC_Floor_prf,Skill/sfx_liumang_DS_SYFC_Floor_prf_lod1,Skill/sfx_liumang_DS_SYFC_Floor_prf_lod2"
+  },
+  [104035] = {
+    id = 104035,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_prf_lod2"
+  },
+  [104036] = {
+    id = 104036,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_R2_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_R2_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_R2_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_03_R2_prf_lod2"
+  },
+  [104037] = {
+    id = 104037,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_R2_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_R2_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_R2_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_R2_prf_lod2"
+  },
+  [104038] = {
+    id = 104038,
+    Path = "Skill/sfx_liumang_DS_SYFC_Atk_prf",
+    LodPaths = "Skill/sfx_liumang_DS_SYFC_Atk_prf,Skill/sfx_liumang_DS_SYFC_Atk_prf_lod1,Skill/sfx_liumang_DS_SYFC_Atk_prf_lod2"
+  },
+  [104039] = {
+    id = 104039,
+    Path = "Skill/sfx_fashi_DS_YHMS_Atk_prf",
+    LodPaths = "Skill/sfx_fashi_DS_YHMS_Atk_prf,Skill/sfx_fashi_DS_YHMS_Atk_prf_lod1,Skill/sfx_fashi_DS_YHMS_Atk_prf_lod2"
+  },
+  [104040] = {
+    id = 104040,
+    Path = "Skill/sfx_fuwenqishi_DS_TLGH_Floor_01_prf",
+    LodPaths = "Skill/sfx_fuwenqishi_DS_TLGH_Floor_01_prf,Skill/sfx_fuwenqishi_DS_TLGH_Floor_01_prf,Skill/sfx_fuwenqishi_DS_TLGH_Floor_01_prf"
+  },
+  [104041] = {
+    id = 104041,
+    Path = "Skill/sfx_youxia_DS_SMXJ_Floor_prf",
+    LodPaths = "Skill/sfx_youxia_DS_SMXJ_Floor_prf,Skill/sfx_youxia_DS_SMXJ_Floor_prf_lod1,Skill/sfx_youxia_DS_SMXJ_Floor_prf_lod2"
+  },
+  [104042] = {
+    id = 104042,
+    Path = "Skill/sfx_xianzhe_DS_DYZZ_Atk_prf",
+    LodPaths = "Skill/sfx_xianzhe_DS_DYZZ_Atk_prf,Skill/sfx_xianzhe_DS_DYZZ_Atk_prf_lod1,Skill/sfx_xianzhe_DS_DYZZ_Atk_prf_lod2"
+  },
+  [104043] = {
+    id = 104043,
+    Path = "Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_02_prf",
+    LodPaths = "Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_02_prf,Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_02_prf_lod1,Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_02_prf_lod1"
+  },
+  [104044] = {
+    id = 104044,
+    Path = "Skill/sfx_xianzhe_DS_DYZZ_Floor_prf",
+    LodPaths = "Skill/sfx_xianzhe_DS_DYZZ_Floor_prf,Skill/sfx_xianzhe_DS_DYZZ_Floor_prf_lod1,Skill/sfx_xianzhe_DS_DYZZ_Floor_prf_lod2"
+  },
+  [104045] = {
+    id = 104045,
+    Path = "Skill/sfx_xianzhe_DS_DYZZ_Buff_prf",
+    LodPaths = "Skill/sfx_xianzhe_DS_DYZZ_Buff_prf,Skill/sfx_xianzhe_DS_DYZZ_Buff_prf_lod1,Skill/sfx_xianzhe_DS_DYZZ_Buff_prf_lod2"
+  },
+  [104046] = {
+    id = 104046,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_prf"
+  },
+  [104047] = {
+    id = 104047,
+    Path = "Skill/sfx_fashi_DS_YHMS_Floor_03_prf",
+    LodPaths = "Skill/sfx_fashi_DS_YHMS_Floor_03_prf,Skill/sfx_fashi_DS_YHMS_Floor_03_prf_lod1,Skill/sfx_fashi_DS_YHMS_Floor_03_prf_lod2"
+  },
+  [104048] = {
+    id = 104048,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_prf_lod2"
+  },
+  [104049] = {
+    id = 104049,
+    Path = "Skill/sfx_fashi_DS_YHMS_Floor_01_prf",
+    LodPaths = "Skill/sfx_fashi_DS_YHMS_Floor_01_prf,Skill/sfx_fashi_DS_YHMS_Floor_01_prf_lod1,Skill/sfx_fashi_DS_YHMS_Floor_01_prf_lod2"
+  },
+  [104050] = {
+    id = 104050,
+    Path = "Skill/sfx_youxia_DS_SMXJ_Atk_prf",
+    LodPaths = "Skill/sfx_youxia_DS_SMXJ_Atk_prf,Skill/sfx_youxia_DS_SMXJ_Atk_prf_lod1,Skill/sfx_youxia_DS_SMXJ_Atk_prf_lod2"
+  },
+  [104051] = {
+    id = 104051,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_R2_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_R2_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_R2_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_04_R2_prf_lod2"
+  },
+  [104052] = {
+    id = 104052,
+    Path = "Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_03_prf",
+    LodPaths = "Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_03_prf,Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_03_prf_lod1,Skill/sfx_wuseng_DS_WSXN_AXLBHQ_Atk_03_prf_lod2"
+  },
+  [104053] = {
+    id = 104053,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Atk_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Atk_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Atk_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Atk_prf_lod1"
+  },
+  [104054] = {
+    id = 104054,
+    Path = "Skill/sfx_fashi_DS_YHMS_Bullet_prf",
+    LodPaths = "Skill/sfx_fashi_DS_YHMS_Bullet_prf,Skill/sfx_fashi_DS_YHMS_Bullet_prf_lod1,Skill/sfx_fashi_DS_YHMS_Bullet_prf_lod2"
+  },
+  [104055] = {
+    id = 104055,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_R2_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_R2_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_R2_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_02_R2_prf_lod2"
+  },
+  [104056] = {
+    id = 104056,
+    Path = "Skill/sfx_shizijun_DS_ZJXS_Floor_prf",
+    LodPaths = "Skill/sfx_shizijun_DS_ZJXS_Floor_prf,Skill/sfx_shizijun_DS_ZJXS_Floor_prf_lod1,Skill/sfx_shizijun_DS_ZJXS_Floor_prf_lod2"
+  },
+  [104057] = {
+    id = 104057,
+    Path = "Skill/sfx_jijjiang_DS_SLLS_Bullet_prf",
+    LodPaths = "Skill/sfx_jijjiang_DS_SLLS_Bullet_prf,Skill/sfx_jijjiang_DS_SLLS_Bullet_prf_lod1,Skill/sfx_jijjiang_DS_SLLS_Bullet_prf_lod1"
+  },
+  [104058] = {
+    id = 104058,
+    Path = "Skill/sfx_jijjiang_DS_SLLS_Atk_prf",
+    LodPaths = "Skill/sfx_jijjiang_DS_SLLS_Atk_prf,Skill/sfx_jijjiang_DS_SLLS_Atk_prf_lod1,Skill/sfx_jijjiang_DS_SLLS_Atk_prf_lod2"
+  },
+  [104059] = {
+    id = 104059,
+    Path = "Skill/sfx_mushi_DS_QMFB_Atk_prf",
+    LodPaths = "Skill/sfx_mushi_DS_QMFB_Atk_prf,Skill/sfx_mushi_DS_QMFB_Atk_prf_lod1,Skill/sfx_mushi_DS_QMFB_Atk_prf_lod2"
+  },
+  [104060] = {
+    id = 104060,
+    Path = "Skill/sfx_shiwu_DS_HDLY_Atk_prf",
+    LodPaths = "Skill/sfx_shiwu_DS_HDLY_Atk_prf,Skill/sfx_shiwu_DS_HDLY_Atk_prf_lod1,Skill/sfx_shiwu_DS_HDLY_Atk_prf_lod2"
+  },
+  [104061] = {
+    id = 104061,
+    Path = "Skill/sfx_xianzhe_DS_DYZZ_Hit_prf",
+    LodPaths = "Skill/sfx_xianzhe_DS_DYZZ_Hit_prf,Skill/sfx_xianzhe_DS_DYZZ_Hit_prf_lod1,Skill/sfx_xianzhe_DS_DYZZ_Hit_prf_lod2"
+  },
+  [104062] = {
+    id = 104062,
+    Path = "Skill/sfx_cike_DS_SLZJ_Atk_prf",
+    LodPaths = "Skill/sfx_cike_DS_SLZJ_Atk_prf,Skill/sfx_cike_DS_SLZJ_Atk_prf_lod1,Skill/sfx_cike_DS_SLZJ_Atk_prf_lod2"
+  },
+  [104063] = {
+    id = 104063,
+    Path = "Skill/sfx_wuseng_DS_WSXN_Buff_03_prf",
+    LodPaths = "Skill/sfx_wuseng_DS_WSXN_Buff_03_prf,Skill/sfx_wuseng_DS_WSXN_Buff_03_prf_lod1,Skill/sfx_wuseng_DS_WSXN_Buff_03_prf_lod2"
+  },
+  [104064] = {
+    id = 104064,
+    Path = "Skill/sfx_xianzhe_DS_DYZZ_Atk_01_prf",
+    LodPaths = "Skill/sfx_xianzhe_DS_DYZZ_Atk_01_prf,Skill/sfx_xianzhe_DS_DYZZ_Atk_01_prf_lod1,Skill/sfx_xianzhe_DS_DYZZ_Atk_01_prf_lod2"
+  },
+  [104065] = {
+    id = 104065,
+    Path = "Skill/sfx_fuwenqishi_DS_TLGH_Floor_prf",
+    LodPaths = "Skill/sfx_fuwenqishi_DS_TLGH_Floor_prf,Skill/sfx_fuwenqishi_DS_TLGH_Floor_prf_lod1,Skill/sfx_fuwenqishi_DS_TLGH_Floor_prf_lod2"
+  },
+  [104066] = {
+    id = 104066,
+    Path = "Skill/sfx_fashi_DS_YHMS_Floor_02_prf",
+    LodPaths = "Skill/sfx_fashi_DS_YHMS_Floor_02_prf,Skill/sfx_fashi_DS_YHMS_Floor_02_prf_lod1,Skill/sfx_fashi_DS_YHMS_Floor_02_prf_lod2"
+  },
+  [104067] = {
+    id = 104067,
+    Path = "Skill/sfx_liumang_DS_SYFC_Floor_01_prf",
+    LodPaths = "Skill/sfx_liumang_DS_SYFC_Floor_01_prf,Skill/sfx_liumang_DS_SYFC_Floor_01_prf_lod1,Skill/sfx_liumang_DS_SYFC_Floor_01_prf_lod2"
+  },
+  [104068] = {
+    id = 104068,
+    Path = "Skill/sfx_wuseng_DS_WSXN_Atk_prf",
+    LodPaths = "Skill/sfx_wuseng_DS_WSXN_Atk_prf,Skill/sfx_wuseng_DS_WSXN_Atk_prf_lod1,Skill/sfx_wuseng_DS_WSXN_Atk_prf_lod2"
+  },
+  [104069] = {
+    id = 104069,
+    Path = "Skill/sfx_fuwenqishi_DS_TLGH_Buff_prf",
+    LodPaths = "Skill/sfx_fuwenqishi_DS_TLGH_Buff_prf,Skill/sfx_fuwenqishi_DS_TLGH_Buff_prf_lod1,Skill/sfx_fuwenqishi_DS_TLGH_Buff_prf_lod2"
+  },
+  [104070] = {
+    id = 104070,
+    Path = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_prf",
+    LodPaths = "Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_prf,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_prf_lod1,Skill/sfx_jiyinxuezhe_DS_QSJD_Floor_01_prf_lod2"
+  },
+  [104071] = {
+    id = 104071,
+    Path = "Skill/sfx_noone_001_JMSYS_Floor_03_prf",
+    LodPaths = "Skill/sfx_noone_001_JMSYS_Floor_03_prf,Skill/sfx_noone_001_JMSYS_Floor_03_lod1_prf,Skill/sfx_noone_001_JMSYS_Floor_03_lod2_prf"
+  },
+  [104072] = {
+    id = 104072,
+    Path = "Skill/sfx_noone_001_CSZB_Buff_01_prf",
+    LodPaths = "Skill/sfx_noone_001_CSZB_Buff_01_prf,Skill/sfx_noone_001_CSZB_Buff_01_lod1_prf,Skill/sfx_noone_001_CSZB_Buff_01_lod1_prf"
+  },
+  [104073] = {
+    id = 104073,
+    Path = "Skill/sfx_noone_001_HT_Atk_01_prf",
+    LodPaths = "Skill/sfx_noone_001_HT_Atk_01_prf,Skill/sfx_noone_001_HT_Atk_01_lod1_prf,Skill/sfx_noone_001_HT_Atk_01_lod2_prf"
+  },
+  [104074] = {
+    id = 104074,
+    Path = "Skill/sfx_noone_001_JMSYS_Floor_prf",
+    LodPaths = "Skill/sfx_noone_001_JMSYS_Floor_prf,Skill/sfx_noone_001_JMSYS_Floor_lod1_prf,Skill/sfx_noone_001_JMSYS_Floor_lod1_prf"
+  },
+  [104075] = {
+    id = 104075,
+    Path = "Skill/sfx_noone_001_JMSYS_Floor_04_prf",
+    LodPaths = "Skill/sfx_noone_001_JMSYS_Floor_04_prf,Skill/sfx_noone_001_JMSYS_Floor_04_lod1_prf,Skill/sfx_noone_001_JMSYS_Floor_04_lod2_prf"
+  },
+  [104076] = {
+    id = 104076,
+    Path = "Skill/sfx_noone_001_JMSYS_Atk_prf",
+    LodPaths = "Skill/sfx_noone_001_JMSYS_Atk_prf,Skill/sfx_noone_001_JMSYS_Atk_lod1_prf,Skill/sfx_noone_001_JMSYS_Atk_lod2_prf"
+  },
+  [104077] = {
+    id = 104077,
+    Path = "Skill/sfx_noone_001_HSZY_Buff_prf",
+    LodPaths = "Skill/sfx_noone_001_HSZY_Buff_prf,Skill/sfx_noone_001_HSZY_Buff_lod1_prf,Skill/sfx_noone_001_HSZY_Buff_lod2_prf"
+  },
+  [104078] = {
+    id = 104078,
+    Path = "Skill/sfx_noone_001_HT_Atk_02_prf",
+    LodPaths = "Skill/sfx_noone_001_HT_Atk_02_prf,Skill/sfx_noone_001_HT_Atk_02_lod1_prf,Skill/sfx_noone_001_HT_Atk_02_lod2_prf"
+  },
+  [104079] = {
+    id = 104079,
+    Path = "Skill/sfx_noone_001_QZZY_Buff_prf",
+    LodPaths = "Skill/sfx_noone_001_QZZY_Buff_prf,Skill/sfx_noone_001_QZZY_Buff_lod1_prf,Skill/sfx_noone_001_QZZY_Buff_lod1_prf"
+  },
+  [104080] = {
+    id = 104080,
+    Path = "Skill/sfx_noone_001_CSZB_Buff_prf",
+    LodPaths = "Skill/sfx_noone_001_CSZB_Buff_prf,Skill/sfx_noone_001_CSZB_Buff_lod1_prf,Skill/sfx_noone_001_CSZB_Buff_lod1_prf"
+  },
+  [104081] = {
+    id = 104081,
+    Path = "Skill/sfx_noone_001_JMSYS_Floor_02_prf",
+    LodPaths = "Skill/sfx_noone_001_JMSYS_Floor_02_prf,Skill/sfx_noone_001_JMSYS_Floor_02_lod1_prf,Skill/sfx_noone_001_JMSYS_Floor_02_lod2_prf"
+  },
+  [104082] = {
+    id = 104082,
+    Path = "Skill/sfx_noone_001_MDZS_Buff_01_prf",
+    LodPaths = "Skill/sfx_noone_001_MDZS_Buff_01_prf,Skill/sfx_noone_001_MDZS_Buff_01_lod1_prf,Skill/sfx_noone_001_MDZS_Buff_01_lod1_prf"
+  },
+  [104083] = {
+    id = 104083,
+    Path = "Skill/sfx_noone_001_MDZS_Atk_prf",
+    LodPaths = "Skill/sfx_noone_001_MDZS_Atk_prf,Skill/sfx_noone_001_MDZS_Atk_lod1_prf,Skill/sfx_noone_001_MDZS_Atk_lod2_prf"
+  },
+  [104084] = {
+    id = 104084,
+    Path = "Skill/sfx_noone_001_MDZS_Buff_02_prf",
+    LodPaths = "Skill/sfx_noone_001_MDZS_Buff_02_prf,Skill/sfx_noone_001_MDZS_Buff_02_lod1_prf,Skill/sfx_noone_001_MDZS_Buff_02_lod1_prf"
+  },
+  [104085] = {
+    id = 104085,
+    Path = "Skill/sfx_noone_001_MDZS_Buff_03_prf",
+    LodPaths = "Skill/sfx_noone_001_MDZS_Buff_03_prf,Skill/sfx_noone_001_MDZS_Buff_03_lod1_prf,Skill/sfx_noone_001_MDZS_Buff_03_lod2_prf"
+  },
+  [104086] = {
+    id = 104086,
+    Path = "Skill/sfx_noone_001_JMSYS_Floor_01_prf",
+    LodPaths = "Skill/sfx_noone_001_JMSYS_Floor_01_prf,Skill/sfx_noone_001_JMSYS_Floor_01_lod1_prf,Skill/sfx_noone_001_JMSYS_Floor_01_lod2_prf"
+  },
+  [104087] = {
+    id = 104087,
+    Path = "Skill/sfx_noone_001_GYCC_Atk_prf",
+    LodPaths = "Skill/sfx_noone_001_GYCC_Atk_prf,Skill/sfx_noone_001_GYCC_Atk_lod1_prf,Skill/sfx_noone_001_GYCC_Atk_lod2_prf"
+  },
+  [104088] = {
+    id = 104088,
+    Path = "Skill/sfx_noone_001_HSZY_Buff01_prf",
+    LodPaths = "Skill/sfx_noone_001_HSZY_Buff01_prf,Skill/sfx_noone_001_HSZY_Buff01_lod1_prf,Skill/sfx_noone_001_HSZY_Buff01_lod1_prf"
+  },
+  [104089] = {
+    id = 104089,
+    Path = "Skill/sfx_noone_001_CSZB_Atk_prf",
+    LodPaths = "Skill/sfx_noone_001_CSZB_Atk_prf,Skill/sfx_noone_001_CSZB_Atk_lod1_prf,Skill/sfx_noone_001_CSZB_Atk_lod1_prf"
+  },
+  [104090] = {
+    id = 104090,
+    Path = "Skill/sfx_noone_001_LXLW_Buff_prf",
+    LodPaths = "Skill/sfx_noone_001_LXLW_Buff_prf,Skill/sfx_noone_001_LXLW_Buff_lod1_prf,Skill/sfx_noone_001_LXLW_Buff_lod2_prf"
   }
 }
 Table_EffectLodMap_fields = {

@@ -785,7 +785,9 @@ Table_ScreenFilter = {
       11,
       13,
       14,
-      16
+      16,
+      19,
+      20
     },
     Name = "##780983"
   },
@@ -814,7 +816,9 @@ Table_ScreenFilter = {
       11,
       13,
       14,
-      16
+      16,
+      19,
+      20
     },
     Name = "##780982"
   },
@@ -973,7 +977,7 @@ Table_ScreenFilter = {
       19,
       20
     },
-    Name = "##3454992"
+    Name = "##1164440"
   },
   [55] = {
     id = 55,
@@ -989,6 +993,34 @@ Table_ScreenFilter = {
       5,
       6,
       8,
+      11,
+      13,
+      16,
+      19,
+      20
+    },
+    Name = "##42636022"
+  },
+  [56] = {
+    id = 56,
+    Group = 56,
+    Classifys = _EmptyTable,
+    Targets = {
+      1,
+      2,
+      3,
+      4
+    },
+    Range = {5},
+    ParamCond = _EmptyTable,
+    Content = {
+      1,
+      2,
+      3,
+      5,
+      6,
+      8,
+      9,
       11,
       13,
       16,

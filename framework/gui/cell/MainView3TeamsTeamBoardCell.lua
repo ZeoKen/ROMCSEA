@@ -56,7 +56,7 @@ function MainView3TeamsTeamBoardCell:UpdateTeamMembers()
   local datas = {}
   local users = self.data.users
   for i = 1, #users do
-    local user = NSceneUserProxy.Instance:Find(users[i])
+    local user = SceneCreatureProxy.FindCreature(users[i])
     if user then
       datas[#datas + 1] = user
     end

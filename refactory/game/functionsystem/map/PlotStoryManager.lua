@@ -28,6 +28,7 @@ function PlotStoryManager:ctor()
   self.forceQueue = {}
   self.multiPlayingPQTL = {}
   self.branchPendingPlots = {}
+  self.cameraPlotStyle = false
   PlotStoryProcessRecorder.new()
 end
 
@@ -188,9 +189,6 @@ function PlotStoryManager:ShutDownProgress(plotProgress)
       helplog("ShutDownProgress keep", plotProgress.plotid)
     end
     Game.AssetManager_Role:SetForceLoadAll(false)
-  end
-  if not isFreePlot then
-    FunctionSceneFilter.Me():EndFilter(56)
   end
 end
 
@@ -453,14 +451,17 @@ end
 
 function PlotStoryManager:PS_SetCameraPlotStyle(on)
   on = on or false
-  if self.cameraPlotStyle ~= nil and self.cameraPlotStyle == on then
+  if self.cameraPlotStyle == on then
     return
   end
   self.cameraPlotStyle = on
   if on then
-    self.ori_camDefaultState = CameraController.singletonInstance.camDefaultState
+    local camera = CameraController.Instance or CameraController.singletonInstance
+    if camera then
+      self.ori_camDefaultState = camera.camDefaultState
+    end
   end
-  if self.ori_camDefaultState ~= 0 then
+  if self.ori_camDefaultState and self.ori_camDefaultState ~= 0 then
     CameraPointManager.Instance.PlotValid = on
   end
   self:SetCameraPlotStyle(on, true)
@@ -773,9 +774,6 @@ function PlotStoryManager:Launch_SEQ_PQTLP(pqtl_name)
     table.insert(self.freePlotList, pstlp)
   else
     table.insert(self.plotList, pstlp)
-  end
-  if not isFreePlot then
-    FunctionSceneFilter.Me():StartFilter(56)
   end
   if self.running then
     pstlp:Launch()

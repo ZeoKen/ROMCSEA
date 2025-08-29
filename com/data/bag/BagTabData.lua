@@ -155,6 +155,13 @@ function BagTabData.sortFunc(left, right)
   if left.staticData.Type ~= right.staticData.Type then
     return left.staticData.Type < right.staticData.Type
   end
+  if left:IsCard() and right:IsCard() then
+    local cardLvl = left.cardLv or 0
+    local cardLvr = right.cardLv or 0
+    if cardLvl ~= cardLvr then
+      return cardLvl > cardLvr
+    end
+  end
   if left.staticData.Quality ~= right.staticData.Quality then
     return left.staticData.Quality > right.staticData.Quality
   end

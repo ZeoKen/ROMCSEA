@@ -219,8 +219,10 @@ end
 function DownloadConfirmView:RightBtnClick()
   if self.rightBtnLabel.text == ZhString.DownloadUI_RetrieveRewardRebot then
     MsgManager.ConfirmMsgByID(1028, function()
-      self:RewardBtnClick()
-      FunctionNetError.Me():ErrorBackToLogo()
+      TimeTickManager.Me():CreateTick(3000, 1000, function()
+        FunctionNetError.Me():ErrorBackToLogo()
+      end, self, 1)
+      self:RewardBtnClick(true)
     end, function()
     end)
   else
@@ -233,13 +235,15 @@ function DownloadConfirmView:SendGetRewards()
   ServiceSceneUser3Proxy.Instance:CallGetResourceRewardCmd()
 end
 
-function DownloadConfirmView:RewardBtnClick()
+function DownloadConfirmView:RewardBtnClick(noclose)
   if self.rewardBtnLabel.text == ZhString.DownloadUI_RetrieveReward then
     self:SendGetRewards()
     self.loginData.resourceReward = true
     self:ChangeToDoneRewardUI()
   end
-  self:CloseSelf()
+  if not noclose then
+    self:CloseSelf()
+  end
 end
 
 function DownloadConfirmView:CloseSelf()
@@ -271,6 +275,7 @@ function DownloadConfirmView:InitListener()
 end
 
 function DownloadConfirmView:OnExit()
+  TimeTickManager.Me():ClearTick(self)
   self.rewardList:ResetDatas({})
   DownloadConfirmView.super.OnExit(self)
   UIManagerProxy.Instance:NeedEnableAndroidKey(true, UIManagerProxy.GetDefaultNeedEnableAndroidKeyCallback())

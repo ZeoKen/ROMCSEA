@@ -406,6 +406,15 @@ function ServiceChatCmdAutoProxy:CallQueryItemData(guid, data)
       end
       msg.data.base.tmp.num_param = data.base.tmp.num_param
     end
+    if data.base.tmp ~= nil and data.base.tmp.from_reward ~= nil then
+      if msg.data.base == nil then
+        msg.data.base = {}
+      end
+      if msg.data.base.tmp == nil then
+        msg.data.base.tmp = {}
+      end
+      msg.data.base.tmp.from_reward = data.base.tmp.from_reward
+    end
     if data.base ~= nil and data.base.mount_fashion_activated ~= nil then
       if msg.data == nil then
         msg.data = {}
@@ -423,6 +432,15 @@ function ServiceChatCmdAutoProxy:CallQueryItemData(guid, data)
         msg.data.base = {}
       end
       msg.data.base.no_trade_reason = data.base.no_trade_reason
+    end
+    if data.base.card_info ~= nil and data.base.card_info.lv ~= nil then
+      if msg.data.base == nil then
+        msg.data.base = {}
+      end
+      if msg.data.base.card_info == nil then
+        msg.data.base.card_info = {}
+      end
+      msg.data.base.card_info.lv = data.base.card_info.lv
     end
     if data ~= nil and data.equiped ~= nil then
       if msg == nil then
@@ -1873,6 +1891,15 @@ function ServiceChatCmdAutoProxy:CallQueryItemData(guid, data)
         table.insert(msg.data.memory.effects, data.memory.effects[i])
       end
     end
+    if data ~= nil and data.deletetime ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.data == nil then
+        msg.data = {}
+      end
+      msg.data.deletetime = data.deletetime
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.QueryItemData.id
@@ -2179,6 +2206,15 @@ function ServiceChatCmdAutoProxy:CallQueryItemData(guid, data)
       end
       msgParam.data.base.tmp.num_param = data.base.tmp.num_param
     end
+    if data.base.tmp ~= nil and data.base.tmp.from_reward ~= nil then
+      if msgParam.data.base == nil then
+        msgParam.data.base = {}
+      end
+      if msgParam.data.base.tmp == nil then
+        msgParam.data.base.tmp = {}
+      end
+      msgParam.data.base.tmp.from_reward = data.base.tmp.from_reward
+    end
     if data.base ~= nil and data.base.mount_fashion_activated ~= nil then
       if msgParam.data == nil then
         msgParam.data = {}
@@ -2196,6 +2232,15 @@ function ServiceChatCmdAutoProxy:CallQueryItemData(guid, data)
         msgParam.data.base = {}
       end
       msgParam.data.base.no_trade_reason = data.base.no_trade_reason
+    end
+    if data.base.card_info ~= nil and data.base.card_info.lv ~= nil then
+      if msgParam.data.base == nil then
+        msgParam.data.base = {}
+      end
+      if msgParam.data.base.card_info == nil then
+        msgParam.data.base.card_info = {}
+      end
+      msgParam.data.base.card_info.lv = data.base.card_info.lv
     end
     if data ~= nil and data.equiped ~= nil then
       if msgParam == nil then
@@ -3645,6 +3690,15 @@ function ServiceChatCmdAutoProxy:CallQueryItemData(guid, data)
       for i = 1, #data.memory.effects do
         table.insert(msgParam.data.memory.effects, data.memory.effects[i])
       end
+    end
+    if data ~= nil and data.deletetime ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.data == nil then
+        msgParam.data = {}
+      end
+      msgParam.data.deletetime = data.deletetime
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -5986,6 +6040,17 @@ function ServiceChatCmdAutoProxy:CallQueryUserShowInfoCmd(targetid, info)
       end
       msg.info.mercenary.mercenary_name = info.mercenary.mercenary_name
     end
+    if info ~= nil and info.memory_pos ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.memory_pos == nil then
+        msg.info.memory_pos = {}
+      end
+      for i = 1, #info.memory_pos do
+        table.insert(msg.info.memory_pos, info.memory_pos[i])
+      end
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.QueryUserShowInfoCmd.id
@@ -6186,6 +6251,17 @@ function ServiceChatCmdAutoProxy:CallQueryUserShowInfoCmd(targetid, info)
         msgParam.info.mercenary = {}
       end
       msgParam.info.mercenary.mercenary_name = info.mercenary.mercenary_name
+    end
+    if info ~= nil and info.memory_pos ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.memory_pos == nil then
+        msgParam.info.memory_pos = {}
+      end
+      for i = 1, #info.memory_pos do
+        table.insert(msgParam.info.memory_pos, info.memory_pos[i])
+      end
     end
     self:SendProto2(msgId, msgParam)
   end

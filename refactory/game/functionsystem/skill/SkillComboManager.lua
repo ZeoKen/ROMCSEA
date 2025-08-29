@@ -235,7 +235,6 @@ function SkillComboManager:RecvTriggerKickSkillSkillCmd(skillid)
   else
     self.kickSkillID = skillid
   end
-  redlog("RecvTriggerKickSkillSkillCmd replaceid", self.kickSkillID)
 end
 
 function SkillComboManager:GetTriggerKickSkillID()

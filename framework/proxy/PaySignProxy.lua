@@ -34,7 +34,13 @@ end
 function PaySignProxy:GetActTime(id)
   local gAct = self.globalActMap[id]
   if gAct then
-    return ServantCalendarProxy.GetTimeDate(gAct.starttime, gAct.endtime, ZhString.PaySignRewardView_ReceiveTime)
+    local st = gAct.starttime
+    local et = gAct.endtime
+    local startMonth = os.date("%m", st)
+    local startDay = os.date("%d", st)
+    local endMonth = os.date("%m", et)
+    local endDay = os.date("%d", et)
+    return string.format(ZhString.PaySignRewardView_ReceiveTime, startMonth, startDay, endMonth, endDay)
   end
 end
 

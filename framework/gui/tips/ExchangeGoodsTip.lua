@@ -47,7 +47,6 @@ function ExchangeGoodsTip:FindObj()
   matLab.text = ZhString.ExchangeShop_MatLab
   rewardLab.text = ZhString.ExchangeShop_RewardLab
   self.targetNumLab = self:FindComponent("TargetNumLab", UILabel)
-  self.contributionNumLab = self:FindComponent("ContributionNumLab", UILabel)
   self.exchangeRewardIcon = self:FindComponent("ExchangeTarget", UISprite)
   self.nameLab = self:FindComponent("Name", UILabel)
   self.limitedLab = self:FindComponent("LimitedLab", UILabel)
@@ -118,10 +117,16 @@ function ExchangeGoodsTip:SetData(data)
     self.contributionPos:SetActive(false)
     goods = ExchangeShopProxy.Instance.goodsMap[self.id]
     if goods and 0 < #goods then
-      local worth_cfg = ExchangeShopProxy.Instance.goodsWorth[goods[1].staticData.id].Worth
-      rewardId = worth_cfg and worth_cfg[1] or 162
+      local worth = ExchangeShopProxy.Instance:GetShopGoodsWorth(self.id, goods[1].staticData.id)
+      rewardId = worth and worth[1] or 162
     end
     self.nameLab.text = Table_Item[rewardId].NameZh
+    self.shopItemData = HappyShopProxy.Instance:GetShopItemDataByTypeId(self.id)
+    local canBuyCount, limitType = self:GetLimitedNum()
+    if canBuyCount then
+      self:Show(self.limitedLab)
+      self.limitedLab.text = HappyShopProxy.Instance:GetTodayCanBuyCountStr(self.shopItemData)
+    end
   else
     self.id = data.goodsId
     self.nameLab.text = data.staticData.Name
@@ -136,7 +141,7 @@ function ExchangeGoodsTip:SetData(data)
   if rewardId then
     IconManager:SetItemIcon(Table_Item[rewardId].Icon, self.exchangeRewardIcon)
   end
-  self:UpdateExchange(ExchangeShopProxy.Instance:GetChooseNum())
+  self:UpdateExchange()
   if not goods then
     return
   end
@@ -145,15 +150,15 @@ function ExchangeGoodsTip:SetData(data)
   self.itemWrapHelper:ResetDatas(goods)
 end
 
-function ExchangeGoodsTip:UpdateExchange(goodsNum, rewardNum, extraNum)
+function ExchangeGoodsTip:UpdateExchange()
+  local rewardNum = ExchangeShopProxy.Instance:GetChooseNum(self.id)
   self.targetNumLab.text = FORMAT(ZhString.ExchangeShop_RewardNum, rewardNum)
-  self.contributionNumLab.text = FORMAT(ZhString.ExchangeShop_RewardNum, extraNum)
 end
 
 function ExchangeGoodsTip:UpdateGoods(chooseid)
   TableUtility.ArrayClear(self.lackItems)
   local chooseitems = ExchangeShopProxy.Instance:_getChooseItem()
-  self:UpdateExchange(ExchangeShopProxy.Instance:GetChooseNum())
+  self:UpdateExchange()
   for i = 1, #chooseitems do
     local lackNum = chooseitems[i].num - ExchangeShopProxy.GetOwnCount(chooseitems[i].id)
     if 0 < lackNum then
@@ -212,11 +217,11 @@ function ExchangeGoodsTip:OnClickCell(cellCtl)
     MsgManager.ShowMsgByID(3554, name)
     return
   end
-  local worth_cfg = ExchangeShopProxy.Instance.goodsWorth[data.staticData.id].Worth
+  local worth_cfg = ExchangeShopProxy.Instance:GetShopGoodsWorth(self.id, data.staticData.id)
+  local chooseNum = ExchangeShopProxy.Instance:GetChooseNum(self.id)
   if not self.isNormal then
     local worthNum = worth_cfg and worth_cfg[2] or 1
     local progressLimit = self.data.staticData.ExchangeLimit
-    local _, chooseNum = ExchangeShopProxy.Instance:GetChooseNum()
     if nil == progressLimit or #progressLimit <= 0 then
       redlog("Table_ExchangeShop ExchangeLimit 字段未配置")
     end
@@ -225,14 +230,26 @@ function ExchangeGoodsTip:OnClickCell(cellCtl)
       MsgManager.ShowMsgByID(2710)
       return
     end
+  else
+    local canBuyCount, limitType = self:GetLimitedNum()
+    if canBuyCount then
+      if canBuyCount <= 0 then
+        MsgManager.ShowMsgByID(2710)
+        return
+      end
+      if canBuyCount <= ExchangeShopProxy.Instance:GetChooseCount() then
+        MsgManager.ShowMsgByID(2710)
+        return
+      end
+    end
   end
   ExchangeShopProxy.Instance:AddChooseItems(data.staticData.id, self.isNormal)
   self:UpdateGoods(data.staticData.id)
 end
 
 function ExchangeGoodsTip:GetLimitedNum()
-  if self.isNormal then
-    return
+  if self.isNormal and self.shopItemData then
+    return HappyShopProxy.Instance:GetCanBuyCount(self.shopItemData)
   end
   local exchangeType = self.data.staticData.ExchangeType
   local needLimit = exchangeType == ExchangeShopProxy.EnchangeType.PROGRESS or exchangeType == ExchangeShopProxy.EnchangeType.Limited_PROGRESS or exchangeType == ExchangeShopProxy.EnchangeType.MEDAL_PROGRESS

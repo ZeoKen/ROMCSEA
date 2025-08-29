@@ -228,6 +228,12 @@ function ServiceMatchCCmdAutoProxy:onRegister()
   self:Listen(61, 72, function(data)
     self:RecvTriplePvpRewardStatusCmd(data)
   end)
+  self:Listen(61, 73, function(data)
+    self:RecvChampionPvpPickRewardCmd(data)
+  end)
+  self:Listen(61, 74, function(data)
+    self:RecvChampionPvpRewardStatusCmd(data)
+  end)
 end
 
 function ServiceMatchCCmdAutoProxy:CallReqMyRoomMatchCCmd(type, brief_info)
@@ -605,7 +611,7 @@ function ServiceMatchCCmdAutoProxy:CallReqRoomDetailCCmd(type, roomid, datail_in
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallJoinRoomCCmd(type, roomid, name, isquick, teamid, teammember, ret, guildid, users, matcher, charid, zoneid, serverid, teamexptype, only_myserver, entranceid)
+function ServiceMatchCCmdAutoProxy:CallJoinRoomCCmd(type, roomid, name, isquick, teamid, teammember, ret, guildid, users, matcher, charid, zoneid, serverid, teamexptype, only_myserver, entranceid, need_robot_npc, need_heal_profession)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.JoinRoomCCmd()
     if type ~= nil then
@@ -744,6 +750,12 @@ function ServiceMatchCCmdAutoProxy:CallJoinRoomCCmd(type, roomid, name, isquick,
     end
     if entranceid ~= nil then
       msg.entranceid = entranceid
+    end
+    if need_robot_npc ~= nil then
+      msg.need_robot_npc = need_robot_npc
+    end
+    if need_heal_profession ~= nil then
+      msg.need_heal_profession = need_heal_profession
     end
     self:SendProto(msg)
   else
@@ -885,6 +897,12 @@ function ServiceMatchCCmdAutoProxy:CallJoinRoomCCmd(type, roomid, name, isquick,
     end
     if entranceid ~= nil then
       msgParam.entranceid = entranceid
+    end
+    if need_robot_npc ~= nil then
+      msgParam.need_robot_npc = need_robot_npc
+    end
+    if need_heal_profession ~= nil then
+      msgParam.need_heal_profession = need_heal_profession
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -1935,7 +1953,7 @@ function ServiceMatchCCmdAutoProxy:CallUpdatePreInfoMatchCCmd(charid, etype, rai
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsRankMatchCCmd(rankinfo)
+function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsRankMatchCCmd(rankinfo, lastrankinfo)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.QueryTeamPwsRankMatchCCmd()
     if rankinfo ~= nil then
@@ -1947,6 +1965,17 @@ function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsRankMatchCCmd(rankinfo)
       end
       for i = 1, #rankinfo do
         table.insert(msg.rankinfo, rankinfo[i])
+      end
+    end
+    if lastrankinfo ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.lastrankinfo == nil then
+        msg.lastrankinfo = {}
+      end
+      for i = 1, #lastrankinfo do
+        table.insert(msg.lastrankinfo, lastrankinfo[i])
       end
     end
     self:SendProto(msg)
@@ -1964,11 +1993,22 @@ function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsRankMatchCCmd(rankinfo)
         table.insert(msgParam.rankinfo, rankinfo[i])
       end
     end
+    if lastrankinfo ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.lastrankinfo == nil then
+        msgParam.lastrankinfo = {}
+      end
+      for i = 1, #lastrankinfo do
+        table.insert(msgParam.lastrankinfo, lastrankinfo[i])
+      end
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsTeamInfoMatchCCmd(userinfos, myrank, season, count, opentime, season_begin, season_breakbegin, season_breakend)
+function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsTeamInfoMatchCCmd(userinfos, myrank, season, count, opentime, season_begin, season_breakbegin, season_breakend, forbid_profession)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.QueryTeamPwsTeamInfoMatchCCmd()
     if userinfos ~= nil then
@@ -2002,6 +2042,17 @@ function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsTeamInfoMatchCCmd(userinfos, 
     end
     if season_breakend ~= nil then
       msg.season_breakend = season_breakend
+    end
+    if forbid_profession ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.forbid_profession == nil then
+        msg.forbid_profession = {}
+      end
+      for i = 1, #forbid_profession do
+        table.insert(msg.forbid_profession, forbid_profession[i])
+      end
     end
     self:SendProto(msg)
   else
@@ -2038,6 +2089,17 @@ function ServiceMatchCCmdAutoProxy:CallQueryTeamPwsTeamInfoMatchCCmd(userinfos, 
     end
     if season_breakend ~= nil then
       msgParam.season_breakend = season_breakend
+    end
+    if forbid_profession ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.forbid_profession == nil then
+        msgParam.forbid_profession = {}
+      end
+      for i = 1, #forbid_profession do
+        table.insert(msgParam.forbid_profession, forbid_profession[i])
+      end
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -2190,7 +2252,7 @@ function ServiceMatchCCmdAutoProxy:CallTwelvePvpUpdatePreInfoMatchCCmd(camp, cha
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandQueryMatchCCmd(season, guid, memberinfo, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandQueryMatchCCmd(season, guid, memberinfo, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandQueryMatchCCmd()
     if season ~= nil then
@@ -2212,6 +2274,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandQueryMatchCCmd(season, guid,
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2237,11 +2302,14 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandQueryMatchCCmd(season, guid,
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandSortMatchCCmd(sortinfo, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandSortMatchCCmd(sortinfo, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandSortMatchCCmd()
     if sortinfo ~= nil then
@@ -2257,6 +2325,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandSortMatchCCmd(sortinfo, etyp
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2276,11 +2347,14 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandSortMatchCCmd(sortinfo, etyp
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTreeMatchCCmd(teaminfo, championteaminfo, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTreeMatchCCmd(teaminfo, championteaminfo, etype, preteaminfo, stage, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandTreeMatchCCmd()
     if teaminfo ~= nil then
@@ -2307,6 +2381,23 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTreeMatchCCmd(teaminfo, cham
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if preteaminfo ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.preteaminfo == nil then
+        msg.preteaminfo = {}
+      end
+      for i = 1, #preteaminfo do
+        table.insert(msg.preteaminfo, preteaminfo[i])
+      end
+    end
+    if stage ~= nil then
+      msg.stage = stage
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2336,6 +2427,23 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTreeMatchCCmd(teaminfo, cham
     end
     if etype ~= nil then
       msgParam.etype = etype
+    end
+    if preteaminfo ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.preteaminfo == nil then
+        msgParam.preteaminfo = {}
+      end
+      for i = 1, #preteaminfo do
+        table.insert(msgParam.preteaminfo, preteaminfo[i])
+      end
+    end
+    if stage ~= nil then
+      msgParam.stage = stage
+    end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -2426,7 +2534,7 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInfoMatchCCmd(guid, warbandn
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviterMatchCCmd(charid, warbandname, capitalname, zoneid, level, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviterMatchCCmd(charid, warbandname, capitalname, zoneid, level, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandInviterMatchCCmd()
     if charid ~= nil then
@@ -2446,6 +2554,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviterMatchCCmd(charid, war
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2469,11 +2580,14 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviterMatchCCmd(charid, war
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviteeMatchCCmd(accept, name, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviteeMatchCCmd(accept, name, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandInviteeMatchCCmd()
     if accept ~= nil then
@@ -2484,6 +2598,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviteeMatchCCmd(accept, nam
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2498,11 +2615,14 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandInviteeMatchCCmd(accept, nam
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandPrepareMatchCCmd(prepare, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandPrepareMatchCCmd(prepare, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandPrepareMatchCCmd()
     if prepare ~= nil then
@@ -2510,6 +2630,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandPrepareMatchCCmd(prepare, et
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2521,15 +2644,21 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandPrepareMatchCCmd(prepare, et
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandLeaveMatchCCmd(etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandLeaveMatchCCmd(etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandLeaveMatchCCmd()
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2538,11 +2667,14 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandLeaveMatchCCmd(etype)
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandDeleteMatchCCmd(charid, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandDeleteMatchCCmd(charid, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandDeleteMatchCCmd()
     if charid ~= nil then
@@ -2550,6 +2682,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandDeleteMatchCCmd(charid, etyp
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2561,11 +2696,14 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandDeleteMatchCCmd(charid, etyp
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandNameMatchCCmd(name, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandNameMatchCCmd(name, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandNameMatchCCmd()
     if name ~= nil then
@@ -2573,6 +2711,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandNameMatchCCmd(name, etype)
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2584,15 +2725,24 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandNameMatchCCmd(name, etype)
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandSignUpMatchCCmd(etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandSignUpMatchCCmd(etype, cancel, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandSignUpMatchCCmd()
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cancel ~= nil then
+      msg.cancel = cancel
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2600,6 +2750,12 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandSignUpMatchCCmd(etype)
     local msgParam = {}
     if etype ~= nil then
       msgParam.etype = etype
+    end
+    if cancel ~= nil then
+      msgParam.cancel = cancel
+    end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -2628,7 +2784,7 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandMatchMatchCCmd(type, roomid)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTeamListMatchCCmd(teaminfo, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTeamListMatchCCmd(teaminfo, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandTeamListMatchCCmd()
     if teaminfo ~= nil then
@@ -2644,6 +2800,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTeamListMatchCCmd(teaminfo, 
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2663,11 +2822,14 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandTeamListMatchCCmd(teaminfo, 
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallTwelveWarbandCreateMatchCCmd(warbandname, etype)
+function ServiceMatchCCmdAutoProxy:CallTwelveWarbandCreateMatchCCmd(warbandname, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.TwelveWarbandCreateMatchCCmd()
     if warbandname ~= nil then
@@ -2675,6 +2837,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandCreateMatchCCmd(warbandname,
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2685,6 +2850,9 @@ function ServiceMatchCCmdAutoProxy:CallTwelveWarbandCreateMatchCCmd(warbandname,
     end
     if etype ~= nil then
       msgParam.etype = etype
+    end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -2725,7 +2893,7 @@ function ServiceMatchCCmdAutoProxy:CallSyncMatchInfoCCmd(etype, ismatch, coldtim
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallQueryTwelveSeasonInfoMatchCCmd(etype, season, season_begin, season_end, season_breakbegin, season_breakend, warband_createbegin, warband_createend, warband_signupbegin, season_initfighttime, season_nextfighttime, season_matchtime, season_fighttime, forbid_profession)
+function ServiceMatchCCmdAutoProxy:CallQueryTwelveSeasonInfoMatchCCmd(etype, season, season_begin, season_end, season_breakbegin, season_breakend, warband_createbegin, warband_createend, warband_signupbegin, season_initfighttime, season_nextfighttime, season_matchtime, season_fighttime, forbid_profession, cross_server_champion, season_initprefighttime, season_nextprefighttime)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.QueryTwelveSeasonInfoMatchCCmd()
     if etype ~= nil then
@@ -2777,6 +2945,15 @@ function ServiceMatchCCmdAutoProxy:CallQueryTwelveSeasonInfoMatchCCmd(etype, sea
       for i = 1, #forbid_profession do
         table.insert(msg.forbid_profession, forbid_profession[i])
       end
+    end
+    if cross_server_champion ~= nil then
+      msg.cross_server_champion = cross_server_champion
+    end
+    if season_initprefighttime ~= nil then
+      msg.season_initprefighttime = season_initprefighttime
+    end
+    if season_nextprefighttime ~= nil then
+      msg.season_nextprefighttime = season_nextprefighttime
     end
     self:SendProto(msg)
   else
@@ -2832,15 +3009,27 @@ function ServiceMatchCCmdAutoProxy:CallQueryTwelveSeasonInfoMatchCCmd(etype, sea
         table.insert(msgParam.forbid_profession, forbid_profession[i])
       end
     end
+    if cross_server_champion ~= nil then
+      msgParam.cross_server_champion = cross_server_champion
+    end
+    if season_initprefighttime ~= nil then
+      msgParam.season_initprefighttime = season_initprefighttime
+    end
+    if season_nextprefighttime ~= nil then
+      msgParam.season_nextprefighttime = season_nextprefighttime
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallQueryTwelveSeasonFinishMatchCCmd(etype)
+function ServiceMatchCCmdAutoProxy:CallQueryTwelveSeasonFinishMatchCCmd(etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.QueryTwelveSeasonFinishMatchCCmd()
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2849,11 +3038,14 @@ function ServiceMatchCCmdAutoProxy:CallQueryTwelveSeasonFinishMatchCCmd(etype)
     if etype ~= nil then
       msgParam.etype = etype
     end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallSyncMatchBoardOpenStateMatchCCmd(open, etype)
+function ServiceMatchCCmdAutoProxy:CallSyncMatchBoardOpenStateMatchCCmd(open, etype, cross_server)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.SyncMatchBoardOpenStateMatchCCmd()
     if open ~= nil then
@@ -2861,6 +3053,9 @@ function ServiceMatchCCmdAutoProxy:CallSyncMatchBoardOpenStateMatchCCmd(open, et
     end
     if etype ~= nil then
       msg.etype = etype
+    end
+    if cross_server ~= nil then
+      msg.cross_server = cross_server
     end
     self:SendProto(msg)
   else
@@ -2871,6 +3066,9 @@ function ServiceMatchCCmdAutoProxy:CallSyncMatchBoardOpenStateMatchCCmd(open, et
     end
     if etype ~= nil then
       msgParam.etype = etype
+    end
+    if cross_server ~= nil then
+      msgParam.cross_server = cross_server
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -4081,6 +4279,17 @@ function ServiceMatchCCmdAutoProxy:CallDesertWolfStatQueryCmd(stats, is_end, win
       end
       msg.mvp_info.mercenary.mercenary_name = mvp_info.mercenary.mercenary_name
     end
+    if mvp_info ~= nil and mvp_info.memory_pos ~= nil then
+      if msg.mvp_info == nil then
+        msg.mvp_info = {}
+      end
+      if msg.mvp_info.memory_pos == nil then
+        msg.mvp_info.memory_pos = {}
+      end
+      for i = 1, #mvp_info.memory_pos do
+        table.insert(msg.mvp_info.memory_pos, mvp_info.memory_pos[i])
+      end
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.DesertWolfStatQueryCmd.id
@@ -4296,6 +4505,17 @@ function ServiceMatchCCmdAutoProxy:CallDesertWolfStatQueryCmd(stats, is_end, win
       end
       msgParam.mvp_info.mercenary.mercenary_name = mvp_info.mercenary.mercenary_name
     end
+    if mvp_info ~= nil and mvp_info.memory_pos ~= nil then
+      if msgParam.mvp_info == nil then
+        msgParam.mvp_info = {}
+      end
+      if msgParam.mvp_info.memory_pos == nil then
+        msgParam.mvp_info.memory_pos = {}
+      end
+      for i = 1, #mvp_info.memory_pos do
+        table.insert(msgParam.mvp_info.memory_pos, mvp_info.memory_pos[i])
+      end
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
@@ -4335,7 +4555,7 @@ function ServiceMatchCCmdAutoProxy:CallDesertWolfRuleSyncCmd(full_fire, ban_pers
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsRankMatchCCmd(rankinfo, limitscore, bestrank, isfinish)
+function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsRankMatchCCmd(rankinfo, limitscore, bestrank, isfinish, lastrankinfo)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.QueryTriplePwsRankMatchCCmd()
     if rankinfo ~= nil then
@@ -4357,6 +4577,17 @@ function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsRankMatchCCmd(rankinfo, lim
     end
     if isfinish ~= nil then
       msg.isfinish = isfinish
+    end
+    if lastrankinfo ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.lastrankinfo == nil then
+        msg.lastrankinfo = {}
+      end
+      for i = 1, #lastrankinfo do
+        table.insert(msg.lastrankinfo, lastrankinfo[i])
+      end
     end
     self:SendProto(msg)
   else
@@ -4382,11 +4613,22 @@ function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsRankMatchCCmd(rankinfo, lim
     if isfinish ~= nil then
       msgParam.isfinish = isfinish
     end
+    if lastrankinfo ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.lastrankinfo == nil then
+        msgParam.lastrankinfo = {}
+      end
+      for i = 1, #lastrankinfo do
+        table.insert(msgParam.lastrankinfo, lastrankinfo[i])
+      end
+    end
     self:SendProto2(msgId, msgParam)
   end
 end
 
-function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsTeamInfoMatchCCmd(userinfos, forbid_profession, open)
+function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsTeamInfoMatchCCmd(userinfos, forbid_profession, open, season, count, opentime, season_begin, season_breakbegin, season_breakend)
   if not NetConfig.PBC then
     local msg = MatchCCmd_pb.QueryTriplePwsTeamInfoMatchCCmd()
     if userinfos ~= nil then
@@ -4413,6 +4655,24 @@ function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsTeamInfoMatchCCmd(userinfos
     end
     if open ~= nil then
       msg.open = open
+    end
+    if season ~= nil then
+      msg.season = season
+    end
+    if count ~= nil then
+      msg.count = count
+    end
+    if opentime ~= nil then
+      msg.opentime = opentime
+    end
+    if season_begin ~= nil then
+      msg.season_begin = season_begin
+    end
+    if season_breakbegin ~= nil then
+      msg.season_breakbegin = season_breakbegin
+    end
+    if season_breakend ~= nil then
+      msg.season_breakend = season_breakend
     end
     self:SendProto(msg)
   else
@@ -4442,6 +4702,24 @@ function ServiceMatchCCmdAutoProxy:CallQueryTriplePwsTeamInfoMatchCCmd(userinfos
     end
     if open ~= nil then
       msgParam.open = open
+    end
+    if season ~= nil then
+      msgParam.season = season
+    end
+    if count ~= nil then
+      msgParam.count = count
+    end
+    if opentime ~= nil then
+      msgParam.opentime = opentime
+    end
+    if season_begin ~= nil then
+      msgParam.season_begin = season_begin
+    end
+    if season_breakbegin ~= nil then
+      msgParam.season_breakbegin = season_breakbegin
+    end
+    if season_breakend ~= nil then
+      msgParam.season_breakend = season_breakend
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -4544,6 +4822,56 @@ function ServiceMatchCCmdAutoProxy:CallTriplePvpRewardStatusCmd(goal_reward_stat
     end
     if rank_reward_status ~= nil then
       msgParam.rank_reward_status = rank_reward_status
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMatchCCmdAutoProxy:CallChampionPvpPickRewardCmd(etype)
+  if not NetConfig.PBC then
+    local msg = MatchCCmd_pb.ChampionPvpPickRewardCmd()
+    if etype ~= nil then
+      msg.etype = etype
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.ChampionPvpPickRewardCmd.id
+    local msgParam = {}
+    if etype ~= nil then
+      msgParam.etype = etype
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMatchCCmdAutoProxy:CallChampionPvpRewardStatusCmd(rewards)
+  if not NetConfig.PBC then
+    local msg = MatchCCmd_pb.ChampionPvpRewardStatusCmd()
+    if rewards ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.rewards == nil then
+        msg.rewards = {}
+      end
+      for i = 1, #rewards do
+        table.insert(msg.rewards, rewards[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.ChampionPvpRewardStatusCmd.id
+    local msgParam = {}
+    if rewards ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.rewards == nil then
+        msgParam.rewards = {}
+      end
+      for i = 1, #rewards do
+        table.insert(msgParam.rewards, rewards[i])
+      end
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -4833,6 +5161,14 @@ function ServiceMatchCCmdAutoProxy:RecvTriplePvpRewardStatusCmd(data)
   self:Notify(ServiceEvent.MatchCCmdTriplePvpRewardStatusCmd, data)
 end
 
+function ServiceMatchCCmdAutoProxy:RecvChampionPvpPickRewardCmd(data)
+  self:Notify(ServiceEvent.MatchCCmdChampionPvpPickRewardCmd, data)
+end
+
+function ServiceMatchCCmdAutoProxy:RecvChampionPvpRewardStatusCmd(data)
+  self:Notify(ServiceEvent.MatchCCmdChampionPvpRewardStatusCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.MatchCCmdReqMyRoomMatchCCmd = "ServiceEvent_MatchCCmdReqMyRoomMatchCCmd"
 ServiceEvent.MatchCCmdReqRoomListCCmd = "ServiceEvent_MatchCCmdReqRoomListCCmd"
@@ -4905,3 +5241,5 @@ ServiceEvent.MatchCCmdTriplePvpQuestQueryCmd = "ServiceEvent_MatchCCmdTriplePvpQ
 ServiceEvent.MatchCCmdSyncMatchHeadInfoMatchCCmd = "ServiceEvent_MatchCCmdSyncMatchHeadInfoMatchCCmd"
 ServiceEvent.MatchCCmdTriplePvpPickRewardCmd = "ServiceEvent_MatchCCmdTriplePvpPickRewardCmd"
 ServiceEvent.MatchCCmdTriplePvpRewardStatusCmd = "ServiceEvent_MatchCCmdTriplePvpRewardStatusCmd"
+ServiceEvent.MatchCCmdChampionPvpPickRewardCmd = "ServiceEvent_MatchCCmdChampionPvpPickRewardCmd"
+ServiceEvent.MatchCCmdChampionPvpRewardStatusCmd = "ServiceEvent_MatchCCmdChampionPvpRewardStatusCmd"

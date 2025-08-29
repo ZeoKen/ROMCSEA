@@ -178,7 +178,7 @@ function NMyselfPlayer:Client_EnterARegion(force)
           end
           self.ltTick = TimeTickManager.Me():CreateOnceDelayTick(11000, function()
             self.ltTick = nil
-            self:Client_EnterARegion()
+            self:Client_EnterARegion(true)
           end, self, 111)
         end
       end
@@ -465,19 +465,36 @@ function NMyselfPlayer:Client_UseSkill(skillID, targetCreature, targetPosition, 
   local isNormalSkill = self.data:GetAttackSkillIDAndLevel() == skillID
   local concurrent = skillInfo:AllowConcurrent(self) and (skillInfo:IsGuideCast(self) or skillInfo:GetCastInfo(self) <= 0.01)
   local ignoreHit = skillInfo:IsHeavyHit()
-  if targetCreature and isNormalSkill and targetCreature.data:GetNpcID() == GvgProxy.MetalID then
-    if self.data:InGvgZone() == false then
-      if not GuildProxy.Instance:GetGuildID() then
-        MsgManager.ShowMsgByIDTable(2666)
-      else
-        MsgManager.ShowMsgByIDTable(2667)
+  if targetCreature and isNormalSkill and Game.MapManager:IsPVPMode_GVGDetailed() then
+    local monster_id = targetCreature.data:GetNpcID()
+    if monster_id ~= 0 then
+      local gvg_mvp_id = GvgProxy.Instance:GetCurMvpId()
+      local isGvg_metal = monster_id == GvgProxy.MetalID
+      local isGvg_mvp = monster_id == gvg_mvp_id
+      if isGvg_metal or isGvg_mvp then
+        if not self.data:InGvgZone() then
+          local msg_id = GuildProxy.Instance:GetGuildID() and 2667 or 2666
+          MsgManager.ShowMsgByIDTable(msg_id)
+          return false
+        end
+        if isGvg_metal and GvgProxy.Instance:IsMvpAlive() then
+          MsgManager.ShowMsgByID(2690)
+          return false
+        end
+        if targetCreature.data:GetBuffActive(950) then
+          if isGvg_metal then
+            local str = GvgProxy.Instance:GetAllProtectMetalStr() or ""
+            MsgManager.ShowMsgByIDTable(2668, {str})
+          end
+          return false
+        end
+        if targetCreature.data:GetBuffActive(952) and isGvg_mvp then
+          MsgManager.ShowMsgByID(2686)
+          return false
+        end
+      elseif GvgProxy.Instance:IsDefSide() then
+        return
       end
-      return false
-    end
-    if targetCreature.data:GetBuffActive(950) then
-      local str = GvgProxy.Instance:GetAllProtectMetalStr() or ""
-      MsgManager.ShowMsgByIDTable(2668, {str})
-      return false
     end
   end
   self.ai:PushCommand(FactoryAICMD.Me_GetSkillCmd(skillID, targetCreature, targetPosition, nil, forceTargetCreature, allowResearch, noLimit, ignoreCast, isNormalSkill, autoInterrupt, concurrent, ignoreHit, nil, manual, autolock), self)

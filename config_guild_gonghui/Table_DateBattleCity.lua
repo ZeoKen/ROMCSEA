@@ -1,7 +1,7 @@
 Table_DateBattleCity = {
   [10001] = {
     id = 10001,
-    Name = "##42533187",
+    Name = "##42631226",
     MapId = 2,
     Text = "##42534687",
     TelePort = {2, 6},
@@ -85,18 +85,93 @@ Table_DateBattleCity = {
   },
   [20001] = {
     id = 20001,
-    Name = "##42533189",
-    MapId = 42,
-    Text = "##42534687",
-    TelePort = {42, 8},
+    Name = "##42631227",
+    MapId = 2,
+    Text = "##42631228",
+    TelePort = {2, 6},
     RaidId = 9101,
     LobbyRaidID = 9100,
     Point = {
       [1] = {
         pos = {
-          65.7,
-          -1,
-          52.5
+          65.46,
+          -0.9,
+          52.17
+        },
+        range = 7,
+        calc_ratio = 8,
+        protect_metal = 1
+      }
+    },
+    CityType = 3,
+    Icon = "tab_icon_castle_c",
+    IconColor = "98B8FFFF",
+    Mode = 2
+  },
+  [30001] = {
+    id = 30001,
+    Name = "##42631229",
+    MapId = 33,
+    Text = "##42631228",
+    TelePort = {33, 6},
+    RaidId = 9131,
+    LobbyRaidID = 9130,
+    Point = {
+      [1] = {
+        pos = {
+          33.5,
+          0.24,
+          22.5
+        },
+        range = 7,
+        calc_ratio = 8,
+        protect_metal = 1
+      }
+    },
+    CityType = 3,
+    Icon = "tab_icon_castle_c",
+    IconColor = "CEA6E8FF",
+    Mode = 3
+  },
+  [40001] = {
+    id = 40001,
+    Name = "##42631231",
+    MapId = 19,
+    Text = "##42631228",
+    TelePort = {19, 7},
+    RaidId = 9133,
+    LobbyRaidID = 9132,
+    Point = {
+      [1] = {
+        pos = {
+          82.71,
+          2.85,
+          59.71
+        },
+        range = 7,
+        calc_ratio = 8,
+        protect_metal = 1
+      }
+    },
+    CityType = 3,
+    Icon = "tab_icon_castle_c",
+    IconColor = "92D97AFF",
+    Mode = 4
+  },
+  [50001] = {
+    id = 50001,
+    Name = "##42631233",
+    MapId = 42,
+    Text = "##42631228",
+    TelePort = {42, 8},
+    RaidId = 9135,
+    LobbyRaidID = 9134,
+    Point = {
+      [1] = {
+        pos = {
+          135.1,
+          0,
+          -36.15
         },
         range = 7,
         calc_ratio = 8,
@@ -106,7 +181,7 @@ Table_DateBattleCity = {
     CityType = 3,
     Icon = "tab_icon_castle_c",
     IconColor = "EFBA6EFF",
-    Mode = 2
+    Mode = 5
   }
 }
 Table_DateBattleCity_fields = {

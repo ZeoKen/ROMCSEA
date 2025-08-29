@@ -24,17 +24,28 @@ function ArtifactDistributeCell:FindObj()
   self.btnName = self:FindComponent("btnLab", UILabel)
   local targetCellGO = self:FindGO("TargetCell")
   self.targetCell = ItemCell.new(targetCellGO)
+  self.checkBtn = self:FindGO("CheckBtn"):GetComponent(UIToggle)
+  self:AddClickEvent(targetCellGO, function()
+    xdlog("点击")
+    self:ShowArtifactTip()
+  end)
+  self:AddClickEvent(self.checkBtn.gameObject, function()
+    self:PassEvent(MouseEvent.MouseClick, self)
+  end)
 end
 
 function ArtifactDistributeCell:AddEvts()
   self:AddButtonEvent("btn", function()
-    self:PassEvent(MouseEvent.MouseClick, self)
+    self.selected = not self.selected
+    self:UpdateFuncBtn()
   end)
 end
 
 function ArtifactDistributeCell:SetData(data)
   self.data = data
   if data then
+    self.selected = false
+    self.checkBtn.value = false
     self.Phase = 0
     self.gameObject:SetActive(true)
     self:ClearTick()
@@ -50,27 +61,25 @@ function ArtifactDistributeCell:SetData(data)
       self.itemdata = ItemData.new(guid, id)
     end
     self.targetCell:SetData(self.itemdata)
-    if unUsing then
-      self.phase.text = ZhString.ArtifactMake_UnUsing
-      self.btn.spriteName = btnPhase.UnUsing
-      self.btnName.effectColor = btnPhase.UnUsingLab
-      self.btnName.text = ZhString.ArtifactMake_Dist
-      self.phase.color = btnPhase.UnUsingPhase
-    elseif retrieving then
-      self.phase.text = ZhString.ArtifactMake_Using
-      self.btn.spriteName = btnPhase.Retrieve
-      self.btnName.effectColor = btnPhase.RetrieveLab
-      self.btnName.text = ZhString.ArtifactMake_Retrieve
-      self.phase.color = btnPhase.RetrievePhase
-    else
-      self.timeTick = TimeTickManager.Me():CreateTick(0, 1000, self._refreshTime, self)
-      self.btn.spriteName = btnPhase.RetrieveCancle
-      self.btnName.effectColor = btnPhase.RetrieveCancleLab
-      self.btnName.text = ZhString.ArtifactMake_CancleRetrieve
-      self.phase.color = btnPhase.RetrieveCanclePhase
-    end
+    self:UpdateFuncBtn(data)
   else
     self.gameObject:SetActive(false)
+  end
+end
+
+function ArtifactDistributeCell:UpdateFuncBtn(data)
+  local data = data or self.data
+  if data then
+    local id = data.itemID
+    self.name.text = data.itemStaticData.NameZh
+    local unUsing = data.ownerID == 0
+    if unUsing then
+      self.phase.text = ZhString.ArtifactMake_UnUsing
+      self.phase.color = btnPhase.UnUsingPhase
+    else
+      self.phase.text = ZhString.ArtifactMake_Using
+      self.phase.color = btnPhase.RetrievePhase
+    end
   end
 end
 
@@ -84,6 +93,13 @@ function ArtifactDistributeCell:_refreshTime()
   local day, hour, min, sec = ClientTimeUtil.FormatTimeBySec(leftTime)
   local lab = string.format("%02d:%02d:%02d", hour, min, sec)
   self.phase.text = string.format(ZhString.ArtifactMake_LeftTime, lab)
+end
+
+function ArtifactDistributeCell:ShowArtifactTip()
+  local tipData = {}
+  tipData.funcConfig = {}
+  tipData.itemdata = self.itemdata
+  self:ShowItemTip(tipData, self.targetCell.icon, NGUIUtil.AnchorSide.Right, {200, 0})
 end
 
 function ArtifactDistributeCell:ClearTick()

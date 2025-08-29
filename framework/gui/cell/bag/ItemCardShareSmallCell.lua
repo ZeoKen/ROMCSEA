@@ -61,15 +61,16 @@ function ItemCardShareSmallCell:SetData(data)
     if self.numLab then
       self.numLab.text = data.num
     end
+    local quality = data:GetCardQuality()
     if self.cardQuality then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.cardQualityColor)
         self.cardQuality.color = color
       end
     end
     if self.cardQuality1 then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.bgColor)
         self.cardQuality1.color = color
@@ -99,15 +100,16 @@ function ItemCardShareSmallCell:SetCardGrey(grey)
     if not data then
       return
     end
+    local quality = data:GetCardQuality()
     if self.cardQuality then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.cardQualityColor)
         self.cardQuality.color = color
       end
     end
     if self.cardQuality1 then
-      local colorCfg = CardUIConfig_Quality[data.staticData.Quality]
+      local colorCfg = CardUIConfig_Quality[quality]
       if colorCfg then
         local succ, color = ColorUtil.TryParseHexString(colorCfg.bgColor)
         self.cardQuality1.color = color

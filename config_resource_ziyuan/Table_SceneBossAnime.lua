@@ -2513,6 +2513,206 @@ Table_SceneBossAnime = {
     id = 590,
     ObjID = 60,
     Name = "state2001"
+  },
+  [591] = {
+    id = 591,
+    ObjID = 1,
+    Name = "state2001"
+  },
+  [592] = {
+    id = 592,
+    ObjID = 1,
+    Name = "state2002"
+  },
+  [593] = {
+    id = 593,
+    ObjID = 2,
+    Name = "state2001"
+  },
+  [594] = {
+    id = 594,
+    ObjID = 2,
+    Name = "state2002"
+  },
+  [595] = {
+    id = 595,
+    ObjID = 5,
+    Name = "state2001"
+  },
+  [596] = {
+    id = 596,
+    ObjID = 5,
+    Name = "state2002"
+  },
+  [597] = {
+    id = 597,
+    ObjID = 4,
+    Name = "state2001"
+  },
+  [598] = {
+    id = 598,
+    ObjID = 4,
+    Name = "state2002"
+  },
+  [599] = {
+    id = 599,
+    ObjID = 3,
+    Name = "state2001"
+  },
+  [600] = {
+    id = 600,
+    ObjID = 3,
+    Name = "state2002"
+  },
+  [601] = {
+    id = 601,
+    ObjID = 1,
+    Name = "state1002"
+  },
+  [602] = {
+    id = 602,
+    ObjID = 1,
+    Name = "state2001"
+  },
+  [603] = {
+    id = 603,
+    ObjID = 1,
+    Name = "state2002"
+  },
+  [604] = {
+    id = 604,
+    ObjID = 6,
+    Name = "state2001"
+  },
+  [605] = {
+    id = 605,
+    ObjID = 6,
+    Name = "state2002"
+  },
+  [606] = {
+    id = 606,
+    ObjID = 7,
+    Name = "state2001"
+  },
+  [607] = {
+    id = 607,
+    ObjID = 7,
+    Name = "state2002"
+  },
+  [608] = {
+    id = 608,
+    ObjID = 8,
+    Name = "state2001"
+  },
+  [609] = {
+    id = 609,
+    ObjID = 8,
+    Name = "state2002"
+  },
+  [610] = {
+    id = 610,
+    ObjID = 9,
+    Name = "state2001"
+  },
+  [611] = {
+    id = 611,
+    ObjID = 9,
+    Name = "state2002"
+  },
+  [612] = {
+    id = 612,
+    ObjID = 10,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [613] = {
+    id = 613,
+    ObjID = 10,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [614] = {
+    id = 614,
+    ObjID = 11,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [615] = {
+    id = 615,
+    ObjID = 11,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [616] = {
+    id = 616,
+    ObjID = 12,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [617] = {
+    id = 617,
+    ObjID = 12,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [618] = {
+    id = 618,
+    ObjID = 13,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [619] = {
+    id = 619,
+    ObjID = 13,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [620] = {
+    id = 620,
+    ObjID = 18,
+    Name = "state1002"
+  },
+  [621] = {
+    id = 621,
+    ObjID = 18,
+    Name = "state2002"
+  },
+  [622] = {
+    id = 622,
+    ObjID = 14,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [623] = {
+    id = 623,
+    ObjID = 14,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [624] = {
+    id = 624,
+    ObjID = 15,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [625] = {
+    id = 625,
+    ObjID = 15,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [626] = {
+    id = 626,
+    ObjID = 16,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [627] = {
+    id = 627,
+    ObjID = 16,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [628] = {
+    id = 628,
+    ObjID = 17,
+    Name = "mfx_syzh_skfyjt_state1001"
+  },
+  [629] = {
+    id = 629,
+    ObjID = 17,
+    Name = "mfx_syzh_skfyjt_state6002"
+  },
+  [630] = {
+    id = 630,
+    ObjID = 18,
+    Name = "state3002"
   }
 }
 Table_SceneBossAnime_fields = {

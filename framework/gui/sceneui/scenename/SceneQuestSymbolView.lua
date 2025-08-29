@@ -194,6 +194,10 @@ function SceneQuestSymbolView:MapViewListener()
   self:AddListenEvt(ServiceEvent.GuildCmdGuildDataUpdateGuildCmd, self.HandleGuildTreasureGiftNtfCmd)
   self:AddListenEvt(ServiceEvent.FuBenCmdFubenStepSyncCmd, self.HandleQuestUpdate)
   self:AddListenEvt(ServiceEvent.MatchCCmdTriplePvpRewardStatusCmd, self.HandleTriplePwsRewardStatus)
+  self:AddListenEvt(ServiceEvent.MatchCCmdChampionPvpRewardStatusCmd, self.HandleCampionPvpRewardStatus)
+  self:AddListenEvt(ServiceEvent.SceneTipGameTipCmd, self.HandleSceneTipGameTipCmd)
+  self:AddListenEvt(ServiceEvent.AchieveCmdNewNpcAchieveNtfAchCmd, self.HandleAchieveRewardStatus)
+  self:AddListenEvt(ServiceEvent.AchieveCmdUpdateNpcAchieveAchCmd, self.HandleAchieveRewardStatus)
   self:AddListenEvt(MainViewEvent.MiniMapSettingChange, self.HandleQuestUpdate)
   self:AddListenEvt(MyselfEvent.LevelUp, self.HandleQuestUpdate)
 end
@@ -229,6 +233,8 @@ function SceneQuestSymbolView:HandleAddNpcRole(note)
     self:UpdateGuildTreasureGiftSymbol(role)
     self:UpdateGiftNpcSymbol(role)
     self:UpdateTriplePwsRewardSymbol(role)
+    self:HandleCampionPvpRewardStatus()
+    self:UpdateAchieveRewardSymbol(role)
   end
 end
 
@@ -273,6 +279,116 @@ function SceneQuestSymbolView:UpdateTriplePwsRewardSymbol(role)
     local rankRewardStatus = PvpProxy.Instance:IsTriplePwsRankRewardCanReceive()
     if targetRewardStatus or rankRewardStatus then
       sceneUI.roleTopUI:SetTopGiftSymbol(GameConfig.GuildBuilding.uieffect_getwelfare)
+    else
+      sceneUI.roleTopUI:RemoveTopGiftSymbol()
+    end
+  end
+end
+
+function SceneQuestSymbolView:HandleCampionPvpRewardStatus(note)
+  local npcIdTeamPws = 1374
+  local npcs = NSceneNpcProxy.Instance:FindNpcs(npcIdTeamPws)
+  if npcs and npcs[1] then
+    local npc = npcs[1]
+    self:UpdatePVPRewardSymbol(npc, npcIdTeamPws, MatchCCmd_pb.CHAMPION_REWARD_TEAMPWS, MatchCCmd_pb.CHAMPION_REWARD_TEAMPWS_CROSS)
+  end
+  local npcIdTeam12 = 851012
+  local npcs2 = NSceneNpcProxy.Instance:FindNpcs(npcIdTeam12)
+  if npcs2 and npcs2[1] then
+    local npc = npcs2[1]
+    self:UpdatePVPRewardSymbol(npc, npcIdTeam12, MatchCCmd_pb.CHAMPION_REWARD_TWELVE, MatchCCmd_pb.CHAMPION_REWARD_TWELVE_CROSS)
+  end
+end
+
+function SceneQuestSymbolView:UpdatePVPRewardSymbol(role, npcid, rewardType, rewardTypeMix)
+  if not (role and role.data) or not role.data.staticData then
+    return
+  end
+  if role.data.staticData.id ~= npcid then
+    return
+  end
+  local sceneUI = role:GetSceneUI()
+  if sceneUI then
+    local targetRewardStatus = PvpProxy.Instance:CheckChampionPvpRewardStatusCmd(rewardType)
+    local rankRewardStatus = PvpProxy.Instance:CheckChampionPvpRewardStatusCmd(rewardTypeMix)
+    if targetRewardStatus or rankRewardStatus then
+      sceneUI.roleTopUI:SetTopGiftSymbol(GameConfig.GuildBuilding.uieffect_getwelfare)
+    else
+      sceneUI.roleTopUI:RemoveTopGiftSymbol()
+    end
+  end
+end
+
+function SceneQuestSymbolView:HandleSceneTipGameTipCmd(note)
+  local data = note.body
+  for i = 1, #data.redtip do
+    local redtip = data.redtip[i]
+    if redtip.redsys == SceneTip_pb.EREDSYS_SHOP_COUPON then
+      local npcId = 1239
+      local npcs = NSceneNpcProxy.Instance:FindNpcs(npcId)
+      if npcs and npcs[1] then
+        local npc = npcs[1]
+        local sceneUI = npc:GetSceneUI()
+        if sceneUI then
+          if data.opt == SceneTip_pb.ETIPOPT_UPDATE then
+            sceneUI.roleTopUI:SetTopGiftSymbol(GameConfig.GuildBuilding.uieffect_getwelfare)
+            break
+          end
+          if data.opt == SceneTip_pb.ETIPOPT_DELETE then
+            sceneUI.roleTopUI:RemoveTopGiftSymbol()
+          end
+        end
+      end
+      break
+    end
+  end
+end
+
+function SceneQuestSymbolView:HandleAchieveRewardStatus()
+  local npcs = NSceneNpcProxy.Instance:PickNpcs(function(npc)
+    local npcfunction = npc.data.staticData.NpcFunction
+    if not npcfunction or #npcfunction == 0 then
+      return false
+    end
+    for i = 1, #npcfunction do
+      local npcFuncData = npcfunction[i]
+      if npcFuncData.type and npcFuncData.type == 12015 then
+        return true
+      end
+    end
+  end)
+  if npcs and 0 < #npcs then
+    for i = 1, #npcs do
+      self:UpdateAchieveRewardSymbol(npcs[i])
+    end
+  end
+end
+
+function SceneQuestSymbolView:UpdateAchieveRewardSymbol(role)
+  if not (role and role.data) or not role.data.staticData then
+    return
+  end
+  local npcfunction = role.data.staticData.NpcFunction
+  if not npcfunction or #npcfunction == 0 then
+    return
+  end
+  local groupid
+  for i = 1, #npcfunction do
+    local npcFuncData = npcfunction[i]
+    if npcFuncData.type and npcFuncData.type == 12015 then
+      groupid = npcFuncData.param
+      break
+    end
+  end
+  if not groupid then
+    return
+  end
+  local sceneUI = role:GetSceneUI()
+  if sceneUI then
+    local targetRewardStatus = AchieveRewardProxy.Instance:CheckAchieveRewardStatusCmd(groupid)
+    xdlog("UpdateAchieveRewardSymbol", groupid, targetRewardStatus)
+    if targetRewardStatus then
+      sceneUI.roleTopUI:SetTopGiftSymbol("PetGift")
     else
       sceneUI.roleTopUI:RemoveTopGiftSymbol()
     end

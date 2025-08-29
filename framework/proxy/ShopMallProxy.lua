@@ -776,3 +776,7 @@ function ShopMallProxy:GetOrderAddTime(orderID)
   end
   return
 end
+
+function ShopMallProxy.IsForceOverlap(itemId)
+  return Table_Equip[itemId] or Table_Card[itemId]
+end

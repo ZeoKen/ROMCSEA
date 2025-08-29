@@ -126,15 +126,15 @@ function AssetManager_Effect:CreateEffect(path, parent, callback, owner, custom,
     Debug.LogError("AssetManager_Effect:CreateEffect Error: path is table")
     return nil
   end
-  if delay ~= nil then
-    local tag = self:NewTag()
-    self:_AddDelay(tag, path, parent, callback, owner, custom, delay + UnityFrameCount)
-    return tag
-  end
   local obj = GameFromPool(Game.GOLuaPoolManager, path, parent)
   if nil ~= obj then
     callback(owner, nil, obj, path, custom)
     return nil
+  end
+  if delay ~= nil then
+    local tag = self:NewTag()
+    self:_AddDelay(tag, path, parent, callback, owner, custom, delay + UnityFrameCount)
+    return tag
   end
   tag = tag or self:NewTag()
   self:_AddObserver(path, tag, callback, owner, custom)

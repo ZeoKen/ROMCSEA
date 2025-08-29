@@ -206,8 +206,10 @@ function PlotStoryProcess:_getTargetByParams(params)
     end
   elseif params.uniqueid then
     local npcRoles = NSceneNpcProxy.Instance:FindNpcByUniqueId(params.uniqueid)
-    for i = 1, #npcRoles do
-      table.insert(tempTargets, npcRoles[i])
+    if npcRoles then
+      for i = 1, #npcRoles do
+        table.insert(tempTargets, npcRoles[i])
+      end
     end
   elseif params.objID then
     local type = params.objType
@@ -274,6 +276,12 @@ local tempArgs = {}
 
 function PlotStoryProcess:place_to(params)
   local pos = params.pos
+  if params._refParam and #params._refParam > 0 then
+    local param = self:_getTargetByExParams(params._refParam[1])
+    if param ~= nil and type(param) == "table" and #param == 3 and type(param[1]) == "number" and type(param[2]) == "number" and type(param[3]) == "number" then
+      pos = param
+    end
+  end
   local ignoreNavMesh = params.ignoreNavMesh
   if not pos then
     LuaVector3.Better_Set(tempPos, 0, 0, 0)
@@ -386,7 +394,13 @@ function PlotStoryProcess:summon(params)
   if not npcRole then
     local pos = params.pos
     local dir = params.dir or 0
-    local forward_player = pos.forward_player or params.forward_player
+    local forward_player = pos and pos.forward_player or params.forward_player
+    if params._refParam and 0 < #params._refParam then
+      local param = self:_getTargetByExParams(params._refParam[1])
+      if param ~= nil then
+        pos = param
+      end
+    end
     if not pos then
       LuaVector3.Better_Set(tempPos, 0, 0, 0)
     else
@@ -423,22 +437,22 @@ function PlotStoryProcess:summon(params)
         end
       end
       waitaction(npcRole)
+      if params.scale then
+        npcRole:Server_SetScaleCmd(params.scale, true)
+      else
+        local scale = Table_Npc[npcid] and Table_Npc[npcid].Scale
+        if scale then
+          npcRole:Server_SetScaleCmd(scale, true)
+        end
+      end
+      if params.fade_in then
+        local from = params.fade_in_from or 0
+        local to = params.fade_in_to or 1
+        npcRole.assetRole:SetSmoothDisplayBody(0)
+        npcRole.assetRole:AlphaFromTo(from, to, params.fade_in)
+      end
     else
       redlog(tostring(npcid) .. "not Find In Table_Npc")
-    end
-    if params.scale then
-      npcRole:Server_SetScaleCmd(params.scale, true)
-    else
-      local scale = Table_Npc[npcid] and Table_Npc[npcid].Scale
-      if scale then
-        npcRole:Server_SetScaleCmd(scale, true)
-      end
-    end
-    if params.fade_in then
-      local from = params.fade_in_from or 0
-      local to = params.fade_in_to or 1
-      npcRole.assetRole:SetSmoothDisplayBody(0)
-      npcRole.assetRole:AlphaFromTo(from, to, params.fade_in)
     end
   end
   if Game.IsLocalEditorGame and params.pqtl_id and npcRole then
@@ -584,6 +598,10 @@ function PlotStoryProcess:action(params)
   if params.random_ids then
     actionid = RandomUtil.RandomInTable(params.random_ids)
   end
+  local startPct = params.startPct
+  if (not startPct or startPct == 0) and self.ff_pct and 0 < self.ff_pct then
+    startPct = self.ff_pct
+  end
   local targets = self:_getTargetByParams(params)
   for i = 1, #targets do
     local target = targets[i]
@@ -593,7 +611,6 @@ function PlotStoryProcess:action(params)
       do
         local actionName = actionData.Name
         local focusDuration = params.time and params.time / 1000
-        local startPct = params.startPct
         local freezeAtEnd = params.freezeAtEnd
         local spExpression = params.spExpression
         local action = function(target)
@@ -985,6 +1002,12 @@ function PlotStoryProcess:play_effect_scene(params)
   local id = params.id
   local path = params.path
   local pos = params.pos
+  if params._refParam and #params._refParam > 0 then
+    local param = self:_getTargetByExParams(params._refParam[1])
+    if param ~= nil then
+      pos = param
+    end
+  end
   LuaVector3.Better_Set(tempPos, pos[1], pos[2], pos[3])
   local onshot = params.onshot
   local dir = params.dir

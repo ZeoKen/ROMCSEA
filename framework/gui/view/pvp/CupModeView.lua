@@ -61,6 +61,7 @@ function CupModeView:UpdateScheduleStatus()
   if proxy:IsSeasonNoOpen() or proxy:IsSeasonEnd() or proxy:IsSigthupPending() then
     self.rankGO:SetActive(true)
     self.scheduleGO:SetActive(false)
+    self.scheduleSubview:SwitchSignup(false)
   elseif proxy:IsInSignupTime() then
     self.scheduleGO:SetActive(true)
     self.rankGO:SetActive(false)
@@ -91,4 +92,9 @@ function CupModeView:UpdateScheduleStatus()
     self.seasonRootGO:SetActive(false)
     self.fixSpriteGO:SetActive(false)
   end
+end
+
+function CupModeView:SetPageStatus(index)
+  self.rankGO:SetActive(index == 1)
+  self.scheduleGO:SetActive(index ~= 1)
 end

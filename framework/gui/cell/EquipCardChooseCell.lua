@@ -27,7 +27,7 @@ function EquipCardChooseCell:SetData(data)
   self.data = data
   if data and data.cardInfo then
     local cardInfo = data.cardInfo
-    self.itemName.text = cardInfo.Name
+    self.itemName.text = data:GetName()
     self:SetUse(data.used == true)
     local descStr = ""
     local bufferIds = data.cardInfo.BuffEffect.buff

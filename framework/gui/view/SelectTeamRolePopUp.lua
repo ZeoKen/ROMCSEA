@@ -61,7 +61,7 @@ end
 
 function SelectTeamRolePopUp:OnEnter()
   local myroles = MyselfProxy.Instance:GetMyTeamRoles()
-  if not myroles then
+  if not next(myroles) then
     return
   end
   self.roleCtrl:ResetDatas(myroles)

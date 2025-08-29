@@ -27,7 +27,10 @@ function EffectWorker_Connect.Create(ID)
   return ReusableObject.Create(EffectWorker_Connect, true, ID)
 end
 
+local _MapManager
+
 function EffectWorker_Connect:ctor()
+  _MapManager = Game.MapManager
   self.guid2 = 0
   self.path = nil
   self.effect = nil
@@ -45,7 +48,11 @@ end
 
 function EffectWorker_Connect:Update(time, deltaTime, creature1)
   local creature2 = FindCreature(self.guid2)
-  if nil == creature2 or true == creature2.assetRole:GetInvisible() or creature1 == creature2 then
+  local skipDestroy = false
+  if creature2 and creature2.assetRole.hideBodyOnly and _MapManager and _MapManager:IsPVEMode() then
+    skipDestroy = true
+  end
+  if not skipDestroy and (nil == creature2 or true == creature2.assetRole:GetInvisible() or creature1 == creature2) then
     self:_DestroyEffect()
     return false
   end

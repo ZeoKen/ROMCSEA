@@ -2,7 +2,11 @@ PrestigeExpTip = class("PrestigeExpTip", CoreView)
 PrestigeExpTip.resID = ResourcePathHelper.UITip("PrestigeExpTip")
 local _PrestigeOutlineColor = {
   [1] = LuaColor.New(0.8, 0.2549019607843137, 0.24705882352941178, 1),
-  [2] = LuaColor.New(0.7568627450980392, 0.17647058823529413, 0.4470588235294118, 1)
+  [2] = LuaColor.New(0.7568627450980392, 0.17647058823529413, 0.4470588235294118, 1),
+  [3] = LuaColor.New(0.3411764705882353, 0.6509803921568628, 0.5725490196078431, 1),
+  [4] = LuaColor.New(0.8431372549019608, 0.5490196078431373, 0.3215686274509804, 1),
+  [5] = LuaColor.New(0.41568627450980394, 0.41568627450980394, 0.41568627450980394, 1),
+  [6] = LuaColor.New(0.7647058823529411, 0.27058823529411763, 0.6431372549019608, 1)
 }
 
 function PrestigeExpTip:ctor(parent)
@@ -54,6 +58,7 @@ function PrestigeExpTip:ShowInfo(data)
   local previousValue = data.origin_value
   local curValue = data.new_value
   self.effectLabel.effectColor = _PrestigeOutlineColor[version]
+  self.prestigeLevel.effectColor = _PrestigeOutlineColor[version]
   if previousValue == 0 and curValue == 0 and previousLevel < curLevel then
     self.root:SetActive(false)
     self:PlayLevelUp(curLevel)
@@ -124,7 +129,6 @@ function PrestigeExpTip:ShowInfo(data)
               self:PlayUISound(AudioMap.UI.Prestige_Progress)
               self:ResetView()
               self.prestigeLevel.text = curLevel
-              self.prestigeBg.spriteName = "Missiontracking_icon_reputation01"
               TimeTickManager.Me():CreateTickFromTo(0, 0, endPer2, 1000, function(owner, deltaTime, curValue)
                 self.slider.value = curValue
               end, self, 1)
@@ -185,7 +189,7 @@ function PrestigeExpTip:PlayLevelUp(level)
   self.effectLabel_TweenAlpha:ResetToBeginning()
   self.effectLabel_TweenAlpha:PlayForward()
   xdlog("Str", "Prestige_LevelUp" .. (self.version == 1 and "" or self.version))
-  self:PlayUIEffect(EffectMap.UI["Prestige_LevelUp" .. (self.version ~= 1 and self.version)], self.effectContainer)
+  self:PlayUIEffect(EffectMap.UI["Prestige_LevelUp" .. (self.version ~= 1 and self.version or "")], self.effectContainer)
   self:PlayUISound(AudioMap.UI.Prestige_LevelUp)
 end
 

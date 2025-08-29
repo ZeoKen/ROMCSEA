@@ -2279,6 +2279,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[68],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [111] = {
@@ -2286,6 +2287,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[69],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [112] = {
@@ -2293,6 +2295,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[70],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [113] = {
@@ -2300,6 +2303,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[71],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [114] = {
@@ -2307,6 +2311,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[72],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [115] = {
@@ -2314,6 +2319,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[73],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [116] = {
@@ -2321,6 +2327,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[74],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [117] = {
@@ -2328,6 +2335,7 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[75],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[4],
     SameTeam = 2,
+    EquipSuitDsc = "##112288",
     EffectDesc = "##112213"
   },
   [120] = {
@@ -7486,7 +7494,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[491],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1701] = {
@@ -7494,7 +7501,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[492],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1702] = {
@@ -7502,7 +7508,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[493],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1703] = {
@@ -7510,7 +7515,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[710],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1704] = {
@@ -7518,7 +7522,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[709],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1705] = {
@@ -7526,7 +7529,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[708],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1706] = {
@@ -7534,7 +7536,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[579],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1707] = {
@@ -7542,7 +7543,6 @@ Table_EquipSuit = {
     Suitid = Table_EquipSuit_t.Suitid[498],
     SuitThreeAdd = Table_EquipSuit_t.SuitThreeAdd[14],
     SameTeam = 161,
-    EquipSuitDsc = "##3500852",
     EffectDesc = "##530083"
   },
   [1710] = {
@@ -8885,7 +8885,7 @@ Table_EquipSuit = {
 local cell_mt = {
   __index = {
     EffectDesc = "##112270",
-    EquipSuitDsc = "##112288",
+    EquipSuitDsc = "##3500852",
     RefineBuff = _EmptyTable,
     SameTeam = 1,
     SuitFiveAdd = _EmptyTable,

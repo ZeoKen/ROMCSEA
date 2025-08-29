@@ -59,7 +59,7 @@ function ServiceRaidCmdProxy:RecvClientSaveResultCmd(data)
 end
 
 function ServiceRaidCmdProxy:RecvHeadwearActivityNpcUserCmd(data)
-  HeadwearRaidProxy.Instance:RecvActivityHeadwearNpcUserCmd(data)
+  HeadwearRaidProxy.Instance:RecvHeadwearNpcUserCmd(data)
   self:Notify(ServiceEvent.RaidCmdHeadwearActivityNpcUserCmd, data)
 end
 

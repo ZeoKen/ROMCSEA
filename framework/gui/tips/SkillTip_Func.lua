@@ -547,6 +547,19 @@ function SkillTip:_SelectFunc(bgHeight)
         data.RuneName = string.format(ZhString.SkillTip_OptionSummon, Table_Monster[data.id].NameZh)
         datas[#datas + 1] = data
       end
+      if Game.Myself.data.extraElementID then
+        local extraElementsConfig = Table_Buffer[Game.Myself.data.extraElementID]
+        if extraElementsConfig then
+          local extraElements = extraElementsConfig.BuffEffect.element_ids
+          for i = 1, #extraElements do
+            local data = {
+              id = extraElements[i]
+            }
+            data.RuneName = string.format(ZhString.SkillTip_OptionSummon, Table_Monster[data.id].NameZh)
+            datas[#datas + 1] = data
+          end
+        end
+      end
     end
     local buffer = logicParam.select_buff_ids
     if buffer and logicParam.select_num == 1 then
@@ -1159,6 +1172,9 @@ function SkillTip:_GetMultiSkillOptionSkillid(opt)
   end
   if opt == _OptionEnum.DelMultiTrap then
     return self.data.sortID
+  end
+  if opt == _OptionEnum.SelectBuffs then
+    return self.data.id
   end
   return self.data:GetID()
 end

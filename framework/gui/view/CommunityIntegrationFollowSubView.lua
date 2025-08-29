@@ -122,7 +122,7 @@ function CommunityIntegrationFollowSubView:ShowRewards()
 end
 
 function CommunityIntegrationFollowSubView:RefreshFuncBtn()
-  local urlConfig = self.staticData.Url
+  local urlConfig = self.staticData and self.staticData.Url
   if not urlConfig then
     self.confirmBtn:SetActive(false)
   else

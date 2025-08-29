@@ -167,6 +167,8 @@ function ServiceUserProxy:CallSelect(id)
   extraData.model = SystemInfo.deviceModel
   extraData.version = SystemInfo.operatingSystem
   extraData.codeVersion = CompatibilityVersion.version
+  local loginData = FunctionLogin.Me():getLoginData()
+  extraData.fingerprint = loginData.oneid
   local lang = BranchMgr.GetLanguage()
   ServiceLoginUserCmdProxy.Instance:CallSelectRoleUserCmd(id, nil, nil, self.deviceInfo, nil, nil, extraData, nil, nil, nil, lang, nil, nil, pushID, clickPos)
   local roleID = id or 0

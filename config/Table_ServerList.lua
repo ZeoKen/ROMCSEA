@@ -34,6 +34,54 @@ Table_ServerList = {
       "172.25.135.26"
     },
     port = 8888
+  },
+  [4] = {
+    id = 4,
+    name = "##42631148",
+    type = 2,
+    serverid = 50004,
+    servertype = "novice",
+    state = 1,
+    serverip = {
+      "172.25.135.67"
+    },
+    port = 8888
+  },
+  [5] = {
+    id = 5,
+    name = "##42640240",
+    type = 2,
+    serverid = 50005,
+    servertype = "novice",
+    state = 1,
+    serverip = {
+      "172.26.31.1"
+    },
+    port = 8888
+  },
+  [6] = {
+    id = 6,
+    name = "##42640241",
+    type = 2,
+    serverid = 50006,
+    servertype = "novice",
+    state = 1,
+    serverip = {
+      "172.26.31.2"
+    },
+    port = 8888
+  },
+  [7] = {
+    id = 7,
+    name = "##42640242",
+    type = 2,
+    serverid = 50007,
+    servertype = "novice",
+    state = 1,
+    serverip = {
+      "172.26.31.3"
+    },
+    port = 8888
   }
 }
 Table_ServerList_fields = {

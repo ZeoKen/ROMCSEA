@@ -22,7 +22,7 @@ function CupModeRankSubview:Init()
 end
 
 function CupModeRankSubview:LoadSubviews()
-  self.rootGO = self:FindGO("CupModeRankSubview")
+  self.rootGO = self:FindGO("CupModeRankSubview", self.gameObject)
   local obj = self:LoadPreferb_ByFullPath(viewPath, self.rootGO, true)
   obj.name = "CupModeRankSubview"
 end
@@ -43,7 +43,11 @@ end
 function CupModeRankSubview:AddBtnEvts()
   self:AddClickEvent(self.seasonRankBtnGO, function(go)
     self:sendNotification(UIEvent.JumpPanel, {
-      view = PanelConfig.CupModeRankPopup
+      view = PanelConfig.CupModeRankPopup,
+      viewdata = {
+        proxy = CupMode6v6Proxy.Instance,
+        crossServer = false
+      }
     })
   end)
 end
@@ -59,12 +63,16 @@ function CupModeRankSubview:InitShow()
   self:UpdateView()
 end
 
-function CupModeRankSubview:HandleQueryMember()
-  local proxy = CupMode6v6Proxy.Instance
-  TipManager.Instance:ShowTeamMemberTip({
-    memberData = proxy.memberinfoData,
-    teamName = proxy.memberinfoTeamName
-  })
+function CupModeRankSubview:HandleQueryMember(note)
+  local data = note.body
+  local season = data and data.season
+  if season < 10000 then
+    local proxy = CupMode6v6Proxy.Instance
+    TipManager.Instance:ShowTeamMemberTip({
+      memberData = proxy.memberinfoData,
+      teamName = proxy.memberinfoTeamName
+    })
+  end
 end
 
 function CupModeRankSubview:InitHead()

@@ -25,6 +25,11 @@ function YmirTipView_TriplePvp:Init()
       if not TriplePlayerPvpProxy.Instance:CheckNeedConfirmChangePro() then
         return
       end
+      local myPro = MyselfProxy.Instance:GetMyProfession()
+      if TriplePlayerPvpProxy.Instance:CheckMyTeamRepetitiveProfession(myPro) then
+        MsgManager.ShowMsgByID(28123)
+        return
+      end
       MsgManager.ConfirmMsgByID(26291, function()
         ServiceFuBenCmdProxy.Instance:CallChooseCurProfessionFuBenCmd()
       end)
@@ -34,6 +39,11 @@ end
 
 function YmirTipView_TriplePvp:OnCellClicked(cell)
   if not TriplePlayerPvpProxy.Instance:CheckNeedConfirmChangePro() then
+    return
+  end
+  local pro = cell.data.profession
+  if pro and TriplePlayerPvpProxy.Instance:CheckMyTeamRepetitiveProfession(pro) then
+    MsgManager.ShowMsgByID(28123)
     return
   end
   MsgManager.ConfirmMsgByID(26291, function()

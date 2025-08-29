@@ -150,6 +150,8 @@ function PreorderEditOverLapCell:_Confirm()
   preorderItemData.buffid = container.buffid
   preorderItemData.damage = container.damage
   preorderItemData.count = self.currentCount
+  preorderItemData.cardlvmin = container.lowerCardLv or 0
+  preorderItemData.cardlvmax = container.upperCardLv or 0
   local singlePreorderPrice = self.currentPrice or PreorderPriceMaxRate * self.unitPrice
   preorderItemData.price = self.totalPriceNum
   ServiceRecordTradeProxy.Instance:CallPreorderItemRecordTradeCmd(preorderItemData)

@@ -33,7 +33,6 @@ function CraftingItemChooseCell:SetData(data)
       IconManager:SetItemIcon("item_45001", self.icon)
     end
     self.itemName.text = staticData.NameZh
-    redlog("data.leftTimes", data.leftTimes)
     self.itemLimit.text = string.format(ZhString.CraftingPot_ItemLimit, data.leftTimes)
   else
     self.gameObject:SetActive(false)

@@ -8,7 +8,8 @@ ArtifactProxy.OptionType = {
   Retrieve = GuildCmd_pb.EARTIFACTOPTTYPE_RETRIEVE,
   RetrieveCancle = GuildCmd_pb.EARTIFACTOPTTYPE_RETRIEVE_CANCEL,
   Return = GuildCmd_pb.EARTIFACTOPTTYPE_GIVEBACK,
-  Decompose = GuildCmd_pb.EARTIFACTOPTTYPE_DECOMPOSE
+  Decompose = GuildCmd_pb.EARTIFACTOPTTYPE_DECOMPOSE,
+  RetrieveAll = GuildCmd_pb.EARTIFACTOPTTYPE_RETRIEVE_ALL
 }
 ArtifactProxy.NpcIDByType = {
   2621,

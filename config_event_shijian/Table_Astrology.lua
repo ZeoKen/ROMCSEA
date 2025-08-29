@@ -598,6 +598,30 @@ Table_Astrology = {
     Pic = "constellation_bg_water1",
     Title = "##3489486",
     Reward = 70000053
+  },
+  [76] = {
+    id = 76,
+    Type = 2,
+    Group = 26,
+    Pic = "constellation_constellation_bg_fire1",
+    Title = "##42534914",
+    Reward = 70000053
+  },
+  [77] = {
+    id = 77,
+    Type = 2,
+    Group = 26,
+    Pic = "constellation_constellation_bg_fire1",
+    Title = "##42534914",
+    Reward = 70000053
+  },
+  [78] = {
+    id = 78,
+    Type = 2,
+    Group = 26,
+    Pic = "constellation_constellation_bg_fire1",
+    Title = "##42534914",
+    Reward = 70000053
   }
 }
 Table_Astrology_fields = {

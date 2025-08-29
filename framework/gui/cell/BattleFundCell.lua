@@ -20,8 +20,20 @@ function BattleFundCell:Init()
   self.conditionScroll = self:FindComponent("ConditionPanel", UIScrollView)
   self.conditionLabel = self:FindComponent("ConditionLabel", UILabel, self.conditionScroll.gameObject)
   self.conditionLabelCtrl = UIAutoScrollCtrl.new(self.conditionScroll, self.conditionLabel, 8, 40)
+  self:SetPanelDepthByParent(self.conditionScroll.gameObject, 1)
   self.itemIcon = self:FindComponent("ItemIcon", UISprite)
   self.itemNumLabel = self:FindComponent("ItemNum", UILabel)
+  self:AddClickEvent(self.itemIcon.gameObject, function()
+    local itemData = self.data and self.data.rewardItems and self.data.rewardItems[1]
+    local itemID = self.data and self.data.itemId
+    local itemData = ItemData.new("ItemReward", itemID)
+    if itemData then
+      local tipData = ReusableTable.CreateTable()
+      tipData.itemdata = itemData
+      self:ShowItemTip(tipData, self.itemIcon, NGUIUtil.AnchorSide.Left, {-200, 0})
+      ReusableTable.DestroyAndClearTable(tipData)
+    end
+  end)
 end
 
 function BattleFundCell:OnEnable()
@@ -53,12 +65,18 @@ function BattleFundCell:SetData(data)
     self.freeBgGO:SetActive(true)
     self.purchasedBgGO:SetActive(false)
     self.funcLabel.text = ZhString.BattleFundTakeFreeReward
+    self.conditionLabel.text = string.format(ZhString.ReturnActivityPanel_LoginDays, self.data.day)
+  elseif data.ResetDepositReward then
+    self.freeBgGO:SetActive(true)
+    self.purchasedBgGO:SetActive(false)
+    self.funcLabel.text = ZhString.BattleFundTakeReward
+    self.conditionLabel.text = ZhString.BattleFundTakeResetDepositReward
   else
     self.freeBgGO:SetActive(false)
     self.purchasedBgGO:SetActive(true)
     self.funcLabel.text = ZhString.BattleFundTakeReward
+    self.conditionLabel.text = string.format(ZhString.ReturnActivityPanel_LoginDays, self.data.day)
   end
-  self.conditionLabel.text = string.format(ZhString.ReturnActivityPanel_LoginDays, self.data.day)
   if self.gameObject.activeInHierarchy then
     self.conditionLabel:ProcessText()
     if self.conditionLabelCtrl then

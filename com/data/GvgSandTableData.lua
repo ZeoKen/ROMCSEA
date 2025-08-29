@@ -1,3 +1,4 @@
+autoImport("GvGPerfectTimeInfo")
 GvgSandTableData = class("GvgSandTableData")
 
 function GvgSandTableData:ctor(data)
@@ -40,8 +41,23 @@ function GvgSandTableData:SetData(data)
   end
   self.totalScore = totalScore
   self.raidstate = data.raidstate
-  local perfectSpareLeftTime = data.perfect_spare_time or 0
-  self.perfectSpareTime = ServerTime.CurServerTime() / 1000 + perfectSpareLeftTime
+  self.perfectTimeInfo = GvGPerfectTimeInfo.new(data.perfect_time_info)
+  self:SetMvpInfo()
+end
+
+function GvgSandTableData:SetMvpInfo()
+  local data = self.data
+  if not data then
+    return
+  end
+  self.mvp = self.mvp or {}
+  self.mvp.mvp_state = data.mvp_state
+  self.mvp.mvp_summon_time = data.mvp_summon_time
+  self.mvp.mvp_hp_per = data.mvp_hp_per
+end
+
+function GvgSandTableData:MvpAlive()
+  return nil ~= self.mvp and self.mvp.mvp_state == GvgProxy.EMvpState.Summoned
 end
 
 SandTableGuildData = class("SandTableGuildData")

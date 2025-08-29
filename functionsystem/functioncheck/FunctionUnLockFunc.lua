@@ -215,7 +215,7 @@ function FunctionUnLockFunc:UnlockuSpecialMenuId(menuid)
     end
     return true
   elseif self:IsEvaluateLinkType(menuid) then
-    if self:UnLockMenu(menuid) then
+    if not ApplicationInfo.IsWindows() and self:UnLockMenu(menuid) then
       local sysMsg = Table_Menu[menuid].sysMsg
       if sysMsg and sysMsg.id then
         MsgManager.ConfirmMsgByID(sysMsg.id, function()

@@ -620,6 +620,51 @@ Table_UserPortraitFrame = {
     GroupEffect = "",
     Condition = _EmptyTable
   },
+  [72] = {
+    id = 72,
+    ItemID = 3012421,
+    Name = "##42628499",
+    Icon = "Avatarbox_bp01",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [73] = {
+    id = 73,
+    ItemID = 3012745,
+    Name = "##42640972",
+    Icon = "Avatarbox_3012745",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [74] = {
+    id = 74,
+    ItemID = 630,
+    Name = "##42636079",
+    Icon = "Avatarbox_S25_Lv1",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [75] = {
+    id = 75,
+    ItemID = 631,
+    Name = "##42636080",
+    Icon = "Avatarbox_S25_Lv2",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [76] = {
+    id = 76,
+    ItemID = 632,
+    Name = "##42636081",
+    Icon = "Avatarbox_S25_Lv3",
+    Effect = "Eff_S25_Frame_Lv3",
+    GroupEffect = "Eff_S25_Frame_Lv3_V12",
+    Condition = _EmptyTable
+  },
   [1001] = {
     id = 1001,
     ItemID = 1500,
@@ -1111,6 +1156,87 @@ Table_UserPortraitFrame = {
     ItemID = 3006896,
     Name = "##42530901",
     Icon = "Avatarbox_333_1",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1065] = {
+    id = 1065,
+    ItemID = 3012520,
+    Name = "##42628510",
+    Icon = "Avatarbox_333_2",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1066] = {
+    id = 1066,
+    ItemID = 3012521,
+    Name = "##42628512",
+    Icon = "Avatarbox_333_3",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1067] = {
+    id = 1067,
+    ItemID = 3012522,
+    Name = "##42628514",
+    Icon = "Avatarbox_333_4",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1068] = {
+    id = 1068,
+    ItemID = 3012523,
+    Name = "##42628516",
+    Icon = "Avatarbox_333_5",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1069] = {
+    id = 1069,
+    ItemID = 3012760,
+    Name = "##42635475",
+    Icon = "Avatarbox_3012760",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1070] = {
+    id = 1070,
+    ItemID = 3012761,
+    Name = "##42641412",
+    Icon = "Avatarbox_3012761",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1081] = {
+    id = 1081,
+    ItemID = 642,
+    Name = "##42529692",
+    Icon = "Avatarbox_642",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [1082] = {
+    id = 1082,
+    ItemID = 643,
+    Name = "##42529692",
+    Icon = "Avatarbox_643",
+    Effect = "",
+    GroupEffect = "",
+    Condition = _EmptyTable
+  },
+  [10036] = {
+    id = 10036,
+    ItemID = 3012903,
+    Name = "##42632074",
+    Icon = "Avatarbox_6thjp",
     Effect = "",
     GroupEffect = "",
     Condition = _EmptyTable

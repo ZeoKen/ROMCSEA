@@ -396,10 +396,20 @@ function ServiceGuildCmdProxy:RecvGvgScoreInfoUpdateGuildCmd(data)
 end
 
 function ServiceGuildCmdProxy:RecvQueryGCityShowInfoGuildCmd(data)
-  helplog("[Debug 旗帜] RecvQueryGCityShowInfoGuildCmd groupid #infos: ", data.groupid, #data.infos)
-  TableUtil.Print(data)
+  GvgProxy.Instance:Debug("[Debug 旗帜] RecvQueryGCityShowInfoGuildCmd 查询战线id| 数组长度: ", data.groupid, #data.infos)
+  GvgProxy.Print(data)
   GvgProxy.Instance:Update_GLandStatusInfos(data.infos, data.groupid)
   self:Notify(ServiceEvent.GuildCmdQueryGCityShowInfoGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvGvgCityStatueQueryGuildCmd(data)
+  GvgProxy.Instance:HandleCityStatue(data)
+  self:Notify(ServiceEvent.GuildCmdGvgCityStatueQueryGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvGvgCityStatueUpdateGuildCmd(data)
+  GvgProxy.Instance:HandleCityStatueUpdate(data)
+  self:Notify(ServiceEvent.GuildCmdGvgCityStatueUpdateGuildCmd, data)
 end
 
 function ServiceGuildCmdProxy:RecvUpdateMapCityGuildCmd(data)
@@ -428,8 +438,10 @@ end
 
 function ServiceGuildCmdProxy:RecvQuerySuperGvgDataGuildCmd(data)
   helplog("RecvQuerySuperGvgDataGuildCmd")
-  SuperGvgProxy.Instance:HandleSuperGvgRankData(data.datas)
-  self:Notify(ServiceEvent.GuildCmdQuerySuperGvgDataGuildCmd, data)
+  SuperGvgProxy.Instance:HandleSuperGvgRankData(data.datas, data.end_flag)
+  if data.end_flag then
+    self:Notify(ServiceEvent.GuildCmdQuerySuperGvgDataGuildCmd, data)
+  end
 end
 
 function ServiceGuildCmdProxy:RecvQueryGvgGuildInfoGuildCmd(data)
@@ -521,6 +533,14 @@ end
 function ServiceGuildCmdProxy:RecvGvgRoadblockQueryGuildCmd(data)
   GvgProxy.Instance:UpdateMyGuildRoadBlock(data.roadblock)
   self:Notify(ServiceEvent.GuildCmdGvgRoadblockQueryGuildCmd, data)
+end
+
+function ServiceGuildCmdProxy:RecvQuerySuperGvgStatCmd(data)
+  SuperGvgProxy.Instance:HandleRecvQuerySuperGvgStatCmd(data)
+  local isEnd = data.is_end
+  if isEnd then
+    self:Notify(ServiceEvent.GuildCmdQuerySuperGvgStatCmd, data)
+  end
 end
 
 function ServiceGuildCmdProxy:RecvDateBattleInfoGuildCmd(data)

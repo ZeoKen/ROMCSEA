@@ -118,6 +118,9 @@ function PveTypeGridCell:UpdateAstralPrayPro()
     local myBranch = ProfessionProxy.GetTypeBranchFromProf()
     local proList = ProfessionProxy.GetProfList(myBranch)
     local proId = proList[1]
+    if proId and proId % 10 == 1 then
+      proId = proList[2]
+    end
     local config = Table_Class[proId]
     local iconName = config and config.icon
     IconManager:SetProfessionIcon(iconName, self.astralProIcon)

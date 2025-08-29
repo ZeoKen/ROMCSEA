@@ -699,6 +699,11 @@ function ServiceItemProxy:RecvGemBagExpSyncItemCmd(data)
   self:Notify(ServiceEvent.ItemGemBagExpSyncItemCmd, data)
 end
 
+function ServiceItemProxy:RecvGemDataUpdateItemCmd(data)
+  EventManager.Me():PassEvent(ItemEvent.GemDataUpdate, data.items)
+  self:Notify(ServiceEvent.ItemGemDataUpdateItemCmd, data)
+end
+
 function ServiceItemProxy:RecvQueryAfricanPoringItemCmd(data)
   AfricanPoringProxy.Instance:RecvQueryAfricanPoringItemCmd(data)
   self:Notify(ServiceEvent.ItemQueryAfricanPoringItemCmd, data)

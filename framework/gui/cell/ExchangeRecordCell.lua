@@ -59,11 +59,12 @@ function ExchangeRecordCell:SetData(data)
     if data.itemid then
       exchangeData = Table_Exchange[data.itemid]
       errorLog(string.format("ExchangeRecordCell Table_Exchange[%s] == nil", data.itemid))
-      local itemData = Table_Item[data.itemid]
-      if itemData then
+      local itemStaticData = Table_Item[data.itemid]
+      if itemStaticData then
         local iconInfo = string.format("{itemicon=%s}", data.itemid)
         local refineLv = data:GetRefineLvString()
-        local itemName = itemData.NameZh
+        local itemData = data:GetItemData()
+        local itemName = itemData and itemData:GetName() or itemStaticData.NameZh
         local color = normalItemColor
         if data.damage then
           color = damageItemColor
@@ -287,6 +288,11 @@ function ExchangeRecordCell:SetReceive()
     self.expressGoodsBtn:SetActive(false)
   end
   if GameConfig.Exchange.SendLimitLv and Game.Myself.data.userdata:Get(UDEnum.ROLELEVEL) < GameConfig.Exchange.SendLimitLv then
+    self.expressGoodsBtn:SetActive(false)
+  end
+  local giveNeedTitle = GameConfig.Exchange.GiveNeedTitle
+  local achData = MyselfProxy.Instance:GetCurManualAppellation()
+  if giveNeedTitle and 0 < giveNeedTitle and giveNeedTitle > (achData and achData.id or 0) then
     self.expressGoodsBtn:SetActive(false)
   end
 end

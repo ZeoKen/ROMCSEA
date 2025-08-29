@@ -10,6 +10,7 @@ function AdventureAchieveData:updateServerData(serverData)
   self.finishtime = serverData.finishtime
   self.process = serverData.process
   self.reward_get = serverData.reward_get
+  self.resetTime = serverData.resettime
   self:updateQuests(serverData)
   self:initCompleteString()
 end
@@ -72,4 +73,21 @@ end
 
 function AdventureAchieveData:getSelected()
   return self.isSelected
+end
+
+function AdventureAchieveData:getResetTime()
+  if not self.resetTime or self.resetTime == 0 then
+    return
+  end
+  local curTime = ServerTime.CurServerTime() / 1000
+  if curTime > self.resetTime then
+    return ZhString.AdventureAchievePage_IsExpired
+  end
+  local leftTime = self.resetTime - curTime
+  local day, hour, min, sec = ClientTimeUtil.FormatTimeBySec(leftTime)
+  if 0 < day then
+    return string.format(ZhString.AdventureAchievePage_LeftTime_Day, day)
+  else
+    return string.format(ZhString.AdventureAchievePage_LeftTime_Hour, hour)
+  end
 end

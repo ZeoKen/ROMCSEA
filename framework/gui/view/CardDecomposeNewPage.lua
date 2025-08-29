@@ -48,7 +48,7 @@ end
 
 function CardDecomposeNewPage:InitMaterial()
   local material = self:LoadPreferb("cell/ItemCell", self.materialRoot)
-  material.transform.localPosition = LuaGeometry.GetTempVector3(0, -164, 0)
+  material.transform.localPosition = LuaGeometry.GetTempVector3(0, -171, 0)
   self.materialCell = ItemCell.new(material)
   self.materialCell:SetData(CardMakeProxy.Instance:GetDecomposeMaterialItemData())
   self.materialNum.text = string.format(ZhString.CardDecompose_Material, 0)
@@ -97,7 +97,7 @@ function CardDecomposeNewPage:UpdateChooseCards(isLayout)
     decomposeItemMap[itemId] = decomposeItemMap[itemId] or {}
     decomposeItemMap[itemId].num = totalNum
     local extraItems = decomposeExtraItem and decomposeExtraItem[cardType] and decomposeExtraItem[cardType].extra_decompose_items
-    if extraItems then
+    if extraItems and 0 < #extraItems then
       for j = 1, #extraItems do
         local extraItemId = extraItems[j][1]
         totalNum = decomposeItemMap[extraItemId] and decomposeItemMap[extraItemId].num or 0
@@ -106,6 +106,20 @@ function CardDecomposeNewPage:UpdateChooseCards(isLayout)
         decomposeItemMap[extraItemId] = decomposeItemMap[extraItemId] or {}
         decomposeItemMap[extraItemId].num = totalNum
         decomposeItemMap[extraItemId].isExtra = true
+      end
+    elseif cardType == 3 then
+      itemId = 52838
+      totalNum = decomposeItemMap[itemId] and decomposeItemMap[itemId].num or 0
+      local cardLv = d.cardLv or 0
+      local singleNum, decimal = ItemFun.calcMvpCardDecomposeExtraCrystalCountAndRate(d.staticData.id, cardLv)
+      totalNum = totalNum + singleNum * d.num
+      decomposeItemMap[itemId] = decomposeItemMap[itemId] or {}
+      decomposeItemMap[itemId].num = totalNum
+      if decomposeItemMap[itemId].isExtra == nil then
+        decomposeItemMap[itemId].isExtra = not decimal or decimal <= 0
+      else
+        local isExtra = decomposeItemMap[itemId].isExtra and (not decimal or decimal <= 0)
+        decomposeItemMap[itemId].isExtra = isExtra
       end
     end
   end

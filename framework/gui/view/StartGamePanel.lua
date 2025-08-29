@@ -255,7 +255,21 @@ function StartGamePanel:initView()
     self:DisenableCollider()
   end
   self.ageDetailBtn = self:FindGO("AgeDetailBtn")
+  self.ageDetailBtn_Sprite = self.ageDetailBtn:GetComponent(UISprite)
   if not BranchMgr.IsChina() then
+    self.ageDetailBtn:SetActive(false)
+  end
+  if BranchMgr.IsChina() then
+    self.ageDetailBtn:SetActive(true)
+    self.ageDetailBtn_Sprite.spriteName = "cadpa_12+"
+    self.ageDetailBtn_Sprite:MakePixelPerfect()
+    self.ageDetailBtn.transform.localScale = LuaGeometry.GetTempVector3(0.5, 0.5, 0.5)
+  elseif BranchMgr.IsNOTW() then
+    self.ageDetailBtn:SetActive(true)
+    self.ageDetailBtn_Sprite.spriteName = "TW_12+"
+    self.ageDetailBtn_Sprite:MakePixelPerfect()
+    self.ageDetailBtn.transform.localScale = LuaGeometry.GetTempVector3(0.5, 0.5, 0.5)
+  else
     self.ageDetailBtn:SetActive(false)
   end
 end

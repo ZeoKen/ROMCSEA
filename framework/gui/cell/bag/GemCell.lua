@@ -159,7 +159,8 @@ function GemCell:UpdateClickDisabled()
   if self.data and GemProxy.Instance:CheckSecretLandTypeInvalid(self.data) and not GemProxy.Instance:IsEmbedded(self.data.id) and GemProxy.Instance:IsContainerViewOpen() then
     invalidFlag = true
   end
-  self.invalid:SetActive(self.isClickDisabled or invalidFlag)
+  self.cellInvalid = self.isClickDisabled or invalidFlag
+  self.invalid:SetActive(self.cellInvalid)
 end
 
 function GemCell:UpdateBg()

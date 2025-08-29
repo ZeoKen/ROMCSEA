@@ -113,9 +113,11 @@ function ChangeZoneProxy:RecvServerInfoNtf(data)
   local config = GameConfig.ChangeZone.zone_name
   if nameList then
     for k, v in pairs(nameList) do
-      local fullName = config and config[k] and config[k].fullname or ""
-      local data = {name_prefix = k, fullname = fullName}
-      table.insert(self.serverNames, data)
+      if config and config[k] then
+        local fullName = config[k].fullname or ""
+        local data = {name_prefix = k, fullname = fullName}
+        table.insert(self.serverNames, data)
+      end
     end
   end
   local pvp

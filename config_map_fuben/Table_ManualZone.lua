@@ -430,11 +430,40 @@ Table_ManualZone = {
   },
   [101] = {
     id = 101,
-    MonsterNum = 5,
+    MonsterNum = 6,
     NpcNum = 2,
     NpcReward = 33263,
     GoodReward = 33283,
     PerfectReward = 33363
+  },
+  [109] = {
+    id = 109,
+    NpcNum = 9,
+    NpcReward = 33263
+  },
+  [110] = {
+    id = 110,
+    MonsterNum = 5,
+    NpcNum = 5,
+    NpcReward = 33263,
+    GoodReward = 33284,
+    PerfectReward = 33305
+  },
+  [120] = {
+    id = 120,
+    MonsterNum = 5,
+    NpcNum = 4,
+    NpcReward = 33263,
+    GoodReward = 33284,
+    PerfectReward = 33326
+  },
+  [154] = {
+    id = 154,
+    MonsterNum = 9,
+    NpcNum = 6,
+    NpcReward = 33268,
+    GoodReward = 33289,
+    PerfectReward = 33401
   }
 }
 Table_ManualZone_fields = {

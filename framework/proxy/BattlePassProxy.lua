@@ -257,6 +257,9 @@ end
 
 function BattlePassProxy:GetUpgradeDepositToBuy(checkCondition, checkInSale)
   local items, item, reason_notInSale
+  if not self.UpgradeDepositItem then
+    return
+  end
   for i = 1, #self.UpgradeDepositItem do
     item = self.UpgradeDepositItem[i]
     local bought = self:IsUpgradeDepositBought(item)

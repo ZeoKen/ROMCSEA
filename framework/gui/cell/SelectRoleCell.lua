@@ -6,14 +6,20 @@ local tempV3 = LuaVector3()
 function SelectRoleCell:Init()
   self.icon = self:FindGO("icon"):GetComponent(UIMultiSprite)
   self.role = self:FindGO("role"):GetComponent(UIMultiSprite)
-  self.toggle = self:FindGO("toggle"):GetComponent(UIToggle)
-  self.toggle.optionCanBeNone = true
+  self.toggleObj = self:FindGO("toggle")
+  if self.toggleObj then
+    self.toggle = self.toggleObj:GetComponent(UIToggle)
+    self.toggle.optionCanBeNone = true
+  end
   self.name = self:FindGO("name"):GetComponent(UILabel)
   self:AddCellClickEvent()
   self:AddEvts()
 end
 
 function SelectRoleCell:AddEvts()
+  if not self.toggle then
+    return
+  end
   EventDelegate.Add(self.toggle.onChange, function()
     if self.toggle.value then
       GameFacade.Instance:sendNotification(TeamEvent.TeamOption_SelectRole, self)
@@ -44,6 +50,9 @@ function SelectRoleCell:SetData(data)
 end
 
 function SelectRoleCell:SetSelected(isSelected)
+  if not self.toggle then
+    return
+  end
   self.toggle.value = isSelected
 end
 

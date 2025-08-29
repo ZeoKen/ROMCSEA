@@ -1705,7 +1705,7 @@ function ServiceNUserAutoProxy:CallServerTime(time)
   end
 end
 
-function ServiceNUserAutoProxy:CallEffectUserCmd(effecttype, charid, effectpos, pos, effect, msec, times, index, opt, posbind, epbind, delay, id, dir, skillid, ignorenavmesh, filterid, scale, dir3d, source)
+function ServiceNUserAutoProxy:CallEffectUserCmd(effecttype, charid, effectpos, pos, effect, msec, times, index, opt, posbind, epbind, delay, id, dir, skillid, ignorenavmesh, filterid, scale, dir3d, source, ownerid)
   if not NetConfig.PBC then
     local msg = SceneUser2_pb.EffectUserCmd()
     if effecttype ~= nil then
@@ -1815,6 +1815,9 @@ function ServiceNUserAutoProxy:CallEffectUserCmd(effecttype, charid, effectpos, 
     end
     if source ~= nil then
       msg.source = source
+    end
+    if ownerid ~= nil then
+      msg.ownerid = ownerid
     end
     self:SendProto(msg)
   else
@@ -1927,6 +1930,9 @@ function ServiceNUserAutoProxy:CallEffectUserCmd(effecttype, charid, effectpos, 
     end
     if source ~= nil then
       msgParam.source = source
+    end
+    if ownerid ~= nil then
+      msgParam.ownerid = ownerid
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -8551,6 +8557,15 @@ function ServiceNUserAutoProxy:CallBuildContributeUserCmd(item, data, success)
       end
       msg.item.tmp.num_param = item.tmp.num_param
     end
+    if item.tmp ~= nil and item.tmp.from_reward ~= nil then
+      if msg.item == nil then
+        msg.item = {}
+      end
+      if msg.item.tmp == nil then
+        msg.item.tmp = {}
+      end
+      msg.item.tmp.from_reward = item.tmp.from_reward
+    end
     if item ~= nil and item.mount_fashion_activated ~= nil then
       if msg == nil then
         msg = {}
@@ -8568,6 +8583,15 @@ function ServiceNUserAutoProxy:CallBuildContributeUserCmd(item, data, success)
         msg.item = {}
       end
       msg.item.no_trade_reason = item.no_trade_reason
+    end
+    if item.card_info ~= nil and item.card_info.lv ~= nil then
+      if msg.item == nil then
+        msg.item = {}
+      end
+      if msg.item.card_info == nil then
+        msg.item.card_info = {}
+      end
+      msg.item.card_info.lv = item.card_info.lv
     end
     if data ~= nil and data.id ~= nil then
       if msg == nil then
@@ -9025,6 +9049,15 @@ function ServiceNUserAutoProxy:CallBuildContributeUserCmd(item, data, success)
       end
       msgParam.item.tmp.num_param = item.tmp.num_param
     end
+    if item.tmp ~= nil and item.tmp.from_reward ~= nil then
+      if msgParam.item == nil then
+        msgParam.item = {}
+      end
+      if msgParam.item.tmp == nil then
+        msgParam.item.tmp = {}
+      end
+      msgParam.item.tmp.from_reward = item.tmp.from_reward
+    end
     if item ~= nil and item.mount_fashion_activated ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -9042,6 +9075,15 @@ function ServiceNUserAutoProxy:CallBuildContributeUserCmd(item, data, success)
         msgParam.item = {}
       end
       msgParam.item.no_trade_reason = item.no_trade_reason
+    end
+    if item.card_info ~= nil and item.card_info.lv ~= nil then
+      if msgParam.item == nil then
+        msgParam.item = {}
+      end
+      if msgParam.item.card_info == nil then
+        msgParam.item.card_info = {}
+      end
+      msgParam.item.card_info.lv = item.card_info.lv
     end
     if data ~= nil and data.id ~= nil then
       if msgParam == nil then
@@ -11525,6 +11567,15 @@ function ServiceNUserAutoProxy:CallActivityDonateRewardUserCmd(activityid, itemc
       end
       msg.itemcost.tmp.num_param = itemcost.tmp.num_param
     end
+    if itemcost.tmp ~= nil and itemcost.tmp.from_reward ~= nil then
+      if msg.itemcost == nil then
+        msg.itemcost = {}
+      end
+      if msg.itemcost.tmp == nil then
+        msg.itemcost.tmp = {}
+      end
+      msg.itemcost.tmp.from_reward = itemcost.tmp.from_reward
+    end
     if itemcost ~= nil and itemcost.mount_fashion_activated ~= nil then
       if msg == nil then
         msg = {}
@@ -11542,6 +11593,15 @@ function ServiceNUserAutoProxy:CallActivityDonateRewardUserCmd(activityid, itemc
         msg.itemcost = {}
       end
       msg.itemcost.no_trade_reason = itemcost.no_trade_reason
+    end
+    if itemcost.card_info ~= nil and itemcost.card_info.lv ~= nil then
+      if msg.itemcost == nil then
+        msg.itemcost = {}
+      end
+      if msg.itemcost.card_info == nil then
+        msg.itemcost.card_info = {}
+      end
+      msg.itemcost.card_info.lv = itemcost.card_info.lv
     end
     if times ~= nil then
       msg.times = times
@@ -11855,6 +11915,15 @@ function ServiceNUserAutoProxy:CallActivityDonateRewardUserCmd(activityid, itemc
       end
       msgParam.itemcost.tmp.num_param = itemcost.tmp.num_param
     end
+    if itemcost.tmp ~= nil and itemcost.tmp.from_reward ~= nil then
+      if msgParam.itemcost == nil then
+        msgParam.itemcost = {}
+      end
+      if msgParam.itemcost.tmp == nil then
+        msgParam.itemcost.tmp = {}
+      end
+      msgParam.itemcost.tmp.from_reward = itemcost.tmp.from_reward
+    end
     if itemcost ~= nil and itemcost.mount_fashion_activated ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -11872,6 +11941,15 @@ function ServiceNUserAutoProxy:CallActivityDonateRewardUserCmd(activityid, itemc
         msgParam.itemcost = {}
       end
       msgParam.itemcost.no_trade_reason = itemcost.no_trade_reason
+    end
+    if itemcost.card_info ~= nil and itemcost.card_info.lv ~= nil then
+      if msgParam.itemcost == nil then
+        msgParam.itemcost = {}
+      end
+      if msgParam.itemcost.card_info == nil then
+        msgParam.itemcost.card_info = {}
+      end
+      msgParam.itemcost.card_info.lv = itemcost.card_info.lv
     end
     if times ~= nil then
       msgParam.times = times

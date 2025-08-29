@@ -173,7 +173,7 @@ function AstrolabeView:InitSimulateInfo()
   end)
   local delButton = self:FindGO("S_Del", simulateSearchInputGO)
   self:AddClickEvent(delButton, function(go)
-    self:ClearSearchPointEffect()
+    self:ShowDefaultRecommendPointsEffect()
   end)
   self.searchDownTrans = self:FindGO("S_Down", simulateSearchInputGO).transform
   EventDelegate.Set(self.simulateSearchInput.onChange, function()
@@ -242,6 +242,7 @@ function AstrolabeView:OnEnter_Active()
   end
   
   self:UpdatePreview()
+  self:ShowDefaultRecommendPointsEffect()
   local oneKnob, viewData = self:FindGO("OneKnob"), self.viewdata.viewdata
   oneKnob:SetActive(not viewData or not viewData.saveId and not viewData.storageId and not viewData.FromProfessionInfoViewMP)
 end
@@ -330,6 +331,21 @@ function AstrolabeView:DoSearchPoint(value)
     self.searchPointsCtl:ResetDatas(spcPoints)
   else
     self.searchPointsCtl:ResetDatas(self.searchPoints)
+  end
+end
+
+function AstrolabeView:ShowDefaultRecommendPointsEffect()
+  if self.searchPoints == nil then
+    self.searchPoints = {}
+  else
+    TableUtility.TableClear(self.searchPoints)
+  end
+  self:ClearSearchPointEffect()
+  local points = self.curBordData:GetAllRecommendPoints()
+  for i = 1, #points do
+    if not points[i]:IsActive() then
+      self:AddSearchPointEffect(points[i])
+    end
   end
 end
 

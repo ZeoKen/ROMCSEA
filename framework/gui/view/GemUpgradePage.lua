@@ -17,8 +17,8 @@ function GemUpgradePage:Init()
 end
 
 function GemUpgradePage:AddEvents()
-  self:AddListenEvt(ServiceEvent.ItemGemDataUpdateItemCmd, self.OnGemDataUpdate)
-  self:AddListenEvt(ItemEvent.GemUpdate, self.OnGemUpdate)
+  self:AddDispatcherEvt(ItemEvent.GemDataUpdate, self.OnGemDataUpdate)
+  self:AddDispatcherEvt(ItemEvent.GemUpdate, self.OnGemUpdate)
 end
 
 function GemUpgradePage:InitData()
@@ -219,13 +219,13 @@ function GemUpgradePage:OnLongPressListCell(param)
   end
 end
 
-function GemUpgradePage:OnGemDataUpdate(note)
+function GemUpgradePage:OnGemDataUpdate(server_items)
   if not self.gameObject.activeInHierarchy then
     return
   end
   TipManager.CloseTip()
   self:ClearMaterialList()
-  local items = note.body and note.body.items
+  local items = server_items
   if items and items[1] then
     GemProxy.Instance:ShowNewGemResults(items)
     self.targetItemIdToRefresh = items[1].base.guid

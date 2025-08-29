@@ -642,6 +642,7 @@ function Asset_Effect:DoDeconstruct(asArray)
   self.args[18] = true
   self.args[19] = nil
   self.args[24] = nil
+  self.args[25] = nil
   self:RemoveCreatedCallBack()
   self.createTime = nil
   self.effectTrans = nil

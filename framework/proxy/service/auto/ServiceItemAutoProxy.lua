@@ -465,6 +465,18 @@ function ServiceItemAutoProxy:onRegister()
   self:Listen(6, 162, function(data)
     self:RecvUpdateMemoryPosItemCmd(data)
   end)
+  self:Listen(6, 163, function(data)
+    self:RecvDecomposeGemItemCmd(data)
+  end)
+  self:Listen(6, 164, function(data)
+    self:RecvUpgradeGemItemCmd(data)
+  end)
+  self:Listen(6, 165, function(data)
+    self:RecvMemoryUpgradeItemCmd(data)
+  end)
+  self:Listen(6, 166, function(data)
+    self:RecvCardLevelupItemCmd(data)
+  end)
 end
 
 function ServiceItemAutoProxy:CallPackageItem(type, data, maxslot)
@@ -4259,6 +4271,15 @@ function ServiceItemAutoProxy:CallLotteryDollPayItemCmd(info)
       end
       msg.info.item.tmp.num_param = info.item.tmp.num_param
     end
+    if info.item.tmp ~= nil and info.item.tmp.from_reward ~= nil then
+      if msg.info.item == nil then
+        msg.info.item = {}
+      end
+      if msg.info.item.tmp == nil then
+        msg.info.item.tmp = {}
+      end
+      msg.info.item.tmp.from_reward = info.item.tmp.from_reward
+    end
     if info.item ~= nil and info.item.mount_fashion_activated ~= nil then
       if msg.info == nil then
         msg.info = {}
@@ -4276,6 +4297,15 @@ function ServiceItemAutoProxy:CallLotteryDollPayItemCmd(info)
         msg.info.item = {}
       end
       msg.info.item.no_trade_reason = info.item.no_trade_reason
+    end
+    if info.item.card_info ~= nil and info.item.card_info.lv ~= nil then
+      if msg.info.item == nil then
+        msg.info.item = {}
+      end
+      if msg.info.item.card_info == nil then
+        msg.info.item.card_info = {}
+      end
+      msg.info.item.card_info.lv = info.item.card_info.lv
     end
     self:SendProto(msg)
   else
@@ -4598,6 +4628,15 @@ function ServiceItemAutoProxy:CallLotteryDollPayItemCmd(info)
       end
       msgParam.info.item.tmp.num_param = info.item.tmp.num_param
     end
+    if info.item.tmp ~= nil and info.item.tmp.from_reward ~= nil then
+      if msgParam.info.item == nil then
+        msgParam.info.item = {}
+      end
+      if msgParam.info.item.tmp == nil then
+        msgParam.info.item.tmp = {}
+      end
+      msgParam.info.item.tmp.from_reward = info.item.tmp.from_reward
+    end
     if info.item ~= nil and info.item.mount_fashion_activated ~= nil then
       if msgParam.info == nil then
         msgParam.info = {}
@@ -4615,6 +4654,15 @@ function ServiceItemAutoProxy:CallLotteryDollPayItemCmd(info)
         msgParam.info.item = {}
       end
       msgParam.info.item.no_trade_reason = info.item.no_trade_reason
+    end
+    if info.item.card_info ~= nil and info.item.card_info.lv ~= nil then
+      if msgParam.info.item == nil then
+        msgParam.info.item = {}
+      end
+      if msgParam.info.item.card_info == nil then
+        msgParam.info.item.card_info = {}
+      end
+      msgParam.info.item.card_info.lv = info.item.card_info.lv
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -8135,6 +8183,120 @@ function ServiceItemAutoProxy:CallUpdateMemoryPosItemCmd(pos)
   end
 end
 
+function ServiceItemAutoProxy:CallDecomposeGemItemCmd(guids)
+  if not NetConfig.PBC then
+    local msg = SceneItem_pb.DecomposeGemItemCmd()
+    if guids ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.guids == nil then
+        msg.guids = {}
+      end
+      for i = 1, #guids do
+        table.insert(msg.guids, guids[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.DecomposeGemItemCmd.id
+    local msgParam = {}
+    if guids ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.guids == nil then
+        msgParam.guids = {}
+      end
+      for i = 1, #guids do
+        table.insert(msgParam.guids, guids[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceItemAutoProxy:CallUpgradeGemItemCmd(guid, buffid, paramid)
+  if not NetConfig.PBC then
+    local msg = SceneItem_pb.UpgradeGemItemCmd()
+    if guid ~= nil then
+      msg.guid = guid
+    end
+    if buffid ~= nil then
+      msg.buffid = buffid
+    end
+    if paramid ~= nil then
+      msg.paramid = paramid
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.UpgradeGemItemCmd.id
+    local msgParam = {}
+    if guid ~= nil then
+      msgParam.guid = guid
+    end
+    if buffid ~= nil then
+      msgParam.buffid = buffid
+    end
+    if paramid ~= nil then
+      msgParam.paramid = paramid
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceItemAutoProxy:CallMemoryUpgradeItemCmd(memory_guid, equip_pos, quality_type)
+  if not NetConfig.PBC then
+    local msg = SceneItem_pb.MemoryUpgradeItemCmd()
+    if memory_guid ~= nil then
+      msg.memory_guid = memory_guid
+    end
+    if equip_pos ~= nil then
+      msg.equip_pos = equip_pos
+    end
+    if quality_type ~= nil then
+      msg.quality_type = quality_type
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.MemoryUpgradeItemCmd.id
+    local msgParam = {}
+    if memory_guid ~= nil then
+      msgParam.memory_guid = memory_guid
+    end
+    if equip_pos ~= nil then
+      msgParam.equip_pos = equip_pos
+    end
+    if quality_type ~= nil then
+      msgParam.quality_type = quality_type
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceItemAutoProxy:CallCardLevelupItemCmd(card_guid, dest_lv)
+  if not NetConfig.PBC then
+    local msg = SceneItem_pb.CardLevelupItemCmd()
+    if card_guid ~= nil then
+      msg.card_guid = card_guid
+    end
+    if dest_lv ~= nil then
+      msg.dest_lv = dest_lv
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.CardLevelupItemCmd.id
+    local msgParam = {}
+    if card_guid ~= nil then
+      msgParam.card_guid = card_guid
+    end
+    if dest_lv ~= nil then
+      msgParam.dest_lv = dest_lv
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceItemAutoProxy:RecvPackageItem(data)
   self:Notify(ServiceEvent.ItemPackageItem, data)
 end
@@ -8735,6 +8897,22 @@ function ServiceItemAutoProxy:RecvUpdateMemoryPosItemCmd(data)
   self:Notify(ServiceEvent.ItemUpdateMemoryPosItemCmd, data)
 end
 
+function ServiceItemAutoProxy:RecvDecomposeGemItemCmd(data)
+  self:Notify(ServiceEvent.ItemDecomposeGemItemCmd, data)
+end
+
+function ServiceItemAutoProxy:RecvUpgradeGemItemCmd(data)
+  self:Notify(ServiceEvent.ItemUpgradeGemItemCmd, data)
+end
+
+function ServiceItemAutoProxy:RecvMemoryUpgradeItemCmd(data)
+  self:Notify(ServiceEvent.ItemMemoryUpgradeItemCmd, data)
+end
+
+function ServiceItemAutoProxy:RecvCardLevelupItemCmd(data)
+  self:Notify(ServiceEvent.ItemCardLevelupItemCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.ItemPackageItem = "ServiceEvent_ItemPackageItem"
 ServiceEvent.ItemPackageUpdate = "ServiceEvent_ItemPackageUpdate"
@@ -8886,3 +9064,7 @@ ServiceEvent.ItemMemoryDecomposeItemCmd = "ServiceEvent_ItemMemoryDecomposeItemC
 ServiceEvent.ItemMemoryEffectOperItemCmd = "ServiceEvent_ItemMemoryEffectOperItemCmd"
 ServiceEvent.ItemMemoryAutoDecomposeOptionItemCmd = "ServiceEvent_ItemMemoryAutoDecomposeOptionItemCmd"
 ServiceEvent.ItemUpdateMemoryPosItemCmd = "ServiceEvent_ItemUpdateMemoryPosItemCmd"
+ServiceEvent.ItemDecomposeGemItemCmd = "ServiceEvent_ItemDecomposeGemItemCmd"
+ServiceEvent.ItemUpgradeGemItemCmd = "ServiceEvent_ItemUpgradeGemItemCmd"
+ServiceEvent.ItemMemoryUpgradeItemCmd = "ServiceEvent_ItemMemoryUpgradeItemCmd"
+ServiceEvent.ItemCardLevelupItemCmd = "ServiceEvent_ItemCardLevelupItemCmd"

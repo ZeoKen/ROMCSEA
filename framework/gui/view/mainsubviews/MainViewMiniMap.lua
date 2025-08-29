@@ -253,7 +253,6 @@ end
 
 function MainViewMiniMap:UpdateSkillWeather()
   local skillWeather = SkillProxy.Instance:GetSkillWeather()
-  redlog("UpdateSkillWeather", skillWeather, SkillWeatherIcon)
   if skillWeather and SkillWeatherIcon and SkillWeatherIcon[skillWeather] then
     self.skillWeatherGO:SetActive(true)
     self.skillWeatherSp.spriteName = SkillWeatherIcon[skillWeather]
@@ -667,11 +666,13 @@ function MainViewMiniMap:OnEnter()
     self:ShowPoringFightMapItems()
   end
   self:ActiveCheckMonstersPoses(true)
+  self:ActiveCheckFakeDragonPoses(true)
 end
 
 function MainViewMiniMap:OnExit()
   self.minimapWindow:Hide()
   self:ActiveCheckMonstersPoses(false)
+  self:ActiveCheckFakeDragonPoses(false)
   self:ClearPoringFightMapItems()
   self:ClearOutScreenDatas()
   self:ClearObjActiveMap()
@@ -1054,7 +1055,11 @@ function MainViewMiniMap:UpdateNearlyMonsters()
           if isMvpFight then
             monsterMapData:SetParama("monster_icon", sdata.Icon)
           end
-          symbolName = "map_mvpboss"
+          if staticMonsterId == 276614 then
+            symbolName = "map_icon_shikonglong"
+          else
+            symbolName = "map_mvpboss"
+          end
           depth = 3
         elseif sdata.Type == "MINI" then
           if isMvpFight then
@@ -1560,7 +1565,7 @@ function MainViewMiniMap:UpdateMapAllInfo(map2d)
     self:UpdateStealthGameInfo()
     self:UpdateTwelvePVPMapInfo()
     self:UpdateGvgStrongHold()
-    self:UpdateGVGMetaInfo()
+    self:UpdateGVGInfo()
     self:UpdateTripleTeamsMapInfo()
     self:UpdateAstralTowerMapInfo()
     self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateQuestFocuses, self.focusMap)
@@ -1568,6 +1573,7 @@ function MainViewMiniMap:UpdateMapAllInfo(map2d)
     self:UpdateTransmitter()
     self:UpdateShowAreaTips()
     self:RefreshYahahaSymbol()
+    self:RefreshFakeDragonSymbol()
     if mapIdChanged then
       _TableClear(self.showNpcs, miniMapDataDeleteFunc)
       if cache_servershowNpcMap ~= nil then
@@ -1702,6 +1708,7 @@ function MainViewMiniMap:MapEvent()
   self:AddListenEvt(ServiceEvent.FuBenCmdGvgPointUpdateFubenCmd, self.UpdateGvgStrongHold)
   self:AddListenEvt(GVGEvent.GVG_SmallMetalCntUpdate, self.UpdateGvgStrongHold)
   self:AddListenEvt(GVGEvent.GVGDungeonLaunch, self.HandleGvgLaunch)
+  self:AddListenEvt(GVGEvent.GVG_MvpStateUpdate, self.UpdateGVGInfo)
   self:AddListenEvt(GVGEvent.GVGDungeonShutDown, self.HandleGvgShutDown)
   self:AddListenEvt(GVGEvent.GVG_CrystalInvincible, self.UpdateGvgCrystalInvincible)
   self:AddListenEvt(GVGEvent.GVG_Calm, self.UpdateGvgCalm)
@@ -1722,11 +1729,13 @@ function MainViewMiniMap:MapEvent()
   self:AddListenEvt(PVPEvent.EndlessBattleField_Launch, self.LaunchEBFEventAreaMapInfo)
   self:AddListenEvt(PVPEvent.EndlessBattleField_Shutdown, self.ClearEBFEventAreaMapInfo)
   self:AddListenEvt(ServiceEvent.MapSkillWeatherSyncCmd, self.UpdateSkillWeather)
+  self:AddListenEvt(FakeDragonEvent.UpdateFakeDragonPoses, self.RefreshFakeDragonSymbol)
 end
 
 function MainViewMiniMap:HandleChangeMap(note)
   self:UpdateTeamMembersPos(true)
   self:RefreshYahahaSymbol()
+  self:RefreshFakeDragonSymbol()
   self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.ClearSymbolHintParam)
   self:UpdateTeamMembersPos(true)
   self:TrySetupBigWorldWildMvpPassDayRefresh()
@@ -2611,6 +2620,9 @@ function MainViewMiniMap:_UpdatePlayerSymbolData(player)
   if player == nil then
     return
   end
+  if player.GetCreatureType and player:GetCreatureType() ~= Creature_Type.Player then
+    return
+  end
   local playerid = player.data.id
   local playerSymbolName
   if self.teamMemberMapDatas[playerid] and not Game.MapManager:IsPvpMode_DesertWolf() then
@@ -2654,7 +2666,7 @@ function MainViewMiniMap:UpdatePlayerSymbolsPos()
       end
       self.playerMap[playerid] = nil
     else
-      local player = NSceneUserProxy.Instance:Find(playerid)
+      local player = SceneCreatureProxy.FindCreature(playerid)
       if player ~= nil then
         local pos = player:GetPosition()
         if pos then
@@ -3024,10 +3036,12 @@ end
 
 function MainViewMiniMap:HandleAddNpcs(note)
   self:UpdateTeamBallInfos(note.body)
+  self:UpdateTripleTeamRobotPlayerMapInfo(note.body)
 end
 
 function MainViewMiniMap:HandleRemoveNpcs(note)
   self:RemoveTeamPwsBallInfo(note.body)
+  self:RemoveTripleTeamRobotPlayerMapInfo(note.body)
 end
 
 function MainViewMiniMap:HandleTeamPwsBallChange(note)
@@ -4180,7 +4194,7 @@ function MainViewMiniMap:UpdateCloneMap()
 end
 
 function MainViewMiniMap:HandleGvgLaunch()
-  self:UpdateGVGMetaInfo()
+  self:UpdateGVGInfo()
   self:Show(self.gvgCrystalInvincibleLab)
 end
 
@@ -4189,27 +4203,64 @@ function MainViewMiniMap:HandleGvgShutDown()
   self:Hide(self.gvgCrystalInvincibleLab)
 end
 
-local MetalSymbols = GameConfig.GVGConfig.NpcMapSymbols
+function MainViewMiniMap:AddGvgMetalData(config, minimap_data_id)
+  if self.gvgMetalMap[minimap_data_id] then
+    return
+  end
+  if config and config.pos and config.icon and minimap_data_id then
+    local mode = GvgProxy.Instance:GetCurRaidMode()
+    local pos = config.pos[mode]
+    local miniMapData = MiniMapData.CreateAsTable(minimap_data_id)
+    miniMapData:SetPos(pos[1], pos[2], pos[3])
+    miniMapData:SetParama("Symbol", config.icon)
+    miniMapData:SetParama("Scale", 0.5)
+    self.gvgMetalMap[minimap_data_id] = miniMapData
+  end
+end
 
-function MainViewMiniMap:UpdateGVGMetaInfo()
+local MetalSymbols = GameConfig.GVGConfig.NpcMapSymbols
+local gvg_mvp_data_id = {metal = 1, mvp = 2}
+
+function MainViewMiniMap:UpdateGvgMvpData()
+  local gvg_proxy = GvgProxy.Instance
+  local symbol_id = gvg_mvp_data_id.mvp
+  if gvg_proxy:IsMvpDead() or not gvg_proxy:HasMapMvp() then
+    self.gvgMetalMap[symbol_id] = nil
+  else
+    local config = MetalSymbols.mvp
+    if not config then
+      return
+    end
+    local icon = gvg_proxy:IsMvpAlive() and config.icon or config.gray_icon
+    local mini_data = self.gvgMetalMap[symbol_id]
+    if not mini_data then
+      mini_data = MiniMapData.CreateAsTable(symbol_id)
+      self.gvgMetalMap[symbol_id] = mini_data
+    end
+    local mode = GvgProxy.Instance:GetCurRaidMode()
+    local pos = config.pos and config.pos[mode]
+    mini_data:SetPos(pos[1], pos[2], pos[3])
+    mini_data:SetParama("Symbol", icon)
+    mini_data:SetParama("Scale", 1)
+  end
+end
+
+function MainViewMiniMap:UpdateGVGInfo()
   if not Game.MapManager:IsInGVGDetailedRaid() then
     self:ClearGVGMetaInfo()
     return
   end
   _TableClearByDeleter(self.gvgMetalMap, miniMapDataDeleteFunc)
-  local pos = GvgProxy.IsClassicMode() and MetalSymbols.pos[2] or MetalSymbols.pos[1]
-  local miniMapData = MiniMapData.CreateAsTable(1)
-  miniMapData:SetPos(pos[1], pos[2], pos[3])
-  miniMapData:SetParama("Symbol", MetalSymbols.icon)
-  self.gvgMetalMap[1] = miniMapData
-  self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateGvgMetalIcon, self.gvgMetalMap, true)
-  self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateGvgMetalIcon, self.gvgMetalMap, true)
+  self:AddGvgMetalData(MetalSymbols.metal, gvg_mvp_data_id.metal)
+  self:UpdateGvgMvpData()
+  self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateGvgSymbol, self.gvgMetalMap, true)
+  self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateGvgSymbol, self.gvgMetalMap, true)
 end
 
 function MainViewMiniMap:ClearGVGMetaInfo()
   _TableClearByDeleter(self.gvgMetalMap, miniMapDataDeleteFunc)
-  self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateGvgMetalIcon, self.gvgMetalMap, true)
-  self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateGvgMetalIcon, self.gvgMetalMap, true)
+  self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateGvgSymbol, self.gvgMetalMap, true)
+  self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateGvgSymbol, self.gvgMetalMap, true)
 end
 
 function MainViewMiniMap:UpdateWildMvpMonsters()
@@ -4253,24 +4304,28 @@ function MainViewMiniMap:RefreshYahahaSymbol()
   self:UpdateYahahaSymbol()
 end
 
+function MainViewMiniMap:RefreshFakeDragonSymbol()
+  self:UpdateFakeDragonSymbol()
+end
+
 function MainViewMiniMap:_UpdateYahahaDatas()
   if self.yahahaDatas then
     _TableClearByDeleter(self.yahahaDatas, miniMapDataDeleteFunc)
   else
     self.yahahaDatas = {}
   end
-  if not MapManager:IsCurBigWorld() then
-    return
-  end
+  local curMapId = MapManager:GetMapID()
   local yahahaStaticConfigs = Table_YahahaQuest
   for k, v in pairs(yahahaStaticConfigs) do
     local data = self.yahahaDatas[k]
-    local show = FunctionUnLockFunc.Me():CheckCanOpen(v.QuestMenu)
+    local mapValid = v.MapID == curMapId
+    local show = FunctionUnLockFunc.Me():CheckCanOpen(v.QuestMenu) and mapValid
     local fin = FunctionUnLockFunc.Me():CheckCanOpen(v.Menu)
     if show then
       if not data then
         data = MiniMapData.CreateAsTable(k)
         self.yahahaDatas[k] = data
+        data:SetParama("Depth", 36)
       end
       local p = v.Pos
       data:SetPos(p[1], p[2], p[3])
@@ -4291,6 +4346,43 @@ end
 function MainViewMiniMap:UpdateYahahaSymbol()
   self:_UpdateYahahaDatas()
   self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateYahahaSymbol, self.yahahaDatas, true)
+end
+
+function MainViewMiniMap:UpdateFakeDragonSymbol()
+  self:_UpdateFakeDragonDatas()
+  self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateFakeDragonSymbol, self.fakeDragonDatas, true)
+end
+
+function MainViewMiniMap:_UpdateFakeDragonDatas()
+  if self.fakeDragonDatas then
+    _TableClearByDeleter(self.fakeDragonDatas, miniMapDataDeleteFunc)
+  else
+    self.fakeDragonDatas = {}
+  end
+  local uniqueID, fakeDragonPos = AbyssFakeDragonProxy.Instance:GetFakeDragonPosition()
+  local data = self.fakeDragonDatas[1]
+  if fakeDragonPos then
+    if not data then
+      data = MiniMapData.CreateAsTable(uniqueID)
+      self.fakeDragonDatas[1] = data
+      data:SetParama("Depth", 32)
+    end
+    data:SetPos(fakeDragonPos[1], fakeDragonPos[2], fakeDragonPos[3])
+    data:SetParama("Symbol", "map_icon_shikonglong")
+  else
+    if data ~= nil then
+      data:Destroy()
+    end
+    self.fakeDragonDatas[1] = nil
+  end
+end
+
+function MainViewMiniMap:ActiveCheckFakeDragonPoses(open)
+  if open then
+    TimeTickManager.Me():CreateTick(0, 1000, self.UpdateFakeDragonSymbol, self, 14)
+  else
+    TimeTickManager.Me():ClearTick(self, 14)
+  end
 end
 
 function MainViewMiniMap:UpdateCameraSymbol()
@@ -4336,6 +4428,49 @@ function MainViewMiniMap:ClearTripleTeamsMapInfo()
   _TableClearByDeleter(self.tripleTeamsMapInfo, miniMapDataDeleteFunc)
   self:WindowInvoke(self.minimapWindow, self.minimapWindow.UpdateTripleTeamsSymbol, self.tripleTeamsMapInfo, true)
   self:WindowInvoke(self.bigmapWindow, self.bigmapWindow.UpdateTripleTeamsSymbol, self.tripleTeamsMapInfo, true)
+end
+
+function MainViewMiniMap:UpdateTripleTeamRobotPlayerMapInfo(npcs)
+  if not MapManager:IsPVPMode_3Teams() then
+    return
+  end
+  if npcs then
+    local dirty = false
+    for i = 1, #npcs do
+      local npc = npcs[i]
+      if npc.data:IsTripleTeamRobot() then
+        self:_UpdatePlayerSymbolData(npc)
+        dirty = true
+      end
+    end
+    if dirty then
+      self:UpdatePlayerSymbolsPos()
+    end
+  end
+end
+
+function MainViewMiniMap:RemoveTripleTeamRobotPlayerMapInfo(npcIds)
+  if not MapManager:IsPVPMode_3Teams() then
+    return
+  end
+  if npcIds then
+    local dirty = false
+    for i = 1, #npcIds do
+      local npcId = npcIds[i]
+      local npc = NSceneNpcProxy.Instance:Find(npcId)
+      if npc and npc.data:IsTripleTeamRobot() then
+        local miniMapData = self.playerMap[npc.data.id]
+        if miniMapData then
+          miniMapData:Destroy()
+        end
+        self.playerMap[npc.data.id] = nil
+        dirty = true
+      end
+    end
+    if dirty then
+      self:UpdatePlayerSymbolsPos()
+    end
+  end
 end
 
 function MainViewMiniMap:LaunchEBFEventAreaMapInfo()

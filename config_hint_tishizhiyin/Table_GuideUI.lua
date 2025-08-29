@@ -226,6 +226,33 @@ Table_GuideUI = {
     Shortcutpower = {20},
     complete_con = "",
     Params = _EmptyTable
+  },
+  [28] = {
+    id = 28,
+    GroupID = 8,
+    MainTitle = "##42635949",
+    Text = "##2857142",
+    Desc = "##42635950",
+    Icon = "DispatchComplete",
+    Shortcutpower = {8358},
+    complete_con = "WorldQuest",
+    Params = {mapid = 154},
+    Sysmsg = 43462
+  },
+  [29] = {
+    id = 29,
+    GroupID = 8,
+    MainTitle = "##42635949",
+    Text = "##2857145",
+    Desc = "##42635952",
+    Icon = "mvp_dead_100",
+    Shortcutpower = {8359},
+    complete_con = "WildMvp",
+    Params = {
+      mapid = 154,
+      type = {1, 2}
+    },
+    Sysmsg = 43463
   }
 }
 Table_GuideUI_fields = {

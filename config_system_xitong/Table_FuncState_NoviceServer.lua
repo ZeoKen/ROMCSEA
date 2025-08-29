@@ -16,12 +16,7 @@ Table_FuncState = {
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
     ShopItemID = _EmptyTable,
-    ItemID = {
-      62570,
-      62571,
-      62572,
-      62573
-    },
+    ItemID = _EmptyTable,
     MapID = _EmptyTable,
     MenuID = _EmptyTable
   },
@@ -30,7 +25,14 @@ Table_FuncState = {
     Type = "polly",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = {1708},
     QuestID = _EmptyTable,
@@ -44,7 +46,14 @@ Table_FuncState = {
     Type = "rollcoin",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -63,7 +72,14 @@ Table_FuncState = {
     Type = "dojo",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = {1604},
     QuestID = _EmptyTable,
@@ -77,7 +93,14 @@ Table_FuncState = {
     Type = "",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -91,7 +114,14 @@ Table_FuncState = {
     Type = "",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = {},
@@ -126,7 +156,14 @@ Table_FuncState = {
     Type = "personal_artifact_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = {3303, 11015},
     NpcID = {816440},
     QuestID = _EmptyTable,
@@ -140,7 +177,14 @@ Table_FuncState = {
     Type = "extraction_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = {399950001},
@@ -161,7 +205,14 @@ Table_FuncState = {
       6
     },
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -191,7 +242,14 @@ Table_FuncState = {
       32
     },
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = {
       2200,
       2201,
@@ -230,7 +288,14 @@ Table_FuncState = {
       21
     },
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = {
       10026,
       10027,
@@ -252,7 +317,14 @@ Table_FuncState = {
     Type = "enchant_transfer_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -266,7 +338,14 @@ Table_FuncState = {
     Type = "recover_shadow_equip_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = {11020},
     NpcID = _EmptyTable,
     QuestID = {1006540002},
@@ -280,7 +359,14 @@ Table_FuncState = {
     Type = "equip_compose_forbidden",
     Param = _EmptyTable,
     TimeID = 175,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -379,7 +465,14 @@ Table_FuncState = {
     Type = "pray_forbidden",
     Param = {4, 5},
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = {4039, 4044},
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -393,7 +486,14 @@ Table_FuncState = {
     Type = "tutor_system_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = {3255},
     NpcID = {
       6769,
@@ -411,7 +511,14 @@ Table_FuncState = {
     Type = "deadboss_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = {398000003},
@@ -425,7 +532,14 @@ Table_FuncState = {
     Type = "triple_pvp",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -439,7 +553,14 @@ Table_FuncState = {
     Type = "ancient_equip_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -453,7 +574,14 @@ Table_FuncState = {
     Type = "exchange_type_forbidden",
     Param = {47},
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -467,7 +595,14 @@ Table_FuncState = {
     Type = "tutor_class_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = {
       816309,
@@ -487,7 +622,14 @@ Table_FuncState = {
     Type = "TwelvePvp",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = {207640001},
@@ -501,7 +643,14 @@ Table_FuncState = {
     Type = "battletime_music",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -515,7 +664,14 @@ Table_FuncState = {
     Type = "Auction",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = {6647},
     QuestID = _EmptyTable,
@@ -529,7 +685,14 @@ Table_FuncState = {
     Type = "mvpbattle",
     Param = _EmptyTable,
     TimeID = 102,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = {7900},
     QuestID = _EmptyTable,
@@ -543,7 +706,14 @@ Table_FuncState = {
     Type = "adventureOneClick_forbidden",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,
@@ -557,7 +727,14 @@ Table_FuncState = {
     Type = "monengguanzhu_novice_npc",
     Param = _EmptyTable,
     TimeID = 101,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = {
       4865,
@@ -565,6 +742,27 @@ Table_FuncState = {
       805185,
       4864
     },
+    QuestID = _EmptyTable,
+    ShopItemID = _EmptyTable,
+    ItemID = _EmptyTable,
+    MapID = _EmptyTable,
+    MenuID = _EmptyTable
+  },
+  [1024] = {
+    id = 1024,
+    Type = "mix_lottery",
+    Param = _EmptyTable,
+    TimeID = 101,
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
+    NpcFunction = _EmptyTable,
+    NpcID = _EmptyTable,
     QuestID = _EmptyTable,
     ShopItemID = _EmptyTable,
     ItemID = _EmptyTable,
@@ -660,7 +858,14 @@ Table_FuncState = {
     Type = "report_forbidden",
     Param = _EmptyTable,
     TimeID = 174,
-    ServerID = {1},
+    ServerID = {
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    },
     NpcFunction = _EmptyTable,
     NpcID = _EmptyTable,
     QuestID = _EmptyTable,

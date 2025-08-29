@@ -228,3 +228,14 @@ function ServiceSkillProxy:RecvUpdateMasterSkillEquip(data)
   SkillProxy.Instance:UpdateMasterSkillShortcuts(data.equip_skill_family_id, data.shortcuts)
   self:Notify(ServiceEvent.SkillUpdateMasterSkillEquip, data)
 end
+
+function ServiceSkillProxy:RecvUpdateInheritSkillCmd(data)
+  InheritSkillProxy.Instance:UpdateInheritSkills(data.items)
+  self:Notify(ServiceEvent.SkillUpdateInheritSkillCmd, data)
+end
+
+function ServiceSkillProxy:RecvExtendInheritSkillCmd(data)
+  redlog("ServiceSkillProxy:RecvExtendInheritSkillCmd", tostring(data.extendpoints))
+  InheritSkillProxy.Instance:UpdateExtendedCostPoints(data.extendpoints)
+  self:Notify(ServiceEvent.SkillExtendInheritSkillCmd, data)
+end

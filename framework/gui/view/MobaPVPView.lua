@@ -85,8 +85,6 @@ end
 function MobaPVPView:TabChangeHandlerWithPanelID(tabID)
   if tabID == PanelConfig.MobaPvpCompetiveView.tab then
     self:TabChangeHandler(self.competiveModeBtn.name)
-  elseif tabID == PanelConfig.MobaPvpCupModeView.tab then
-    self:TabChangeHandler(self.cupModeBtn.name)
   end
 end
 

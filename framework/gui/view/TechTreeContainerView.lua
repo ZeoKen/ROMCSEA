@@ -28,6 +28,27 @@ function TechTreeContainerView:Init()
   self:InitView()
   self:InitData()
   self:RegisterGuide()
+  self:AddEvts()
+end
+
+function TechTreeContainerView:AddEvts()
+  self:AddListenEvt(ServiceEvent.BossCmdQueryRareEliteCmd, self.OnQuery)
+  self:AddListenEvt(ServiceEvent.BossCmdQuerySpecMapRareEliteCmd, self.OnQuery)
+  self:AddListenEvt(UIMenuEvent.UnlockMenu, self.OnUnlockMenu)
+end
+
+function TechTreeContainerView:OnQuery(note)
+  local pageClass = self.viewMap[self.activePageName or ""]
+  if pageClass and pageClass.OnQuery then
+    pageClass:OnQuery(note)
+  end
+end
+
+function TechTreeContainerView:OnUnlockMenu()
+  local pageClass = self.viewMap[self.activePageName or ""]
+  if pageClass and pageClass.OnUnlockMenu then
+    pageClass:OnUnlockMenu()
+  end
 end
 
 function TechTreeContainerView:InitView()

@@ -43,9 +43,11 @@ function WarbandProxy:ctor(proxyName, data)
   self.warbandMap = {}
   self.warbandList = {}
   self.opponentGroup = {}
+  self.preRoundOpponentGroup = {}
   self.opponentPlayoff = {}
   self.ESchedule = WarbandProxy.ESchedule.NoOpen
   self.opponentCount = {}
+  self.preRoundOpponentCount = {}
   self.effectMap = {}
   self.effectList = {}
   self.seasonReward = {}
@@ -53,6 +55,7 @@ function WarbandProxy:ctor(proxyName, data)
   self.cal_twelveSeasonTime = {}
   self.forbiddenProMap = {}
   self.forbiddenPro = {}
+  self.curStage = 0
 end
 
 function WarbandProxy:HandleUpdateMyWarband(data)
@@ -124,6 +127,10 @@ function WarbandProxy:GetMyWarbandName()
   return name
 end
 
+function WarbandProxy:GetCurStage()
+  return self.curStage
+end
+
 function WarbandProxy:CheckIsFinalRound()
   for _, v in pairs(self.opponentPlayoff) do
     if v.wintimes >= 2 then
@@ -140,6 +147,11 @@ function WarbandProxy:HandleTreeBandData(data)
   local playoffTeamInfo = data.championteaminfo and data.championteaminfo.groupteaminfo
   if not playoffTeamInfo then
     _ArrayClear(self.opponentPlayoff)
+    local playoffData = {}
+    for i = 1, WarbandProxy.Fixed_SingleGroupNum do
+      local cellData = {index = i, wintimes = 0}
+      playoffData[i] = WarbandOpponentTeamData.new(cellData, self)
+    end
   elseif 0 < #playoffTeamInfo then
     local playoffData = {}
     for i = 1, WarbandProxy.Fixed_SingleGroupNum do
@@ -179,6 +191,28 @@ function WarbandProxy:HandleTreeBandData(data)
       self.opponentGroup[i][td.index] = td
     end
   end
+  local preteaminfo = data.preteaminfo
+  if preteaminfo and 0 < #preteaminfo then
+    _TableClear(self.preRoundOpponentCount)
+    _TableClear(self.preRoundOpponentGroup)
+    for i = 1, #preteaminfo do
+      local teamGroupData = {}
+      for i = 1, self.Fixed_SingleGroupNum do
+        local cellData = {index = i, wintimes = 0}
+        teamGroupData[i] = WarbandOpponentTeamData.new(cellData, self)
+      end
+      self.preRoundOpponentGroup[i] = teamGroupData
+      local teaminfo = preteaminfo[i].groupteaminfo
+      for t = 1, #teaminfo do
+        local td = WarbandOpponentTeamData.new(teaminfo[t], self)
+        self.preRoundOpponentCount[td.id] = td
+        self.preRoundOpponentGroup[i][td.index] = td
+        xdlog("预选赛队伍数据", td.index)
+      end
+    end
+  end
+  self.curStage = data.stage or 0
+  xdlog("当前比赛阶段", self.curStage)
 end
 
 function WarbandProxy:GetOpponentCount()
@@ -228,7 +262,7 @@ function WarbandProxy:DoMemberPrepare(ready)
   if self:CheckBandAuthority() then
     return
   end
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandPrepareMatchCCmd(ready)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandPrepareMatchCCmd(ready, nil, self.isCrossServer)
 end
 
 function WarbandProxy:GetTeamScore()
@@ -249,11 +283,30 @@ function WarbandProxy:GetGroupTabData()
     cell = {index = i, isPlayoff = false}
     data[#data + 1] = cell
   end
+  return data
+end
+
+function WarbandProxy:GetPreRoundGroupTabData()
+  local data = {}
+  local cell = {}
+  for i = 1, #self.preRoundOpponentGroup do
+    cell = {index = i, isPlayoff = false}
+    data[#data + 1] = cell
+  end
+  return data
+end
+
+function WarbandProxy:GetFinalRoundGroupTabData()
+  local data = {}
+  local cell = {}
   if self.opponentPlayoff and #self.opponentPlayoff > 0 then
     cell = {
       index = #data + 1,
       isPlayoff = true
     }
+    data[#data + 1] = cell
+  elseif 0 < self.curStage and self.curStage < 4 then
+    cell = {index = 1, isPlayoff = true}
     data[#data + 1] = cell
   end
   return data
@@ -265,6 +318,26 @@ function WarbandProxy:GetOpponentData(tab)
   else
     return self.opponentGroup[tab.index]
   end
+end
+
+function WarbandProxy:GetPreRoundOpponentData(tab)
+  if tab.isPlayoff then
+    return self.opponentPlayoff or {}
+  else
+    return self.preRoundOpponentGroup[tab.index]
+  end
+end
+
+function WarbandProxy:GetFinalRoundOpponentData()
+  if TableUtil.TableIsEmpty(self.opponentPlayoff) then
+    local playoffData = {}
+    for i = 1, self.Fixed_SingleGroupNum do
+      local cellData = {index = i, wintimes = 0}
+      playoffData[i] = WarbandOpponentTeamData.new(cellData, self)
+    end
+    self.opponentPlayoff = playoffData
+  end
+  return self.opponentPlayoff or {}
 end
 
 function WarbandProxy:GetMyWarbandViewMember()
@@ -302,17 +375,20 @@ function WarbandProxy:ClearMemberMap()
 end
 
 function WarbandProxy:ShutDown()
-  redlog("ShutDown")
+  redlog("ShutDown", self.proxyName)
   self:ExitMyband()
   self.myWarbandId = -1
   self.champtionBand = nil
   _ArrayClear(self.opponentPlayoff)
   _ArrayClear(self.warbandList)
   _TableClear(self.opponentGroup)
+  _TableClear(self.preRoundOpponentGroup)
   self:_resetForbiddenPro()
   self:ClearMemberMap()
+  if self.seasonRunning then
+    self:DoQuerySeasonRank()
+  end
   self.seasonRunning = false
-  self:DoQuerySeasonRank()
   self:SetSchedule(WarbandProxy.ESchedule.END)
 end
 
@@ -368,7 +444,7 @@ function WarbandProxy:DoMatch()
     return
   end
   local raidconfigID = Table_MatchRaid[self.champtionRoomId].RaidConfigID
-  ServiceMatchCCmdProxy.Instance:CallJoinRoomCCmd(PvpProxy.Type.TwelvePVPChampion, raidconfigID)
+  ServiceMatchCCmdProxy.Instance:CallJoinRoomCCmd(PvpProxy.Type.TwelvePVPChampion, raidconfigID, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, not self.isCrossServer)
   return true
 end
 
@@ -406,7 +482,7 @@ function WarbandProxy:DoCreatWarband()
     MsgManager.ShowMsgByIDTable(2604)
     return
   end
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandCreateMatchCCmd(str)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandCreateMatchCCmd(str, nil, self.isCrossServer)
 end
 
 function WarbandProxy:DoChangeName(name)
@@ -437,6 +513,11 @@ function WarbandProxy:DoKickMember(guid, name)
       ServiceMatchCCmdProxy.Instance:CallTwelveWarbandDeleteMatchCCmd(guid)
     end, nil, nil, name)
   end
+end
+
+function WarbandProxy:DoDisband()
+  xdlog("12v12取消报名")
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandSignUpMatchCCmd(self.etype, true)
 end
 
 function WarbandProxy:CheckMatchValid()
@@ -542,6 +623,49 @@ function WarbandProxy:CheckFull()
   return false
 end
 
+function WarbandProxy:CheckInPreParticipants()
+  local opponentData = self.preRoundOpponentGroup
+  if not opponentData then
+    return 0
+  end
+  for _group, _teams in pairs(opponentData) do
+    for _index, _teamData in pairs(_teams) do
+      if _teamData.id == self.myWarbandId then
+        return _group
+      end
+    end
+  end
+  return 0
+end
+
+function WarbandProxy:CheckInParticipants()
+  local opponentData = self.opponentGroup
+  if not opponentData then
+    return 0
+  end
+  for _group, _teams in pairs(opponentData) do
+    for _index, _teamData in pairs(_teams) do
+      if _teamData.id == self.myWarbandId then
+        return _group
+      end
+    end
+  end
+  return 0
+end
+
+function WarbandProxy:CheckInFinal()
+  local finalGroup = self.opponentPlayoff
+  if not finalGroup then
+    return 0
+  end
+  for _index, _teamData in pairs(finalGroup) do
+    if _teamData.id == self.myWarbandId then
+      return _index
+    end
+  end
+  return 0
+end
+
 local time_format = "%Y-%m-%d %H:%M:%S"
 local p = "(%d+):(%d+):(%d+)"
 local DAY_SECOND, HOUR_SECOND, MINSCEOND = 86400, 3600, 60
@@ -559,8 +683,8 @@ end
 
 function WarbandProxy:Launch(data)
   self.seasonRunning = true
-  self.curSeason = data.season
-  self:ProcessRewardBySeason(data.season)
+  self.curSeason = data.season > 10000 and data.season - 10000 or data.season
+  self:ProcessRewardBySeason(self.curSeason)
   if nil == self.champtionRoomId then
     self.champtionRoomId = GameConfig.TwelvePvp and GameConfig.TwelvePvp.ChampionMode and GameConfig.TwelvePvp.ChampionMode.MatchRaidID
   end
@@ -574,9 +698,11 @@ function WarbandProxy:Launch(data)
   self.canMatchTime = self.fightStartTime - self.matchTime
   self.figthInterval = data.season_fighttime
   self.nextFightTime = data.season_nextfighttime and 0 ~= data.season_nextfighttime and data.season_nextfighttime or self.fightStartTime
-  redlog("杯赛 console时间: ", os.date(time_format, self.consoleStartTime), os.date(time_format, self.consoleEndTime))
+  self.isCrossServer = data.cross_server_champion or false
+  redlog("杯赛 console时间: ", os.date(time_format, self.consoleStartTime), os.date(time_format, self.consoleEndTime), os.date(time_format, ServerTime.CurServerTime() / 1000))
   redlog("组战队开始时间 | 杯赛报名开始时间 | 组战队结束时间 : ", os.date(time_format, self.warbandStartTime), os.date(time_format, self.signupStartTime), os.date(time_format, self.signupEndTime))
   redlog("杯赛开打时间 | 第一次匹配时间 | 下一轮比赛时间 : ", os.date(time_format, self.fightStartTime), os.date(time_format, self.canMatchTime), os.date(time_format, self.nextFightTime))
+  redlog("[cup] 杯赛是否跨服  : ", self.curSeason, self.isCrossServer)
   self:ResetForbiddenPro(data.forbid_profession)
   self:TryUpdateScheduleStatus()
 end
@@ -619,18 +745,22 @@ function WarbandProxy:GetForbiddenProStr()
   return self.forbiddenProStr
 end
 
-function WarbandProxy:CheckCalendarTimeValid(type, dependencyStamp)
+function WarbandProxy:CheckCalendarTimeValid(type, dependencyStamp, isCrossServer)
   local cal_times = self.cal_twelveSeasonTime[type]
+  local isCrossServer = isCrossServer or false
   if cal_times then
     for i = 1, #cal_times do
-      local startTime = cal_times[i].season_begin
-      local endTime = cal_times[i].season_end
-      local startbreakTime = cal_times[i].season_breakbegin
-      local endbreakTime = cal_times[i].season_breakend
-      local intime = startTime and endTime and dependencyStamp > startTime and dependencyStamp < endTime
-      local inbreakTime = 0 ~= startbreakTime and 0 ~= endbreakTime and dependencyStamp > startbreakTime and dependencyStamp < endbreakTime
-      if intime and not inbreakTime then
-        return true
+      local isSeasonCrossServer = cal_times[i].season > 10000
+      if isCrossServer == isSeasonCrossServer then
+        local startTime = cal_times[i].season_begin
+        local endTime = cal_times[i].season_end
+        local startbreakTime = cal_times[i].season_breakbegin
+        local endbreakTime = cal_times[i].season_breakend
+        local intime = startTime and endTime and dependencyStamp > startTime and dependencyStamp < endTime
+        local inbreakTime = 0 ~= startbreakTime and 0 ~= endbreakTime and dependencyStamp > startbreakTime and dependencyStamp < endbreakTime
+        if intime and not inbreakTime then
+          return true
+        end
       end
     end
   end
@@ -646,13 +776,14 @@ function WarbandProxy:HandleTwelveSeasonTime4Calendar(data)
     local serverInfo = infos[i]
     local info = _CreateTable()
     local etype = serverInfo.etype
-    info.season = serverInfo.season_begin
+    info.season = serverInfo.season
     info.season_begin = serverInfo.season_begin
     info.season_end = serverInfo.season_end
     info.season_breakbegin = serverInfo.season_breakbegin
     info.season_breakend = serverInfo.season_breakend
-    self.cal_twelveSeasonTime[etype] = {}
-    _ArrayPushBack(self.cal_twelveSeasonTime[etype], info)
+    local calendarData = self.cal_twelveSeasonTime[etype] or {}
+    _ArrayPushBack(calendarData, info)
+    self.cal_twelveSeasonTime[etype] = calendarData
   end
 end
 
@@ -793,7 +924,7 @@ end
 function WarbandProxy:SetOpponentStatus(treeOpen)
   if treeOpen ~= self.opponentStatus then
     self.opponentStatus = treeOpen
-    ServiceMatchCCmdProxy.Instance:CallSyncMatchBoardOpenStateMatchCCmd(treeOpen)
+    ServiceMatchCCmdProxy.Instance:CallSyncMatchBoardOpenStateMatchCCmd(treeOpen, nil, self.isCrossServer)
   end
 end
 

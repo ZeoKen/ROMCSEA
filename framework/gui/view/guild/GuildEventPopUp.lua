@@ -24,6 +24,7 @@ end
 function GuildEventPopUp:FindObjs()
   self.scrollview = self:FindGO("EventScrollView"):GetComponent(UIScrollView)
   self.toggleGrid = self:FindGO("ToggleRoot"):GetComponent(UIGrid)
+  self.toggleGrid.hideInactive = true
   self.eventToggle = self:FindGO("EventToggle"):GetComponent(UIToggle)
   self.contributeToggle = self:FindGO("ContributeToggle"):GetComponent(UIToggle)
   self.buildingToggle = self:FindGO("BuildingToggle"):GetComponent(UIToggle)
@@ -35,6 +36,7 @@ function GuildEventPopUp:FindObjs()
   self.artifactToggle.gameObject:SetActive(gvgValid)
   self.treasureToggle.gameObject:SetActive(gvgValid)
   self.guildVoiceToggle = self:FindGO("GuildVoiceToggle"):GetComponent(UIToggle)
+  self.toggleGrid:Reposition()
 end
 
 function GuildEventPopUp:AddEvts()

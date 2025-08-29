@@ -155,6 +155,20 @@ end
 function ServiceConnProxy:NotifyNetDelay()
   UIWarning.Instance:WaitEvt()
   self:Notify(ServiceEvent.ConnNetDelay)
+  local monitor = AppStateMonitor.Instance
+  local hostInfo = FunctionGetIpStrategy.Me():getCurrentSocketInfo()
+  if monitor and hostInfo and hostInfo.ip then
+    pcall(function()
+      if monitor.SendInfo then
+        local s = "ip:" .. hostInfo.ip
+        if hostInfo.domain then
+          s = s .. ";domain:" .. hostInfo.domain
+        end
+        Debug.Log("netinfo:" .. s)
+        monitor:SendInfo(s)
+      end
+    end)
+  end
 end
 
 function ServiceConnProxy:NotifyReconnect()

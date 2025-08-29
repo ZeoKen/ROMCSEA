@@ -2,12 +2,14 @@ PackageView = class("PackageView", ContainerView)
 autoImport("PackageMainPage")
 autoImport("PackageEquipPage")
 autoImport("ViceEquipPage")
+autoImport("EquipMemoryPage")
 autoImport("PackageSetQuickPage")
 autoImport("PackageBarrowBagPage")
 autoImport("BaseAttributeView")
 autoImport("EquipStrengthen")
 autoImport("PackageFashionPage")
 autoImport("DynamicSkillEffView")
+autoImport("RewardEffectView")
 autoImport("PackageWalletPage")
 autoImport("PackageEquipMemoryPage")
 PackageView.ViewType = UIViewType.NormalLayer
@@ -33,12 +35,14 @@ function PackageView:Init()
   self.mainPage = self:AddSubView("PackageMainPage", PackageMainPage)
   self.equipPage = self:AddSubView("PackageEquipPage", PackageEquipPage)
   self.viceEquipPage = self:AddSubView("ViceEquipPage", ViceEquipPage)
+  self.equipMemoryPage = self:AddSubView("EquipMemoryPage", EquipMemoryPage)
   self.equipStrengthenViewController = self:AddSubView("EquipStrengthen", EquipStrengthen)
   self.walletPage = self:AddSubView("PackageWalletPage", PackageWalletPage)
   self.BarrowBagPage = self:AddSubView("PackageBarrowBagPage", PackageBarrowBagPage)
   self.fashionPage = self:AddSubView("PackageFashionPage", PackageFashionPage)
   self.DynamicSkillEffView = self:AddSubView("DynamicSkillEffView", DynamicSkillEffView)
-  self.equipMemoryPage = self:AddSubView("PackageEquipMemoryPage", PackageEquipMemoryPage)
+  self.equipMemoryInfoPage = self:AddSubView("PackageEquipMemoryPage", PackageEquipMemoryPage)
+  self.rewardEffectView = self:AddSubView("RewardEffectView", RewardEffectView)
   self.shortCutIsSetting = false
   self:InitUI()
   self:MapEvent()
@@ -116,6 +120,7 @@ function PackageView:OnEnter()
   if self.autoClickID then
     self:AutoClickItem(self.autoClickID)
   end
+  self:UpdateEquipSwitch()
 end
 
 function PackageView:InitUI()
@@ -218,28 +223,55 @@ function PackageView:InitViceEquipSwitch()
   self:AddClickEvent(self.tog2, function()
     BagProxy.Instance:TryResetEquipType(BagEquipType.ViceEquip)
   end)
+  self.tog3 = self:FindGO("Tog3", self.switchRoot)
+  self.tog3Bg = self:FindGO("SpriteBg", self.tog3)
+  self.tog3Icon = self.tog3:GetComponent(UISprite)
+  IconManager:SetUIIcon("tab_icon_pinzhiup", self.tog3Icon)
+  self:AddClickEvent(self.tog3, function()
+    BagProxy.Instance:TryResetEquipType(BagEquipType.EquipMemory)
+  end)
+  self.switchBG = self:FindGO("SwitchBG"):GetComponent(UISprite)
+  self:UpdateEquipSwitch()
   self:AddOrRemoveGuideId(self.tog1, 536)
   self:AddOrRemoveGuideId(self.tog2, 539)
 end
 
+function PackageView:UpdateEquipSwitch()
+  local equipMemoryUnlock = FunctionUnLockFunc.Me():CheckCanOpen(6211)
+  self.tog3:SetActive(equipMemoryUnlock == true)
+  self.switchBG.width = equipMemoryUnlock and 150 or 110
+end
+
 function PackageView:OnEquipTabChange()
   local isViceEquipType = BagProxy.Instance:IsViceEquipType()
-  if self.isViceEquip == isViceEquipType then
+  self.isViceEquip = isViceEquipType
+  local equipType = BagProxy.Instance.curEquipType
+  xdlog("EquipType", equipType)
+  if self.preEquipType == equipType then
     return
   end
-  self.isViceEquip = isViceEquipType
-  if isViceEquipType then
-    self:Hide(self.tog1Bg)
-    self:Show(self.tog2Bg)
-    self.viceEquipPage:ShowHide(true)
-    self.equipPage:ShowHide(false)
-    self.equipPage:HideShareBtn()
-  else
+  self.curEquipType = equipType
+  if self.curEquipType == BagEquipType.Equip then
     self:Show(self.tog1Bg)
     self:Hide(self.tog2Bg)
-    self.viceEquipPage:ShowHide(false)
+    self:Hide(self.tog3Bg)
     self.equipPage:ShowHide(true)
-    self.equipPage:CheckShowShareBtn()
+    self.viceEquipPage:ShowHide(false)
+    self.equipMemoryPage:ShowHide(false)
+  elseif self.curEquipType == BagEquipType.ViceEquip then
+    self:Hide(self.tog1Bg)
+    self:Show(self.tog2Bg)
+    self:Hide(self.tog3Bg)
+    self.equipPage:ShowHide(false)
+    self.viceEquipPage:ShowHide(true)
+    self.equipMemoryPage:ShowHide(false)
+  elseif self.curEquipType == BagEquipType.EquipMemory then
+    self:Hide(self.tog1Bg)
+    self:Hide(self.tog2Bg)
+    self:Show(self.tog3Bg)
+    self.equipPage:ShowHide(false)
+    self.viceEquipPage:ShowHide(false)
+    self.equipMemoryPage:ShowHide(true)
   end
 end
 
@@ -313,6 +345,7 @@ function PackageView:GetBaseAttriView()
 end
 
 function PackageView:ActiveSetShortCut(active)
+  xdlog("ActiveSetShortCut", active)
   if self.shortCutIsSetting ~= active then
     if active and not self.packageSetQuickPage then
       self.packageSetQuickPage = self:AddSubView("PackageSetQuickPage", PackageSetQuickPage)
@@ -339,6 +372,7 @@ function PackageView:SetLeftViewState(viewState)
   self.tabGrid.gameObject:SetActive(viewState ~= PackageView.LeftViewState.Fashion)
   self.fashionPage:Switch(false)
   self.DynamicSkillEffView:Switch(false)
+  self.rewardEffectView:Switch(false)
   local rotation1, rotation2 = offRotation, offRotation
   if viewState == PackageView.LeftViewState.Default then
   elseif viewState == PackageView.LeftViewState.Fashion then
@@ -356,7 +390,7 @@ function PackageView:SetLeftViewState(viewState)
   self.equipBord:SetActive(viewState == PackageView.LeftViewState.Default)
   self.fashionBord:SetActive(viewState == PackageView.LeftViewState.Fashion)
   self.infoBord:SetActive(viewState == PackageView.LeftViewState.RoleInfo)
-  self.equipMemoryPage:Switch(viewState == PackageView.LeftViewState.EquipMemoryInfo)
+  self.equipMemoryInfoPage:Switch(viewState == PackageView.LeftViewState.EquipMemoryInfo)
   self.topCoins:SetActive(viewState ~= PackageView.LeftViewState.RoleInfo and viewState ~= PackageView.LeftViewState.BarrowBag)
   self.viewState = viewState
   self.mainPage:UpdateSwtichStatus()
@@ -483,4 +517,23 @@ end
 function PackageView:OnDestroy()
   RedTipProxy.Instance:UnRegisterUI(SceneTip_pb.EREDSYS_PET_ADVENTURE, self.objBagTab)
   PackageView.super.OnDestroy(self)
+end
+
+function PackageView:OnBagItemDragStart(itemData)
+  if not itemData then
+    return
+  end
+  local isMemory = itemData:HasMemoryInfo()
+  if isMemory then
+    if self.curEquipType ~= BagEquipType.EquipMemory then
+      BagProxy.Instance:TryResetEquipType(BagEquipType.EquipMemory)
+    end
+    self.equipMemoryPage:SetValidPosShow(itemData)
+  end
+end
+
+function PackageView:OnBagItemDragEnd(itemData)
+  if self.curEquipType == BagEquipType.EquipMemory then
+    self.equipMemoryPage:SetValidPosShow()
+  end
 end

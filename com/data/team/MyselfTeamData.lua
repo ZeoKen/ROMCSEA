@@ -450,10 +450,7 @@ function MyselfTeamData:SetRoleList(result, roles, wanted, Max)
   end
 end
 
-function MyselfTeamData:GetMemberCountInRange(range, filter, filterArgs, targetPosition)
-  if not targetPosition then
-    return 0
-  end
+function MyselfTeamData:GetMemberCountInRange(range, filter, filterArgs)
   local FindCreature = SceneCreatureProxy.FindCreature
   local myPosition = Game.Myself:GetPosition()
   local myID = Game.Myself.data.id
@@ -463,9 +460,9 @@ function MyselfTeamData:GetMemberCountInRange(range, filter, filterArgs, targetP
   local count = 0
   for _, v in pairs(self.membersMap) do
     local creature = FindCreature(v.id)
-    if v.id ~= myID and nil ~= creature and (filter == nil or filter(creature, filterArgs)) and not creature.data.excludeTeammate then
+    if v.id ~= myID and nil ~= creature and not v:IsHireMember() and not v:IsRobotMember() and (filter == nil or filter(creature, filterArgs)) and not creature.data.excludeTeammate then
       if 0 < range then
-        local dist = VectorUtility.DistanceXZ_Square(creature:GetPosition(), targetPosition)
+        local dist = VectorUtility.DistanceXZ_Square(creature:GetPosition(), myPosition)
         if dist < range * range then
           count = count + 1
         end

@@ -176,6 +176,8 @@ function NewRechargeTDepositGoodsCell:SetData(data)
   elseif self.info:IsSoldOut() then
     self.u_Price.text = ZhString.NewRechargeRecommendTShopGoodsCell_SoldOut
     self.widget.alpha = 0.5
+  else
+    self.widget.alpha = 1
   end
   self:RefreshZenyCell()
 end

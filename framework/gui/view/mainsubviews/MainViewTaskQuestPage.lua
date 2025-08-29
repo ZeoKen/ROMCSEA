@@ -294,6 +294,33 @@ function MainViewTaskQuestPage:AddViewEvts()
     eventManager:AddEventListener(ServantImproveEvent.GotomodeTrace, self.ShowServantImproveQuestTraceBorad, self)
   end
   self:AddListenEvt(MyselfEvent.LevelUp, self.NewPointNotice)
+  self:AddListenEvt(ServiceEvent.QuestAbyssDragonInfoNtfQuestCmd, self.ResetDatas_extraInfoTrace)
+  self:AddListenEvt(ServiceEvent.QuestAbyssDragonHpUpdateQuestCmd, self.SetDragonHp)
+  self:AddListenEvt(ServiceEvent.NUserVarUpdate, self.HandleVarUpdate)
+  self:AddListenEvt(MainViewEvent.SpaceDragonCellClick, self.OnClickDragonCell)
+end
+
+function MainViewTaskQuestPage:SetDragonHp(note)
+  if self.extraInfoCells then
+    local cell = self.extraInfoCells.SpaceDragon
+    if cell then
+      cell:UpdateHp(data)
+      return
+    end
+  end
+end
+
+function MainViewTaskQuestPage:SetDragonReward(note)
+  if self.extraInfoCells then
+    local cell = self.extraInfoCells.SpaceDragon
+    if cell then
+      cell:SetRewardGrid()
+    end
+  end
+end
+
+function MainViewTaskQuestPage:HandleVarUpdate(note)
+  self:SetDragonReward()
 end
 
 function MainViewTaskQuestPage:UpdateGuildQuestList(note)
@@ -779,6 +806,13 @@ function MainViewTaskQuestPage:questCellDoubleClick(cellCtrl)
 end
 
 function MainViewTaskQuestPage:questCellClick(cellCtrl)
+  if cellCtrl.taskQuestType == "SpaceDragon" then
+    self:stopShowDirAndDis(self.onGoingQuestId)
+    cellCtrl:setISShowDir(true)
+    return
+  else
+    self:UnClickDragonCell()
+  end
   if not cellCtrl or not cellCtrl.data then
     return
   end
@@ -1160,6 +1194,9 @@ function MainViewTaskQuestPage:sortRepeatedData(list)
           table.insert(tempResult[traceGroupID].questList, single)
         end
       else
+        if single.type == QuestDataType.QuestDataType_SPACEDRAGON then
+          single.SortOrder = 9999
+        end
         tempResult[questid] = single
         tempResult[questid].isCombined = false
       end
@@ -1985,6 +2022,7 @@ end
 
 function MainViewTaskQuestPage:ResetDatas_extraInfoTrace()
   self:UpdateExtraInfoTrace_TypeEscort()
+  self:UpdateExtraInfoTrace_TypeSpaceDragon()
   if self:GetCount_extraInfoTrace() > 0 then
     self:Show(self.taskQuestBG)
     self:Hide(self.noTracingTip)
@@ -2020,6 +2058,9 @@ function MainViewTaskQuestPage:CreateExtraInfoTrace(type, data)
   if type == "TrainEscort" then
     cell = self:CreateExtraInfoTrace_TrainEscort(data)
   end
+  if type == "SpaceDragon" then
+    cell = self:CreateExtraInfoTrace_SpaceDragon(data)
+  end
   if cell then
     if not self.extraInfoCells then
       self.extraInfoCells = {}
@@ -2028,6 +2069,8 @@ function MainViewTaskQuestPage:CreateExtraInfoTrace(type, data)
     cell.gameObject.transform:SetSiblingIndex(0)
     self.taskQuestTable.repositionNow = true
     if cell.gameObject.activeInHierarchy then
+      self.scrollview:InvalidateBounds()
+      self.scrollview:RestrictWithinBounds(true)
       self.scrollview:ResetPosition()
     end
   end
@@ -2103,4 +2146,41 @@ function MainViewTaskQuestPage:HideNotice()
   self.noticeShowed = false
   self.pointNotice_Tween:ResetToBeginning()
   self.addPointNotice:SetActive(false)
+end
+
+function MainViewTaskQuestPage:UpdateExtraInfoTrace_TypeSpaceDragon()
+  local data = AbyssFakeDragonProxy.Instance:GetDragonInfos()
+  local curMap = Game.MapManager:GetMapID()
+  if not data or curMap ~= 154 then
+    if self.extraInfoCells and self.extraInfoCells.SpaceDragon then
+      self.extraInfoCells.SpaceDragon:DestroySelf()
+      self.extraInfoCells.SpaceDragon = nil
+    end
+    return
+  end
+  self:UpdateExtraInfoTrace("SpaceDragon", data)
+end
+
+function MainViewTaskQuestPage:CreateExtraInfoTrace_SpaceDragon(data)
+  local go = self:LoadPreferb("cell/TaskQuestCell_SpaceDragon", self.extraTop)
+  autoImport("TaskQuestCell_SpaceDragon")
+  local cell = TaskQuestCell_SpaceDragon.new(go)
+  cell:AddEventListener(MouseEvent.MouseClick, self.questCellClick, cell)
+  cell:SetData(data)
+  return cell
+end
+
+function MainViewTaskQuestPage:OnClickDragonCell(note)
+  if not note or not note.body then
+    return
+  end
+  local cellCtrl = note.body.cellCtrl
+  self:questCellClick(cellCtrl)
+end
+
+function MainViewTaskQuestPage:UnClickDragonCell()
+  local cellCtrl = self.extraInfoCells and self.extraInfoCells.SpaceDragon
+  if cellCtrl then
+    cellCtrl:setISShowDir(false)
+  end
 end

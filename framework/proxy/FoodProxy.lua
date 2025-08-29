@@ -22,7 +22,6 @@ function FoodProxy:Init()
   self.material_exp_info = {}
   self.food_cook_info = {}
   self.food_eat_info = {}
-  self:InitManualFoodInfo()
   self.max_recent_cook = GameConfig.Food.MaxLastCooked
   self.foodGetCount = 0
 end
@@ -41,8 +40,6 @@ function FoodProxy:InitManualFoodInfo(...)
     else
       redlog(string.format("foodid:%s not find in Table_Item", id))
     end
-  end
-  for id, v in pairs(Table_Food) do
     self.food_eat_info[id] = {
       itemid = id,
       status = SceneFood_pb.EFOODSTATUS_MIN,
@@ -158,9 +155,15 @@ function FoodProxy:Server_SetFoodManualData(server_item, playAnim)
     cacheMap = self.material_exp_info
     handleLvUpFunc = FunctionFood.Material_LvUp
   elseif server_item.type == SceneFood_pb.EFOODDATATYPE_FOODCOOK then
+    if nil == next(self.food_cook_info) then
+      self:InitManualFoodInfo()
+    end
     cacheMap = self.food_cook_info
     handleLvUpFunc = FunctionFood.FoodCook_LvUp
   elseif server_item.type == SceneFood_pb.EFOODDATATYPE_FOODTASTE then
+    if nil == next(self.food_eat_info) then
+      self:InitManualFoodInfo()
+    end
     cacheMap = self.food_eat_info
     handleLvUpFunc = FunctionFood.FoodEat_LvUp
   end
@@ -198,6 +201,9 @@ function FoodProxy:Get_FoodCookExpInfo(itemid)
 end
 
 function FoodProxy:Get_FoodEatExpInfo(itemid)
+  if nil == next(self.food_eat_info) then
+    self:InitManualFoodInfo()
+  end
   return self.food_eat_info[itemid]
 end
 

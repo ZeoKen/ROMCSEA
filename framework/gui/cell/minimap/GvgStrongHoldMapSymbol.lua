@@ -9,7 +9,6 @@ function GvgStrongHoldMapSymbol:ctor(obj, data, clickCallback, alwaysShowProgres
   GvgStrongHoldMapSymbol.super.ctor(self, obj)
   self.clickCallback = clickCallback
   self.alwaysShowProgress = alwaysShowProgress
-  self.usePointScore = usePointScore and not GuildDateBattleProxy.Instance:IsOpen()
   self.guildHeadData = GuildHeadData.new()
   self:FindObjs()
   self:SetData(data)

@@ -3,6 +3,7 @@ autoImport("SkillBeingData")
 autoImport("BeingInfoData")
 autoImport("ShortCutData")
 autoImport("MasterSkillProfessData")
+autoImport("InheritSkillItemData")
 SkillSaveData = class("SkillSaveData")
 
 function SkillSaveData:ctor(serverSkillData, pro, jobLv)
@@ -14,6 +15,7 @@ function SkillSaveData:ctor(serverSkillData, pro, jobLv)
   self.jobLevel = jobLv
   self.left_point = serverSkillData.left_point
   self.skillShortCut = ShortCutData.new()
+  local shortCutAuto = ShortCutProxy.SkillShortCut.Auto
   local length = 0
   if serverSkillData.beings then
     length = #serverSkillData.beings
@@ -100,6 +102,25 @@ function SkillSaveData:ctor(serverSkillData, pro, jobLv)
     for i = 1, #shortcuts do
       local shortcut = shortcuts[i]
       self.skillShortCut:UnLockSkillShortCuts(shortcut)
+    end
+  end
+  if serverSkillData.inherit then
+    local serverSkills = serverSkillData.inherit.items
+    if serverSkills then
+      for i = 1, #serverSkills do
+        local familyId = serverSkills[i].id // 1000
+        local skill = InheritSkillItemData.new(familyId)
+        skill:UpdateSkill(serverSkills[i])
+        if skill.isLoad then
+          self:LearnedSkill(skill)
+        end
+        if self:_CheckPosInShortCut(skill) then
+          table.insert(self.equipedSkills, skill)
+        end
+        if 0 < skill:GetPosInShortCutGroup(shortCutAuto) then
+          table.insert(self.equipedAutoSkills, skill)
+        end
+      end
     end
   end
 end
@@ -325,7 +346,7 @@ function SkillSaveData:CreateMasterSkillProfessData(profession, unlockSkillIndex
         local skillIds = config.LimitMasterSkills[unlockSkillIndex[i]]
         if skillIds then
           for j = 1, #skillIds do
-            self.masterSkillProfessData:AddMasterSkill(skillIds[j], nil, unlockSkillIndex[i])
+            self.masterSkillProfessData:AddExtraMasterSkill(skillIds[j], nil, unlockSkillIndex[i])
           end
         end
       end

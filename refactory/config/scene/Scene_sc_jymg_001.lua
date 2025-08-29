@@ -5,7 +5,7 @@ local Scene_sc_jymg_001 = {
         ID = 1,
         position = {
           0,
-          1,
+          0,
           -30.1499996185303
         },
         range = 0,
@@ -19,7 +19,7 @@ local Scene_sc_jymg_001 = {
         exitType = 0,
         position = {
           0,
-          1,
+          0,
           -35.2600021362305
         },
         nextSceneID = 1,
@@ -72,6 +72,18 @@ local Scene_sc_jymg_001 = {
         },
         dir = 60.0000038146973,
         xdir = 360
+      },
+      {
+        uniqueID = 813764,
+        ID = 813764,
+        position = {
+          16.1919994354248,
+          4.28999996185303,
+          -14.6590003967285
+        },
+        dir = 325.750732421875,
+        xdir = 360,
+        waitaction = "functional_action"
       }
     }
   },

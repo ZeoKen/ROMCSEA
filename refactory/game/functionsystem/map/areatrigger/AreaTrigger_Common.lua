@@ -11,7 +11,8 @@ AreaTrigger_Common_ClientType = {
   AI_AwayCheck = 100006,
   InteractLocal_ValidArea = 100007,
   EndlessBattleField_EventArea = 100008,
-  EndlessBattleField_Occupy = 100009
+  EndlessBattleField_Occupy = 100009,
+  AybssLake_BattlePoint = 100020
 }
 
 function AreaTrigger_Common:ctor()
@@ -31,6 +32,7 @@ function AreaTrigger_Common:ctor()
   self.triggerEnterCall[AreaTrigger_Common_ClientType.AI_AreaCheck] = self.Enter_AIAreaCheck
   self.triggerEnterCall[AreaTrigger_Common_ClientType.InteractLocal_ValidArea] = self.Enter_InteractLocalValidArea
   self.triggerEnterCall[AreaTrigger_Common_ClientType.EndlessBattleField_EventArea] = self.Enter_EndlessBattleFieldEventArea
+  self.triggerEnterCall[AreaTrigger_Common_ClientType.AybssLake_BattlePoint] = self.Enter_AybssLakeBattleArea
   self.triggerLeaveCall = {}
   self.triggerLeaveCall[SceneMap_pb.EACTTYPE_PURIFY] = self.LeavePurify
   self.triggerLeaveCall[SceneMap_pb.EACTTYPE_SEAL] = self.LeaveSeal
@@ -46,6 +48,7 @@ function AreaTrigger_Common:ctor()
   self.triggerLeaveCall[AreaTrigger_Common_ClientType.AI_AwayCheck] = self.Leave_AIAwayCheck
   self.triggerEnterCall[AreaTrigger_Common_ClientType.InteractLocal_ValidArea] = self.Leave_InteractLocalValidArea
   self.triggerLeaveCall[AreaTrigger_Common_ClientType.EndlessBattleField_EventArea] = self.Leave_EndlessBattleFieldEventArea
+  self.triggerLeaveCall[AreaTrigger_Common_ClientType.AybssLake_BattlePoint] = self.Leave_AybssLakeBattleArea
   self.triggerRemoveCall = {}
   self.triggerRemoveCall[SceneMap_pb.EACTTYPE_PURIFY] = self.LeavePurify
   self.triggerRemoveCall[SceneMap_pb.EACTTYPE_SEAL] = self.RemoveSeal
@@ -57,6 +60,7 @@ function AreaTrigger_Common:ctor()
   self.triggerRemoveCall[AreaTrigger_Common_ClientType.EndlessBattleField_Occupy] = self.RemoveEndlessBattleOccupyArea
   self.triggerRemoveCall[AreaTrigger_Common_ClientType.MetalGvg_PointArea] = self.Remove_MetalGvgPointArea
   self.triggerRemoveCall[AreaTrigger_Common_ClientType.EndlessBattleField_EventArea] = self.Remove_EndlessBattleFieldEventArea
+  self.triggerRemoveCall[AreaTrigger_Common_ClientType.AybssLake_BattlePoint] = self.Remove_AybssLakeBattleArea
 end
 
 function AreaTrigger_Common:Launch()
@@ -308,4 +312,24 @@ end
 
 function AreaTrigger_Common:RemoveEndlessBattleOccupyArea(trigger)
   GameFacade.Instance:sendNotification(TriggerEvent.Remove_EndlessBattle_OccupyArea, trigger.id)
+end
+
+function AreaTrigger_Common:Enter_AybssLakeBattleArea(trigger)
+  redlog("Enter_AybssLakeBattleArea", trigger.id)
+  ServiceMapProxy.Instance:CallAbyssAreaChangeNotifyCmd(trigger.id)
+  AbyssLakeProxy.Instance:Enter_AybssLakeBattleArea(trigger.id)
+  GameFacade.Instance:sendNotification(TriggerEvent.EnterAybssLakeBattleArea, trigger.id)
+end
+
+function AreaTrigger_Common:Leave_AybssLakeBattleArea(trigger)
+  redlog("Leave_AybssLakeBattleArea", trigger.id)
+  ServiceMapProxy.Instance:CallAbyssAreaChangeNotifyCmd(0)
+  AbyssLakeProxy.Instance:Leave_AybssLakeBattleArea()
+  GameFacade.Instance:sendNotification(TriggerEvent.LeaveAybssLakeBattleArea, trigger.id)
+end
+
+function AreaTrigger_Common:Remove_AybssLakeBattleArea(trigger)
+  redlog("Remove_AybssLakeBattleArea", trigger.id)
+  AbyssLakeProxy.Instance:Leave_AybssLakeBattleArea()
+  GameFacade.Instance:sendNotification(TriggerEvent.RemoveAybssLakeBattleArea, trigger.id)
 end

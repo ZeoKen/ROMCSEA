@@ -170,6 +170,23 @@ Table_MapTransport = {
       100,
       101
     }
+  },
+  [16] = {
+    id = 16,
+    ZoneName = "##532125",
+    MapID = {
+      109,
+      110,
+      117,
+      119,
+      120,
+      121
+    }
+  },
+  [17] = {
+    id = 17,
+    ZoneName = "##42635503",
+    MapID = {154}
   }
 }
 Table_MapTransport_fields = {

@@ -147,7 +147,10 @@ function BagItemCell:UpdateFavoriteTip(data)
     return
   end
   if BagProxy.Instance:CheckIsFavorite(data) then
-    self.favoriteTip:SetActive(true)
+    local favoriteValid = not data:IsNew() or data:IsCard()
+    if favoriteValid then
+      self.favoriteTip:SetActive(true)
+    end
   end
 end
 

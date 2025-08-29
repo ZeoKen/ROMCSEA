@@ -4,6 +4,7 @@ autoImport("RoleAttrSaveData")
 autoImport("SkillSaveData")
 autoImport("Occupation")
 autoImport("ExtractSaveData")
+autoImport("EquipMemoryData")
 UserSaveInfoData = class("UserSaveInfoData")
 local StringData = {
   [SceneSkill_pb.ESKILLOPTION_SELECT_MOUNT] = 1
@@ -46,6 +47,21 @@ function UserSaveInfoData:ctor(data)
     end
   end
   self.extracts = ExtractSaveData.new(data.extraction_data)
+  self.memoryDatas = {}
+  local serverMemorys = data.memory_pos or {}
+  if serverMemorys and 0 < #serverMemorys then
+    xdlog("有装备记忆数据", #serverMemorys)
+  end
+  for i = 1, #serverMemorys do
+    local singleMemory = serverMemorys[i]
+    local _equipPos = singleMemory.pos
+    local itemid = singleMemory.memory.itemid
+    if itemid and itemid ~= 0 then
+      local memoryData = EquipMemoryData.new(_equipPos)
+      memoryData:SetMyServerData(singleMemory.memory)
+      self.memoryDatas[_equipPos] = memoryData
+    end
+  end
 end
 
 function UserSaveInfoData:UpdateRecordTime(newTime)
@@ -155,6 +171,10 @@ function UserSaveInfoData:GetPersonalArtifactId()
     end
   end
   return result, id
+end
+
+function UserSaveInfoData:GetEquipMemorySaveDatas()
+  return self.memoryDatas
 end
 
 function UserSaveInfoData:GetRoleName()

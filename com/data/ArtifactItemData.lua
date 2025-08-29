@@ -21,13 +21,10 @@ end
 
 function ArtifactItemData:SetPhase()
   local unUsing = self.ownerID == 0
-  local retrieving = self.retrieveTime == 0
   if unUsing then
     self.Phase = ArtifactProxy.OptionType.Distribute
-  elseif retrieving then
-    self.Phase = ArtifactProxy.OptionType.Retrieve
   else
-    self.Phase = ArtifactProxy.OptionType.RetrieveCancle
+    self.Phase = ArtifactProxy.OptionType.Retrieve
   end
 end
 

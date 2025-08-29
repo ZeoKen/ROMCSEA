@@ -74,7 +74,11 @@ end
 
 function FunctionLoginBase:GetActiveAppendUrl()
   local sdkType = self:getSdkType()
-  return NetConfig.ActivateUrl_Xd
+  if sdkType == FunctionSDK.E_SDKType.XD then
+    return NetConfig.ActivateUrl_Xd
+  else
+    return NetConfig.ActivateUrl_Tdsg
+  end
 end
 
 function FunctionLoginBase:GetAuthAppendUrl()
@@ -96,7 +100,8 @@ function FunctionLoginBase:GetActiveUrl(serverData, cdKey)
   if sdkType == FunctionSDK.E_SDKType.TDSG then
     local client_id = FunctionLoginTDSG.Me():GetTDSG_ClientID()
     local mac_key = FunctionLoginTDSG.Me():GetTDSG_MacKey()
-    url = string.format(":%s%s%s&cdkey=%s&mac_key=%s&client_id=%s", port, actUrl, token, cdKey, mac_key, client_id)
+    local plat = self:GetPlat()
+    url = string.format("%s%s&cdkey=%s&mac_key=%s&client_id=%s&p=%s", actUrl, token, cdKey, mac_key, client_id, plat)
   elseif serverData.servertype == "novice" and self.noviceLoginData then
     url = string.format("%s%s&cdkey=%s", actUrl, token, cdKey)
   else
@@ -121,9 +126,6 @@ function FunctionLoginBase:GetAuthAccUrl(token, noport)
   if noport then
     url = string.format("%s%s&plat=%s&version=%s&clientCode=%s&vd=%s", authUrl, token, plat, version, clientCode, vd)
   end
-  local old_deviceId = self:GetOld_DeviceID()
-  local new_deviceId = self:GetNew_DeviceID()
-  url = string.format("%s&old_deviceid=%s&new_deviceid=%s", url, old_deviceId, new_deviceId)
   return url
 end
 
@@ -220,7 +222,12 @@ end
 
 function FunctionLoginBase:GetAddress(serverData)
   local addresses, address
-  if serverData.servertype == "novice" and self.noviceLoginData then
+  if not BranchMgr.IsChina() then
+    addresses = FunctionGetIpStrategy.Me():getRequestAddresss()
+    if addresses then
+      address = addresses[1]
+    end
+  elseif serverData.servertype == "novice" and self.noviceLoginData then
     address = NetConfig.AuthHostNovice[self:GetPlat()]
   else
     addresses = FunctionGetIpStrategy.Me():getRequestAddresss()
@@ -406,6 +413,8 @@ function FunctionLoginBase:LoginDataHandler(status, content, callback, novice)
       loginData.flag = accData.flag
       loginData.site = accData.site
       loginData.lang_zone = accData.lang_zone
+      loginData.oneid = accData.oneid
+      helplog("oneid:", accData.oneid)
       loginData.phone = accData.phone
       local isActivated = accData.isActivated
       loginData.isActivated = isActivated
@@ -473,6 +482,9 @@ function FunctionLoginBase:LoginDataHandler(status, content, callback, novice)
     elseif result then
       GameFacade.Instance:sendNotification(NewLoginEvent.LoginFailure)
       if result.status == FunctionLogin.AuthStatus.NoActive then
+        GameFacade.Instance:sendNotification(UIEvent.ShowUI, {
+          viewname = "ActivePanel"
+        })
       elseif result.status == 888003 then
         if not BranchMgr.IsChina() then
           FunctionSDK.Instance:TDSGRefundStatus(function(msg)
@@ -504,6 +516,8 @@ function FunctionLoginBase:LoginDataHandler(status, content, callback, novice)
         MsgManager.ShowMsgByIDTable(888001, {})
       elseif result.status == 888002 then
         MsgManager.ShowMsgByIDTable(888002, {})
+      elseif result.status == 889001 then
+        MsgManager.ShowMsgByIDTable(889001, {})
       else
         MsgManager.ShowMsgByIDTable(1017, {
           result.status
@@ -766,11 +780,15 @@ function FunctionLoginBase:CheckIsActive(serverData)
 end
 
 function FunctionLoginBase:SetExtraLoginData(data)
+  helplog("oneid:", data.oneid, self.loginData.oneid)
   self.loginData.flag = data.flag
   self.loginData.isActivated = data.isActivated
   self.loginData.uid = data.uid
   self.loginData.activePlayer = data.activePlayer and tonumber(data.activePlayer) or 1
   self.loginData.resourceReward = data.resourceReward
+  if data.oneid and data.oneid ~= "" then
+    self.loginData.oneid = data.oneid
+  end
   FunctionLogin.Me():setPhoneNum(data.phone)
   FunctionLogin.Me():setSecurityParam(data.param)
   FunctionLogin.Me():setLoginSite(data.site)

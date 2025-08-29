@@ -2,10 +2,24 @@ autoImport("CraftingPotChooseBord")
 autoImport("CraftingMaterialCell")
 CraftingPotView = class("CraftingPotView", ContainerView)
 CraftingPotView.ViewType = UIViewType.NormalLayer
+local packageCheck = GameConfig.PackageMaterialCheck and GameConfig.PackageMaterialCheck.purify_products
 
 function CraftingPotView:OnEnter()
   self.PurifyConfig = GameConfig.PurifyProducts
   CraftingPotView.super.OnEnter(self)
+  local hasCoupon = false
+  local _bagProxy = BagProxy.Instance
+  local coupons = self.PurifyConfig and self.PurifyConfig.Coupon
+  if coupons then
+    for k, v in pairs(coupons) do
+      if _bagProxy:GetItemNumByStaticID(k, packageCheck) > 0 then
+        hasCoupon = true
+        break
+      end
+    end
+  end
+  self.couponCheckToggle.gameObject:SetActive(hasCoupon)
+  self.checkBtnGrid:Reposition()
 end
 
 function CraftingPotView:OnShow()
@@ -89,6 +103,33 @@ function CraftingPotView:FindObjs()
   PictureManager.Instance:SetUI("ui_CYL_Bg1", self.effectTexture)
   local uiTitle = self:FindGO("Title"):GetComponent(UILabel)
   uiTitle.text = ZhString.DyeComposeView_Title
+  self.checkBtn = self:FindGO("CheckBtn"):GetComponent(UIToggle)
+  self.checkBg = self:FindGO("CheckBg"):GetComponent(UISprite)
+  self.checkLabel = self:FindGO("CheckLabel"):GetComponent(UILabel)
+  self:AddClickEvent(self.checkBtn.gameObject, function(go)
+    self:OnCheckToggleChange(self.checkBtn)
+  end)
+  self.couponCheckToggle = self:FindComponent("CouponCheckBtn", UIToggle)
+  self:AddClickEvent(self.couponCheckToggle.gameObject, function(go)
+    self:OnCheckToggleChange(self.couponCheckToggle)
+  end)
+  self.checkBtnGrid = self:FindComponent("CheckBtnGrid", UIGrid)
+end
+
+function CraftingPotView:OnCheckToggleChange(toggle)
+  if toggle.value then
+    local makeData = CraftingPotProxy.Instance:GetProduct(self.curProductID)
+    if makeData then
+      local left, _ = makeData:GetProductLimit()
+      if left < 1 then
+        MsgManager.ShowMsgByID(28126)
+        return
+      end
+      self:UpdateItem()
+    end
+  else
+    self:UpdateItem()
+  end
 end
 
 function CraftingPotView:InitView()
@@ -133,7 +174,6 @@ function CraftingPotView:AddMapEvts()
 end
 
 function CraftingPotView:HandelMakeProduct()
-  redlog("HandelMakeProduct", CraftingPotProxy.Instance:IsSkipGetEffect())
   self:handleItemUpdate()
   self:UpdateTargetCell()
   self:PlayUIEffect(EffectMap.UI.EquipReplaceNew, self.effContainer, true)
@@ -227,20 +267,22 @@ function CraftingPotView:SetSpritAlpha(sprit, alpha)
 end
 
 function CraftingPotView:ChooseItem(data)
-  redlog("ChooseItem", data and data.productItemID)
   if data then
     if self.curProductID and self.curProductID ~= data.productItemID then
       CraftingPotProxy.Instance:SetChoosePurifyProducts(data.productItemID)
     end
     self.curProductID = data.productItemID
-    self.countInput.value = 1
+    local makeData = CraftingPotProxy.Instance:GetProduct(self.curProductID)
+    local left, max = makeData:GetProductLimit()
+    self.countInput.value = 0 < left and 1 or 0
+    self.checkBtn.value = false
     self:SetCountSubtract(0.5)
     self:SetCountPlus(1)
     self:SetChooseMakeData(true)
   else
     CraftingPotProxy.Instance:SetChoosePurifyProducts(0)
     self.curProductID = nil
-    self.countInput.value = 1
+    self.countInput.value = 0
   end
   self:SetChooseCell()
   self:UpdateTargetCell()
@@ -324,13 +366,23 @@ function CraftingPotView:DoMakeProduct()
   if not self.curProductID then
     return
   end
+  local makeData = CraftingPotProxy.Instance:GetProduct(self.curProductID)
+  if makeData then
+    local left, max = makeData:GetProductLimit()
+    if left < 1 then
+      MsgManager.ShowMsgByID(43569)
+      return
+    end
+  end
   if self.validStamp and ServerTime.CurServerTime() / 1000 < self.validStamp then
     return
   end
   self.validStamp = ServerTime.CurServerTime() / 1000 + 0.2
   local enoughMaterial = self.total - self.need
+  redlog("CraftingPotView:DoMakeProduct", self.total, self.need)
   if 0 <= enoughMaterial then
-    ServiceMessCCmdProxy.Instance:CallPurifyProductsRefineMessCCmd(self.curProductID, tonumber(self.countInput.value))
+    redlog("CallPurifyProductsRefineMessCCmd", self.curProductID, tonumber(self.countInput.value), tostring(self.checkBtn.value), tostring(self.couponCheckToggle.value))
+    ServiceMessCCmdProxy.Instance:CallPurifyProductsRefineMessCCmd(self.curProductID, tonumber(self.countInput.value), self.checkBtn.value == true, self.couponCheckToggle.value)
   end
 end
 
@@ -383,7 +435,7 @@ function CraftingPotView:DoBuyItem()
       local needCount = cells[i]:NeedCount()
       if 0 < needCount then
         local needData = ReusableTable.CreateTable()
-        needData.id = cells[i].data.itemid
+        needData.id = cells[i].data.id
         needData.count = needCount
         TableUtility.ArrayPushBack(needList, needData)
       end
@@ -449,9 +501,33 @@ function CraftingPotView:UpdateMakeMaterial()
   if data then
     for i = 1, #data do
       result[#result + 1] = {
-        itemid = data[i].itemid,
-        itemNum = data[i].itemNum * tonumber(self.countInput.value)
+        id = data[i].itemid,
+        num = data[i].itemNum * tonumber(self.countInput.value)
       }
+    end
+  end
+  if self.couponCheckToggle.value then
+    local use, has = false, false
+    result, use, has = CraftingPotProxy.Instance:UpdateMaterialListUsingCoupon(result, packageCheck)
+    if not use then
+      if not has then
+        MsgManager.ShowMsgByID(28127)
+      else
+        MsgManager.ShowMsgByID(28128)
+      end
+      self.couponCheckToggle.value = false
+    end
+  end
+  if self.checkBtn.value then
+    local use, has = false, false
+    result, use, has = CraftingPotProxy.Instance:UpdateMaterialListUsingDeduction(result, packageCheck)
+    if not self.couponCheckToggle.value and not use then
+      if not has then
+        MsgManager.ShowMsgByID(28117)
+      else
+        MsgManager.ShowMsgByID(28118)
+      end
+      self.checkBtn.value = false
     end
   end
   self.makeMatCtl:ResetDatas(result)

@@ -63,6 +63,7 @@ function PvePassInfo:InitRewardCheckFunc()
   self.rewardCheckFunc[PveDropItemData.Type.E_Pve_Card_NoFirst] = self.checkType_11
   self.rewardCheckFunc[PveDropItemData.Type.E_Pve_Sweep] = self.checkType_12
   self.rewardCheckFunc[PveDropItemData.Type.E_Pve_ThreeStars] = self.checkType_13
+  self.rewardCheckFunc[PveDropItemData.Type.E_WeekFirstPass] = self.checkType_14
 end
 
 function PvePassInfo:RealFirstPass()
@@ -87,6 +88,10 @@ function PvePassInfo:checkType_12()
 end
 
 function PvePassInfo:checkType_9()
+  return not self:IsPickup()
+end
+
+function PvePassInfo:checkType_14()
   return not self:IsPickup()
 end
 
@@ -191,6 +196,32 @@ function PvePassInfo:SetServerData(serverdata)
   self:_resetBossInfo(serverdata.bossinfo)
   self.mvp_rest_time = serverdata.mvp_rest_time or 0
   self.mini_rest_time = serverdata.mini_rest_time or 0
+  self:RecordDisplay(serverdata.no_show_label, serverdata.act_end_time)
+end
+
+function PvePassInfo:RecordDisplay(no_show, act_end_time)
+  self.no_show = no_show
+  self.act_end_time = act_end_time
+  if self.id == 100 then
+    redlog("RecordDisplay self.no_show", self.no_show, self.act_end_time)
+  end
+end
+
+function PvePassInfo:GetActivityEndTime()
+  return self.act_end_time
+end
+
+function PvePassInfo:CheckActivityValid()
+  return self.no_show == false and self.act_end_time > ServerTime.CurServerTime() / 1000
+end
+
+function PvePassInfo:Forbidden()
+  if self.no_show then
+    return true
+  elseif self.act_end_time and self.act_end_time ~= 0 then
+    return self.act_end_time < ServerTime.CurServerTime() / 1000
+  end
+  return false
 end
 
 function PvePassInfo:GetLeftRewardTime(ignore_sweep)
@@ -387,6 +418,8 @@ function PvePassInfo:_resetRewards()
                 needInsert = true
                 if reward_type == PveDropItemData.Type.E_Pve then
                   itemRewardType = isFirstPass and PveDropItemData.Type.E_Pve or PveDropItemData.Type.E_First
+                elseif reward_type == PveDropItemData.Type.E_WeekFirstPass then
+                  itemRewardType = reward_type
                 else
                   itemRewardType = PveDropItemData.Type.E_Normal
                 end
@@ -511,12 +544,19 @@ function PvePassInfo:_resetBossInfo(bossinfo)
   end
   _TableClear(self.bossInfoMap)
   self:_resetBossId()
+  local pveBossInfo
   for i = 1, #bossinfo do
-    self.bossInfoMap[bossinfo[i].bossid] = PveBossInfo.new(bossinfo[i])
+    pveBossInfo = self.bossInfoMap[bossinfo[i].bossid]
+    if not pveBossInfo then
+      pveBossInfo = PveBossInfo.new(bossinfo[i])
+      self.bossInfoMap[bossinfo[i].bossid] = pveBossInfo
+    else
+      pveBossInfo:ResetData(bossinfo[i].showrewards, bossinfo[i].randrewardid, bossinfo[i].randnorewardid)
+    end
   end
   for id, bossInfo in pairs(self.bossInfoMap) do
-    local insertType = bossInfo.isMvp and Pve_Difficulty_Type.Normal or Pve_Difficulty_Type.Difficult
-    _ArrayPushBack(self.bossIdMap[insertType], id)
+    local boss_type = bossInfo.isMvp and Pve_Difficulty_Type.Normal or Pve_Difficulty_Type.Difficult
+    _ArrayPushBack(self.bossIdMap[boss_type], id)
   end
 end
 
@@ -612,7 +652,9 @@ function PvePassInfo:GetQuick()
 end
 
 function PvePassInfo:GetSortId()
-  if PveEntranceProxy.Instance:IsOpen(self.id) then
+  if self:Forbidden() then
+    return PveSortEnum.Forbidden
+  elseif PveEntranceProxy.Instance:IsOpen(self.id) then
     return PveSortEnum.Open
   else
     return PveSortEnum.Lock

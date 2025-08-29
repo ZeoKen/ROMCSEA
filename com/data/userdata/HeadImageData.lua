@@ -178,6 +178,9 @@ function HeadImageData:TransformByCreature(creature)
       end
     end
     self.iconData.portraitframe = 0
+    if creature.data:IsTripleTeamRobot() then
+      self.profession = Game.TriplePvpRobotProfessionMap[creature.data.staticData.id]
+    end
   elseif creature:GetCreatureType() == Creature_Type.Player or creature:GetCreatureType() == Creature_Type.Me then
     if userdata then
       local userdata = creature.data.userdata

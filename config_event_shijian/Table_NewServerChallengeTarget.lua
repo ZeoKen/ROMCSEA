@@ -264,7 +264,7 @@ Table_NewServerChallengeTarget = {
       {23217, 1}
     },
     Title = "##2849103",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400012}
   },
   [105800305] = {
     id = 105800305,
@@ -279,7 +279,7 @@ Table_NewServerChallengeTarget = {
       {23216, 1}
     },
     Title = "##2849103",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400013}
   },
   [105800306] = {
     id = 105800306,
@@ -294,7 +294,7 @@ Table_NewServerChallengeTarget = {
       {23154, 1}
     },
     Title = "##2849103",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400014}
   },
   [105800307] = {
     id = 105800307,
@@ -309,7 +309,7 @@ Table_NewServerChallengeTarget = {
       {23153, 1}
     },
     Title = "##2849103",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400015}
   },
   [105800308] = {
     id = 105800308,
@@ -324,7 +324,7 @@ Table_NewServerChallengeTarget = {
       {23152, 1}
     },
     Title = "##2849103",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400016}
   },
   [105800401] = {
     id = 105800401,
@@ -349,7 +349,7 @@ Table_NewServerChallengeTarget = {
       {5931, 1}
     },
     Title = "##2849088",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400017}
   },
   [105800402] = {
     id = 105800402,
@@ -374,7 +374,7 @@ Table_NewServerChallengeTarget = {
       {6048, 1}
     },
     Title = "##2849088",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400018}
   },
   [105800403] = {
     id = 105800403,
@@ -399,7 +399,7 @@ Table_NewServerChallengeTarget = {
       {12618, 1}
     },
     Title = "##2849088",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400019}
   },
   [105800404] = {
     id = 105800404,
@@ -424,7 +424,7 @@ Table_NewServerChallengeTarget = {
       {6035, 1}
     },
     Title = "##2849088",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400020}
   },
   [105800405] = {
     id = 105800405,
@@ -449,7 +449,7 @@ Table_NewServerChallengeTarget = {
       {25193, 1}
     },
     Title = "##2849088",
-    Shop = _EmptyTable
+    Shop = {DepositID = 400021}
   },
   [105800501] = {
     id = 105800501,
@@ -550,6 +550,401 @@ Table_NewServerChallengeTarget = {
     },
     Title = "##2849088",
     Shop = _EmptyTable
+  },
+  [105826001] = {
+    id = 105826001,
+    ActID = 105826,
+    TargetType = "base_lv",
+    TargetNum = 25,
+    Param = _EmptyTable,
+    MaleReward = {
+      {52835, 50}
+    },
+    FemaleReward = {
+      {52835, 50}
+    },
+    Title = "##3359229",
+    Shop = _EmptyTable
+  },
+  [105826002] = {
+    id = 105826002,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {5931, 1}
+    },
+    FemaleReward = {
+      {5931, 1}
+    },
+    Title = "##42634316",
+    Shop = {DepositID = 400023}
+  },
+  [105826003] = {
+    id = 105826003,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 3,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {52836, 200}
+    },
+    FemaleReward = {
+      {52836, 200}
+    },
+    Title = "##42634317",
+    Shop = {DepositID = 400024}
+  },
+  [105826004] = {
+    id = 105826004,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 5,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "##42634318",
+    Shop = {DepositID = 400025}
+  },
+  [105826005] = {
+    id = 105826005,
+    ActID = 105826,
+    TargetType = "finish_raid",
+    TargetNum = 10,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "##42634319",
+    Shop = {DepositID = 400026}
+  },
+  [105827001] = {
+    id = 105827001,
+    ActID = 105827,
+    TargetType = "base_lv",
+    TargetNum = 25,
+    Param = _EmptyTable,
+    MaleReward = {
+      {52835, 50}
+    },
+    FemaleReward = {
+      {52835, 50}
+    },
+    Title = "##3359229",
+    Shop = _EmptyTable
+  },
+  [105827002] = {
+    id = 105827002,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {5931, 1}
+    },
+    FemaleReward = {
+      {5931, 1}
+    },
+    Title = "##42634316",
+    Shop = {DepositID = 400023}
+  },
+  [105827003] = {
+    id = 105827003,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 3,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {52836, 200}
+    },
+    FemaleReward = {
+      {52836, 200}
+    },
+    Title = "##42634317",
+    Shop = {DepositID = 400024}
+  },
+  [105827004] = {
+    id = 105827004,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 5,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "##42634318",
+    Shop = {DepositID = 400025}
+  },
+  [105827005] = {
+    id = 105827005,
+    ActID = 105827,
+    TargetType = "finish_raid",
+    TargetNum = 10,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "##42634319",
+    Shop = {DepositID = 400026}
+  },
+  [105828001] = {
+    id = 105828001,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10001,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000293, 1}
+    },
+    FemaleReward = {
+      {10000293, 1}
+    },
+    Title = "##42640901",
+    Shop = {DepositID = 400027}
+  },
+  [105828002] = {
+    id = 105828002,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10005,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000293, 1}
+    },
+    FemaleReward = {
+      {10000293, 1}
+    },
+    Title = "##1273202",
+    Shop = {DepositID = 400028}
+  },
+  [105828003] = {
+    id = 105828003,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10006,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000294, 1}
+    },
+    FemaleReward = {
+      {10000294, 1}
+    },
+    Title = "##1273205",
+    Shop = {DepositID = 400029}
+  },
+  [105828004] = {
+    id = 105828004,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10008,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000295, 1}
+    },
+    FemaleReward = {
+      {10000295, 1}
+    },
+    Title = "##1273211",
+    Shop = {DepositID = 400030}
+  },
+  [105828005] = {
+    id = 105828005,
+    ActID = 105828,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {
+      raid_type = 28,
+      min_difficulty = 10010,
+      max_difficulty = 99999
+    },
+    MaleReward = {
+      {10000296, 1}
+    },
+    FemaleReward = {
+      {10000296, 1}
+    },
+    Title = "##1273217",
+    Shop = {DepositID = 400031}
+  },
+  [105829001] = {
+    id = 105829001,
+    ActID = 105829,
+    TargetType = "base_lv",
+    TargetNum = 25,
+    Param = _EmptyTable,
+    MaleReward = {
+      {52835, 50}
+    },
+    FemaleReward = {
+      {52835, 50}
+    },
+    Title = "##3359229",
+    Shop = _EmptyTable
+  },
+  [105829002] = {
+    id = 105829002,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {5931, 1}
+    },
+    FemaleReward = {
+      {5931, 1}
+    },
+    Title = "##42634316",
+    Shop = {DepositID = 400023}
+  },
+  [105829003] = {
+    id = 105829003,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 3,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {52836, 200}
+    },
+    FemaleReward = {
+      {52836, 200}
+    },
+    Title = "##42634317",
+    Shop = {DepositID = 400024}
+  },
+  [105829004] = {
+    id = 105829004,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 5,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "##42634318",
+    Shop = {DepositID = 400025}
+  },
+  [105829005] = {
+    id = 105829005,
+    ActID = 105829,
+    TargetType = "finish_raid",
+    TargetNum = 10,
+    Param = {raid_type = 68, min_difficulty = 7610},
+    MaleReward = {
+      {3012940, 1}
+    },
+    FemaleReward = {
+      {3012940, 1}
+    },
+    Title = "##42634319",
+    Shop = {DepositID = 400026}
+  },
+  [1058000101] = {
+    id = 1058000101,
+    ActID = 10580001,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 4},
+    MaleReward = {
+      {8214, 10}
+    },
+    FemaleReward = {
+      {8214, 10}
+    },
+    Title = "##42629709",
+    Shop = {DepositID = 400007}
+  },
+  [1058000102] = {
+    id = 1058000102,
+    ActID = 10580001,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 43},
+    MaleReward = {
+      {174, 2}
+    },
+    FemaleReward = {
+      {174, 2}
+    },
+    Title = "##1235587",
+    Shop = {DepositID = 400008}
+  },
+  [1058000103] = {
+    id = 1058000103,
+    ActID = 10580001,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 28},
+    MaleReward = {
+      {4605, 2}
+    },
+    FemaleReward = {
+      {4605, 2}
+    },
+    Title = "##42629710",
+    Shop = {DepositID = 400009}
+  },
+  [1058000104] = {
+    id = 1058000104,
+    ActID = 10580001,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 59},
+    MaleReward = {
+      {4621, 1}
+    },
+    FemaleReward = {
+      {4621, 1}
+    },
+    Title = "##42629711",
+    Shop = {DepositID = 400010}
+  },
+  [1058000105] = {
+    id = 1058000105,
+    ActID = 10580001,
+    TargetType = "finish_raid",
+    TargetNum = 1,
+    Param = {raid_type = 62},
+    MaleReward = {
+      {4622, 1}
+    },
+    FemaleReward = {
+      {4622, 1}
+    },
+    Title = "##42629712",
+    Shop = {DepositID = 400011}
   }
 }
 Table_NewServerChallengeTarget_fields = {

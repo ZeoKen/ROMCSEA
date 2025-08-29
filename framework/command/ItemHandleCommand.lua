@@ -101,6 +101,7 @@ function ItemHandleCommand:Update(note)
     bagData:UpdateItems(PackageItem.updateItems, recordMap)
     self:ForEachAddItems(bagData, PackageItem.updateItems)
     EventManager.Me():PassEvent(ItemEvent.ItemChange, PackageItem.type)
+    redlog("PackageItem.type", PackageItem.type)
     if PackageItem.type == SceneItem_pb.EPACKTYPE_MAIN then
       self.facade:sendNotification(ItemEvent.ItemUpdate, recordMap)
       EventManager.Me():PassEvent(ItemEvent.ItemUpdate, recordMap)

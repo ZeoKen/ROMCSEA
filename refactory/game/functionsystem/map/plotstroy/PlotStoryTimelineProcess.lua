@@ -121,6 +121,9 @@ function PlotStoryTimelineProcess:CSNotify_PQTLP_Start(timeline_params)
       self.endMaskInfo = {config = maskConfig, duration = maskDuration}
     end
   end
+  if self.timeline_params and self.timeline_params.freeView ~= -1 then
+    FunctionSceneFilter.Me():StartFilter(56)
+  end
 end
 
 function PlotStoryTimelineProcess:Launch(useless_param1)
@@ -287,6 +290,9 @@ function PlotStoryTimelineProcess:ShutDown(isDurationEnd, doNotRestore)
       NSceneNpcProxy.Instance:Remove(uniqueId)
     end)
   end
+  if self.timeline_params and self.timeline_params.freeView ~= -1 then
+    FunctionSceneFilter.Me():EndFilter(56)
+  end
   self:PassEvent(PlotStoryEvent.ShutDown, self)
 end
 
@@ -301,7 +307,11 @@ function PlotStoryTimelineProcess:PlotEnd()
   end)
 end
 
-function PlotStoryTimelineProcess:AddStep(caster, trigger_type, action_type, action_param, need_result, simple_blend_info)
+function PlotStoryTimelineProcess:GetExtraParam(key)
+  return self.extraParams and self.extraParams[key]
+end
+
+function PlotStoryTimelineProcess:AddStep(caster, trigger_type, action_type, action_param, need_result, simple_blend_info, ff_pct, ff_time)
   local step = ReusableTable.CreateTable()
   step.plotid = self.plotid
   step.halt = nil
@@ -311,6 +321,8 @@ function PlotStoryTimelineProcess:AddStep(caster, trigger_type, action_type, act
   step.param = action_param
   step.sendback_result = need_result
   step.simple_blend_info = simple_blend_info
+  step.ff_pct = ff_pct
+  step.ff_time = ff_time
   step.param.pqtl_id = caster
   table.insert(self.parallelStep, step)
   if self.processRecorder and self.processRecorder["Pre_" .. step.type] then
@@ -633,9 +645,11 @@ function PlotStoryTimelineProcess:end_curve_move(params)
   if targets then
     for i = 1, #targets do
       local target = targets[i]
-      target:Logic_SetMoveActionSpeed(oriActionSpd)
-      target:Client_SetIsMoveToWorking(false)
-      target:Client_PlayActionIdle(idle_action_name, nil, nil, nil, nil, nil, nil, expression, true)
+      if target ~= nil then
+        target:Logic_SetMoveActionSpeed(oriActionSpd)
+        target:Client_SetIsMoveToWorking(false)
+        target:Client_PlayActionIdle(idle_action_name, nil, nil, nil, nil, nil, nil, expression, true)
+      end
     end
     self.curveMoveTargets[params.pqtl_id] = nil
   end

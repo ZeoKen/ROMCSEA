@@ -442,6 +442,40 @@ function HappyShopProxy:GetItemNumByStaticID(itemid)
   return count
 end
 
+function HappyShopProxy:GetTodayCanBuyCountStr(data)
+  local canBuyCount, limitType = self:GetCanBuyCount(data)
+  if canBuyCount ~= nil then
+    local repStr
+    if limitType == HappyShopProxy.LimitType.OneDay then
+      repStr = ZhString.HappyShop_todayCanBuy
+    elseif limitType == HappyShopProxy.LimitType.AccUser then
+      repStr = ZhString.HappyShop_AccUserCanBuy
+    elseif limitType == HappyShopProxy.LimitType.AccUserAlways then
+      repStr = ZhString.HappyShop_AlwaysCanBuy
+    elseif limitType == HappyShopProxy.LimitType.UserAlways then
+      if self:IsNewGVGShop() then
+        repStr = ZhString.HappyShop_SeasonCanBuy
+      else
+        repStr = ZhString.HappyShop_AlwaysCanBuy
+      end
+    elseif limitType == HappyShopProxy.LimitType.AccWeek then
+      repStr = ZhString.HappyShop_AccWeekCanBuy
+    elseif limitType == HappyShopProxy.LimitType.AccMonth then
+      repStr = ZhString.HappyShop_AccMonthCanBuy
+    elseif limitType == HappyShopProxy.LimitType.UserWeek then
+      repStr = ZhString.HappyShop_AccUserWeekCanBuy
+    end
+    if repStr then
+      local maxLimitStr = ""
+      if data.maxlimitnum ~= nil and data.maxlimitnum > 0 then
+        maxLimitStr = string.format(ZhString.HappyShop_MaxLimitCount, data.maxlimitnum)
+      end
+      return string.format(repStr, maxLimitStr, canBuyCount)
+    end
+  end
+  return ""
+end
+
 function HappyShopProxy:GetCanBuyCount(data)
   local isOneDay = data:CheckLimitType(self.LimitType.OneDay)
   local isAccUser = data:CheckLimitType(self.LimitType.AccUser)

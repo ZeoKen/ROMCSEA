@@ -777,6 +777,19 @@ Table_SpEffect = {
     Duration = 1,
     OnAdd = _EmptyTable,
     CutLine = _EmptyTable
+  },
+  [60] = {
+    id = 60,
+    Name = "Line",
+    Type = 1,
+    Perform = {
+      ep1 = 3,
+      ep2 = 6,
+      effect = "Skill/sfx_lostdragon_c_EYYJY_Chain_prf"
+    },
+    Duration = 11,
+    OnAdd = _EmptyTable,
+    CutLine = _EmptyTable
   }
 }
 Table_SpEffect_fields = {

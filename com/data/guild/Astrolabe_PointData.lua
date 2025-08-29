@@ -85,14 +85,16 @@ function Astrolabe_PointData:ReInitPosData(connectData, originPos)
   self.originPos = originPos
   if self.id == 0 then
     self.pos_Width = 0
+    self.dir_index = 0
     self.pos_x = 0
     self.pos_y = 0
     self.pos_z = 0
   else
     self.pos_Width = math.floor((self.id - 1) / 6) + 1
-    local index = self.id % 6
-    index = index == 0 and 6 or index
-    local dir = Astrolabe_DirMap[index]
+    local dir_index = self.id % 6
+    dir_index = dir_index == 0 and 6 or dir_index
+    self.dir_index = dir_index
+    local dir = Astrolabe_DirMap[dir_index]
     self.pos_x = dir[1] * self.pos_Width * AstrolabeProxy_Plate_Length
     self.pos_y = dir[2] * self.pos_Width * AstrolabeProxy_Plate_Length
     self.pos_z = dir[3] * self.pos_Width * AstrolabeProxy_Plate_Length
@@ -105,6 +107,19 @@ end
 
 function Astrolabe_PointData:GetWorldPos_XYZ()
   return self.originPos[1] + self.pos_x, self.originPos[2] + self.pos_y, self.originPos[3] + self.pos_z
+end
+
+function Astrolabe_PointData.GetRingDirLocalPos_XYZ(pos_Width, id)
+  local dir_index = id % 6
+  dir_index = dir_index == 0 and 6 or dir_index
+  if dir_index <= 0 then
+    return 0, 0, 0
+  end
+  local dir = Astrolabe_DirMap[dir_index]
+  local pos_x = dir[1] * pos_Width * AstrolabeProxy_Plate_Length
+  local pos_y = dir[2] * pos_Width * AstrolabeProxy_Plate_Length
+  local pos_z = dir[3] * pos_Width * AstrolabeProxy_Plate_Length
+  return pos_x, pos_y, pos_z
 end
 
 function Astrolabe_PointData:GetInnerConnect()

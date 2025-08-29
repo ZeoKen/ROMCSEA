@@ -488,11 +488,15 @@ function SkillBase:Update_Attack(time, deltaTime, creature)
   else
     ret = self.info.LogicClass.Update_Attack(self, time, deltaTime, creature)
   end
-  if ret and 0 <= self.attackTimeElapsed then
-    self.attackTimeElapsed = self.attackTimeElapsed + deltaTime
-    if self.attackTimeDuration <= self.attackTimeElapsed then
-      self.attackTimeElapsed = -1
-      return false
+  if ret then
+    if 0 <= self.attackTimeElapsed then
+      self.attackTimeElapsed = self.attackTimeElapsed + deltaTime
+      if self.attackTimeDuration <= self.attackTimeElapsed then
+        self.attackTimeElapsed = -1
+        return false
+      end
+    elseif self.info:NoActionNeedFire() then
+      self.attackTimeElapsed = 0.5
     end
   end
   return ret

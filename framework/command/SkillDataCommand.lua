@@ -13,6 +13,7 @@ end
 function SkillDataCommand:ReqSkillData(note)
   FunctionSkillEnableCheck.Me():ResetConditionCache()
   SkillProxy.Instance:ServerReInit(note.body)
+  InheritSkillProxy.Instance:ServerReInit(note.body)
   self.facade:sendNotification(SkillEvent.SkillUpdate)
   EventManager.Me():PassEvent(SkillEvent.SkillUpdate)
 end

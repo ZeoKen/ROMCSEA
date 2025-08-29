@@ -226,6 +226,33 @@ Table_GuideUI = {
     Shortcutpower = {20},
     complete_con = "",
     Params = _EmptyTable
+  },
+  [28] = {
+    id = 28,
+    GroupID = 8,
+    MainTitle = "获取苍翼卫声望，提升苍翼卫等级",
+    Text = "每日冒险",
+    Desc = "每日前往深渊之湖法芙娜处完成苍翼卫任务可获取大量声望",
+    Icon = "DispatchComplete",
+    Shortcutpower = {8358},
+    complete_con = "WorldQuest",
+    Params = {mapid = 154},
+    Sysmsg = 43462
+  },
+  [29] = {
+    id = 29,
+    GroupID = 8,
+    MainTitle = "获取苍翼卫声望，提升苍翼卫等级",
+    Text = "魔物营地",
+    Desc = "首通地图上的魔物营地{mapicon=map_icon_jingying02}可获取声望，还可获取声望货币",
+    Icon = "mvp_dead_100",
+    Shortcutpower = {8359},
+    complete_con = "WildMvp",
+    Params = {
+      mapid = 154,
+      type = {1, 2}
+    },
+    Sysmsg = 43463
   }
 }
 Table_GuideUI_fields = {

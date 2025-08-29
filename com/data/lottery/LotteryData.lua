@@ -1,28 +1,37 @@
 autoImport("LotteryItemData")
 LotteryData = class("LotteryData")
 
-function LotteryData:ctor(data)
+function LotteryData:ctor(data, clientFixRate)
   self.items = {}
   self.itemMap = {}
   self.upData = {}
-  self:SetData(data)
+  self:SetData(data, clientFixRate)
 end
 
-function LotteryData:SetData(data)
+function LotteryData:SetData(data, clientFixRate)
   if data then
     self.year = data.year
     self.month = data.month
     self.price = data.price
     self.discount = data.discount
     self.boxItemid = data.lotterybox
-    self:AddItems(data.subInfo)
+    self:AddItems(data.subInfo, clientFixRate)
   end
 end
 
-function LotteryData:AddItems(subInfo)
+function LotteryData:AddItems(subInfo, clientFixRate)
+  local cumulativeRate = 0
   for i = 1, #subInfo do
     local item = LotteryItemData.new(subInfo[i])
-    if item.rate > 0 then
+    if clientFixRate then
+      if i == #subInfo then
+        local totalRate = BranchMgr.IsKorea() and 1000000000 or 1000000
+        item:ResetServerItemRate(totalRate, cumulativeRate)
+      else
+        cumulativeRate = cumulativeRate + item.rate
+      end
+    end
+    if 0 < item.rate then
       TableUtility.ArrayPushBack(self.items, item)
     end
     self.itemMap[item.itemid] = item

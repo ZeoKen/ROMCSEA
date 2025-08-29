@@ -243,6 +243,13 @@ UIAtlasConfig.IconAtlas = {
     [4] = "GUI/atlas/preferb/Skill_yxzy",
     [5] = "GUI/atlas/preferb/Skill_yxzy2"
   },
+  SkillProfess_78 = {
+    [1] = "GUI/atlas/preferb/Skill_1",
+    [2] = "GUI/atlas/preferb/Skill_2",
+    [3] = "GUI/atlas/preferb/Skill_buff",
+    [4] = "GUI/atlas/preferb/Skill_yxzy",
+    [5] = "GUI/atlas/preferb/Skill_yxzy3"
+  },
   Action = {
     [1] = "GUI/atlas/preferb/action"
   },
@@ -302,7 +309,9 @@ UIAtlasConfig.IconAtlas = {
     [14] = "GUI/atlas/preferb/Assesories_Front_14",
     [15] = "GUI/atlas/preferb/Assesories_Front_15",
     [16] = "GUI/atlas/preferb/Assesories_Front_16",
-    [17] = "GUI/atlas/preferb/Assesories_Front_17"
+    [17] = "GUI/atlas/preferb/Assesories_Front_17",
+    [18] = "GUI/atlas/preferb/Assesories_Front_18",
+    [19] = "GUI/atlas/preferb/Assesories_Front_19"
   },
   HeadAccessoryBack = {
     [1] = "GUI/atlas/preferb/Assesories_Back_1",

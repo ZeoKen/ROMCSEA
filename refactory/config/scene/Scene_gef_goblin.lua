@@ -168,7 +168,7 @@ local Scene_gef_goblin = {
           12.9766321182251,
           54.0506286621094
         },
-        nextSceneID = 9011,
+        nextSceneID = 9111,
         nextSceneBornPointID = 1,
         type = 0,
         range = 1.29999995231628
@@ -182,7 +182,7 @@ local Scene_gef_goblin = {
           12.9846324920654,
           53.1566276550293
         },
-        nextSceneID = 9013,
+        nextSceneID = 9113,
         nextSceneBornPointID = 1,
         type = 0,
         range = 1.29999995231628
@@ -196,7 +196,7 @@ local Scene_gef_goblin = {
           12.9766321182251,
           26.6606292724609
         },
-        nextSceneID = 9015,
+        nextSceneID = 9115,
         nextSceneBornPointID = 1,
         type = 0,
         range = 1.29999995231628

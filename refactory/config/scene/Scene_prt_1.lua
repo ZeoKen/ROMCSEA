@@ -140,7 +140,7 @@ local Scene_prt_1 = {
           -6.48036861419678,
           -12.037446975708
         },
-        nextSceneID = 9007,
+        nextSceneID = 9107,
         nextSceneBornPointID = 1,
         type = 0,
         range = 1.5
@@ -154,7 +154,7 @@ local Scene_prt_1 = {
           -6.48036861419678,
           3.22254753112793
         },
-        nextSceneID = 9005,
+        nextSceneID = 9105,
         nextSceneBornPointID = 1,
         type = 0,
         range = 1.29999995231628
@@ -196,7 +196,7 @@ local Scene_prt_1 = {
           -6.48036861419678,
           -14.0874500274658
         },
-        nextSceneID = 9009,
+        nextSceneID = 9109,
         nextSceneBornPointID = 1,
         type = 0,
         range = 1.5

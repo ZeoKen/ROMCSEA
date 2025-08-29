@@ -2,7 +2,11 @@ local BaseCell = autoImport("BaseCell")
 KnightPrestigeLevelCell = class("KnightPrestigeLevelCell", BaseCell)
 local _PrestigeOutlineColor = {
   [1] = LuaColor.New(0.8, 0.2549019607843137, 0.24705882352941178, 1),
-  [2] = LuaColor.New(0.7568627450980392, 0.17647058823529413, 0.4470588235294118, 1)
+  [2] = LuaColor.New(0.7568627450980392, 0.17647058823529413, 0.4470588235294118, 1),
+  [3] = LuaColor.New(0.3411764705882353, 0.6509803921568628, 0.5725490196078431, 1),
+  [4] = LuaColor.New(0.8431372549019608, 0.5490196078431373, 0.3215686274509804, 1),
+  [5] = LuaColor.New(0.41568627450980394, 0.41568627450980394, 0.41568627450980394, 1),
+  [6] = LuaColor.New(0.7647058823529411, 0.27058823529411763, 0.6431372549019608, 1)
 }
 
 function KnightPrestigeLevelCell:Init()
@@ -36,13 +40,11 @@ function KnightPrestigeLevelCell:SetStatus(status, value)
     self.bgInvalid.gameObject:SetActive(false)
     self.bgMask:SetActive(true)
     self.label.color = LuaGeometry.GetTempVector4(0.9921568627450981, 0.996078431372549, 0.7843137254901961, 1)
-    self.label.effectColor = LuaGeometry.GetTempVector4(0.8, 0.2549019607843137, 0.24705882352941178, 1)
   elseif status == 2 then
     self.bg.gameObject:SetActive(true)
     self.bgInvalid.gameObject:SetActive(false)
     self.bgMask:SetActive(false)
     self.label.color = LuaGeometry.GetTempVector4(0.9921568627450981, 0.996078431372549, 0.7843137254901961, 1)
-    self.label.effectColor = LuaGeometry.GetTempVector4(0.8, 0.2549019607843137, 0.24705882352941178, 1)
   elseif status == 3 then
     self.bg.gameObject:SetActive(false)
     self.bgInvalid.gameObject:SetActive(true)

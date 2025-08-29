@@ -105,6 +105,7 @@ function ChatMessageData:SetData(data)
     if self[14] ~= ChatTypeEnum.SystemMessage then
       self[12] = ChatRoomProxy.Instance:StripSymbols(self[12])
     end
+    redlog("ChatMessageData:SetData content str =", self[12])
     self.isSelf = self[2] == Game.Myself.data.id
     self.portraitImage = data.portraitImage
     self.roleType = data.roleType
@@ -144,9 +145,12 @@ function ChatMessageData:SetData(data)
     if data.items and 0 < #data.items then
       self.items = {}
       for i = 1, #data.items do
+        local cardInfo = data.items[i].card_info
+        local cardLv = cardInfo and cardInfo.lv
         self.items[i] = {
           data.items[i].guid,
-          data.items[i].id
+          data.items[i].id,
+          cardLv
         }
       end
     end
@@ -187,6 +191,19 @@ function ChatMessageData:SetData(data)
               data.share_data.share_items[i].guid,
               data.share_data.share_items[i].itemid,
               data.share_data.share_items[i].count
+            }
+          end
+        end
+      elseif self.share_data.type == ESHAREMSGTYPE.ESHARE_CARD then
+        if data.share_data.share_items then
+          for i = 1, #data.share_data.share_items do
+            local item = data.share_data.items[i]
+            local cardLv = item and item.base.card_info and item.base.card_info.lv or 0
+            self.share_data.items[i] = {
+              data.share_data.share_items[i].guid,
+              data.share_data.share_items[i].itemid,
+              data.share_data.share_items[i].count,
+              cardLv
             }
           end
         end
@@ -232,6 +249,7 @@ function ChatMessageData:SetStr(str)
     str = string.gsub(str, "colortext", "1F74BF")
   end
   self[12] = str
+  redlog("ChatMessageData:SetStr str =", self[12])
 end
 
 function ChatMessageData:SetChannelName(channelName)

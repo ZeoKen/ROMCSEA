@@ -38,6 +38,7 @@ function ReconnInitCommand:Init()
   DungeonProxy.Instance:Reconnect()
   Game.PlotStoryManager:Clear()
   Game.PlotStoryManager:ClearMyTempEffect()
+  AbyssLakeProxy.Instance:ClearExtraRewards()
   FunctionPve.QueryPvePassInfo()
   TeamProxy.Instance:Reconnect()
 end

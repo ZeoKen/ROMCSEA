@@ -109,6 +109,10 @@ function PveEntranceData:IsPveCard()
   return self.raidType == PveRaidType.PveCard
 end
 
+function PveEntranceData:IsThanatos()
+  return self.raidType == PveRaidType.Thanatos
+end
+
 function PveEntranceData:IsHeadWear()
   return self.raidType == PveRaidType.Headwear
 end

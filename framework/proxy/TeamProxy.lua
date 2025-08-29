@@ -82,8 +82,13 @@ function TeamProxy:InitTeamProxy()
   self:InitPvpRaidType()
 end
 
-function TeamProxy:CheckWarbandFitGroupMemberValid_CupMode6v6()
-  local proxy = CupMode6v6Proxy.Instance
+function TeamProxy:CheckWarbandFitGroupMemberValid_CupMode6v6(isMultiServer)
+  local proxy
+  if isMultiServer then
+    proxy = CupMode6v6Proxy_MultiServer.Instance
+  else
+    proxy = CupMode6v6Proxy.Instance
+  end
   if not self:IHaveTeam() then
     return false
   end
@@ -778,6 +783,18 @@ function TeamProxy:CheckImTheLeader()
     return myMemberData.job == SessionTeam_pb.ETEAMJOB_LEADER
   end
   return false
+end
+
+function TeamProxy:GetTeamLeaderId()
+  if self:IHaveTeam() then
+    local list = self.myTeam:GetMembersList()
+    for k, v in pairs(list) do
+      if v.job == SessionTeam_pb.ETEAMJOB_LEADER then
+        return v.id
+      end
+    end
+  end
+  return nil
 end
 
 function TeamProxy:CheckImTheGroupLeader()

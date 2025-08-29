@@ -15,11 +15,9 @@ function ClientTimeUtil.TransTimeStrToTimeTick(startStrTime, compTick, deltaDay)
   return DateTimeHelper.IsTimeInRegionByDeltaDay(startStrTime, compTick, deltaDay)
 end
 
-local SysNow = DateTimeHelper.SysNow
-
 function ClientTimeUtil.GetNowHourMinStr()
-  local now = SysNow()
-  return orginStringFormat("%02d:%02d", now.Hour, now.Minute)
+  local now = ServerTime.Ori_OsDate("*t")
+  return orginStringFormat("%02d:%02d", now.hour, now.min)
 end
 
 function ClientTimeUtil.GetFormatOfflineTimeStr(serverTime)
@@ -105,8 +103,8 @@ function ClientTimeUtil.FormatTimeBySec(totalSec)
 end
 
 function ClientTimeUtil.GetNowAMPM()
-  local now = SysNow()
-  if now.Hour >= 0 and now.Hour < 12 then
+  local now = ServerTime.Ori_OsDate("*t")
+  if now.hour >= 0 and now.hour < 12 then
     return "AM"
   else
     return "PM"
@@ -266,4 +264,43 @@ function ClientTimeUtil.IsSameDay(lastTimeStamp, newTimeStamp)
   local newMidNight = ServerTime.GetStartTimestamp(newTimeStamp)
   local delta = newMidNight - lastMidNight
   return -2 < delta and delta < 2
+end
+
+function ClientTimeUtil.GetTimeStampByWeekday(wday, hour, min, sec)
+  local curTime = ServerTime.CurServerTime() / 1000
+  local curDate = os.date("*t", curTime)
+  local curWday = (curDate.wday - 1) % 7
+  curWday = 0 < curWday and curWday or 7
+  local diffWday = wday - curWday
+  local timeStamp = os.time({
+    year = curDate.year,
+    month = curDate.month,
+    day = curDate.day + diffWday,
+    hour = hour,
+    min = min,
+    sec = sec
+  })
+  return timeStamp
+end
+
+local _ymdMatchFormat = "(%d+)-(%d+)-(%d+)"
+
+function ClientTimeUtil.GetYMDByTimeFormat(formatStr)
+  local y, m, d = formatStr:match(_ymdMatchFormat)
+  return y, m, d
+end
+
+local _matchFormat = "(%d+):(%d+):(%d+)"
+
+function ClientTimeUtil.GetHMSByTimeFormat(formatStr)
+  local h, m, s = formatStr:match(_matchFormat)
+  return h, m, s
+end
+
+function ClientTimeUtil.ConvertTimeToDateFormat(dateTimeStr)
+  local year, month, day = ClientTimeUtil.GetYMDByTimeFormat(dateTimeStr)
+  if year and month and day then
+    return string.format("%s-%s-%s", year, month, day)
+  end
+  return dateTimeStr
 end

@@ -72,42 +72,48 @@ function FunctionLoginXd:startSdkGameLogin(callback)
   end
 end
 
-function FunctionLoginXd:requestGetUrlHost(url, callback, address, novice)
+function FunctionLoginXd:HandleUrl(url, host)
+  if not string.find(url, "http") then
+    if string.find(host, "172.2") then
+      url = string.format("http://%s", url)
+    else
+      url = string.format("https://%s", url)
+    end
+  end
+  return url
+end
+
+function FunctionLoginXd:requestGetUrlHost(url, callback, host, novice)
   local phoneplat = ApplicationInfo.GetRunPlatformStr()
   local appPreVersion = CompatibilityVersion.appPreVersion
-  local timestamp = os.time()
-  timestamp = string.format("&timestamp=%s&phoneplat=%s&appPreVersion=%s", timestamp, phoneplat, appPreVersion)
+  local timestamp = string.format("&timestamp=%s&phoneplat=%s&appPreVersion=%s", os.time(), phoneplat, appPreVersion)
   local order
-  local finalUrl = url
+  local finger_print = BuglyManager.GetInstance():GetOneidData()
+  local form = WWWForm()
+  form:AddField("finger_print", finger_print)
+  local finalUrl
   if self.privateMode then
-    local ip = NetConfig.PrivateAuthServerUrl
-    finalUrl = string.format("http://%s%s%s", ip, url, timestamp)
+    host = NetConfig.PrivateAuthServerUrl
+    finalUrl = string.format("http://%s%s%s", host, url, timestamp)
     LogUtility.InfoFormat("FunctionLoginXd:requestGetUrlHost address url:{0}", finalUrl)
     order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, nil, false, true)
-  elseif address and "" ~= address then
-    local ip = address
-    if string.find(ip, "172") then
-      finalUrl = string.format("http://%s%s%s", ip, url, timestamp)
-    else
-      finalUrl = string.format("https://%s%s%s", ip, url, timestamp)
-    end
+  elseif host and "" ~= host then
+    finalUrl = string.format("%s%s%s", host, url, timestamp)
+    finalUrl = self:HandleUrl(finalUrl, host)
     LogUtility.InfoFormat("FunctionLoginXd:requestGetUrlHost address url:{0}", finalUrl)
-    order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, nil, false, true)
+    order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, form, false, true)
   else
     local addresses = FunctionGetIpStrategy.Me():getRequestAddresss()
     if not addresses then
       callback(FunctionLogin.AuthStatus.OherError)
       return
     end
-    local ip = addresses[self.retryTime]
-    ip = ip or addresses[1]
-    if string.find(ip, "172") then
-      finalUrl = string.format("http://%s%s%s", ip, url, timestamp)
-    else
-      finalUrl = string.format("https://%s%s%s", ip, url, timestamp)
-    end
+    host = addresses[self.retryTime]
+    host = host or addresses[1]
+    finalUrl = string.format("%s%s%s", host, url, timestamp)
+    finalUrl = self:HandleUrl(finalUrl, host)
     LogUtility.InfoFormat("FunctionLoginXd:requestGetUrlHost url:{0}", finalUrl)
-    order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, nil, false, true)
+    order = HttpWWWRequestOrder(finalUrl, NetConfig.HttpRequestTimeOut, form, false, true)
   end
   if order then
     order:SetCallBacks(function(response)

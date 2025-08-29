@@ -223,7 +223,8 @@ function AstrolabeView:ClickPoint(params)
     TipManager.CloseTip()
     if pointData.guid ~= Astrolabe_Origin_PointID then
       local bg = pointCell.bg
-      local tip = TipManager.Instance:ShowAstrobeTip(pointData, bg, NGUIUtil.AnchorSide.Left)
+      local is_recommend = (not self.searchPoints or #self.searchPoints == 0) and 0 < TableUtility.ArrayFindIndex(self.curBordData:GetAllRecommendPoints(), pointData)
+      local tip = TipManager.Instance:ShowAstrobeTip({pointData, is_recommend}, bg, NGUIUtil.AnchorSide.Left)
       if tip then
         local tip_width, tip_heght = tip:GetSize()
         local x = LuaGameObject.InverseTransformPointByTransform(self.root.transform, bg.gameObject.transform, Space.World)
@@ -610,6 +611,7 @@ function AstrolabeView:OnExit()
   TableUtility.TableClear(self.cache_PointState_GuidMap)
   self:CancelHandleAnims()
   self:CancelShowMsg()
+  self.curBordData:ClearRecommendPointsCache()
   self.curBordData:ClearTarjanCache()
   FunctionAstrolabe.ClearCache()
   FunctionAstrolabe.ReSetBordData()

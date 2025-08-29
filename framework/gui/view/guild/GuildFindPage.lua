@@ -134,7 +134,7 @@ function GuildFindPage:InitUI()
     local myGuildData = GuildProxy.Instance.myGuildData
     local client_data = {}
     client_data.id = 0
-    client_data.mode = E_GuildDateBattle_Mode.Base
+    client_data.mode = 1
     client_data.atk_guildid = myGuildData.id
     client_data.atk_guildname = myGuildData.name
     client_data.atk_guildportrait = myGuildData.portrait

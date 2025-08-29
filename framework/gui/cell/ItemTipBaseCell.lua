@@ -287,8 +287,9 @@ function ItemTipBaseCell:QuickMinusAddUseCount(open)
   end
 end
 
-function ItemTipBaseCell.IsFreeFire()
-  return PvpProxy.Instance:IsFreeFire() and not ISNoviceServerType
+function ItemTipBaseCell.IsFreeFire(guid)
+  local from_me = guid ~= nil and nil ~= BagProxy.Instance:GetItemByGuid(guid)
+  return PvpProxy.Instance:IsFreeFire() and not ISNoviceServerType and from_me
 end
 
 function ItemTipBaseCell:_helpActiveButton(b, sp, collider)
@@ -335,7 +336,7 @@ function ItemTipBaseCell:UpdateTopInfo(data)
         self.itemcell:ShowNum()
       end
       self.itemcell:SetData(data)
-      if self.equipBuffUpSource then
+      if self.equipBuffUpSource and data.equipInfo then
         local withLimitBuffUpLv, withoutLimitBuffUpLv = data:GetStrengthBuffUpLevel(self.equipBuffUpSource)
         withoutLimitBuffUpLv = withoutLimitBuffUpLv or 0
         local player = self.equipBuffUpSource and SceneCreatureProxy.FindCreature(self.equipBuffUpSource) or Game.Myself
@@ -1067,15 +1068,24 @@ function ItemTipBaseCell:UpdateEquipAttriInfo(data)
       local isShadowEquip = data:IsShadowEquip()
       for i = 1, cardSlotNum do
         local sb = LuaStringBuilder.CreateAsTable()
+        redlog("ItemTipBaseCell:UpdateEquipAttriInfo", i, tostring(equipCards[i]))
         if equipCards[i] then
           if isShadowEquip then
             table.insert(sb.content, 1, "[c]")
             table.insert(sb.content, 2, ItemTipInactiveColorStr)
           end
-          sb:Append(string.format("{equipcardicon=%d} ", equipCards[i].staticData.Quality))
+          local quality = equipCards[i].staticData.Quality
+          local cardLv = equipCards[i].cardLv
+          if cardLv and 5 <= cardLv then
+            quality = 5
+          end
+          sb:Append(string.format("{equipcardicon=%d} ", quality))
+          if cardLv and 0 < cardLv then
+            sb:Append(string.format("+%s ", cardLv))
+          end
           sb:Append(equipCards[i].staticData.NameZh)
           sb:Append("\n")
-          local bufferIds = equipCards[i].cardInfo.BuffEffect.buff
+          local bufferIds = equipCards[i]:GetCardBufferIds()
           for j = 1, #bufferIds do
             if not ItemUtil.CheckBuffNeedShow(bufferIds[j]) then
               sb:Append(ItemTipBaseCell.FormatBufferStr(bufferIds[j]))
@@ -1192,7 +1202,7 @@ function ItemTipBaseCell:UpdateEquipAttriInfo(data)
           msdata = Table_Item[material.id]
           if material.id ~= 100 and msdata then
             nownum, neednum = BagProxy.Instance:GetItemNumByStaticID(material.id, bagtype), material.num
-            if material.id == data.staticData.id and 1 <= nownum then
+            if data:IsEquip() and data.equiped == 0 and material.id == data.staticData.id and 1 <= nownum then
               nownum = nownum - 1
             end
             colorStr = neednum > nownum and ItemTipMaterialNotEnoughColorStr or ItemTipMaterialEnoughColorStr
@@ -1329,22 +1339,14 @@ end
 
 function ItemTipBaseCell:UpdateCardAttriInfo(data)
   if data.cardInfo then
-    local special = {
-      label = {}
-    }
     local bufferIds = data.cardInfo.BuffEffect.buff
-    if bufferIds then
-      for i = 1, #bufferIds do
-        local str = ItemUtil.getBufferDescById(bufferIds[i])
-        if not StringUtil.IsEmpty(str) then
-          local bufferStrs = string.split(str, "\n")
-          for j = 1, #bufferStrs do
-            table.insert(special.label, ItemTipDefaultUiIconPrefix .. bufferStrs[j])
-          end
-        end
+    if data.cardLv and data.cardLv > 0 and Game.CardUpgradeMap and Game.CardUpgradeMap[data.cardInfo.id] then
+      local cfg = Game.CardUpgradeMap[data.cardInfo.id][data.cardLv]
+      if cfg and cfg.BuffEffect then
+        bufferIds = cfg.BuffEffect
       end
     end
-    self.contextDatas[ItemTipAttriType.CardInfo] = special
+    self:UpdateCardContextByBufferIds(bufferIds)
     if data:CheckItemCardType(Item_CardType.Raffle) then
       self.contextDatas[ItemTipAttriType.NoMakeCard] = {
         label = ZhString.ItemTip_NoMakeCard,
@@ -1352,6 +1354,25 @@ function ItemTipBaseCell:UpdateCardAttriInfo(data)
       }
     end
   end
+end
+
+function ItemTipBaseCell:UpdateCardContextByBufferIds(bufferIds)
+  if not bufferIds then
+    return
+  end
+  local special = {
+    label = {}
+  }
+  for i = 1, #bufferIds do
+    local str = ItemUtil.getBufferDescById(bufferIds[i])
+    if not StringUtil.IsEmpty(str) then
+      local bufferStrs = string.split(str, "\n")
+      for j = 1, #bufferStrs do
+        table.insert(special.label, ItemTipDefaultUiIconPrefix .. bufferStrs[j])
+      end
+    end
+  end
+  self.contextDatas[ItemTipAttriType.CardInfo] = special
 end
 
 function ItemTipBaseCell:UpdateFoodInfo(data)
@@ -1648,14 +1669,14 @@ function ItemTipBaseCell:UpdateSkillGemStaticInfo(data)
 end
 
 function ItemTipBaseCell:UpdateMemoryAttrInfo(data)
-  if self.equipBuffUpSource and self.equipBuffUpSource ~= Game.Myself.data.id then
-    return
-  end
   if data and data:IsShadowEquip() then
     return
   end
   local memoryData = data and data.equipMemoryData
   if not memoryData then
+    if self.equipBuffUpSource and self.equipBuffUpSource ~= Game.Myself.data.id then
+      return
+    end
     local sitePos = data.equiped == 1 and ItemUtil.EquipPosConfig[data.index] and data.index or nil
     if not sitePos then
       return
@@ -1770,7 +1791,7 @@ function ItemTipBaseCell:UpdateMemoryAttrInfo(data)
               PanelConfig.EquipMemoryUpgradeView,
               PanelConfig.EquipMemoryDecomposeView,
               PanelConfig.EquipMemoryAttrResetView,
-              PanelConfig.EquipMemoryWaxView
+              PanelConfig.EquipMemoryAdvanceView
             }
           }
         })
@@ -2725,7 +2746,7 @@ function ItemTipBaseCell.GetEquipQuenchByItemData(itemData)
       quenchPer = string.format("[c][%s]%s（Max%s%%）[-][/c]", ItemTipEquipPreviewColorStr, quenchPer, max_quenchPer)
       label = string.format(ZhString.ItemTip_QuenchPerManual, quenchPer)
     else
-      if ItemTipBaseCell.IsFreeFire() then
+      if ItemTipBaseCell.IsFreeFire(itemData.id) then
         quenchPer = max_quenchPer .. "%"
       end
       label = string.format(ZhString.ItemTip_QuenchPer, quenchPer, max_quenchPer)
@@ -2740,7 +2761,7 @@ function ItemTipBaseCell.GetEquipQuenchByItemData(itemData)
   if isShadowEquip then
     local quenchPer = itemData:GetAttrPercentByQuench(true)
     local QuenchPerEffect
-    if ItemTipBaseCell.IsFreeFire() then
+    if ItemTipBaseCell.IsFreeFire(itemData.id) then
       QuenchPerEffect = equipInfo:MaxQunenchPer()
     else
       QuenchPerEffect = quenchPer * 100
@@ -3069,7 +3090,7 @@ function ItemTipBaseCell.GetEquipEnchant(data, showFullAttr, equipBuffUpSource)
     namevaluepair = {}
   }
   local attriValue
-  local fullfire = ItemTipBaseCell.IsFreeFire()
+  local fullfire = ItemTipBaseCell.IsFreeFire(data.id)
   for i = 1, #attris do
     attriData = attris[i]
     attriValue = attriData.value * quenchper

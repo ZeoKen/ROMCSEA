@@ -280,3 +280,18 @@ function ServiceSceneUser3Proxy:RecvGvgExcellectRewardUserCmd(data)
   GvgProxy.Instance:RecvGvgExcellectRewardUserCmd(data)
   self:Notify(ServiceEvent.SceneUser3GvgExcellectRewardUserCmd, data)
 end
+
+function ServiceSceneUser3Proxy:RecvEffectInfoSyncUserCmd(data)
+  PvpProxy.Instance:RecvEffectInfoSyncUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3EffectInfoSyncUserCmd, data)
+end
+
+function ServiceSceneUser3Proxy:RecvEffectInfoUpdateUserCmd(data)
+  PvpProxy.Instance:RecvEffectInfoUpdateUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3EffectInfoUpdateUserCmd, data)
+end
+
+function ServiceSceneUser3Proxy:RecvEffectInfoUseUserCmd(data)
+  PvpProxy.Instance:RecvEffectInfoUseUserCmd(data)
+  self:Notify(ServiceEvent.SceneUser3EffectInfoUseUserCmd, data)
+end

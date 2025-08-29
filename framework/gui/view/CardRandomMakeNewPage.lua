@@ -22,7 +22,7 @@ function CardRandomMakeNewPage:FindObjs()
   CardRandomMakeNewPage.super.FindObjs(self)
   self.choosedCardScrollView = self:FindComponent("CardScrollView", UIScrollView)
   local cardWrapContainer = self:FindGO("CardWrapContainer")
-  self.choosedCardsCtl = WrapListCtrl.new(cardWrapContainer, BagCardCell, "BagCardCell", WrapListCtrl_Dir.Vertical, 3, 100)
+  self.choosedCardsCtl = WrapListCtrl.new(cardWrapContainer, BagCardCell, "BagCardCell", WrapListCtrl_Dir.Vertical, 3, 142)
   self.choosedCardsCtl:AddEventListener(MouseEvent.MouseClick, self.ClickChoosedCard, self)
   local materialGrid = self:FindComponent("MaterialGrid", UIGrid)
   self.materialListCtrl = UIGridListCtrl.new(materialGrid, CardRandomMakeMaterialCell, "CardRandomMakeMaterialCell")
@@ -51,6 +51,7 @@ function CardRandomMakeNewPage:OnEnter()
 end
 
 function CardRandomMakeNewPage:OnExit()
+  CardRandomMakeNewPage.super.OnExit(self)
 end
 
 function CardRandomMakeNewPage:GetFilterCardsByFilterData(filterData)

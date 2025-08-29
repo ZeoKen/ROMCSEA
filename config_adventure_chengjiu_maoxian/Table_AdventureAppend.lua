@@ -687,6 +687,28 @@ Table_AdventureAppend_t = {
     {1362},
     {1365},
     {1366},
+    {2173},
+    {2172},
+    {2169},
+    {2168},
+    {2165},
+    {2164},
+    {2161},
+    {2160},
+    {2157},
+    {2156},
+    {2153},
+    {2152},
+    {2149},
+    {2148},
+    {2145},
+    {2144},
+    {2141},
+    {2140},
+    {2137},
+    {2136},
+    {2133},
+    {2132},
     {2117},
     {2116},
     {2113},
@@ -4378,12 +4400,14 @@ Table_AdventureAppend = {
   [469] = {
     id = 469,
     targetID = 20016,
+    NameZh = "##106160",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 1120016
   },
   [470] = {
     id = 470,
     targetID = 20016,
+    NameZh = "##106160",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 1220016,
     PreID = Table_AdventureAppend_t.PreID[235]
@@ -4391,6 +4415,7 @@ Table_AdventureAppend = {
   [471] = {
     id = 471,
     targetID = 20016,
+    NameZh = "##106160",
     Params = Table_AdventureAppend_t.Params[6],
     Reward = 1320016,
     PreID = Table_AdventureAppend_t.PreID[236]
@@ -4398,6 +4423,7 @@ Table_AdventureAppend = {
   [472] = {
     id = 472,
     targetID = 20016,
+    NameZh = "##106160",
     Content = "selfie",
     Desc = "##106351",
     Reward = 1420016
@@ -4715,14 +4741,12 @@ Table_AdventureAppend = {
   [513] = {
     id = 513,
     targetID = 30008,
-    NameZh = "##106278",
     Params = Table_AdventureAppend_t.Params[7],
     Reward = 1130008
   },
   [514] = {
     id = 514,
     targetID = 30008,
-    NameZh = "##106278",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 1230008,
     PreID = Table_AdventureAppend_t.PreID[257]
@@ -4730,7 +4754,6 @@ Table_AdventureAppend = {
   [515] = {
     id = 515,
     targetID = 30008,
-    NameZh = "##106278",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 1330008,
     PreID = Table_AdventureAppend_t.PreID[258]
@@ -4738,7 +4761,6 @@ Table_AdventureAppend = {
   [516] = {
     id = 516,
     targetID = 30008,
-    NameZh = "##106278",
     Content = "selfie",
     Desc = "##106351",
     Reward = 1430008
@@ -11262,7 +11284,7 @@ Table_AdventureAppend = {
     NameZh = "##1279432",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 12320220,
-    PreID = Table_AdventureAppend_t.PreID[715]
+    PreID = Table_AdventureAppend_t.PreID[737]
   },
   [2002] = {
     id = 2002,
@@ -11270,7 +11292,7 @@ Table_AdventureAppend = {
     NameZh = "##1279432",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 13320220,
-    PreID = Table_AdventureAppend_t.PreID[716]
+    PreID = Table_AdventureAppend_t.PreID[738]
   },
   [2003] = {
     id = 2003,
@@ -11293,7 +11315,7 @@ Table_AdventureAppend = {
     NameZh = "##1279433",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 12320230,
-    PreID = Table_AdventureAppend_t.PreID[717]
+    PreID = Table_AdventureAppend_t.PreID[739]
   },
   [2006] = {
     id = 2006,
@@ -11301,7 +11323,7 @@ Table_AdventureAppend = {
     NameZh = "##1279433",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 13320230,
-    PreID = Table_AdventureAppend_t.PreID[718]
+    PreID = Table_AdventureAppend_t.PreID[740]
   },
   [2007] = {
     id = 2007,
@@ -11324,7 +11346,7 @@ Table_AdventureAppend = {
     NameZh = "##2832692",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 12320240,
-    PreID = Table_AdventureAppend_t.PreID[719]
+    PreID = Table_AdventureAppend_t.PreID[741]
   },
   [2010] = {
     id = 2010,
@@ -11332,7 +11354,7 @@ Table_AdventureAppend = {
     NameZh = "##2832692",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 13320240,
-    PreID = Table_AdventureAppend_t.PreID[720]
+    PreID = Table_AdventureAppend_t.PreID[742]
   },
   [2011] = {
     id = 2011,
@@ -11355,7 +11377,7 @@ Table_AdventureAppend = {
     NameZh = "##2836948",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210357,
-    PreID = Table_AdventureAppend_t.PreID[721]
+    PreID = Table_AdventureAppend_t.PreID[743]
   },
   [2014] = {
     id = 2014,
@@ -11363,7 +11385,7 @@ Table_AdventureAppend = {
     NameZh = "##2836948",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310357,
-    PreID = Table_AdventureAppend_t.PreID[722]
+    PreID = Table_AdventureAppend_t.PreID[744]
   },
   [2015] = {
     id = 2015,
@@ -11386,7 +11408,7 @@ Table_AdventureAppend = {
     NameZh = "##2836952",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210358,
-    PreID = Table_AdventureAppend_t.PreID[723]
+    PreID = Table_AdventureAppend_t.PreID[745]
   },
   [2018] = {
     id = 2018,
@@ -11394,7 +11416,7 @@ Table_AdventureAppend = {
     NameZh = "##2836952",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310358,
-    PreID = Table_AdventureAppend_t.PreID[724]
+    PreID = Table_AdventureAppend_t.PreID[746]
   },
   [2019] = {
     id = 2019,
@@ -11417,7 +11439,7 @@ Table_AdventureAppend = {
     NameZh = "##2836956",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210359,
-    PreID = Table_AdventureAppend_t.PreID[725]
+    PreID = Table_AdventureAppend_t.PreID[747]
   },
   [2022] = {
     id = 2022,
@@ -11425,7 +11447,7 @@ Table_AdventureAppend = {
     NameZh = "##2836956",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310359,
-    PreID = Table_AdventureAppend_t.PreID[726]
+    PreID = Table_AdventureAppend_t.PreID[748]
   },
   [2023] = {
     id = 2023,
@@ -11448,7 +11470,7 @@ Table_AdventureAppend = {
     NameZh = "##2836960",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210360,
-    PreID = Table_AdventureAppend_t.PreID[727]
+    PreID = Table_AdventureAppend_t.PreID[749]
   },
   [2026] = {
     id = 2026,
@@ -11456,7 +11478,7 @@ Table_AdventureAppend = {
     NameZh = "##2836960",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310360,
-    PreID = Table_AdventureAppend_t.PreID[728]
+    PreID = Table_AdventureAppend_t.PreID[750]
   },
   [2027] = {
     id = 2027,
@@ -11479,7 +11501,7 @@ Table_AdventureAppend = {
     NameZh = "##2836964",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210361,
-    PreID = Table_AdventureAppend_t.PreID[729]
+    PreID = Table_AdventureAppend_t.PreID[751]
   },
   [2030] = {
     id = 2030,
@@ -11487,7 +11509,7 @@ Table_AdventureAppend = {
     NameZh = "##2836964",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310361,
-    PreID = Table_AdventureAppend_t.PreID[730]
+    PreID = Table_AdventureAppend_t.PreID[752]
   },
   [2031] = {
     id = 2031,
@@ -11510,7 +11532,7 @@ Table_AdventureAppend = {
     NameZh = "##2836968",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210362,
-    PreID = Table_AdventureAppend_t.PreID[731]
+    PreID = Table_AdventureAppend_t.PreID[753]
   },
   [2034] = {
     id = 2034,
@@ -11518,7 +11540,7 @@ Table_AdventureAppend = {
     NameZh = "##2836968",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310362,
-    PreID = Table_AdventureAppend_t.PreID[732]
+    PreID = Table_AdventureAppend_t.PreID[754]
   },
   [2035] = {
     id = 2035,
@@ -11541,7 +11563,7 @@ Table_AdventureAppend = {
     NameZh = "##2836972",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210363,
-    PreID = Table_AdventureAppend_t.PreID[733]
+    PreID = Table_AdventureAppend_t.PreID[755]
   },
   [2038] = {
     id = 2038,
@@ -11549,7 +11571,7 @@ Table_AdventureAppend = {
     NameZh = "##2836972",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310363,
-    PreID = Table_AdventureAppend_t.PreID[734]
+    PreID = Table_AdventureAppend_t.PreID[756]
   },
   [2039] = {
     id = 2039,
@@ -11572,7 +11594,7 @@ Table_AdventureAppend = {
     NameZh = "##2836976",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210364,
-    PreID = Table_AdventureAppend_t.PreID[735]
+    PreID = Table_AdventureAppend_t.PreID[757]
   },
   [2042] = {
     id = 2042,
@@ -11580,7 +11602,7 @@ Table_AdventureAppend = {
     NameZh = "##2836976",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310364,
-    PreID = Table_AdventureAppend_t.PreID[736]
+    PreID = Table_AdventureAppend_t.PreID[758]
   },
   [2043] = {
     id = 2043,
@@ -11603,7 +11625,7 @@ Table_AdventureAppend = {
     NameZh = "##2836980",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210365,
-    PreID = Table_AdventureAppend_t.PreID[737]
+    PreID = Table_AdventureAppend_t.PreID[759]
   },
   [2046] = {
     id = 2046,
@@ -11611,7 +11633,7 @@ Table_AdventureAppend = {
     NameZh = "##2836980",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310365,
-    PreID = Table_AdventureAppend_t.PreID[738]
+    PreID = Table_AdventureAppend_t.PreID[760]
   },
   [2047] = {
     id = 2047,
@@ -11634,7 +11656,7 @@ Table_AdventureAppend = {
     NameZh = "##2836984",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210366,
-    PreID = Table_AdventureAppend_t.PreID[714]
+    PreID = Table_AdventureAppend_t.PreID[736]
   },
   [2050] = {
     id = 2050,
@@ -11642,7 +11664,7 @@ Table_AdventureAppend = {
     NameZh = "##2836984",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310366,
-    PreID = Table_AdventureAppend_t.PreID[713]
+    PreID = Table_AdventureAppend_t.PreID[735]
   },
   [2051] = {
     id = 2051,
@@ -11665,7 +11687,7 @@ Table_AdventureAppend = {
     NameZh = "##2836988",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210367,
-    PreID = Table_AdventureAppend_t.PreID[712]
+    PreID = Table_AdventureAppend_t.PreID[734]
   },
   [2054] = {
     id = 2054,
@@ -11673,7 +11695,7 @@ Table_AdventureAppend = {
     NameZh = "##2836988",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310367,
-    PreID = Table_AdventureAppend_t.PreID[711]
+    PreID = Table_AdventureAppend_t.PreID[733]
   },
   [2055] = {
     id = 2055,
@@ -11696,7 +11718,7 @@ Table_AdventureAppend = {
     NameZh = "##2836992",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210368,
-    PreID = Table_AdventureAppend_t.PreID[710]
+    PreID = Table_AdventureAppend_t.PreID[732]
   },
   [2058] = {
     id = 2058,
@@ -11704,7 +11726,7 @@ Table_AdventureAppend = {
     NameZh = "##2836992",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310368,
-    PreID = Table_AdventureAppend_t.PreID[709]
+    PreID = Table_AdventureAppend_t.PreID[731]
   },
   [2059] = {
     id = 2059,
@@ -11727,7 +11749,7 @@ Table_AdventureAppend = {
     NameZh = "##2836996",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210369,
-    PreID = Table_AdventureAppend_t.PreID[708]
+    PreID = Table_AdventureAppend_t.PreID[730]
   },
   [2062] = {
     id = 2062,
@@ -11735,7 +11757,7 @@ Table_AdventureAppend = {
     NameZh = "##2836996",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310369,
-    PreID = Table_AdventureAppend_t.PreID[707]
+    PreID = Table_AdventureAppend_t.PreID[729]
   },
   [2063] = {
     id = 2063,
@@ -11758,7 +11780,7 @@ Table_AdventureAppend = {
     NameZh = "##2837000",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210370,
-    PreID = Table_AdventureAppend_t.PreID[706]
+    PreID = Table_AdventureAppend_t.PreID[728]
   },
   [2066] = {
     id = 2066,
@@ -11766,7 +11788,7 @@ Table_AdventureAppend = {
     NameZh = "##2837000",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310370,
-    PreID = Table_AdventureAppend_t.PreID[705]
+    PreID = Table_AdventureAppend_t.PreID[727]
   },
   [2067] = {
     id = 2067,
@@ -11789,7 +11811,7 @@ Table_AdventureAppend = {
     NameZh = "##2837004",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210371,
-    PreID = Table_AdventureAppend_t.PreID[704]
+    PreID = Table_AdventureAppend_t.PreID[726]
   },
   [2070] = {
     id = 2070,
@@ -11797,7 +11819,7 @@ Table_AdventureAppend = {
     NameZh = "##2837004",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310371,
-    PreID = Table_AdventureAppend_t.PreID[703]
+    PreID = Table_AdventureAppend_t.PreID[725]
   },
   [2071] = {
     id = 2071,
@@ -11820,7 +11842,7 @@ Table_AdventureAppend = {
     NameZh = "##2837008",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210372,
-    PreID = Table_AdventureAppend_t.PreID[702]
+    PreID = Table_AdventureAppend_t.PreID[724]
   },
   [2074] = {
     id = 2074,
@@ -11828,7 +11850,7 @@ Table_AdventureAppend = {
     NameZh = "##2837008",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310372,
-    PreID = Table_AdventureAppend_t.PreID[701]
+    PreID = Table_AdventureAppend_t.PreID[723]
   },
   [2075] = {
     id = 2075,
@@ -11851,7 +11873,7 @@ Table_AdventureAppend = {
     NameZh = "##2837012",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210373,
-    PreID = Table_AdventureAppend_t.PreID[700]
+    PreID = Table_AdventureAppend_t.PreID[722]
   },
   [2078] = {
     id = 2078,
@@ -11859,7 +11881,7 @@ Table_AdventureAppend = {
     NameZh = "##2837012",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310373,
-    PreID = Table_AdventureAppend_t.PreID[699]
+    PreID = Table_AdventureAppend_t.PreID[721]
   },
   [2079] = {
     id = 2079,
@@ -11882,7 +11904,7 @@ Table_AdventureAppend = {
     NameZh = "##2857027",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 1220054,
-    PreID = Table_AdventureAppend_t.PreID[698]
+    PreID = Table_AdventureAppend_t.PreID[720]
   },
   [2082] = {
     id = 2082,
@@ -11890,7 +11912,7 @@ Table_AdventureAppend = {
     NameZh = "##2857027",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 1320054,
-    PreID = Table_AdventureAppend_t.PreID[697]
+    PreID = Table_AdventureAppend_t.PreID[719]
   },
   [2083] = {
     id = 2083,
@@ -11913,7 +11935,7 @@ Table_AdventureAppend = {
     NameZh = "##2857031",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 1230069,
-    PreID = Table_AdventureAppend_t.PreID[696]
+    PreID = Table_AdventureAppend_t.PreID[718]
   },
   [2086] = {
     id = 2086,
@@ -11921,7 +11943,7 @@ Table_AdventureAppend = {
     NameZh = "##2857031",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 1330069,
-    PreID = Table_AdventureAppend_t.PreID[695]
+    PreID = Table_AdventureAppend_t.PreID[717]
   },
   [2087] = {
     id = 2087,
@@ -11944,7 +11966,7 @@ Table_AdventureAppend = {
     NameZh = "##2857035",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 1230070,
-    PreID = Table_AdventureAppend_t.PreID[694]
+    PreID = Table_AdventureAppend_t.PreID[716]
   },
   [2090] = {
     id = 2090,
@@ -11952,7 +11974,7 @@ Table_AdventureAppend = {
     NameZh = "##2857035",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 1330070,
-    PreID = Table_AdventureAppend_t.PreID[693]
+    PreID = Table_AdventureAppend_t.PreID[715]
   },
   [2091] = {
     id = 2091,
@@ -11975,7 +11997,7 @@ Table_AdventureAppend = {
     NameZh = "##3361155",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 1220055,
-    PreID = Table_AdventureAppend_t.PreID[692]
+    PreID = Table_AdventureAppend_t.PreID[714]
   },
   [2094] = {
     id = 2094,
@@ -11983,7 +12005,7 @@ Table_AdventureAppend = {
     NameZh = "##3361155",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 1320055,
-    PreID = Table_AdventureAppend_t.PreID[691]
+    PreID = Table_AdventureAppend_t.PreID[713]
   },
   [2095] = {
     id = 2095,
@@ -12006,7 +12028,7 @@ Table_AdventureAppend = {
     NameZh = "##3467373",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210374,
-    PreID = Table_AdventureAppend_t.PreID[690]
+    PreID = Table_AdventureAppend_t.PreID[712]
   },
   [2098] = {
     id = 2098,
@@ -12014,7 +12036,7 @@ Table_AdventureAppend = {
     NameZh = "##3467373",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310374,
-    PreID = Table_AdventureAppend_t.PreID[689]
+    PreID = Table_AdventureAppend_t.PreID[711]
   },
   [2099] = {
     id = 2099,
@@ -12037,7 +12059,7 @@ Table_AdventureAppend = {
     NameZh = "##3467377",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210375,
-    PreID = Table_AdventureAppend_t.PreID[688]
+    PreID = Table_AdventureAppend_t.PreID[710]
   },
   [2102] = {
     id = 2102,
@@ -12045,7 +12067,7 @@ Table_AdventureAppend = {
     NameZh = "##3467377",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310375,
-    PreID = Table_AdventureAppend_t.PreID[687]
+    PreID = Table_AdventureAppend_t.PreID[709]
   },
   [2103] = {
     id = 2103,
@@ -12068,7 +12090,7 @@ Table_AdventureAppend = {
     NameZh = "##3449162",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210376,
-    PreID = Table_AdventureAppend_t.PreID[686]
+    PreID = Table_AdventureAppend_t.PreID[708]
   },
   [2106] = {
     id = 2106,
@@ -12076,7 +12098,7 @@ Table_AdventureAppend = {
     NameZh = "##3449162",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310376,
-    PreID = Table_AdventureAppend_t.PreID[685]
+    PreID = Table_AdventureAppend_t.PreID[707]
   },
   [2107] = {
     id = 2107,
@@ -12099,7 +12121,7 @@ Table_AdventureAppend = {
     NameZh = "##3449166",
     Params = Table_AdventureAppend_t.Params[2],
     Reward = 1210377,
-    PreID = Table_AdventureAppend_t.PreID[684]
+    PreID = Table_AdventureAppend_t.PreID[706]
   },
   [2110] = {
     id = 2110,
@@ -12107,7 +12129,7 @@ Table_AdventureAppend = {
     NameZh = "##3449166",
     Params = Table_AdventureAppend_t.Params[3],
     Reward = 1310377,
-    PreID = Table_AdventureAppend_t.PreID[683]
+    PreID = Table_AdventureAppend_t.PreID[705]
   },
   [2111] = {
     id = 2111,
@@ -12130,7 +12152,7 @@ Table_AdventureAppend = {
     NameZh = "##3449170",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 1230071,
-    PreID = Table_AdventureAppend_t.PreID[682]
+    PreID = Table_AdventureAppend_t.PreID[704]
   },
   [2114] = {
     id = 2114,
@@ -12138,7 +12160,7 @@ Table_AdventureAppend = {
     NameZh = "##3449170",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 1330071,
-    PreID = Table_AdventureAppend_t.PreID[681]
+    PreID = Table_AdventureAppend_t.PreID[703]
   },
   [2115] = {
     id = 2115,
@@ -12161,7 +12183,7 @@ Table_AdventureAppend = {
     NameZh = "##3480640",
     Params = Table_AdventureAppend_t.Params[4],
     Reward = 12320250,
-    PreID = Table_AdventureAppend_t.PreID[680]
+    PreID = Table_AdventureAppend_t.PreID[702]
   },
   [2118] = {
     id = 2118,
@@ -12169,7 +12191,7 @@ Table_AdventureAppend = {
     NameZh = "##3480640",
     Params = Table_AdventureAppend_t.Params[5],
     Reward = 13320250,
-    PreID = Table_AdventureAppend_t.PreID[679]
+    PreID = Table_AdventureAppend_t.PreID[701]
   },
   [2119] = {
     id = 2119,
@@ -12178,6 +12200,347 @@ Table_AdventureAppend = {
     Content = "selfie",
     Desc = "##106351",
     Reward = 14320250
+  },
+  [2132] = {
+    id = 2132,
+    targetID = 10381,
+    NameZh = "##42635531",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110381
+  },
+  [2133] = {
+    id = 2133,
+    targetID = 10381,
+    NameZh = "##42635531",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210381,
+    PreID = Table_AdventureAppend_t.PreID[700]
+  },
+  [2134] = {
+    id = 2134,
+    targetID = 10381,
+    NameZh = "##42635531",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310381,
+    PreID = Table_AdventureAppend_t.PreID[699]
+  },
+  [2135] = {
+    id = 2135,
+    targetID = 10381,
+    NameZh = "##42635531",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410381
+  },
+  [2136] = {
+    id = 2136,
+    targetID = 10382,
+    NameZh = "##42635535",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110382
+  },
+  [2137] = {
+    id = 2137,
+    targetID = 10382,
+    NameZh = "##42635535",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210382,
+    PreID = Table_AdventureAppend_t.PreID[698]
+  },
+  [2138] = {
+    id = 2138,
+    targetID = 10382,
+    NameZh = "##42635535",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310382,
+    PreID = Table_AdventureAppend_t.PreID[697]
+  },
+  [2139] = {
+    id = 2139,
+    targetID = 10382,
+    NameZh = "##42635535",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410382
+  },
+  [2140] = {
+    id = 2140,
+    targetID = 10383,
+    NameZh = "##42635539",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110383
+  },
+  [2141] = {
+    id = 2141,
+    targetID = 10383,
+    NameZh = "##42635539",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210383,
+    PreID = Table_AdventureAppend_t.PreID[696]
+  },
+  [2142] = {
+    id = 2142,
+    targetID = 10383,
+    NameZh = "##42635539",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310383,
+    PreID = Table_AdventureAppend_t.PreID[695]
+  },
+  [2143] = {
+    id = 2143,
+    targetID = 10383,
+    NameZh = "##42635539",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410383
+  },
+  [2144] = {
+    id = 2144,
+    targetID = 10384,
+    NameZh = "##42635543",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110384
+  },
+  [2145] = {
+    id = 2145,
+    targetID = 10384,
+    NameZh = "##42635543",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210384,
+    PreID = Table_AdventureAppend_t.PreID[694]
+  },
+  [2146] = {
+    id = 2146,
+    targetID = 10384,
+    NameZh = "##42635543",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310384,
+    PreID = Table_AdventureAppend_t.PreID[693]
+  },
+  [2147] = {
+    id = 2147,
+    targetID = 10384,
+    NameZh = "##42635543",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410384
+  },
+  [2148] = {
+    id = 2148,
+    targetID = 10385,
+    NameZh = "##42635547",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110385
+  },
+  [2149] = {
+    id = 2149,
+    targetID = 10385,
+    NameZh = "##42635547",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210385,
+    PreID = Table_AdventureAppend_t.PreID[692]
+  },
+  [2150] = {
+    id = 2150,
+    targetID = 10385,
+    NameZh = "##42635547",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310385,
+    PreID = Table_AdventureAppend_t.PreID[691]
+  },
+  [2151] = {
+    id = 2151,
+    targetID = 10385,
+    NameZh = "##42635547",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410385
+  },
+  [2152] = {
+    id = 2152,
+    targetID = 10386,
+    NameZh = "##42635551",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110386
+  },
+  [2153] = {
+    id = 2153,
+    targetID = 10386,
+    NameZh = "##42635551",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210386,
+    PreID = Table_AdventureAppend_t.PreID[690]
+  },
+  [2154] = {
+    id = 2154,
+    targetID = 10386,
+    NameZh = "##42635551",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310386,
+    PreID = Table_AdventureAppend_t.PreID[689]
+  },
+  [2155] = {
+    id = 2155,
+    targetID = 10386,
+    NameZh = "##42635551",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410386
+  },
+  [2156] = {
+    id = 2156,
+    targetID = 10387,
+    NameZh = "##42635555",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110387
+  },
+  [2157] = {
+    id = 2157,
+    targetID = 10387,
+    NameZh = "##42635555",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210387,
+    PreID = Table_AdventureAppend_t.PreID[688]
+  },
+  [2158] = {
+    id = 2158,
+    targetID = 10387,
+    NameZh = "##42635555",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310387,
+    PreID = Table_AdventureAppend_t.PreID[687]
+  },
+  [2159] = {
+    id = 2159,
+    targetID = 10387,
+    NameZh = "##42635555",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410387
+  },
+  [2160] = {
+    id = 2160,
+    targetID = 10388,
+    NameZh = "##42635559",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110388
+  },
+  [2161] = {
+    id = 2161,
+    targetID = 10388,
+    NameZh = "##42635559",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210388,
+    PreID = Table_AdventureAppend_t.PreID[686]
+  },
+  [2162] = {
+    id = 2162,
+    targetID = 10388,
+    NameZh = "##42635559",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310388,
+    PreID = Table_AdventureAppend_t.PreID[685]
+  },
+  [2163] = {
+    id = 2163,
+    targetID = 10388,
+    NameZh = "##42635559",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410388
+  },
+  [2164] = {
+    id = 2164,
+    targetID = 10389,
+    NameZh = "##42635563",
+    Params = Table_AdventureAppend_t.Params[1],
+    Reward = 1110389
+  },
+  [2165] = {
+    id = 2165,
+    targetID = 10389,
+    NameZh = "##42635563",
+    Params = Table_AdventureAppend_t.Params[2],
+    Reward = 1210389,
+    PreID = Table_AdventureAppend_t.PreID[684]
+  },
+  [2166] = {
+    id = 2166,
+    targetID = 10389,
+    NameZh = "##42635563",
+    Params = Table_AdventureAppend_t.Params[3],
+    Reward = 1310389,
+    PreID = Table_AdventureAppend_t.PreID[683]
+  },
+  [2167] = {
+    id = 2167,
+    targetID = 10389,
+    NameZh = "##42635563",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1410389
+  },
+  [2168] = {
+    id = 2168,
+    targetID = 30072,
+    NameZh = "##42635527",
+    Params = Table_AdventureAppend_t.Params[7],
+    Reward = 1130072
+  },
+  [2169] = {
+    id = 2169,
+    targetID = 30072,
+    NameZh = "##42635527",
+    Params = Table_AdventureAppend_t.Params[4],
+    Reward = 1230072,
+    PreID = Table_AdventureAppend_t.PreID[682]
+  },
+  [2170] = {
+    id = 2170,
+    targetID = 30072,
+    NameZh = "##42635527",
+    Params = Table_AdventureAppend_t.Params[5],
+    Reward = 1330072,
+    PreID = Table_AdventureAppend_t.PreID[681]
+  },
+  [2171] = {
+    id = 2171,
+    targetID = 30072,
+    NameZh = "##42635527",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 1430072
+  },
+  [2172] = {
+    id = 2172,
+    targetID = 276614,
+    NameZh = "##42640985",
+    Params = Table_AdventureAppend_t.Params[7],
+    Reward = 11276614
+  },
+  [2173] = {
+    id = 2173,
+    targetID = 276614,
+    NameZh = "##42640985",
+    Params = Table_AdventureAppend_t.Params[4],
+    Reward = 12276614,
+    PreID = Table_AdventureAppend_t.PreID[680]
+  },
+  [2174] = {
+    id = 2174,
+    targetID = 276614,
+    NameZh = "##42640985",
+    Params = Table_AdventureAppend_t.Params[5],
+    Reward = 13276614,
+    PreID = Table_AdventureAppend_t.PreID[679]
+  },
+  [2175] = {
+    id = 2175,
+    targetID = 276614,
+    NameZh = "##42640985",
+    Content = "selfie",
+    Desc = "##106351",
+    Reward = 14276614
   },
   [101380] = {
     id = 101380,
@@ -12874,7 +13237,7 @@ local cell_mt = {
   __index = {
     Content = "kill",
     Desc = "##106137",
-    NameZh = "##106160",
+    NameZh = "##106278",
     Params = _EmptyTable,
     PreID = _EmptyTable,
     Reward = 1220012,

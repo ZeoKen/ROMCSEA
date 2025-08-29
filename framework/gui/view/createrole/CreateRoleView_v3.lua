@@ -86,7 +86,8 @@ function CreateRoleView_v3:FindObjs()
   self.bottomPanel = self:FindGO("BottomPanel")
   self.goNameInput = self:FindGO("NameInput", self.bottomPanel)
   self.nameInput = self.goNameInput:GetComponent(UIInput)
-  UIUtil.LimitInputCharacter(self.nameInput, 12)
+  local max_size = GameConfig.System.namesize_max or 99
+  UIUtil.LimitInputCharacter(self.nameInput, max_size)
   SkipTranslatingInput(self.nameInput)
   self.nameInputLabel = self:FindGO("Label", self.nameInput.gameObject):GetComponent(UILabel)
   self.rightPanel = self:FindGO("RightPanel")
@@ -440,6 +441,12 @@ end
 
 function CreateRoleView_v3:DoEnterGame()
   self.name = self.nameInput.value
+  if ContainsSpecialCharacters(self.name) then
+    MsgManager.ShowMsgByID(1005)
+    self.enter_tryed = false
+    self:TrackIllegalName()
+    return
+  end
   if self.name == "" then
     FunctionNetError.Me():ShowErrorById(8)
     self.enter_tryed = false

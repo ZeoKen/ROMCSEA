@@ -39,7 +39,7 @@ function TripleTeamSeasonLevelCell:SetData(data)
     self.levelLabel.gameObject:SetActive(data.erank >= 5)
     if data.erank < 5 then
       for i = 1, 5 do
-        self.stars[i].CurrentState = i <= data.starnum and 1 or 0
+        self.stars[i].CurrentState = data.starnum and i <= data.starnum and 1 or 0
       end
     else
       self.levelLabel.text = (data.rank == 0 or data.rank > 9999) and "9999+" or data.rank

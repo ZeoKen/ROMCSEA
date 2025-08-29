@@ -127,6 +127,7 @@ function TriplePlayerPvpProxy:Reset()
   self:ResetWaittingHead()
   _TableClear(self.campMap)
   self.state = TriplePlayerPvpProxy.EState.None
+  self.isRelax = nil
 end
 
 function TriplePlayerPvpProxy:HandleSyncTripleEnterCount(data)
@@ -209,7 +210,7 @@ function TriplePlayerPvpProxy:CheckIChoosen()
 end
 
 function TriplePlayerPvpProxy:CheckNeedConfirmChangePro()
-  return not self:CheckIChoosen() and self:InPpreparation()
+  return not self:CheckIChoosen() and self:InPreparation()
 end
 
 function TriplePlayerPvpProxy:GetWaittingPlayerHeadImages()
@@ -232,7 +233,7 @@ function TriplePlayerPvpProxy:IsWaitting()
   return self.state == TriplePlayerPvpProxy.EState.Waitting
 end
 
-function TriplePlayerPvpProxy:InPpreparation()
+function TriplePlayerPvpProxy:InPreparation()
   return self.state > TriplePlayerPvpProxy.EState.None and self.state < TriplePlayerPvpProxy.EState.End
 end
 
@@ -259,6 +260,29 @@ end
 
 function TriplePlayerPvpProxy:GetMyTeam()
   return self.myTeam
+end
+
+function TriplePlayerPvpProxy:CheckMyTeamRepetitiveProfession(pro)
+  if self:IsRelax() then
+    return false
+  end
+  local memberMap = self.myTeam and self.myTeam.memberMap
+  if memberMap then
+    for index, triplePlayerPvpMember in pairs(memberMap) do
+      if triplePlayerPvpMember:IsChoosen() and triplePlayerPvpMember:GetPro() == pro then
+        return true
+      end
+    end
+  end
+  return false
+end
+
+function TriplePlayerPvpProxy:InitializeRelaxFlag(var)
+  self.isRelax = var
+end
+
+function TriplePlayerPvpProxy:IsRelax()
+  return self.isRelax == true
 end
 
 function TriplePlayerPvpProxy:GetPhase()

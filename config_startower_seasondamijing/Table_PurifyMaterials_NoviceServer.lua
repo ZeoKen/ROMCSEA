@@ -32,6 +32,9 @@ Table_PurifyMaterials = {
   [1031] = {id = 1031, Quality = 1},
   [1032] = {id = 1032, Quality = 1},
   [1033] = {id = 1033, Quality = 1},
+  [1034] = {id = 1034, Quality = 1},
+  [1035] = {id = 1035, Quality = 1},
+  [1036] = {id = 1036, Quality = 1},
   [2001] = {id = 2001, Quality = 2},
   [2002] = {id = 2002, Quality = 2},
   [2003] = {id = 2003, Quality = 2},
@@ -42,6 +45,7 @@ Table_PurifyMaterials = {
   [2008] = {id = 2008, Quality = 2},
   [2009] = {id = 2009, Quality = 2},
   [2010] = {id = 2010, Quality = 2},
+  [2011] = {id = 2011, Quality = 2},
   [3001] = {id = 3001, Quality = 3},
   [3002] = {id = 3002, Quality = 3},
   [3003] = {id = 3003, Quality = 3},
@@ -63,6 +67,7 @@ Table_PurifyMaterials = {
   [3019] = {id = 3019, Quality = 3},
   [3020] = {id = 3020, Quality = 3},
   [3021] = {id = 3021, Quality = 3},
+  [3022] = {id = 3022, Quality = 3},
   [4001] = {id = 4001, Quality = 4},
   [4002] = {id = 4002, Quality = 4},
   [4003] = {id = 4003, Quality = 4},
@@ -93,7 +98,9 @@ Table_PurifyMaterials = {
   [4028] = {id = 4028, Quality = 4},
   [4029] = {id = 4029, Quality = 4},
   [4030] = {id = 4030, Quality = 4},
-  [4031] = {id = 4031, Quality = 4}
+  [4031] = {id = 4031, Quality = 4},
+  [4032] = {id = 4032, Quality = 4},
+  [4033] = {id = 4033, Quality = 4}
 }
 Table_PurifyMaterials_fields = {"id", "Quality"}
 return Table_PurifyMaterials

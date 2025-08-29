@@ -21,23 +21,24 @@ function OldPlayerShareView:InitShow()
   end
   self.screenShotHelper = self.gameObject:GetComponent(ScreenShotHelper)
   self.CloseButton = self:FindGO("CloseButton")
-  if not BranchMgr.IsChina() then
-    local rologo = self:FindGO("ROLogo")
-    rologo.gameObject.transform.localPosition = LuaGeometry.GetTempVector3(350, -143, 0)
-    local texName = invitation.logo
-    local logoTex = rologo:GetComponent(UITexture)
-    PictureManager.Instance:SetPlayerRefluxTexture(texName, logoTex)
-    logoTex.width = 178
-    logoTex.height = 140
-    local qrcode = self:FindGO("QRCode")
-    qrcode.gameObject:SetActive(false)
-  else
-    local rologo = self:FindGO("ROLogo")
-    local texName = invitation.logo
-    local logoTex = rologo:GetComponent(UITexture)
-    PictureManager.Instance:SetPlayerRefluxTexture(texName, logoTex)
+  local rologo = self:FindGO("ROLogo")
+  local texName = invitation.logo
+  local logoTex = rologo:GetComponent(UITexture)
+  PictureManager.Instance:SetPlayerRefluxTexture(texName, logoTex)
+  local qrcode = self:FindGO("QRCode"):GetComponent(UITexture)
+  local qrCodeTexName = invitation.QRCode
+  if qrCodeTexName ~= nil then
     logoTex.width = 238
     logoTex.height = 210
+    qrcode.width = 170
+    qrcode.height = 170
+    qrcode.gameObject:SetActive(true)
+    PictureManager.Instance:SetPlayerRefluxTexture(qrCodeTexName, qrcode)
+  else
+    rologo.gameObject.transform.localPosition = LuaGeometry.GetTempVector3(350, -143, 0)
+    logoTex.width = 178
+    logoTex.height = 140
+    qrcode.gameObject:SetActive(false)
   end
 end
 

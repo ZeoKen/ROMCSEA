@@ -81,6 +81,7 @@ function WarbandSeasonRankCell:SetData(data)
       self.season2.gameObject:SetActive(false)
       LuaVector3.Better_Set(tempVector3, -331, 56, 0)
     else
+      season = 10000 < season and season - 10000 or season
       self.season1.spriteName = fixed_combo_txt .. math.floor(season / 10)
       self.season2.spriteName = fixed_combo_txt .. season % 10
       self.season2.gameObject:SetActive(true)

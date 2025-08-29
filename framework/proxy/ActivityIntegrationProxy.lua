@@ -680,7 +680,7 @@ function ActivityIntegrationProxy:CheckSubTabValid(tabid)
         end
       end
     end
-    return true
+    return timeValid
   else
     return true
   end

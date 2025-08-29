@@ -15,6 +15,7 @@ autoImport("SceneTopPoint")
 autoImport("SceneNpcAlert")
 autoImport("SceneTopGvGCooking")
 autoImport("SceneCoinCell")
+autoImport("SceneSummonProgress")
 local FindCreature = function(id)
   local creature = NSceneNpcProxy.Instance:GetClientNpc(id)
   if not creature then
@@ -935,6 +936,36 @@ function Creature_SceneTopUI:HideEBFCoinSceneUI()
   end
 end
 
+function Creature_SceneTopUI:SetSummonProgress(creature, area, mapstepId)
+  local follow = self:GetSceneUITopFollow(SceneUIType.RoleTopEffect, creature)
+  if not follow then
+    return nil
+  end
+  if not self.sceneSummonProgress then
+    local args = ReusableTable.CreateArray()
+    args[1] = follow
+    args[2] = self.creatureId
+    args[3] = mapstepId
+    args[4] = area
+    self.sceneSummonProgress = SceneSummonProgress.CreateAsArray(args)
+    ReusableTable.DestroyAndClearArray(args)
+  end
+end
+
+function Creature_SceneTopUI:UpdateSummonProgress(progress, npcID)
+  if not self.sceneSummonProgress then
+    return
+  end
+  self.sceneSummonProgress:SetData(progress, npcID)
+end
+
+function Creature_SceneTopUI:RemoveSummonProgress()
+  if self.sceneSummonProgress then
+    self.sceneSummonProgress:Destroy()
+  end
+  self.sceneSummonProgress = nil
+end
+
 local accessFunc = function(self)
   if PvpObserveProxy.Instance:IsRunning() then
     return
@@ -984,6 +1015,7 @@ function Creature_SceneTopUI:DoDeconstruct(asArray)
   self:RemoveCursorInfo()
   self:RemoveGvGCookingInfo()
   self:RemoveEBFCoinSceneUI()
+  self:RemoveSummonProgress()
   self:UnregisterSceneUITopFollows()
 end
 

@@ -218,7 +218,17 @@ function ServiceMapProxy:RecvCardRewardQueryCmd(data)
   self:Notify(ServiceEvent.MapCardRewardQueryCmd, data)
 end
 
-function ServiceMapAutoProxy:RecvSkillWeatherSyncCmd(data)
+function ServiceMapProxy:RecvSkillWeatherSyncCmd(data)
   SkillProxy.Instance:RecvSkillWeatherSyncCmd(data.weather)
   self:Notify(ServiceEvent.MapSkillWeatherSyncCmd, data)
+end
+
+function ServiceMapProxy:RecvAbyssBossUpdateCmd(data)
+  AbyssLakeProxy.Instance:RecvAbyssBossUpdateCmd(data)
+  self:Notify(ServiceEvent.MapAbyssBossUpdateCmd, data)
+end
+
+function ServiceMapProxy:RecvExtraRewardUpdateMapCmd(data)
+  AbyssLakeProxy.Instance:RecvExtraRewardUpdateMapCmd(data)
+  self:Notify(ServiceEvent.MapExtraRewardUpdateMapCmd, data)
 end

@@ -107,6 +107,12 @@ function ChatRoomSystemCell:OnClickUrl(url)
     if dateid then
       GuildDateBattleProxy.Instance:QueryBattleInfo(dateid)
     end
+  elseif urlType == "achievereward" then
+    local groupid = tonumber(split[2])
+    local shortCutPowerID = GameConfig.NpcAchieve and GameConfig.NpcAchieve[groupid]
+    if shortCutPowerID then
+      FuncShortCutFunc.Me():CallByID(shortCutPowerID)
+    end
   elseif url == "playername" then
     local playerData = PlayerTipData.new()
     local data = self.data:GetSysMsgUserInfo()

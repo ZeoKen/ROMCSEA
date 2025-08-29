@@ -3583,6 +3583,236 @@ Table_Card = {
     BookWeight = 100,
     ComposeCardType = 1
   },
+  [20177] = {
+    id = 20177,
+    Name = "##529800",
+    Quality = 3,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_10260",
+    monsterID = {10260},
+    BuffEffect = {
+      buff = {54660}
+    },
+    Weight = 20,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 8,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20178] = {
+    id = 20178,
+    Name = "##529805",
+    Quality = 2,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_10261",
+    monsterID = {10261},
+    BuffEffect = {
+      buff = {54670}
+    },
+    Weight = 50,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 10,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20179] = {
+    id = 20179,
+    Name = "##529799",
+    Quality = 3,
+    Position = 6,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_10262",
+    monsterID = {10262},
+    BuffEffect = {
+      buff = {54680}
+    },
+    Weight = 20,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 8,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20180] = {
+    id = 20180,
+    Name = "##529802",
+    Quality = 2,
+    Position = 7,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_10263",
+    monsterID = {10263},
+    BuffEffect = {
+      buff = {54690}
+    },
+    Weight = 50,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 10,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20181] = {
+    id = 20181,
+    Name = "##529795",
+    Quality = 3,
+    Position = 3,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_10264",
+    monsterID = {10264},
+    BuffEffect = {
+      buff = {54700}
+    },
+    Weight = 20,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 8,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20184] = {
+    id = 20184,
+    Name = "##529801",
+    Quality = 3,
+    Position = 2,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_10267",
+    monsterID = {10267},
+    BuffEffect = {
+      buff = {54730}
+    },
+    Weight = 20,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 8,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20221] = {
+    id = 20221,
+    Name = "##42635752",
+    Quality = 3,
+    Position = 5,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_20221",
+    monsterID = {31524},
+    BuffEffect = {
+      buff = {59200}
+    },
+    Weight = 20,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 8,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20222] = {
+    id = 20222,
+    Name = "##42635753",
+    Quality = 2,
+    Position = 7,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_20222",
+    monsterID = {31525},
+    BuffEffect = {
+      buff = {59210}
+    },
+    Weight = 50,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 10,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20223] = {
+    id = 20223,
+    Name = "##42635754",
+    Quality = 3,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_20223",
+    monsterID = {31526},
+    BuffEffect = {
+      buff = {59220}
+    },
+    Weight = 20,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 8,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [20224] = {
+    id = 20224,
+    Name = "##42635755",
+    Quality = 2,
+    Position = 3,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_20224",
+    monsterID = {31527},
+    BuffEffect = {
+      buff = {59230}
+    },
+    Weight = 50,
+    Type = 1,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 10,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
   [22001] = {
     id = 22001,
     Name = "##106834",
@@ -3903,7 +4133,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 2
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [22015] = {
     id = 22015,
@@ -4411,6 +4642,52 @@ Table_Card = {
     BookWeight = 100,
     ComposeCardType = 2
   },
+  [22041] = {
+    id = 22041,
+    Name = "##529797",
+    Quality = 3,
+    Position = 1,
+    CardType = 2,
+    Anchor = _EmptyTable,
+    Picture = "card_20040",
+    monsterID = {20040},
+    BuffEffect = {
+      buff = {54740}
+    },
+    Weight = 0,
+    Type = 20,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 3,
+    BookWeight = 100,
+    ComposeCardType = 2
+  },
+  [22042] = {
+    id = 22042,
+    Name = "##529796",
+    Quality = 3,
+    Position = 7,
+    CardType = 2,
+    Anchor = _EmptyTable,
+    Picture = "card_20041",
+    monsterID = {20041},
+    BuffEffect = {
+      buff = {54750}
+    },
+    Weight = 0,
+    Type = 20,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 3,
+    BookWeight = 100,
+    ComposeCardType = 2
+  },
   [23001] = {
     id = 23001,
     Name = "##106845",
@@ -4432,7 +4709,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23002] = {
     id = 23002,
@@ -4455,7 +4733,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23003] = {
     id = 23003,
@@ -4478,7 +4757,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23004] = {
     id = 23004,
@@ -4501,7 +4781,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23005] = {
     id = 23005,
@@ -4524,7 +4805,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23006] = {
     id = 23006,
@@ -4547,7 +4829,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23007] = {
     id = 23007,
@@ -4570,7 +4853,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23008] = {
     id = 23008,
@@ -4593,7 +4877,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23009] = {
     id = 23009,
@@ -4616,7 +4901,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23010] = {
     id = 23010,
@@ -4639,7 +4925,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23011] = {
     id = 23011,
@@ -4662,7 +4949,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23012] = {
     id = 23012,
@@ -4685,7 +4973,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23013] = {
     id = 23013,
@@ -4708,7 +4997,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23014] = {
     id = 23014,
@@ -4731,7 +5021,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23015] = {
     id = 23015,
@@ -4754,7 +5045,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23016] = {
     id = 23016,
@@ -4777,7 +5069,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23017] = {
     id = 23017,
@@ -4800,7 +5093,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23018] = {
     id = 23018,
@@ -4846,7 +5140,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23020] = {
     id = 23020,
@@ -4869,7 +5164,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23021] = {
     id = 23021,
@@ -4892,7 +5188,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23022] = {
     id = 23022,
@@ -4915,7 +5212,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 2
   },
   [23023] = {
     id = 23023,
@@ -4961,7 +5259,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23027] = {
     id = 23027,
@@ -4984,7 +5283,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23028] = {
     id = 23028,
@@ -5007,7 +5307,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23029] = {
     id = 23029,
@@ -5030,7 +5331,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23030] = {
     id = 23030,
@@ -5053,7 +5355,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23031] = {
     id = 23031,
@@ -5076,7 +5379,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23032] = {
     id = 23032,
@@ -5099,7 +5403,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23033] = {
     id = 23033,
@@ -5122,7 +5427,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23034] = {
     id = 23034,
@@ -5145,7 +5451,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23035] = {
     id = 23035,
@@ -5168,7 +5475,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23036] = {
     id = 23036,
@@ -5191,7 +5499,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23037] = {
     id = 23037,
@@ -5214,7 +5523,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23038] = {
     id = 23038,
@@ -5237,7 +5547,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23040] = {
     id = 23040,
@@ -5260,7 +5571,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23041] = {
     id = 23041,
@@ -5283,7 +5595,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 2
   },
   [23047] = {
     id = 23047,
@@ -5306,7 +5619,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23048] = {
     id = 23048,
@@ -5329,7 +5643,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23049] = {
     id = 23049,
@@ -5352,7 +5667,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23050] = {
     id = 23050,
@@ -5375,7 +5691,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23051] = {
     id = 23051,
@@ -5398,7 +5715,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23052] = {
     id = 23052,
@@ -5421,7 +5739,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [23053] = {
     id = 23053,
@@ -5444,7 +5763,180 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23056] = {
+    id = 23056,
+    Name = "##529806",
+    Quality = 4,
+    Position = 1,
+    CardType = 3,
+    Anchor = _EmptyTable,
+    Picture = "card_30062",
+    monsterID = {30062},
+    BuffEffect = {
+      buff = {54760, 54761}
+    },
+    Weight = 0,
+    Type = 20,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 2
+  },
+  [23057] = {
+    id = 23057,
+    Name = "##529793",
+    Quality = 4,
+    Position = 7,
+    CardType = 3,
+    Anchor = _EmptyTable,
+    Picture = "card_30063",
+    monsterID = {30063},
+    BuffEffect = {
+      buff = {54770}
+    },
+    Weight = 0,
+    Type = 20,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
+  },
+  [23065] = {
+    id = 23065,
+    Name = "##2808793",
+    Quality = 4,
+    Position = 6,
+    CardType = 3,
+    Anchor = _EmptyTable,
+    Picture = "card_23065",
+    monsterID = {320200},
+    BuffEffect = {
+      buff = {55720, 55721}
+    },
+    Weight = 0,
+    Type = 20,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23066] = {
+    id = 23066,
+    Name = "##1287552",
+    Quality = 4,
+    Position = 1,
+    CardType = 3,
+    Anchor = _EmptyTable,
+    Picture = "card_23066",
+    monsterID = {31216},
+    BuffEffect = {
+      buff = {
+        55730,
+        55731,
+        59053
+      }
+    },
+    Weight = 0,
+    Type = 20,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23067] = {
+    id = 23067,
+    Name = "##1275118",
+    Quality = 4,
+    Position = 7,
+    CardType = 3,
+    Anchor = _EmptyTable,
+    Picture = "card_23067",
+    monsterID = {31217},
+    BuffEffect = {
+      buff = {55740}
+    },
+    Weight = 0,
+    Type = 20,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23073] = {
+    id = 23073,
+    Name = "##42635756",
+    Quality = 4,
+    Position = 7,
+    CardType = 3,
+    Anchor = _EmptyTable,
+    Picture = "card_23073",
+    monsterID = {30072},
+    BuffEffect = {
+      buff = {59240}
+    },
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23074] = {
+    id = 23074,
+    Name = "##42641015",
+    Quality = 4,
+    Position = 1,
+    CardType = 3,
+    Anchor = _EmptyTable,
+    Picture = "card_23074",
+    monsterID = {276614},
+    BuffEffect = {
+      buff = {59320, 59321}
+    },
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23100] = {
     id = 23100,
@@ -6426,6 +6918,252 @@ Table_Card = {
     BookClass = 9,
     BookWeight = 100,
     ComposeCardType = 1
+  },
+  [23227] = {
+    id = 23227,
+    Name = "##1266712",
+    Quality = 3,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23227",
+    monsterID = {31287},
+    BuffEffect = {
+      buff = {56520}
+    },
+    NoShow = 1,
+    Weight = 0,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    ComposeCardType = 1
+  },
+  [23282] = {
+    id = 23282,
+    Name = "##2806506",
+    Quality = 4,
+    Position = 2,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23282",
+    monsterID = {272600},
+    BuffEffect = {
+      buff = {57130}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23293] = {
+    id = 23293,
+    Name = "##2818879",
+    Quality = 4,
+    Position = 4,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23293",
+    monsterID = {270701},
+    BuffEffect = {
+      buff = {57140}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23307] = {
+    id = 23307,
+    Name = "##2818882",
+    Quality = 4,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23307",
+    monsterID = {270703},
+    BuffEffect = {
+      buff = {57160, 57161}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23308] = {
+    id = 23308,
+    Name = "##2818878",
+    Quality = 4,
+    Position = 5,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23308",
+    monsterID = {270500},
+    BuffEffect = {
+      buff = {57120, 57121}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23314] = {
+    id = 23314,
+    Name = "##2818881",
+    Quality = 4,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23314",
+    monsterID = {272702},
+    BuffEffect = {
+      buff = {57150}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23316] = {
+    id = 23316,
+    Name = "##2818885",
+    Quality = 4,
+    Position = 3,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23316",
+    monsterID = {273100},
+    BuffEffect = {
+      buff = {57180}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23317] = {
+    id = 23317,
+    Name = "##2818886",
+    Quality = 4,
+    Position = 6,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23317",
+    monsterID = {273200},
+    BuffEffect = {
+      buff = {57540, 57541}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23322] = {
+    id = 23322,
+    Name = "##2818887",
+    Quality = 4,
+    Position = 6,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23322",
+    monsterID = {273300},
+    BuffEffect = {
+      buff = {57200, 57201}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
+  },
+  [23334] = {
+    id = 23334,
+    Name = "##2818883",
+    Quality = 4,
+    Position = 1,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_23334",
+    monsterID = {270704},
+    BuffEffect = {
+      buff = {57170, 57171}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 4,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 100,
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [23356] = {
     id = 23356,
@@ -8636,6 +9374,54 @@ Table_Card = {
     BookWeight = 100,
     ComposeCardType = 1
   },
+  [24102] = {
+    id = 24102,
+    Name = "##1110880",
+    Quality = 4,
+    Position = 2,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_24102",
+    monsterID = {31169},
+    BuffEffect = {
+      buff = {55080}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 2,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 5,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
+  [24103] = {
+    id = 24103,
+    Name = "##1110881",
+    Quality = 4,
+    Position = 4,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_24103",
+    monsterID = {31170},
+    BuffEffect = {
+      buff = {55090}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 2,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 5,
+    BookWeight = 100,
+    ComposeCardType = 1
+  },
   [24600] = {
     id = 24600,
     Name = "##106851",
@@ -8658,7 +9444,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24601] = {
     id = 24601,
@@ -8682,7 +9469,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24602] = {
     id = 24602,
@@ -8706,7 +9494,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [24603] = {
     id = 24603,
@@ -8730,11 +9519,12 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24604] = {
     id = 24604,
-    Name = "##107059",
+    Name = "##113387",
     Quality = 4,
     Position = 1,
     CardType = 1,
@@ -8754,7 +9544,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [24605] = {
     id = 24605,
@@ -8778,7 +9569,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [24606] = {
     id = 24606,
@@ -8802,7 +9594,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24607] = {
     id = 24607,
@@ -8830,7 +9623,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24608] = {
     id = 24608,
@@ -8854,7 +9648,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24609] = {
     id = 24609,
@@ -8878,7 +9673,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24610] = {
     id = 24610,
@@ -8902,7 +9698,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24611] = {
     id = 24611,
@@ -8926,7 +9723,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24612] = {
     id = 24612,
@@ -8954,7 +9752,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [24613] = {
     id = 24613,
@@ -8978,7 +9777,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24614] = {
     id = 24614,
@@ -9122,7 +9922,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 2
   },
   [24620] = {
     id = 24620,
@@ -9146,7 +9947,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 2
   },
   [24621] = {
     id = 24621,
@@ -9170,7 +9972,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 2
   },
   [24622] = {
     id = 24622,
@@ -9194,7 +9997,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 100,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 2
   },
   [24623] = {
     id = 24623,
@@ -9318,7 +10122,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24628] = {
     id = 24628,
@@ -9342,7 +10147,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24629] = {
     id = 24629,
@@ -9366,7 +10172,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [24630] = {
     id = 24630,
@@ -9394,7 +10201,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 3
   },
   [24631] = {
     id = 24631,
@@ -9518,7 +10326,7 @@ Table_Card = {
   },
   [24636] = {
     id = 24636,
-    Name = "##529798",
+    Name = "##530121",
     Quality = 4,
     Position = 1,
     CardType = 1,
@@ -9538,7 +10346,8 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
   [24637] = {
     id = 24637,
@@ -9566,31 +10375,165 @@ Table_Card = {
     ServerID = _EmptyTable,
     BookClass = 2,
     BookWeight = 10,
-    ComposeCardType = 3
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   },
-  [23227] = {
-    id = 23227,
-    Name = "##1266712",
-    Quality = 3,
+  [24638] = {
+    id = 24638,
+    Name = "##1110884",
+    Quality = 4,
     Position = 1,
     CardType = 1,
     Anchor = _EmptyTable,
-    Picture = "card_23227",
-    monsterID = {31287},
+    Picture = "card_24638",
+    monsterID = {31173},
     BuffEffect = {
-      buff = {56520}
+      buff = {
+        55040,
+        55041,
+        55042
+      }
     },
     NoShow = 1,
     Weight = 0,
+    Type = 6,
     TFComposeDate = _EmptyTable,
     TFLotteryDate = _EmptyTable,
     ComposeDate = _EmptyTable,
     LotteryDate = _EmptyTable,
     ServerID = _EmptyTable,
-    ComposeCardType = 1
+    BookClass = 3,
+    BookWeight = 10,
+    ComposeCardType = 2
+  },
+  [24639] = {
+    id = 24639,
+    Name = "##1110885",
+    Quality = 4,
+    Position = 2,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_24639",
+    monsterID = {31174},
+    BuffEffect = {
+      buff = {55050, 55051}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 6,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 3,
+    BookWeight = 10,
+    ComposeCardType = 2
+  },
+  [24640] = {
+    id = 24640,
+    Name = "##1110886",
+    Quality = 4,
+    Position = 7,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_24640",
+    monsterID = {31175},
+    BuffEffect = {
+      buff = {55060}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 6,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 3,
+    BookWeight = 10,
+    ComposeCardType = 2
+  },
+  [24641] = {
+    id = 24641,
+    Name = "##1110887",
+    Quality = 4,
+    Position = 3,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_24641",
+    monsterID = {31176},
+    BuffEffect = {
+      buff = {
+        55070,
+        55071,
+        55072
+      }
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 6,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 3,
+    BookWeight = 10,
+    ComposeCardType = 2
+  },
+  [24642] = {
+    id = 24642,
+    Name = "##1133313",
+    Quality = 4,
+    Position = 5,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_24642",
+    monsterID = {31181},
+    BuffEffect = {
+      buff = {55250, 55251}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 6,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 10,
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
+  },
+  [24643] = {
+    id = 24643,
+    Name = "##1133314",
+    Quality = 4,
+    Position = 3,
+    CardType = 1,
+    Anchor = _EmptyTable,
+    Picture = "card_24643",
+    monsterID = {31182},
+    BuffEffect = {
+      buff = {55260, 55263}
+    },
+    NoShow = 1,
+    Weight = 0,
+    Type = 6,
+    TFComposeDate = _EmptyTable,
+    TFLotteryDate = _EmptyTable,
+    ComposeDate = _EmptyTable,
+    LotteryDate = _EmptyTable,
+    ServerID = _EmptyTable,
+    BookClass = 2,
+    BookWeight = 10,
+    ComposeCardType = 3,
+    MVPCardDecompose = 1
   }
 }
-Table_Card.MD5 = "--md5:{'primarymd5':'2539ad8b31742ec19ce6f68c1a5abc8c'}"
+Table_Card.MD5 = "--md5:{'primarymd5':'4135235be4a44e9b7d384cba9bfc8f9d'}"
 Table_Card_fields = {
   "id",
   "Name",
@@ -9613,6 +10556,7 @@ Table_Card_fields = {
   "ServerID",
   "BookClass",
   "BookWeight",
-  "ComposeCardType"
+  "ComposeCardType",
+  "MVPCardDecompose"
 }
 return Table_Card

@@ -186,39 +186,11 @@ Table_BossSceneMonster = {
     RaidID = 7120,
     ClientRewards = _EmptyTable
   },
-  [31] = {
-    id = 31,
-    MonsterID = 971720,
-    LV = 40,
-    RaidID = 7121,
-    ClientRewards = _EmptyTable
-  },
-  [49] = {
-    id = 49,
-    MonsterID = 971720,
-    LV = 50,
-    RaidID = 7122,
-    ClientRewards = _EmptyTable
-  },
   [14] = {
     id = 14,
     MonsterID = 973820,
     LV = 30,
     RaidID = 7120,
-    ClientRewards = _EmptyTable
-  },
-  [32] = {
-    id = 32,
-    MonsterID = 973820,
-    LV = 40,
-    RaidID = 7121,
-    ClientRewards = _EmptyTable
-  },
-  [50] = {
-    id = 50,
-    MonsterID = 973820,
-    LV = 50,
-    RaidID = 7122,
     ClientRewards = _EmptyTable
   },
   [15] = {
@@ -228,39 +200,11 @@ Table_BossSceneMonster = {
     RaidID = 7120,
     ClientRewards = _EmptyTable
   },
-  [33] = {
-    id = 33,
-    MonsterID = 974620,
-    LV = 40,
-    RaidID = 7121,
-    ClientRewards = _EmptyTable
-  },
-  [51] = {
-    id = 51,
-    MonsterID = 974620,
-    LV = 50,
-    RaidID = 7122,
-    ClientRewards = _EmptyTable
-  },
   [16] = {
     id = 16,
     MonsterID = 972220,
     LV = 30,
     RaidID = 7120,
-    ClientRewards = _EmptyTable
-  },
-  [34] = {
-    id = 34,
-    MonsterID = 972220,
-    LV = 40,
-    RaidID = 7121,
-    ClientRewards = _EmptyTable
-  },
-  [52] = {
-    id = 52,
-    MonsterID = 972220,
-    LV = 50,
-    RaidID = 7122,
     ClientRewards = _EmptyTable
   },
   [17] = {
@@ -270,39 +214,11 @@ Table_BossSceneMonster = {
     RaidID = 7120,
     ClientRewards = _EmptyTable
   },
-  [35] = {
-    id = 35,
-    MonsterID = 973920,
-    LV = 40,
-    RaidID = 7121,
-    ClientRewards = _EmptyTable
-  },
-  [53] = {
-    id = 53,
-    MonsterID = 973920,
-    LV = 50,
-    RaidID = 7122,
-    ClientRewards = _EmptyTable
-  },
   [18] = {
     id = 18,
     MonsterID = 975020,
     LV = 30,
     RaidID = 7120,
-    ClientRewards = _EmptyTable
-  },
-  [36] = {
-    id = 36,
-    MonsterID = 975020,
-    LV = 40,
-    RaidID = 7121,
-    ClientRewards = _EmptyTable
-  },
-  [54] = {
-    id = 54,
-    MonsterID = 975020,
-    LV = 50,
-    RaidID = 7122,
     ClientRewards = _EmptyTable
   },
   [19] = {
@@ -485,6 +401,48 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
+  [31] = {
+    id = 31,
+    MonsterID = 971720,
+    LV = 40,
+    RaidID = 7121,
+    ClientRewards = _EmptyTable
+  },
+  [32] = {
+    id = 32,
+    MonsterID = 973820,
+    LV = 40,
+    RaidID = 7121,
+    ClientRewards = _EmptyTable
+  },
+  [33] = {
+    id = 33,
+    MonsterID = 974620,
+    LV = 40,
+    RaidID = 7121,
+    ClientRewards = _EmptyTable
+  },
+  [34] = {
+    id = 34,
+    MonsterID = 972220,
+    LV = 40,
+    RaidID = 7121,
+    ClientRewards = _EmptyTable
+  },
+  [35] = {
+    id = 35,
+    MonsterID = 973920,
+    LV = 40,
+    RaidID = 7121,
+    ClientRewards = _EmptyTable
+  },
+  [36] = {
+    id = 36,
+    MonsterID = 975020,
+    LV = 40,
+    RaidID = 7121,
+    ClientRewards = _EmptyTable
+  },
   [37] = {
     id = 37,
     MonsterID = 913320,
@@ -664,6 +622,48 @@ Table_BossSceneMonster = {
       }
     },
     IsSureBoss = 1
+  },
+  [49] = {
+    id = 49,
+    MonsterID = 971720,
+    LV = 50,
+    RaidID = 7122,
+    ClientRewards = _EmptyTable
+  },
+  [50] = {
+    id = 50,
+    MonsterID = 973820,
+    LV = 50,
+    RaidID = 7122,
+    ClientRewards = _EmptyTable
+  },
+  [51] = {
+    id = 51,
+    MonsterID = 974620,
+    LV = 50,
+    RaidID = 7122,
+    ClientRewards = _EmptyTable
+  },
+  [52] = {
+    id = 52,
+    MonsterID = 972220,
+    LV = 50,
+    RaidID = 7122,
+    ClientRewards = _EmptyTable
+  },
+  [53] = {
+    id = 53,
+    MonsterID = 973920,
+    LV = 50,
+    RaidID = 7122,
+    ClientRewards = _EmptyTable
+  },
+  [54] = {
+    id = 54,
+    MonsterID = 975020,
+    LV = 50,
+    RaidID = 7122,
+    ClientRewards = _EmptyTable
   },
   [55] = {
     id = 55,
@@ -1134,39 +1134,11 @@ Table_BossSceneMonster = {
     RaidID = 7124,
     ClientRewards = _EmptyTable
   },
-  [111] = {
-    id = 111,
-    MonsterID = 971730,
-    LV = 80,
-    RaidID = 7125,
-    ClientRewards = _EmptyTable
-  },
-  [133] = {
-    id = 133,
-    MonsterID = 971730,
-    LV = 90,
-    RaidID = 7126,
-    ClientRewards = _EmptyTable
-  },
   [90] = {
     id = 90,
     MonsterID = 973830,
     LV = 70,
     RaidID = 7124,
-    ClientRewards = _EmptyTable
-  },
-  [112] = {
-    id = 112,
-    MonsterID = 973830,
-    LV = 80,
-    RaidID = 7125,
-    ClientRewards = _EmptyTable
-  },
-  [134] = {
-    id = 134,
-    MonsterID = 973830,
-    LV = 90,
-    RaidID = 7126,
     ClientRewards = _EmptyTable
   },
   [91] = {
@@ -1176,39 +1148,11 @@ Table_BossSceneMonster = {
     RaidID = 7124,
     ClientRewards = _EmptyTable
   },
-  [113] = {
-    id = 113,
-    MonsterID = 974630,
-    LV = 80,
-    RaidID = 7125,
-    ClientRewards = _EmptyTable
-  },
-  [135] = {
-    id = 135,
-    MonsterID = 974630,
-    LV = 90,
-    RaidID = 7126,
-    ClientRewards = _EmptyTable
-  },
   [92] = {
     id = 92,
     MonsterID = 972230,
     LV = 70,
     RaidID = 7124,
-    ClientRewards = _EmptyTable
-  },
-  [114] = {
-    id = 114,
-    MonsterID = 972230,
-    LV = 80,
-    RaidID = 7125,
-    ClientRewards = _EmptyTable
-  },
-  [136] = {
-    id = 136,
-    MonsterID = 972230,
-    LV = 90,
-    RaidID = 7126,
     ClientRewards = _EmptyTable
   },
   [93] = {
@@ -1218,39 +1162,11 @@ Table_BossSceneMonster = {
     RaidID = 7124,
     ClientRewards = _EmptyTable
   },
-  [115] = {
-    id = 115,
-    MonsterID = 973930,
-    LV = 80,
-    RaidID = 7125,
-    ClientRewards = _EmptyTable
-  },
-  [137] = {
-    id = 137,
-    MonsterID = 973930,
-    LV = 90,
-    RaidID = 7126,
-    ClientRewards = _EmptyTable
-  },
   [94] = {
     id = 94,
     MonsterID = 975030,
     LV = 70,
     RaidID = 7124,
-    ClientRewards = _EmptyTable
-  },
-  [116] = {
-    id = 116,
-    MonsterID = 975030,
-    LV = 80,
-    RaidID = 7125,
-    ClientRewards = _EmptyTable
-  },
-  [138] = {
-    id = 138,
-    MonsterID = 975030,
-    LV = 90,
-    RaidID = 7126,
     ClientRewards = _EmptyTable
   },
   [95] = {
@@ -1493,6 +1409,48 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
+  [111] = {
+    id = 111,
+    MonsterID = 971730,
+    LV = 80,
+    RaidID = 7125,
+    ClientRewards = _EmptyTable
+  },
+  [112] = {
+    id = 112,
+    MonsterID = 973830,
+    LV = 80,
+    RaidID = 7125,
+    ClientRewards = _EmptyTable
+  },
+  [113] = {
+    id = 113,
+    MonsterID = 974630,
+    LV = 80,
+    RaidID = 7125,
+    ClientRewards = _EmptyTable
+  },
+  [114] = {
+    id = 114,
+    MonsterID = 972230,
+    LV = 80,
+    RaidID = 7125,
+    ClientRewards = _EmptyTable
+  },
+  [115] = {
+    id = 115,
+    MonsterID = 973930,
+    LV = 80,
+    RaidID = 7125,
+    ClientRewards = _EmptyTable
+  },
+  [116] = {
+    id = 116,
+    MonsterID = 975030,
+    LV = 80,
+    RaidID = 7125,
+    ClientRewards = _EmptyTable
+  },
   [117] = {
     id = 117,
     MonsterID = 913930,
@@ -1732,6 +1690,48 @@ Table_BossSceneMonster = {
       }
     },
     IsSureBoss = 1
+  },
+  [133] = {
+    id = 133,
+    MonsterID = 971730,
+    LV = 90,
+    RaidID = 7126,
+    ClientRewards = _EmptyTable
+  },
+  [134] = {
+    id = 134,
+    MonsterID = 973830,
+    LV = 90,
+    RaidID = 7126,
+    ClientRewards = _EmptyTable
+  },
+  [135] = {
+    id = 135,
+    MonsterID = 974630,
+    LV = 90,
+    RaidID = 7126,
+    ClientRewards = _EmptyTable
+  },
+  [136] = {
+    id = 136,
+    MonsterID = 972230,
+    LV = 90,
+    RaidID = 7126,
+    ClientRewards = _EmptyTable
+  },
+  [137] = {
+    id = 137,
+    MonsterID = 973930,
+    LV = 90,
+    RaidID = 7126,
+    ClientRewards = _EmptyTable
+  },
+  [138] = {
+    id = 138,
+    MonsterID = 975030,
+    LV = 90,
+    RaidID = 7126,
+    ClientRewards = _EmptyTable
   },
   [139] = {
     id = 139,
@@ -2144,6 +2144,40 @@ Table_BossSceneMonster = {
   },
   [168] = {
     id = 168,
+    MonsterID = 910530,
+    LV = 110,
+    RaidID = 7128,
+    ClientRewards = {
+      {
+        type = 1,
+        rewards = {
+          112851,
+          110351,
+          79980
+        }
+      }
+    },
+    IsSureBoss = 1
+  },
+  [169] = {
+    id = 169,
+    MonsterID = 910630,
+    LV = 110,
+    RaidID = 7128,
+    ClientRewards = {
+      {
+        type = 1,
+        rewards = {
+          112861,
+          110361,
+          79980
+        }
+      }
+    },
+    IsSureBoss = 1
+  },
+  [170] = {
+    id = 170,
     MonsterID = 944130,
     LV = 110,
     RaidID = 7128,
@@ -2155,8 +2189,8 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
-  [169] = {
-    id = 169,
+  [171] = {
+    id = 171,
     MonsterID = 940730,
     LV = 110,
     RaidID = 7128,
@@ -2168,8 +2202,8 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
-  [170] = {
-    id = 170,
+  [172] = {
+    id = 172,
     MonsterID = 944230,
     LV = 110,
     RaidID = 7128,
@@ -2181,8 +2215,8 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
-  [171] = {
-    id = 171,
+  [173] = {
+    id = 173,
     MonsterID = 940930,
     LV = 110,
     RaidID = 7128,
@@ -2194,8 +2228,8 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
-  [172] = {
-    id = 172,
+  [174] = {
+    id = 174,
     MonsterID = 941030,
     LV = 110,
     RaidID = 7128,
@@ -2207,8 +2241,8 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
-  [173] = {
-    id = 173,
+  [175] = {
+    id = 175,
     MonsterID = 941130,
     LV = 110,
     RaidID = 7128,
@@ -2220,8 +2254,8 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
-  [174] = {
-    id = 174,
+  [176] = {
+    id = 176,
     MonsterID = 941230,
     LV = 110,
     RaidID = 7128,
@@ -2233,47 +2267,82 @@ Table_BossSceneMonster = {
     },
     IsSureBoss = 1
   },
-  [175] = {
-    id = 175,
-    MonsterID = 975230,
-    LV = 110,
-    RaidID = 7128,
-    ClientRewards = _EmptyTable
-  },
-  [176] = {
-    id = 176,
-    MonsterID = 974030,
-    LV = 110,
-    RaidID = 7128,
-    ClientRewards = _EmptyTable
-  },
   [177] = {
     id = 177,
-    MonsterID = 971130,
+    MonsterID = 940230,
     LV = 110,
     RaidID = 7128,
-    ClientRewards = _EmptyTable
+    ClientRewards = {
+      {
+        type = 1,
+        rewards = {112381, 111361}
+      }
+    },
+    IsSureBoss = 1
   },
   [178] = {
     id = 178,
-    MonsterID = 971030,
+    MonsterID = 940330,
     LV = 110,
     RaidID = 7128,
-    ClientRewards = _EmptyTable
+    ClientRewards = {
+      {
+        type = 1,
+        rewards = {112391, 111371}
+      }
+    },
+    IsSureBoss = 1
   },
   [179] = {
     id = 179,
-    MonsterID = 972830,
+    MonsterID = 975230,
     LV = 110,
     RaidID = 7128,
     ClientRewards = _EmptyTable
   },
   [180] = {
     id = 180,
+    MonsterID = 974030,
+    LV = 110,
+    RaidID = 7128,
+    ClientRewards = _EmptyTable
+  },
+  [181] = {
+    id = 181,
+    MonsterID = 971130,
+    LV = 110,
+    RaidID = 7128,
+    ClientRewards = _EmptyTable
+  },
+  [182] = {
+    id = 182,
+    MonsterID = 971030,
+    LV = 110,
+    RaidID = 7128,
+    ClientRewards = _EmptyTable
+  },
+  [183] = {
+    id = 183,
+    MonsterID = 972830,
+    LV = 110,
+    RaidID = 7128,
+    ClientRewards = _EmptyTable
+  },
+  [184] = {
+    id = 184,
     MonsterID = 975430,
     LV = 110,
     RaidID = 7128,
     ClientRewards = _EmptyTable
+  },
+  [185] = {
+    id = 185,
+    MonsterID = 916430,
+    LV = 80,
+    RaidID = 7610,
+    ClientRewards = _EmptyTable,
+    IsSureBoss = 1,
+    NoRandom = 1
   }
 }
 Table_BossSceneMonster_fields = {
@@ -2282,6 +2351,7 @@ Table_BossSceneMonster_fields = {
   "LV",
   "RaidID",
   "ClientRewards",
-  "IsSureBoss"
+  "IsSureBoss",
+  "NoRandom"
 }
 return Table_BossSceneMonster

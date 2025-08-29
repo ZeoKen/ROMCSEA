@@ -2456,6 +2456,13 @@ Table_ActionEffectSetUp = {
     EPFollow = 1,
     Loop = 1
   },
+  [363] = {
+    id = 363,
+    Path = "Common/cfx_noone_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
   [364] = {
     id = 364,
     Path = "Common/cfx_p_mermaid_001_playshow_prf",
@@ -2515,6 +2522,34 @@ Table_ActionEffectSetUp = {
   [372] = {
     id = 372,
     Path = "Common/cfx_p_ultramanarc_001_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [374] = {
+    id = 374,
+    Path = "Common/cfx_wildawake_001_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [375] = {
+    id = 375,
+    Path = "Common/cfx_wildawake_002_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [376] = {
+    id = 376,
+    Path = "Common/cfx_wildawake_003_playshow_prf",
+    EPID = 2,
+    EPFollow = 1,
+    Loop = 1
+  },
+  [377] = {
+    id = 377,
+    Path = "Common/cfx_wildawake_004_playshow_prf",
     EPID = 2,
     EPFollow = 1,
     Loop = 1

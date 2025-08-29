@@ -262,9 +262,11 @@ function EquipMemoryEmbedView:UpdateEquipMemory()
   local attrs = memoryData.memoryAttrs
   local result = {}
   for i = 1, maxAttrCount do
-    if attrs[i] then
+    if attrs[i] and attrs[i].previewid ~= nil and 0 < #attrs[i].previewid then
       local _tempData = {
-        id = attrs[i].id
+        id = attrs[i].id,
+        text = ZhString.EquipMemory_NotChosen,
+        canUnlock = attrs[i].id == 0 and true or false
       }
       table.insert(result, _tempData)
     else

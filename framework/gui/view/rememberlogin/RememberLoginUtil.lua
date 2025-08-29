@@ -9,13 +9,9 @@ end
 function RememberLoginUtil:GetTimeDate(st, et, strFormat)
   local startMonth = os.date("%m", st)
   local startDay = os.date("%d", st)
-  local startHour = os.date("%H", st)
-  local startMin = os.date("%M", st)
   local endMonth = os.date("%m", et)
   local endDay = os.date("%d", et)
-  local endHour = os.date("%H", et)
-  local endMin = os.date("%M", et)
-  return string.format(strFormat, startMonth, startDay, startHour, startMin, endMonth, endDay, endHour, endMin)
+  return string.format(strFormat, startMonth, startDay, endMonth, endDay)
 end
 
 function RememberLoginUtil:GetCurServerDate(mode)

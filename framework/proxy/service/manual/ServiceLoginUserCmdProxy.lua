@@ -145,15 +145,15 @@ function ServiceLoginUserCmdProxy:RecvSnapShotUserCmd(data)
   self:Notify(ServiceEvent.LoginUserCmdSnapShotUserCmd, data)
   local loginData = FunctionLogin.Me():getLoginData()
   local account = loginData ~= nil and loginData.accid or 0
+  local uid = loginData ~= nil and loginData.uid or 0
   DiskFileHandler.Ins():SetUser(account)
   local server = FunctionLogin.Me():getCurServerData()
   local serverID = server ~= nil and server.serverid or 0
   DiskFileHandler.Ins():SetServer(serverID)
   local userAge = 99
   local userName = "wumingshi"
-  if BackwardCompatibilityUtil.CompatibilityMode_V24 then
-  elseif BackwardCompatibilityUtil.CompatibilityMode_V25 then
-    FunctionTyrantdb.Instance:SetUser(account, E_TyrantdbUserType.Registered, E_TyrantdbUserSex.Unknown, userAge, userName)
+  if not BranchMgr.IsChina() and ISNoviceServerType then
+    FunctionTyrantdb.Instance:SetUser(uid, E_TyrantdbUserType.Registered, E_TyrantdbUserSex.Unknown, userAge, userName)
   else
     FunctionTyrantdb.Instance:SetUser(account, E_TyrantdbUserType.Registered, E_TyrantdbUserSex.Unknown, userAge, userName)
   end

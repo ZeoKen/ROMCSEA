@@ -1029,6 +1029,116 @@ Table_PrestigeValue = {
     NPCDisplay = {
       {emoji = 27, npcid = 809965}
     }
+  },
+  [128] = {
+    id = 128,
+    PreID = 8,
+    Level = 1,
+    NeedPre = 0,
+    EffectiveRate = 100,
+    PreDialog = "##149031",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [129] = {
+    id = 129,
+    PreID = 8,
+    Level = 2,
+    NeedPre = 200,
+    EffectiveRate = 100,
+    PreDialog = "##149031",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [130] = {
+    id = 130,
+    PreID = 8,
+    Level = 3,
+    NeedPre = 200,
+    EffectiveRate = 100,
+    PreDialog = "##149031",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [131] = {
+    id = 131,
+    PreID = 8,
+    Level = 4,
+    NeedPre = 200,
+    EffectiveRate = 100,
+    PreDialog = "##149031",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [132] = {
+    id = 132,
+    PreID = 8,
+    Level = 5,
+    NeedPre = 300,
+    EffectiveRate = 100,
+    PreDialog = "##149031",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [133] = {
+    id = 133,
+    PreID = 8,
+    Level = 6,
+    NeedPre = 300,
+    EffectiveRate = 100,
+    PreDialog = "##149019",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [134] = {
+    id = 134,
+    PreID = 8,
+    Level = 7,
+    NeedPre = 400,
+    EffectiveRate = 100,
+    PreDialog = "##149019",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [135] = {
+    id = 135,
+    PreID = 8,
+    Level = 8,
+    NeedPre = 400,
+    EffectiveRate = 100,
+    PreDialog = "##149019",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [136] = {
+    id = 136,
+    PreID = 8,
+    Level = 9,
+    NeedPre = 500,
+    EffectiveRate = 100,
+    PreDialog = "##149019",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
+  },
+  [137] = {
+    id = 137,
+    PreID = 8,
+    Level = 10,
+    NeedPre = 500,
+    EffectiveRate = 100,
+    PreDialog = "##149019",
+    NPCDisplay = {
+      {emoji = 9, npcid = 805193}
+    }
   }
 }
 Table_PrestigeValue_fields = {

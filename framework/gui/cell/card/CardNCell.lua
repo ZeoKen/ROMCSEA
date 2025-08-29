@@ -12,6 +12,7 @@ function CardNCell:Init()
   self.useSymbol = self:FindGO("UseSymbol")
   self.cardName = self:FindComponent("CardName", UILabel)
   self.cardNum = self:FindComponent("CardNum", UILabel)
+  self.scrollView = self:FindComponent("Scroll View", UIScrollView)
   local cellObj = self:FindGO("TipLabelCell")
   self.tiplabelCell = TipLabelCell.new(cellObj)
   self:AddClickEvent(self.gameObject, function(go)
@@ -48,23 +49,29 @@ function CardNCell:SetData(data, chooseState)
       PictureManager.Instance:UnLoadCard(self.cardInfoName, self.iconPic)
       self.cardInfoName = nil
     end
-    self.cardName.text = cardInfo.Name
+    local cardName = cardInfo.Name
+    self.cardName.text = data.cardLv and data.cardLv > 0 and string.format("+%s %s", data.cardLv, cardName) or cardName
     self.cardNum.text = data.num > 1 and data.num or ""
     local contextlabel = {
       label = {},
       hideline = true,
       color = ColorUtil.NGUIWhite
     }
-    local bufferIds = cardInfo.BuffEffect.buff
-    if bufferIds then
-      for i = 1, #bufferIds do
-        local str = ItemUtil.getBufferDescById(bufferIds[i])
-        local bufferStrs = string.split(str, "\n")
-        for j = 1, #bufferStrs do
-          table.insert(contextlabel.label, bufferStrs[j])
+    local cardAttrs = data:GetCardAttrs()
+    if not cardAttrs then
+      cardAttrs = {}
+      local bufferIds = cardInfo.BuffEffect.buff
+      if bufferIds then
+        for i = 1, #bufferIds do
+          local str = ItemUtil.getBufferDescById(bufferIds[i])
+          local bufferStrs = string.split(str, "\n")
+          for j = 1, #bufferStrs do
+            table.insert(cardAttrs, bufferStrs[j])
+          end
         end
       end
     end
+    contextlabel.label = cardAttrs
     self.tiplabelCell:SetData(contextlabel)
     self:SetUse(data.used == true)
     self.use = nil
@@ -76,6 +83,17 @@ function CardNCell:SetData(data, chooseState)
   else
     self.tiplabelCell:SetData()
     self.gameObject:SetActive(false)
+  end
+  if self.scrollView then
+    if self.scrollView.enabled == false then
+      self.scrollView.enabled = true
+      self.scrollView.currentMomentum = LuaGeometry.Const_V3_zero
+      self.scrollView:ResetPosition()
+      self.scrollView.enabled = false
+    else
+      self.scrollView.currentMomentum = LuaGeometry.Const_V3_zero
+      self.scrollView:ResetPosition()
+    end
   end
 end
 

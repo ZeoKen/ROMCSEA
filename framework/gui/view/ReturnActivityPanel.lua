@@ -159,7 +159,7 @@ function ReturnActivityPanel:RefreshLeftTimeLabel()
     TimeTickManager.Me():ClearTick(self, 1)
     TimeTickManager.Me():CreateTick(0, 1000, self.RefreshLeftTime, self, 1)
   end
-  if ReturnActivityProxy.Instance:CheckInvitationValid(ReturnActivityProxy.Instance.curActID) then
+  if not BranchMgr.IsJapan() and ReturnActivityProxy.Instance:CheckInvitationValid(ReturnActivityProxy.Instance.curActID) then
     if not ReturnActivityProxy.Instance.bBind then
       self.returnBindBtn:SetActive(true)
       if ReturnActivityProxy.Instance.isFirstOpen then

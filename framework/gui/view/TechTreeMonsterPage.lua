@@ -17,7 +17,6 @@ function TechTreeMonsterPage:Init()
   self.trans:SetParent(self.container.pageContainer.transform, false)
   self:FindObjs()
   self:InitPage()
-  self:AddEvents()
 end
 
 function TechTreeMonsterPage:FindObjs()
@@ -61,12 +60,6 @@ function TechTreeMonsterPage:InitPage()
   self.rewardCells = self.rewardCtrl:GetCells()
   self.explainLabel = SpriteLabel.new(self.explainLabel, nil, 18, 20, true)
   self.charLabel = SpriteLabel.new(self.charLabel, nil, 18, 20, true)
-end
-
-function TechTreeMonsterPage:AddEvents()
-  self:AddListenEvt(ServiceEvent.BossCmdQueryRareEliteCmd, self.OnQuery)
-  self:AddListenEvt(ServiceEvent.BossCmdQuerySpecMapRareEliteCmd, self.OnQuery)
-  self:AddListenEvt(UIMenuEvent.UnlockMenu, self.OnUnlockMenu)
 end
 
 local monsterListDataSortFunc = function(l, r)

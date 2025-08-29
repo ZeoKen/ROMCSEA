@@ -75,3 +75,10 @@ end
 function ShopMallItemData:GetPrice()
   return self.isBooth and math.floor(self.price * self:GetPriceRate()) or self.price
 end
+
+function ShopMallItemData:HasCardLv()
+  if self.itemData then
+    return self.itemData:HasCardLv()
+  end
+  return false
+end

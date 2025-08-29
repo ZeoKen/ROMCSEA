@@ -8,7 +8,8 @@ CardMakeProxy.MakeType = {
   Compose = SceneItem_pb.EEXCHANGECARDTYPE_COMPOSE,
   Decompose = SceneItem_pb.EEXCHANGECARDTYPE_DECOMPOSE,
   BossCompose = SceneItem_pb.EEXCHANGECARDTYPE_BOSSCOMPOSE,
-  MvpCardCompose = SceneItem_pb.EEXCHANGECARDTYPE_MVPCOMPOSE
+  MvpCardCompose = SceneItem_pb.EEXCHANGECARDTYPE_MVPCOMPOSE,
+  DungeonMvpCardCompose = SceneItem_pb.EEXCHANGECARDTYPE_MVPCOMPOSE_2
 }
 local tempList = {}
 local filter = {}
@@ -54,6 +55,9 @@ function CardMakeProxy:Init()
   self.mvpcomposelist = {}
   self.filtermvpcomposelist = {}
   self.mvpRateUpCards = {}
+  self.dungeonMvpComposeList = {}
+  self.filterDungeonMvpComposeList = {}
+  self.dungeonMvpRateUpCards = {}
   self.cardConfig = {
     [self.MakeType.Random] = {
       name = EffectMap.Maps.Randomcard,
@@ -84,6 +88,12 @@ function CardMakeProxy:Init()
       audio = AudioMap.Maps.Compoundcard,
       skipType = SKIPTYPE.MvpCardCompose,
       tabIndex = 1704
+    },
+    [self.MakeType.DungeonMvpCardCompose] = {
+      name = EffectMap.Maps.Compoundcard,
+      audio = AudioMap.Maps.Compoundcard,
+      skipType = SKIPTYPE.DungeonMvpCardCompose,
+      tabIndex = 1705
     }
   }
 end
@@ -589,11 +599,12 @@ function CardMakeProxy:GetItemNumByStaticIDExceptFavoriteCard(itemId)
   return sum
 end
 
-function CardMakeProxy:GetItemsByStaticIDAndPredicate(itemId, predicate, args)
+function CardMakeProxy:GetItemsByStaticIDAndPredicate(itemId, predicate, args, checkPackage)
   local _BagProxy, arrayPushBack = BagProxy.Instance, TableUtility.ArrayPushBack
   local result, tmp = {}
-  for i = 1, #packageCheck do
-    tmp = _BagProxy:GetItemsByStaticID(itemId, packageCheck[i])
+  local _packageCheck = checkPackage or packageCheck
+  for i = 1, #_packageCheck do
+    tmp = _BagProxy:GetItemsByStaticID(itemId, _packageCheck[i])
     if tmp and next(tmp) then
       for j = 1, #tmp do
         if predicate(tmp[j], args) then
@@ -613,7 +624,7 @@ function CardMakeProxy:InitDecomposeCard()
     if items ~= nil then
       for j = 1, #items do
         local bagData = items[j]
-        if bagData.staticData.Quality <= 4 and not bagData:CheckItemCardType(Item_CardType.Decompose) and not _BagProxy:CheckIsFavorite(bagData) then
+        if not bagData:CheckItemCardType(Item_CardType.Decompose) and not _BagProxy:CheckIsFavorite(bagData) and bagData:CanCardDecompose() then
           _ArrayPushBack(self.decomposeCardList, bagData:Clone())
         end
       end
@@ -634,7 +645,7 @@ function CardMakeProxy:FilterDecomposeCard(quality)
   _ArrayClear(self.filterDecomposeCardList)
   for i = 1, #self.decomposeCardList do
     local data = self.decomposeCardList[i]
-    if data.staticData.Quality == quality then
+    if data:GetCardQuality() == quality then
       _ArrayPushBack(self.filterDecomposeCardList, data)
     end
   end
@@ -650,7 +661,8 @@ function CardMakeProxy:FilterDecomposeCardByQualities(qualities)
   _ArrayClear(self.filterDecomposeCardList)
   for i = 1, #self.decomposeCardList do
     local data = self.decomposeCardList[i]
-    if TableUtility.ArrayFindIndex(qualities, data.staticData.Quality) > 0 then
+    local quality = data:GetCardQuality()
+    if TableUtility.ArrayFindIndex(qualities, quality) > 0 then
       _ArrayPushBack(self.filterDecomposeCardList, data)
     end
   end
@@ -911,6 +923,8 @@ function CardMakeProxy:InitComposeCard(datas)
       self:InitComposeCardData("BossCardCompose", data.rates, self.bosscomposelist, self.bossRateUpCards)
     elseif data.type == self.MakeType.MvpCardCompose then
       self:InitComposeCardData("MvpCardCompose", data.rates, self.mvpcomposelist, self.mvpRateUpCards)
+    elseif data.type == self.MakeType.DungeonMvpCardCompose then
+      self:InitComposeCardData("DungeonMvpCardCompose", data.rates, self.dungeonMvpComposeList, self.dungeonMvpRateUpCards)
     end
   end
 end
@@ -923,7 +937,7 @@ function CardMakeProxy:InitComposeCardData(name, src, dest, rateUpList)
   for i = 1, #src do
     local id = src[i].item_id
     local v = Table_Card[id]
-    local vtype = v.Type
+    local vtype = v and v.Type
     if vtype and not CheckInvalid(id) and timecheck_func(id) then
       local single = ItemData.new(name, id)
       single.RateShow = src[i].rate
@@ -965,10 +979,36 @@ function CardMakeProxy:GetRateUpCardList(type)
     return self.bossRateUpCards
   elseif type == self.MakeType.MvpCardCompose then
     return self.mvpRateUpCards
+  elseif type == self.MakeType.DungeonMvpCardCompose then
+    return self.dungeonMvpRateUpCards
   end
 end
 
 function CardMakeProxy:IsHaveUpRateCards(type)
   local cards = self:GetRateUpCardList(type)
   return cards and 0 < #cards or false
+end
+
+function CardMakeProxy:FilterDungeonMvpComposeCardByTypes(types)
+  return self:FilterComposeCardByTypes(types, self.dungeonMvpComposeList, self.filterDungeonMvpComposeList)
+end
+
+function CardMakeProxy:GetItemNumAsMaterial(itemId, checkPackage)
+  local items = self:GetItemsByStaticIDAndPredicate(itemId, function(itemData)
+    if BagProxy.Instance:CheckIsFavorite(itemData, checkPackage) then
+      return false
+    end
+    if itemData:IsCard() then
+      return not itemData.cardLv or itemData.cardLv == 0
+    end
+    return true
+  end, nil, checkPackage)
+  if not items then
+    return 0
+  end
+  local sum = 0
+  for i = 1, #items do
+    sum = sum + items[i].num or 0
+  end
+  return sum
 end

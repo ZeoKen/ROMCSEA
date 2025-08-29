@@ -12,7 +12,8 @@ NpcMenuBtnCell.GuideType = {
   DoQuench = 531,
   MountDressing = 528,
   EquipUpgrade = 545,
-  strengthen = 1002
+  strengthen = 1002,
+  OpenInheritSkillView = 551
 }
 NpcMenuBtnCell.Style = {
   Primary = 1,
@@ -101,7 +102,7 @@ function NpcMenuBtnCell:SetData(data)
       ServicePhotoCmdProxy.Instance:CallBoardQueryAwardPhotoCmd()
     end
     if data.npcFuncData then
-      self.redTip:SetActive(self.CheckNpcFuncRedTip(data.npcFuncData.NameEn) == true)
+      self.redTip:SetActive(self.CheckNpcFuncRedTip(data.npcFuncData) == true)
     else
       self.redTip:SetActive(false)
     end
@@ -307,15 +308,17 @@ function NpcMenuBtnCell:TriggerContentTip(isShow)
   end
 end
 
-function NpcMenuBtnCell.CheckNpcFuncRedTip(NameEn)
-  if not NameEn then
+function NpcMenuBtnCell.CheckNpcFuncRedTip(npcFuncData)
+  if not npcFuncData then
     return
   end
-  if NameEn == "PhotoBoardMyPost" then
+  if npcFuncData.NameEn == "PhotoBoardMyPost" then
     return PhotoStandProxy.Instance.mypostHasAward ~= nil
+  elseif npcFuncData.id == 600 then
+    return RedTipProxy.Instance:InRedTip(SceneTip_pb.EREDSYS_SHOP_COUPON)
   end
 end
 
 function NpcMenuBtnCell:UpdateRedTip()
-  self.redTip:SetActive(self.CheckNpcFuncRedTip(self.data and self.data.npcFuncData and self.data.npcFuncData.NameEn) == true)
+  self.redTip:SetActive(self.CheckNpcFuncRedTip(self.data and self.data.npcFuncData) == true)
 end

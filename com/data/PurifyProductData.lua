@@ -21,7 +21,6 @@ function PurifyProductData:SetData(data)
     self.frequencyType = data.times.type
     self.totalTimes = data.times.totaltimes
     self.leftTimes = data.times.lefttimes
-    redlog("PurifyProductData", self.productItemID, self.leftTimes)
   end
   if data.materials then
     local materials = data.materials

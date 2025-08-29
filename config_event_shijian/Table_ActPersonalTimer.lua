@@ -273,6 +273,216 @@ Table_ActPersonalTimer = {
     },
     OpenOnMenuUnlock = 10000011,
     LastDayAfterMenuUnlock = 90
+  },
+  [107007] = {
+    id = 107007,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-02-10 05:00:00",
+    TfEndTime = "2025-02-17 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-02-17 05:00:00",
+    EndTime = "2025-02-24 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##42534907",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [107008] = {
+    id = 107008,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-03-17 05:00:00",
+    TfEndTime = "2025-03-25 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-03-24 05:00:00",
+    EndTime = "2025-04-01 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##42590348",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [107009] = {
+    id = 107009,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-04-17 05:00:00",
+    TfEndTime = "2025-04-24 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-04-24 05:00:00",
+    EndTime = "2025-05-01 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##788184",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [107010] = {
+    id = 107010,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-05-18 05:00:00",
+    TfEndTime = "2025-05-25 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-05-25 05:00:00",
+    EndTime = "2025-06-01 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##788184",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [107011] = {
+    id = 107011,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-06-16 05:00:00",
+    TfEndTime = "2025-06-24 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-06-23 05:00:00",
+    EndTime = "2025-07-01 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##1279692",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [105826] = {
+    id = 105826,
+    Type = "new_server_challenge",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-03-31 05:00:00",
+    TfEndTime = "2025-04-14 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-03-31 05:00:00",
+    EndTime = "2025-04-14 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##42634300",
+    Misc = {
+      ShopType = 650,
+      ShopId = 17,
+      ShopShowID = 1007
+    }
+  },
+  [107012] = {
+    id = 107012,
+    Type = "exchange_gifts",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-07-18 05:00:00",
+    TfEndTime = "2025-07-25 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-07-25 05:00:00",
+    EndTime = "2025-08-01 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##42635499",
+    Misc = {ExchangeNumPerDay = 10}
+  },
+  [105827] = {
+    id = 105827,
+    Type = "new_server_challenge",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-05-05 05:00:00",
+    TfEndTime = "2025-05-19 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-05-05 05:00:00",
+    EndTime = "2025-05-19 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##42634300",
+    Misc = {
+      ShopType = 650,
+      ShopId = 18,
+      ShopShowID = 1008
+    }
+  },
+  [105829] = {
+    id = 105829,
+    Type = "new_server_challenge",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-06-16 05:00:00",
+    TfEndTime = "2025-06-30 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-06-23 05:00:00",
+    EndTime = "2025-07-07 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##42634300",
+    Misc = {
+      ShopType = 650,
+      ShopId = 20,
+      ShopShowID = 1010
+    }
+  },
+  [105828] = {
+    id = 105828,
+    Type = "new_server_challenge",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-06-02 05:00:00",
+    TfEndTime = "2025-06-16 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-06-09 05:00:00",
+    EndTime = "2025-06-23 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##3459490",
+    Misc = {
+      ShopType = 650,
+      ShopId = 19,
+      ShopShowID = 1009
+    }
+  },
+  [106102] = {
+    id = 106102,
+    Type = "exchange",
+    Servers = _EmptyTable,
+    TfStartTime = "2025-06-02 05:00:00",
+    TfEndTime = "2025-06-16 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2025-06-09 05:00:00",
+    EndTime = "2025-06-23 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##3480628",
+    Misc = {
+      exchange_item = {
+        [1] = {
+          item = {3011822, 1},
+          cost = {
+            {3011821, 2}
+          },
+          exchange_count = 1,
+          red_tip = 1
+        },
+        [2] = {
+          item = {3011821, 1},
+          cost = {
+            {3011820, 2}
+          },
+          exchange_count = 1,
+          red_tip = 1
+        }
+      }
+    }
+  },
+  [10580001] = {
+    id = 10580001,
+    Type = "new_server_challenge",
+    Servers = _EmptyTable,
+    TfStartTime = "2023-12-01 05:00:00",
+    TfEndTime = "2029-12-01 05:00:00",
+    TfAbortTime = "",
+    StartTime = "2023-12-01 05:00:00",
+    EndTime = "2029-12-01 05:00:00",
+    AbortTime = "",
+    Cycle = "",
+    Name = "##1107497",
+    Misc = {
+      ShopType = 650,
+      ShopId = 16,
+      ShopShowID = 1006,
+      end_when_finish = 1
+    },
+    OpenOnAccDay = 42,
+    CloseDay = 3
   }
 }
 Table_ActPersonalTimer_fields = {

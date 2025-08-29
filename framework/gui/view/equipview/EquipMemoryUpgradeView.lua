@@ -182,6 +182,7 @@ function EquipMemoryUpgradeView:FindObjs()
   self.memoryEffectChange_Bg = self:FindGO("EffectChange", self.upgradeResult):GetComponent(UISprite)
   self.memoryAttriGrid = self:FindGO("EffectAttrGrid", self.upgradeResult):GetComponent(UITable)
   self.memoryAttriCtrl = UIGridListCtrl.new(self.memoryAttriGrid, EquipMemoryAttrUnlockCell, "EquipMemoryAttrUnlockCell")
+  self.memoryAttriCtrl:AddEventListener(MouseEvent.MouseClick, self.HandleClickUnlockAttrCell, self)
   local attrTogGO = self:FindGO("AttrTogs")
   self.attrTogs = {}
   self.memoryTog = self:FindGO("Tog1", attrTogGO)
@@ -516,9 +517,19 @@ function EquipMemoryUpgradeView:UpdateEquipMemoryInfo()
   end
   local maxAttrCount = memoryInfo.maxAttrCount or 1
   for i = 1, maxAttrCount do
-    if attrs[i] then
+    if attrs[i] and attrs[i].previewid ~= nil and 0 < #attrs[i].previewid then
       local _tempData = {
-        id = attrs[i].id
+        id = attrs[i].id,
+        canUnlock = attrs[i].id == 0 and true or false,
+        text = ZhString.EquipMemory_NotChosen,
+        isFourth = i == 4
+      }
+      table.insert(effectList, _tempData)
+    elseif i == maxAttrCount and quality == 5 then
+      local _tempData = {
+        id = 0,
+        canUnlock = false,
+        text = ZhString.EquipMemory_MemoryAdvanceUnlockAttr
       }
       table.insert(effectList, _tempData)
     else
@@ -734,6 +745,18 @@ function EquipMemoryUpgradeView:handleClickMemoryEffect(cell)
   self.memoryAttriGrid:Reposition()
   local size = NGUIMath.CalculateRelativeWidgetBounds(self.memoryAttriGrid.transform)
   self.memoryEffectChange_Bg.height = size.size.y + 55
+end
+
+function EquipMemoryUpgradeView:HandleClickUnlockAttrCell(cell)
+  local data = cell.data
+  if data == nil then
+    return
+  end
+  local isFourth = data.isFourth
+  local canUnlock = data.canUnlock
+  if isFourth and canUnlock then
+    EventManager.Me():PassEvent(EquipMemoryEvent.JumpToAttrReset)
+  end
 end
 
 function EquipMemoryUpgradeView:PlusPressCount(isPressed)

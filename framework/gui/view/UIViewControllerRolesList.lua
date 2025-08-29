@@ -198,7 +198,6 @@ function UIViewControllerRolesList:GetGameObjects()
   self.itemGridCtrl = UIGridListCtrl.new(self.gridReward, CreateRoleRewardCell, "RewardGridCell")
   self.itemGridCtrl:AddEventListener(MouseEvent.MouseClick, self.HandleClickReward, self)
   self.labTip1 = self:FindGO("Tip1"):GetComponent(UILabel)
-  self.labTip1.text = ZhString.LoginRole_PreRegisterRewardTip
   self.labTimeLeft = self:FindGO("TimeLeftLabel"):GetComponent(UILabel)
   self.txMerchantTitle2 = self:FindGO("Merchant_bg_title2"):GetComponent(UITexture)
   self:RegisterChildPopObj(self.goDeleteConfirm)
@@ -332,8 +331,19 @@ function UIViewControllerRolesList:RefreshPreCreatePart()
     self.preCreatePart:SetActive(true)
     self.labTimeLeft.gameObject:SetActive(true)
     self.labServerName.text = serverData.name
-    local startTime = os.date(ZhString.StartGamePanel_OpenTime, openTime)
-    self.labOpenTime.text = startTime
+    local openStr = GameConfig.System and GameConfig.System.preregistration_opentime
+    if openStr and openStr ~= "" then
+      self.labOpenTime.text = openStr
+    else
+      local startTime = os.date(ZhString.StartGamePanel_OpenTime, openTime)
+      self.labOpenTime.text = startTime
+    end
+    local preRegisterTipStr = GameConfig.System and GameConfig.System.preregistration_tip
+    if preRegisterTipStr and preRegisterTipStr ~= "" then
+      self.labTip1.text = preRegisterTipStr
+    else
+      self.labTip1.text = ZhString.LoginRole_PreRegisterRewardTip
+    end
     local rewardConfig = GameConfig.System.preregistration_reward
     if rewardConfig and 0 < #rewardConfig then
       local rewardList = {}

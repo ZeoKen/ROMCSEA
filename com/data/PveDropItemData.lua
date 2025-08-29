@@ -11,13 +11,15 @@ PveDropItemData.Type = {
   E_Pve_Card = 10,
   E_Pve_Card_NoFirst = 11,
   E_Pve_Sweep = 12,
-  E_Pve_ThreeStars = 13
+  E_Pve_ThreeStars = 13,
+  E_WeekFirstPass = 14
 }
 local reward_type = PveDropItemData.Type
 local needSort_type = {
   [reward_type.E_Pve] = 1,
   [reward_type.E_Pve_Card] = 1,
-  [reward_type.E_Pve_Card_NoFirst] = 1
+  [reward_type.E_Pve_Card_NoFirst] = 1,
+  [reward_type.E_WeekFirstPass] = 1
 }
 
 function PveDropItemData.CheckNeedInsert(t)

@@ -112,3 +112,7 @@ end
 function RecruitTeamData:GetProfession()
   return self.publisher:GetProfession()
 end
+
+function RecruitTeamData:GetStr(isStripSymbols)
+  return self.publisher:GetStr(isStripSymbols)
+end

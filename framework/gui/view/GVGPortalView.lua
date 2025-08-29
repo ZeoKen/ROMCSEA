@@ -90,8 +90,24 @@ function GVGPortalView:AddHelpButtonEvent()
   if go then
     self:AddClickEvent(go, function(g)
       self.helpPanel:SetActive(true)
+      self:RebuildHelpData(self.viewdata.view.id)
       self:FillTextByHelpId(self.viewdata.view.id, self.helpPanelText)
     end)
+  end
+end
+
+function GVGPortalView:RebuildHelpData(helpid)
+  local helpData = Table_Help[helpid]
+  if helpData and not helpData.rebuild then
+    if helpid == 1630 then
+      local timeStr = GvgProxy.Instance:GetGvgFinalTimeStr() or ""
+      helpData.Desc = string.format(helpData.Desc, timeStr)
+      helpData.rebuild = true
+    elseif helpid == 35290 then
+      local timeStr = GvgProxy.Instance:GetGvgTimeStr() or ""
+      helpData.Desc = string.format(helpData.Desc, timeStr)
+      helpData.rebuild = true
+    end
   end
 end
 

@@ -698,7 +698,7 @@ Table_MissionReward = {
   },
   [106203005] = {
     id = 106203005,
-    QuestName = "贝勒大酒店的邀请",
+    QuestName = "贝勒酒店的邀请",
     ActID = 106203,
     Index = 4,
     Type = "Branch",

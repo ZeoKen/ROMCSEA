@@ -160,7 +160,7 @@ function SceneCreatureProxy.SortTargetCreature(position, distance, research)
     end)
     TableUtil.InsertArray(listTarget, listMonster)
     local listPet = NScenePetProxy.Instance:FindNearPets(position, distance, function(creature)
-      if not creature:IsDead() and creature:GetClickable() and (creature.data:IsMonster() or creature.data:IsPippi()) and creature.data:GetCamp() == RoleDefines_Camp.ENEMY then
+      if not creature:IsDead() and creature:GetClickable() and (creature.data:IsMonster() or creature.data:IsPippi() or creature.data:IsPhantom()) and creature.data:GetCamp() == RoleDefines_Camp.ENEMY then
         return true
       end
     end)

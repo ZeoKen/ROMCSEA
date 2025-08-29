@@ -698,7 +698,7 @@ Table_MissionReward = {
   },
   [106203005] = {
     id = 106203005,
-    QuestName = "##253347",
+    QuestName = "##253379",
     ActID = 106203,
     Index = 4,
     Type = "Branch",

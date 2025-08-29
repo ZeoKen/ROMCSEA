@@ -61,15 +61,13 @@ function mFGetTransferCost(srcData, dstData)
   local retCost
   local srcIsHeadType = srcData.equipInfo and srcData.equipInfo:IsHeadEquipType()
   local dstIsHeadType = dstData.equipInfo and dstData.equipInfo:IsHeadEquipType()
+  local srcRefine = srcData.equipInfo and srcData.equipInfo.equipData.NewEquipRefine
+  local dstRefine = dstData.equipInfo and dstData.equipInfo.equipData.NewEquipRefine
   if srcIsHeadType and dstIsHeadType then
     local refinelv = srcData.equipInfo.refinelv
     retCost = GameConfig.Equip.HeadWearRefineTransferCost and GameConfig.Equip.HeadWearRefineTransferCost[refinelv]
-  else
-    local srcRefine = srcData.equipInfo and srcData.equipInfo.equipData.NewEquipRefine
-    local dstRefine = dstData.equipInfo and dstData.equipInfo.equipData.NewEquipRefine
-    if mFSameRefine(dstRefine, srcRefine) then
-      retCost = GameConfig.Equip.RefineTransferItemCost[srcRefine]
-    end
+  elseif mFSameRefine(dstRefine, srcRefine) then
+    retCost = GameConfig.Equip.RefineTransferItemCost[srcRefine]
   end
   if retCost then
     return retCost

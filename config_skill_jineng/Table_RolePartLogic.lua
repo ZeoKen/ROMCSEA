@@ -432,16 +432,6 @@ Table_RolePartLogic_t = {
       inner_range = 0.2,
       offset = {
         -0.85,
-        0.32,
-        0.3
-      },
-      outter_range = 0.3
-    },
-    {
-      duration = 0.3,
-      inner_range = 0.2,
-      offset = {
-        -0.85,
         0.25,
         0.3
       },
@@ -498,19 +488,9 @@ Table_RolePartLogic_t = {
       duration = 0.3,
       inner_range = 0.2,
       offset = {
-        -0.77,
-        0,
-        0
-      },
-      outter_range = 0.3
-    },
-    {
-      duration = 0.3,
-      inner_range = 0.2,
-      offset = {
-        0,
-        0,
-        0
+        -0.85,
+        0.32,
+        0.3
       },
       outter_range = 0.3
     },
@@ -533,6 +513,16 @@ Table_RolePartLogic_t = {
         0
       },
       outter_range = 0.2
+    },
+    {
+      duration = 0.3,
+      inner_range = 0.2,
+      offset = {
+        -0.77,
+        0,
+        0
+      },
+      outter_range = 0.3
     },
     {
       duration = 0.4,
@@ -568,16 +558,6 @@ Table_RolePartLogic_t = {
       duration = 0.4,
       inner_range = 0.2,
       offset = {
-        -0.75,
-        0.3,
-        0.35
-      },
-      outter_range = 0.4
-    },
-    {
-      duration = 0.4,
-      inner_range = 0.2,
-      offset = {
         -0.7,
         0.45,
         0.3
@@ -588,9 +568,39 @@ Table_RolePartLogic_t = {
       duration = 0.3,
       inner_range = 0.2,
       offset = {
-        -0.95,
+        -0.85,
+        0.45,
+        0.3
+      },
+      outter_range = 0.3
+    },
+    {
+      duration = 0.3,
+      inner_range = 0.2,
+      offset = {
+        -0.88,
         0.35,
         0.3
+      },
+      outter_range = 0.3
+    },
+    {
+      duration = 0.3,
+      inner_range = 0.2,
+      offset = {
+        0,
+        0,
+        0
+      },
+      outter_range = 0.3
+    },
+    {
+      duration = 0.3,
+      inner_range = 0.2,
+      offset = {
+        -0.88,
+        0.4,
+        0.5
       },
       outter_range = 0.3
     },
@@ -600,16 +610,6 @@ Table_RolePartLogic_t = {
         1.7,
         0
       }
-    },
-    {
-      duration = 0.3,
-      inner_range = 0.2,
-      offset = {
-        -0.85,
-        0.45,
-        0.3
-      },
-      outter_range = 0.3
     },
     {
       duration = 0.4,
@@ -630,6 +630,16 @@ Table_RolePartLogic_t = {
         0.3
       },
       outter_range = 0.3
+    },
+    {
+      duration = 0.4,
+      inner_range = 0.2,
+      offset = {
+        -0.8,
+        0.5,
+        0.4
+      },
+      outter_range = 0.4
     },
     {
       duration = 0.4,
@@ -665,9 +675,9 @@ Table_RolePartLogic_t = {
       duration = 0.3,
       inner_range = 0.2,
       offset = {
-        -0.88,
-        0.4,
-        0.5
+        0,
+        0.45,
+        0
       },
       outter_range = 0.3
     },
@@ -700,16 +710,6 @@ Table_RolePartLogic_t = {
       outter_range = 0.2
     },
     {
-      duration = 0.3,
-      inner_range = 0.2,
-      offset = {
-        -0.88,
-        0.35,
-        0.3
-      },
-      outter_range = 0.3
-    },
-    {
       duration = 0.4,
       inner_range = 0.2,
       offset = {
@@ -738,6 +738,16 @@ Table_RolePartLogic_t = {
         0.3
       },
       outter_range = 0.4
+    },
+    {
+      duration = 0.3,
+      inner_range = 0.2,
+      offset = {
+        -0.95,
+        0.35,
+        0.3
+      },
+      outter_range = 0.3
     },
     {
       duration = 0.3,
@@ -783,9 +793,9 @@ Table_RolePartLogic_t = {
       duration = 0.4,
       inner_range = 0.2,
       offset = {
-        -0.8,
-        0.5,
-        0.4
+        -0.75,
+        0.3,
+        0.35
       },
       outter_range = 0.4
     },
@@ -810,14 +820,11 @@ Table_RolePartLogic_t = {
       outter_range = 0.4
     },
     {
-      duration = 0.3,
-      inner_range = 0.2,
       offset = {
-        0,
-        0.45,
+        -0.47,
+        1.3,
         0
-      },
-      outter_range = 0.3
+      }
     },
     {
       duration = 0.3,
@@ -838,13 +845,6 @@ Table_RolePartLogic_t = {
         0.5
       },
       outter_range = 0.3
-    },
-    {
-      offset = {
-        -0.47,
-        1.3,
-        0
-      }
     },
     {
       duration = 0.4,
@@ -936,7 +936,7 @@ Table_RolePartLogic = {
   [45822] = {
     id = 45822,
     Logic = 1,
-    Params = Table_RolePartLogic_t.Params[61]
+    Params = Table_RolePartLogic_t.Params[62]
   },
   [45858] = {
     id = 45858,
@@ -1635,6 +1635,26 @@ Table_RolePartLogic = {
     id = 48204,
     Params = Table_RolePartLogic_t.Params[40]
   },
+  [48208] = {
+    id = 48208,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [48209] = {
+    id = 48209,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [48210] = {
+    id = 48210,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [48216] = {
+    id = 48216,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [48218] = {
+    id = 48218,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
   [48611] = {
     id = 48611,
     Params = Table_RolePartLogic_t.Params[11]
@@ -1643,7 +1663,7 @@ Table_RolePartLogic = {
   [49134] = {
     id = 49134,
     Logic = 1,
-    Params = Table_RolePartLogic_t.Params[86]
+    Params = Table_RolePartLogic_t.Params[84]
   },
   [49251] = {
     id = 49251,
@@ -1735,7 +1755,7 @@ Table_RolePartLogic = {
   },
   [3000230] = {
     id = 3000230,
-    Params = Table_RolePartLogic_t.Params[84]
+    Params = Table_RolePartLogic_t.Params[85]
   },
   [3000233] = {
     id = 3000233,
@@ -1828,11 +1848,11 @@ Table_RolePartLogic = {
   },
   [3001326] = {
     id = 3001326,
-    Params = Table_RolePartLogic_t.Params[83]
+    Params = Table_RolePartLogic_t.Params[69]
   },
   [3001334] = {
     id = 3001334,
-    Params = Table_RolePartLogic_t.Params[48]
+    Params = Table_RolePartLogic_t.Params[47]
   },
   [3001382] = {
     id = 3001382,
@@ -1848,7 +1868,7 @@ Table_RolePartLogic = {
   },
   [3001630] = {
     id = 3001630,
-    Params = Table_RolePartLogic_t.Params[81]
+    Params = Table_RolePartLogic_t.Params[82]
   },
   [3001791] = {
     id = 3001791,
@@ -1864,15 +1884,15 @@ Table_RolePartLogic = {
   },
   [3001921] = {
     id = 3001921,
-    Params = Table_RolePartLogic_t.Params[57]
+    Params = Table_RolePartLogic_t.Params[56]
   },
   [3001934] = {
     id = 3001934,
-    Params = Table_RolePartLogic_t.Params[59]
+    Params = Table_RolePartLogic_t.Params[57]
   },
   [3001995] = {
     id = 3001995,
-    Params = Table_RolePartLogic_t.Params[67]
+    Params = Table_RolePartLogic_t.Params[68]
   },
   [3001996] = {
     id = 3001996,
@@ -1892,11 +1912,11 @@ Table_RolePartLogic = {
   },
   [3002204] = {
     id = 3002204,
-    Params = Table_RolePartLogic_t.Params[57]
+    Params = Table_RolePartLogic_t.Params[56]
   },
   [3002206] = {
     id = 3002206,
-    Params = Table_RolePartLogic_t.Params[82]
+    Params = Table_RolePartLogic_t.Params[83]
   },
   [3002274] = {
     id = 3002274,
@@ -1904,7 +1924,7 @@ Table_RolePartLogic = {
   },
   [3002282] = {
     id = 3002282,
-    Params = Table_RolePartLogic_t.Params[81]
+    Params = Table_RolePartLogic_t.Params[82]
   },
   [3002330] = {
     id = 3002330,
@@ -1925,7 +1945,7 @@ Table_RolePartLogic = {
   [3002496] = {
     id = 3002496,
     Logic = 1,
-    Params = Table_RolePartLogic_t.Params[65]
+    Params = Table_RolePartLogic_t.Params[66]
   },
   [3002560] = {
     id = 3002560,
@@ -1941,15 +1961,15 @@ Table_RolePartLogic = {
   },
   [3002696] = {
     id = 3002696,
-    Params = Table_RolePartLogic_t.Params[80]
+    Params = Table_RolePartLogic_t.Params[65]
   },
   [3002771] = {
     id = 3002771,
-    Params = Table_RolePartLogic_t.Params[58]
+    Params = Table_RolePartLogic_t.Params[81]
   },
   [3002884] = {
     id = 3002884,
-    Params = Table_RolePartLogic_t.Params[50]
+    Params = Table_RolePartLogic_t.Params[49]
   },
   [3002916] = {
     id = 3002916,
@@ -1957,11 +1977,11 @@ Table_RolePartLogic = {
   },
   [3002930] = {
     id = 3002930,
-    Params = Table_RolePartLogic_t.Params[55]
+    Params = Table_RolePartLogic_t.Params[54]
   },
   [3003014] = {
     id = 3003014,
-    Params = Table_RolePartLogic_t.Params[66]
+    Params = Table_RolePartLogic_t.Params[67]
   },
   [3003020] = {
     id = 3003020,
@@ -1989,11 +2009,11 @@ Table_RolePartLogic = {
   },
   [3003156] = {
     id = 3003156,
-    Params = Table_RolePartLogic_t.Params[79]
+    Params = Table_RolePartLogic_t.Params[80]
   },
   [3003205] = {
     id = 3003205,
-    Params = Table_RolePartLogic_t.Params[78]
+    Params = Table_RolePartLogic_t.Params[79]
   },
   [3003220] = {
     id = 3003220,
@@ -2001,19 +2021,19 @@ Table_RolePartLogic = {
   },
   [3003280] = {
     id = 3003280,
-    Params = Table_RolePartLogic_t.Params[77]
+    Params = Table_RolePartLogic_t.Params[78]
   },
   [3003354] = {
     id = 3003354,
-    Params = Table_RolePartLogic_t.Params[47]
+    Params = Table_RolePartLogic_t.Params[46]
   },
   [3003371] = {
     id = 3003371,
-    Params = Table_RolePartLogic_t.Params[76]
+    Params = Table_RolePartLogic_t.Params[77]
   },
   [3003395] = {
     id = 3003395,
-    Params = Table_RolePartLogic_t.Params[76]
+    Params = Table_RolePartLogic_t.Params[77]
   },
   [3003421] = {
     id = 3003421,
@@ -2021,7 +2041,7 @@ Table_RolePartLogic = {
   },
   [3003500] = {
     id = 3003500,
-    Params = Table_RolePartLogic_t.Params[62]
+    Params = Table_RolePartLogic_t.Params[58]
   },
   [3003501] = {
     id = 3003501,
@@ -2029,15 +2049,15 @@ Table_RolePartLogic = {
   },
   [3003502] = {
     id = 3003502,
-    Params = Table_RolePartLogic_t.Params[62]
+    Params = Table_RolePartLogic_t.Params[58]
   },
   [3003520] = {
     id = 3003520,
-    Params = Table_RolePartLogic_t.Params[60]
+    Params = Table_RolePartLogic_t.Params[76]
   },
   [3003521] = {
     id = 3003521,
-    Params = Table_RolePartLogic_t.Params[60]
+    Params = Table_RolePartLogic_t.Params[76]
   },
   [3003603] = {
     id = 3003603,
@@ -2069,11 +2089,11 @@ Table_RolePartLogic = {
   },
   [3004012] = {
     id = 3004012,
-    Params = Table_RolePartLogic_t.Params[72]
+    Params = Table_RolePartLogic_t.Params[59]
   },
   [3004016] = {
     id = 3004016,
-    Params = Table_RolePartLogic_t.Params[44]
+    Params = Table_RolePartLogic_t.Params[50]
   },
   [3004063] = {
     id = 3004063,
@@ -2081,7 +2101,7 @@ Table_RolePartLogic = {
   },
   [3004133] = {
     id = 3004133,
-    Params = Table_RolePartLogic_t.Params[85]
+    Params = Table_RolePartLogic_t.Params[86]
   },
   [3004212] = {
     id = 3004212,
@@ -2089,7 +2109,7 @@ Table_RolePartLogic = {
   },
   [3004263] = {
     id = 3004263,
-    Params = Table_RolePartLogic_t.Params[70]
+    Params = Table_RolePartLogic_t.Params[71]
   },
   [3004473] = {
     id = 3004473,
@@ -2109,15 +2129,15 @@ Table_RolePartLogic = {
   },
   [3004673] = {
     id = 3004673,
-    Params = Table_RolePartLogic_t.Params[68]
+    Params = Table_RolePartLogic_t.Params[61]
   },
   [3004763] = {
     id = 3004763,
-    Params = Table_RolePartLogic_t.Params[68]
+    Params = Table_RolePartLogic_t.Params[61]
   },
   [3004854] = {
     id = 3004854,
-    Params = Table_RolePartLogic_t.Params[44]
+    Params = Table_RolePartLogic_t.Params[50]
   },
   [3004863] = {
     id = 3004863,
@@ -2125,11 +2145,11 @@ Table_RolePartLogic = {
   },
   [3004874] = {
     id = 3004874,
-    Params = Table_RolePartLogic_t.Params[45]
+    Params = Table_RolePartLogic_t.Params[44]
   },
   [3004876] = {
     id = 3004876,
-    Params = Table_RolePartLogic_t.Params[46]
+    Params = Table_RolePartLogic_t.Params[45]
   },
   [3004923] = {
     id = 3004923,
@@ -2145,11 +2165,11 @@ Table_RolePartLogic = {
   },
   [3005160] = {
     id = 3005160,
-    Params = Table_RolePartLogic_t.Params[52]
+    Params = Table_RolePartLogic_t.Params[60]
   },
   [3005170] = {
     id = 3005170,
-    Params = Table_RolePartLogic_t.Params[69]
+    Params = Table_RolePartLogic_t.Params[70]
   },
   [3005192] = {
     id = 3005192,
@@ -2345,11 +2365,11 @@ Table_RolePartLogic = {
   },
   [3007511] = {
     id = 3007511,
-    Params = Table_RolePartLogic_t.Params[51]
+    Params = Table_RolePartLogic_t.Params[53]
   },
   [3007512] = {
     id = 3007512,
-    Params = Table_RolePartLogic_t.Params[51]
+    Params = Table_RolePartLogic_t.Params[53]
   },
   [3007713] = {
     id = 3007713,
@@ -2405,7 +2425,7 @@ Table_RolePartLogic = {
   },
   [3009074] = {
     id = 3009074,
-    Params = Table_RolePartLogic_t.Params[56]
+    Params = Table_RolePartLogic_t.Params[55]
   },
   [3009110] = {
     id = 3009110,
@@ -2433,7 +2453,7 @@ Table_RolePartLogic = {
   },
   [3009184] = {
     id = 3009184,
-    Params = Table_RolePartLogic_t.Params[71]
+    Params = Table_RolePartLogic_t.Params[72]
   },
   [3009193] = {
     id = 3009193,
@@ -2477,7 +2497,7 @@ Table_RolePartLogic = {
   },
   [3010559] = {
     id = 3010559,
-    Params = Table_RolePartLogic_t.Params[48]
+    Params = Table_RolePartLogic_t.Params[47]
   },
   [3010679] = {
     id = 3010679,
@@ -2511,17 +2531,45 @@ Table_RolePartLogic = {
     id = 3011680,
     Params = Table_RolePartLogic_t.Params[40]
   },
+  [3011695] = {
+    id = 3011695,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [3011735] = {
+    id = 3011735,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
   [3011802] = {
     id = 3011802,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [3012146] = {
+    id = 3012146,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [3012176] = {
+    id = 3012176,
     Params = Table_RolePartLogic_t.Params[40]
   },
   [3012302] = {
     id = 3012302,
     Params = Table_RolePartLogic_t.Params[40]
   },
+  [3012307] = {
+    id = 3012307,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [3012314] = {
+    id = 3012314,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
+  [3012423] = {
+    id = 3012423,
+    Params = Table_RolePartLogic_t.Params[40]
+  },
   [3031521] = {
     id = 3031521,
-    Params = Table_RolePartLogic_t.Params[54]
+    Params = Table_RolePartLogic_t.Params[52]
   },
   [3031553] = {
     id = 3031553,
@@ -2529,7 +2577,7 @@ Table_RolePartLogic = {
   },
   [3032437] = {
     id = 3032437,
-    Params = Table_RolePartLogic_t.Params[53]
+    Params = Table_RolePartLogic_t.Params[51]
   },
   [3033006] = {
     id = 3033006,
@@ -2538,7 +2586,7 @@ Table_RolePartLogic = {
   [3033021] = {
     id = 3033021,
     Logic = 1,
-    Params = Table_RolePartLogic_t.Params[49]
+    Params = Table_RolePartLogic_t.Params[48]
   },
   [3033916] = {
     id = 3033916,

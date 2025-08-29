@@ -1175,7 +1175,7 @@ end
 function MyselfProxy:GetMyTeamRoles()
   local profession = self:GetMyProfession()
   profession = Table_Class[profession]
-  return profession and profession.TeamFunction and profession.TeamFunction.selects
+  return profession and profession.TeamFunction and profession.TeamFunction.selects or _EmptyTable
 end
 
 function MyselfProxy:GetWantedBaseLv(extraExp)

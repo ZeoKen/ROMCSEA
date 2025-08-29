@@ -27,3 +27,13 @@ function ServiceAchieveCmdProxy:RecvNewAchieveNtfAchCmd(data)
   FloatAwardView.gmAddAchievementDatasToShow(data)
   self:Notify(ServiceEvent.AchieveCmdNewAchieveNtfAchCmd, data)
 end
+
+function ServiceAchieveCmdProxy:RecvNewNpcAchieveNtfAchCmd(data)
+  AchieveRewardProxy.Instance:RecvNewNpcAchieveNtfAchCmd(data)
+  self:Notify(ServiceEvent.AchieveCmdNewNpcAchieveNtfAchCmd, data)
+end
+
+function ServiceAchieveCmdProxy:RecvUpdateNpcAchieveAchCmd(data)
+  AchieveRewardProxy.Instance:RecvUpdateNpcAchieveAchCmd(data)
+  self:Notify(ServiceEvent.AchieveCmdUpdateNpcAchieveAchCmd, data)
+end

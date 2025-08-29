@@ -36,7 +36,8 @@ end
 function AstralDestinyGraphSeasonCell:SetData(data)
   self.data = data
   if data then
-    PictureManager.Instance:SetAstralTexture(BgPrefix .. data.season, self.bgTex)
+    local season = (data.season - 1) % 12 + 1
+    PictureManager.Instance:SetAstralTexture(BgPrefix .. season, self.bgTex)
     self.seasonLabel.text = "S" .. data.season
     local curSeason = AstralProxy.Instance:GetSeason()
     self.openGO:SetActive(data.season == curSeason and not AstralProxy.Instance:IsSeasonEnd())

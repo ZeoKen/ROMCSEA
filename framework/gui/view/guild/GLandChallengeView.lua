@@ -395,20 +395,16 @@ end
 function GLandChallengeView:OnEnter()
   GLandChallengeView.super.OnEnter(self)
   ServiceSceneUser3Proxy.Instance:CallGvgExcellectQueryUserCmd()
-  if self.isOnFire then
-    local mercenaryGuildID = GuildProxy.Instance.myMercenaryGuildId
-    if mercenaryGuildID and 0 < mercenaryGuildID then
-      ServiceGuildCmdProxy.Instance:CallGvgTaskUpdateGuildCmd(nil, mercenaryGuildID)
-      ServiceGuildCmdProxy.Instance:CallGvgDataQueryGuildCmd()
-    else
-      local myGuildID = GuildProxy.Instance.guildId
-      if myGuildID and 0 < myGuildID then
-        ServiceGuildCmdProxy.Instance:CallGvgTaskUpdateGuildCmd(nil, myGuildID)
-        ServiceGuildCmdProxy.Instance:CallGvgDataQueryGuildCmd()
-      end
-    end
+  local mercenaryGuildID = GuildProxy.Instance.myMercenaryGuildId
+  if mercenaryGuildID and 0 < mercenaryGuildID then
+    ServiceGuildCmdProxy.Instance:CallGvgTaskUpdateGuildCmd(nil, mercenaryGuildID)
+    ServiceGuildCmdProxy.Instance:CallGvgDataQueryGuildCmd()
   else
-    redlog("未开战")
+    local myGuildID = GuildProxy.Instance.guildId
+    if myGuildID and 0 < myGuildID then
+      ServiceGuildCmdProxy.Instance:CallGvgTaskUpdateGuildCmd(nil, myGuildID)
+      ServiceGuildCmdProxy.Instance:CallGvgDataQueryGuildCmd()
+    end
   end
 end
 

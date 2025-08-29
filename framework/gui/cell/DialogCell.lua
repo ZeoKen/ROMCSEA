@@ -206,6 +206,22 @@ local DialogParamType_StoragePrice = DialogParamType and DialogParamType.Storage
 local DialogParamType_GuildName = DialogParamType.GuildName or "Dialog_ParamType_GuildName"
 local DialogParamType_GuildLeaderName = DialogParamType.GuildLeaderName or "Dialog_ParamType_GuildLeaderName"
 local DialogParamType_GvgSeason = DialogParamType.GvgSeason or "Dialog_ParamType_GvgSeason"
+local DialogParamType_GvgStatueBattleLine = DialogParamType.GvgStatueBattleLine or "Dialog_ParamType_GvgStatueBattleLine"
+local DialogParamType_GvgStatueCity = DialogParamType.GvgStatueCity or "Dialog_ParamType_GvgStatueCity"
+local DialogParamType_GvgStatueGuildName = DialogParamType.GvgStatueGuildName or "Dialog_ParamType_GvgStatueGuildName"
+local DialogParamType_GvgStatueLeaderName = DialogParamType.GvgStatueLeaderName or "Dialog_ParamType_GvgStatueLeaderName"
+local TryGetGVGStatueCityID = function(guid)
+  local nnpc = NSceneNpcProxy.Instance:Find(guid)
+  if nnpc then
+    local unique_id = GvgProxy.GetStatueCity(nnpc.data.uniqueid)
+    if unique_id then
+      return GvgProxy.GetStatueCity(unique_id)
+    end
+  end
+end
+local DialogParamType_TrippleChamp = DialogParamType.TrippleChampion
+local DialogParamType_TeampwsChamp = DialogParamType.TeampwsChampion
+local DialogParamType_TwelveChamp = DialogParamType.TwelveChampion
 ReplaceParam_FuncMap[DialogParamType_StoragePrice] = function()
   local isFree = ActivityEventProxy.Instance:IsStorageFree()
   if isFree then
@@ -232,6 +248,51 @@ end
 ReplaceParam_FuncMap[DialogParamType_GvgSeason] = function()
   local info = GvgProxy.Instance:GetStatueInfo()
   return info and info.season or ""
+end
+ReplaceParam_FuncMap[DialogParamType_GvgStatueBattleLine] = function(guid)
+  return GvgProxy.Instance:GetCurMapStatueBattleClientGroupID()
+end
+ReplaceParam_FuncMap[DialogParamType_GvgStatueCity] = function(guid)
+  local city_id = TryGetGVGStatueCityID(guid)
+  if city_id then
+    local city_static_data = Table_Guild_StrongHold[city_id] or Table_DateBattleCity[city_id]
+    if city_static_data then
+      return city_static_data.Name or ""
+    end
+  end
+  return ""
+end
+ReplaceParam_FuncMap[DialogParamType_GvgStatueGuildName] = function(guid)
+  local city_id = TryGetGVGStatueCityID(guid)
+  if city_id then
+    local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+    if group_id and 0 < group_id then
+      return GvgProxy.Instance:GetGuildNameByStatusCity(group_id, city_id) or ""
+    end
+  end
+  return ""
+end
+ReplaceParam_FuncMap[DialogParamType_GvgStatueLeaderName] = function(guid)
+  local city_id = TryGetGVGStatueCityID(guid)
+  if city_id then
+    local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+    if group_id and 0 < group_id then
+      return GvgProxy.Instance:GetLeaderNameByStatusCity(group_id, city_id) or ""
+    end
+  end
+  return ""
+end
+ReplaceParam_FuncMap[DialogParamType_TrippleChamp] = function()
+  local info = PvpProxy.Instance:GetStatueInfo(PvpProxy.StatueType.Triple)
+  return info and info.statueInfo and info.statueInfo.username or ""
+end
+ReplaceParam_FuncMap[DialogParamType_TeampwsChamp] = function()
+  local info = PvpProxy.Instance:GetStatueInfo(PvpProxy.StatueType.Teampws)
+  return info and info.statueInfo and info.statueInfo.username or ""
+end
+ReplaceParam_FuncMap[DialogParamType_TwelveChamp] = function()
+  local info = PvpProxy.Instance:GetStatueInfo(PvpProxy.StatueType.Twelve)
+  return info and info.statueInfo and info.statueInfo.username or ""
 end
 
 function DialogCell:ParseReplaceParam(param, npcguid)

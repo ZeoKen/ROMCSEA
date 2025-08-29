@@ -17,6 +17,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {19005},
     MatchOrder = 2,
+    NoHealMatchOrder = 1,
     BeAttackWeight = 4
   },
   [2] = {
@@ -39,6 +40,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {19005, 371005},
     MatchOrder = 2,
+    NoHealMatchOrder = 1,
     BeAttackWeight = 4
   },
   [3] = {
@@ -65,6 +67,7 @@ Table_RobotNpc = {
       371010
     },
     MatchOrder = 2,
+    NoHealMatchOrder = 1,
     BeAttackWeight = 4
   },
   [4] = {
@@ -96,6 +99,7 @@ Table_RobotNpc = {
       371015
     },
     MatchOrder = 2,
+    NoHealMatchOrder = 1,
     BeAttackWeight = 4
   },
   [5] = {
@@ -127,6 +131,7 @@ Table_RobotNpc = {
       371020
     },
     MatchOrder = 2,
+    NoHealMatchOrder = 1,
     BeAttackWeight = 4
   },
   [6] = {
@@ -147,6 +152,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {1169005},
     MatchOrder = 3,
+    NoHealMatchOrder = 2,
     BeAttackWeight = 1
   },
   [7] = {
@@ -167,6 +173,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {1169005},
     MatchOrder = 3,
+    NoHealMatchOrder = 2,
     BeAttackWeight = 1
   },
   [8] = {
@@ -189,6 +196,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {1169005},
     MatchOrder = 3,
+    NoHealMatchOrder = 2,
     BeAttackWeight = 1
   },
   [9] = {
@@ -215,6 +223,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {1169005},
     MatchOrder = 3,
+    NoHealMatchOrder = 2,
     BeAttackWeight = 1
   },
   [10] = {
@@ -240,6 +249,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {1169005},
     MatchOrder = 3,
+    NoHealMatchOrder = 2,
     BeAttackWeight = 1
   },
   [11] = {
@@ -259,6 +269,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {1169005},
     MatchOrder = 4,
+    NoHealMatchOrder = 3,
     BeAttackWeight = 2
   },
   [12] = {
@@ -278,6 +289,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {126010},
     MatchOrder = 4,
+    NoHealMatchOrder = 3,
     BeAttackWeight = 2
   },
   [13] = {
@@ -293,6 +305,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {251010, 126010},
     MatchOrder = 4,
+    NoHealMatchOrder = 3,
     BeAttackWeight = 2
   },
   [14] = {
@@ -316,6 +329,7 @@ Table_RobotNpc = {
       1244010
     },
     MatchOrder = 4,
+    NoHealMatchOrder = 3,
     BeAttackWeight = 2
   },
   [15] = {
@@ -347,6 +361,7 @@ Table_RobotNpc = {
       4010005
     },
     MatchOrder = 4,
+    NoHealMatchOrder = 3,
     BeAttackWeight = 2
   },
   [16] = {
@@ -373,6 +388,7 @@ Table_RobotNpc = {
       118010
     },
     MatchOrder = 1,
+    NoHealMatchOrder = 5,
     BeAttackWeight = -1
   },
   [17] = {
@@ -401,6 +417,7 @@ Table_RobotNpc = {
       118010
     },
     MatchOrder = 1,
+    NoHealMatchOrder = 5,
     BeAttackWeight = -1
   },
   [18] = {
@@ -428,6 +445,7 @@ Table_RobotNpc = {
       118010
     },
     MatchOrder = 1,
+    NoHealMatchOrder = 5,
     BeAttackWeight = -1
   },
   [19] = {
@@ -462,6 +480,7 @@ Table_RobotNpc = {
       118010
     },
     MatchOrder = 1,
+    NoHealMatchOrder = 5,
     BeAttackWeight = -1
   },
   [20] = {
@@ -500,6 +519,7 @@ Table_RobotNpc = {
       118010
     },
     MatchOrder = 1,
+    NoHealMatchOrder = 5,
     BeAttackWeight = -1
   },
   [21] = {
@@ -519,6 +539,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = _EmptyTable,
     MatchOrder = 5,
+    NoHealMatchOrder = 4,
     BeAttackWeight = 3
   },
   [22] = {
@@ -541,6 +562,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = _EmptyTable,
     MatchOrder = 5,
+    NoHealMatchOrder = 4,
     BeAttackWeight = 3
   },
   [23] = {
@@ -563,6 +585,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = _EmptyTable,
     MatchOrder = 5,
+    NoHealMatchOrder = 4,
     BeAttackWeight = 3
   },
   [24] = {
@@ -589,6 +612,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = _EmptyTable,
     MatchOrder = 5,
+    NoHealMatchOrder = 4,
     BeAttackWeight = 3
   },
   [25] = {
@@ -616,6 +640,7 @@ Table_RobotNpc = {
     SkillShowLv = _EmptyTable,
     PassiveSkill = {4314001},
     MatchOrder = 5,
+    NoHealMatchOrder = 4,
     BeAttackWeight = 3
   }
 }
@@ -633,6 +658,7 @@ Table_RobotNpc_fields = {
   "SkillShowLv",
   "PassiveSkill",
   "MatchOrder",
+  "NoHealMatchOrder",
   "BeAttackWeight"
 }
 return Table_RobotNpc

@@ -105,6 +105,14 @@ function ExchangeShopProxy:ctor(proxyName, data)
   self:Init()
 end
 
+function ExchangeShopProxy:GetShopGoodsWorth(shopid, itemid)
+  local worthMap = self.shopGoodsWorthMap[shopid]
+  if not worthMap then
+    return nil
+  end
+  return worthMap[itemid]
+end
+
 local ARRAY_FIND_INDEX = TableUtility.ArrayFindIndex
 
 function ExchangeShopProxy:InitStaticData()
@@ -121,9 +129,10 @@ function ExchangeShopProxy:InitStaticData()
     for shopid, tab in pairs(FRAY_EXCHANGE) do
       for itemid, exchangeTab in pairs(tab) do
         if ItemUtil.CheckDateValidByItemId(itemid) then
-          self.goodsWorth[itemid] = {
-            Worth = exchangeTab[1]
-          }
+          if not self.shopGoodsWorthMap[shopid] then
+            self.shopGoodsWorthMap[shopid] = {}
+          end
+          self.shopGoodsWorthMap[shopid][itemid] = exchangeTab[1]
           if nil == self.goodsMap[shopid] then
             self.goodsMap[shopid] = {}
           end
@@ -136,9 +145,10 @@ function ExchangeShopProxy:InitStaticData()
   end
   for k, v in pairs(Table_ExchangeWorth) do
     if (v.ServerID == _EmptyTable or 0 ~= ARRAY_FIND_INDEX(v.ServerID, serverFlag)) and ItemUtil.CheckDateValidByItemId(v.ItemID) then
-      if v.ItemID and v.Worth and #v.Worth > 1 then
-        self.goodsWorth[v.ItemID] = v
+      if not self.shopGoodsWorthMap[v.GoodsID] then
+        self.shopGoodsWorthMap[v.GoodsID] = {}
       end
+      self.shopGoodsWorthMap[v.GoodsID][v.ItemID] = v.Worth
       if not v.GoodsID then
         return
       end
@@ -159,8 +169,9 @@ function ExchangeShopProxy:Init()
   self.shopDataMap = {}
   self.dataArray = {}
   self.chooseMap = {}
+  self.chooseCount = 0
   self.goodsMap = {}
-  self.goodsWorth = {}
+  self.shopGoodsWorthMap = {}
 end
 
 function ExchangeShopProxy:UpdateExchange(server_data)
@@ -206,6 +217,7 @@ end
 
 function ExchangeShopProxy:ResetChoose()
   TableUtility.TableClear(self.chooseMap)
+  self.chooseCount = 0
 end
 
 function ExchangeShopProxy:AddChooseItems(id, isnormal)
@@ -213,15 +225,18 @@ function ExchangeShopProxy:AddChooseItems(id, isnormal)
     if isnormal then
       if self.chooseMap[id] < ExchangeShopProxy.GetOwnCount(id) then
         self.chooseMap[id] = self.chooseMap[id] + 1
+        self.chooseCount = self.chooseCount + 1
       else
         MsgManager.ShowMsgByID(3554, Table_Item[id].NameZh)
         return
       end
     else
       self.chooseMap[id] = self.chooseMap[id] + 1
+      self.chooseCount = self.chooseCount + 1
     end
   else
     self.chooseMap[id] = 1
+    self.chooseCount = self.chooseCount + 1
   end
 end
 
@@ -234,6 +249,7 @@ function ExchangeShopProxy:MinusChooseItem(id)
   else
     self.chooseMap[id] = nil
   end
+  self.chooseCount = self.chooseCount - 1
 end
 
 function ExchangeShopProxy:_getChooseItem()
@@ -309,33 +325,25 @@ function ExchangeShopProxy.GetOwnCount(itemid)
   return count
 end
 
-function ExchangeShopProxy:CalcPreviewWorth()
-  local previewNum = 0
-  local chooseItem = self:_getChooseItem()
-  if chooseItem and 0 < #chooseItem then
-    for i = 1, #chooseItem do
-      local worth_cfg = self.goodsWorth[chooseItem[i].id].Worth
-      local worthNum = worth_cfg and worth_cfg[2] or 1
-      previewNum = chooseItem[i].num * worthNum + previewNum
-    end
-  end
-  return previewNum
+function ExchangeShopProxy:GetChooseCount()
+  return self.chooseCount
 end
 
-function ExchangeShopProxy:GetChooseNum()
+function ExchangeShopProxy:GetChooseNum(shopid)
+  local worthMap = self.shopGoodsWorthMap[shopid]
+  if not worthMap then
+    return 0
+  end
   local chooseCount, rewardCount, extraCount = 0, 0, 0
-  for k, v in pairs(self.chooseMap) do
-    chooseCount = chooseCount + v
-    if self.goodsWorth[k] then
-      if self.goodsWorth[k].Worth then
-        rewardCount = rewardCount + self.goodsWorth[k].Worth[2] * v
-      end
-      if type(self.goodsWorth[k].Extra) == "table" and #self.goodsWorth[k].Extra > 1 then
-        extraCount = extraCount + self.goodsWorth[k].Extra[2] * v
-      end
+  local worth_config
+  for reward_item_id, reward_num in pairs(self.chooseMap) do
+    chooseCount = chooseCount + reward_num
+    worth_config = worthMap[reward_item_id]
+    if worth_config and worth_config[1] then
+      rewardCount = rewardCount + worth_config[2] * reward_num
     end
   end
-  return chooseCount, rewardCount, extraCount
+  return rewardCount
 end
 
 function ExchangeShopProxy:CallExchange(id)

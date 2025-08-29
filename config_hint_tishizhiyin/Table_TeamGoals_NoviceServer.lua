@@ -1,16 +1,7 @@
 Table_TeamGoals_t = {
   Difficulty = {
-    {7, 1},
-    {7, 2},
-    {7, 3},
-    {3, 10001},
-    {3, 10002},
-    {17, 3},
-    {17, 4},
-    {17, 5},
-    {17, 1},
-    {17, 2},
-    {1, 2},
+    {8, 10},
+    {8, 11},
     {8, 1},
     {8, 2},
     {8, 3},
@@ -20,17 +11,20 @@ Table_TeamGoals_t = {
     {8, 7},
     {8, 8},
     {8, 9},
-    {8, 10},
+    {7, 1},
+    {7, 2},
+    {7, 3},
+    {1, 1},
+    {1, 2},
     {10, 1},
     {12, 1},
     {13, 1},
     {14, 1},
     {15, 1},
     {16, 1},
+    {17, 1},
     {19, 1},
-    {1, 1},
-    {18, 5},
-    {18, 6},
+    {1, 3},
     {3, 1},
     {3, 2},
     {3, 3},
@@ -41,18 +35,28 @@ Table_TeamGoals_t = {
     {3, 8},
     {3, 9},
     {3, 10},
-    {18, 13},
-    {18, 12},
-    {18, 11},
-    {18, 10},
-    {18, 9},
-    {18, 8},
-    {18, 7},
-    {18, 4},
-    {18, 3},
-    {18, 2},
+    {17, 4},
+    {17, 5},
+    {17, 2},
+    {17, 3},
     {18, 1},
-    {9, 1}
+    {18, 2},
+    {18, 3},
+    {18, 4},
+    {18, 5},
+    {18, 6},
+    {18, 7},
+    {18, 8},
+    {18, 9},
+    {18, 10},
+    {18, 11},
+    {18, 12},
+    {18, 13},
+    {18, 14},
+    {9, 1},
+    {3, 10001},
+    {3, 10002},
+    {3, 10003}
   }
 }
 Table_TeamGoals = {
@@ -89,7 +93,7 @@ Table_TeamGoals = {
     RaidType = 100001,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[32]
+    Difficulty = Table_TeamGoals_t.Difficulty[26]
   },
   [10102] = {
     id = 10102,
@@ -100,7 +104,7 @@ Table_TeamGoals = {
     RaidType = 100002,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[33]
+    Difficulty = Table_TeamGoals_t.Difficulty[27]
   },
   [10103] = {
     id = 10103,
@@ -111,7 +115,7 @@ Table_TeamGoals = {
     RaidType = 100003,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[34]
+    Difficulty = Table_TeamGoals_t.Difficulty[28]
   },
   [10104] = {
     id = 10104,
@@ -122,7 +126,7 @@ Table_TeamGoals = {
     RaidType = 100004,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[35]
+    Difficulty = Table_TeamGoals_t.Difficulty[29]
   },
   [10105] = {
     id = 10105,
@@ -133,7 +137,7 @@ Table_TeamGoals = {
     RaidType = 100005,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[36]
+    Difficulty = Table_TeamGoals_t.Difficulty[30]
   },
   [10106] = {
     id = 10106,
@@ -144,7 +148,7 @@ Table_TeamGoals = {
     RaidType = 100006,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[37]
+    Difficulty = Table_TeamGoals_t.Difficulty[31]
   },
   [10107] = {
     id = 10107,
@@ -155,7 +159,7 @@ Table_TeamGoals = {
     RaidType = 100007,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[38]
+    Difficulty = Table_TeamGoals_t.Difficulty[32]
   },
   [10108] = {
     id = 10108,
@@ -166,7 +170,7 @@ Table_TeamGoals = {
     RaidType = 100008,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[39]
+    Difficulty = Table_TeamGoals_t.Difficulty[33]
   },
   [10109] = {
     id = 10109,
@@ -177,7 +181,7 @@ Table_TeamGoals = {
     RaidType = 100009,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[40]
+    Difficulty = Table_TeamGoals_t.Difficulty[34]
   },
   [10110] = {
     id = 10110,
@@ -188,12 +192,11 @@ Table_TeamGoals = {
     RaidType = 100010,
     RaidID = 20001,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[41]
+    Difficulty = Table_TeamGoals_t.Difficulty[35]
   },
   [10700] = {
     id = 10700,
     NameZh = "神谕副本",
-    type = 10700,
     RootRaidDesc = "幻想马戏团中，纸牌屋的主人西格蒙德实力超群，却为人自负，极其狂傲。他的妹妹西格林特一直无法赢过哥哥，苦恼之下便请求冒险者的帮助。冒险者在普隆德拉找到幻想马戏团的三位搜寻者后，可以组队进入纸牌屋与西格蒙德开始卡牌游戏。卡牌的变化也代表着环境与魔物的变化，小心每一张卡牌，背后都隐藏着深不可测的危险……",
     FuncState = 104,
     GoalGroup = 2
@@ -201,202 +204,201 @@ Table_TeamGoals = {
   [10701] = {
     id = 10701,
     NameZh = "神谕勇士Ⅰ",
-    type = 10700,
     RaidType = 100101,
     FuncState = 105,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[12]
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [10702] = {
     id = 10702,
     NameZh = "神谕勇士Ⅱ",
-    type = 10700,
     RaidType = 100102,
     FuncState = 105,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[13]
+    Difficulty = Table_TeamGoals_t.Difficulty[4]
   },
   [10703] = {
     id = 10703,
     NameZh = "神谕勇士Ⅲ",
-    type = 10700,
     RaidType = 100103,
     FuncState = 106,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[14]
+    Difficulty = Table_TeamGoals_t.Difficulty[5]
   },
   [10704] = {
     id = 10704,
     NameZh = "神谕勇士Ⅳ",
-    type = 10700,
     RaidType = 100104,
     FuncState = 107,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[15]
+    Difficulty = Table_TeamGoals_t.Difficulty[6]
   },
   [10705] = {
     id = 10705,
     NameZh = "神谕勇士Ⅴ",
-    type = 10700,
     RaidType = 100105,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[16]
+    Difficulty = Table_TeamGoals_t.Difficulty[7]
   },
   [10706] = {
     id = 10706,
     NameZh = "神谕勇士Ⅵ",
-    type = 10700,
     RaidType = 100106,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[17]
+    Difficulty = Table_TeamGoals_t.Difficulty[8]
   },
   [10707] = {
     id = 10707,
     NameZh = "神谕勇士Ⅶ",
-    type = 10700,
     RaidType = 100107,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[18]
+    Difficulty = Table_TeamGoals_t.Difficulty[9]
   },
   [10708] = {
     id = 10708,
     NameZh = "神谕勇士Ⅷ",
-    type = 10700,
     RaidType = 100108,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[19]
+    Difficulty = Table_TeamGoals_t.Difficulty[10]
   },
   [10709] = {
     id = 10709,
     NameZh = "神谕勇士Ⅸ",
-    type = 10700,
     RaidType = 100109,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[20]
+    Difficulty = Table_TeamGoals_t.Difficulty[11]
   },
   [10710] = {
-    id = 10710,
     NameZh = "神谕勇士Ⅹ",
-    type = 10700,
     RaidType = 100110,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[21]
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
+  },
+  [10711] = {
+    id = 10711,
+    NameZh = "神谕勇士Ⅺ",
+    Level = 60,
+    RaidType = 100111,
+    FuncState = 108,
+    RaidID = 64608,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [10721] = {
     id = 10721,
     NameZh = "神谕精英Ⅰ",
-    type = 10700,
     RaidType = 100113,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[12]
+    Difficulty = Table_TeamGoals_t.Difficulty[3]
   },
   [10722] = {
     id = 10722,
     NameZh = "神谕精英Ⅱ",
-    type = 10700,
     RaidType = 100114,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[13]
+    Difficulty = Table_TeamGoals_t.Difficulty[4]
   },
   [10723] = {
     id = 10723,
     NameZh = "神谕精英Ⅲ",
-    type = 10700,
     RaidType = 100115,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[14]
+    Difficulty = Table_TeamGoals_t.Difficulty[5]
   },
   [10724] = {
     id = 10724,
     NameZh = "神谕精英Ⅳ",
-    type = 10700,
     RaidType = 100116,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[15]
+    Difficulty = Table_TeamGoals_t.Difficulty[6]
   },
   [10725] = {
     id = 10725,
     NameZh = "神谕精英Ⅴ",
-    type = 10700,
     RaidType = 100117,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[16]
+    Difficulty = Table_TeamGoals_t.Difficulty[7]
   },
   [10726] = {
     id = 10726,
     NameZh = "神谕精英Ⅵ",
-    type = 10700,
     RaidType = 100118,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[17]
+    Difficulty = Table_TeamGoals_t.Difficulty[8]
   },
   [10727] = {
     id = 10727,
     NameZh = "神谕精英Ⅶ",
-    type = 10700,
     RaidType = 100119,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[18]
+    Difficulty = Table_TeamGoals_t.Difficulty[9]
   },
   [10728] = {
     id = 10728,
     NameZh = "神谕精英Ⅷ",
-    type = 10700,
     RaidType = 100120,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[19]
+    Difficulty = Table_TeamGoals_t.Difficulty[10]
   },
   [10729] = {
     id = 10729,
     NameZh = "神谕精英Ⅸ",
-    type = 10700,
     RaidType = 100121,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[20]
+    Difficulty = Table_TeamGoals_t.Difficulty[11]
   },
   [10730] = {
     id = 10730,
     NameZh = "神谕精英Ⅹ",
-    type = 10700,
     RaidType = 100122,
     FuncState = 108,
     RaidID = 64608,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[21]
+    Difficulty = Table_TeamGoals_t.Difficulty[1]
+  },
+  [10731] = {
+    id = 10731,
+    NameZh = "神谕精英Ⅺ",
+    Level = 60,
+    RaidType = 100123,
+    FuncState = 108,
+    RaidID = 64608,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[2]
   },
   [40100] = {
     id = 40100,
@@ -438,7 +440,7 @@ Table_TeamGoals = {
     FuncState = 110,
     RaidID = 7032,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[29]
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
   },
   [50102] = {
     id = 50102,
@@ -450,7 +452,19 @@ Table_TeamGoals = {
     FuncState = 111,
     RaidID = 7029,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[11]
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
+  },
+  [50103] = {
+    id = 50103,
+    NameZh = "达纳托斯塔·英灵",
+    type = 50100,
+    Filter = 42,
+    Level = 60,
+    RaidType = 100703,
+    FuncState = 112,
+    RaidID = 7035,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[25]
   },
   [50400] = {
     id = 50400,
@@ -470,7 +484,7 @@ Table_TeamGoals = {
     RaidType = 100406,
     RaidID = 7060,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[29]
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
   },
   [50402] = {
     id = 50402,
@@ -481,7 +495,18 @@ Table_TeamGoals = {
     RaidType = 103001,
     RaidID = 7061,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[11]
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
+  },
+  [50403] = {
+    id = 50403,
+    NameZh = "波纳佩博物岛·英灵",
+    type = 50400,
+    Filter = 45,
+    Level = 80,
+    RaidType = 103002,
+    RaidID = 7062,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[25]
   },
   [50500] = {
     id = 50500,
@@ -501,7 +526,7 @@ Table_TeamGoals = {
     RaidType = 100408,
     RaidID = 7064,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[29]
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
   },
   [50502] = {
     id = 50502,
@@ -512,7 +537,18 @@ Table_TeamGoals = {
     RaidType = 103003,
     RaidID = 7063,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[11]
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
+  },
+  [50503] = {
+    id = 50503,
+    NameZh = "探秘迷踪岛·英灵",
+    type = 50500,
+    Filter = 46,
+    Level = 70,
+    RaidType = 103004,
+    RaidID = 7065,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[25]
   },
   [60100] = {
     id = 60100,
@@ -534,7 +570,7 @@ Table_TeamGoals = {
     FuncState = 101,
     RaidID = 1003100,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[1]
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [60102] = {
     id = 60102,
@@ -546,7 +582,7 @@ Table_TeamGoals = {
     FuncState = 101,
     RaidID = 1003100,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[2]
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [60103] = {
     id = 60103,
@@ -558,7 +594,7 @@ Table_TeamGoals = {
     FuncState = 101,
     RaidID = 1003100,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[3]
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [70100] = {
     id = 70100,
@@ -578,7 +614,7 @@ Table_TeamGoals = {
     RaidType = 102001,
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[32]
+    Difficulty = Table_TeamGoals_t.Difficulty[26]
   },
   [70102] = {
     id = 70102,
@@ -589,7 +625,18 @@ Table_TeamGoals = {
     RaidType = 102002,
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[33]
+    Difficulty = Table_TeamGoals_t.Difficulty[27]
+  },
+  [70103] = {
+    id = 70103,
+    NameZh = "无限回廊精英21·30层",
+    type = 70100,
+    Filter = 48,
+    Level = 70,
+    RaidType = 102003,
+    RaidID = 1041,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[28]
   },
   [70111] = {
     id = 70111,
@@ -600,7 +647,7 @@ Table_TeamGoals = {
     RaidType = 102011,
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[4]
+    Difficulty = Table_TeamGoals_t.Difficulty[55]
   },
   [70112] = {
     id = 70112,
@@ -611,7 +658,18 @@ Table_TeamGoals = {
     RaidType = 102012,
     RaidID = 1041,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[5]
+    Difficulty = Table_TeamGoals_t.Difficulty[56]
+  },
+  [70113] = {
+    id = 70113,
+    NameZh = "无限回廊勇士21·30层",
+    type = 70100,
+    Filter = 48,
+    Level = 70,
+    RaidType = 102013,
+    RaidID = 1041,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[57]
   },
   [90100] = {
     id = 90100,
@@ -631,7 +689,7 @@ Table_TeamGoals = {
     RaidType = 110101,
     RaidID = 7066,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[1]
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [90102] = {
     id = 90102,
@@ -642,7 +700,7 @@ Table_TeamGoals = {
     RaidType = 110102,
     RaidID = 7067,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[2]
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [90103] = {
     id = 90103,
@@ -653,7 +711,7 @@ Table_TeamGoals = {
     RaidType = 110103,
     RaidID = 7068,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[3]
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [90200] = {
     id = 90200,
@@ -671,7 +729,7 @@ Table_TeamGoals = {
     RaidType = 120101,
     RaidID = 7069,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[1]
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [90202] = {
     id = 90202,
@@ -681,7 +739,7 @@ Table_TeamGoals = {
     RaidType = 120102,
     RaidID = 7070,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[2]
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [90203] = {
     id = 90203,
@@ -691,9 +749,10 @@ Table_TeamGoals = {
     RaidType = 120103,
     RaidID = 7071,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[3]
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [90300] = {
+    id = 90300,
     NameZh = "梦罗克的暗影",
     type = 90300,
     Filter = 49,
@@ -710,7 +769,7 @@ Table_TeamGoals = {
     RaidType = 130101,
     RaidID = 7072,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[1]
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [90302] = {
     id = 90302,
@@ -721,7 +780,7 @@ Table_TeamGoals = {
     RaidType = 130102,
     RaidID = 7073,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[2]
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [90303] = {
     id = 90303,
@@ -732,7 +791,7 @@ Table_TeamGoals = {
     RaidType = 130103,
     RaidID = 7074,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[3]
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [90400] = {
     id = 90400,
@@ -752,7 +811,7 @@ Table_TeamGoals = {
     RaidType = 140101,
     RaidID = 7075,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[1]
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [90402] = {
     id = 90402,
@@ -763,7 +822,7 @@ Table_TeamGoals = {
     RaidType = 140102,
     RaidID = 7076,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[2]
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [90403] = {
     id = 90403,
@@ -774,7 +833,7 @@ Table_TeamGoals = {
     RaidType = 140103,
     RaidID = 7077,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[3]
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [90500] = {
     id = 90500,
@@ -794,7 +853,7 @@ Table_TeamGoals = {
     RaidType = 150101,
     RaidID = 7078,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[1]
+    Difficulty = Table_TeamGoals_t.Difficulty[12]
   },
   [90502] = {
     id = 90502,
@@ -805,7 +864,7 @@ Table_TeamGoals = {
     RaidType = 150102,
     RaidID = 7079,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[2]
+    Difficulty = Table_TeamGoals_t.Difficulty[13]
   },
   [90503] = {
     id = 90503,
@@ -816,7 +875,7 @@ Table_TeamGoals = {
     RaidType = 150103,
     RaidID = 7080,
     GoalGroup = 1,
-    Difficulty = Table_TeamGoals_t.Difficulty[3]
+    Difficulty = Table_TeamGoals_t.Difficulty[14]
   },
   [91100] = {
     id = 91100,
@@ -836,7 +895,7 @@ Table_TeamGoals = {
     RaidType = 201101,
     RaidID = 7120,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[53]
+    Difficulty = Table_TeamGoals_t.Difficulty[54]
   },
   [91102] = {
     id = 91102,
@@ -847,7 +906,7 @@ Table_TeamGoals = {
     RaidType = 201102,
     RaidID = 7121,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[22]
+    Difficulty = Table_TeamGoals_t.Difficulty[17]
   },
   [91103] = {
     id = 91103,
@@ -858,7 +917,7 @@ Table_TeamGoals = {
     RaidType = 201103,
     RaidID = 7122,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[23]
+    Difficulty = Table_TeamGoals_t.Difficulty[18]
   },
   [91104] = {
     id = 91104,
@@ -869,7 +928,7 @@ Table_TeamGoals = {
     RaidType = 201104,
     RaidID = 7123,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[24]
+    Difficulty = Table_TeamGoals_t.Difficulty[19]
   },
   [91105] = {
     id = 91105,
@@ -880,7 +939,7 @@ Table_TeamGoals = {
     RaidType = 201105,
     RaidID = 7124,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[25]
+    Difficulty = Table_TeamGoals_t.Difficulty[20]
   },
   [91106] = {
     id = 91106,
@@ -891,7 +950,7 @@ Table_TeamGoals = {
     RaidType = 201106,
     RaidID = 7125,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[26]
+    Difficulty = Table_TeamGoals_t.Difficulty[21]
   },
   [91107] = {
     id = 91107,
@@ -902,7 +961,7 @@ Table_TeamGoals = {
     RaidType = 201107,
     RaidID = 7126,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[27]
+    Difficulty = Table_TeamGoals_t.Difficulty[22]
   },
   [91108] = {
     id = 91108,
@@ -913,7 +972,7 @@ Table_TeamGoals = {
     RaidType = 201108,
     RaidID = 7127,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[9]
+    Difficulty = Table_TeamGoals_t.Difficulty[23]
   },
   [91109] = {
     id = 91109,
@@ -924,7 +983,17 @@ Table_TeamGoals = {
     RaidType = 201109,
     RaidID = 7128,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[28]
+    Difficulty = Table_TeamGoals_t.Difficulty[24]
+  },
+  [91150] = {
+    id = 91150,
+    NameZh = "混沌入侵·异界",
+    type = 91150,
+    Filter = 50,
+    RaidType = 201150,
+    RaidID = 7610,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[24]
   },
   [91500] = {
     id = 91500,
@@ -943,7 +1012,7 @@ Table_TeamGoals = {
     RaidType = 206116,
     RaidID = 1004200,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[52]
+    Difficulty = Table_TeamGoals_t.Difficulty[40]
   },
   [91502] = {
     id = 91502,
@@ -954,7 +1023,7 @@ Table_TeamGoals = {
     RaidType = 206117,
     RaidID = 1004201,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[51]
+    Difficulty = Table_TeamGoals_t.Difficulty[41]
   },
   [91503] = {
     id = 91503,
@@ -964,7 +1033,7 @@ Table_TeamGoals = {
     RaidType = 206118,
     RaidID = 1004202,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[50]
+    Difficulty = Table_TeamGoals_t.Difficulty[42]
   },
   [91504] = {
     id = 91504,
@@ -975,7 +1044,7 @@ Table_TeamGoals = {
     RaidType = 206119,
     RaidID = 1004203,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[49]
+    Difficulty = Table_TeamGoals_t.Difficulty[43]
   },
   [91505] = {
     id = 91505,
@@ -986,7 +1055,7 @@ Table_TeamGoals = {
     RaidType = 206120,
     RaidID = 1004204,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[30]
+    Difficulty = Table_TeamGoals_t.Difficulty[44]
   },
   [91506] = {
     id = 91506,
@@ -997,7 +1066,7 @@ Table_TeamGoals = {
     RaidType = 206121,
     RaidID = 1004205,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[31]
+    Difficulty = Table_TeamGoals_t.Difficulty[45]
   },
   [91507] = {
     id = 91507,
@@ -1008,7 +1077,7 @@ Table_TeamGoals = {
     RaidType = 206122,
     RaidID = 1004206,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[48]
+    Difficulty = Table_TeamGoals_t.Difficulty[46]
   },
   [91508] = {
     id = 91508,
@@ -1030,7 +1099,7 @@ Table_TeamGoals = {
     RaidType = 206124,
     RaidID = 1004208,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[46]
+    Difficulty = Table_TeamGoals_t.Difficulty[48]
   },
   [91510] = {
     id = 91510,
@@ -1041,7 +1110,7 @@ Table_TeamGoals = {
     RaidType = 206125,
     RaidID = 1004209,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[45]
+    Difficulty = Table_TeamGoals_t.Difficulty[49]
   },
   [91511] = {
     id = 91511,
@@ -1052,7 +1121,7 @@ Table_TeamGoals = {
     RaidType = 206126,
     RaidID = 1004210,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[44]
+    Difficulty = Table_TeamGoals_t.Difficulty[50]
   },
   [91512] = {
     id = 91512,
@@ -1063,7 +1132,7 @@ Table_TeamGoals = {
     RaidType = 206127,
     RaidID = 74100,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[43]
+    Difficulty = Table_TeamGoals_t.Difficulty[51]
   },
   [91513] = {
     id = 91513,
@@ -1074,7 +1143,18 @@ Table_TeamGoals = {
     RaidType = 206128,
     RaidID = 74101,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[42]
+    Difficulty = Table_TeamGoals_t.Difficulty[52]
+  },
+  [91514] = {
+    id = 91514,
+    NameZh = "狂想寓言XⅣ",
+    type = 91500,
+    Filter = 53,
+    Level = 110,
+    RaidType = 206129,
+    RaidID = 74102,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[53]
   },
   [91600] = {
     id = 91600,
@@ -1093,7 +1173,7 @@ Table_TeamGoals = {
     RaidType = 206201,
     RaidID = 7211,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[29]
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
   },
   [91602] = {
     id = 91602,
@@ -1104,11 +1184,12 @@ Table_TeamGoals = {
     RaidType = 206200,
     RaidID = 7210,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[11]
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
   },
   [91700] = {
     id = 91700,
     NameZh = "星座之塔",
+    type = 91700,
     Filter = 55,
     Level = 70,
     GoalGroup = 5
@@ -1116,202 +1197,222 @@ Table_TeamGoals = {
   [91701] = {
     id = 91701,
     NameZh = "邪能之塔·Ⅰ",
+    type = 91700,
     Filter = 55,
     Level = 70,
     RaidType = 206300,
     RaidID = 7501,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[9]
+    Difficulty = Table_TeamGoals_t.Difficulty[23]
   },
   [91702] = {
     id = 91702,
     NameZh = "邪能之塔·Ⅱ",
+    type = 91700,
     Filter = 55,
     Level = 80,
     RaidType = 206301,
     RaidID = 7502,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[10]
+    Difficulty = Table_TeamGoals_t.Difficulty[38]
   },
   [91703] = {
     id = 91703,
     NameZh = "邪能之塔·Ⅲ",
+    type = 91700,
     Filter = 55,
     Level = 90,
     RaidType = 206302,
     RaidID = 7503,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[6]
+    Difficulty = Table_TeamGoals_t.Difficulty[39]
   },
   [91704] = {
     id = 91704,
     NameZh = "邪能之塔·Ⅳ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206303,
     RaidID = 7504,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[7]
+    Difficulty = Table_TeamGoals_t.Difficulty[36]
   },
   [91705] = {
     id = 91705,
     NameZh = "邪能之塔·Ⅴ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206304,
     RaidID = 7505,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[8]
+    Difficulty = Table_TeamGoals_t.Difficulty[37]
   },
   [91706] = {
     id = 91706,
     NameZh = "炽热之塔·Ⅰ",
+    type = 91700,
     Filter = 55,
     Level = 70,
     RaidType = 206305,
     RaidID = 7506,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[9]
+    Difficulty = Table_TeamGoals_t.Difficulty[23]
   },
   [91707] = {
     id = 91707,
     NameZh = "炽热之塔·Ⅱ",
+    type = 91700,
     Filter = 55,
     Level = 80,
     RaidType = 206306,
     RaidID = 7507,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[10]
+    Difficulty = Table_TeamGoals_t.Difficulty[38]
   },
   [91708] = {
     id = 91708,
     NameZh = "炽热之塔·Ⅲ",
+    type = 91700,
     Filter = 55,
     Level = 90,
     RaidType = 206307,
     RaidID = 7508,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[6]
+    Difficulty = Table_TeamGoals_t.Difficulty[39]
   },
   [91709] = {
     id = 91709,
     NameZh = "炽热之塔·Ⅳ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206308,
     RaidID = 7509,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[7]
+    Difficulty = Table_TeamGoals_t.Difficulty[36]
   },
   [91710] = {
     id = 91710,
     NameZh = "炽热之塔·Ⅴ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206309,
     RaidID = 7510,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[8]
+    Difficulty = Table_TeamGoals_t.Difficulty[37]
   },
   [91711] = {
     id = 91711,
     NameZh = "时空之塔·Ⅰ",
+    type = 91700,
     Filter = 55,
     Level = 70,
     RaidType = 206310,
     RaidID = 7511,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[9]
+    Difficulty = Table_TeamGoals_t.Difficulty[23]
   },
   [91712] = {
     id = 91712,
     NameZh = "时空之塔·Ⅱ",
+    type = 91700,
     Filter = 55,
     Level = 80,
     RaidType = 206311,
     RaidID = 7512,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[10]
+    Difficulty = Table_TeamGoals_t.Difficulty[38]
   },
   [91713] = {
     id = 91713,
     NameZh = "时空之塔·Ⅲ",
+    type = 91700,
     Filter = 55,
     Level = 90,
     RaidType = 206312,
     RaidID = 7513,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[6]
+    Difficulty = Table_TeamGoals_t.Difficulty[39]
   },
   [91714] = {
     id = 91714,
     NameZh = "时空之塔·Ⅳ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206313,
     RaidID = 7514,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[7]
+    Difficulty = Table_TeamGoals_t.Difficulty[36]
   },
   [91715] = {
     id = 91715,
     NameZh = "时空之塔·Ⅴ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206314,
     RaidID = 7515,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[8]
+    Difficulty = Table_TeamGoals_t.Difficulty[37]
   },
   [91716] = {
     id = 91716,
     NameZh = "死亡之塔·Ⅰ",
+    type = 91700,
     Filter = 55,
     Level = 70,
     RaidType = 206315,
     RaidID = 7516,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[9]
+    Difficulty = Table_TeamGoals_t.Difficulty[23]
   },
   [91717] = {
     id = 91717,
     NameZh = "死亡之塔·Ⅱ",
+    type = 91700,
     Filter = 55,
     Level = 80,
     RaidType = 206316,
     RaidID = 7517,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[10]
+    Difficulty = Table_TeamGoals_t.Difficulty[38]
   },
   [91718] = {
     id = 91718,
     NameZh = "死亡之塔·Ⅲ",
+    type = 91700,
     Filter = 55,
     Level = 90,
     RaidType = 206317,
     RaidID = 7518,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[6]
+    Difficulty = Table_TeamGoals_t.Difficulty[39]
   },
   [91719] = {
     id = 91719,
     NameZh = "死亡之塔·Ⅳ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206318,
     RaidID = 7519,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[7]
+    Difficulty = Table_TeamGoals_t.Difficulty[36]
   },
   [91720] = {
     id = 91720,
     NameZh = "死亡之塔·Ⅴ",
+    type = 91700,
     Filter = 55,
     Level = 100,
     RaidType = 206319,
     RaidID = 7520,
     GoalGroup = 5,
-    Difficulty = Table_TeamGoals_t.Difficulty[8]
+    Difficulty = Table_TeamGoals_t.Difficulty[37]
   },
   [91900] = {
     id = 91900,
@@ -1330,7 +1431,7 @@ Table_TeamGoals = {
     RaidType = 206401,
     RaidID = 7220,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[29]
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
   },
   [91902] = {
     id = 91902,
@@ -1341,7 +1442,37 @@ Table_TeamGoals = {
     RaidType = 206400,
     RaidID = 7221,
     GoalGroup = 2,
-    Difficulty = Table_TeamGoals_t.Difficulty[11]
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
+  },
+  [92000] = {
+    id = 92000,
+    NameZh = "时之空间",
+    type = 92000,
+    Filter = 54,
+    Level = 90,
+    GoalGroup = 2
+  },
+  [92001] = {
+    id = 92001,
+    NameZh = "时之空间·初心",
+    type = 92000,
+    Filter = 54,
+    Level = 90,
+    RaidType = 206500,
+    RaidID = 7230,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[15]
+  },
+  [92002] = {
+    id = 92002,
+    NameZh = "时之空间·勇士",
+    type = 92000,
+    Filter = 54,
+    Level = 90,
+    RaidType = 206501,
+    RaidID = 7231,
+    GoalGroup = 2,
+    Difficulty = Table_TeamGoals_t.Difficulty[16]
   }
 }
 local cell_mt = {
@@ -1352,8 +1483,8 @@ local cell_mt = {
     NameZh = "MVP争夺战",
     RootRaidDesc = "",
     SetShow = 1,
-    id = 90300,
-    type = 91700
+    id = 10710,
+    type = 10700
   }
 }
 for _, d in pairs(Table_TeamGoals) do

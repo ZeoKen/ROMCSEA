@@ -124,10 +124,6 @@ function OverseaHostHelper:ResetSectors(sid)
   else
     helplog("OverseaHostHelper.regions is nil")
   end
-  helplog("cur sectors")
-  for _, v in pairs(GameConfig.Zone.zone_name) do
-    helplog(v.name_prefix .. ":" .. "min:" .. v.min .. "-" .. "max:" .. v.max)
-  end
 end
 
 function OverseaHostHelper:RefreshServerInfo(serverData)

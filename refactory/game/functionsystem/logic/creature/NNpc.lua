@@ -3,6 +3,7 @@ NNpc = reusableClass("NNpc", NCreatureWithPropUserdata)
 NNpc.PoolSize = 100
 autoImport("NNpc_Effect")
 autoImport("NNpc_Logic")
+autoImport("PVPStatueInfo")
 local Table_ActionAnime = Table_ActionAnime
 local ForceRemoveDelay = 3
 local SmoothRemoveDuration = 0.3
@@ -110,6 +111,9 @@ function NNpc:InitAssetRole()
   if sData == nil then
     return
   end
+  if self.data:ForbidClientClient() then
+    self:SetClickable(false)
+  end
   assetRole:SetColliderEnable(not self.data:NoAccessable())
   assetRole:SetInvisible(false)
   assetRole:SetWeaponDisplay(true)
@@ -125,10 +129,37 @@ function NNpc:InitAssetRole()
   else
     assetRole:DisableShadowCastCheck()
   end
-  if self.data.staticData.id == GameConfig.GVGConfig.StatueNpcID then
+  local newGvgStatue = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.StatueNpcID
+  if sData.id == GameConfig.GVGConfig.StatueNpcID or nil ~= newGvgStatue and sData.id == newGvgStatue then
     assetRole:SetIgnoreExpression()
-    assetRole:SetIgnoreColor()
-    assetRole:SetShaderInfo("RO/SP/PartOutlineMatcap", "Public/Shader", "RolePartOutlineSPMatcap", ResourcePathHelper.ModelMainTexture("pub_gold_matcap"), "_SPMatcapMap")
+    local materialParams = GameConfig.ShaderConfig[7]
+    if materialParams then
+      self:SetMaterialInfo(materialParams)
+      assetRole:SetMaterials(true)
+      local faceRenderer = assetRole.complete.faceRenderer
+      if faceRenderer then
+        local lodGroup = faceRenderer.gameObject:GetComponent(LODGroup)
+        if lodGroup then
+          lodGroup:ForceLOD(1)
+        end
+      end
+    end
+  end
+  local sType = self.data:GetPvpStatueType()
+  if sType then
+    assetRole:SetIgnoreExpression()
+    local materialParams = GameConfig.ShaderConfig[7]
+    if materialParams then
+      self:SetMaterialInfo(materialParams)
+      assetRole:SetMaterials(true)
+      local faceRenderer = assetRole.complete.faceRenderer
+      if faceRenderer then
+        local lodGroup = faceRenderer.gameObject:GetComponent(LODGroup)
+        if lodGroup then
+          lodGroup:ForceLOD(1)
+        end
+      end
+    end
   end
 end
 
@@ -196,11 +227,31 @@ function NNpc:InitAction(serverData)
   if staticId == GameConfig.GVGConfig.StatueNpcID then
     GvgProxy.Instance:UpdateStatuePose(nil, self)
   end
+  local newGvgStatue = GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.StatueNpcID
+  if staticId == newGvgStatue then
+    local statue_city_id = GvgProxy.GetStatueCity(data.uniqueid)
+    if nil ~= statue_city_id then
+      local is_empty = GvgProxy.Instance:CheckMyGroupCityStatueEmpty(statue_city_id)
+      if is_empty then
+        assetRole:SetInvisible(true)
+      else
+        assetRole:SetInvisible(false)
+        GvgProxy.Instance:InitializeStatuePos(statue_city_id, self)
+      end
+    end
+  end
   if staticId == GameConfig.GvgNewConfig.roadblock_npcid then
     GvgProxy.Instance:InitObstacleAction(self)
   end
   if staticId == GvgProxy.LobbyFlagNPCID then
     GvgProxy.Instance:TryResetLobbyFlag()
+  end
+  local sType = self.data:GetPvpStatueType()
+  if sType then
+    local info = PvpProxy.Instance:GetStatueInfo(sType)
+    if info then
+      info:UpdatePose(nil, self)
+    end
   end
   return false
 end
@@ -221,6 +272,26 @@ function NNpc:InitTextMesh()
         if data:IsGvgStatuePedestal() then
           local info = GvgProxy.Instance:GetStatueInfo()
           text = info and info.guildname or ""
+        end
+        if data:IsNewGvgStatuePedestal() then
+          local group_id = GuildProxy.Instance:GetMyGuildGvgGroup()
+          if not group_id or group_id == 0 then
+            group_id = GvgProxy.Instance.curMapGvgGroupId
+          end
+          local statue_city_id = GvgProxy.GetStatueCity(data.uniqueid)
+          text = GvgProxy.Instance:GetGuildNameByStatusCity(group_id, statue_city_id) or ""
+        end
+        if data:IsTriplePed() then
+          local info = PvpProxy.Instance:GetStatueInfo(PvpProxy.StatueType.Triple)
+          text = info and info.statueInfo.username or ""
+        end
+        if data:IsTeamPwsPed() then
+          local info = PvpProxy.Instance:GetStatueInfo(PvpProxy.StatueType.Teampws)
+          text = info and info.statueInfo.username or ""
+        end
+        if data:IsTwelvePed() then
+          local info = PvpProxy.Instance:GetStatueInfo(PvpProxy.StatueType.Twelve)
+          text = info and info.statueInfo.username or ""
         end
         local body = self.assetRole:GetPartObject(Asset_Role.PartIndex.Body)
         if body ~= nil then
@@ -324,6 +395,18 @@ function NNpc:Init(serverData, reinit)
   end
   self.sceneui.roleBottomUI:HandleChangeTitle(self)
   self.data:RefreshNightmareStatus()
+  if serverData.pvp_champion_statue then
+    local pvp_champion_statue = serverData.pvp_champion_statue
+    local myserverID = ChangeZoneProxy.Instance:GetMyselfServerId()
+    for i = 1, #pvp_champion_statue do
+      if pvp_champion_statue[i].serverid == myserverID then
+        self.statue_type = pvp_champion_statue[i].statue_type
+        PvpProxy.Instance:SetStatueInfo(self.statue_type, pvp_champion_statue[i])
+      else
+        redlog("failed self.statue_type", self.statue_type, pvp_champion_statue[i].serverid, myserverID)
+      end
+    end
+  end
   self:InitAction(serverData)
   self.bosstype = serverData.bosstype or self.data.bosstype
   self.data.serverBossType = self.bosstype
@@ -374,6 +457,10 @@ function NNpc:Init(serverData, reinit)
   if parterid ~= nil then
     self:SetPartner(parterid)
   end
+  self.picQuad = serverData.pic_quad
+  FunctionAbyssLake.Me():TrySetSummonProgress(self.data.uniqueid, self)
+  self:TryUpdateRoadBlock()
+  self:ResetCamp()
 end
 
 function NNpc:ShowViewRange(range)
@@ -707,6 +794,49 @@ function NNpc:PlayBirthCastAction()
   end
 end
 
+function NNpc:TryUpdateRoadBlock()
+  local roadblock_map = GameConfig.GvgNewConfig.roadblock_map
+  local npcid = GameConfig.GvgNewConfig.roadblock_npcid
+  if not roadblock_map or not npcid then
+    return
+  end
+  local mapId = Game.MapManager:GetMapID()
+  if TableUtility.ArrayFindIndex(roadblock_map, mapId) <= 0 then
+    return
+  end
+  if GvgProxy.Instance:IsDefSide() then
+    self:ClearRoadBlock()
+    return
+  end
+  if npcid and self.data.staticData.id == npcid and Slua.IsNull(self.go_roadBlock) then
+    self.go_roadBlockLoading = true
+    Game.AssetManager_SceneItem:LoadItemAsync("RoadBlock", GameObject, function(owner, asset)
+      if not self.go_roadBlockLoading then
+        return
+      end
+      self.go_roadBlock = GameObject.Instantiate(asset)
+      self.go_roadBlock.name = "RoadBlock"
+      LuaGameObject.SetParent(self.go_roadBlock, self.assetRole.complete, false)
+      self.go_roadBlockLoading = nil
+    end)
+  end
+end
+
+function NNpc:ClearRoadBlock()
+  if not Slua.IsNull(self.go_roadBlock) then
+    GameObject.Destroy(self.go_roadBlock)
+  end
+  self.go_roadBlock = nil
+  self.go_roadBlockLoading = nil
+end
+
+function NNpc:RemoveSummonProgress()
+  local roleTopUI = self:GetSceneUI().roleTopUI
+  if roleTopUI then
+    roleTopUI:RemoveSummonProgress()
+  end
+end
+
 function NNpc:DoConstruct(asArray, serverData)
   self:CreateWeakData()
   NNpc.super.DoConstruct(self, asArray, self:CreateData(serverData))
@@ -720,12 +850,30 @@ function NNpc:DoConstruct(asArray, serverData)
   self:TrySetComodoBuildingData()
 end
 
+function NNpc:ResetCamp()
+  local roadblock_map = GameConfig.GvgNewConfig.roadblock_map
+  if not roadblock_map then
+    return
+  end
+  local npcid = GameConfig.GvgNewConfig.tower_npcid
+  if not npcid or TableUtility.ArrayFindIndex(npcid, self.data.staticData.id) <= 0 then
+    return
+  end
+  local mapId = Game.MapManager:GetMapID()
+  if TableUtility.ArrayFindIndex(roadblock_map, mapId) <= 0 then
+    return
+  end
+  self.data:Camp_SetIsInGVG(true)
+  self.data:Camp_SetIsInMyGuild(GvgProxy.Instance:IsDefSide())
+end
+
 function NNpc:DoDeconstruct(asArray)
   self:ClearTextMesh()
   self:StopAppearanceAnimation()
   self:UnregisterInteractNpc()
   self:UnregisterInsightNpc()
   self:TryUnbindPhotoStandInfo()
+  FunctionAbyssLake.Me():TrySetSummonProgress(self.data.uniqueid, self)
   HomeManager.Me():RemoveRelativeCreature(self.data:GetRelativeFurnitureID())
   if self.data:GetPushableObjID() then
     RaidPuzzleManager.Me():RemovePushObject(self)
@@ -753,4 +901,6 @@ function NNpc:DoDeconstruct(asArray)
   if Game.MapManager:IsHomeMap(Game.MapManager:GetMapID()) then
     self.ai:RemovePatrol()
   end
+  self.pvpStatueInfo = nil
+  self:ClearRoadBlock()
 end

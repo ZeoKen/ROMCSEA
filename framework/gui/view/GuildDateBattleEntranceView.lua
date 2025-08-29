@@ -5,10 +5,6 @@ GuildDateBattleEntranceView.m_helpId = 1838
 local _PictureManager, _DateProxy
 local _BgTextureName = "sign_7_bg3"
 local _VSTextureName = "3v3v3_bg_vs"
-local _miniMapTextureName = {
-  [E_GuildDateBattle_Mode.Base] = "SceneGuild_battle_prt",
-  [E_GuildDateBattle_Mode.Classic] = "Scenesc_gvg3he1_001"
-}
 local GrayUIWidget = ColorUtil.GrayUIWidget
 local WhiteUIWidget = ColorUtil.WhiteUIWidget
 local SpriteName = {
@@ -157,7 +153,7 @@ function GuildDateBattleEntranceView:UpdateView()
   self.offensiveSideLab.text = self.entranceData:GetOffGuildName()
   self.defensiveSideLab.text = self.entranceData:GetDefGuildName()
   local mode = self.entranceData:GetModel() or 1
-  self.mapTextureName = _miniMapTextureName[mode]
+  self.mapTextureName = _DateProxy:GetMiniMapTextureName(mode)
   _PictureManager:SetMiniMap(self.mapTextureName, self.mapTexture)
   self:UpdatePerfectDefense()
   self:UpdateBtn()

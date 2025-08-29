@@ -33,7 +33,11 @@ function NSceneEffectProxy:Add(data)
     return
   end
   data.effectType = Asset_Effect.EffectTypes.Other
-  data.priority = SkillInfo.GetEffectPriority(creature, data.effectType)
+  if data.ownerid == Game.Myself.data.id then
+    data.priority = SkillInfo.GetEffectPriority(Game.Myself, data.effectType)
+  else
+    data.priority = SkillInfo.GetEffectPriority(creature, data.effectType)
+  end
   effectPath, data.lodLevel = Game.EffectManager:GetEffectPath(effectPaths, data.priority, data.effectType)
   if effectPath == nil then
     return

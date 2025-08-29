@@ -46,6 +46,7 @@ function ExchangeLogData:SetData(data)
     self.itemData = ItemData.new("ExchangeLog", self.itemid)
   end
   self.itemData.num = data.count
+  self.itemData:SetCardLevel(data.card_lv)
   if self.type == ShopMallLogTypeEnum.NormalSell or self.type == ShopMallLogTypeEnum.PublicitySellSuccess then
     self.receiveEnum = self.ReceiveEnum.Money
   elseif self.type == ShopMallLogTypeEnum.NormalBuy then

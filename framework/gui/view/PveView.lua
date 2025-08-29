@@ -76,6 +76,7 @@ function PveView:_InitRaidTypeFunc()
   self.raidFunc[PveRaidType.Rugelike] = self._updateRugelike
   self.raidFunc[PveRaidType.EquipUpgrade] = self._updateExtraLayer
   self.raidFunc[PveRaidType.Crack] = self._updateCrack
+  self.raidFunc[PveRaidType.StarArk] = self.UpdateAffix
   self.twoDifficultyModeRaid = {}
   for k, v in pairs(Game.difficultyRaidMap) do
     self.twoDifficultyModeRaid[k] = 1
@@ -234,6 +235,7 @@ function PveView:FindObj()
   self:InitRaidRoot()
   self:InitDifficultyMode()
   self:InitContentFunc()
+  self:InitActivityInfo()
   self.heroRoadViewRoot = self:FindGO("HeroRoadRoot")
   self.astralGraphBtn = self:FindGO("AstralGraphBtn")
   self:AddClickEvent(self.astralGraphBtn, function()
@@ -454,12 +456,12 @@ end
 function PveView:InitDifficultyMode()
   self.difficultyModeRoot = self:FindGO("DifficultyModeRoot")
   local group = self:FindGO("Group")
-  self.difficultyModeTog1Lab = self:FindComponent("Tog1", UILabel, self.group)
+  self.difficultyModeTog1Lab = self:FindComponent("Tog1", UILabel, group)
   self:AddClickEvent(self.difficultyModeTog1Lab.gameObject, function()
     self:OnDifficultyChange(Pve_Difficulty_Type.Normal)
   end)
   self.difficultyModeTog1Bg = self:FindComponent("SpriteBg", UISprite, self.difficultyModeTog1Lab.gameObject)
-  self.difficultyModeTog2Lab = self:FindComponent("Tog2", UILabel, self.group)
+  self.difficultyModeTog2Lab = self:FindComponent("Tog2", UILabel, group)
   self:AddClickEvent(self.difficultyModeTog2Lab.gameObject, function()
     self:OnDifficultyChange(Pve_Difficulty_Type.Difficult)
   end)
@@ -568,6 +570,32 @@ function PveView:InitServerMergeObj()
   self.processSliderGO = self:FindGO("ProcessSlider", self.raidCombinedPart)
   self.processSlider = self.processSliderGO:GetComponent(UISlider)
   self.raidCombinedPart:SetActive(false)
+end
+
+function PveView:InitActivityInfo()
+  self.activityEndTime = self:FindComponent("ActivityEndTime", UILabel)
+end
+
+function PveView:UpdateActivityInfo()
+  local end_time = self.curData and self.curData:GetActivityEndTime()
+  if not end_time then
+    self:Hide(self.activityEndTime)
+    return
+  end
+  local cur_time = ServerTime.CurServerTime() / 1000
+  local day, hour, min, sec = ClientTimeUtil.FormatTimeBySec(end_time - cur_time)
+  if 0 < day then
+    self:Show(self.activityEndTime)
+    self.activityEndTime.text = string.format(ZhString.PveView_EndTime_DayHour, day, hour)
+  elseif 0 < hour then
+    self:Show(self.activityEndTime)
+    self.activityEndTime.text = string.format(ZhString.PveView_EndTime_Hour, hour)
+  elseif 0 < min then
+    self:Show(self.activityEndTime)
+    self.activityEndTime.text = string.format(ZhString.PveView_EndTime_Min, min)
+  else
+    self:Hide(self.activityEndTime)
+  end
 end
 
 function PveView:InitBuyItemCell()
@@ -774,8 +802,22 @@ function PveView:AddUIEvts()
       self:ShowUnlockMsg()
       return
     end
-    if FunctionPve.Me():DoMatch() then
-      self:CloseSelf()
+    if self.curData.staticEntranceData:IsThanatos() then
+      if FunctionPve.Me():DoMatch() then
+        self:CloseSelf()
+      end
+    else
+      GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+        view = PanelConfig.PveMatchPopup,
+        viewdata = {
+          raidName = self.curData.staticEntranceData.name,
+          confirmCallback = function(ai, heal)
+            if FunctionPve.Me():DoMatch(ai, heal) then
+              self:CloseSelf()
+            end
+          end
+        }
+      })
     end
   end)
   self:AddClickEvent(self.challengeBtn, function()
@@ -1066,6 +1108,7 @@ function PveView:UpdateViewData(data)
     self:UpdateAchieve()
     self:UpdateCurRaidRoot()
     self:UpdateAstral()
+    self:UpdateActivityInfo()
   end
 end
 
@@ -1356,7 +1399,7 @@ function PveView:_updateHeadWear(open)
   self.raidTipLab.text = ZhString.Pve_Headwear_Tip
 end
 
-function PveView:_updateGroupTog(firstTog, tog1Bg, tog2Bg, tog1Lab, tog2Lab)
+function PveView:_updateGroupTog()
   local isnormal = self.curDifficultyMode == Pve_Difficulty_Type.Normal
   self.difficultyModeTog1Bg.spriteName = isnormal and _PveGroupTogSp[1] or _PveGroupTogSp[2]
   self.difficultyModeTog2Bg.spriteName = isnormal and _PveGroupTogSp[2] or _PveGroupTogSp[1]
@@ -1373,7 +1416,6 @@ function PveView:UpdateServerInfoData()
   self:UpdateContentLabel()
   self:UpdateDiff()
   self:UpdateMultiReward()
-  self:UpdateAffix()
   self:_UpdateSweep()
 end
 
@@ -1480,10 +1522,9 @@ function PveView:OnClickRaidTypeCell(cell, auto)
     self.curDifficultyMode = nil
     if entranceData:IsRoadOfHero() then
       if not self.heroRoadSubView then
-        self.heroRoadSubView = self:AddSubView("HeroRoadView", HeroRoadView, entranceData.groupid)
-      else
-        self.heroRoadSubView:RefreshView()
+        self.heroRoadSubView = self:AddSubView("HeroRoadView", HeroRoadView)
       end
+      self.heroRoadSubView:RefreshView(entranceData.groupid)
     else
       self:InitDiffRaid()
     end
@@ -1611,7 +1652,12 @@ function PveView:SetMonsterData()
   end
   self.curMonsterId = self.monstersData[self.monsterIndex]
   self.monsterDetailBtn:SetActive(nil ~= Table_PveMonsterPreview[self.curMonsterId])
-  local modelTex = GameConfig.Pve.RaidType[self.curData.staticEntranceData.groupid].modelTexture
+  local raidTypeConfig = GameConfig.Pve.RaidType[self.curData.staticEntranceData.groupid]
+  if not raidTypeConfig then
+    redlog("未配置 GameConfig.Pve.RaidType，错误GroupID", self.curData.staticEntranceData.groupid)
+    return
+  end
+  local modelTex = raidTypeConfig.modelTexture
   local name = Table_Monster[self.curMonsterId] and Table_Monster[self.curMonsterId].NameZh or ""
   local natureIcon = Table_Monster[self.curMonsterId] and Table_Monster[self.curMonsterId].Nature or ""
   self.monsterNameLab.text = string.format(ZhString.Pve_MonsterIndex, self.monsterIndex, #self.monstersData, name)
@@ -1661,7 +1707,7 @@ end
 function PveView:HandleSyncPvePassInfo()
   if self.curData and self.curData.staticEntranceData:IsRoadOfHero() then
     if self.heroRoadSubView then
-      self.heroRoadSubView:RefreshView()
+      self.heroRoadSubView:RefreshView(self.curData.staticEntranceData.groupid)
     end
   else
     self:HandleAddPveCardTimes()
@@ -1699,7 +1745,7 @@ function PveView:ShowRaidCombinedProcess()
     self.waitCountDown:SetActive(true)
     self.processSliderGO:SetActive(false)
     self.raidCombinedTimestamp = raidCombinedInfo.opentick
-    TimeTickManager.Me():CreateTick(0, 1000, self.RefresRaidCombinedCountDown, self, 2)
+    TimeTickManager.Me():CreateTick(0, 1000, self.RefreshRaidCombinedCountDown, self, 2)
   else
     self.raidCombinedPart:SetActive(false)
     return
@@ -1710,7 +1756,7 @@ function PveView:ShowRaidCombinedProcess()
   self.raidCombinedBG.height = height
 end
 
-function PveView:RefresRaidCombinedCountDown()
+function PveView:RefreshRaidCombinedCountDown()
   local leftDay, leftHour, leftMin, leftSec = ClientTimeUtil.GetFormatRefreshTimeStr(self.raidCombinedTimestamp)
   if leftDay <= 0 and leftHour <= 0 and leftMin <= 0 and leftSec <= 0 then
     TimeTickManager.Me():ClearTick(self, 2)

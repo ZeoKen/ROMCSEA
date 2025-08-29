@@ -45,9 +45,11 @@ function CupModeProxy:ctor(proxyName, data)
   self.warbandMap = {}
   self.warbandList = {}
   self.opponentGroup = {}
+  self.preRoundOpponentGroup = {}
   self.opponentPlayoff = {}
   self.ESchedule = WarbandProxy.ESchedule.NoOpen
   self.opponentCount = {}
+  self.preRoundOpponentCount = {}
   self.effectMap = {}
   self.effectList = {}
   self.seasonReward = {}
@@ -56,6 +58,7 @@ function CupModeProxy:ctor(proxyName, data)
   self.forbiddenProMap = {}
   self.forbiddenPro = {}
   self.Fixed_SingleGroupNum = 8
+  self.curStage = 0
 end
 
 function CupModeProxy:OnDestroy()
@@ -86,11 +89,30 @@ function CupModeProxy:GetGroupTabData()
     cell = {index = i, isPlayoff = false}
     data[#data + 1] = cell
   end
+  return data
+end
+
+function CupModeProxy:GetPreRoundGroupTabData()
+  local data = {}
+  local cell = {}
+  for i = 1, #self.preRoundOpponentGroup do
+    cell = {index = i, isPlayoff = false}
+    data[#data + 1] = cell
+  end
+  return data
+end
+
+function CupModeProxy:GetFinalRoundGroupTabData()
+  local data = {}
+  local cell = {}
   if self.opponentPlayoff and #self.opponentPlayoff > 0 then
     cell = {
       index = #data + 1,
       isPlayoff = true
     }
+    data[#data + 1] = cell
+  elseif 0 < self.curStage and self.curStage < 4 then
+    cell = {index = 1, isPlayoff = true}
     data[#data + 1] = cell
   end
   return data
@@ -102,6 +124,26 @@ function CupModeProxy:GetOpponentData(tab)
   else
     return self.opponentGroup[tab.index]
   end
+end
+
+function CupModeProxy:GetPreRoundOpponentData(tab)
+  if tab.isPlayoff then
+    return self.opponentPlayoff or {}
+  else
+    return self.preRoundOpponentGroup[tab.index]
+  end
+end
+
+function CupModeProxy:GetFinalRoundOpponentData()
+  if TableUtil.TableIsEmpty(self.opponentPlayoff) and self.curStage > 0 and self.curStage < 4 then
+    local playoffData = {}
+    for i = 1, self.Fixed_SingleGroupNum do
+      local cellData = {index = i, wintimes = 0}
+      playoffData[i] = WarbandOpponentTeamData.new(cellData, self)
+    end
+    self.opponentPlayoff = playoffData
+  end
+  return self.opponentPlayoff or {}
 end
 
 function CupModeProxy:GetMyWarbandViewMember()
@@ -125,6 +167,14 @@ end
 function CupModeProxy:GetOpponentCount()
   local result = 0
   for k, v in pairs(self.opponentCount) do
+    result = result + 1
+  end
+  return result
+end
+
+function CupModeProxy:GetPreRoundOpponentCount()
+  local result = 0
+  for k, v in pairs(self.preRoundOpponentCount) do
     result = result + 1
   end
   return result
@@ -161,10 +211,13 @@ function CupModeProxy:ShutDown()
   _ArrayClear(self.opponentPlayoff)
   _ArrayClear(self.warbandList)
   _TableClear(self.opponentGroup)
+  _TableClear(self.preRoundOpponentGroup)
   self:_resetForbiddenPro()
   self:ClearMemberMap()
+  if self.seasonRunning then
+    self:DoQuerySeasonRank()
+  end
   self.seasonRunning = false
-  self:DoQuerySeasonRank()
   self:SetSchedule(WarbandProxy.ESchedule.END)
 end
 
@@ -233,6 +286,49 @@ function CupModeProxy:CheckFull()
   return false
 end
 
+function CupModeProxy:CheckInPreParticipants()
+  local opponentData = self.preRoundOpponentGroup
+  if not opponentData then
+    return 0
+  end
+  for _group, _teams in pairs(opponentData) do
+    for _index, _teamData in pairs(_teams) do
+      if _teamData.id == self.myWarbandId then
+        return _group
+      end
+    end
+  end
+  return 0
+end
+
+function CupModeProxy:CheckInParticipants()
+  local opponentData = self.opponentGroup
+  if not opponentData then
+    return 0
+  end
+  for _group, _teams in pairs(opponentData) do
+    for _index, _teamData in pairs(_teams) do
+      if _teamData.id == self.myWarbandId then
+        return _group
+      end
+    end
+  end
+  return 0
+end
+
+function CupModeProxy:CheckInFinal()
+  local finalGroup = self.opponentPlayoff
+  if not finalGroup then
+    return 0
+  end
+  for _index, _teamData in pairs(finalGroup) do
+    if _teamData.id == self.myWarbandId then
+      return _index
+    end
+  end
+  return 0
+end
+
 function CupModeProxy:ProcessRewardBySeason(season)
   assert(false, "每个赛事的奖励配置格式可能不同，请在实现类中处理")
 end
@@ -248,7 +344,14 @@ end
 function CupModeProxy:GetFightCDTime()
   local curTime = ServerTime.CurServerTime() / 1000
   local refreshTime
-  if curTime < self.nextFightTime then
+  if self.curStage == 1 then
+    if curTime < self.preNextFightTime then
+      refreshTime = self.preNextFightTime
+    else
+      local stage = math.ceil((curTime - self.preNextFightTime) / self.figthInterval)
+      refreshTime = stage * self.figthInterval + self.preNextFightTime
+    end
+  elseif curTime < self.nextFightTime then
     refreshTime = self.nextFightTime
   else
     local stage = math.ceil((curTime - self.nextFightTime) / self.figthInterval)
@@ -258,9 +361,19 @@ function CupModeProxy:GetFightCDTime()
 end
 
 function CupModeProxy:CheckMatchTimeValid()
-  if self.canMatchTime then
-    local curTime = ServerTime.CurServerTime() / 1000
-    return curTime > self.canMatchTime
+  if self.curStage == 1 then
+    if self.preCanMatchTime then
+      local curTime = ServerTime.CurServerTime() / 1000
+      return curTime > self.preCanMatchTime
+    end
+  else
+    local preCount = self:GetPreRoundOpponentCount()
+    if 0 < preCount then
+      return true
+    elseif self.canMatchTime then
+      local curTime = ServerTime.CurServerTime() / 1000
+      return curTime > self.canMatchTime
+    end
   end
   return false
 end
@@ -415,6 +528,10 @@ function CupModeProxy:GetMyWarbandName()
   return name
 end
 
+function CupModeProxy:GetCurStage()
+  return self.curStage
+end
+
 function CupModeProxy:CheckIsFinalRound()
   for _, v in pairs(self.opponentPlayoff) do
     if v.wintimes >= 2 then
@@ -431,6 +548,12 @@ function CupModeProxy:HandleTreeBandData(data)
   local playoffTeamInfo = data.championteaminfo and data.championteaminfo.groupteaminfo
   if not playoffTeamInfo then
     _ArrayClear(self.opponentPlayoff)
+    local playoffData = {}
+    for i = 1, self.Fixed_SingleGroupNum do
+      local cellData = {index = i, wintimes = 0}
+      playoffData[i] = WarbandOpponentTeamData.new(cellData, self)
+    end
+    self.opponentPlayoff = playoffData
   elseif 0 < #playoffTeamInfo then
     local playoffData = {}
     for i = 1, self.Fixed_SingleGroupNum do
@@ -466,7 +589,28 @@ function CupModeProxy:HandleTreeBandData(data)
       end
     end
   end
-  if self:GetOpponentCount() == 0 then
+  local preteaminfo = data.preteaminfo
+  if preteaminfo and 0 < #preteaminfo then
+    _TableClear(self.preRoundOpponentCount)
+    _TableClear(self.preRoundOpponentGroup)
+    for i = 1, #preteaminfo do
+      local teamGroupData = {}
+      for i = 1, self.Fixed_SingleGroupNum do
+        local cellData = {index = i, wintimes = 0}
+        teamGroupData[i] = WarbandOpponentTeamData.new(cellData, self)
+      end
+      self.preRoundOpponentGroup[i] = teamGroupData
+      local teaminfo = preteaminfo[i].groupteaminfo
+      for t = 1, #teaminfo do
+        local td = WarbandOpponentTeamData.new(teaminfo[t], self)
+        self.preRoundOpponentCount[td.id] = td
+        self.preRoundOpponentGroup[i][td.index] = td
+      end
+    end
+  end
+  self.curStage = data.stage or 0
+  xdlog("当前比赛阶段", self.curStage)
+  if self.curStage ~= 4 and self:GetOpponentCount() == 0 and self:GetPreRoundOpponentCount() == 0 then
     self:DoQuerySeasonInfo()
   end
 end
@@ -507,16 +651,18 @@ function CupModeProxy:HandleSessionSort(data)
   local season, tempkey, oldSessionRank = 0, {}, {}
   for i = 1, #data do
     season = data[i].season
-    tempkey[#tempkey + 1] = season
-    oldSessionRank[season] = {}
-    for j = 1, #data[i].teams do
-      local bandData = WarbandTeamData.new(data[i].teams[j], self)
-      bandData.season = season
-      table.insert(oldSessionRank[season], bandData)
+    if season and 0 < season then
+      tempkey[#tempkey + 1] = season
+      oldSessionRank[season] = {}
+      for j = 1, #data[i].teams do
+        local bandData = WarbandTeamData.new(data[i].teams[j], self)
+        bandData.season = season
+        table.insert(oldSessionRank[season], bandData)
+      end
+      table.sort(oldSessionRank[season], function(a, b)
+        return a.rank < b.rank
+      end)
     end
-    table.sort(oldSessionRank[season], function(a, b)
-      return a.rank < b.rank
-    end)
   end
   table.sort(tempkey, function(s1, s2)
     return s1 < s2
@@ -524,6 +670,7 @@ function CupModeProxy:HandleSessionSort(data)
   for i = 1, #tempkey do
     self.seasonRank[#self.seasonRank + 1] = oldSessionRank[tempkey[i]]
   end
+  xdlog("排名数据", self.proxyName, #self.seasonRank)
 end
 
 function CupModeProxy:HandleWarbandTime(data)
@@ -533,7 +680,8 @@ end
 
 function CupModeProxy:Launch(data)
   self.seasonRunning = true
-  self.curSeason = data.season
+  self.season = data.season
+  self.curSeason = data.season > 10000 and data.season - 10000 or data.season
   self.consoleStartTime, self.consoleEndTime = data.season_begin, data.season_end
   self.breakStartTime, self.breakEndTime = data.season_breakbegin, data.season_breakend
   self.warbandStartTime = data.warband_createbegin
@@ -544,11 +692,19 @@ function CupModeProxy:Launch(data)
   self.canMatchTime = self.fightStartTime - self.matchTime
   self.figthInterval = data.season_fighttime
   self.nextFightTime = data.season_nextfighttime and 0 ~= data.season_nextfighttime and data.season_nextfighttime or self.fightStartTime
+  self.preFightStartTime = data.season_initprefighttime
+  self.preCanMatchTime = self.preFightStartTime - self.matchTime
+  self.preNextFightTime = data.season_nextprefighttime and 0 ~= data.season_nextprefighttime and season_nextprefighttime or self.preFightStartTime
+  self.isCrossServer = data.cross_server_champion or false
   self:TryUpdateScheduleStatus()
   self:ResetForbiddenPro(data.forbid_profession)
-  redlog("[cup] 杯赛 console时间: ", os.date(time_format, self.consoleStartTime), os.date(time_format, self.consoleEndTime))
+  redlog("[cup] 杯赛 console时间 | 当前服务器时间: ", os.date(time_format, self.consoleStartTime), os.date(time_format, self.consoleEndTime), os.date(time_format, ServerTime.CurServerTime() / 1000))
   redlog("[cup] 组战队开始时间 | 杯赛报名开始时间 | 组战队结束时间 : ", os.date(time_format, self.warbandStartTime), os.date(time_format, self.signupStartTime), os.date(time_format, self.signupEndTime))
+  if self.preFightStartTime and self.preFightStartTime ~= 0 then
+    redlog("[cup] 杯赛预选赛 开打时间 | 第一次匹配时间 | 下一轮比赛时间 : ", os.date(time_format, self.preFightStartTime), os.date(time_format, self.preCanMatchTime), os.date(time_format, self.preNextFightTime))
+  end
   redlog("[cup] 杯赛开打时间 | 第一次匹配时间 | 下一轮比赛时间 : ", os.date(time_format, self.fightStartTime), os.date(time_format, self.canMatchTime), os.date(time_format, self.nextFightTime))
+  redlog("[cup] 杯赛是否跨服  : ", self.curSeason, self.isCrossServer)
 end
 
 function CupModeProxy:_resetForbiddenPro()
@@ -634,7 +790,7 @@ function CupModeProxy:DoQuerySeasonRank()
   if self.seasonRunning and self.seasonRank and #self.seasonRank > 0 then
     return
   end
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandSortMatchCCmd(nil, self.CupModeType)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandSortMatchCCmd(nil, self.CupModeType, self.isCrossServer)
 end
 
 function CupModeProxy:DoMemberPrepare(ready)
@@ -642,7 +798,7 @@ function CupModeProxy:DoMemberPrepare(ready)
   if self:CheckBandAuthority() then
     return
   end
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandPrepareMatchCCmd(ready, self.CupModeType)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandPrepareMatchCCmd(ready, self.CupModeType, self.isCrossServer)
 end
 
 function CupModeProxy:DoSignUp()
@@ -666,7 +822,7 @@ function CupModeProxy:DoSignUp()
     return
   end
   local confirmCallback = function()
-    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandSignUpMatchCCmd(self.CupModeType)
+    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandSignUpMatchCCmd(self.CupModeType, nil, self.isCrossServer)
   end
   if self:CheckHasInvalidPro() then
     local param = self:GetForbiddenProStr()
@@ -678,7 +834,7 @@ end
 
 function CupModeProxy:DoMatch()
   assert(self.CupModeType, "必须在实现类中赋值")
-  if TeamProxy.Instance:CheckHasDiffServerMember() then
+  if not self.isCrossServer and TeamProxy.Instance:CheckHasDiffServerMember() then
     MsgManager.ShowMsgByID(42041)
     return
   end
@@ -697,16 +853,8 @@ function CupModeProxy:DoMatch()
     MsgManager.ConfirmMsgByID(28088, nil, nil, nil, param)
     return
   end
-  ServiceMatchCCmdProxy.Instance:CallJoinRoomCCmd(self.CupModeType)
+  ServiceMatchCCmdProxy.Instance:CallJoinRoomCCmd(self.CupModeType, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, not self.isCrossServer and true or false)
   return true
-end
-
-function CupModeProxy:DoQuerySeasonRank()
-  assert(self.CupModeType, "必须在实现类中赋值")
-  if self.seasonRunning and self.seasonRank and #self.seasonRank > 0 then
-    return
-  end
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandSortMatchCCmd(nil, self.CupModeType)
 end
 
 function CupModeProxy:DoCreatWarband()
@@ -733,8 +881,8 @@ function CupModeProxy:DoCreatWarband()
     MsgManager.ShowMsgByIDTable(2604)
     return
   end
-  redlog("[cup] CallTwelveWarbandCreateMatchCCmd", self.CupModeType)
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandCreateMatchCCmd(str, self.CupModeType)
+  redlog("[cup] CallTwelveWarbandCreateMatchCCmd", self.CupModeType, self.isCrossServer)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandCreateMatchCCmd(str, self.CupModeType, self.isCrossServer)
 end
 
 function CupModeProxy:DoChangeName(name)
@@ -745,7 +893,7 @@ function CupModeProxy:DoChangeName(name)
   if not self:CheckBandAuthority() then
     return
   end
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandNameMatchCCmd(name, self.CupModeType)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandNameMatchCCmd(name, self.CupModeType, self.isCrossServer)
 end
 
 function CupModeProxy:DoLeaveWarband()
@@ -754,7 +902,7 @@ function CupModeProxy:DoLeaveWarband()
     return
   end
   MsgManager.ConfirmMsgByID(28048, function()
-    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandLeaveMatchCCmd(self.CupModeType)
+    ServiceMatchCCmdProxy.Instance:CallTwelveWarbandLeaveMatchCCmd(self.CupModeType, self.isCrossServer)
   end, nil)
 end
 
@@ -765,28 +913,33 @@ function CupModeProxy:DoKickMember(guid, name)
   end
   if self:CheckBandAuthority() and self:CheckInMyBand(guid) then
     MsgManager.ConfirmMsgByID(28047, function()
-      ServiceMatchCCmdProxy.Instance:CallTwelveWarbandDeleteMatchCCmd(guid, self.CupModeType)
+      ServiceMatchCCmdProxy.Instance:CallTwelveWarbandDeleteMatchCCmd(guid, self.CupModeType, self.isCrossServer)
     end, nil, nil, name)
   end
 end
 
+function CupModeProxy:DoDisband()
+  xdlog("取消报名")
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandSignUpMatchCCmd(self.CupModeType, true, self.isCrossServer)
+end
+
 function CupModeProxy:DoQueryBand(season, guid)
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandQueryMatchCCmd(season, guid, nil, self.CupModeType)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandQueryMatchCCmd(season, guid, nil, self.CupModeType, self.isCrossServer)
 end
 
 function CupModeProxy:DoQueryTeamList()
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandTeamListMatchCCmd(nil, self.CupModeType)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandTeamListMatchCCmd(nil, self.CupModeType, self.isCrossServer)
 end
 
 function CupModeProxy:SetOpponentStatus(treeOpen)
   if treeOpen ~= self.opponentStatus then
     self.opponentStatus = treeOpen
-    ServiceMatchCCmdProxy.Instance:CallSyncMatchBoardOpenStateMatchCCmd(treeOpen, self.CupModeType)
+    ServiceMatchCCmdProxy.Instance:CallSyncMatchBoardOpenStateMatchCCmd(treeOpen, self.CupModeType, self.isCrossServer)
   end
 end
 
 function CupModeProxy:DoCallInviter(guid, bandName, leaderName)
-  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviterMatchCCmd(guid, bandName, leaderName, nil, nil, self.CupModeType)
+  ServiceMatchCCmdProxy.Instance:CallTwelveWarbandInviterMatchCCmd(guid, bandName, leaderName, nil, nil, self.CupModeType, self.isCrossServer)
 end
 
 function CupModeProxy:DoQuerySeasonInfo()

@@ -61,3 +61,13 @@ end
 function DifficultyPathNodeCell:SetSelectState(selected)
   self.selectGO:SetActive(selected or false)
 end
+
+function DifficultyPathNodeCell:SetPos(pos)
+  if pos then
+    LuaGameObject.SetLocalPositionGO(self.gameObject, pos[1], pos[2], 0)
+  end
+end
+
+function DifficultyPathNodeCell:GetPos()
+  return self.gameObject.transform.position
+end

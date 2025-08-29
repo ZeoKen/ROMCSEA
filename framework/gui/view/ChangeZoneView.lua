@@ -88,7 +88,7 @@ function ChangeZoneView:FindObjs()
   self:PlayUIEffect(EffectMap.UI.ChangeZoneView, self.targetZoneObj, false, function(obj, args, assetEffect)
     self.targetZoneAni = obj:GetComponent(Animator)
   end)
-  if BranchMgr.IsSEA() or BranchMgr.IsNA() or BranchMgr.IsEU() or BranchMgr.IsNO() or BranchMgr.IsNOTW() then
+  if BranchMgr.IsSEA() or BranchMgr.IsNA() or BranchMgr.IsEU() or BranchMgr.IsNO() then
     self.LanguageZoneSelect = true
   else
     self.LanguageZoneSelect = false

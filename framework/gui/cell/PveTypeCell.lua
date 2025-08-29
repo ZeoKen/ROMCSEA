@@ -2,13 +2,8 @@ local baseCell = autoImport("BaseCell")
 autoImport("PveTypeGridCell")
 local _RaidTypeConfig = GameConfig.Pve.RaidType
 local _RedTipProxy, _EntranceRedTipEnum
-local _GridType = {
-  [PveRaidType.Crack] = 1,
-  [PveRaidType.Boss] = 1
-}
 local gridCellHeight = 50
 local gridCellHeightOffset = 55
-local nameFormat = "【%s】"
 PveTypeCell = class("PveTypeCell", baseCell)
 
 function PveTypeCell:Init()
@@ -311,7 +306,7 @@ end
 
 function PveTypeCell:UpdateRedtip()
   local hasRedTip = false
-  if self.data.staticEntranceData:IsCrack() or self.data.staticEntranceData:IsBoss() then
+  if self.data.staticEntranceData:IsCrack() or self.data.staticEntranceData:IsBoss() or self.data.staticEntranceData:IsMemoryRaid() then
     local cells = self.gridCtl:GetCells()
     if cells then
       for _, cell in ipairs(cells) do

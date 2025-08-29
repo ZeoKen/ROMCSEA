@@ -1,5 +1,5 @@
 RecommendScoreView = class("RecommendScoreView", ContainerView)
-RecommendScoreView.ViewType = UIViewType.ConfirmLayer
+RecommendScoreView.ViewType = UIViewType.TipLayer
 autoImport("RecommendScoreItemCell")
 
 function RecommendScoreView:Init()

@@ -2935,6 +2935,14 @@ function AdventureDataProxy:GetEquipComposeList(professionCheck, id)
       end
     end
   end
+  table.sort(composeList, function(l, r)
+    local l_type = l.staticData.Type or 9999
+    local r_type = r.staticData.Type or 9999
+    if l_type ~= r_type then
+      return l_type < r_type
+    end
+    return l.staticId < r.staticId
+  end)
   composeList = ReUniteCellData(composeList, 5)
   return composeList
 end

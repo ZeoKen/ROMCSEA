@@ -12,6 +12,7 @@ function WarbandSignupPopUp:Init()
   self:AddUIEvt()
   self:AddEvent()
   self:InitView()
+  self:InitShow()
 end
 
 function WarbandSignupPopUp:FindObj()
@@ -49,7 +50,14 @@ function WarbandSignupPopUp:FindObj()
   self.signupLab.text = ZhString.Warband_Signup_ConfirmSignUp
   self.teamScoreGO = self:FindGO("TeamScoreBg", self.root)
   if self.teamScoreGO then
-    self.teamScoreGO:SetActive(false)
+    self.teamScoreLabel = self:FindComponent("TeamScore", UILabel, self.root)
+  end
+end
+
+function WarbandSignupPopUp:InitShow()
+  if self.teamScoreGO then
+    self.teamScoreGO:SetActive(true)
+    self.teamScoreLabel.text = string.format(ZhString.CupMode_TeamScore, warbandProxy:GetTeamScore())
   end
 end
 
@@ -64,22 +72,29 @@ function WarbandSignupPopUp:AddUIEvt()
     end
   end)
   self:AddClickEvent(self.leaveBtn.gameObject, function()
-    if warbandProxy:CheckHasSignup() then
-      MsgManager.ShowMsgByID(28054)
-      return
-    end
     if self.delMode then
       MsgManager.ShowMsgByID(28051)
       return
     end
-    warbandProxy:DoLeaveWarband()
+    local isCaptain = warbandProxy:CheckBandAuthority()
+    local hasSignup = warbandProxy:CheckHasSignup()
+    if isCaptain then
+      if hasSignup then
+        warbandProxy:DoDisband()
+      else
+        warbandProxy:DoLeaveWarband()
+      end
+    elseif not hasSignup then
+      proxy:DoLeaveWarband()
+    end
   end)
   self:AddClickEvent(self.kickBtn.gameObject, function()
     if warbandProxy:CheckHasSignup() then
       MsgManager.ShowMsgByID(28054)
       return
     end
-    if warbandProxy.myWarband.memberNum <= 1 then
+    local hasSignup = warbandProxy:CheckHasSignup()
+    if warbandProxy.myWarband.memberNum <= 1 or hasSignup then
       return
     end
     self:UpdateKickModel(not self.delMode)
@@ -198,6 +213,7 @@ function WarbandSignupPopUp:UpdateView()
   self.root:SetActive(true)
   self.emptyRoot:SetActive(false)
   self.preparedBtn:SetActive(not hasAuth and not isready)
+  self.leaveBtnLab.text = hasSignup and hasAuth and ZhString.CupMode_CancelRegister or ZhString.CupMode_LeaveTeam
   self.unpreparedBtn.gameObject:SetActive(not hasAuth and isready)
   self.signupBtn.gameObject:SetActive(hasAuth and not hasSignup)
   self.hasSignupLab.gameObject:SetActive(hasSignup)
@@ -222,11 +238,18 @@ function WarbandSignupPopUp:UpdateMember()
   redlog("memberData lengthL : ", #memberData)
   self.memberCtl:ResetDatas(memberData)
   local hasSignup = warbandProxy:CheckHasSignup()
+  local signupValid = warbandProxy:CheckSignupTimeValid()
+  local isCaptain = warbandProxy:CheckBandAuthority()
   local cankick = warbandProxy.myWarband.memberNum > 1 and not hasSignup
   self.kickBtn.spriteName = cankick and BTN_SP[1] or BTN_SP[3]
   self.kickLab.effectColor = cankick and ColorUtil.ButtonLabelBlue or GRAY_LABEL_COLOR
-  self.leaveBtn.spriteName = hasSignup and BTN_SP[3] or BTN_SP[4]
-  self.leaveBtnLab.effectColor = hasSignup and GRAY_LABEL_COLOR or redOutLineColor
+  if isCaptain then
+    self.leaveBtn.spriteName = BTN_SP[4]
+    self.leaveBtnLab.effectColor = redOutLineColor
+  else
+    self.leaveBtn.spriteName = hasSignup and BTN_SP[3] or BTN_SP[4]
+    self.leaveBtnLab.effectColor = hasSignup and GRAY_LABEL_COLOR or redOutLineColor
+  end
   self.unpreparedBtn.spriteName = hasSignup and BTN_SP[3] or BTN_SP[4]
   self.UnpreparedLab.effectColor = hasSignup and GRAY_LABEL_COLOR or redOutLineColor
   local isfull = warbandProxy:CheckFull()

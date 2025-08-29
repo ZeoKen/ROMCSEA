@@ -237,11 +237,17 @@ function SceneBottomNameFactionCell:SetFaction(creature)
   local inOb = PvpObserveProxy.Instance:IsRunning()
   local isInDesertWolf = Game.MapManager:IsPvpMode_DesertWolf()
   local isInTripleTeams = Game.MapManager:IsPVPMode_3Teams()
-  if inOb and isPlayer or isInDesertWolf and (isPlayer or creatureData.id == Game.Myself.data.id) or (isPlayer or creatureData.id == Game.Myself.data.id) and isInTripleTeams then
+  local detailedType = creatureData.detailedType
+  local isTripleTeamRobot = detailedType == NpcData.NpcDetailedType.TriplePvpRobot
+  if inOb and isPlayer or isInDesertWolf and (isPlayer or creatureData.id == Game.Myself.data.id) or (isPlayer or isTripleTeamRobot or creatureData.id == Game.Myself.data.id) and isInTripleTeams then
     self:Hide(self.factionJob)
     self:Hide(self.factionIcon_)
     self.factionInfo:SetActive(false)
     local classID = creatureData:GetClassID()
+    if isTripleTeamRobot then
+      local npcId = creatureData.staticData.id
+      classID = Game.TriplePvpRobotProfessionMap[npcId]
+    end
     local classData = classID and Table_Class[classID]
     if not classData then
       return
@@ -374,21 +380,10 @@ function SceneBottomNameFactionCell:SetFaction(creature)
         self:Show(self.factionIcon)
       end
     end
-    LuaVector2.Better_Set(tempVector2, LuaGameObject.GetRectAnchoredPosition(self.factionInfoRectTrans))
-    tempVector2[1] = 0
-    self.factionInfoRectTrans.anchoredPosition = tempVector2
   else
-    LuaVector2.Better_Set(tempVector2, LuaGameObject.GetRectAnchoredPosition(self.factionInfoRectTrans))
-    local guidPositionWith = factionJobActive and self.factionJob.preferredWidth or 0
-    local guildNameWith = factionNameActive and self.factionName.preferredWidth or 0
-    local uiNameWidth = self.uiname.preferredWidth
     self:Hide(self.factionIcon)
-    local posX = -(guidPositionWith + guildNameWith - uiNameWidth) / 2
-    tempVector2[1] = posX
-    self.factionInfoRectTrans.anchoredPosition = tempVector2
     self:Hide(self.factionIcon_)
   end
-  self:RefreshFactionLayout()
 end
 
 function SceneBottomNameFactionCell:initSprite()

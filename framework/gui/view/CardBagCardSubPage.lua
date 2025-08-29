@@ -36,9 +36,8 @@ function CardBagCardSubPage:FindObjs()
   self:AddClickEvent(resetBtn, function()
     self:ResetAllChooseCards()
   end)
-  self.selectAllBtn = self:FindComponent("AllChooseBtn", UIMultiSprite)
-  self.selectAllLabel = self:FindComponent("Label", UILabel, self.selectAllBtn.gameObject)
-  self:AddClickEvent(self.selectAllBtn.gameObject, function()
+  self.selectAllBtn = self:FindGO("AllChooseBtn")
+  self:AddClickEvent(self.selectAllBtn, function()
     self:SelectAllCards()
   end)
   self.queryPriceMessage = self:FindGO("queryMessage")
@@ -84,22 +83,29 @@ function CardBagCardSubPage:GetMaxChooseCount()
 end
 
 function CardBagCardSubPage:InitSortFilter()
-  self.sortFilter = self:FindComponent("sortFilter", UIPopupList)
-  EventDelegate.Add(self.sortFilter.onChange, function()
-    self:OnSortChoose()
-  end)
-  self.sortFilter:Clear()
+  local go = self:FindGO("SortPop")
+  local panel = self:FindComponent("ScrollView", UIPanel)
+  self.sortFilter = PopupGridList.new(go, function(self, data)
+    self:OnSortChoose(self, data)
+  end, self, panel.depth + 2)
   local list = CardBagCardSubPage.SortFilter
+  local datas = {}
   for i = 1, #list do
-    self.sortFilter:AddItem(list[i], i)
+    local data = {}
+    data.index = i
+    data.text = list[i]
+    datas[i] = data
   end
-  self.sortFilter.value = list[1]
+  self.sortFilter:SetData(datas)
 end
 
 function CardBagCardSubPage:OnEnter()
 end
 
 function CardBagCardSubPage:OnExit()
+  if self.sortFilter then
+    self.sortFilter:Destroy()
+  end
 end
 
 function CardBagCardSubPage:Show()
@@ -110,13 +116,12 @@ function CardBagCardSubPage:Hide()
   self.gameObject:SetActive(false)
 end
 
-function CardBagCardSubPage:OnSortChoose()
-  if not self.sortFilter.data then
+function CardBagCardSubPage:OnSortChoose(self, data)
+  if not data then
     return
   end
-  local data = self.sortFilter.data
-  local isPrice = data == 3 or data == 4
-  local descend = data == 2 or data == 4
+  local isPrice = data.index == 3 or data.index == 4
+  local descend = data.index == 2 or data.index == 4
   CardMakeProxy.Instance:SetDecomposeSortParam(isPrice, descend)
   if isPrice then
     local queryCardList = ReusableTable.CreateArray()
@@ -322,7 +327,6 @@ function CardBagCardSubPage:RemoveChooseCard(data, removeNum)
   end
   if self.chooseAll then
     self.chooseAll = false
-    self:UpdateSelectAllBtn()
   end
 end
 
@@ -346,7 +350,6 @@ function CardBagCardSubPage:SelectAllCards()
     self:ResetAllChooseCards()
     self.chooseAll = false
   end
-  self:UpdateSelectAllBtn()
 end
 
 function CardBagCardSubPage:ResetAllChooseCards()
@@ -355,12 +358,6 @@ function CardBagCardSubPage:ResetAllChooseCards()
     self:RemoveChooseCard(itemData, 1)
   end
   self:UpdateChooseCards()
-end
-
-function CardBagCardSubPage:UpdateSelectAllBtn()
-  self.selectAllBtn.CurrentState = self.chooseAll and 1 or 0
-  local _, color = ColorUtil.TryParseHexString(self.chooseAll and "514F7B" or "FFFFFF")
-  self.selectAllLabel.color = color
 end
 
 function CardBagCardSubPage:SetConfirm(isGray)

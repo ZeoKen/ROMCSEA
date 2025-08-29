@@ -20,8 +20,8 @@ function GOManager_SceneGuildFlag:ctor()
   self.objGuildIDMap = {}
   self.refAtlases = {}
   self.lobbyFlagId = LobbyFlagID
-  self.cityMap = {}
   self.objectMap = {}
+  self.gvgPointIdMap = {}
 end
 
 function GOManager_SceneGuildFlag:Clear()
@@ -256,9 +256,33 @@ function GOManager_SceneGuildFlag:RegisterGameObject(obj)
     local guid = objID * 10000 + GenerateGuid()
     self:SetFlag(obj, guid, objID)
   else
+    self:TryCacheBaseModePointID(objID)
     self:SetFlag(obj, objID)
   end
   return true
+end
+
+function GOManager_SceneGuildFlag:TryCacheBaseModePointID(config_point_id)
+  if not config_point_id then
+    return
+  end
+  if 10 <= config_point_id and config_point_id <= 89 then
+    local point_id = config_point_id // 10
+    local map = self.gvgPointIdMap[point_id]
+    if not map then
+      map = {}
+      self.gvgPointIdMap[point_id] = map
+    end
+    map[config_point_id] = 1
+  end
+end
+
+function GOManager_SceneGuildFlag:ClearPointMap()
+  TableUtility.TableClear(self.gvgPointIdMap)
+end
+
+function GOManager_SceneGuildFlag:GetPointMap(point_id)
+  return self.gvgPointIdMap[point_id]
 end
 
 function GOManager_SceneGuildFlag:GetLobbyFlagId()
@@ -269,10 +293,18 @@ function GOManager_SceneGuildFlag:UnregisterGameObject(obj)
   if CheckFlagInvalid() then
     return true
   end
+  local guid = self.objectMap[obj]
+  self.objects[guid] = nil
+  self.objectMap[obj] = nil
+  if self.refAtlases[guid] then
+    self.refAtlases[guid]:RemoveRef()
+    self.refAtlases[guid] = nil
+  end
   if self.objGuildIDMap[obj] then
     GuildPictureManager.Instance():RemoveGuildPicRelative(self.objGuildIDMap[obj])
     self.objGuildIDMap[obj] = nil
   end
+  self.renderers[guid] = nil
   if not self:ClearFlag(obj) then
     Debug_AssertFormat(false, "UnregisterSceneGuildFlag({0}) failed: {1}", obj, obj.ID)
     return false

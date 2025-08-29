@@ -844,6 +844,24 @@ Table_ItemTypeAdventureLog = {
     Order = 14,
     RidTip = {209}
   },
+  [1118] = {
+    id = 1118,
+    Name = "##530662",
+    NameEn = "eclage",
+    icon = "",
+    type = 11,
+    Order = 17,
+    RidTip = {212}
+  },
+  [1122] = {
+    id = 1122,
+    Name = "##42635503",
+    NameEn = "sc_syzh",
+    icon = "",
+    type = 11,
+    Order = 21,
+    RidTip = {216}
+  },
   [1201] = {
     id = 1201,
     Name = "##123662",
@@ -1043,7 +1061,9 @@ Table_ItemTypeAdventureLog = {
       161,
       162,
       163,
-      164
+      164,
+      165,
+      166
     }
   },
   [10001] = {
@@ -1185,6 +1205,26 @@ Table_ItemTypeAdventureLog = {
     RidTip = {1013},
     MenuID = 265
   },
+  [20017] = {
+    id = 20017,
+    Name = "##530662",
+    NameEn = "",
+    icon = "",
+    type = 6,
+    Order = 17,
+    RidTip = {1015},
+    MenuID = 268
+  },
+  [20021] = {
+    id = 20021,
+    Name = "##42635503",
+    NameEn = "",
+    icon = "",
+    type = 6,
+    Order = 21,
+    RidTip = {1019},
+    MenuID = 272
+  },
   [20100] = {
     id = 20100,
     Name = "##137647",
@@ -1324,6 +1364,26 @@ Table_ItemTypeAdventureLog = {
     RidTip = {1064},
     MenuID = 265
   },
+  [30017] = {
+    id = 30017,
+    Name = "##530662",
+    NameEn = "",
+    icon = "",
+    type = 7,
+    Order = 17,
+    RidTip = {1067},
+    MenuID = 268
+  },
+  [30021] = {
+    id = 30021,
+    Name = "##42635503",
+    NameEn = "",
+    icon = "",
+    type = 7,
+    Order = 21,
+    RidTip = {1071},
+    MenuID = 272
+  },
   [30100] = {
     id = 30100,
     Name = "##137647",
@@ -1352,6 +1412,16 @@ Table_ItemTypeAdventureLog = {
     Order = 11,
     RidTip = _EmptyTable,
     MenuID = 262
+  },
+  [40017] = {
+    id = 40017,
+    Name = "##530662",
+    NameEn = "",
+    icon = "",
+    type = 21,
+    Order = 17,
+    RidTip = _EmptyTable,
+    MenuID = 268
   },
   [50000] = {
     id = 50000,

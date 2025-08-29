@@ -46,10 +46,10 @@ function SecretLandGemOptionalPage:Init()
 end
 
 function SecretLandGemOptionalPage:AddViewEvts()
-  self:AddListenEvt(ItemEvent.ItemUpdate, self.HandItemUpdate)
-  self:AddListenEvt(MyselfEvent.ZenyChange, self.HandItemUpdate)
-  self:AddListenEvt(ServiceEvent.ItemSecretLandGemCmd, self.UpdateResult)
-  self:AddListenEvt(ItemEvent.GemUpdate, self.HandleUpdateGem)
+  self:AddDispatcherEvt(ItemEvent.ItemUpdate, self.HandItemUpdate)
+  self:AddDispatcherEvt(MyselfEvent.ZenyChange, self.HandItemUpdate)
+  self:AddDispatcherEvt(ServiceEvent.ItemSecretLandGemCmd, self.UpdateResult)
+  self:AddDispatcherEvt(ItemEvent.GemUpdate, self.HandleUpdateGem)
 end
 
 function SecretLandGemOptionalPage:UpdateByType(color)

@@ -111,7 +111,6 @@ function TwelvePvPProxy:Init()
   self.taskDataMap = {}
   self.taskDataList = {}
   self.staticTowerIds = {}
-  self:_InitTaskDatas()
 end
 
 function TwelvePvPProxy:Reset()
@@ -199,6 +198,9 @@ function TwelvePvPProxy:_InitTaskDatas()
 end
 
 function TwelvePvPProxy:_ResetTaskData()
+  if nil == next(self.taskDataMap) then
+    self:_InitTaskDatas()
+  end
   for _, v in pairs(self.taskDataMap) do
     v:Reset()
   end
@@ -592,6 +594,9 @@ function TwelvePvPProxy:Is12pvp(t)
 end
 
 function TwelvePvPProxy:GetTaskDatas()
+  if nil == next(self.taskDataMap) then
+    self:_InitTaskDatas()
+  end
   _ArrayClear(self.taskDataList)
   TableUtil.HashToArray(self.taskDataMap, self.taskDataList)
   table.sort(self.taskDataList, function(l, r)

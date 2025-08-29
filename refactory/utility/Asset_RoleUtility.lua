@@ -222,7 +222,8 @@ local fashionPreviewDoubleHandProfession = {
   [173] = 1,
   [174] = 3,
   [175] = 3,
-  [625] = 1
+  [625] = 1,
+  [785] = 1
 }
 local HeinrichWeaponType = {Sword = 1, Knife = 1}
 

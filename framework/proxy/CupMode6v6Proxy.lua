@@ -48,3 +48,7 @@ function CupMode6v6Proxy:CheckMatchValid()
     return results
   end
 end
+
+function CupMode6v6Proxy:CheckHasPreRound()
+  return true
+end

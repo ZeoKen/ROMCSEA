@@ -135,13 +135,16 @@ function GemPage:Update(isFirst, isNewPageVersion)
       if cell.data then
         cell:PlayEmbedSuccessEffect(self.frontEffectContainer)
       elseif isNewPageVersion then
-        cell:PlaySkillValidEffect(self.frontEffectContainer, true)
+        cell:PlaySkillValidEffect(self.frontEffectContainer)
       end
     end)
   else
     self:GetChangedCellIdsOfEmbeddedItemDatas()
     self:CreateOnceDelayTick(400, function()
       self:_Update()
+      self:_ForEachSkillCell(function(_, cell)
+        self:TryDelayedPlaySkillValidEffects(cell, 0)
+      end)
       local removedCell, count
       for _, cellId in pairs(self.removedCellIds) do
         removedCell = self.skillCellMap[cellId] or self.attrCellMap[cellId]
@@ -154,7 +157,7 @@ function GemPage:Update(isFirst, isNewPageVersion)
       end
       for _, cellId in pairs(self.addedOrUpdatedCellIds) do
         if GemProxy.CheckIsGemPageSkillCellId(cellId) then
-          self:TryDelayedPlaySkillValidEffects(self.skillCellMap[cellId])
+          self:TryDelayedPlaySkillValidEffects(self.skillCellMap[cellId], nil, true)
         elseif GemProxy.CheckIsGemPageAttributeCellId(cellId) then
           self:_ForEachNeighborOfCell(self.attrCellMap[cellId], self.TryDelayedPlaySkillValidEffects, self)
         end
@@ -289,21 +292,44 @@ function GemPage:UpdateSkillCells()
   end)
 end
 
-function GemPage:TryDelayedPlaySkillValidEffects(skillCell, delay)
+function GemPage:TryDelayedPlaySkillValidEffects(skillCell, delay, forcePlay)
   if not skillCell then
     return
   end
   delay = delay or 800
-  if not (skillCell.data and GemProxy.CheckContainsGemSkillData(skillCell.data)) or not self.pageData:CheckIsSkillEffectValid(skillCell.data.id) then
+  if not skillCell.data or not GemProxy.CheckContainsGemSkillData(skillCell.data) then
+    self:DestroyValidEffectsOfCell(skillCell)
+    return
+  end
+  local needTypes = skillCell.data.gemSkillData.needAttributeGemTypes
+  if not needTypes then
+    self:DestroyValidEffectsOfCell(skillCell)
+    return
+  end
+  local sculptData = skillCell.data.gemSkillData:GetSculptData()
+  local sculptPos = sculptData and sculptData[1] and sculptData[1].pos
+  local allActive = true
+  for i = 1, #needTypes do
+    if not sculptPos or sculptPos ~= i then
+      local needType = needTypes[i]
+      if needType ~= 0 and not self.pageData:CheckAttrGemActive(needType) then
+        allActive = false
+        break
+      end
+    end
+  end
+  if not allActive then
     self:DestroyValidEffectsOfCell(skillCell)
     return
   end
   local pathKeyArrId = self:_GetNewTempReusableArrayId()
   self:CreateOnceDelayTick(delay, function()
-    skillCell:PlaySkillValidEffect(self.frontEffectContainer)
+    skillCell:PlaySkillValidEffect(self.frontEffectContainer, forcePlay)
     self:_ForEachNeighborOfCell(skillCell, function(self, neighbor)
-      neighbor:PlaySkillValidEffect(self.frontEffectContainer)
-      TableUtility.ArrayPushBack(tempReusableArrayMap[pathKeyArrId], GemPage.GetPathKey(neighbor.id, skillCell.id))
+      if neighbor.data and neighbor.data.gemAttrData then
+        neighbor:PlaySkillValidEffect(self.frontEffectContainer)
+        TableUtility.ArrayPushBack(tempReusableArrayMap[pathKeyArrId], GemPage.GetPathKey(neighbor.id, skillCell.id))
+      end
     end, self)
   end)
   self:CreateOnceDelayTick(3000 + delay, function()

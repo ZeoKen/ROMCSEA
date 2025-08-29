@@ -19,6 +19,7 @@ function ItemConfirmView:FindObjs()
   self.scrollView = self:FindGO("Scroll View"):GetComponent(UIScrollView)
   self.grid = self:FindGO("ItemGrid"):GetComponent(UIGrid)
   self.itemCtrl = UIGridListCtrl.new(self.grid, BagItemCell, "BagItemCell")
+  self.noneTip = self:FindGO("NoneTip")
   self:AddButtonEvent("ConfirmBtn", function(go)
     self:DoConfirm()
     self:CloseSelf()
@@ -70,14 +71,15 @@ function ItemConfirmView:FillContent(text)
   else
     self.contentLabel.pivot = UIWidget.Pivot.Center
   end
-  items = self.viewdata.items
-  if item and #items >= 6 then
+  items = self.viewdata.items or {}
+  if items and #items >= 6 then
     self.scrollView.contentPivot = UIWidget.Pivot.Left
   else
     self.scrollView.contentPivot = UIWidget.Pivot.Center
   end
   self.itemCtrl:ResetDatas(items)
   self.scrollView:ResetPosition()
+  self.noneTip:SetActive(#items == 0)
 end
 
 function ItemConfirmView:FillButton()

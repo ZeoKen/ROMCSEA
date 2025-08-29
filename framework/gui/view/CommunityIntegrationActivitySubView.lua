@@ -50,8 +50,24 @@ function CommunityIntegrationActivitySubView:FindObjs()
   self.gameObject = self:FindGO("CommunityIntegrationActivitySubView")
   self.showType = 1
   for i = 1, 4 do
-    self["Root" .. i] = self:FindGO("Root" .. i, self.gameObject)
-    self["Root" .. i]:SetActive(self.showType == i)
+    local targetRoot = self:FindGO("Root" .. i, self.gameObject)
+    if targetRoot then
+      targetRoot:SetActive(i == self.showType)
+      if i == self.showType then
+        self.curRoot = targetRoot
+      end
+    elseif i == self.showType then
+      local rootGO = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UIPart("ActivityIntegrationPreview_Root" .. self.showType))
+      rootGO.name = "Root" .. i
+      rootGO.transform:SetParent(self.gameObject.transform, false)
+      rootGO:SetActive(true)
+      self.curRoot = rootGO
+      local upPanel = Game.GameObjectUtil:FindCompInParents(self.gameObject, UIPanel)
+      local panels = rootGO:GetComponentsInChildren(UIPanel)
+      for i = 1, #panels do
+        panels[i].depth = upPanel.depth + panels[i].depth
+      end
+    end
   end
   self.curRoot = self["Root" .. self.showType]
   self.helpBtn = self:FindGO("HelpBtn", self.curRoot)

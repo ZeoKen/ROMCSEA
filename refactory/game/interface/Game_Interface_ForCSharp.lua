@@ -265,12 +265,16 @@ function Game.Input_JoyStickEnd()
   Game.GameHealthProtector:OnInputJoyStickEnd()
 end
 
-function Game.PQTL_Action_CMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, need_result, reference_param, simple_blend_info)
-  PlotStoryTimeLineWrapper.ProcessCMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, need_result, reference_param, simple_blend_info)
+function Game.PQTL_Action_CMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, need_result, reference_param, simple_blend_info, ff_pct, ff_time)
+  PlotStoryTimeLineWrapper.ProcessCMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, need_result, reference_param, simple_blend_info, ff_pct, ff_time)
 end
 
 function Game.PQTL_Action_Preload_CMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, reference_param)
   PlotStoryTimeLineWrapper.ProcessPreloadCMD(pqtl_id, caster, trigger_type, action_type, param_keys, param_values, reference_param)
+end
+
+function Game.PQTL_Get_ExtraParam_CMD(pqtl_id, caster, key)
+  return PlotStoryTimeLineWrapper.ProcessGetExtraParamCMD(pqtl_id, caster, key)
 end
 
 function Game.CSNotify_PQTLP_Start(pqtl_id, timeline_param_keys, timeline_param_values)

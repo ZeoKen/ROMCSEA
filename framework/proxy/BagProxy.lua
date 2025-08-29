@@ -34,7 +34,11 @@ BagProxy.BagType = {
   Memory = SceneItem_pb.EPACKTYPE_MEMORY,
   SpecialFashion = SceneItem_pb.EPACKTYPE_SPECIAL_FASHION
 }
-BagEquipType = {Equip = 1, ViceEquip = 2}
+BagEquipType = {
+  Equip = 1,
+  ViceEquip = 2,
+  EquipMemory = 3
+}
 BagProxy.ItemTypeGroup = {Card = 2}
 BagProxy.EquipUpgrade_RefreshBagType = {
   [1] = 1,

@@ -134,7 +134,9 @@ function ShopItemInfoCell:Confirm()
 end
 
 function ShopItemInfoCell:Cancel()
-  self.gameObject:SetActive(false)
+  if not Slua.IsNull(self.gameObject) then
+    self.gameObject:SetActive(false)
+  end
 end
 
 function ShopItemInfoCell:PlusPressCount(isPressed)

@@ -5,10 +5,7 @@ NSceneNpcProxy.NAME = "NSceneNpcProxy"
 local tmpArray = {}
 local tempPos = LuaVector3.Zero()
 local _SqrDistance = LuaVector3.Distance_Square
-local TrapNpcID = {}
-for i = 1, #GameConfig.TrapNpcID do
-  TrapNpcID[GameConfig.TrapNpcID[i]] = 1
-end
+local TrapNpcID
 
 function NSceneNpcProxy:ctor(proxyName, data)
   self:CountClear()
@@ -247,6 +244,12 @@ local tmpNpcs = {}
 
 function NSceneNpcProxy:PureAddSome(datas)
   local data
+  if not TrapNpcID then
+    TrapNpcID = {}
+    for i = 1, #GameConfig.TrapNpcID do
+      TrapNpcID[GameConfig.TrapNpcID[i]] = 1
+    end
+  end
   for i = 1, #datas do
     data = datas[i]
     if data ~= nil then

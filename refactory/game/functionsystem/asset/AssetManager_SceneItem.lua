@@ -7,7 +7,9 @@ local ListItemId = {
   4,
   5,
   6,
-  7
+  7,
+  10,
+  11
 }
 local GetFromSceneDropPool = GOLuaPoolManager.GetFromSceneDropPool
 local AddToSceneDropPool = GOLuaPoolManager.AddToSceneDropPool
@@ -185,4 +187,8 @@ function AssetManager_SceneItem:Update(time, deltaTime)
       table.remove(self.sceneDropQueue, 1)
     end
   end
+end
+
+function AssetManager_SceneItem:LoadItemAsync(assetName, goType, callback, callBackOwner, custom)
+  self.assetManager:LoadAssetAsync(ResourcePathHelper.Item(assetName), goType, callback, callBackOwner, custom)
 end

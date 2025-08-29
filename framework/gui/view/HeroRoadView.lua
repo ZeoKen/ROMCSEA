@@ -1,46 +1,14 @@
-autoImport("HeroRoadDiffPathSmallNodeCell")
-autoImport("HeroRoadDiffPathBigNodeCell")
-autoImport("HeroRoadDiffNodePicCell")
 autoImport("HeroRoadPicPopUp")
+autoImport("HeroRoadSubPage")
 HeroRoadView = class("HeroRoadView", SubView)
 local Prefab_Path = ResourcePathHelper.UIView("HeroRoadView")
-local NodeType = {
-  Small = 1,
-  Big = 2,
-  Spec = 3
-}
-local NodeTypeCell = {
-  [NodeType.Small] = {
-    class = HeroRoadDiffPathSmallNodeCell,
-    prefab = "HeroRoadDiffPathSmallNodeCell"
-  },
-  [NodeType.Big] = {
-    class = HeroRoadDiffPathBigNodeCell,
-    prefab = "HeroRoadDiffPathBigNodeCell"
-  },
-  [NodeType.Spec] = {
-    class = HeroRoadDiffPathBigNodeCell,
-    prefab = "HeroRoadDiffPathSpecNodeCell"
-  }
-}
-local NodeTypePicCell = {
-  [NodeType.Big] = {
-    class = HeroRoadDiffNodePicCell,
-    prefab = "HeroRoadDiffNodePicCell"
-  },
-  [NodeType.Spec] = {
-    class = HeroRoadDiffNodeSpecPicCell,
-    prefab = "HeroRoadDiffNodeSpecPicCell"
-  }
-}
-local MoneyId = 752000
 local DetailViewEvent_CloseDetail = "DetailViewEvent_CloseDetail"
-local ScrollTexName = "hero3_bg_01s"
-local LinksTexName = "hero3_bg_02"
-local LogoName = "hero3_logo"
+HeroRoad_OnDiffNodeClick = "HeroRoad_OnDiffNodeClick"
+HeroRoad_OnBgClick = "HeroRoad_OnBgClick"
 
 function HeroRoadView:Init(param)
-  self.groupId = param
+  self.viewMap = {}
+  self.shopMoney = {}
   self:LoadPrefab()
   self:FindObjs()
 end
@@ -49,57 +17,15 @@ function HeroRoadView:LoadPrefab()
   local obj = self:LoadPreferb_ByFullPath(Prefab_Path, self.container.heroRoadViewRoot, true)
   obj.name = "HeroRoadView"
   self.gameObject = obj
+  self.trans = obj.transform
 end
 
 function HeroRoadView:FindObjs()
   self:AddButtonEvent("HeroRoadCloseBtn", function()
     self.container:CloseSelf()
   end)
-  self.root = self:FindGO("Root")
-  local diffNodeContainer = self:FindGO("DiffNodeContainer")
-  self.diffList = {}
-  self.diffPicList = {}
-  local diffs = PveEntranceProxy.Instance:GetDifficultyData(self.groupId)
-  for i = 1, #diffs do
-    if diffs[i] ~= PveEntranceProxy.EmptyDiff then
-      local parent = self:FindGO("Node_" .. i)
-      if parent then
-        local id = diffs[i].id
-        local config = Table_HeroJourneyNode[id]
-        if config then
-          local info = NodeTypeCell[config.Type]
-          local class = info and info.class
-          local prefab = info and info.prefab
-          if class and prefab then
-            self.diffList[i] = class.new(prefab, parent)
-            self.diffList[i]:AddEventListener(MouseEvent.MouseClick, self.OnDiffNodeClick, self)
-          end
-          if not StringUtil.IsEmpty(config.Picture) then
-            local picParent = self:FindGO("Pic_" .. i)
-            if picParent then
-              info = NodeTypePicCell[config.Type]
-              class = info and info.class
-              prefab = info and info.prefab
-              if class and prefab then
-                self.diffPicList[i] = class.new(prefab, picParent)
-                self.diffPicList[i]:AddEventListener(MouseEvent.MouseClick, self.OnNodePicClick, self)
-              end
-            end
-          end
-        end
-        if i == 2 then
-          self.scrollPivotPos = self.root.transform:InverseTransformPoint(parent.transform.position)
-        end
-      end
-    end
-  end
+  self.pageRoot = self:FindGO("PageRoot")
   self.detailPanel = self:FindGO("DetailPanel")
-  local dragScrollView = self:FindGO("ItemDragScrollView")
-  self:AddClickEvent(dragScrollView, function()
-    if self.detailView then
-      self.detailView:Hide()
-    end
-  end)
   self.shopBtn = self:FindGO("ShopBtn")
   self.shopLabel = self:FindComponent("Label", UILabel, self.shopBtn)
   self:AddClickEvent(self.shopBtn, function()
@@ -108,76 +34,58 @@ function HeroRoadView:FindObjs()
   self.moneyLabel = self:FindComponent("MoneyLabel", UILabel)
   self.moneyIcon = self:FindComponent("MoneyIcon", UISprite)
   self.remainFreeLabel = self:FindComponent("RemainFree", UILabel)
-  self.scrollTex = self:FindComponent("ScrollTex", UITexture)
-  self.nodeScrollView = self:FindComponent("DiffNodeScrollView", UIScrollView)
-  
-  function self.nodeScrollView.onDragStarted()
-    self.isScrollMoving = true
-    self.nodeScrollPos = self.nodeScrollView.transform.localPosition
-  end
-  
-  function self.nodeScrollView.onStoppedMoving()
-    self.isScrollMoving = false
-  end
-  
-  self.bgScrollView = self:FindComponent("BgScrollView", UIScrollView)
-  self.scrollViewBias = self.nodeScrollView.transform.localPosition.x - self.bgScrollView.transform.localPosition.x
-  self.linksTex = self:FindComponent("Links", UITexture)
   self.nameLabel = self:FindComponent("NameLabel", UILabel)
   self.helpBtn = self:FindGO("HelpTip")
-  if diffs[1] and diffs[1] ~= PveEntranceProxy.EmptyDiff then
-    self:RegistShowGeneralHelpByHelpID(diffs[1].staticEntranceData.staticData.HelpID, self.helpBtn)
-  end
-  self.logoTex = self:FindComponent("Logo", UITexture)
+  self:AddClickEvent(self.helpBtn, function()
+    self:OnHelpBtnClick()
+  end)
 end
 
 function HeroRoadView:OnEnter()
-  PictureManager.Instance:SetHeroRoadTexture(ScrollTexName, self.scrollTex)
-  PictureManager.Instance:SetHeroRoadTexture(LinksTexName, self.linksTex)
-  PictureManager.Instance:SetHeroRoadTexture(LogoName, self.logoTex)
-  self:RefreshView()
-  self:AddMonoUpdateFunction(self.Update)
+  HeroRoadView.super.OnEnter(self)
 end
 
 function HeroRoadView:OnExit()
-  PictureManager.Instance:UnloadHeroRoadTexture(ScrollTexName, self.scrollTex)
-  PictureManager.Instance:UnloadHeroRoadTexture(LinksTexName, self.linksTex)
-  PictureManager.Instance:UnloadHeroRoadTexture(LogoName, self.logoTex)
-  self:ClearDiffNodeList(self.diffList)
-  self:ClearDiffNodeList(self.diffPicList)
-  self:RemoveMonoUpdateFunction()
+  HeroRoadView.super.OnExit(self)
 end
 
-function HeroRoadView:RefreshView()
-  local diffs = PveEntranceProxy.Instance:GetDifficultyData(self.groupId)
-  for i = 1, #diffs do
-    if diffs[i] ~= PveEntranceProxy.EmptyDiff then
-      local data = {}
-      data.pvePassInfo = diffs[i]
-      data.level = i
-      data.isUnlocked = diffs[i].open or false
-      if self.diffList[i] then
-        self.diffList[i]:SetData(data)
-      end
-      if self.diffPicList[i] then
-        self.diffPicList[i]:SetData(data)
-      end
+function HeroRoadView:RefreshView(groupId)
+  if groupId then
+    if not self.viewMap[groupId] then
+      redlog("HeroRoadView:RefreshView", groupId, tostring(self.onEnterCalled))
+      local subPage = self:AddSubView(groupId, HeroRoadSubPage, {
+        parent = self.pageRoot.transform,
+        groupId = groupId
+      })
+      subPage:AddEventListener(HeroRoad_OnDiffNodeClick, self.OnDiffNodeClick, self)
+      subPage:AddEventListener(HeroRoad_OnBgClick, self.OnDragScrollClick, self)
     end
+    if self.curGroupId ~= groupId then
+      local curPage = self.viewMap[self.curGroupId]
+      if curPage then
+        curPage:Hide()
+      end
+      if self.detailView and self.detailView:IsShow() then
+        self.detailView:Hide()
+        if self.curNodeCell then
+          self.curNodeCell:SetSelectState(false)
+          self.curNodeCell = nil
+        end
+      end
+      self.curGroupId = groupId
+      self.viewMap[groupId]:Show()
+    end
+    self.viewMap[groupId]:RefreshView()
   end
   if self.curNodeCell then
     self.detailView:RefreshView(self.curNodeCell.data)
-  else
-    local pvePassInfo = self.diffList[1].pvePassInfo
-    local shop_id, shop_type = pvePassInfo.staticEntranceData.shopid, pvePassInfo.staticEntranceData.shoptype
-    HappyShopProxy.Instance:InitShop(nil, shop_id, shop_type)
   end
-  IconManager:SetItemIconById(MoneyId, self.moneyIcon)
-  self:RefreshMoney()
-  self.shopLabel.text = self:IsShopSoldOut() and ZhString.HappyShop_SoldOut or ZhString.HappyShop_Title
-  if diffs[1] and diffs[1] ~= PveEntranceProxy.EmptyDiff then
-    local staticData = diffs[1].staticEntranceData.staticData
+  local diffs = PveEntranceProxy.Instance:GetDifficultyData(groupId)
+  local pvePassInfo = diffs[1]
+  if pvePassInfo and pvePassInfo ~= PveEntranceProxy.EmptyDiff then
+    local staticData = pvePassInfo.staticEntranceData.staticData
     local totalFreePassCount = staticData.FreeBattleTimeCount
-    local curPassCount = diffs[1]:GetPassTime()
+    local curPassCount = pvePassInfo:GetPassTime()
     local remainFreePassCount = math.max(totalFreePassCount - curPassCount, 0)
     local str = "%s/%s"
     if remainFreePassCount == 0 then
@@ -186,95 +94,75 @@ function HeroRoadView:RefreshView()
     str = string.format(str, remainFreePassCount, totalFreePassCount)
     self.remainFreeLabel.text = string.format(ZhString.HeroRoad_RemainFreeCount, str)
     self.nameLabel.text = staticData.Name
+    local shop_id, shop_type = pvePassInfo.staticEntranceData.shopid, pvePassInfo.staticEntranceData.shoptype
+    HappyShopProxy.Instance:InitShop(nil, shop_id, shop_type)
+    local moneyId = self.shopMoney[groupId]
+    if not moneyId then
+      local npcFunc = Table_NpcFunction[shop_type]
+      moneyId = npcFunc and npcFunc.Parama and npcFunc.Parama.ItemID and npcFunc.Parama.ItemID[1]
+      self.shopMoney[groupId] = moneyId
+    end
+    if moneyId then
+      IconManager:SetItemIconById(moneyId, self.moneyIcon)
+      self:RefreshMoney()
+      self.shopLabel.text = self:IsShopSoldOut() and ZhString.HappyShop_SoldOut or ZhString.HappyShop_Title
+    end
   end
 end
 
 function HeroRoadView:RefreshMoney()
-  local num = HappyShopProxy.Instance:GetItemNum(MoneyId)
-  self.moneyLabel.text = StringUtil.NumThousandFormat(num)
+  local moneyId = self.shopMoney[self.curGroupId]
+  if moneyId then
+    local num = HappyShopProxy.Instance:GetItemNum(moneyId)
+    self.moneyLabel.text = StringUtil.NumThousandFormat(num)
+  end
 end
 
 function HeroRoadView:OnDiffNodeClick(cell)
   self.curNodeCell = cell
-  cell:SetSelectState(true)
-  for i = 1, #self.diffList do
-    if self.diffList[i] and self.diffList[i] ~= cell then
-      self.diffList[i]:SetSelectState(false)
-    end
-  end
   if not self.detailView then
     self.detailView = HeroRoadDetailView.new(self.detailPanel)
     self.detailView:AddEventListener(DetailViewEvent_CloseDetail, self.OnDetailPanelClose, self)
   end
   self.detailView:Show()
   self.detailView:RefreshView(cell.data)
-  FunctionPve.Me():SetCurPve(cell.pvePassInfo.staticEntranceData)
-  self:TryScrollToPivot()
+end
+
+function HeroRoadView:OnDragScrollClick()
+  if self.detailView then
+    self.detailView:Hide()
+  end
 end
 
 function HeroRoadView:OnDetailPanelClose()
   if self.curNodeCell then
     self.curNodeCell:SetSelectState(false)
     self.curNodeCell = nil
-    self.nodeScrollView:InvalidateBounds()
-    self.nodeScrollView:RestrictWithinBounds(false)
-  end
-end
-
-function HeroRoadView:OnNodePicClick(cell)
-  self.nodeScrollView:DisableSpring()
-  if cell.pvePassInfo:CheckAccPass() then
-    self:sendNotification(UIEvent.JumpPanel, {
-      view = PanelConfig.HeroRoadPicPopUp,
-      viewdata = cell.id
-    })
-  else
-    local levelStr = DifficultyPathNodeCell.LevelIndex[cell.level]
-    local name = cell.name or ""
-    local param = string.format("[%s %s]", levelStr, name)
-    MsgManager.ShowMsgByID(43544, param)
+    if self.viewMap[self.curGroupId] then
+      self.viewMap[self.curGroupId]:InvalidateNodeScrollBounds()
+    end
   end
 end
 
 function HeroRoadView:OnShopBtnClick()
-  if #self.diffList > 0 then
-    local pvePassInfo = self.diffList[1].pvePassInfo
+  local diffs = PveEntranceProxy.Instance:GetDifficultyData(self.curGroupId)
+  if 0 < #diffs then
+    local pvePassInfo = diffs[1]
     if not pvePassInfo or not pvePassInfo.staticEntranceData:HasShopConfig() then
       return
     end
     local shop_id, shop_type = pvePassInfo.staticEntranceData.shopid, pvePassInfo.staticEntranceData.shoptype
     HappyShopProxy.Instance:InitShop(nil, shop_id, shop_type)
-    local groupId = pvePassInfo.staticEntranceData.groupid
     local endCall = function()
       GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
         view = PanelConfig.PveView,
-        viewdata = {initialGroupId = groupId}
+        viewdata = {
+          initialGroupId = self.curGroupId
+        }
       })
     end
     FunctionNpcFunc.JumpPanel(PanelConfig.HappyShop, {onExit = endCall})
   end
-end
-
-local ScrollTime = 0.5
-
-function HeroRoadView:TryScrollToPivot()
-  local curNodePos = self.root.transform:InverseTransformPoint(self.curNodeCell.trans.position)
-  self.nodeScrollView:DisableSpring()
-  self.isScrollMoving = true
-  self.nodeScrollPos = self.nodeScrollView.transform.localPosition
-  self.targetRelative = self.scrollPivotPos.x - curNodePos.x
-  self.scrollSpeed = self.targetRelative / ScrollTime
-  self.totalRelative = 0
-end
-
-function HeroRoadView:ClearDiffNodeList(list)
-  for _, cell in pairs(list) do
-    if cell.OnCellDestroy and type(cell.OnCellDestroy) == "function" then
-      cell:OnCellDestroy()
-    end
-    TableUtility.TableClear(cell)
-  end
-  TableUtility.TableClear(list)
 end
 
 function HeroRoadView:HandleMyDataChange()
@@ -287,8 +175,9 @@ end
 
 function HeroRoadView:IsShopSoldOut()
   local totalCost = 0
-  if self.diffList[1] then
-    local pvePassInfo = self.diffList[1].pvePassInfo
+  local diffs = PveEntranceProxy.Instance:GetDifficultyData(self.curGroupId)
+  local pvePassInfo = diffs[1]
+  if pvePassInfo then
     local shop_id, shop_type = pvePassInfo.staticEntranceData.shopid, pvePassInfo.staticEntranceData.shoptype
     local costList = HappyShopProxy.Instance:GetTotalCost(shop_type, shop_id)
     for _, cost in pairs(costList) do
@@ -298,28 +187,14 @@ function HeroRoadView:IsShopSoldOut()
   return totalCost == 0
 end
 
-local BgScrollMaxX = 155
-local BgScrollMinX = -1041
-
-function HeroRoadView:Update(time, deltaTime)
-  if self.scrollSpeed then
-    local relativePerUpdate = self.scrollSpeed * deltaTime
-    local relative = LuaGeometry.GetTempVector3(relativePerUpdate, 0, 0)
-    self.nodeScrollView:MoveRelative(relative)
-    self.isScrollMoving = true
-    self.totalRelative = self.totalRelative + relativePerUpdate
-    if math.abs(self.totalRelative) >= math.abs(self.targetRelative) then
-      self.scrollSpeed = nil
+function HeroRoadView:OnHelpBtnClick()
+  local diffs = PveEntranceProxy.Instance:GetDifficultyData(self.curGroupId)
+  if diffs[1] and diffs[1] ~= PveEntranceProxy.EmptyDiff then
+    local staticData = Table_Help[diffs[1].staticEntranceData.staticData.HelpID]
+    if staticData then
+      TipsView.Me():ShowGeneralHelp(staticData.Desc, staticData.Title)
     end
   end
-  if not self.isScrollMoving then
-    return
-  end
-  local relative = self.nodeScrollView.transform.localPosition - self.nodeScrollPos
-  local x = math.clamp(self.bgScrollView.transform.localPosition.x + relative.x, BgScrollMinX, BgScrollMaxX)
-  relative.x = x - self.bgScrollView.transform.localPosition.x
-  self.bgScrollView:MoveRelative(relative)
-  self.nodeScrollPos = self.nodeScrollView.transform.localPosition
 end
 
 autoImport("HeroRoadAchievementCell")

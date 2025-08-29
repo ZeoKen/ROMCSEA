@@ -9,7 +9,8 @@ local SortableKeys = {
   [7] = "heal",
   [8] = "occupynum",
   [9] = "occupytime",
-  [10] = "metaldamage"
+  [10] = "metaldamage",
+  [11] = "mvp_damage"
 }
 GvgStatData.SortableKeys = SortableKeys
 
@@ -34,6 +35,7 @@ function GvgStatData:SetServerData(serverData)
   self.helpnum = serverData.helpnum
   self.expelnum = serverData.expelnum
   self.damage = serverData.damage
+  self.mvp_damage = serverData.mvp_damage
 end
 
 function GvgStatData:IsEmpty()

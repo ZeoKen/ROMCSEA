@@ -2,6 +2,7 @@ autoImport("BossComposeCardCell")
 autoImport("BossCardComposeMaterialCell")
 BossCardComposeNewPage = class("BossCardComposeNewPage", SubView)
 local maxCount = GameConfig.Card.exchangecard_boss
+local maxComposeNum = 100
 local skipType = SKIPTYPE.BossCardCompose
 local Prefab_Path = ResourcePathHelper.UIView("BossCardComposeNewPage")
 local BgName = "preview_bg_figure_03"
@@ -11,7 +12,7 @@ function BossCardComposeNewPage:Init(initParam)
   CardMakeProxy.Instance:SetChoose(chooseData)
   self.tipData = {}
   self.tipData.funcConfig = {}
-  self.npcId = self.viewdata.viewdata.npcdata.data.id
+  self.npcId = self.viewdata.viewdata and self.viewdata.viewdata.npcdata and self.viewdata.viewdata.npcdata.data.id
   self.tabIndex = initParam
   self.skipType = skipType
   self.composeNum = 1
@@ -176,7 +177,8 @@ function BossCardComposeNewPage:UpdateRemainInfo()
   if count < 0 then
     count = 0
   end
-  self.remainLabel.text = count .. "/" .. maxCount
+  redlog("BossCardComposeNewPage:UpdateRemainInfo", count, maxCount)
+  self.remainLabel.text = string.format(ZhString.CardMake_RandomRemainTip, count, maxCount)
 end
 
 function BossCardComposeNewPage:UpdateConfirmBtn()
@@ -270,7 +272,7 @@ function BossCardComposeNewPage:UpdateComposeNum()
     end
   end
   self.composeNum = math.min(count, self.composeNum)
-  self.composeNum = math.max(1, self.composeNum)
+  self.composeNum = math.clamp(self.composeNum, 1, maxComposeNum)
   self.composeNumLabel.text = self.composeNum
 end
 

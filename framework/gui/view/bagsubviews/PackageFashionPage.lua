@@ -21,6 +21,11 @@ local Config_BarrowTransform = {
   eulerAngles_z = 0,
   Scale = 1
 }
+local TabIndex = {
+  FashionTab = 1,
+  SkillEffectTab = 2,
+  RewardEffectTab = 3
+}
 local invisibleComponent = 10000
 local Fashion2AdvFashionTab, AdvFashion2FashionHideType, myselfIns, curEquippedWeaponItemType
 local _ItemPB = SceneItem_pb
@@ -276,43 +281,55 @@ function PackageFashionPage:AddEvts()
   end)
 end
 
-function PackageFashionPage:SwitchFashionTab(show)
-  self.itemlist.gameObject:SetActive(show)
-  self.fashionBg:SetActive(show)
-  self.objBtnEmoji:SetActive(show)
-  if show then
+function PackageFashionPage:SwitchFashionTab(tabIndex)
+  self.itemlist.gameObject:SetActive(tabIndex == TabIndex.FashionTab)
+  self.fashionBg:SetActive(tabIndex == TabIndex.FashionTab)
+  self.objBtnEmoji:SetActive(tabIndex == TabIndex.FashionTab)
+  if tabIndex == TabIndex.FashionTab then
     local isEmpty = self.itemlist:IsEmpty()
     self.noneTip:SetActive(isEmpty)
   else
     self.noneTip:SetActive(false)
   end
-  self.container.DynamicSkillEffView:Switch(not show)
-  local index = show and 1 or 2
-  self:SetCurrentTabIconColor(self.tabStick[index].gameObject)
-  self.fashionTog:Set(show)
-  self.skillTog:Set(not show)
-  self:SetMountFashionBtnState(show, self.isMountTab)
+  self.container.DynamicSkillEffView:Switch(tabIndex == TabIndex.SkillEffectTab)
+  self.container.rewardEffectView:Switch(tabIndex == TabIndex.RewardEffectTab)
+  self:SetCurrentTabIconColor(self.tabStick[tabIndex].gameObject)
+  self.fashionTog:Set(tabIndex == TabIndex.FashionTab)
+  self.skillTog:Set(tabIndex == TabIndex.SkillEffectTab)
+  self.rewardTog:Set(tabIndex == TabIndex.RewardEffectTab)
+  self:SetMountFashionBtnState(tabIndex == TabIndex.FashionTab, self.isMountTab)
 end
 
 function PackageFashionPage:InitFashionTabNameTip()
   local fashionRightTab = self:FindGO("FashionTab")
   local skillEffectTab = self:FindGO("SkillEffectTab")
+  local RewardEffectTab = self:FindGO("RewardEffectTab")
   self.fashionTog = self:FindComponent("Tog", UIToggle, fashionRightTab)
   self.skillTog = self:FindComponent("Tog", UIToggle, skillEffectTab)
-  local tabTab = {fashionRightTab, skillEffectTab}
+  self.rewardTog = self:FindComponent("Tog", UIToggle, RewardEffectTab)
+  local tabTab = {
+    fashionRightTab,
+    skillEffectTab,
+    RewardEffectTab
+  }
   self.fashionRightTabBgSp = fashionRightTab:GetComponent(UISprite)
   self.skillEffectTabBgSp = skillEffectTab:GetComponent(UISprite)
+  self.rewardEffectTabBgSp = RewardEffectTab:GetComponent(UISprite)
   self.tabStick = {
     self.fashionRightTabBgSp,
-    self.skillEffectTabBgSp
+    self.skillEffectTabBgSp,
+    self.rewardEffectTabBgSp
   }
   self:SetCurrentTabIconColor(self.tabStick[1].gameObject)
-  self:SwitchFashionTab(true)
+  self:SwitchFashionTab(TabIndex.FashionTab)
   self:AddClickEvent(fashionRightTab, function(go)
-    self:SwitchFashionTab(true)
+    self:SwitchFashionTab(TabIndex.FashionTab)
   end)
   self:AddClickEvent(skillEffectTab, function(go)
-    self:SwitchFashionTab(false)
+    self:SwitchFashionTab(TabIndex.SkillEffectTab)
+  end)
+  self:AddClickEvent(RewardEffectTab, function(go)
+    self:SwitchFashionTab(TabIndex.RewardEffectTab)
   end)
   self.tabIconSpList = {}
   local icon
@@ -1308,7 +1325,8 @@ end
 
 PackageFashionPage.TabName = {
   [1] = ZhString.PackageView_FashionPageTabName,
-  [2] = ZhString.PackageView_FashionPageSkillEffTabName
+  [2] = ZhString.PackageView_FashionPageSkillEffTabName,
+  [3] = ZhString.PackageView_FashionPageRewardEffTabName
 }
 
 function PackageFashionPage:HandleLongPress(param)

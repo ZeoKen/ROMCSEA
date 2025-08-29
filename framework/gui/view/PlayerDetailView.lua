@@ -4,6 +4,7 @@ PlayerDetailView = class("PlayerDetailView", ContainerView)
 PlayerDetailView.ViewType = UIViewType.CheckLayer
 autoImport("SimplePlayer")
 autoImport("MyselfEquipItemCell")
+autoImport("MyselfEquipMemoryItemCell")
 autoImport("PlayerAttriButeView")
 autoImport("PackageEquipPage")
 autoImport("GemSkillProfitCell")
@@ -12,6 +13,7 @@ autoImport("GemSecretLandCell")
 autoImport("GemPageData")
 autoImport("ExtractionData")
 autoImport("ExtractionItemData")
+autoImport("PlayerEquipMemoryDetailPage")
 PlayerDetailView.State = {
   None = "PlayerDetailView_State_None",
   Equip = "PlayerDetailView_State_Equip",
@@ -114,8 +116,29 @@ function PlayerDetailView:InitUI()
     self.viceEquipList[site] = MyselfEquipItemCell.new(obj, site, nil, true, true)
     self.viceEquipList[site]:AddEventListener(MouseEvent.MouseClick, self.ClickPlayerEquip, self)
   end
+  self.equipMemoryList = {}
+  self.equipMemoryGrid = self:FindComponent("EquipMemoryGrid", UIGrid)
+  for i = 1, 12 do
+    local obj = self:LoadPreferb("cell/RoleEquipItemCell", self.equipMemoryGrid)
+    obj.name = "EquipMemoryCell" .. i
+    self.equipMemoryList[i] = MyselfEquipMemoryItemCell.new(obj, i, nil, true, true)
+    self.equipMemoryList[i]:AddEventListener(MouseEvent.MouseClick, self.ClickPlayerEquip, self)
+    self.equipMemoryList[i].IsEffective = function()
+      return true
+    end
+  end
   self.myEquipGrid:Reposition()
   self.playerEquipGrid:Reposition()
+  self.detailBtn = self:FindGO("DetailBtn")
+  self:AddClickEvent(self.detailBtn, function()
+    if not self.equipMemoryPage then
+      self.equipMemoryPage = self:AddSubView("PlayerEquipMemoryDetailPage", PlayerEquipMemoryDetailPage)
+      local memoryLevels = self:GetTotalEquipMemoryLevels()
+      self.equipMemoryPage:UpdateView(memoryLevels)
+    end
+    self:Show(self.equipMemoryHolder)
+  end)
+  self.equipMemoryHolder = self:FindGO("EquipMemoryHolder")
   self.myAttriHolder = self:FindGO("attrViewHolder")
   self.playerAttriHolder = self:FindGO("PlayerAttriViewHolder")
   self.roleFashions = self:FindGO("RoleFashions")
@@ -195,7 +218,7 @@ function PlayerDetailView:InitViceEquipSwitch()
   self.tog1Icon = self.tog1:GetComponent(UISprite)
   IconManager:SetUIIcon(spriteName .. 1, self.tog1Icon)
   self:AddClickEvent(self.tog1, function()
-    self.isViceEquip = false
+    self.curEquipType = 1
     self:OnEquipTabChange()
   end)
   self.tog2 = self:FindGO("Tog2", self.switchRoot)
@@ -203,24 +226,47 @@ function PlayerDetailView:InitViceEquipSwitch()
   self.tog2Icon = self.tog2:GetComponent(UISprite)
   IconManager:SetUIIcon(spriteName .. 2, self.tog2Icon)
   self:AddClickEvent(self.tog2, function()
-    self.isViceEquip = true
+    self.curEquipType = 2
+    self:OnEquipTabChange()
+  end)
+  self.tog3 = self:FindGO("Tog3", self.switchRoot)
+  self.tog3Bg = self:FindGO("SpriteBg", self.tog3)
+  self.tog3Icon = self.tog3:GetComponent(UISprite)
+  IconManager:SetUIIcon("tab_icon_pinzhiup", self.tog3Icon)
+  self:AddClickEvent(self.tog3, function()
+    self.curEquipType = 3
     self:OnEquipTabChange()
   end)
 end
 
 function PlayerDetailView:OnEquipTabChange()
-  if self.isViceEquip then
-    self:Show(self.viceEquipGrid)
-    self.viceEquipGrid:Reposition()
-    self:Hide(self.playerEquipGrid)
-    self:Hide(self.tog1Bg)
-    self:Show(self.tog2Bg)
-  else
+  if self.curEquipType == 1 then
     self:Show(self.playerEquipGrid)
     self:Hide(self.viceEquipGrid)
+    self:Hide(self.equipMemoryGrid)
     self.playerEquipGrid:Reposition()
     self:Show(self.tog1Bg)
     self:Hide(self.tog2Bg)
+    self:Hide(self.tog3Bg)
+    self:Hide(self.detailBtn)
+  elseif self.curEquipType == 2 then
+    self:Show(self.viceEquipGrid)
+    self.viceEquipGrid:Reposition()
+    self:Hide(self.playerEquipGrid)
+    self:Hide(self.equipMemoryGrid)
+    self:Hide(self.tog1Bg)
+    self:Show(self.tog2Bg)
+    self:Hide(self.tog3Bg)
+    self:Hide(self.detailBtn)
+  elseif self.curEquipType == 3 then
+    self:Hide(self.playerEquipGrid)
+    self:Hide(self.viceEquipGrid)
+    self:Show(self.equipMemoryGrid)
+    self.equipMemoryGrid:Reposition()
+    self:Hide(self.tog1Bg)
+    self:Hide(self.tog2Bg)
+    self:Show(self.tog3Bg)
+    self:Show(self.detailBtn)
   end
 end
 
@@ -457,6 +503,7 @@ function PlayerDetailView:UpdateLeftState()
   self.rightattrInfoTab.transform.localRotation = isAttri and Quaternion.Euler(0, 180, 0) or Quaternion.identity
   self.myEquips.gameObject:SetActive(isEquip)
   self.myAttriHolder:SetActive(isAttri)
+  self.equipMemoryHolder:SetActive(false)
   if isAttri then
     self.myBaseAttriView:showMySelf()
   end
@@ -552,6 +599,17 @@ function PlayerDetailView:UpdatePlayerRoleViceEquips()
   end
 end
 
+function PlayerDetailView:UpdateEquipMemorys()
+  for i = 1, 12 do
+    local singleCell = self.equipMemoryList[i]
+    if self.playerEquipMemoryDatas[i] then
+      singleCell:SetData(self.playerEquipMemoryDatas[i])
+    else
+      singleCell:SetData()
+    end
+  end
+end
+
 function PlayerDetailView:HandleUserGemChatCmd(note)
   local info = note.body and note.body.info
   self.playerSkillGems = self.playerSkillGems or {}
@@ -632,6 +690,15 @@ function PlayerDetailView:UpdatePlayerRoleFashions()
   end
 end
 
+function PlayerDetailView:UpdatePlayerEquipMemorys()
+  local equipMemoryDatas = self.playerEquipMemoryDatas
+  for i = 1, 12 do
+    if equipMemoryDatas[i] then
+      self.equipMemoryList[i]:SetData(equipMemoryDatas[i])
+    end
+  end
+end
+
 function PlayerDetailView:CreatePlayerData(serverData)
   self:DestroyPlayerData()
   self.playerData = PlayerData.CreateAsTable(serverData)
@@ -681,13 +748,17 @@ function PlayerDetailView:UpdateViewInfo(dataInfo)
     self.playerShadowEquips = {}
     self:ParseItemDatasFromServer(self.playerShadowEquips, dataInfo.shadow)
     self:SetExtraData(dataInfo.extraction)
+    self.playerEquipMemoryDatas = {}
+    self:ParseItemMemoryDatasFromServer(self.playerEquipMemoryDatas, dataInfo.memory_pos)
     self.playerAttriView:SetPlayer(self.playerData)
     self.playerData_partner = dataInfo.partner
   end
   self:TrySetPlayerModelTex()
   self:UpdatePlayerRoleEquips()
   self:UpdatePlayerRoleViceEquips()
+  self:UpdateEquipMemorys()
   self:UpdatePlayerRoleFashions()
+  self:UpdatePlayerEquipMemorys()
   self:UpdateRoleInfo()
   self:UpdateMyRoleEquips()
   self:CameraRotateToMe()
@@ -733,6 +804,40 @@ function PlayerDetailView:ParseItemDatasFromServer(targetTable, sourceTable, ign
       table.insert(targetTable, itemdata)
     end
   end
+end
+
+function PlayerDetailView:ParseItemMemoryDatasFromServer(targetTable, sourceTable, ignoreIndex)
+  if type(targetTable) ~= "table" or type(sourceTable) ~= "table" then
+    return
+  end
+  for i = 1, #sourceTable do
+    local singleMemory = sourceTable[i]
+    local _equipPos = singleMemory.pos
+    local itemid = singleMemory.memory.itemid
+    if itemid and itemid ~= 0 then
+      local _itemData = ItemData.new("EquipedMemory", itemid)
+      _itemData.equipMemoryData = EquipMemoryData.new(_equipPos)
+      _itemData.equipMemoryData:SetMyServerData(singleMemory.memory)
+      targetTable[_equipPos] = _itemData
+    end
+  end
+end
+
+function PlayerDetailView:GetTotalEquipMemoryLevels()
+  local memoryLevels = {}
+  for _pos, _itemData in pairs(self.playerEquipMemoryDatas) do
+    local _memoryData = _itemData.equipMemoryData
+    local _attrs = _memoryData and _memoryData.memoryAttrs
+    for i = 1, #_attrs do
+      local attrid = _attrs[i].id
+      if not memoryLevels[attrid] then
+        memoryLevels[attrid] = 1
+      else
+        memoryLevels[attrid] = memoryLevels[attrid] + 1
+      end
+    end
+  end
+  return memoryLevels
 end
 
 function PlayerDetailView:OnEnter()

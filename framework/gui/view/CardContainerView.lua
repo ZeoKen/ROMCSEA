@@ -4,6 +4,8 @@ autoImport("BossCardComposeNewPage")
 autoImport("CardMakeNewPage")
 autoImport("MvpCardComposeNewPage")
 autoImport("CardTabCell")
+autoImport("DungeonMvpCardComposeNewPage")
+autoImport("CardUpgradePage")
 CardContainerView = class("CardContainerView", ContainerView)
 CardContainerView.ViewType = UIViewType.NormalLayer
 local SubViewEnum = {
@@ -11,7 +13,9 @@ local SubViewEnum = {
   BOSSCARDCOMPOSE = 1703,
   MVPCARDCOMPOSE = 1704,
   CARDRANDOMMAKE = 1700,
-  CARDDECOMPOSE = 1702
+  CARDDECOMPOSE = 1702,
+  DUNGEONMVPCARDCOMPOSE = 1705,
+  CARDUPGRADE = 1706
 }
 
 function CardContainerView:Init()
@@ -21,7 +25,9 @@ function CardContainerView:Init()
   self.subViews = {}
   self:FindObjs()
   self:AddViewEvts()
-  ServiceItemProxy.Instance:CallQueryBossCardComposeRateCmd()
+  if self.tabIndex ~= SubViewEnum.CARDUPGRADE then
+    ServiceItemProxy.Instance:CallQueryBossCardComposeRateCmd()
+  end
 end
 
 function CardContainerView:FindObjs()
@@ -34,12 +40,13 @@ function CardContainerView:FindObjs()
   self:AddButtonEvent("CloseButton", function()
     self:CloseSelf()
   end)
-  self.skipBtn = self:FindComponent("skipBtn", UIMultiSprite)
-  self.skipBtnIcon = self:FindComponent("Icon", UISprite, self.skipBtn.gameObject)
-  self.skipTip = self:FindGO("tip", self.skipBtn.gameObject)
+  self.skipBtn = self:FindComponent("skipBtn", UISprite)
   self:AddClickEvent(self.skipBtn.gameObject, function()
     self:OnSkip()
   end)
+  local beforePanel = self:FindComponent("BeforePanel", UIPanel)
+  local parentPanel = self.gameObject:GetComponent(UIPanel)
+  beforePanel.depth = beforePanel.depth + parentPanel.depth
 end
 
 function CardContainerView:AddViewEvts()
@@ -51,12 +58,15 @@ function CardContainerView:AddViewEvts()
 end
 
 function CardContainerView:TabChangeHandler(key)
+  if not key then
+    return
+  end
   if self.curTab == key then
     return
   end
   self.curTab = key
   local cells = self.tabList:GetCells()
-  if not self.subViews[key] then
+  if not self.subViews[key] and cells[key] then
     local id = cells[key].id
     if id == SubViewEnum.CARDMAKE then
       self.subViews[key] = self:AddSubView("CardMakeNewPage", CardMakeNewPage, id)
@@ -68,8 +78,12 @@ function CardContainerView:TabChangeHandler(key)
       self.subViews[key] = self:AddSubView("CardDecomposeNewPage", CardDecomposeNewPage, id)
     elseif id == SubViewEnum.MVPCARDCOMPOSE then
       self.subViews[key] = self:AddSubView("MvpCardComposeNewPage", MvpCardComposeNewPage, id)
+    elseif id == SubViewEnum.DUNGEONMVPCARDCOMPOSE then
+      self.subViews[key] = self:AddSubView("DungeonMvpCardComposeNewPage", DungeonMvpCardComposeNewPage, id)
+    elseif id == SubViewEnum.CARDUPGRADE then
+      self.subViews[key] = self:AddSubView("CardUpgradePage", CardUpgradePage, id)
     end
-  else
+  elseif self.subViews[key] then
     self.subViews[key]:Show()
   end
   for k, subView in pairs(self.subViews) do
@@ -79,56 +93,30 @@ function CardContainerView:TabChangeHandler(key)
   end
   cells[key].toggle.value = true
   local skipType = self.subViews[key].skipType
-  local value = LocalSaveProxy.Instance:GetSkipAnimation(skipType)
-  self:SetSkipBtnState(value)
+  self.skipBtn.gameObject:SetActive(skipType ~= nil)
 end
+
+local skipTipOffset = {-100, 50}
 
 function CardContainerView:OnSkip()
   local skipType = self.subViews[self.curTab].skipType
-  local value = LocalSaveProxy.Instance:GetSkipAnimation(skipType)
-  value = not value
-  LocalSaveProxy.Instance:SetSkipAnimation(skipType, value)
-  self:SetSkipBtnState(value)
+  TipManager.Instance:ShowSkipAnimationTip(skipType, self.skipBtn, NGUIUtil.AnchorSide.Left, skipTipOffset)
 end
 
 function CardContainerView:OnEnter()
   CardContainerView.super.OnEnter(self)
-  if self.npcFunction then
-    local datas = ReusableTable.CreateArray()
-    for i = 1, #self.npcFunction do
-      local func = self.npcFunction[i]
-      local id = func.type
-      if 1 < id then
-        datas[#datas + 1] = id
-      end
-    end
-    self.tabList:ResetDatas(datas)
-    ReusableTable.DestroyArray(datas)
+  if self.tabIndex == SubViewEnum.CARDUPGRADE then
+    self:InitTabList()
   end
-  local tab = self.tabIndex or SubViewEnum.CARDRANDOMMAKE
-  local cells = self.tabList:GetCells()
-  for i = 1, #cells do
-    local cell = cells[i]
-    self:AddTabChangeEvent(cell.gameObject, nil, i)
-    if tab == cell.id then
-      tab = i
-    end
-  end
-  self:TabChangeHandler(tab)
-end
-
-function CardContainerView:SetSkipBtnState(state)
-  self.skipBtn.CurrentState = state and 1 or 0
-  local _, color = ColorUtil.TryParseHexString(state and "B8BDDC" or "3A4073")
-  self.skipBtnIcon.color = color
-  self.skipTip:SetActive(state)
 end
 
 function CardContainerView:UpdateTotalCost()
   local cells = self.tabList:GetCells()
-  local id = cells[self.curTab].id
-  if id == SubViewEnum.CARDDECOMPOSE then
-    self.subViews[self.curTab]:UpdateTotalCost()
+  if self.curTab and cells[self.curTab] then
+    local id = cells[self.curTab].id
+    if id == SubViewEnum.CARDDECOMPOSE then
+      self.subViews[self.curTab]:UpdateTotalCost()
+    end
   end
 end
 
@@ -142,6 +130,10 @@ function CardContainerView:HandleExchangeCardItem(note)
   local data = note.body
   if data ~= nil and data.charid == Game.Myself.data.id then
     local skipType = self.subViews[self.curTab].skipType
+    if not skipType then
+      self:CloseSelf()
+      return
+    end
     local value = LocalSaveProxy.Instance:GetSkipAnimation(skipType)
     if not value then
       self:CloseSelf()
@@ -158,12 +150,39 @@ function CardContainerView:OnTradeReqPrice(note)
 end
 
 function CardContainerView:OnBossCardRateQuery(note)
+  self:InitTabList()
   local cells = self.tabList:GetCells()
   local id = cells[self.curTab].id
-  if id == SubViewEnum.BOSSCARDCOMPOSE or id == SubViewEnum.MVPCARDCOMPOSE then
+  if id == SubViewEnum.BOSSCARDCOMPOSE or id == SubViewEnum.MVPCARDCOMPOSE or id == SubViewEnum.DUNGEONMVPCARDCOMPOSE then
     self.subViews[self.curTab]:InitCardList()
   end
   for i = 1, #cells do
     cells[i]:CheckRateUp()
   end
+end
+
+function CardContainerView:InitTabList()
+  if self.npcFunction then
+    local datas = ReusableTable.CreateArray()
+    for i = 1, #self.npcFunction do
+      local func = self.npcFunction[i]
+      local id = func.type
+      if 1 < id and (id ~= SubViewEnum.DUNGEONMVPCARDCOMPOSE or CardMakeProxy.Instance:IsHaveUpRateCards(CardMakeProxy.MakeType.DungeonMvpCardCompose)) then
+        datas[#datas + 1] = id
+      end
+    end
+    self.tabList:ResetDatas(datas)
+    ReusableTable.DestroyArray(datas)
+  end
+  local tabId = self.tabIndex or SubViewEnum.CARDRANDOMMAKE
+  local tab = 1
+  local cells = self.tabList:GetCells()
+  for i = 1, #cells do
+    local cell = cells[i]
+    self:AddTabChangeEvent(cell.gameObject, nil, i)
+    if tabId == cell.id then
+      tab = i
+    end
+  end
+  self:TabChangeHandler(tab)
 end

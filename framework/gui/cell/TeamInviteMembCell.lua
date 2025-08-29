@@ -129,7 +129,7 @@ function TeamInviteMembCell:SetData(data)
           isIn = customRoomProxy:IsUserInCurrentRoom(data.id)
           self:ActiveInviteButton(not isIn)
         end
-      elseif diffServer then
+      elseif diffServer and (not self.proxy or self.proxy.isCrossServer == false) then
         self:ActiveInviteButton(false, true)
         self.invalidWarbandDiffServer = true
       else
@@ -206,6 +206,10 @@ function TeamInviteMembCell:UpdateRestTip()
 end
 
 function TeamInviteMembCell:UpdateRestTime()
+  if not self.data then
+    self:RemoveRestTimeTick()
+    return
+  end
   local sdata = self.data.data
   local resttime = sdata and sdata.resttime
   resttime = resttime or 0

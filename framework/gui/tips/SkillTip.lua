@@ -399,7 +399,7 @@ function SkillTip:GetSkillMarks(marktype)
       if mark.epro and mark.epro > 0 then
         sname = Table_Class[mark.epro] and Table_Class[mark.epro].NameZh
       elseif mark.npcid and 0 < mark.npcid then
-        sname = Table_Monster[mark.npcid] and Table_Monster[mark.npcid].NameZh
+        sname = OverSea.LangManager.Instance():GetLangByKey(Table_Monster[mark.npcid] and Table_Monster[mark.npcid].NameZh or "")
       end
       if sname then
         if i <= n and 1 < markSB:GetCount() then

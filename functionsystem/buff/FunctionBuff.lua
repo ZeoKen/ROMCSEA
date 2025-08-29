@@ -347,6 +347,7 @@ function FunctionBuff:ParseBuffData(buff)
     buffData.endtime = buff.time
   end
   buffData.quench = _GetQuenchByLayers(buff.layers)
+  buffData.activeNextDay = cType == "NextDay"
   self.myBuffs[id] = buffData
 end
 

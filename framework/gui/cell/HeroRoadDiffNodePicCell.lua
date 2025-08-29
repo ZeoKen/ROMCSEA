@@ -68,6 +68,12 @@ function HeroRoadDiffNodePicCell:SetData(data)
   end
 end
 
+function HeroRoadDiffNodePicCell:SetPos(pos)
+  if pos then
+    LuaGameObject.SetLocalPositionGO(self.gameObject, pos[1], pos[2], 0)
+  end
+end
+
 function HeroRoadDiffNodePicCell:OnCellDestroy()
   if not StringUtil.IsEmpty(self.bgName) then
     PictureManager.Instance:UnloadHeroRoadTexture(self.bgName, self.bgTex)

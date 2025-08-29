@@ -1,6 +1,7 @@
 GVGSandTablePanel = class("GVGSandTablePanel", BaseView)
 GVGSandTablePanel.ViewType = UIViewType.NormalLayer
 autoImport("GVGSandTablePointCell")
+autoImport("GVGSandMvpCell")
 GVGSandTablePanel.TexObjTexNameMap = {
   BGTexture = "SandTable_bg",
   TitleTexture = "login_bg_title"
@@ -31,19 +32,13 @@ function GVGSandTablePanel:GetMaxPointScore()
   return GvgProxy.Instance:GetMaxPointScore()
 end
 
-function GVGSandTablePanel:UpdatePointScore(score)
-  local max = self:GetMaxPointScore()
-  self.pointScore.text = string.format(ZhString.NewGvg_PointInfo, score, max)
-end
-
 function GVGSandTablePanel:FindObjs()
   self.helpBtn = self:FindGO("HelpBtn")
   self.battleLineLabel = self:FindGO("BattleLine"):GetComponent(UILabel)
   self.totalLeftTimeLabel = self:FindGO("TotalLeftTime"):GetComponent(UILabel)
-  self.pointScoreRoot = self:FindGO("PointScore")
-  self.pointScore = self:FindGO("Score", self.pointScoreRoot):GetComponent(UILabel)
-  self.topRightBg = self:FindComponent("TopRightBg", UISprite)
   self.anchorLeftBottom = self:FindGO("Anchor_LeftButtom")
+  self.mvpAliveLab = self:FindComponent("MVPAlive", UILabel, self.anchorLeftBottom)
+  self.mvpAliveLab.text = ZhString.GVGSandTable_MvpAlive
   self.battleStatusRoot = self:FindGO("BattleStatusRoot")
   self.pageSwitchPart = self:FindGO("PageSwitch", self.battleStatusRoot)
   self.statusNode_TweenPos = self:FindGO("SwitchNode"):GetComponent(TweenPosition)
@@ -85,22 +80,12 @@ function GVGSandTablePanel:FindObjs()
   self.defendLabel = self:FindGO("DefendLabel", self.perfectDefendPart):GetComponent(UILabel)
   self.defendLabel.text = ZhString.GVGSandTable_PerfectDefend
   self.perfectDefendPart:SetActive(false)
+  self.perfect_DefendLab = self:FindComponent("Perfect_Defend", UILabel)
+  self.perfect_DefendLab.text = ZhString.GVGSandTable_PerfectDefend
   self.roadBlockBtn = self:FindGO("RoadBlockBtn")
-  self:AddClickEvent(self.roadBlockBtn, function()
-    local groupid = GvgProxy.Instance.GvgSandTableInfo.group
-    local hasRoadBlock = GvgProxy.Instance:GetCityRoadBlock(groupid, self.curMapID)
-    if hasRoadBlock then
-      GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
-        view = PanelConfig.GVGRoadBlockView,
-        viewdata = {
-          cityId = self.curMapID,
-          groupId = groupid
-        }
-      })
-    else
-      MsgManager.ShowMsgByID(2679)
-    end
-  end)
+  if self.roadBlockBtn then
+    self.roadBlockBtn:SetActive(false)
+  end
 end
 
 function GVGSandTablePanel:AddViewEvts()
@@ -231,7 +216,9 @@ end
 function GVGSandTablePanel:InitPoints()
   local totalPoint = 8
   local pointConfigs = GameConfig.GVGSandTable.MapConfig.NodePos
-  pointConfigs = GvgProxy.IsClassicMode() and pointConfigs[2] or pointConfigs[1]
+  local staticCity = GvgProxy.GetStrongHoldStaticData(self.curMapID)
+  local mode = staticCity and staticCity.Model or 1
+  pointConfigs = pointConfigs[mode]
   self.nodeCells = {}
   for i = 1, totalPoint do
     local cellpfb = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UICell("GVGSandTablePointCell"), self.frontPanel)
@@ -247,6 +234,16 @@ function GVGSandTablePanel:InitPoints()
   self.crystalCell = GVGSandTablePointCell.new(crystalPfb)
   self.crystalCell:SetPos(pointConfigs[0])
   self.crystalCell:SetHPSliderEnable(true)
+  self:TryAddMvpSandNode()
+end
+
+function GVGSandTablePanel:TryAddMvpSandNode()
+  if self.mvpCell then
+    return
+  end
+  local cell_prefab = Game.AssetManager_UI:CreateAsset(ResourcePathHelper.UICell("GVGSandMvpCell"), self.frontPanel)
+  cell_prefab.name = "GVGSandMvpCell"
+  self.mvpCell = GVGSandMvpCell.new(cell_prefab)
 end
 
 function GVGSandTablePanel:RefreshTimeCountDown()
@@ -262,8 +259,24 @@ function GVGSandTablePanel:RefreshTimeCountDown()
 end
 
 function GVGSandTablePanel:RefreshPerfectCountDown()
-  local leftDay, leftHour, leftMin, leftSec = ClientTimeUtil.GetFormatRefreshTimeStr(self.perfectEndStamp)
-  self.timeLabel.text = string.format(ZhString.GVGSandTable_PerfectSpareTimeLeft, leftMin)
+  if not self.perfectTimeInfo then
+    self:Hide(self.timeLabel)
+    return
+  end
+  self:Show(self.timeLabel)
+  local left_time
+  if self.perfectTimeInfo.pause then
+    left_time = self.perfectTimeInfo.time
+  else
+    left_time = self.perfectTimeInfo.time - ServerTime.CurServerTime() / 1000
+  end
+  local leftMin, leftSec = ClientTimeUtil.GetFormatSecTimeStr(left_time)
+  if leftMin and 0 < leftMin then
+    self:Show(self.timeLabel)
+    self.timeLabel.text = string.format(ZhString.GVGSandTable_PerfectSpareTimeLeft, leftMin)
+  else
+    self:Hide(self.timeLabel)
+  end
 end
 
 function GVGSandTablePanel:RefreshValidTime()
@@ -289,13 +302,9 @@ function GVGSandTablePanel:RefreshPage()
     self.anchorLeftBottom:SetActive(false)
     self.sendMessagePart:SetActive(false)
     self.timeLabel.gameObject:SetActive(false)
-    self.pointScoreRoot:SetActive(false)
-    self.topRightBg.height = 90
     return
   end
-  local hasPointScore = 0 < curMapInfo.totalScore
-  self.pointScoreRoot:SetActive(hasPointScore)
-  self.topRightBg.height = hasPointScore and 123 or 90
+  local hasPointScore
   local metalHP = curMapInfo.metalhp or 100
   local defGuild = curMapInfo.defguild
   local mainCrystalData = {
@@ -305,25 +314,31 @@ function GVGSandTablePanel:RefreshPage()
   }
   self.crystalCell:SetData(mainCrystalData, defGuild)
   self.crystalCell:SetMainCrystalHP(metalHP)
+  if self.mvpCell then
+    self.mvpCell:SetData(curMapInfo)
+  end
   local noMoreMetal = GvgProxy.Instance:noMoreMetal()
   local pointInfos = curMapInfo.points
   local static_data = GvgProxy.GetStrongHoldStaticData(self.curMapID)
   local pointConfig = static_data.Point
-  local IsClassicMode = static_data.Mode == GuildCmd_pb.EGUILDDATEBATTLEMODE_CLASSIC
+  local pointConfigs = GameConfig.GVGSandTable.MapConfig.NodePos[static_data.Mode]
   for i = 1, 8 do
     if pointConfig and pointConfig[i] then
       self.nodeCells[i]:SetEnable(true)
+      self.nodeCells[i]:SetPos(pointConfigs[i])
       if pointInfos[i] then
         self.nodeCells[i]:SetData(pointInfos[i], defGuild, noMoreMetal, hasPointScore)
       else
         self.nodeCells[i]:SetEmpty(noMoreMetal)
       end
     else
-      self.nodeCells[i]:SetEnable(false, IsClassicMode)
+      self.nodeCells[i]:SetEnable(false)
     end
   end
   local state = curMapInfo.cityState or 6
-  self.forceStateLabel.text = gvgConfig.gland_status_desc and gvgConfig.gland_status_desc[state] or ""
+  local city_state_perfect = state == GuildCmd_pb.EGCITYSTATE_PERFECT
+  self.perfect_DefendLab.gameObject:SetActive(city_state_perfect)
+  self.forceStateLabel.text = gvgConfig.gvg_sandtable_status_desc and gvgConfig.gvg_sandtable_status_desc[state] or ""
   self.atkForceLabel.text = string.format(ZhString.GVGSandTable_AtkForce, curMapInfo.attacknum or "-")
   self.defForceLabel.text = string.format(ZhString.GVGSandTable_DefForce, curMapInfo.defensenum or "-")
   local topGuilds = curMapInfo.topGuilds
@@ -337,28 +352,48 @@ function GVGSandTablePanel:RefreshPage()
     end
   end
   local raidStatus = curMapInfo.raidstate
-  if raidStatus == FuBenCmd_pb.EGVGRAIDSTATE_PERFECT then
+  local is_perfect = raidStatus == FuBenCmd_pb.EGVGRAIDSTATE_PERFECT
+  self.perfectTimeInfo = curMapInfo.perfectTimeInfo
+  redlog("打印perfectTimeInfo")
+  TableUtil.Print(self.perfectTimeInfo)
+  if is_perfect then
     self.timeLabel.gameObject:SetActive(false)
     self:SetPerfectSpareStatus(true)
   elseif raidStatus == FuBenCmd_pb.EGVGRAIDSTATE_CALM then
     self.timeLabel.gameObject:SetActive(false)
   else
     self:SetPerfectSpareStatus(false)
-    if defGuild and defGuild.id ~= 0 then
-      self.timeLabel.gameObject:SetActive(true)
-      self.perfectEndStamp = curMapInfo.perfectSpareTime
-      self:RefreshPerfectCountDown()
-    else
-      self.timeLabel.gameObject:SetActive(false)
-    end
+    self:RefreshPerfectCountDown()
   end
-  self:UpdatePointScore(curMapInfo.totalScore)
+  self:SetPerfectPart(city_state_perfect, curMapInfo)
+  self.mvpAliveLab.gameObject:SetActive(nil ~= curMapInfo.MvpAlive and curMapInfo:MvpAlive() and city_state_perfect)
 end
 
 function GVGSandTablePanel:SetPerfectSpareStatus(bool)
-  self.perfectDefendPart:SetActive(bool)
   self.anchorLeftBottom:SetActive(not bool)
   self.sendMessagePart:SetActive(not bool)
+end
+
+function GVGSandTablePanel:SetPerfectPart(is_perfect, data)
+  local no_mvp = self:CheckMvpNone(data)
+  if no_mvp and is_perfect then
+    self:Show(self.perfectDefendPart)
+  else
+    self:Hide(self.perfectDefendPart)
+  end
+end
+
+function GVGSandTablePanel:CheckMvpNone(gvgSandTableData)
+  local config = GameConfig.GvgNewConfig.city_type_to_mvp
+  if not gvgSandTableData.mvp or not config then
+    return true
+  end
+  local city_type = gvgSandTableData.staticData and gvgSandTableData.staticData.CityType
+  if city_type and config[city_type] then
+    return gvgSandTableData.mvp.mvp_state == GvgProxy.EMvpState.Die
+  else
+    return true
+  end
 end
 
 function GVGSandTablePanel:HandleGvgSandTableUpdate()
@@ -442,12 +477,12 @@ end
 
 function GVGSandTablePanel:OnEnter()
   GVGSandTablePanel.super.OnEnter(self)
+  GvgProxy.Instance:QueryCityInfo()
   for obj, texName in pairs(GVGSandTablePanel.TexObjTexNameMap) do
     if self[obj] then
       PictureManager.Instance:SetUI(texName, self[obj])
     end
   end
-  self.BGTexture:MakePixelPerfect()
   self:sendNotification(UIEvent.CloseUI, UIViewType.DialogLayer)
   xdlog("申请沙盘")
   ServiceUserEventProxy.Instance:CallGvgSandTableEvent(true)
@@ -457,6 +492,9 @@ function GVGSandTablePanel:OnEnter()
 end
 
 function GVGSandTablePanel:OnExit()
+  if self.mvpCell then
+    self.mvpCell:ClearTick()
+  end
   TimeTickManager.Me():ClearTick(self)
   for obj, texName in pairs(GVGSandTablePanel.TexObjTexNameMap) do
     if self[obj] then

@@ -183,10 +183,13 @@ end
 function EquipMemoryDecomposeView:GetEquipMemoryList()
   local items = BagProxy.Instance.memoryBagData and BagProxy.Instance.memoryBagData:GetItems()
   local filterQuality = self.filterData or 0
+  local decomposeFilter = GameConfig.EquipMemory and GameConfig.EquipMemory.Quality
   xdlog("获取对应记忆列表", filterQuality)
   local result = {}
   for i = 1, #items do
-    if (filterQuality == 0 or items[i].memoryData.Quality == filterQuality) and not BagProxy.Instance:CheckIsFavorite(items[i]) then
+    local quality = items[i].memoryData.Quality
+    local qualityValid = decomposeFilter and decomposeFilter[quality] and (filterQuality == 0 or quality == filterQuality)
+    if qualityValid and not BagProxy.Instance:CheckIsFavorite(items[i]) then
       local single = items[i]:Clone()
       table.insert(result, single)
     end

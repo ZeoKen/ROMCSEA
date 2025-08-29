@@ -35,6 +35,7 @@ function GLandChallengeCell:SetData(data)
   self.isInLeisure = data.isInLeisure
   local type = data.type or 1
   self:SetType(type)
+  self:SetFinish(false)
   if type == 1 then
     self:SetPersonalTask(data)
   elseif type == 2 then

@@ -47,6 +47,17 @@ Table_QuestPostcard = {
     Reward = {
       {3012472, 1}
     }
+  },
+  [22] = {
+    id = 22,
+    Sender = "燕妮",
+    Content = "抛开犹豫和不安，拿起勇气与自信，和波利一起前往新的冒险吧！愿你永远被爱与力量环绕，女王节快乐~",
+    TF_ImageUrl = "local_dir/postcard_2503",
+    Release_ImageUrl = "local_dir/postcard_2503",
+    PaperStyle = 1,
+    Reward = {
+      {52836, 88}
+    }
   }
 }
 Table_QuestPostcard_fields = {

@@ -1,4 +1,33 @@
 Table_ServantCalendar = {
+  [4] = {
+    id = 4,
+    Icon = "teamfight",
+    Name = "组队竞技赛赛季",
+    TextureName = {
+      {
+        texture = "teamfight1",
+        desc = "每周六定时开启"
+      },
+      {
+        texture = "teamfight2",
+        desc = "击杀夺球获取积分"
+      },
+      {
+        texture = "teamfight3",
+        desc = "规定时间积分达到4000获胜"
+      }
+    },
+    TimeUnit = 2,
+    StartTime = "21:00",
+    EndTime = "24:00",
+    Wday = "Sat",
+    GotoMode = {2005},
+    Location = "主界面更多-竞技赛",
+    Reward = "荣誉之证、赛季积分等",
+    Desc = "冒险的道路上怎么少得了对战练习！带上你的最好的伙伴一起去竞技场里切磋成长吧！",
+    FuncState = 7,
+    frequency = _EmptyTable
+  },
   [6] = {
     id = 6,
     Icon = "GVG10",
@@ -48,7 +77,7 @@ Table_ServantCalendar = {
     },
     TimeUnit = 2,
     StartTime = "21:00",
-    EndTime = "21:30",
+    EndTime = "22:00",
     Wday = "Sun",
     GotoMode = {5039},
     Location = "主界面更多-公会-公会战状态",
@@ -116,35 +145,6 @@ Table_ServantCalendar = {
     FuncState = 3,
     frequency = _EmptyTable
   },
-  [4] = {
-    id = 4,
-    Icon = "teamfight",
-    Name = "组队竞技赛赛季",
-    TextureName = {
-      {
-        texture = "teamfight1",
-        desc = "每周六定时开启"
-      },
-      {
-        texture = "teamfight2",
-        desc = "击杀夺球获取积分"
-      },
-      {
-        texture = "teamfight3",
-        desc = "规定时间积分达到4000获胜"
-      }
-    },
-    TimeUnit = 2,
-    StartTime = "21:00",
-    EndTime = "24:00",
-    Wday = "Sat",
-    GotoMode = {2005},
-    Location = "主界面更多-竞技赛",
-    Reward = "荣誉之证、赛季积分等",
-    Desc = "冒险的道路上怎么少得了对战练习！带上你的最好的伙伴一起去竞技场里切磋成长吧！",
-    FuncState = 7,
-    frequency = _EmptyTable
-  },
   [14] = {
     id = 14,
     Icon = "teamfight",
@@ -172,6 +172,30 @@ Table_ServantCalendar = {
     Reward = "荣誉之证、赛季积分等",
     Desc = "冒险的道路上怎么少得了对战练习！带上你的最好的伙伴一起去竞技场里切磋成长吧！",
     FuncState = 7,
+    frequency = _EmptyTable
+  },
+  [16] = {
+    id = 16,
+    Icon = "abyssdragon",
+    Name = "龙毁世界",
+    TextureName = {
+      {
+        texture = "AbyssDragon2",
+        desc = "周日定时开启"
+      },
+      {
+        texture = "AbyssDragon1",
+        desc = "参与战斗获取奖励"
+      }
+    },
+    TimeUnit = 2,
+    StartTime = "14:00",
+    EndTime = "20:00",
+    Wday = "Sun",
+    GotoMode = {8360},
+    Location = "深渊之湖",
+    Reward = "秘传龙脊契刻、龙脊残片等",
+    Desc = "龙毁世界计划已经启动，请组成最强的冒险团前来迎战！",
     frequency = _EmptyTable
   }
 }

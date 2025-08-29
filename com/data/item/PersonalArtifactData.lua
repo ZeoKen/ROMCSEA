@@ -121,6 +121,9 @@ end
 function PersonalArtifactData:InitMinAttrData()
   self.minAttrMap = {}
   local fragmentId, attrSDataMap, min
+  if not ins.fragmentStaticAttrDataMap then
+    ins:InitStaticAttrData()
+  end
   for i = 1, #self.staticComposeData.CostFlagments do
     fragmentId = self.staticComposeData.CostFlagments[i][1]
     attrSDataMap = ins.fragmentStaticAttrDataMap[fragmentId]

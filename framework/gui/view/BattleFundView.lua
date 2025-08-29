@@ -27,6 +27,7 @@ function BattleFundView:InitView()
     self:OnPurchaseClicked()
   end)
   self.buyCostLabel = self:FindComponent("BuyCost", UILabel, self.buyBtnGO)
+  self.buyCostIcon = self:FindComponent("BuyCostIcon", UISprite, self.buyBtnGO)
   self.countdownLabel = self:FindComponent("CountDownLabel", UILabel, self.buyGroupGO)
   self.rewardListGO = self:FindGO("RewardList")
   self.rewardListCtrl = ListCtrl.new(self:FindComponent("Container", UIGrid, self.rewardListGO), BattleFundCell, "BattleFundCell")
@@ -43,6 +44,16 @@ function BattleFundView:GetBuyCostString()
       else
         return depositConfig.CurrencyType .. " " .. FunctionNewRecharge.FormatMilComma(depositConfig.Rmb)
       end
+    else
+      local shopID = config.ShopID
+      local shopType = config.ShopType
+      local goods = ShopProxy.Instance:GetConfigByTypeId(shopType, shopID)
+      for id, shopItemData in pairs(goods) do
+        local _moneyId = shopItemData.ItemID
+        local _singleCost = shopItemData.ItemCount
+        return _singleCost, _moneyId
+      end
+      xdlog("商店配置", config.DepositID, config.ShopID, config.ShopType)
     end
   end
   return ""
@@ -56,7 +67,12 @@ function BattleFundView:OnReceivePurchaseSuccess(message)
 end
 
 function BattleFundView:QueryRechargeCnt()
+  local config = BattleFundProxy.Instance:GetConfig()
   ServiceUserEventProxy.Instance:CallQueryChargeCnt()
+  if config.ShopID and config.ShopType then
+    ShopProxy.Instance:CallQueryShopConfig(config.ShopType, config.ShopID)
+    xdlog("请求商店", config.ShopType, config.ShopID)
+  end
 end
 
 function BattleFundView:Purchase()
@@ -72,6 +88,16 @@ function BattleFundView:Purchase()
   local productConf = Table_Deposit[config.DepositID or 0]
   if not productConf then
     redlog("[bug] Table_Deposit Record not found", config.DepositID)
+    local goods = ShopProxy.Instance:GetConfigByTypeId(config.ShopType, config.ShopID)
+    if goods then
+      for id, shopItemData in pairs(goods) do
+        local _moneyId = shopItemData.ItemID
+        local _singleCost = shopItemData.ItemCount
+        HappyShopProxy.Instance:SetSelectId(id)
+        local isBuy = HappyShopProxy.Instance:BuyItemByShopItemData(shopItemData, 1)
+        xdlog("购买成功", id, count, isBuy)
+      end
+    end
     return
   end
   self.productConf = productConf
@@ -172,6 +198,8 @@ end
 function BattleFundView:AddViewEvts()
   self:AddListenEvt(ServiceEvent.ActivityCmdBattleFundNofityActCmd, self.UpdateView)
   self:AddListenEvt(ServiceEvent.UserEventQueryChargeCnt, self.UpdateView)
+  self:AddListenEvt(ServiceEvent.SessionShopQueryShopConfigCmd, self.UpdateView)
+  self:AddListenEvt(ServiceEvent.SessionShopBuyShopItem, self.UpdateView)
 end
 
 function BattleFundView:UpdateLeftContent()
@@ -189,7 +217,14 @@ function BattleFundView:UpdateLeftContent()
     end
     IconManager:SetItemIcon(config and config.RewardIcon or "item_151", self.rewardIcon)
     self.rewardNum.text = config and config.RewardNum or 0
-    self.buyCostLabel.text = self:GetBuyCostString()
+    local costStr, moneyId = self:GetBuyCostString()
+    self.buyCostLabel.text = costStr
+    if moneyId then
+      IconManager:SetItemIcon(Table_Item[moneyId].Icon, self.buyCostIcon)
+      self.buyCostIcon.gameObject:SetActive(true)
+    else
+      self.buyCostIcon.gameObject:SetActive(false)
+    end
   end
 end
 
@@ -207,7 +242,22 @@ end
 
 function BattleFundView:UpdateCells()
   local proxy = BattleFundProxy.Instance
-  self.rewardListCtrl:ResetDatas(proxy:GetRewardDatas())
+  local list = {}
+  local datas = proxy:GetRewardDatas()
+  local config = proxy:GetConfig()
+  xdlog("更新cell", proxy:HasPurchased(), proxy:HasResetDepositReward(), proxy:GetResetDepositReward())
+  if proxy:HasPurchased() and proxy:HasResetDepositReward() and not proxy:GetResetDepositReward() then
+    table.insert(list, 1, {
+      ResetDepositReward = true,
+      itemId = config.ResetDepositRewardShowItem,
+      itemNum = 1,
+      state = 1
+    })
+  end
+  for i = 1, #datas do
+    table.insert(list, datas[i])
+  end
+  self.rewardListCtrl:ResetDatas(list)
 end
 
 function BattleFundView:OnEnter()
@@ -215,10 +265,8 @@ function BattleFundView:OnEnter()
   EventManager.Me():AddEventListener(ServiceEvent.UserEventChargeNtfUserEvent, self.OnReceivePurchaseSuccess, self)
   if not self.ticker then
     local proxy = BattleFundProxy.Instance
-    if not proxy:HasPurchased() then
-      self.ticker = TimeTickManager.Me():CreateTick(0, 10000, self.UpdateCountDown, self)
-      self:QueryRechargeCnt()
-    end
+    self.ticker = TimeTickManager.Me():CreateTick(0, 10000, self.UpdateCountDown, self)
+    self:QueryRechargeCnt()
   end
 end
 
@@ -235,8 +283,23 @@ function BattleFundView:UpdateCountDown()
   local proxy = BattleFundProxy.Instance
   if proxy:HasPurchased() then
     local actData = proxy:GetActData()
-    local loginDay = actData and actData.loginDay or 0
-    self.countdownLabel.text = string.format(ZhString.BattleFundLoginDays, loginDay)
+    local extraEndTime = actData and actData.extraEndTime or 0
+    if extraEndTime and 0 < extraEndTime then
+      local leftTime = extraEndTime - ServerTime.CurServerTime() / 1000
+      if leftTime <= 0 then
+        self:CloseSelf()
+        return
+      end
+      local leftDay, leftHour, leftMin = ClientTimeUtil.FormatTimeBySec(leftTime)
+      if leftDay and 0 < leftDay then
+        self.countdownLabel.text = string.format(ZhString.BattleFundExtraDayEndTime, leftDay)
+      else
+        self.countdownLabel.text = string.format(ZhString.BattleFundExtraTimeFormat, leftHour, leftMin)
+      end
+    else
+      local loginDay = actData and actData.loginDay or 0
+      self.countdownLabel.text = string.format(ZhString.BattleFundLoginDays, loginDay)
+    end
   else
     local leftTime = proxy:GetLeftBuyTime()
     if leftTime <= 0 then
@@ -278,6 +341,35 @@ function BattleFundView:OnCellClicked(cell)
         view = PanelConfig.BattleFundConfirmPopup,
         viewdata = viewData
       })
+    end
+  elseif cell.data.ResetDepositReward then
+    xdlog("领取重置奖励")
+    local config = proxy:GetConfig()
+    local resetDepositReward = config.ResetDepositReward or {}
+    for i = 1, #resetDepositReward do
+      local info = NewRechargeProxy.Ins:GenerateDepositGoodsInfo(resetDepositReward[i])
+      local purchasedTimes = info.purchaseTimes or 0
+      local purchaseLimitTimes = info.purchaseLimit_N or 0
+      xdlog("检测重置deposit购买次数", purchasedTimes, purchaseLimitTimes)
+      if purchasedTimes < purchaseLimitTimes then
+        local sysmsgData = Table_Sysmsg[3000005]
+        local textStr = string.format(sysmsgData.Text, info.productConf.Desc)
+        if sysmsgData then
+          UIUtil.PopUpConfirmYesNoView("", textStr, function()
+            FunctionNewRecharge.Instance():OpenUI(PanelConfig.NewRecharge_TDeposit)
+          end, nil, nil, sysmsgData.button, sysmsgData.buttonF)
+        end
+      else
+        redlog("领取重置奖励")
+        proxy:TakeReward(cell.data.day, false, cell.data.ResetDepositReward)
+        local sysmsgData = Table_Sysmsg[3000006]
+        local textStr = string.format(sysmsgData.Text, info.productConf.Desc)
+        if sysmsgData then
+          UIUtil.PopUpConfirmYesNoView("", textStr, function()
+            FunctionNewRecharge.Instance():OpenUI(PanelConfig.NewRecharge_TDeposit)
+          end, nil, nil, sysmsgData.button, sysmsgData.buttonF)
+        end
+      end
     end
   elseif not hasPurchased then
     if not canPurchase then

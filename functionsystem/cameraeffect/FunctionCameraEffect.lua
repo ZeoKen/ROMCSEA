@@ -609,6 +609,12 @@ function FunctionCameraEffect:ResetFreeCameraLocked(isLock, force, fogCamMode, f
     isCameraModeChanged = true
   end
   local disableVert = self:IsFreeCameraLockVert()
+  local config = GameConfig.CameraUnlock and GameConfig.CameraUnlock.FreeHori_AllowAreaTrigger
+  if config and config[Game.MapManager:GetMapID()] == 1 then
+    Game.InputManager.ForceAllowAreaTrigger = disableVert
+  else
+    Game.InputManager.ForceAllowAreaTrigger = false
+  end
   local resetFreeCameraDisableVert = self.disableCameraVert ~= disableVert
   if resetFreeCameraDisableVert then
     Game.InputManager.disableVerticalFreeCamera = disableVert

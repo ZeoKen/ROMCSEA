@@ -31,15 +31,15 @@ Table_Class_t = {
     {107, 108},
     {132},
     {130, 131},
-    {113},
+    {104},
     {110, 111},
+    {121, 120},
     {
       118,
       119,
       120
     },
-    {104},
-    {121, 120}
+    {113}
   },
   AdvanceClass = {
     {64},
@@ -95,23 +95,23 @@ Table_Class_t = {
     {43},
     {44},
     {45},
-    {65},
-    {85},
-    {62, 132},
+    {125},
+    {75},
     {113},
     {114},
-    {115},
+    {52, 122},
     {53},
     {54},
     {55},
-    {95},
+    {85},
+    {115},
     {105},
+    {95},
     {123},
-    {52, 122},
     {124},
-    {125},
+    {62, 132},
     {63},
-    {75}
+    {65}
   },
   AdvancedOccupation = {
     {BaseLv = 40},
@@ -218,14 +218,6 @@ Table_Class_t = {
       {name = "Luk", value = 45}
     },
     {
-      {name = "Str", value = 20},
-      {name = "Int", value = 90},
-      {name = "Vit", value = 60},
-      {name = "Agi", value = 20},
-      {name = "Dex", value = 60},
-      {name = "Luk", value = 20}
-    },
-    {
       {name = "Str", value = 90},
       {name = "Int", value = 90},
       {name = "Vit", value = 30},
@@ -240,23 +232,31 @@ Table_Class_t = {
       {name = "Agi", value = 30},
       {name = "Dex", value = 45},
       {name = "Luk", value = 30}
+    },
+    {
+      {name = "Str", value = 20},
+      {name = "Int", value = 90},
+      {name = "Vit", value = 60},
+      {name = "Agi", value = 20},
+      {name = "Dex", value = 60},
+      {name = "Luk", value = 20}
     }
   },
   LimitMasterSkills = {
-    {
-      {
-        5690001,
-        5691001,
-        5692001,
-        5693001
-      }
-    },
     {
       {
         6090001,
         6091001,
         6092001,
         6093001
+      }
+    },
+    {
+      {
+        5690001,
+        5691001,
+        5692001,
+        5693001
       }
     }
   },
@@ -267,6 +267,12 @@ Table_Class_t = {
         5301001,
         5302001,
         5303001
+      },
+      {
+        5310001,
+        5311001,
+        5312001,
+        5313001
       }
     },
     {
@@ -275,6 +281,12 @@ Table_Class_t = {
         5201001,
         5202001,
         5203001
+      },
+      {
+        5210001,
+        5211001,
+        5212001,
+        5213001
       }
     },
     {
@@ -283,6 +295,12 @@ Table_Class_t = {
         5001001,
         5002001,
         5003001
+      },
+      {
+        5010001,
+        5011001,
+        5012001,
+        5013001
       }
     },
     {
@@ -291,6 +309,12 @@ Table_Class_t = {
         6101001,
         6102001,
         6103001
+      },
+      {
+        6110001,
+        6111001,
+        6112001,
+        6113001
       }
     },
     {
@@ -299,54 +323,12 @@ Table_Class_t = {
         5701001,
         5702001,
         5703001
-      }
-    },
-    {
+      },
       {
-        5600001,
-        5601001,
-        5602001,
-        5603001
-      }
-    },
-    {
-      {
-        5100001,
-        5101001,
-        5102001,
-        5103001
-      }
-    },
-    {
-      {
-        5550001,
-        5551001,
-        5552001,
-        5553001
-      }
-    },
-    {
-      {
-        5900001,
-        5901001,
-        5902001,
-        5903001
-      }
-    },
-    {
-      {
-        5800001,
-        5801001,
-        5802001,
-        5803001
-      }
-    },
-    {
-      {
-        5500001,
-        5501001,
-        5502001,
-        5503001
+        5710001,
+        5711001,
+        5712001,
+        5713001
       }
     },
     {
@@ -355,6 +337,12 @@ Table_Class_t = {
         6001001,
         6002001,
         6003001
+      },
+      {
+        6010001,
+        6011001,
+        6012001,
+        6013001
       }
     },
     {
@@ -363,6 +351,96 @@ Table_Class_t = {
         5401001,
         5402001,
         5403001
+      },
+      {
+        5410001,
+        5411001,
+        5412001,
+        5413001
+      }
+    },
+    {
+      {
+        5900001,
+        5901001,
+        5902001,
+        5903001
+      },
+      {
+        5910001,
+        5911001,
+        5912001,
+        5913001
+      }
+    },
+    {
+      {
+        5100001,
+        5101001,
+        5102001,
+        5103001
+      },
+      {
+        5110001,
+        5111001,
+        5112001,
+        5113001
+      }
+    },
+    {
+      {
+        5550001,
+        5551001,
+        5552001,
+        5553001
+      },
+      {
+        5560001,
+        5561001,
+        5562001,
+        5563001
+      }
+    },
+    {
+      {
+        5500001,
+        5501001,
+        5502001,
+        5503001
+      },
+      {
+        5510001,
+        5511001,
+        5512001,
+        5513001
+      }
+    },
+    {
+      {
+        5800001,
+        5801001,
+        5802001,
+        5803001
+      },
+      {
+        5810001,
+        5811001,
+        5812001,
+        5813001
+      }
+    },
+    {
+      {
+        5600001,
+        5601001,
+        5602001,
+        5603001
+      },
+      {
+        5610001,
+        5611001,
+        5612001,
+        5613001
       }
     }
   },
@@ -391,27 +469,27 @@ Table_Class_t = {
     {440030, 440031},
     {440032, 440033},
     {440034, 440035},
-    {440054, 440055},
-    {440124, 440125},
+    {440074, 440075},
+    {440064, 440065},
     {
       [2] = 440110
     },
     {
       [2] = 440111
     },
-    {
-      [2] = 440112
-    },
     {440040, 440041},
     {440042, 440043},
     {440044, 440045},
-    {440094, 440095},
+    {440124, 440125},
+    {
+      [2] = 440112
+    },
     {440102},
+    {440094, 440095},
     {440070, 440071},
     {440072, 440073},
-    {440074, 440075},
     {440050, 440051},
-    {440064, 440065}
+    {440054, 440055}
   },
   Skill = {
     {
@@ -779,41 +857,33 @@ Table_Class_t = {
       815001
     },
     {
-      1280001,
-      1290001,
-      1284001,
-      1282001,
-      1281001,
-      1287001,
-      1285001,
-      1283001,
-      1289001,
-      1288001,
-      1291001,
-      1286001,
-      1292001
+      1200001,
+      1204001,
+      1209001,
+      1210001,
+      1201001,
+      1211001,
+      1205001,
+      1202001,
+      1208001,
+      1206001,
+      1207001,
+      1203001,
+      1212001
     },
     {
-      1324001,
-      1333001,
-      1334001,
-      1332001,
-      1331001,
-      1330001,
-      1329001,
-      1327001,
-      1325001,
-      1328001
-    },
-    {
-      204001,
-      228001,
-      208001,
-      263001,
-      264001,
-      265001,
-      266001,
-      267001
+      1180001,
+      1186001,
+      1183001,
+      1190001,
+      1181001,
+      1189001,
+      1185001,
+      1182001,
+      1187001,
+      1184001,
+      1188001,
+      1191001
     },
     {
       1365001,
@@ -842,17 +912,14 @@ Table_Class_t = {
       3501001
     },
     {
-      1384001,
-      1386001,
-      1388001,
-      1391001,
-      1392001,
-      1389001,
-      1393001,
-      1390001,
-      1394001,
-      1385001,
-      1387001
+      144001,
+      145001,
+      146001,
+      147001,
+      148001,
+      149001,
+      150001,
+      157001
     },
     {
       151001,
@@ -896,18 +963,29 @@ Table_Class_t = {
       1233001
     },
     {
-      1143001,
-      1146001,
-      1148001,
-      1149001,
-      1144001,
-      1142001,
-      1145001,
-      1141001,
-      1140001,
-      1147001,
-      1150001,
-      1151001
+      1324001,
+      1333001,
+      1334001,
+      1332001,
+      1331001,
+      1330001,
+      1329001,
+      1327001,
+      1325001,
+      1328001
+    },
+    {
+      1384001,
+      1386001,
+      1388001,
+      1391001,
+      1392001,
+      1389001,
+      1393001,
+      1390001,
+      1394001,
+      1385001,
+      1387001
     },
     {
       1433001,
@@ -921,6 +999,20 @@ Table_Class_t = {
       1443001,
       1434001,
       1436001
+    },
+    {
+      1143001,
+      1146001,
+      1148001,
+      1149001,
+      1144001,
+      1142001,
+      1145001,
+      1141001,
+      1140001,
+      1147001,
+      1150001,
+      1151001
     },
     {
       301001,
@@ -938,16 +1030,6 @@ Table_Class_t = {
       315001
     },
     {
-      144001,
-      145001,
-      146001,
-      147001,
-      148001,
-      149001,
-      150001,
-      157001
-    },
-    {
       316001,
       317001,
       318001,
@@ -960,19 +1042,14 @@ Table_Class_t = {
       325001
     },
     {
-      1200001,
-      1204001,
-      1209001,
-      1210001,
-      1201001,
-      1211001,
-      1205001,
-      1202001,
-      1208001,
-      1206001,
-      1207001,
-      1203001,
-      1212001
+      204001,
+      228001,
+      208001,
+      263001,
+      264001,
+      265001,
+      266001,
+      267001
     },
     {
       205001,
@@ -990,18 +1067,19 @@ Table_Class_t = {
       274001
     },
     {
-      1180001,
-      1186001,
-      1183001,
-      1190001,
-      1181001,
-      1189001,
-      1185001,
-      1182001,
-      1187001,
-      1184001,
-      1188001,
-      1191001
+      1280001,
+      1290001,
+      1284001,
+      1282001,
+      1281001,
+      1287001,
+      1285001,
+      1283001,
+      1289001,
+      1288001,
+      1291001,
+      1286001,
+      1292001
     }
   },
   SkillPointSolution = {
@@ -1027,13 +1105,13 @@ Table_Class_t = {
     },
     {16, 17},
     {14, 15},
+    {23},
     {18, 19},
     {
       20,
       21,
       22
-    },
-    {23}
+    }
   },
   TeamFunction = {
     {
@@ -1075,11 +1153,11 @@ Table_Class_t = {
     {"##1258714", "##1258715"},
     {"##1258710", "##1258711"},
     {"##1258712", "##1258713"},
-    {"##1258724", "##1258725"},
     {"##1258714", "##1258717"},
+    {"##1258718", "##1258719"},
     {"##1258720", "##1258721"},
     {"##1258722", "##1258723"},
-    {"##1258718", "##1258719"},
+    {"##1258724", "##1258725"},
     {"##3501284", "##1258727"}
   },
   UnlockAttr = {
@@ -1093,8 +1171,8 @@ Table_Class_t = {
     {Agi = 4},
     {Agi = 6},
     {Dex = 6},
-    {Luk = 6},
-    {Vit = 6}
+    {Vit = 6},
+    {Luk = 6}
   }
 }
 Table_Class = {
@@ -1141,6 +1219,7 @@ Table_Class = {
     icon = "icon_1_1",
     InitialAttr = Table_Class_t.InitialAttr[5],
     AddPointSolution = Table_Class_t.AddPointSolution[5],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[4],
     Explain = "##149239",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
@@ -1266,6 +1345,7 @@ Table_Class = {
     icon = "icon_2_1",
     InitialAttr = Table_Class_t.InitialAttr[7],
     AddPointSolution = Table_Class_t.AddPointSolution[8],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[6],
     Explain = "##149267",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
@@ -1388,6 +1468,7 @@ Table_Class = {
     icon = "icon_3_1",
     InitialAttr = Table_Class_t.InitialAttr[9],
     AddPointSolution = Table_Class_t.AddPointSolution[11],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[8],
     Explain = "##149247",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
@@ -1513,6 +1594,7 @@ Table_Class = {
     icon = "icon_4_1",
     InitialAttr = Table_Class_t.InitialAttr[11],
     AddPointSolution = Table_Class_t.AddPointSolution[14],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[10],
     Explain = "##149271",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
@@ -1622,23 +1704,24 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149270",
     DefaultWeapon = 41501,
-    Skill = Table_Class_t.Skill[42],
+    Skill = Table_Class_t.Skill[34],
     MaxJobLevel = 50,
     AdvancedJobOccupation = 10,
     AdvancedOccupation = Table_Class_t.AdvancedOccupation[2],
-    AdvanceClass = Table_Class_t.AdvanceClass[42],
+    AdvanceClass = Table_Class_t.AdvanceClass[34],
     Type = 5,
     TypeBranch = 51,
     icon = "icon_5_1",
-    InitialAttr = Table_Class_t.InitialAttr[15],
-    AddPointSolution = Table_Class_t.AddPointSolution[20],
+    InitialAttr = Table_Class_t.InitialAttr[14],
+    AddPointSolution = Table_Class_t.AddPointSolution[18],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[13],
     Explain = "##149255",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
     Race = 1,
     TeamFunction = Table_Class_t.TeamFunction[5],
-    TransferDesc = Table_Class_t.TransferDesc[18],
+    TransferDesc = Table_Class_t.TransferDesc[15],
     AdvanceQuest = 11050012
   },
   [52] = {
@@ -1651,23 +1734,23 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149250",
     DefaultWeapon = 41501,
-    Skill = Table_Class_t.Skill[36],
+    Skill = Table_Class_t.Skill[35],
     MaxJobLevel = 90,
     AdvancedJobOccupation = 40,
     AdvancedOccupation = Table_Class_t.AdvancedOccupation[1],
-    AdvanceClass = Table_Class_t.AdvanceClass[36],
+    AdvanceClass = Table_Class_t.AdvanceClass[35],
     Type = 5,
     TypeBranch = 51,
     icon = "icon_5_2",
-    InitialAttr = Table_Class_t.InitialAttr[13],
-    AddPointSolution = Table_Class_t.AddPointSolution[18],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[12],
+    InitialAttr = Table_Class_t.InitialAttr[15],
+    AddPointSolution = Table_Class_t.AddPointSolution[19],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[13],
     Explain = "##149255",
     AdvancedTeacher = 1054,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[30],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[29],
     TeamFunction = Table_Class_t.TeamFunction[5],
     TransferDesc = Table_Class_t.TransferDesc[16],
     AdvanceQuest = 12050002
@@ -1682,23 +1765,22 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149270",
     DefaultWeapon = 41501,
-    Skill = Table_Class_t.Skill[37],
+    Skill = Table_Class_t.Skill[36],
     MaxPeak = 160,
     AdvancedJobOccupation = 40,
-    AdvanceClass = Table_Class_t.AdvanceClass[37],
+    AdvanceClass = Table_Class_t.AdvanceClass[36],
     Type = 5,
     TypeBranch = 51,
-    icon = "icon_5_3",
-    InitialAttr = Table_Class_t.InitialAttr[13],
-    AddPointSolution = Table_Class_t.AddPointSolution[18],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[12],
+    InitialAttr = Table_Class_t.InitialAttr[15],
+    AddPointSolution = Table_Class_t.AddPointSolution[19],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[13],
     Explain = "##149255",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
     UnlockAttr = Table_Class_t.UnlockAttr[4],
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[31],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[30],
     TeamFunction = Table_Class_t.TeamFunction[5],
     AdvanceQuest = 13050042
   },
@@ -1712,25 +1794,25 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149270",
     DefaultWeapon = 41501,
-    Skill = Table_Class_t.Skill[38],
-    MasterSkills = Table_Class_t.MasterSkills[9],
+    Skill = Table_Class_t.Skill[37],
+    MasterSkills = Table_Class_t.MasterSkills[8],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
-    AdvanceClass = Table_Class_t.AdvanceClass[38],
+    AdvanceClass = Table_Class_t.AdvanceClass[37],
     Type = 5,
     TypeBranch = 51,
     icon = "icon_5_4",
-    InitialAttr = Table_Class_t.InitialAttr[13],
-    AddPointSolution = Table_Class_t.AddPointSolution[18],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[12],
+    InitialAttr = Table_Class_t.InitialAttr[15],
+    AddPointSolution = Table_Class_t.AddPointSolution[19],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[13],
     Explain = "##149255",
     AdvancedTeacher = 1054,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
-    UnlockAttr = Table_Class_t.UnlockAttr[12],
+    UnlockAttr = Table_Class_t.UnlockAttr[11],
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[32],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[31],
     TeamFunction = Table_Class_t.TeamFunction[5],
     AdvanceQuest = 20000005
   },
@@ -1744,15 +1826,16 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149279",
     DefaultWeapon = 41801,
-    Skill = Table_Class_t.Skill[32],
+    Skill = Table_Class_t.Skill[44],
     MaxJobLevel = 50,
     AdvancedJobOccupation = 10,
     AdvancedOccupation = Table_Class_t.AdvancedOccupation[2],
-    AdvanceClass = Table_Class_t.AdvanceClass[32],
+    AdvanceClass = Table_Class_t.AdvanceClass[44],
     Type = 6,
     icon = "icon_6_1",
     InitialAttr = Table_Class_t.InitialAttr[1],
-    AddPointSolution = Table_Class_t.AddPointSolution[16],
+    AddPointSolution = Table_Class_t.AddPointSolution[20],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[1],
     Explain = "##149281",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
@@ -1760,7 +1843,7 @@ Table_Class = {
     Feature = 1,
     Race = 1,
     TeamFunction = Table_Class_t.TeamFunction[1],
-    TransferDesc = Table_Class_t.TransferDesc[14],
+    TransferDesc = Table_Class_t.TransferDesc[18],
     AdvanceQuest = 11060012
   },
   [62] = {
@@ -1796,7 +1879,7 @@ Table_Class = {
   },
   [63] = {
     id = 63,
-    NameZh = "##139279",
+    NameEn = "Whitesmith",
     MaleBody = 47,
     FemaleBody = 48,
     MaleEye = 1,
@@ -1833,13 +1916,13 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149279",
     DefaultWeapon = 41801,
-    Skill = Table_Class_t.Skill[30],
-    MasterSkills = Table_Class_t.MasterSkills[6],
-    LimitMasterSkills = Table_Class_t.LimitMasterSkills[1],
+    Skill = Table_Class_t.Skill[46],
+    MasterSkills = Table_Class_t.MasterSkills[13],
+    LimitMasterSkills = Table_Class_t.LimitMasterSkills[2],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
-    AdvanceClass = Table_Class_t.AdvanceClass[30],
+    AdvanceClass = Table_Class_t.AdvanceClass[46],
     Type = 6,
     icon = "icon_6_4",
     InitialAttr = Table_Class_t.InitialAttr[1],
@@ -1849,10 +1932,10 @@ Table_Class = {
     AdvancedTeacher = 1055,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
-    UnlockAttr = Table_Class_t.UnlockAttr[11],
+    UnlockAttr = Table_Class_t.UnlockAttr[12],
     Feature = 1,
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[25],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[39],
     TeamFunction = Table_Class_t.TeamFunction[1],
     AdvanceQuest = 20080010
   },
@@ -1922,19 +2005,18 @@ Table_Class = {
   [74] = {
     id = 74,
     NameZh = "##103214",
-    NameEn = "RoyalGuard",
     MaleBody = 57,
     FemaleBody = 58,
     MaleEye = 1,
     FemaleEye = 2,
     Desc = "##149276",
     DefaultWeapon = 40001,
-    Skill = Table_Class_t.Skill[46],
-    MasterSkills = Table_Class_t.MasterSkills[13],
+    Skill = Table_Class_t.Skill[31],
+    MasterSkills = Table_Class_t.MasterSkills[7],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
-    AdvanceClass = Table_Class_t.AdvanceClass[46],
+    AdvanceClass = Table_Class_t.AdvanceClass[31],
     Type = 1,
     TypeBranch = 12,
     icon = "icon_7_4",
@@ -1945,10 +2027,10 @@ Table_Class = {
     AdvancedTeacher = 1050,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
-    UnlockAttr = Table_Class_t.UnlockAttr[12],
+    UnlockAttr = Table_Class_t.UnlockAttr[11],
     RideAction = 1,
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[39],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[26],
     TeamFunction = Table_Class_t.TeamFunction[2],
     AdvanceQuest = 20060005
   },
@@ -2020,12 +2102,12 @@ Table_Class = {
     MaleEye = 1,
     FemaleEye = 2,
     DefaultWeapon = 63401,
-    Skill = Table_Class_t.Skill[31],
-    MasterSkills = Table_Class_t.MasterSkills[7],
+    Skill = Table_Class_t.Skill[38],
+    MasterSkills = Table_Class_t.MasterSkills[9],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
-    AdvanceClass = Table_Class_t.AdvanceClass[31],
+    AdvanceClass = Table_Class_t.AdvanceClass[38],
     Type = 2,
     TypeBranch = 22,
     icon = "icon_11_3",
@@ -2038,7 +2120,7 @@ Table_Class = {
     IsOpen = 1,
     UnlockAttr = Table_Class_t.UnlockAttr[10],
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[26],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[32],
     TeamFunction = Table_Class_t.TeamFunction[4],
     AdvanceQuest = 20400022
   },
@@ -2103,18 +2185,19 @@ Table_Class = {
   },
   [94] = {
     id = 94,
+    NameZh = "##145855",
     NameEn = "ShadowChaser",
     MaleBody = 77,
     FemaleBody = 78,
     MaleEye = 1,
     FemaleEye = 2,
     DefaultWeapon = 40702,
-    Skill = Table_Class_t.Skill[39],
-    MasterSkills = Table_Class_t.MasterSkills[10],
+    Skill = Table_Class_t.Skill[41],
+    MasterSkills = Table_Class_t.MasterSkills[12],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
-    AdvanceClass = Table_Class_t.AdvanceClass[39],
+    AdvanceClass = Table_Class_t.AdvanceClass[41],
     Type = 3,
     TypeBranch = 32,
     icon = "icon_9_4",
@@ -2125,9 +2208,9 @@ Table_Class = {
     AdvancedTeacher = 1052,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
-    UnlockAttr = Table_Class_t.UnlockAttr[11],
+    UnlockAttr = Table_Class_t.UnlockAttr[12],
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[33],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[35],
     TeamFunction = Table_Class_t.TeamFunction[1],
     AdvanceQuest = 20070006
   },
@@ -2227,16 +2310,16 @@ Table_Class = {
     MaleEye = 1,
     FemaleEye = 2,
     DefaultWeapon = 62801,
-    Skill = Table_Class_t.Skill[33],
+    Skill = Table_Class_t.Skill[32],
     MaxJobLevel = 90,
     AdvancedJobOccupation = 40,
     AdvancedOccupation = Table_Class_t.AdvancedOccupation[1],
-    AdvanceClass = Table_Class_t.AdvanceClass[33],
+    AdvanceClass = Table_Class_t.AdvanceClass[32],
     TypeBranch = 43,
     icon = "icon_10_1",
     InitialAttr = Table_Class_t.InitialAttr[10],
     AddPointSolution = Table_Class_t.AddPointSolution[17],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[11],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[12],
     AdvancedTeacher = 1053,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
@@ -2245,7 +2328,7 @@ Table_Class = {
     Race = 1,
     ProfessionalFashion = Table_Class_t.ProfessionalFashion[27],
     TeamFunction = Table_Class_t.TeamFunction[4],
-    TransferDesc = Table_Class_t.TransferDesc[15],
+    TransferDesc = Table_Class_t.TransferDesc[14],
     AdvanceQuest = 20440005
   },
   [113] = {
@@ -2257,15 +2340,15 @@ Table_Class = {
     MaleEye = 1,
     FemaleEye = 2,
     DefaultWeapon = 62801,
-    Skill = Table_Class_t.Skill[34],
+    Skill = Table_Class_t.Skill[33],
     MaxPeak = 160,
     AdvancedJobOccupation = 40,
-    AdvanceClass = Table_Class_t.AdvanceClass[34],
+    AdvanceClass = Table_Class_t.AdvanceClass[33],
     TypeBranch = 43,
     icon = "icon_10_2",
     InitialAttr = Table_Class_t.InitialAttr[10],
     AddPointSolution = Table_Class_t.AddPointSolution[17],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[11],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[12],
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
@@ -2286,16 +2369,17 @@ Table_Class = {
     MaleEye = 1,
     FemaleEye = 2,
     DefaultWeapon = 62801,
-    Skill = Table_Class_t.Skill[35],
-    MasterSkills = Table_Class_t.MasterSkills[8],
+    Skill = Table_Class_t.Skill[39],
+    MasterSkills = Table_Class_t.MasterSkills[10],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
-    AdvanceClass = Table_Class_t.AdvanceClass[35],
+    AdvanceClass = Table_Class_t.AdvanceClass[39],
     TypeBranch = 43,
+    icon = "icon_10_3",
     InitialAttr = Table_Class_t.InitialAttr[10],
     AddPointSolution = Table_Class_t.AddPointSolution[17],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[11],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[12],
     AdvancedTeacher = 1053,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
@@ -2303,7 +2387,7 @@ Table_Class = {
     UnlockAttr = Table_Class_t.UnlockAttr[9],
     gender = 2,
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[29],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[33],
     TeamFunction = Table_Class_t.TeamFunction[4],
     AdvanceQuest = 20460007
   },
@@ -2317,23 +2401,23 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149278",
     DefaultWeapon = 62501,
-    Skill = Table_Class_t.Skill[41],
+    Skill = Table_Class_t.Skill[42],
     MaxJobLevel = 90,
     AdvancedJobOccupation = 40,
     AdvancedOccupation = Table_Class_t.AdvancedOccupation[1],
-    AdvanceClass = Table_Class_t.AdvanceClass[41],
+    AdvanceClass = Table_Class_t.AdvanceClass[42],
     Type = 5,
     TypeBranch = 52,
     icon = "icon_12_2",
-    InitialAttr = Table_Class_t.InitialAttr[14],
-    AddPointSolution = Table_Class_t.AddPointSolution[19],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[13],
+    InitialAttr = Table_Class_t.InitialAttr[13],
+    AddPointSolution = Table_Class_t.AddPointSolution[16],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[11],
     Explain = "##149263",
     AdvancedTeacher = 1054,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[35],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[36],
     TeamFunction = Table_Class_t.TeamFunction[1],
     TransferDesc = Table_Class_t.TransferDesc[17],
     AdvanceQuest = 12080112
@@ -2355,16 +2439,16 @@ Table_Class = {
     Type = 5,
     TypeBranch = 52,
     icon = "icon_12_3",
-    InitialAttr = Table_Class_t.InitialAttr[14],
-    AddPointSolution = Table_Class_t.AddPointSolution[19],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[13],
+    InitialAttr = Table_Class_t.InitialAttr[13],
+    AddPointSolution = Table_Class_t.AddPointSolution[16],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[11],
     Explain = "##149263",
     AdvancedTeacher = 10,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
     UnlockAttr = Table_Class_t.UnlockAttr[6],
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[36],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[37],
     TeamFunction = Table_Class_t.TeamFunction[1],
     AdvanceQuest = 13080042
   },
@@ -2378,26 +2462,26 @@ Table_Class = {
     FemaleEye = 2,
     Desc = "##149278",
     DefaultWeapon = 62501,
-    Skill = Table_Class_t.Skill[44],
-    MasterSkills = Table_Class_t.MasterSkills[12],
-    LimitMasterSkills = Table_Class_t.LimitMasterSkills[2],
+    Skill = Table_Class_t.Skill[30],
+    MasterSkills = Table_Class_t.MasterSkills[6],
+    LimitMasterSkills = Table_Class_t.LimitMasterSkills[1],
     MaxJobLevel = 200,
     MaxPeak = 220,
     AdvancedJobOccupation = 70,
-    AdvanceClass = Table_Class_t.AdvanceClass[44],
+    AdvanceClass = Table_Class_t.AdvanceClass[30],
     Type = 5,
     TypeBranch = 52,
     icon = "icon_12_4",
-    InitialAttr = Table_Class_t.InitialAttr[14],
-    AddPointSolution = Table_Class_t.AddPointSolution[19],
-    SkillPointSolution = Table_Class_t.SkillPointSolution[13],
+    InitialAttr = Table_Class_t.InitialAttr[13],
+    AddPointSolution = Table_Class_t.AddPointSolution[16],
+    SkillPointSolution = Table_Class_t.SkillPointSolution[11],
     Explain = "##149263",
     AdvancedTeacher = 1054,
     DamRandom = Table_Class_t.DamRandom[1],
     IsOpen = 1,
     UnlockAttr = Table_Class_t.UnlockAttr[7],
     Race = 1,
-    ProfessionalFashion = Table_Class_t.ProfessionalFashion[37],
+    ProfessionalFashion = Table_Class_t.ProfessionalFashion[25],
     TeamFunction = Table_Class_t.TeamFunction[1],
     AdvanceQuest = 12260008
   },
@@ -2522,9 +2606,9 @@ local cell_mt = {
     LimitMasterSkills = _EmptyTable,
     MasterSkills = _EmptyTable,
     MaxJobLevel = 130,
-    NameEn = "Whitesmith",
+    NameEn = "RoyalGuard",
     NameEnFemale = "",
-    NameZh = "##145855",
+    NameZh = "##139279",
     NameZhFemale = "",
     ProfessionalFashion = _EmptyTable,
     ShowEndTime = "",
@@ -2539,7 +2623,7 @@ local cell_mt = {
     TypeBranch = 61,
     UnlockAttr = _EmptyTable,
     UnlockTips = "",
-    icon = "icon_10_3",
+    icon = "icon_5_3",
     id = 1
   }
 }

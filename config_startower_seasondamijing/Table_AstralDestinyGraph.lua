@@ -908,6 +908,461 @@ Table_AstralDestinyGraph = {
     Buff = {5320},
     Scale = 1,
     IsSpecial = 1
+  },
+  [101] = {
+    id = 101,
+    Season = 11,
+    Point = 1,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [102] = {
+    id = 102,
+    Season = 11,
+    Point = 2,
+    UnlockPassNum = 0,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [103] = {
+    id = 103,
+    Season = 11,
+    Point = 3,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [104] = {
+    id = 104,
+    Season = 11,
+    Point = 4,
+    UnlockPassNum = 5,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [105] = {
+    id = 105,
+    Season = 11,
+    Point = 5,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [106] = {
+    id = 106,
+    Season = 11,
+    Point = 6,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [107] = {
+    id = 107,
+    Season = 11,
+    Point = 7,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5320},
+    Scale = 1
+  },
+  [108] = {
+    id = 108,
+    Season = 11,
+    Point = 8,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [109] = {
+    id = 109,
+    Season = 11,
+    Point = 9,
+    UnlockPassNum = 15,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [110] = {
+    id = 110,
+    Season = 11,
+    Point = 10,
+    UnlockPassNum = 15,
+    LightenNum = 48,
+    Buff = {5320},
+    Scale = 1,
+    IsSpecial = 1
+  },
+  [111] = {
+    id = 111,
+    Season = 12,
+    Point = 1,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [112] = {
+    id = 112,
+    Season = 12,
+    Point = 2,
+    UnlockPassNum = 0,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [113] = {
+    id = 113,
+    Season = 12,
+    Point = 3,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [114] = {
+    id = 114,
+    Season = 12,
+    Point = 4,
+    UnlockPassNum = 5,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [115] = {
+    id = 115,
+    Season = 12,
+    Point = 5,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [116] = {
+    id = 116,
+    Season = 12,
+    Point = 6,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [117] = {
+    id = 117,
+    Season = 12,
+    Point = 7,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5320},
+    Scale = 1
+  },
+  [118] = {
+    id = 118,
+    Season = 12,
+    Point = 8,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [119] = {
+    id = 119,
+    Season = 12,
+    Point = 9,
+    UnlockPassNum = 15,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [120] = {
+    id = 120,
+    Season = 12,
+    Point = 10,
+    UnlockPassNum = 15,
+    LightenNum = 48,
+    Buff = {5320},
+    Scale = 1,
+    IsSpecial = 1
+  },
+  [121] = {
+    id = 121,
+    Season = 13,
+    Point = 1,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [122] = {
+    id = 122,
+    Season = 13,
+    Point = 2,
+    UnlockPassNum = 0,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [123] = {
+    id = 123,
+    Season = 13,
+    Point = 3,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [124] = {
+    id = 124,
+    Season = 13,
+    Point = 4,
+    UnlockPassNum = 5,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [125] = {
+    id = 125,
+    Season = 13,
+    Point = 5,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [126] = {
+    id = 126,
+    Season = 13,
+    Point = 6,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [127] = {
+    id = 127,
+    Season = 13,
+    Point = 7,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5320},
+    Scale = 1
+  },
+  [128] = {
+    id = 128,
+    Season = 13,
+    Point = 8,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [129] = {
+    id = 129,
+    Season = 13,
+    Point = 9,
+    UnlockPassNum = 15,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [130] = {
+    id = 130,
+    Season = 13,
+    Point = 10,
+    UnlockPassNum = 15,
+    LightenNum = 48,
+    Buff = {5320},
+    Scale = 1,
+    IsSpecial = 1
+  },
+  [131] = {
+    id = 131,
+    Season = 14,
+    Point = 1,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [132] = {
+    id = 132,
+    Season = 14,
+    Point = 2,
+    UnlockPassNum = 0,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [133] = {
+    id = 133,
+    Season = 14,
+    Point = 3,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [134] = {
+    id = 134,
+    Season = 14,
+    Point = 4,
+    UnlockPassNum = 5,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [135] = {
+    id = 135,
+    Season = 14,
+    Point = 5,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [136] = {
+    id = 136,
+    Season = 14,
+    Point = 6,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [137] = {
+    id = 137,
+    Season = 14,
+    Point = 7,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5320},
+    Scale = 1
+  },
+  [138] = {
+    id = 138,
+    Season = 14,
+    Point = 8,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [139] = {
+    id = 139,
+    Season = 14,
+    Point = 9,
+    UnlockPassNum = 15,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [140] = {
+    id = 140,
+    Season = 14,
+    Point = 10,
+    UnlockPassNum = 15,
+    LightenNum = 48,
+    Buff = {5320},
+    Scale = 1,
+    IsSpecial = 1
+  },
+  [141] = {
+    id = 141,
+    Season = 15,
+    Point = 1,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [142] = {
+    id = 142,
+    Season = 15,
+    Point = 2,
+    UnlockPassNum = 0,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [143] = {
+    id = 143,
+    Season = 15,
+    Point = 3,
+    UnlockPassNum = 0,
+    LightenNum = 8,
+    Buff = {5300},
+    Scale = 0.7
+  },
+  [144] = {
+    id = 144,
+    Season = 15,
+    Point = 4,
+    UnlockPassNum = 5,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [145] = {
+    id = 145,
+    Season = 15,
+    Point = 5,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [146] = {
+    id = 146,
+    Season = 15,
+    Point = 6,
+    UnlockPassNum = 5,
+    LightenNum = 12,
+    Buff = {5310},
+    Scale = 1
+  },
+  [147] = {
+    id = 147,
+    Season = 15,
+    Point = 7,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5320},
+    Scale = 1
+  },
+  [148] = {
+    id = 148,
+    Season = 15,
+    Point = 8,
+    UnlockPassNum = 10,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [149] = {
+    id = 149,
+    Season = 15,
+    Point = 9,
+    UnlockPassNum = 15,
+    LightenNum = 24,
+    Buff = {5310},
+    Scale = 1
+  },
+  [150] = {
+    id = 150,
+    Season = 15,
+    Point = 10,
+    UnlockPassNum = 15,
+    LightenNum = 48,
+    Buff = {5320},
+    Scale = 1,
+    IsSpecial = 1
   }
 }
 Table_AstralDestinyGraph_fields = {

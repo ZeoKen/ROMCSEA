@@ -740,6 +740,99 @@ Table_DungeonManual = {
       2232
     }
   },
+  [20500] = {
+    id = 20500,
+    Type = 1,
+    Name = "##530662",
+    MainpageID = 2,
+    SubpageID = 205,
+    TextID = _EmptyTable
+  },
+  [20501] = {
+    id = 20501,
+    Type = 2,
+    Name = "##529791",
+    MainpageID = 2,
+    SubpageID = 205,
+    Typesetting = 3,
+    MonsterType = 1,
+    TextID = {
+      2250,
+      5,
+      2251,
+      3,
+      2253,
+      2254
+    }
+  },
+  [20502] = {
+    id = 20502,
+    Type = 2,
+    Name = "##529754",
+    MainpageID = 2,
+    SubpageID = 205,
+    Typesetting = 3,
+    MonsterType = 1,
+    TextID = {
+      2260,
+      5,
+      2261,
+      3,
+      2262
+    }
+  },
+  [20503] = {
+    id = 20503,
+    Type = 2,
+    Name = "##103905",
+    MainpageID = 2,
+    SubpageID = 205,
+    Typesetting = 3,
+    MonsterType = 2,
+    TextID = {
+      2270,
+      5,
+      2271
+    }
+  },
+  [20504] = {
+    id = 20504,
+    Type = 2,
+    Name = "##529790",
+    MainpageID = 2,
+    SubpageID = 205,
+    Typesetting = 3,
+    MonsterType = 2,
+    TextID = {
+      2280,
+      5,
+      2281
+    }
+  },
+  [21100] = {
+    id = 21100,
+    Type = 1,
+    Name = "##42635503",
+    MainpageID = 2,
+    SubpageID = 211,
+    TextID = _EmptyTable
+  },
+  [21101] = {
+    id = 21101,
+    Type = 2,
+    Name = "##3490482",
+    MainpageID = 2,
+    SubpageID = 211,
+    Typesetting = 3,
+    MonsterType = 1,
+    TextID = {
+      2510,
+      5,
+      2511,
+      3,
+      2512
+    }
+  },
   [29100] = {
     id = 29100,
     Type = 1,

@@ -7,6 +7,15 @@ Table_ActivityInfo = {
     Size = 9,
     HelpID = 35261,
     Share = 1
+  },
+  [42] = {
+    id = 42,
+    ActivityName = "新春拼图",
+    PuzzlePic = "ov_celebration2",
+    ActivityTitle = "新春拼图",
+    Size = 9,
+    HelpID = 35269,
+    Share = 1
   }
 }
 Table_ActivityInfo_fields = {

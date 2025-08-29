@@ -316,6 +316,27 @@ Table_Exchange = {
     BuyLimit = _EmptyTable,
     SellLimit = _EmptyTable
   },
+  [4715] = {
+    id = 4715,
+    NameZh = "魂灵之眼",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1003,
+    ShowTime = 1800,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    PreorderMaxNum = 9999,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
   [5001] = {
     id = 5001,
     NameZh = "神之金属原石",
@@ -8121,6 +8142,66 @@ Table_Exchange = {
       Param = {count = 20}
     }
   },
+  [16233] = {
+    id = 16233,
+    NameZh = "新叶羽翼图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [16234] = {
+    id = 16234,
+    NameZh = "魂音激奏图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [16235] = {
+    id = 16235,
+    NameZh = "苗娃秋千图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
   [17004] = {
     id = 17004,
     NameZh = "毕帝特龙的尾巴图纸",
@@ -8424,6 +8505,26 @@ Table_Exchange = {
   [17087] = {
     id = 17087,
     NameZh = "白蛇风铃图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [17105] = {
+    id = 17105,
+    NameZh = "紫晶伴生灵图纸",
     Trade = 1,
     Overlap = 1,
     Category = 12,
@@ -10484,6 +10585,226 @@ Table_Exchange = {
   [18203] = {
     id = 18203,
     NameZh = "冰河幻力[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18527] = {
+    id = 18527,
+    NameZh = "虫语者[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18528] = {
+    id = 18528,
+    NameZh = "日光兽角[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18529] = {
+    id = 18529,
+    NameZh = "月光兽角[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18530] = {
+    id = 18530,
+    NameZh = "灼金羽冠[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18531] = {
+    id = 18531,
+    NameZh = "莉姆露的魂龛[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18532] = {
+    id = 18532,
+    NameZh = "啃啃魔妖帽[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18720] = {
+    id = 18720,
+    NameZh = "灵息龙面图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18721] = {
+    id = 18721,
+    NameZh = "黄昏之翼图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18722] = {
+    id = 18722,
+    NameZh = "赤热尾刺图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18723] = {
+    id = 18723,
+    NameZh = "邪恶之冠[1]图纸",
+    Trade = 1,
+    Overlap = 1,
+    Category = 12,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [18724] = {
+    id = 18724,
+    NameZh = "悖誓赤瞳图纸",
     Trade = 1,
     Overlap = 1,
     Category = 12,
@@ -13603,6 +13924,206 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [20177] = {
+    id = 20177,
+    NameZh = "捕虫堇卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20178] = {
+    id = 20178,
+    NameZh = "三角兽卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20179] = {
+    id = 20179,
+    NameZh = "月光三角兽卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1015,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20180] = {
+    id = 20180,
+    NameZh = "米米怪卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1016,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20181] = {
+    id = 20181,
+    NameZh = "玩偶魔妖卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1012,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20184] = {
+    id = 20184,
+    NameZh = "苗娃佩瑞丝卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1011,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20221] = {
+    id = 20221,
+    NameZh = "黄俄希托斯卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1014,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20222] = {
+    id = 20222,
+    NameZh = "灰俄希托斯卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1016,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20223] = {
+    id = 20223,
+    NameZh = "红贝勒斯卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [20224] = {
+    id = 20224,
+    NameZh = "狂暴邪恶箱卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1012,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [22001] = {
     id = 22001,
     NameZh = "狸猫卡片",
@@ -14414,6 +14935,52 @@ Table_Exchange = {
     Trade = 1,
     Overlap = 1,
     Category = 1010,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 10000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [22041] = {
+    id = 22041,
+    NameZh = " 莉姆露卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 10000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [22042] = {
+    id = 22042,
+    NameZh = "宝石灵兽卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1016,
     ShowTime = 7200,
     TFAuction = 1,
     Auction = 1,
@@ -15466,6 +16033,167 @@ Table_Exchange = {
       Param = {count = 2}
     }
   },
+  [23056] = {
+    id = 23056,
+    NameZh = "天地树之种卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23057] = {
+    id = 23057,
+    NameZh = "灵魂奏者卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1016,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23065] = {
+    id = 23065,
+    NameZh = "生化巴风特卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1015,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23066] = {
+    id = 23066,
+    NameZh = "索斯卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23067] = {
+    id = 23067,
+    NameZh = "巴尔特卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1016,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23073] = {
+    id = 23073,
+    NameZh = "萨克莱卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1016,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23074] = {
+    id = 23074,
+    NameZh = "时空巨龙卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFAuction = 1,
+    Auction = 1,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
   [23104] = {
     id = 23104,
     NameZh = "魔法雪熊卡片",
@@ -16074,6 +16802,195 @@ Table_Exchange = {
     UnTradeTime = "",
     BuyLimit = _EmptyTable,
     SellLimit = _EmptyTable
+  },
+  [23282] = {
+    id = 23282,
+    NameZh = "先王棋士团卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1011,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23293] = {
+    id = 23293,
+    NameZh = "祖尔卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1013,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23307] = {
+    id = 23307,
+    NameZh = "努卡卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23308] = {
+    id = 23308,
+    NameZh = "幻龙加利厄隆坦卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1014,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23314] = {
+    id = 23314,
+    NameZh = "珀卡拉尼卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23316] = {
+    id = 23316,
+    NameZh = "熔石巨像卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1012,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23317] = {
+    id = 23317,
+    NameZh = "海灵图腾卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1015,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23322] = {
+    id = 23322,
+    NameZh = "妖灵提督卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1015,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [23334] = {
+    id = 23334,
+    NameZh = "卡摩拉卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
   },
   [24001] = {
     id = 24001,
@@ -17655,6 +18572,46 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [24102] = {
+    id = 24102,
+    NameZh = "邪恶向日葵★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1011,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [24103] = {
+    id = 24103,
+    NameZh = "鬼娃树★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1013,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 50}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [24600] = {
     id = 24600,
     NameZh = "死灵★卡片",
@@ -18453,6 +19410,132 @@ Table_Exchange = {
       Param = {count = 2}
     }
   },
+  [24638] = {
+    id = 24638,
+    NameZh = "狮鹫兽★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1010,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 30000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [24639] = {
+    id = 24639,
+    NameZh = "枯树精★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1011,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 30000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [24640] = {
+    id = 24640,
+    NameZh = "迷幻之王★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1016,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 55350000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [24641] = {
+    id = 24641,
+    NameZh = "银月魔女★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1012,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 30000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [24642] = {
+    id = 24642,
+    NameZh = "黑暗之王★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1014,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
+  [24643] = {
+    id = 24643,
+    NameZh = "兽人酋长★卡片",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1012,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    GuidePrice = 50000000,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 10}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 2}
+    }
+  },
   [40003] = {
     id = 40003,
     NameZh = "斧锤长矛[1]",
@@ -18616,26 +19699,6 @@ Table_Exchange = {
   [40021] = {
     id = 40021,
     NameZh = "长角之矛[1]",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [40029] = {
-    id = 40029,
-    NameZh = "星界·夺魂者",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -19033,26 +20096,6 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [40337] = {
-    id = 40337,
-    NameZh = "星界·流光裁决",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
   [40346] = {
     id = 40346,
     NameZh = "卡仑之牙[1]",
@@ -19373,9 +20416,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [40633] = {
-    id = 40633,
-    NameZh = "元素融合之杖[1]",
+  [40625] = {
+    id = 40625,
+    NameZh = "毁灭之杖[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -19393,9 +20436,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [40636] = {
-    id = 40636,
-    NameZh = "星界·幻魔者",
+  [40633] = {
+    id = 40633,
+    NameZh = "元素融合之杖[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -19813,26 +20856,6 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [40737] = {
-    id = 40737,
-    NameZh = "星界·雷鸣之殇",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
   [40738] = {
     id = 40738,
     NameZh = "紫毒短剑[1]",
@@ -20053,6 +21076,26 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [40803] = {
+    id = 40803,
+    NameZh = "幸运短剑★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [40904] = {
     id = 40904,
     NameZh = "刺藤拳刃[1]",
@@ -20156,26 +21199,6 @@ Table_Exchange = {
   [40920] = {
     id = 40920,
     NameZh = "漆黑之牙[1]",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [40926] = {
-    id = 40926,
-    NameZh = "星界·星辰挽歌",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -20396,26 +21419,6 @@ Table_Exchange = {
   [41228] = {
     id = 41228,
     NameZh = "十字弓[1]",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [41231] = {
-    id = 41231,
-    NameZh = "星界·黯月之眼",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -20796,26 +21799,6 @@ Table_Exchange = {
   [41526] = {
     id = 41526,
     NameZh = "审判之锤[1]",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [41539] = {
-    id = 41539,
-    NameZh = "星界·星辰暴怒",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -21356,26 +22339,6 @@ Table_Exchange = {
   [41841] = {
     id = 41841,
     NameZh = "水灵钢斧[1]",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
-  [41842] = {
-    id = 41842,
-    NameZh = "星界·天命者",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -22673,6 +23636,446 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [42086] = {
+    id = 42086,
+    NameZh = "铁制铠甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42087] = {
+    id = 42087,
+    NameZh = "天衣月舞★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42088] = {
+    id = 42088,
+    NameZh = "坚定战甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42089] = {
+    id = 42089,
+    NameZh = "坚定战袍★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42090] = {
+    id = 42090,
+    NameZh = "创作者外袍★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42091] = {
+    id = 42091,
+    NameZh = "野兽之心★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42092] = {
+    id = 42092,
+    NameZh = "星尘外套★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42093] = {
+    id = 42093,
+    NameZh = "侠盗之衣★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42094] = {
+    id = 42094,
+    NameZh = "山地游侠装★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42095] = {
+    id = 42095,
+    NameZh = "忍服·十六月夜★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42096] = {
+    id = 42096,
+    NameZh = "秘衣恶德★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42097] = {
+    id = 42097,
+    NameZh = "神射手之衣★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42098] = {
+    id = 42098,
+    NameZh = "圣者法袍★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42099] = {
+    id = 42099,
+    NameZh = "秘银重型铠甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42100] = {
+    id = 42100,
+    NameZh = "炼金合金装甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42101] = {
+    id = 42101,
+    NameZh = "审判之袍★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42102] = {
+    id = 42102,
+    NameZh = "华丽演出服★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42103] = {
+    id = 42103,
+    NameZh = "哥夫内的铠甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42104] = {
+    id = 42104,
+    NameZh = "优雅的制服★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42105] = {
+    id = 42105,
+    NameZh = "陨石铠甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42106] = {
+    id = 42106,
+    NameZh = "魔能涌动外袍★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42107] = {
+    id = 42107,
+    NameZh = "放浪者外套★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [42110] = {
     id = 42110,
     NameZh = "乌鲁兹符文盔甲",
@@ -22696,6 +24099,46 @@ Table_Exchange = {
   [42121] = {
     id = 42121,
     NameZh = "骷髅盔甲",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42125] = {
+    id = 42125,
+    NameZh = "生命之环",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42126] = {
+    id = 42126,
+    NameZh = "丝质外袍★",
     Trade = 1,
     Overlap = 0,
     Category = 1027,
@@ -22913,6 +24356,26 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [42521] = {
+    id = 42521,
+    NameZh = "阴影守护",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [42524] = {
     id = 42524,
     NameZh = "静止之盾",
@@ -23033,26 +24496,6 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [42544] = {
-    id = 42544,
-    NameZh = "星界·恒星光壁",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1026,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
   [42551] = {
     id = 42551,
     NameZh = "红色手提包",
@@ -23116,6 +24559,346 @@ Table_Exchange = {
   [42569] = {
     id = 42569,
     NameZh = "誓约之书第二卷",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42579] = {
+    id = 42579,
+    NameZh = "大天使之盾★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42580] = {
+    id = 42580,
+    NameZh = "石制圆盾★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42581] = {
+    id = 42581,
+    NameZh = "镜盾★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42582] = {
+    id = 42582,
+    NameZh = "驱魔圣经★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42583] = {
+    id = 42583,
+    NameZh = "娜迦鳞盾★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42584] = {
+    id = 42584,
+    NameZh = "静止之盾★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42585] = {
+    id = 42585,
+    NameZh = "奥尔里昂的铁盘★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42586] = {
+    id = 42586,
+    NameZh = "献祭之书★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42587] = {
+    id = 42587,
+    NameZh = "生命魔法书★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42588] = {
+    id = 42588,
+    NameZh = "灵犀宝珠★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42589] = {
+    id = 42589,
+    NameZh = "圣母圣像★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42590] = {
+    id = 42590,
+    NameZh = "华贵腕甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42591] = {
+    id = 42591,
+    NameZh = "邪骨腕甲★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42592] = {
+    id = 42592,
+    NameZh = "化学防护手套★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42593] = {
+    id = 42593,
+    NameZh = "尼罗的手环★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42594] = {
+    id = 42594,
+    NameZh = "蔷薇姬的腕轮★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [42595] = {
+    id = 42595,
+    NameZh = "芬特克的手环★",
     Trade = 1,
     Overlap = 0,
     Category = 1026,
@@ -23616,6 +25399,166 @@ Table_Exchange = {
   [43046] = {
     id = 43046,
     NameZh = "恐惧斗篷",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43058] = {
+    id = 43058,
+    NameZh = "衬衫★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43059] = {
+    id = 43059,
+    NameZh = "伯爵斗篷★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43060] = {
+    id = 43060,
+    NameZh = "时之蓝披肩★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43061] = {
+    id = 43061,
+    NameZh = "高等生存斗篷★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43062] = {
+    id = 43062,
+    NameZh = "坚定魔法斗篷★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43063] = {
+    id = 43063,
+    NameZh = "纳户特基格的斗篷★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43064] = {
+    id = 43064,
+    NameZh = "多芙的斗篷★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43067] = {
+    id = 43067,
+    NameZh = "秘银魔法斗篷",
     Trade = 1,
     Overlap = 0,
     Category = 1028,
@@ -24213,6 +26156,246 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [43576] = {
+    id = 43576,
+    NameZh = "舞蹈鞋★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43577] = {
+    id = 43577,
+    NameZh = "援护者皮靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43578] = {
+    id = 43578,
+    NameZh = "审判之靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43579] = {
+    id = 43579,
+    NameZh = "狼外婆的拖鞋★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43580] = {
+    id = 43580,
+    NameZh = "圣符重靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43581] = {
+    id = 43581,
+    NameZh = "水晶靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43582] = {
+    id = 43582,
+    NameZh = "高等布袋熊长靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43583] = {
+    id = 43583,
+    NameZh = "历战长靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43584] = {
+    id = 43584,
+    NameZh = "魔磨长靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43585] = {
+    id = 43585,
+    NameZh = "高级凉鞋★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43586] = {
+    id = 43586,
+    NameZh = "生命树之靴",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [43587] = {
+    id = 43587,
+    NameZh = "防水靴★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [44001] = {
     id = 44001,
     NameZh = "花戒指",
@@ -24773,6 +26956,346 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [44047] = {
+    id = 44047,
+    NameZh = "坚定指环★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44048] = {
+    id = 44048,
+    NameZh = "奥尔里昂的项链★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44049] = {
+    id = 44049,
+    NameZh = "奥尔里昂的手套★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44050] = {
+    id = 44050,
+    NameZh = "月亮胸针★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44051] = {
+    id = 44051,
+    NameZh = "永恒戒指★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44052] = {
+    id = 44052,
+    NameZh = "犬牙手套★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44053] = {
+    id = 44053,
+    NameZh = "黑狐颈链★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44054] = {
+    id = 44054,
+    NameZh = "强敏别针★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44055] = {
+    id = 44055,
+    NameZh = "炽焰耳坠★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44056] = {
+    id = 44056,
+    NameZh = "强力戒指★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44057] = {
+    id = 44057,
+    NameZh = "强体项链★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44058] = {
+    id = 44058,
+    NameZh = "强运项链★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44059] = {
+    id = 44059,
+    NameZh = "瓶中精灵★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44060] = {
+    id = 44060,
+    NameZh = "黑猫胸针★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44061] = {
+    id = 44061,
+    NameZh = "怀表★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44062] = {
+    id = 44062,
+    NameZh = "火忍西怒毕的腰带★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44063] = {
+    id = 44063,
+    NameZh = "潜能戒指★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [44064] = {
     id = 44064,
     NameZh = "生存戒指",
@@ -24816,6 +27339,46 @@ Table_Exchange = {
   [44077] = {
     id = 44077,
     NameZh = "血迹铁球",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44166] = {
+    id = 44166,
+    NameZh = "辟邪香包★",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [44167] = {
+    id = 44167,
+    NameZh = "生存戒指★",
     Trade = 1,
     Overlap = 0,
     Category = 1030,
@@ -29301,6 +31864,69 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [47233] = {
+    id = 47233,
+    NameZh = "新叶羽翼",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [47234] = {
+    id = 47234,
+    NameZh = "魂音激奏",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [47235] = {
+    id = 47235,
+    NameZh = "苗娃秋千",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [47263] = {
     id = 47263,
     NameZh = "灾厄之翼",
@@ -29325,6 +31951,27 @@ Table_Exchange = {
   [47274] = {
     id = 47274,
     NameZh = "熔岩泡泡浴",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1042,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [47381] = {
+    id = 47381,
+    NameZh = "黄昏之翼",
     Trade = 1,
     Overlap = 0,
     Category = 1042,
@@ -29739,6 +32386,27 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [48105] = {
+    id = 48105,
+    NameZh = "紫晶伴生灵",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1044,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [48118] = {
     id = 48118,
     NameZh = "谜局之王",
@@ -29767,6 +32435,27 @@ Table_Exchange = {
     Overlap = 0,
     Category = 1044,
     FashionType = 5,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48212] = {
+    id = 48212,
+    NameZh = " 赤热尾刺",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1044,
+    FashionType = 3,
     ShowTime = 7200,
     TFTradeTime = "",
     TFUnTradeTime = "",
@@ -31566,6 +34255,48 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [48826] = {
+    id = 48826,
+    NameZh = "灵息龙面",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1041,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [48839] = {
+    id = 48839,
+    NameZh = "悖誓赤瞳",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1041,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [49591] = {
     id = 49591,
     NameZh = "海灵恩护",
@@ -32070,6 +34801,27 @@ Table_Exchange = {
       Param = {count = 99999}
     }
   },
+  [52120] = {
+    id = 52120,
+    NameZh = "深渊龙鳞",
+    Trade = 0,
+    Overlap = 1,
+    Category = 1004,
+    ShowTime = 1800,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    PreorderMaxNum = 9999,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99999}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 99999}
+    }
+  },
   [52151] = {
     id = 52151,
     NameZh = "柔毛",
@@ -32459,6 +35211,27 @@ Table_Exchange = {
     TFUnTradeTime = "",
     TradeTime = "",
     UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99999}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 99999}
+    }
+  },
+  [52170] = {
+    id = 52170,
+    NameZh = "吞噬龙牙",
+    Trade = 0,
+    Overlap = 1,
+    Category = 1004,
+    ShowTime = 1800,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    PreorderMaxNum = 9999,
     BuyLimit = {
       type = "Count",
       Param = {count = 99999}
@@ -33996,6 +36769,27 @@ Table_Exchange = {
       Param = {count = 99}
     }
   },
+  [52358] = {
+    id = 52358,
+    NameZh = "噩梦龙珠",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1004,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    PreorderMaxNum = 9999,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 499}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 99}
+    }
+  },
   [52401] = {
     id = 52401,
     NameZh = "铁",
@@ -34461,6 +37255,27 @@ Table_Exchange = {
   [52423] = {
     id = 52423,
     NameZh = "信仰露珠",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1004,
+    ShowTime = 1800,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    PreorderMaxNum = 9999,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 9999}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 1999}
+    }
+  },
+  [52425] = {
+    id = 52425,
+    NameZh = "捕风龙爪",
     Trade = 1,
     Overlap = 1,
     Category = 1004,
@@ -35208,6 +38023,27 @@ Table_Exchange = {
       Param = {count = 199}
     }
   },
+  [52538] = {
+    id = 52538,
+    NameZh = "熔岩龙骨",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1004,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    PreorderMaxNum = 9999,
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 999}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 199}
+    }
+  },
   [52625] = {
     id = 52625,
     NameZh = "雪人",
@@ -35474,6 +38310,266 @@ Table_Exchange = {
     PreorderMaxNum = 9999,
     BuyLimit = _EmptyTable,
     SellLimit = _EmptyTable
+  },
+  [52911] = {
+    id = 52911,
+    NameZh = "秘传龙脊契刻",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 20}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 20}
+    }
+  },
+  [52940] = {
+    id = 52940,
+    NameZh = "秘传龙骨拓片-骑士",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52941] = {
+    id = 52941,
+    NameZh = "秘传龙骨拓片-十字军",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52942] = {
+    id = 52942,
+    NameZh = "秘传龙骨拓片-巫师",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52943] = {
+    id = 52943,
+    NameZh = "秘传龙骨拓片-贤者",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52944] = {
+    id = 52944,
+    NameZh = "秘传龙骨拓片-刺客",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52945] = {
+    id = 52945,
+    NameZh = "秘传龙骨拓片-流氓",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52946] = {
+    id = 52946,
+    NameZh = "秘传龙骨拓片-猎人",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52947] = {
+    id = 52947,
+    NameZh = "秘传龙骨拓片-诗舞",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52948] = {
+    id = 52948,
+    NameZh = "秘传龙骨拓片-牧师",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52949] = {
+    id = 52949,
+    NameZh = "秘传龙骨拓片-武僧",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52950] = {
+    id = 52950,
+    NameZh = "秘传龙骨拓片-铁匠",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [52951] = {
+    id = 52951,
+    NameZh = "秘传龙骨拓片-炼金术士",
+    Trade = 1,
+    Overlap = 1,
+    Category = 1002,
+    ShowTime = 3600,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
   },
   [60503] = {
     id = 60503,
@@ -35915,9 +39011,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [62515] = {
-    id = 62515,
-    NameZh = "霸王乱舞[1]",
+  [62511] = {
+    id = 62511,
+    NameZh = "卡仑的指甲[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -35935,9 +39031,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [62523] = {
-    id = 62523,
-    NameZh = "星界·破击印",
+  [62515] = {
+    id = 62515,
+    NameZh = "霸王乱舞[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -36135,9 +39231,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [62820] = {
-    id = 62820,
-    NameZh = "秘鞭 眷恋[1]",
+  [62819] = {
+    id = 62819,
+    NameZh = "毒鞭 蔷薇[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -36155,9 +39251,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [62826] = {
-    id = 62826,
-    NameZh = "星界·束星锁链",
+  [62820] = {
+    id = 62820,
+    NameZh = "秘鞭 眷恋[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -36255,26 +39351,6 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [63125] = {
-    id = 63125,
-    NameZh = "星界·宙宇歌者",
-    Trade = 1,
-    Overlap = 0,
-    Category = 1025,
-    ShowTime = 7200,
-    TFTradeTime = "",
-    TFUnTradeTime = "",
-    TradeTime = "",
-    UnTradeTime = "",
-    BuyLimit = {
-      type = "Count",
-      Param = {count = 99}
-    },
-    SellLimit = {
-      type = "Count",
-      Param = {count = 10}
-    }
-  },
   [63140] = {
     id = 63140,
     NameZh = "琵琶★[1]",
@@ -36315,9 +39391,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [63417] = {
-    id = 63417,
-    NameZh = "贤者日记[1]",
+  [63153] = {
+    id = 63153,
+    NameZh = "猪笼草竖琴[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -36335,9 +39411,9 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
-  [63425] = {
-    id = 63425,
-    NameZh = "星界·无限法则",
+  [63417] = {
+    id = 63417,
+    NameZh = "贤者日记[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -37315,6 +40391,26 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [140625] = {
+    id = 140625,
+    NameZh = "毁灭之杖[2]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [140633] = {
     id = 140633,
     NameZh = "元素融合之杖[2]",
@@ -37938,6 +41034,26 @@ Table_Exchange = {
   [140781] = {
     id = 140781,
     NameZh = "魔短剑·暗噬[2]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [140803] = {
+    id = 140803,
+    NameZh = "幸运短剑★[2]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -40495,6 +43611,446 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [142086] = {
+    id = 142086,
+    NameZh = "铁制铠甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142087] = {
+    id = 142087,
+    NameZh = "天衣月舞★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142088] = {
+    id = 142088,
+    NameZh = "坚定战甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142089] = {
+    id = 142089,
+    NameZh = "坚定战袍★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142090] = {
+    id = 142090,
+    NameZh = "创作者外袍★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142091] = {
+    id = 142091,
+    NameZh = "野兽之心★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142092] = {
+    id = 142092,
+    NameZh = "星尘外套★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142093] = {
+    id = 142093,
+    NameZh = "侠盗之衣★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142094] = {
+    id = 142094,
+    NameZh = "山地游侠装★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142095] = {
+    id = 142095,
+    NameZh = "忍服·十六月夜★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142096] = {
+    id = 142096,
+    NameZh = "秘衣恶德★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142097] = {
+    id = 142097,
+    NameZh = "神射手之衣★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142098] = {
+    id = 142098,
+    NameZh = "圣者法袍★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142099] = {
+    id = 142099,
+    NameZh = "秘银重型铠甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142100] = {
+    id = 142100,
+    NameZh = "炼金合金装甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142101] = {
+    id = 142101,
+    NameZh = "审判之袍★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142102] = {
+    id = 142102,
+    NameZh = "华丽演出服★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142103] = {
+    id = 142103,
+    NameZh = "哥夫内的铠甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142104] = {
+    id = 142104,
+    NameZh = "优雅的制服★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142105] = {
+    id = 142105,
+    NameZh = "陨石铠甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142106] = {
+    id = 142106,
+    NameZh = "魔能涌动外袍★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142107] = {
+    id = 142107,
+    NameZh = "放浪者外套★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [142110] = {
     id = 142110,
     NameZh = "乌鲁兹符文盔甲[1]",
@@ -40518,6 +44074,46 @@ Table_Exchange = {
   [142121] = {
     id = 142121,
     NameZh = "骷髅盔甲[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142125] = {
+    id = 142125,
+    NameZh = "生命之环[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1027,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142126] = {
+    id = 142126,
+    NameZh = "丝质外袍★[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1027,
@@ -40735,6 +44331,26 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [142521] = {
+    id = 142521,
+    NameZh = "阴影守护[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [142524] = {
     id = 142524,
     NameZh = "静止之盾[1]",
@@ -40918,6 +44534,326 @@ Table_Exchange = {
   [142569] = {
     id = 142569,
     NameZh = "誓约之书第二卷[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142579] = {
+    id = 142579,
+    NameZh = "大天使之盾★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142580] = {
+    id = 142580,
+    NameZh = "石制圆盾★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142581] = {
+    id = 142581,
+    NameZh = "镜盾★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142582] = {
+    id = 142582,
+    NameZh = "驱魔圣经★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142583] = {
+    id = 142583,
+    NameZh = "娜迦鳞盾★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142584] = {
+    id = 142584,
+    NameZh = "静止之盾★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142585] = {
+    id = 142585,
+    NameZh = "奥尔里昂的铁盘★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142586] = {
+    id = 142586,
+    NameZh = "献祭之书★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142587] = {
+    id = 142587,
+    NameZh = "生命魔法书★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142588] = {
+    id = 142588,
+    NameZh = "灵犀宝珠★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142590] = {
+    id = 142590,
+    NameZh = "华贵腕甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142591] = {
+    id = 142591,
+    NameZh = "邪骨腕甲★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142592] = {
+    id = 142592,
+    NameZh = "化学防护手套★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142593] = {
+    id = 142593,
+    NameZh = "尼罗的手环★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142594] = {
+    id = 142594,
+    NameZh = "蔷薇姬的腕轮★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1026,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [142595] = {
+    id = 142595,
+    NameZh = "芬特克的手环★[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1026,
@@ -41418,6 +45354,166 @@ Table_Exchange = {
   [143046] = {
     id = 143046,
     NameZh = "恐惧斗篷[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143058] = {
+    id = 143058,
+    NameZh = "衬衫★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143059] = {
+    id = 143059,
+    NameZh = "伯爵斗篷★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143060] = {
+    id = 143060,
+    NameZh = "时之蓝披肩★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143061] = {
+    id = 143061,
+    NameZh = "高等生存斗篷★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143062] = {
+    id = 143062,
+    NameZh = "坚定魔法斗篷★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143063] = {
+    id = 143063,
+    NameZh = "纳户特基格的斗篷★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143064] = {
+    id = 143064,
+    NameZh = "多芙的斗篷★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1028,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143067] = {
+    id = 143067,
+    NameZh = "秘银魔法斗篷[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1028,
@@ -42015,6 +46111,246 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [143576] = {
+    id = 143576,
+    NameZh = "舞蹈鞋★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143577] = {
+    id = 143577,
+    NameZh = "援护者皮靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143578] = {
+    id = 143578,
+    NameZh = "审判之靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143579] = {
+    id = 143579,
+    NameZh = "狼外婆的拖鞋★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143580] = {
+    id = 143580,
+    NameZh = "圣符重靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143581] = {
+    id = 143581,
+    NameZh = "水晶靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143582] = {
+    id = 143582,
+    NameZh = "高等布袋熊长靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143583] = {
+    id = 143583,
+    NameZh = "历战长靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143584] = {
+    id = 143584,
+    NameZh = "魔磨长靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143585] = {
+    id = 143585,
+    NameZh = "高级凉鞋★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143586] = {
+    id = 143586,
+    NameZh = "生命树之靴[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [143587] = {
+    id = 143587,
+    NameZh = "防水靴★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1029,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [144001] = {
     id = 144001,
     NameZh = "花戒指[1]",
@@ -42575,6 +46911,346 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [144047] = {
+    id = 144047,
+    NameZh = "坚定指环★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144048] = {
+    id = 144048,
+    NameZh = "奥尔里昂的项链★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144049] = {
+    id = 144049,
+    NameZh = "奥尔里昂的手套★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144050] = {
+    id = 144050,
+    NameZh = "月亮胸针★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144051] = {
+    id = 144051,
+    NameZh = "永恒戒指★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144052] = {
+    id = 144052,
+    NameZh = "犬牙手套★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144053] = {
+    id = 144053,
+    NameZh = "黑狐颈链★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144054] = {
+    id = 144054,
+    NameZh = "强敏别针★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144055] = {
+    id = 144055,
+    NameZh = "炽焰耳坠★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144056] = {
+    id = 144056,
+    NameZh = "强力戒指★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144057] = {
+    id = 144057,
+    NameZh = "强体项链★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144058] = {
+    id = 144058,
+    NameZh = "强运项链★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144059] = {
+    id = 144059,
+    NameZh = "瓶中精灵★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144060] = {
+    id = 144060,
+    NameZh = "黑猫胸针★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144061] = {
+    id = 144061,
+    NameZh = "怀表★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144062] = {
+    id = 144062,
+    NameZh = "火忍西怒毕的腰带★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144063] = {
+    id = 144063,
+    NameZh = "潜能戒指★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [144064] = {
     id = 144064,
     NameZh = "生存戒指[1]",
@@ -42618,6 +47294,46 @@ Table_Exchange = {
   [144077] = {
     id = 144077,
     NameZh = "血迹铁球[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144166] = {
+    id = 144166,
+    NameZh = "辟邪香包★[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1030,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [144167] = {
+    id = 144167,
+    NameZh = "生存戒指★[1]",
     Trade = 1,
     Overlap = 0,
     Category = 1030,
@@ -45608,6 +50324,153 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [149527] = {
+    id = 149527,
+    NameZh = "虫语者[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149528] = {
+    id = 149528,
+    NameZh = "日光兽角[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149529] = {
+    id = 149529,
+    NameZh = "月光兽角[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 1,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149530] = {
+    id = 149530,
+    NameZh = "灼金羽冠[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149531] = {
+    id = 149531,
+    NameZh = "莉姆露的魂龛[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 2,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149532] = {
+    id = 149532,
+    NameZh = "啃啃魔妖帽[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [149732] = {
+    id = 149732,
+    NameZh = "邪恶之冠[1]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1040,
+    FashionType = 3,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [160503] = {
     id = 160503,
     NameZh = "守护天使圣像[1]",
@@ -46028,6 +50891,26 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [162511] = {
+    id = 162511,
+    NameZh = "卡仑的指甲[2]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [162515] = {
     id = 162515,
     NameZh = "霸王乱舞[2]",
@@ -46228,6 +51111,26 @@ Table_Exchange = {
       Param = {count = 10}
     }
   },
+  [162819] = {
+    id = 162819,
+    NameZh = "毒鞭 蔷薇[2]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
   [162820] = {
     id = 162820,
     NameZh = "秘鞭 眷恋[2]",
@@ -46351,6 +51254,26 @@ Table_Exchange = {
   [163144] = {
     id = 163144,
     NameZh = "贝斯★[2]",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1025,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 99}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 10}
+    }
+  },
+  [163153] = {
+    id = 163153,
+    NameZh = "猪笼草竖琴[2]",
     Trade = 1,
     Overlap = 0,
     Category = 1025,
@@ -54333,6 +59256,27 @@ Table_Exchange = {
     SellLimit = {
       type = "Count",
       Param = {count = 9999}
+    }
+  },
+  [3008050] = {
+    id = 3008050,
+    NameZh = "冰晶波利",
+    Trade = 1,
+    Overlap = 0,
+    Category = 1044,
+    FashionType = 5,
+    ShowTime = 7200,
+    TFTradeTime = "",
+    TFUnTradeTime = "",
+    TradeTime = "",
+    UnTradeTime = "",
+    BuyLimit = {
+      type = "Count",
+      Param = {count = 9}
+    },
+    SellLimit = {
+      type = "Count",
+      Param = {count = 1}
     }
   },
   [3010978] = {

@@ -4,7 +4,9 @@ local SpriteName = {
   [1701] = "Kingboli_icon_custom-made",
   [1702] = "Kingboli_icon_Card-breakdown",
   [1703] = "Kingboli_icon_synthesis",
-  [1704] = "Kingboli_icon_synthesis"
+  [1704] = "Kingboli_icon_synthesis",
+  [1705] = "Kingboli_icon_activity",
+  [1706] = "Kingboli_icon_synthesis"
 }
 
 function CardTabCell:Init()
@@ -48,6 +50,8 @@ function CardTabCell:CheckRateUp()
     type = CardMakeProxy.MakeType.BossCompose
   elseif self.id == 1704 then
     type = CardMakeProxy.MakeType.MvpCardCompose
+  elseif self.id == 1705 then
+    type = CardMakeProxy.MakeType.DungeonMvpCardCompose
   end
   local isUp = CardMakeProxy.Instance:IsHaveUpRateCards(type)
   self.upRateSp:SetActive(isUp)

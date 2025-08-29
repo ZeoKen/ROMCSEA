@@ -60,10 +60,18 @@ function ServiceMatchCCmdProxy:CallFightConfirmCCmd(type, roomid, teamid, reply)
   ServiceMatchCCmdProxy.super.CallFightConfirmCCmd(self, type, roomid, teamid, reply)
 end
 
-function ServiceMatchCCmdProxy:CallJoinRoomCCmd(type, roomid, name, isquick, teamid, teammember, ret, guildid, users, matcher, charid, zoneid, serverid, teamexptype, onlymyserver, entranceid)
+function ServiceMatchCCmdProxy:CallJoinRoomCCmd(type, roomid, name, isquick, teamid, teammember, ret, guildid, users, matcher, charid, zoneid, serverid, teamexptype, onlymyserver, entranceid, need_robot_npc, need_heal_profession)
   local logStr = string.format("type:%s, roomid:%s, teamid:%s", tostring(type), tostring(roomid), tostring(teamid))
   helplog("MatchCCmd Call JoinRoomCCmd", logStr)
-  ServiceMatchCCmdProxy.super.CallJoinRoomCCmd(self, type, roomid, name, isquick, teamid, teammember, ret, guildid, users, matcher, charid, zoneid, serverid, teamexptype, onlymyserver, entranceid)
+  if nil == need_robot_npc then
+    local var_ai = MyselfProxy.Instance:getVarValueByType(Var_pb.EVARTYPE_NEED_ROBOT_NPC) or 0
+    need_robot_npc = var_ai == 1
+  end
+  if nil == need_heal_profession then
+    local var_healProfession = MyselfProxy.Instance:getVarValueByType(Var_pb.EVARTYPE_NEED_HEAL_PROFESSION) or 0
+    need_heal_profession = var_healProfession == 1
+  end
+  ServiceMatchCCmdProxy.super.CallJoinRoomCCmd(self, type, roomid, name, isquick, teamid, teammember, ret, guildid, users, matcher, charid, zoneid, serverid, teamexptype, onlymyserver, entranceid, need_robot_npc, need_heal_profession)
 end
 
 function ServiceMatchCCmdProxy:CallLeaveRoomCCmd(type, guid)
@@ -219,20 +227,30 @@ end
 
 function ServiceMatchCCmdProxy:RecvTwelveWarbandTreeMatchCCmd(data)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
-    CupMode6v6Proxy.Instance:HandleTreeBandData(data)
+    if data.cross_server then
+      CupMode6v6Proxy_MultiServer.Instance:HandleTreeBandData(data)
+    else
+      CupMode6v6Proxy.Instance:HandleTreeBandData(data)
+    end
     self:Notify(CupModeEvent.Tree_6v6, data)
     return
   end
-  WarbandProxy.Instance:HandleTreeBandData(data)
+  if data.cross_server then
+    WarbandProxy_MultiServer.Instance:HandleTreeBandData(data)
+  else
+    WarbandProxy.Instance:HandleTreeBandData(data)
+  end
   self:Notify(ServiceEvent.MatchCCmdTwelveWarbandTreeMatchCCmd, data)
 end
 
 function ServiceMatchCCmdProxy:RecvTwelveWarbandLeaveMatchCCmd(data)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
+    CupMode6v6Proxy_MultiServer.Instance:ExitMyband()
     CupMode6v6Proxy.Instance:ExitMyband()
     self:Notify(CupModeEvent.Leave_6v6, data)
     return
   end
+  WarbandProxy_MultiServer.Instance:ExitMyband()
   WarbandProxy.Instance:ExitMyband()
   self:Notify(ServiceEvent.MatchCCmdTwelveWarbandLeaveMatchCCmd, data)
 end
@@ -248,11 +266,19 @@ end
 
 function ServiceMatchCCmdProxy:RecvTwelveWarbandQueryMatchCCmd(data)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
-    CupMode6v6Proxy.Instance:HandleQueryMember(data)
-    self:Notify(CupModeEvent.QueryBand_6v6)
+    if data.season and data.season > 10000 then
+      CupMode6v6Proxy_MultiServer.Instance:HandleQueryMember(data)
+    else
+      CupMode6v6Proxy.Instance:HandleQueryMember(data)
+    end
+    self:Notify(CupModeEvent.QueryBand_6v6, data)
     return
   end
-  WarbandProxy.Instance:HandleQueryMember(data)
+  if data.season and data.season > 10000 then
+    WarbandProxy_MultiServer.Instance:HandleQueryMember(data)
+  else
+    WarbandProxy.Instance:HandleQueryMember(data)
+  end
   self:Notify(ServiceEvent.MatchCCmdTwelveWarbandQueryMatchCCmd, data)
 end
 
@@ -260,30 +286,48 @@ function ServiceMatchCCmdProxy:RecvTwelveWarbandInfoMatchCCmd(data)
   redlog("[cup] RecvTwelveWarbandInfoMatchCCmd", data.guid, data.warbandname, data.etype, #data.memberinfo)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
     CupMode6v6Proxy.Instance:HandleUpdateMyWarband(data)
+    CupMode6v6Proxy_MultiServer.Instance:HandleUpdateMyWarband(data)
     self:Notify(CupModeEvent.BandInfo_6v6, data)
     return
   end
   WarbandProxy.Instance:HandleUpdateMyWarband(data)
+  WarbandProxy_MultiServer.Instance:HandleUpdateMyWarband(data)
   self:Notify(ServiceEvent.MatchCCmdTwelveWarbandInfoMatchCCmd, data)
 end
 
 function ServiceMatchCCmdProxy:RecvTwelveWarbandTeamListMatchCCmd(data)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
-    CupMode6v6Proxy.Instance:HandleQueryList(data.teaminfo)
+    if data.cross_server then
+      CupMode6v6Proxy_MultiServer.Instance:HandleQueryList(data.teaminfo)
+    else
+      CupMode6v6Proxy.Instance:HandleQueryList(data.teaminfo)
+    end
     self:Notify(CupModeEvent.TeamList_6v6, data)
     return
   end
-  WarbandProxy.Instance:HandleQueryList(data.teaminfo)
+  if data.cross_server then
+    WarbandProxy_MultiServer.Instance:HandleQueryList(data.teaminfo)
+  else
+    WarbandProxy.Instance:HandleQueryList(data.teaminfo)
+  end
   self:Notify(ServiceEvent.MatchCCmdTwelveWarbandTeamListMatchCCmd, data)
 end
 
 function ServiceMatchCCmdProxy:RecvTwelveWarbandSortMatchCCmd(data)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
-    CupMode6v6Proxy.Instance:HandleSessionSort(data.sortinfo)
+    if data.cross_server then
+      CupMode6v6Proxy_MultiServer.Instance:HandleSessionSort(data.sortinfo)
+    else
+      CupMode6v6Proxy.Instance:HandleSessionSort(data.sortinfo)
+    end
     self:Notify(CupModeEvent.Sort_6v6, data)
     return
   end
-  WarbandProxy.Instance:HandleSessionSort(data.sortinfo)
+  if data.cross_server then
+    WarbandProxy_MultiServer.Instance:HandleSessionSort(data.sortinfo)
+  else
+    WarbandProxy.Instance:HandleSessionSort(data.sortinfo)
+  end
   self:Notify(ServiceEvent.MatchCCmdTwelveWarbandSortMatchCCmd, data)
 end
 
@@ -302,21 +346,37 @@ end
 
 function ServiceMatchCCmdProxy:RecvQueryTwelveSeasonInfoMatchCCmd(data)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
-    CupMode6v6Proxy.Instance:HandleWarbandTime(data)
+    if data.cross_server_champion then
+      CupMode6v6Proxy_MultiServer.Instance:HandleWarbandTime(data)
+    else
+      CupMode6v6Proxy.Instance:HandleWarbandTime(data)
+    end
     self:Notify(CupModeEvent.SeasonInfo_6v6, data)
     return
   end
-  WarbandProxy.Instance:HandleWarbandTime(data)
+  if data.cross_server_champion then
+    WarbandProxy_MultiServer.Instance:HandleWarbandTime(data)
+  else
+    WarbandProxy.Instance:HandleWarbandTime(data)
+  end
   self:Notify(ServiceEvent.MatchCCmdQueryTwelveSeasonInfoMatchCCmd, data)
 end
 
 function ServiceMatchCCmdProxy:RecvQueryTwelveSeasonFinishMatchCCmd(data)
   if data and data.etype == EPVPTYPE.EPVPTYPE_TEAMPWS_CHAMPION then
-    CupMode6v6Proxy.Instance:ShutDown()
+    if data.cross_server then
+      CupMode6v6Proxy_MultiServer.Instance:ShutDown()
+    else
+      CupMode6v6Proxy.Instance:ShutDown()
+    end
     self:Notify(CupModeEvent.SeasonFinish_6v6, data)
     return
   end
-  WarbandProxy.Instance:ShutDown()
+  if data.cross_server then
+    WarbandProxy_MultiServer.Instance:ShutDown()
+  else
+    WarbandProxy.Instance:ShutDown()
+  end
   self:Notify(ServiceEvent.MatchCCmdQueryTwelveSeasonFinishMatchCCmd, data)
 end
 
@@ -386,4 +446,9 @@ end
 function ServiceMatchCCmdProxy:RecvTriplePvpRewardStatusCmd(data)
   PvpProxy.Instance:UpdateTriplePwsRewardStatus(data)
   self:Notify(ServiceEvent.MatchCCmdTriplePvpRewardStatusCmd, data)
+end
+
+function ServiceMatchCCmdProxy:RecvChampionPvpRewardStatusCmd(data)
+  PvpProxy.Instance:UpdateChampionPvpRewardStatusCmd(data)
+  self:Notify(ServiceEvent.MatchCCmdChampionPvpRewardStatusCmd, data)
 end

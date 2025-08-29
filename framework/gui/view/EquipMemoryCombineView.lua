@@ -21,6 +21,10 @@ local fkCfg = {
   EquipMemoryWaxView = {
     name = ZhString.EquipMemory_AddWax,
     icon = "memory_icon_5"
+  },
+  EquipMemoryAdvanceView = {
+    name = ZhString.EquipMemory_Advance,
+    icon = "tab_icon_pinzhiup"
   }
 }
 
@@ -28,25 +32,26 @@ function EquipMemoryCombineView:InitConfig()
   self.TabGOName = {
     "Tab1",
     "Tab2",
-    "Tab3"
+    "Tab3",
+    "Tab4"
   }
   self.TabIconMap = {
     Tab1 = "memory_icon_1",
     Tab2 = "memory_icon_2",
     Tab3 = "memory_icon_4",
-    Tab4 = "memory_icon_5"
+    Tab4 = "tab_icon_pinzhiup"
   }
   self.TabName = {
     ZhString.EquipMemory_Equip,
     ZhString.EquipMemory_Upgrade,
     ZhString.EquipMemory_AttrReset,
-    ZhString.EquipMemory_AddWax
+    ZhString.EquipMemory_Advance
   }
   self.TabViewList = {
     PanelConfig.EquipMemoryEmbedView,
     PanelConfig.EquipMemoryUpgradeView,
     PanelConfig.EquipMemoryAttrResetView,
-    PanelConfig.EquipMemoryWaxView
+    PanelConfig.EquipMemoryAdvanceView
   }
 end
 
@@ -172,7 +177,7 @@ function EquipMemoryCombineView:JumpPanel(tabIndex)
       self:_JumpPanel("EquipMemoryAttrResetView", viewdata)
     elseif tabIndex == 4 then
       self:SetStackViewIndex(4)
-      self:_JumpPanel("EquipMemoryWaxView", viewdata)
+      self:_JumpPanel("EquipMemoryAdvanceView", viewdata)
     end
   end
 end
@@ -180,8 +185,22 @@ end
 function EquipMemoryCombineView:OnEnter()
   EquipMemoryCombineView.super.super.OnEnter(self)
   self:TabChangeHandler(self.index)
-  EventManager.Me():AddEventListener(EnchantEvent.ReturnToReset, self.ReturnToResetView, self)
-  EventManager.Me():AddEventListener(EnchantEvent.ResetLockedAdvCost, self.ResetLockedAdvanceCost, self)
+  EventManager.Me():AddEventListener(EquipMemoryEvent.JumpToAttrReset, self.ReturnToResetView, self)
+end
+
+function EquipMemoryCombineView:ReturnToResetView()
+  local index = 3
+  if self.customTabs then
+    for i = 1, #self.customTabs do
+      local panel = self.customTabs[i]
+      if panel.panel.class == "EquipMemoryAttrResetView" then
+        index = i
+        break
+      end
+    end
+  end
+  xdlog("返回重置", index)
+  self:TabChangeHandler(index)
 end
 
 function EquipMemoryCombineView:CloseSelf()
@@ -190,8 +209,7 @@ end
 
 function EquipMemoryCombineView:OnExit()
   EquipMemoryCombineView.super.super.OnExit(self)
-  EventManager.Me():RemoveEventListener(EnchantEvent.ReturnToReset, self.ReturnToResetView, self)
-  EventManager.Me():RemoveEventListener(EnchantEvent.ResetLockedAdvCost, self.ResetLockedAdvanceCost, self)
+  EventManager.Me():RemoveEventListener(EquipMemoryEvent.JumpToAttrReset, self.ReturnToResetView, self)
   if self.viewdata.viewdata and self.viewdata.viewdata.tabs then
     for i = 1, #self.viewdata.viewdata.tabs do
       local panel = self.viewdata.viewdata.tabs[i]
@@ -219,6 +237,10 @@ function EquipMemoryCombineView:OnExit()
     })
     self:sendNotification(UIEvent.CloseUI, {
       className = "EquipMemoryWaxView",
+      needRollBack = false
+    })
+    self:sendNotification(UIEvent.CloseUI, {
+      className = "EquipMemoryAdvanceView",
       needRollBack = false
     })
   end

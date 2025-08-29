@@ -94,21 +94,6 @@ function FunctionLoginTDSG:GetTDSG_UserInfo()
   return ""
 end
 
-function FunctionLoginTDSG:GetTDSG_AccToken()
-  local debug = FunctionLogin.Me():isDebug()
-  if debug then
-    return FunctionLogin.Me().debugToken
-  else
-    local token = FunctionSDK.Instance:GetAccessToken()
-    helplog("tdsg accToken ", tostring(token))
-    if not token or token == "" then
-      return nil
-    else
-      return token
-    end
-  end
-end
-
 function FunctionLoginTDSG:GetTDSG_MacKey()
   local debug = FunctionLogin.Me():isDebug()
   if debug then
@@ -134,9 +119,9 @@ function FunctionLoginTDSG:RequestAuthAccToken()
   OverseaHostHelper:RefreshPriceInfo()
   local phoneplat = ApplicationInfo.GetRunPlatformStr()
   local appPreVersion = CompatibilityVersion.appPreVersion
-  local sid = self:GetTDSG_AccToken()
-  Debug.LogFormat("GetTDSG_AccToken sid : {0}", tostring(sid))
-  if sid then
+  local accToken = self:getToken()
+  Debug.LogFormat("getToken accToken : {0}", tostring(accToken))
+  if accToken then
     local version = self:getServerVersion()
     local plat = self:GetPlat()
     local clientCode = CompatibilityVersion.version
@@ -151,21 +136,19 @@ function FunctionLoginTDSG:RequestAuthAccToken()
       end
     end)
     local url
-    local accToken = self:GetTDSG_AccToken()
     local macKey = self:GetTDSG_MacKey()
     local old_deviceId = self:GetOld_DeviceID()
     local new_deviceId = self:GetNew_DeviceID()
-    if BranchMgr.IsSEA() or BranchMgr.IsNA() or BranchMgr.IsEU() or BranchMgr.IsNO() or BranchMgr.IsNOTW() then
-      url = string.format("%s/auth?sid=%s&p=%s&sver=%s&cver=%s&client_id=%s&mac_key=%s&lang=%s", NetConfig.NewAccessTokenAuthHost[1], accToken, plat, version, clientCode, self:GetTDSG_ClientID(), macKey, ApplicationInfo.GetSystemLanguage())
-    else
-      url = string.format("%s/auth?sid=%s&p=%s&sver=%s&cver=%s&client_id=%s&mac_key=%s", NetConfig.NewAccessTokenAuthHost[1], accToken, plat, version, clientCode, self:GetTDSG_ClientID(), macKey)
-    end
+    url = string.format("%s/auth?sid=%s&p=%s&sver=%s&cver=%s&client_id=%s&mac_key=%s&lang=%s", NetConfig.NewAccessTokenAuthHost[1], accToken, plat, version, clientCode, self:GetTDSG_ClientID(), macKey, ApplicationInfo.GetSystemLanguage())
     url = string.format("%s&old_deviceid=%s&new_deviceid=%s", url, old_deviceId, new_deviceId)
     url = string.format("%s&appPreVersion=%s&phoneplat=%s", url, appPreVersion, phoneplat)
     url = string.format("%s&ver=6.x", url)
+    local finger_print = BuglyManager.GetInstance():GetOneidData()
+    local form = WWWForm()
+    form:AddField("finger_print", finger_print)
     OverseaHostHelper.lastAuthUrl = url
     Debug.LogFormat("Oversea RequestAuthAccToken url : {0}", url)
-    local order = HttpWWWRequestOrder(url, NetConfig.HttpRequestTimeOut, nil, false, true)
+    local order = HttpWWWRequestOrder(url, NetConfig.HttpRequestTimeOut, form, false, true)
     if order then
       self.hasHandleResp = false
       order:SetCallBacks(function(response)

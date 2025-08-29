@@ -2,6 +2,8 @@ autoImport("PvpRoomData")
 autoImport("YoyoRoomData")
 autoImport("MvpBattleTeamData")
 autoImport("TeamPwsData")
+autoImport("PVPStatueInfo")
+autoImport("RewardEffectData")
 PvpProxy = class("PvpProxy", pm.Proxy)
 PvpProxy.Instance = nil
 PvpProxy.NAME = "PvpProxy"
@@ -103,6 +105,11 @@ PvpProxy.TeamPws = {
 }
 PvpProxy.CanCancelType = {
   [PvpProxy.Type.TeamPwsChampion] = 1
+}
+PvpProxy.StatueType = {
+  Triple = SceneMap_pb.PVP_CHAMPION_STATUE_TRIPLE,
+  Teampws = SceneMap_pb.PVP_CHAMPION_STATUE_TEAMPWS,
+  Twelve = SceneMap_pb.PVP_CHAMPION_STATUE_TWELVE
 }
 
 function PvpProxy.CheckCanCancel(type)
@@ -682,7 +689,7 @@ function PvpProxy:GetStartMatchTime(etype)
 end
 
 function PvpProxy:GetRobotTime(etype)
-  if self.matchStateMap == nil then
+  if not self.matchStateMap or not self.matchStateMap[etype] then
     return 0, 0
   end
   return self.matchStateMap[etype].robot_rest_time, self.matchStateMap[etype].robot_match_time
@@ -1162,13 +1169,27 @@ function PvpProxy:RecvQueryTeamPwsRankMatchCCmd(serverData)
     rankData = ReusableTable.CreateTable()
     self.teamPwsRankData[#self.teamPwsRankData + 1] = TeamPwsData.ParseRankData(rankData, datas[i])
   end
+  local lastdatas = serverData.lastrankinfo
+  local lastrankData
+  if not self.lastTeamPwsRankData then
+    self.lastTeamPwsRankData = ReusableTable.CreateArray()
+  end
+  for i = 1, #lastdatas do
+    lastrankData = ReusableTable.CreateTable()
+    self.lastTeamPwsRankData[#self.lastTeamPwsRankData + 1] = TeamPwsData.ParseRankData(lastrankData, lastdatas[i])
+  end
   self.teamPwsDataProtect = true
   TimeTickManager.Me():CreateTick(30000, 30000, self.ClearTeamPwsRankDataProtect, self, 1)
 end
 
-function PvpProxy:GetTeamPwsRankData()
-  self.teamPwsDataIsUsing = self.teamPwsRankData ~= nil
-  return self.teamPwsRankData
+function PvpProxy:GetTeamPwsRankData(last)
+  self.teamPwsDataIsUsing = self.teamPwsRankData ~= nil or self.lastTeamPwsRankData ~= nil
+  return last and self.lastTeamPwsRankData or self.teamPwsRankData
+end
+
+function PvpProxy:GetLastTeamPwsRankData()
+  self.teamPwsDataIsUsing = self.lastTeamPwsRankData ~= nil
+  return self.lastTeamPwsRankData
 end
 
 function PvpProxy:ClearTeamPwsRankDataProtect()
@@ -1179,14 +1200,15 @@ function PvpProxy:ClearTeamPwsRankDataProtect()
   end
 end
 
-function PvpProxy:GetTeamPwsRankSearchResult(keyword)
+function PvpProxy:GetTeamPwsRankSearchResult(keyword, last)
   if not self.teamPwsRankSearchResult then
     self.teamPwsRankSearchResult = ReusableTable.CreateArray()
   end
   TableUtility.ArrayClear(self.teamPwsRankSearchResult)
   keyword = string.lower(keyword)
-  for i = 1, #self.teamPwsRankData do
-    local data = self.teamPwsRankData[i]
+  local searchRange = last and self.lastTeamPwsRankData or self.teamPwsRankData
+  for i = 1, #searchRange do
+    local data = searchRange[i]
     if data.name and string.find(string.lower(data.name), keyword) then
       self.teamPwsRankSearchResult[#self.teamPwsRankSearchResult + 1] = data
     end
@@ -1206,6 +1228,7 @@ function PvpProxy:HandleQueryTeamPwsTeamInfo(data)
     self.teamPwsSeasonBegin = nil
     return
   end
+  self.teamPwsSeason = data.season
   self.teamPwsInfoCount = data.count
   self.teamPwsSeasonBegin = data.season_begin
   self.teamPwsSeasonBreakBegin = data.season_breakbegin
@@ -1252,6 +1275,19 @@ end
 
 function PvpProxy:CheckProInvalid(pro)
   return nil ~= self.teamPwsSeasonForbiddenProMap[pro]
+end
+
+function PvpProxy:CheckHasInvalidPro()
+  local _TeamProxy = TeamProxy.Instance
+  if _TeamProxy:IHaveTeam() then
+    local list = _TeamProxy.myTeam:GetMembersList()
+    for i = 1, #list do
+      if self:CheckProInvalid(list[i].profession) then
+        return true
+      end
+    end
+  end
+  return false
 end
 
 function PvpProxy:GetForbiddenProStr()
@@ -1405,6 +1441,29 @@ function PvpProxy:CheckMvpMatchValid()
   return true
 end
 
+function PvpProxy:CheckTripleMatchValid()
+  if TriplePlayerPvpProxy.Instance:IsRelax() then
+    return true
+  end
+  if not TeamProxy.Instance:IHaveTeam() then
+    return true
+  end
+  local md = TeamProxy.Instance.myTeam:GetMembersList()
+  local professionRefCount = {}
+  for i = 1, #md do
+    local pro = md[i].profession
+    if pro then
+      if nil ~= professionRefCount[pro] then
+        MsgManager.ShowMsgByID(28113)
+        return false
+      else
+        professionRefCount[pro] = 1
+      end
+    end
+  end
+  return true
+end
+
 local PWS_TYPE, PWS_CONFIG
 
 function PvpProxy:CheckPwsMatchValid(isRelax, roomid)
@@ -1455,6 +1514,8 @@ function PvpProxy:CheckMatchValid(type, roomid)
     return self:CheckPwsMatchValid(false, roomid)
   elseif type == PvpProxy.Type.FreeBattle then
     return self:CheckPwsMatchValid(true, roomid)
+  elseif type == PvpProxy.Type.Triple then
+    return self:CheckTripleMatchValid()
   end
   return true
 end
@@ -2152,7 +2213,7 @@ function PvpProxy:UpdateTripleCampInfo(camps)
     end
     if camps[i].users then
       for j = 1, #camps[i].users do
-        self:UpdateTripleCampUserInfo(camps[i].users[j])
+        self:UpdateTripleCampUserInfo(camps[i].users[j], camp)
       end
     end
   end
@@ -2241,6 +2302,35 @@ function PvpProxy:UpdateTriplePwsRankData(data)
     end
     self.triplePwsScoreLimit = data.limitscore
     self.triplePwsBestRank = data.bestrank
+    local lastrankinfo = data.lastrankinfo
+    if lastrankinfo then
+      for i = 1, #lastrankinfo do
+        local serverdata = lastrankinfo[i]
+        local info = ReusableTable.CreateTable()
+        info.name = serverdata.name
+        local portrait = serverdata.portrait
+        if portrait then
+          info.portrait = portrait.portrait
+          info.body = portrait.body
+          info.hair = portrait.hair
+          info.haircolor = portrait.haircolor
+          info.gender = portrait.gender
+          info.head = portrait.head
+          info.face = portrait.face
+          info.mouth = portrait.mouth
+          info.eye = portrait.eye
+          info.portrait_frame = portrait.portrait_frame
+        end
+        info.rank = serverdata.myrank
+        info.score = serverdata.score
+        info.erank = serverdata.erank
+        info.profession = serverdata.profession
+        info.charid = serverdata.charid
+        info.level = serverdata.level
+        info.guildname = serverdata.guildname
+        self.lastTriplePwsRankInfo[#self.lastTriplePwsRankInfo + 1] = info
+      end
+    end
   end
   TimeTickManager.Me():CreateOnceDelayTick(30000, function()
     self.triplePwsRankInfoOutOfDate = true
@@ -2252,16 +2342,20 @@ function PvpProxy:QueryTriplePwsRankData()
     self.triplePwsRankInfo = {}
   end
   TableUtility.ArrayClear(self.triplePwsRankInfo)
+  if not self.lastTriplePwsRankInfo then
+    self.lastTriplePwsRankInfo = {}
+  end
+  TableUtility.ArrayClear(self.lastTriplePwsRankInfo)
   ServiceMatchCCmdProxy.Instance:CallQueryTriplePwsRankMatchCCmd()
 end
 
-function PvpProxy:GetTriplePwsRankData()
+function PvpProxy:GetTriplePwsRankData(last)
   if not self.triplePwsRankInfoOutOfDate then
-    return self.triplePwsRankInfo
+    return last and self.lastTriplePwsRankInfo or self.triplePwsRankInfo
   end
 end
 
-function PvpProxy:GetTriplePwsRankSearchResult(keyword)
+function PvpProxy:GetTriplePwsRankSearchResult(keyword, last)
   local result = self.triplePwsRankSearchResult
   if not result then
     result = ReusableTable.CreateArray()
@@ -2269,8 +2363,9 @@ function PvpProxy:GetTriplePwsRankSearchResult(keyword)
   end
   TableUtility.ArrayClear(result)
   keyword = string.lower(keyword)
-  for i = 1, #self.triplePwsRankInfo do
-    local info = self.triplePwsRankInfo[i]
+  local searchRange = last and self.lastTriplePwsRankInfo or self.triplePwsRankInfo
+  for i = 1, #searchRange do
+    local info = searchRange[i]
     if info.name and string.find(string.lower(info.name), keyword) then
       result[#result + 1] = info
     end
@@ -2299,15 +2394,23 @@ function PvpProxy:UpdateTriplePwsTeamInfo(data)
         userInfo.charid = serverdata.charid
         self.triplePwsTeamUserInfo[userInfo.charid] = userInfo
       end
-      userInfo.score = serverdata.score
-      userInfo.erank = math.max(serverdata.erank, 1)
-      userInfo.rank = serverdata.myrank
-      userInfo.starnum = serverdata.starnum
-      userInfo.winstatus = serverdata.winstatus
+      userInfo.score = serverdata.score or 0
+      userInfo.erank = math.max(serverdata.erank or 0, 1)
+      userInfo.rank = serverdata.myrank or 0
+      userInfo.starnum = serverdata.starnum or 0
+      userInfo.winstatus = serverdata.winstatus or 0
     end
   end
   self.tripleTeamPwsForbidProfession = data.forbid_profession
   self.isTripleTeamPwsMatchOpen = data.open
+  if not self.tripleTeamPwsOpenTimeInfo then
+    self.tripleTeamPwsOpenTimeInfo = {}
+  end
+  self.tripleTeamPwsOpenTimeInfo.count = data.count
+  self.tripleTeamPwsOpenTimeInfo.openTime = data.opentime
+  self.tripleTeamPwsOpenTimeInfo.seasonBegin = data.season_begin
+  self.tripleTeamPwsOpenTimeInfo.seasonBreakBegin = data.season_breakbegin
+  self.tripleTeamPwsOpenTimeInfo.seasonBreakEnd = data.season_breakend
 end
 
 function PvpProxy:GetTriplePwsTeamUserInfo(charid)
@@ -2344,6 +2447,62 @@ function PvpProxy:IsTripleTeamPwsMatchOpen()
   return self.isTripleTeamPwsMatchOpen
 end
 
+function PvpProxy:GetTripleTeamPwsOpenTimeInfo()
+  return self.tripleTeamPwsOpenTimeInfo
+end
+
+function PvpProxy:IsTripleTeamPwsMatchInOpenTime()
+  local dayTime = GameConfig.Triple and GameConfig.Triple.DayTime
+  if dayTime and 0 < #dayTime and self.tripleTeamPwsOpenTimeInfo then
+    local curTime = ServerTime.CurServerTime() / 1000
+    local beginTime = self.tripleTeamPwsOpenTimeInfo.seasonBegin
+    local breakBeginTime = self.tripleTeamPwsOpenTimeInfo.seasonBreakBegin
+    local breakEndTime = self.tripleTeamPwsOpenTimeInfo.seasonBreakEnd
+    local openedCount = self.tripleTeamPwsOpenTimeInfo.count
+    local totalOpenCount = GameConfig.Triple and GameConfig.Triple.MatchCount or 4
+    local wday, startTime, endTime = dayTime[1].wday, dayTime[1].begintime, dayTime[1].endtime
+    if 0 < beginTime and curTime >= beginTime and openedCount < totalOpenCount and (breakBeginTime == 0 or curTime < breakBeginTime or 0 < breakEndTime and curTime > breakEndTime) then
+      local hour, min, sec = ClientTimeUtil.GetHMSByTimeFormat(startTime)
+      local startTimeStamp = ClientTimeUtil.GetTimeStampByWeekday(wday, hour, min, sec)
+      hour, min, sec = ClientTimeUtil.GetHMSByTimeFormat(endTime)
+      local endTimeStamp = ClientTimeUtil.GetTimeStampByWeekday(wday, hour, min, sec)
+      return curTime >= startTimeStamp and curTime < endTimeStamp
+    end
+  end
+  return false
+end
+
+function PvpProxy:GetTripleTeamPwsMatchSeasonEndTime(beginTime, matchWday, endTimeFormat, matchCount)
+  local beginTimeDate = os.date("*t", beginTime)
+  local beginWday = (beginTimeDate.wday - 1) % 7
+  beginWday = 0 < beginWday and beginWday or 7
+  local deltaDay = matchWday - beginWday
+  deltaDay = 0 <= deltaDay and deltaDay or deltaDay + 7
+  local hour, min, sec = ClientTimeUtil.GetHMSByTimeFormat(endTimeFormat)
+  local endTime = os.time({
+    year = beginTimeDate.year,
+    month = beginTimeDate.month,
+    day = beginTimeDate.day + deltaDay + (matchCount - 1) * 7,
+    hour = hour,
+    min = min,
+    sec = sec
+  })
+  return endTime
+end
+
+function PvpProxy:IsTripleTeamPwsSeasonOpen()
+  local dayTime = GameConfig.Triple and GameConfig.Triple.DayTime
+  if dayTime and 0 < #dayTime and self.tripleTeamPwsOpenTimeInfo then
+    local curTime = ServerTime.CurServerTime() / 1000
+    local beginTime = self.tripleTeamPwsOpenTimeInfo.seasonBegin
+    local wday, endTime = dayTime[1].wday, dayTime[1].endtime
+    local openedCount = self.tripleTeamPwsOpenTimeInfo.count
+    local totalOpenCount = GameConfig.Triple and GameConfig.Triple.MatchCount or 4
+    return 0 < beginTime and curTime >= beginTime and openedCount < totalOpenCount
+  end
+  return false
+end
+
 function PvpProxy:GetTriplePwsMatchCurHeadCount()
   return self:GetPvpMatchCurHeadCount(PvpProxy.Type.Triple)
 end
@@ -2363,4 +2522,123 @@ end
 
 function PvpProxy:IsTriplePwsRankRewardCanReceive()
   return self.rankRewardStatus
+end
+
+function PvpProxy:SetStatueInfo(sType, statueInfo)
+  self.statueInfos = self.statueInfos or {}
+  if statueInfo then
+    self.statueInfos[sType] = PVPStatueInfo.new(sType, statueInfo)
+  else
+    self.statueInfos[sType] = nil
+  end
+end
+
+function PvpProxy:GetStatueInfo(sType)
+  return self.statueInfos and self.statueInfos[sType]
+end
+
+function PvpProxy:UpdateStatueInfo(sType, statueInfo)
+  local myserverID = ChangeZoneProxy.Instance:GetMyselfServerId()
+  if statueInfo.serverid == myserverID then
+    self:SetStatueInfo(sType, statueInfo)
+  end
+end
+
+function PvpProxy:RecvEffectInfoSyncUserCmd(data)
+  if data.datas then
+    self.rewardEffects = {}
+    local typedata
+    for i = 1, #data.datas do
+      typedata = data.datas[i]
+      local eType = typedata.type
+      local single = {}
+      for i = 1, #typedata.datas do
+        local entry = RewardEffectData.new(typedata.datas[i])
+        single[typedata.datas[i].id] = entry
+      end
+      self.rewardEffects[eType] = single
+    end
+  end
+end
+
+function PvpProxy:RecvEffectInfoUpdateUserCmd(data)
+  if not self.rewardEffects then
+    return
+  end
+  local etype = data.type
+  local datas = data.datas
+  if not self.rewardEffects[etype] then
+    self.rewardEffects[etype] = {}
+  end
+  if not data.del then
+    for i = 1, #datas do
+      self.rewardEffects[etype][datas[i].id] = RewardEffectData.new(datas[i])
+    end
+  else
+    for i = 1, #datas do
+      self.rewardEffects[etype][datas[i].id] = nil
+    end
+  end
+end
+
+function PvpProxy:GetEffectList(eType)
+  local result = {}
+  result[1] = {id = 0, tabType = eType}
+  local temp = self.rewardEffects and self.rewardEffects[eType] or {}
+  for k, v in pairs(temp) do
+    result[#result + 1] = v
+  end
+  return result
+end
+
+function PvpProxy:GetEffectInUse(eType)
+  local temp = self.rewardEffects and self.rewardEffects[eType] or {}
+  for k, v in pairs(temp) do
+    if v.isused then
+      return v
+    end
+  end
+  return nil
+end
+
+function PvpProxy:CanOptStatue(sType)
+  local statueInfo = self:GetStatueInfo(sType)
+  if statueInfo == nil then
+    return false
+  end
+  return statueInfo.charid == Game.Myself.data.id
+end
+
+function PvpProxy:GetStatueType(npcID)
+  local PvpStatueConfig = GameConfig.PvpStatue
+  if not PvpStatueConfig then
+    return 0
+  end
+  if npcID == PvpStatueConfig.TriplePedestalNpcID or npcID == PvpStatueConfig.TripleNpcID then
+    return 1
+  elseif npcID == PvpStatueConfig.TeampwsPedestalNpcID or npcID == PvpStatueConfig.TeampwsNpcID then
+    return 2
+  elseif npcID == PvpStatueConfig.TwelvePedestalNpcID or npcID == PvpStatueConfig.TwelveNpcID then
+    return 3
+  end
+  return 0
+end
+
+function PvpProxy:UpdateChampionPvpRewardStatusCmd(data)
+  if data.rewards then
+    if not self.pvpRewardStatusMap then
+      self.pvpRewardStatusMap = {}
+    end
+    for i = 1, #data.rewards do
+      local rewardtype = data.rewards[i].etype
+      self.pvpRewardStatusMap[rewardtype] = data.rewards[i].status
+    end
+  end
+end
+
+function PvpProxy:CheckChampionPvpRewardStatusCmd(rewardtype)
+  if not self.pvpRewardStatusMap then
+    return false
+  end
+  return self.pvpRewardStatusMap[rewardtype]
 end

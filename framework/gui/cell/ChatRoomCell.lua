@@ -539,9 +539,12 @@ function ChatRoomCell:UnloadEmoji()
 end
 
 function ChatRoomCell:onShareItemClick(type)
-  if type == ESHAREMSGTYPE.ESHARE_SPEC_ITEM_GET then
+  if type == ESHAREMSGTYPE.ESHARE_SPEC_ITEM_GET or type == ESHAREMSGTYPE.ESHARE_CARD then
     local itemData = ItemData.new(self.data.share_data.items[1][1], self.data.share_data.items[1][2])
     itemData:SetItemNum(self.data.share_data.items[1][3])
+    if type == ESHAREMSGTYPE.ESHARE_CARD then
+      itemData:SetCardLevel(self.data.share_data.items[1][4] or 0)
+    end
     GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
       view = PanelConfig.FloatAwardChatShareView,
       viewdata = {

@@ -28,10 +28,10 @@ function SdkLoginPanel:initView()
   self.taptapBtn = self:FindGO("SecondLayer/Grid/TapTap")
   self.closeBtn = self:FindGO("SecondLayer/Close")
   local runtimePlatform = ApplicationInfo.GetRunPlatform()
-  if BranchMgr.IsNO() and runtimePlatform == RuntimePlatform.IPhonePlayer then
+  if (BranchMgr.IsNO() or BranchMgr.IsNOTW()) and runtimePlatform == RuntimePlatform.IPhonePlayer then
     self.facebookBtn:SetActive(false)
   end
-  if BranchMgr.IsNO() and (runtimePlatform == RuntimePlatform.Android or ApplicationInfo.IsWindows()) then
+  if (BranchMgr.IsNO() or BranchMgr.IsNOTW()) and (runtimePlatform == RuntimePlatform.Android or ApplicationInfo.IsWindows()) then
     self.moreBtn:SetActive(false)
   end
   self:AppleOrGoogle()
@@ -65,7 +65,7 @@ function SdkLoginPanel:AddEvt()
   end)
   self:AddClickEvent(self.moreBtn, function(go)
     local runtimePlatform = ApplicationInfo.GetRunPlatform()
-    if BranchMgr.IsNO() and runtimePlatform == RuntimePlatform.IPhonePlayer then
+    if (BranchMgr.IsNO() or BranchMgr.IsNOTW()) and runtimePlatform == RuntimePlatform.IPhonePlayer then
       self:LoginByType(4, self.callback)
     else
       self:SortByBranch()
@@ -101,7 +101,7 @@ function SdkLoginPanel:AppleOrGoogle()
     end
     self.googleBtn_first:SetActive(platStr == "Android")
     self.googleBtn_second:SetActive(platStr == "iOS")
-    if BranchMgr.IsNO() and runtimePlatform == RuntimePlatform.IPhonePlayer then
+    if (BranchMgr.IsNO() or BranchMgr.IsNOTW()) and runtimePlatform == RuntimePlatform.IPhonePlayer then
       self.googleBtn_first:SetActive(true)
       self.googleBtn_second:SetActive(false)
       self.moreSp.spriteName = "sdk_btn_facebook"

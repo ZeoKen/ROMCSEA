@@ -40,6 +40,11 @@ end
 
 function RoleChangeNamePopUp:TryChangeName()
   local name = self.nameInput.value
+  if ContainsSpecialCharacters(name) then
+    MsgManager.ShowMsgByID(1005)
+    self:ShowChangeError()
+    return
+  end
   if name == "" then
     MsgManager.ShowMsgByIDTable(1006)
     self:ShowChangeError()
@@ -47,7 +52,7 @@ function RoleChangeNamePopUp:TryChangeName()
   end
   local length = StringUtil.Utf8len(name)
   if length < GameConfig.System.namesize_min or length > GameConfig.System.namesize_max then
-    MsgManager.ShowMsgByIDTable(883)
+    MsgManager.ShowMsgByIDTable(1007)
     self:ShowChangeError()
     return
   end

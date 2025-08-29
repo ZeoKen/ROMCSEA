@@ -92,7 +92,7 @@ local Scene_pay_fild2 = {
           5.12163162231445,
           69.36962890625
         },
-        nextSceneID = 9017,
+        nextSceneID = 9117,
         nextSceneBornPointID = 1,
         type = 0,
         range = 2
@@ -106,7 +106,7 @@ local Scene_pay_fild2 = {
           5.1326322555542,
           69.4366302490234
         },
-        nextSceneID = 9019,
+        nextSceneID = 9119,
         nextSceneBornPointID = 1,
         type = 0,
         range = 2
@@ -120,7 +120,7 @@ local Scene_pay_fild2 = {
           5.07763195037842,
           59.7806282043457
         },
-        nextSceneID = 9022,
+        nextSceneID = 9122,
         nextSceneBornPointID = 1,
         type = 0,
         range = 2

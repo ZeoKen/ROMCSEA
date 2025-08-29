@@ -208,12 +208,16 @@ function AI_CMD_Myself_Skill:Start(time, deltaTime, creature)
   local skill = creature.skill
   local isAttackSkill = args[10]
   local isFakeNormalAttack = info:IsFakeNormalAtk()
-  if (isAttackSkill or isFakeNormalAttack) and not info:NoAttackSpeed() then
-    local attackInterval = creature.data:GetAttackInterval()
-    local interval = time - lastAttackTime
-    if attackInterval > interval then
-      creature.ai:SetNoIdleAction()
-      return false
+  local forceDelay = info:GetForceDelay()
+  forceDelay = forceDelay and forceDelay / 1000
+  if isAttackSkill or isFakeNormalAttack or forceDelay then
+    local attackInterval = forceDelay or creature.data:GetAttackInterval()
+    if not info:NoAttackSpeed() or forceDelay then
+      local interval = time - lastAttackTime
+      if attackInterval > interval then
+        creature.ai:SetNoIdleAction()
+        return false
+      end
     end
   end
   local interval = time - lastSkillTime

@@ -417,6 +417,13 @@ function FunctionVisitNpc:ExcuteQuestEvent(target, questData)
   if isValid then
     if stepType == QuestDataStepType.QuestDataStepType_COLLECT then
       local collectSkillId = GameConfig.NewRole.riskskill[1]
+      local skillid = questData.params.skillid
+      if skillid then
+        local validSkills = GameConfig.NewRole.collectskill
+        if validSkills and TableUtility.ArrayFindIndex(validSkills, skillid) > 0 then
+          collectSkillId = skillid
+        end
+      end
       Game.Myself:Client_UseSkill(collectSkillId, target, nil, nil, true)
     elseif stepType == QuestDataStepType.QuestDataStepType_VISIT then
       self:ExcuteDialogEvent(target, questData)
@@ -482,7 +489,7 @@ function FunctionVisitNpc:CheckNpcQuest(target, uniqueid)
       table.insert(triggerlsts, d)
     end
     local autoFinishTag = d.staticData and d.staticData.Params and d.staticData.Params.ifAccessFc
-    if d.type == QuestDataType.QuestDataType_SMITHY and autoFinishTag then
+    if (d.type == QuestDataType.QuestDataType_SMITHY or d.type == "abyss_daily") and autoFinishTag then
     else
       table.insert(branchlsts, d)
     end
@@ -510,7 +517,8 @@ end
 local SpecialQuestType = {
   [QuestDataType.QuestDataType_WANTED] = 1,
   [QuestDataType.QuestDataType_VERSION or "version"] = 1,
-  [QuestDataType.QuestDataType_SMITHY or "smithy"] = 1
+  [QuestDataType.QuestDataType_SMITHY or "smithy"] = 1,
+  abyss_daily = 1
 }
 
 function FunctionVisitNpc:ExcuteDialogEvent(target, questData)
@@ -691,9 +699,10 @@ function FunctionVisitNpc.GetDefaultDialog(npc)
     return
   end
   local npcData = npc.data.staticData
+  local npc_static_id = npcData.id
   local activity_defaultDlg = Activity_NpcDefaultDialog
   if activity_defaultDlg ~= nil then
-    local cfg = activity_defaultDlg[npcData.id]
+    local cfg = activity_defaultDlg[npc_static_id]
     if cfg then
       local choose_did, closeest_time
       for aid, dialogid in pairs(cfg) do
@@ -717,11 +726,11 @@ function FunctionVisitNpc.GetDefaultDialog(npc)
   if gameconfig_wedding then
     local engage_Npc = gameconfig_wedding and gameconfig_wedding.Engage_Npc
     local weddingCememony_ID = gameconfig_wedding and gameconfig_wedding.Cememony_Npc
-    if npcData.id == weddingCememony_ID then
+    if npc_static_id == weddingCememony_ID then
       if WeddingProxy.Instance:IsSelfInWeddingTime() then
         return gameconfig_wedding.Cememony_Dialog
       end
-    elseif npcData.id == engage_Npc then
+    elseif npc_static_id == engage_Npc then
       if WeddingProxy.Instance:IsSelfMarried() then
         return gameconfig_wedding.married
       elseif WeddingProxy.Instance:IsSelfEngage() then
@@ -740,7 +749,7 @@ function FunctionVisitNpc.GetDefaultDialog(npc)
     end
   end
   local gameconfig_dressing = GameConfig.DressingFilter
-  if gameconfig_dressing and gameconfig_dressing.DressingNpcID and npcData.id == gameconfig_dressing.DressingNpcID then
+  if gameconfig_dressing and gameconfig_dressing.DressingNpcID and npc_static_id == gameconfig_dressing.DressingNpcID then
     local var = Game.Myself.data.userdata:Get(UDEnum.PROFESSION) % 10
     if var < 4 then
       return gameconfig_dressing.DialogID1
@@ -750,8 +759,21 @@ function FunctionVisitNpc.GetDefaultDialog(npc)
       return gameconfig_dressing.DialogID3
     end
   end
-  if npcData.id == GameConfig.GVGConfig.StatuePedestalNpcID and GvgProxy.Instance:GetStatueInfo() == nil then
-    return 396137
+  if npc_static_id == GameConfig.GVGConfig.StatuePedestalNpcID and GvgProxy.Instance:GetStatueInfo() == nil then
+    return GameConfig.GVGConfig.EmptyStatueDialogID or 396137
+  end
+  if GameConfig.GVGConfig.GvgStatue and GameConfig.GVGConfig.GvgStatue.StatuePedestalNpcID == npc_static_id then
+    local statue_city_id = GvgProxy.GetStatueCity(npc.data.uniqueid)
+    if statue_city_id and GvgProxy.Instance:CheckMyGroupCityStatueEmpty(statue_city_id) then
+      return GameConfig.GVGConfig.GvgStatue.EmptyStatueDialogID or 396860
+    end
+  end
+  local stype = PvpProxy.Instance:GetStatueType(npcData.id)
+  if stype then
+    local PvpStatueConfig = GameConfig.PvpStatue
+    if not PvpProxy.Instance:GetStatueInfo(stype) then
+      return PvpStatueConfig and PvpStatueConfig.DefaultDialog[stype]
+    end
   end
   return npcData.DefaultDialog
 end

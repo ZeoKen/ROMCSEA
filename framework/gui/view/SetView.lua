@@ -11,6 +11,7 @@ autoImport("SetViewServiceWWPage")
 autoImport("SetViewServiceNAPage")
 autoImport("SetViewServiceEUPage")
 autoImport("SetViewServiceNOPage")
+autoImport("SetViewServiceNOTWPage")
 SetView.ViewType = UIViewType.NormalLayer
 SetView.PlayerHeadCellResId = ResourcePathHelper.UICell("PlayerHeadCell")
 SetView.SetToggleCellResId = ResourcePathHelper.UICell("SetToggleCell")
@@ -89,7 +90,7 @@ function SetView:AddSubPages()
   self:AddSubPage("SetViewSecurityPage", ZhString.SetViewSecurityPage_TabText)
   if BranchMgr.IsJapan() then
     self:AddSubPage("SetViewServicePage", ZhString.SetViewTabAbout)
-  elseif BranchMgr.IsTW() or BranchMgr.IsNOTW() then
+  elseif BranchMgr.IsTW() then
     self:AddSubPage("SetViewServiceTWPage", ZhString.SetViewTabCustomerService)
   elseif BranchMgr.IsKorea() then
     self:AddSubPage("SetViewServiceKRPage", ZhString.SetViewTabCustomerService)
@@ -97,6 +98,8 @@ function SetView:AddSubPages()
     self:AddSubPage("SetViewServiceWWPage", ZhString.SetViewTabCustomerService)
   elseif BranchMgr.IsNO() then
     self:AddSubPage("SetViewServiceNOPage", ZhString.SetViewTabCustomerService, "view/SetViewServiceWWPage")
+  elseif BranchMgr.IsNOTW() then
+    self:AddSubPage("SetViewServiceNOTWPage", ZhString.SetViewTabCustomerService, "view/SetViewServiceWWPage")
   elseif BranchMgr.IsNA() then
     self:AddSubPage("SetViewServiceNAPage", ZhString.SetViewTabCustomerService)
   elseif BranchMgr.IsEU() then

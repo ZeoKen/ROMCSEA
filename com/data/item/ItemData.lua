@@ -170,7 +170,8 @@ function ItemData:SetEquipCards(cards)
     for i = 1, #cards do
       local single = cards[i]
       local equipedCard = ItemData.new(single.guid, single.id)
-      if single.pos then
+      equipedCard:SetCardLevel(single.card_info and single.card_info.lv or 0)
+      if single.pos and 0 < single.pos then
         equipedCard.index = single.pos
         self.equipedCardInfo[single.pos] = equipedCard
       else
@@ -345,6 +346,9 @@ function ItemData:GetName(hideRefinelv, hideDamageColor, refineBuffUpSource)
     end
     if self.IsPersonalArtifactFragment and self:IsPersonalArtifactFragment() then
       name = name .. ZhString.Gem_NameZhPersonalArtifactSuffix
+    end
+    if self.cardLv and 0 < self.cardLv then
+      name = string.format("+%s %s", self.cardLv, name)
     end
     return name
   end
@@ -571,6 +575,8 @@ function ItemData:Clone()
   item.isFavorite = self.isFavorite
   item.noTradeReason = self.noTradeReason
   item.equiped = self.equiped
+  item.usedtimes = self.usedtimes
+  item.usedtime = self.usedtime
   if item.equipInfo then
     item.equipInfo:Clone(self.equipInfo)
   end
@@ -582,13 +588,14 @@ function ItemData:Clone()
   end
   if self.equipedCardInfo then
     item.equipedCardInfo = {}
-    for i = 1, #self.equipedCardInfo do
-      TableUtility.ArrayPushBack(item.equipedCardInfo, self.equipedCardInfo[i]:Clone())
+    for _pos, _cardInfo in pairs(self.equipedCardInfo) do
+      item.equipedCardInfo[_pos] = _cardInfo
     end
   end
   if self.equipMemoryData then
     item.equipMemoryData = self.equipMemoryData:Clone()
   end
+  item.cardLv = self.cardLv
   return item
 end
 
@@ -603,8 +610,8 @@ function ItemData:Copy(item)
   self.enchantInfo = item.enchantInfo and item.enchantInfo:Clone()
   if item.equipedCardInfo then
     self.equipedCardInfo = {}
-    for i = 1, #item.equipedCardInfo do
-      TableUtility.ArrayPushBack(self.equipedCardInfo, item.equipedCardInfo[i]:Clone())
+    for _pos, _cardInfo in pairs(self.equipedCardInfo) do
+      self.equipedCardInfo[_pos] = _cardInfo
     end
   else
     self.equipedCardInfo = nil
@@ -789,8 +796,8 @@ function ItemData:IsLimitUse()
   if 0 < uselimit & 1048576 and Game.MapManager:IsPVEMode_BossScene() then
     return true
   end
-  if 0 < uselimit & 4194304 then
-    return 0 < TableUtility.ArrayFindIndex(GameConfig.UseItemLimitMap, Game.MapManager:GetMapID())
+  if 0 < uselimit & 4194304 and GameConfig.UseItemLimitMap[sid] then
+    return 0 < TableUtility.ArrayFindIndex(GameConfig.UseItemLimitMap[sid], Game.MapManager:GetMapID())
   end
   return false
 end
@@ -939,6 +946,9 @@ function ItemData:ParseFromServerData(serverItem)
   elseif self.equipMemoryData then
     self.equipMemoryData = nil
   end
+  if self:IsCard() then
+    self:SetCardLevel(sItemData.card_info and sItemData.card_info.lv or 0)
+  end
 end
 
 function ItemData:CheckFragmentActive(id)
@@ -1009,6 +1019,9 @@ function ItemData:ExportServerItem()
   end
   table.insert(serverItem.artifact.attrs, SceneItem_pb.ArtifactAttr())
   table.insert(serverItem.artifact.preattrs, SceneItem_pb.ArtifactAttr())
+  if self:IsCard() and self.cardLv then
+    serverItem.base.card_info.lv = self.cardLv
+  end
   return serverItem
 end
 
@@ -1234,6 +1247,10 @@ function ItemData:CanTrade()
   return ItemData.CheckItemCanTrade(self.staticData.id)
 end
 
+function ItemData:CanCardDecompose()
+  return not self.noTradeReason or self.noTradeReason <= 0
+end
+
 function ItemData.CheckItemCanTrade(itemid)
   return ItemData.CheckTradeTime(itemid) and ItemData.CheckUnTradeTime(itemid)
 end
@@ -1328,6 +1345,7 @@ local limitPrefixKeyMap = {
   [1] = "ItemTip_GetLimit_Day",
   [4] = "ItemTip_GetLimit_Day",
   [5] = "ItemTip_GetLimit_Week",
+  [6] = "ItemTip_GetLimit_Month",
   [7] = "ItemTip_GetLimit_Week",
   [8] = "ItemTip_GetLimit_Acc"
 }
@@ -1656,4 +1674,51 @@ function ItemData:GetComposeFashionTarget()
     end
   end
   return self.composeFashionTarget
+end
+
+function ItemData:SetCardLevel(cardLv)
+  self.cardLv = cardLv or 0
+end
+
+function ItemData:GetCardQuality()
+  if self.cardLv and self.cardLv >= 5 then
+    return 5
+  end
+  return self.staticData.Quality
+end
+
+function ItemData:HasCardLv()
+  return self.cardLv and self.cardLv > 0
+end
+
+function ItemData:GetCardBufferIds()
+  if self:IsCard() then
+    local bufferIds = self.cardInfo.BuffEffect.buff
+    if self.cardLv and self.cardLv > 0 then
+      local cfg = Game.CardUpgradeMap and Game.CardUpgradeMap[self.staticData.id]
+      if cfg then
+        bufferIds = cfg[self.cardLv].BuffEffect
+      end
+    end
+    return bufferIds
+  end
+end
+
+function ItemData:GetCardAttrs(iconPrefix)
+  local attrs = {}
+  if self:IsCard() then
+    local bufferIds = self:GetCardBufferIds()
+    if bufferIds then
+      for i = 1, #bufferIds do
+        local str = ItemUtil.getBufferDescById(bufferIds[i])
+        if not StringUtil.IsEmpty(str) then
+          local bufferStrs = string.split(str, "\n")
+          for j = 1, #bufferStrs do
+            table.insert(attrs, (iconPrefix or "") .. bufferStrs[j])
+          end
+        end
+      end
+    end
+  end
+  return attrs
 end

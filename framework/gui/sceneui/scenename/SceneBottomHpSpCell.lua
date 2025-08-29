@@ -140,6 +140,8 @@ function SceneBottomHpSpCell:Deconstruct(asArray)
   self:ResetResistance()
   self:RemoveBalance()
   self:RemoveShield()
+  self.campIcon = nil
+  self:RemoveBlackMuck()
 end
 
 function SceneBottomHpSpCell:Exit()
@@ -178,6 +180,7 @@ function SceneBottomHpSpCell:initHpView()
   self:InitCamp()
   self:InitShield()
   self:SetPvpCamp()
+  self:InitBlackMuck()
 end
 
 function SceneBottomHpSpCell:initHpValueLabel()
@@ -271,6 +274,14 @@ function SceneBottomHpSpCell:SetHp(hp, maxhp)
     local shieldMaxHp = userdata:Get(UDEnum.SHIELD_MAXHP)
     if shieldMaxHp and 0 < shieldMaxHp then
       self:SetShieldHp(shieldHp, shieldMaxHp)
+    end
+    if self.creature then
+      local userdata = self.creature.data.userdata
+      local MaxHp = self.creature.data.props:GetPropByName("MaxHp"):GetValue()
+      local blackMuck = userdata:Get(UDEnum.BLACK_MUCK)
+      if blackMuck and 0 < blackMuck then
+        self:UpdateBlackMuck(blackMuck, MaxHp)
+      end
     end
   end
 end
@@ -1392,4 +1403,25 @@ function SceneBottomHpSpCell:ShowSolarEnergy(value)
   else
     self:InitSolarEnergy()
   end
+end
+
+function SceneBottomHpSpCell:InitBlackMuck()
+  if not self.blackMuck then
+    self.blackMuck = self:FindGO("BlackM"):GetComponent(Slider)
+    self.blackMuck.value = 0
+    self.blackMuck.gameObject:SetActive(false)
+  end
+end
+
+function SceneBottomHpSpCell:UpdateBlackMuck(muck, maxhp)
+  if muck == 0 or maxhp == 0 then
+    self.blackMuck.gameObject:SetActive(false)
+  else
+    self.blackMuck.gameObject:SetActive(true)
+    self.blackMuck.value = muck / maxhp
+  end
+end
+
+function SceneBottomHpSpCell:RemoveBlackMuck()
+  self.blackMuck = nil
 end

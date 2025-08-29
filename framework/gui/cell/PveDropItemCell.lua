@@ -22,6 +22,10 @@ local _TypeFlagConfig = {
   [PveDropItemData.Type.E_Pve_ThreeStars] = {
     spriteName = "Novicecopy_bg_10",
     text = ZhString.Pve_ThreeStarsReward
+  },
+  [PveDropItemData.Type.E_WeekFirstPass] = {
+    spriteName = "Novicecopy_bg_10",
+    text = ZhString.Pve_WeekFirstCompleteReward
   }
 }
 PveDropItemCell = class("PveDropItemCell", ItemCell)

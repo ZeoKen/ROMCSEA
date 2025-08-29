@@ -1318,6 +1318,12 @@ function NCreature:Server_AddSpEffect(spEffectData)
       ReusableTable.DestroyArray(args)
       effect[#effect + 1] = tmp
     end
+  else
+    local tmp = EffectClass.Create(effectID)
+    local args = ReusableTable.CreateArray()
+    tmp:SetArgs(args, self)
+    ReusableTable.DestroyArray(args)
+    effect[#effect + 1] = tmp
   end
   if 0 < #effect then
     self.spEffects[key] = effect
@@ -1842,6 +1848,20 @@ function NCreature:SetClientIsolate(add)
   self:SetClientStealth(add, isolateColor)
 end
 
+function NCreature:SetHideHp(val)
+  if self ~= Game.Myself then
+    local sceneUi = self:GetSceneUI()
+    if sceneUi then
+      sceneUi.roleBottomUI:SetHideHp(val, self)
+    end
+  end
+  self.isHideHp = val
+end
+
+function NCreature:IsHideHp()
+  return self.isHideHp == true
+end
+
 function NCreature:DoConstruct(asArray, data)
   self.culling_visible = true
   self.culling_distanceLevel = 0
@@ -1865,6 +1885,7 @@ function NCreature:DoConstruct(asArray, data)
   self.chantInfo = nil
   self.stopChantID = 0
   self.allowConcurrent = false
+  self.isHideHp = false
 end
 
 function NCreature:GetUpIDReset()
@@ -1933,6 +1954,7 @@ function NCreature:DoDeconstruct(asArray)
   self:ClearContractEffects()
   self.freezeHold = false
   self.maskMap = nil
+  self.isHideHp = false
 end
 
 function NCreature:OnObserverDestroyed(k, obj)

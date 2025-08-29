@@ -1,4 +1,24 @@
 Table_ServantCalendar = {
+  [4] = {
+    id = 4,
+    Icon = "teamfight",
+    Name = "##1275587",
+    TextureName = {
+      {texture = "teamfight1", desc = "##298461"},
+      {texture = "teamfight2", desc = "##296832"},
+      {texture = "teamfight3", desc = "##296827"}
+    },
+    TimeUnit = 2,
+    StartTime = "21:00",
+    EndTime = "24:00",
+    Wday = "Sat",
+    GotoMode = {2005},
+    Location = "##119300",
+    Reward = "##119315",
+    Desc = "##119308",
+    FuncState = 7,
+    frequency = _EmptyTable
+  },
   [6] = {
     id = 6,
     Icon = "GVG10",
@@ -9,8 +29,8 @@ Table_ServantCalendar = {
       {texture = "gvg3", desc = "##296825"}
     },
     TimeUnit = 2,
-    StartTime = "21:00",
-    EndTime = "22:00",
+    StartTime = "20:00",
+    EndTime = "21:00",
     Wday = "Thu",
     GotoMode = {5039},
     Location = "##1266799",
@@ -29,8 +49,8 @@ Table_ServantCalendar = {
       {texture = "gvg3", desc = "##296825"}
     },
     TimeUnit = 2,
-    StartTime = "21:00",
-    EndTime = "21:30",
+    StartTime = "20:00",
+    EndTime = "21:00",
     Wday = "Sun",
     GotoMode = {5039},
     Location = "##1266799",
@@ -50,8 +70,8 @@ Table_ServantCalendar = {
       {texture = "gvgbattle3", desc = "##296821"}
     },
     TimeUnit = 2,
-    StartTime = "21:00",
-    EndTime = "21:30",
+    StartTime = "20:00",
+    EndTime = "20:30",
     Wday = "Sun",
     GotoMode = {5039},
     Location = "##119331",
@@ -80,26 +100,6 @@ Table_ServantCalendar = {
     FuncState = 3,
     frequency = _EmptyTable
   },
-  [4] = {
-    id = 4,
-    Icon = "teamfight",
-    Name = "##1275587",
-    TextureName = {
-      {texture = "teamfight1", desc = "##298461"},
-      {texture = "teamfight2", desc = "##296832"},
-      {texture = "teamfight3", desc = "##296827"}
-    },
-    TimeUnit = 2,
-    StartTime = "21:00",
-    EndTime = "24:00",
-    Wday = "Sat",
-    GotoMode = {2005},
-    Location = "##119300",
-    Reward = "##119315",
-    Desc = "##119308",
-    FuncState = 7,
-    frequency = _EmptyTable
-  },
   [14] = {
     id = 14,
     Icon = "teamfight",
@@ -118,6 +118,30 @@ Table_ServantCalendar = {
     Reward = "##119315",
     Desc = "##119308",
     FuncState = 7,
+    frequency = _EmptyTable
+  },
+  [16] = {
+    id = 16,
+    Icon = "abyssdragon",
+    Name = "##42640997",
+    TextureName = {
+      {
+        texture = "AbyssDragon2",
+        desc = "##42640998"
+      },
+      {
+        texture = "AbyssDragon1",
+        desc = "##42640999"
+      }
+    },
+    TimeUnit = 2,
+    StartTime = "14:00",
+    EndTime = "20:00",
+    Wday = "Sun",
+    GotoMode = {8360},
+    Location = "##42635503",
+    Reward = "##42641000",
+    Desc = "##42641001",
     frequency = _EmptyTable
   }
 }

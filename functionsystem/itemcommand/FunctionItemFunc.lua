@@ -690,6 +690,14 @@ function FunctionItemFunc.TryUseItem(data, target, count)
         return
       end
     end
+    if useEffect.type == "quickpass_item" then
+      local server_enum = useEffect.server_enum
+      if server_enum and 0 < server_enum then
+        FunctionPve.Debug("[背包道具扫荡副本] 请求后端同步扫荡副本信息 enum|guid   ", server_enum, data.id)
+        ServiceMessCCmdProxy.Instance:CallSyncQuickPassItemInfoMessCCmd(server_enum, nil, data.id)
+      end
+      return
+    end
     if useEffect.type == "equip" then
       if useEffect.refine ~= nil and useEffect.pos ~= nil then
         local euqipData = BagProxy.Instance.roleEquip:GetEquipBySite(useEffect.pos)
@@ -1880,7 +1888,8 @@ function FunctionItemFunc.MemoryUpgradeEvt(data)
         tabs = {
           PanelConfig.EquipMemoryUpgradeView,
           PanelConfig.EquipMemoryAttrResetView,
-          PanelConfig.EquipMemoryDecomposeView
+          PanelConfig.EquipMemoryDecomposeView,
+          PanelConfig.EquipMemoryAdvanceView
         }
       }
     })

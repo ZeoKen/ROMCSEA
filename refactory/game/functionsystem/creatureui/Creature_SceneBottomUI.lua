@@ -113,11 +113,14 @@ function Creature_SceneBottomUI:isHpSpVisible(creature)
   local isFarmingNpc = self:IsFarmingNpc(detailedType)
   local isSanityNPC = creature.data.isSanityNPC
   local IsPippi = creature.data:IsPippi()
-  local isInVisible = mask or inEdMap or isPet and not isSkillNpc and not isWeaponPet and not IsPippi or neutral or isDead or creature.needMaskUI or isSanityNPC
+  local isPhatom = creature.data:IsPhantom()
+  local isInVisible = mask or inEdMap or isPet and not isSkillNpc and not isWeaponPet and not IsPippi and not isPhatom or neutral or isDead or creature.needMaskUI or isSanityNPC
   local isOb = PvpObserveProxy.Instance:IsRunning()
   local mapVisible = GameConfig.MapHpSpVisible and GameConfig.MapHpSpVisible[mapId]
   local isEBFRobot = detailedType == NpcData.NpcDetailedType.EBF_Robot
-  if not (not mapVisible or isOb) and (isFarmingNpc or isPlayer or isEBFRobot) or isSanityNPC then
+  local isTripleTeamRobot = detailedType == NpcData.NpcDetailedType.TriplePvpRobot
+  local isHideHp = creature:IsHideHp()
+  if not (not mapVisible or isOb) and (isFarmingNpc or isPlayer or isEBFRobot or isTripleTeamRobot) or isSanityNPC then
     if mapVisible == 0 then
       return false
     elseif mapVisible == 1 then
@@ -129,14 +132,14 @@ function Creature_SceneBottomUI:isHpSpVisible(creature)
     return true
   elseif isInVisible then
     return false
-  elseif isMyself or TeamProxy.Instance:IsInMyTeam(id) or isSkillNpc then
+  elseif isMyself or TeamProxy.Instance:IsInMyTeam(id) or isSkillNpc or isPhatom and camp ~= RoleDefines_Camp.ENEMY then
     return true
   elseif camp ~= RoleDefines_Camp.ENEMY then
     if isSelected then
       return true
     end
   elseif isSelected or isMvpOrMini or self.isBeHit and not isSkada then
-    return true
+    return not isHideHp
   end
   return false
 end
@@ -323,6 +326,7 @@ function Creature_SceneBottomUI:isNameFactionVisible(creature)
   local isCatchPet = isPet and creature.data.IsPet and creature.data:IsPet()
   local isMvpOrMini = detailedType == NpcData.NpcDetailedType.MINI or detailedType == NpcData.NpcDetailedType.MVP
   local isInMyTeam = TeamProxy.Instance:IsInMyTeam(id)
+  local isTripleTeamRobot = detailedType == NpcData.NpcDetailedType.TriplePvpRobot
   local allShowName = false
   local allInVisible = false
   local selectShow = false
@@ -333,7 +337,7 @@ function Creature_SceneBottomUI:isNameFactionVisible(creature)
     selectShow = creatureShowName == 0
     selectShow = selectShow and isSelected or false
   end
-  local visible = isPlayer or selectShow or isCatchPet or isMyPet or isMvpOrMini or isInMyTeam or isSelected or allShowName or creature.needMaskUI
+  local visible = isPlayer or selectShow or isCatchPet or isMyPet or isMvpOrMini or isInMyTeam or isSelected or allShowName or creature.needMaskUI or isTripleTeamRobot
   visible = visible and not allInVisible
   if mask then
     return false
@@ -664,7 +668,9 @@ end
 function Creature_SceneBottomUI:InitTimeDiskInfo()
   if self.hpSpCell then
     self.hpSpCell:InitTimeDiskInfo()
-    self.nameFactionCell:Reposition(true, -34)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true, -34)
+    end
   end
 end
 
@@ -677,14 +683,18 @@ end
 function Creature_SceneBottomUI:RemoveTimeDisk()
   if self.hpSpCell then
     self.hpSpCell:RemoveTimeDisk()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
 function Creature_SceneBottomUI:InitStarMap()
   if self.hpSpCell then
     self.hpSpCell:InitStarMap()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -697,7 +707,9 @@ end
 function Creature_SceneBottomUI:RemoveStarMap()
   if self.hpSpCell then
     self.hpSpCell:RemoveStarMap()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -710,7 +722,9 @@ end
 function Creature_SceneBottomUI:InitFeatherGrid()
   if self.hpSpCell then
     self.hpSpCell:InitFeatherGrid()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -723,7 +737,9 @@ end
 function Creature_SceneBottomUI:RemoveFeatherGrid()
   if self.hpSpCell then
     self.hpSpCell:RemoveFeatherGrid()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -739,7 +755,9 @@ end
 function Creature_SceneBottomUI:InitEnergyGrid()
   if self.hpSpCell then
     self.hpSpCell:InitEnergyGrid()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -752,7 +770,9 @@ end
 function Creature_SceneBottomUI:RemoveEnergyGrid()
   if self.hpSpCell then
     self.hpSpCell:RemoveEnergyGrid()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -774,7 +794,9 @@ end
 function Creature_SceneBottomUI:RemoveBalance()
   if self.hpSpCell then
     self.hpSpCell:RemoveBalance()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -802,7 +824,9 @@ end
 function Creature_SceneBottomUI:InitSolarEnergy()
   if self.hpSpCell then
     self.hpSpCell:InitSolarEnergy()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -815,7 +839,9 @@ end
 function Creature_SceneBottomUI:RemoveSolarEnergy()
   if self.hpSpCell then
     self.hpSpCell:RemoveSolarEnergy()
-    self.nameFactionCell:Reposition(true)
+    if self.nameFactionCell then
+      self.nameFactionCell:Reposition(true)
+    end
   end
 end
 
@@ -825,5 +851,20 @@ function Creature_SceneBottomUI:ShowSolarEnergy(value)
     if self.nameFactionCell then
       self.nameFactionCell:Reposition(value)
     end
+  end
+end
+
+function Creature_SceneBottomUI:SetHideHp(val, creature)
+  if self.hpSpCell then
+    self:ActiveSpHpCell(not val, creature)
+  end
+end
+
+function Creature_SceneBottomUI:UpdateBlackMuck(ncreature)
+  if self.hpSpCell then
+    local userdata = ncreature.data.userdata
+    local MaxHp = ncreature.data.props:GetPropByName("MaxHp"):GetValue()
+    local blackMuck = userdata:Get(UDEnum.BLACK_MUCK)
+    self.hpSpCell:UpdateBlackMuck(blackMuck, MaxHp)
   end
 end

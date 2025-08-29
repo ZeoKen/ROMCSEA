@@ -984,9 +984,9 @@ function SkillLogic_Base:Client_DeterminTargets(creature)
   local teamRange = 0
   if skillInfo:CheckTeamPriority() then
     teamRange = skillInfo:GetTargetRange(creature)
+    sortFunc = SkillLogic_Base.SortComparator_TeamFirstDistance
   else
     teamRange = skillInfo:TargetIncludeTeamRange(creature)
-    sortFunc = SkillLogic_Base.SortComparator_TeamFirstDistance
   end
   skillInfo.LogicClass.Client_DoDeterminTargets(self, creature, tempCreatureArray, maxCount, sortFunc)
   if skillInfo:IsRandomSelect() then
@@ -1087,6 +1087,7 @@ function SkillLogic_Base:CalSpeicalAttackMove(creature)
     return
   end
   local specialEffects = skillInfo:GetSpecialAttackEffects(creature)
+  local searchSignAssassinate = skillInfo:SearchSignAssassinate(creature)
   if not specialEffects then
     return
   end
@@ -1146,7 +1147,28 @@ function SkillLogic_Base:CalSpeicalAttackMove(creature)
       else
         local dynamic = skillInfo:GetSkillType(creature) == SkillType.DirectSpurt and 0 < phaseData:GetTargetCount()
         local sprint = specialEffect.pointSprint and specialEffect.pointSprint == 1
-        dirMoveDistance = dynamic and VectorUtility.DistanceXZ(creaturePos, phaseData:GetPosition()) or sprint and skillInfo:GetLaunchRange(creature) or specialEffect.distance
+        if searchSignAssassinate then
+          local pos
+          if 0 < phaseData:GetTargetCount() then
+            local targetID = phaseData:GetTarget(1)
+            if targetID ~= nil then
+              redlog("targetID", targetID)
+              local target = SceneCreatureProxy.FindCreature(targetID)
+              if target ~= nil then
+                pos = target:GetPosition()
+              end
+            end
+          end
+          if pos ~= nil then
+            local distance = VectorUtility.DistanceXZ(creaturePos, pos)
+            redlog("distance", distance)
+            dirMoveDistance = distance + 0.5
+          else
+            dirMoveDistance = specialEffect.distance
+          end
+        else
+          dirMoveDistance = dynamic and VectorUtility.DistanceXZ(creaturePos, phaseData:GetPosition()) or sprint and skillInfo:GetLaunchRange(creature) or specialEffect.distance
+        end
       end
       local skillAngleY = phaseData:GetAngleY()
       if nil == skillAngleY then
@@ -1435,9 +1457,9 @@ function SkillLogic_Base.ShowBuffSkillEffect(phaseData, sourceCreatureGUID)
         if scale and scale ~= 1 then
           effect:ResetLocalScaleXYZ(scale, scale, scale)
         end
-      end
-      if skillInfo:UseTargetPos() then
-        effect:ResetLocalPosition(targetPosition)
+        if skillInfo:UseTargetPos() then
+          effect:ResetLocalPosition(targetPosition)
+        end
       end
     end
   end

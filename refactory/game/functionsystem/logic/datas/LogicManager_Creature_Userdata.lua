@@ -319,7 +319,7 @@ end
 
 function LogicManager_Creature_Userdata:UpdateBossType(ncreature, userDataID, oldValue, newValue)
   if newValue then
-    ncreature.data:SetBossType(newValue == 1 or false)
+    ncreature.data:SetBossType(newValue)
   end
 end
 

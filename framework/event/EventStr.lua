@@ -212,6 +212,9 @@ PVEEvent = {
   ElementRaid_ShutDown = "ElementRaid_ShutDown",
   DemoRaid_Launch = "DemoRaidRaid_Launch",
   DemoRaidRaid_Shutdown = "DemoRaidRaid_Shutdown",
+  HeroJourney_Launch = "HeroJourney_Launch",
+  HeroJourney_Shutdown = "HeroJourney_Shutdown",
+  HeroJourney_RemoveCD = "HeroJourney_RemoveCD",
   ReplyInvite = "NewPveEntrance_ReplyInvite",
   BeginInvite = "NewPveEntrance_BeginInvite",
   CancelInvite = "NewPveEntrance_CancelInvite",
@@ -249,7 +252,9 @@ GVGEvent = {
   GVG_QueueAdd = "GVGEvent_GVG_QueueAdd",
   GVG_PointUpdate = "GVGEvent_GVG_PointUpdate",
   GVG_Calm = "GVGEvent_GVG_Calm",
-  GVG_CrystalInvincible = "GVGEvent_GVG_CrystalInvincible"
+  GVG_CrystalInvincible = "GVGEvent_GVG_CrystalInvincible",
+  GVG_MvpStateUpdate = "GVGEvent_GVG_MvpStateUpdate",
+  GVG_GLandStatueDirty = "GVGEvent_GLandStatueDirty"
 }
 YoyoJoinRoomEvent = {
   JoinRoom = "YoyoJoinRoomEvent_JoinRoom"
@@ -407,6 +412,7 @@ ItemEvent = {
   GemDragEnd = "ItemEvent_GemDragEnd",
   GemDelete = "ItemEvent_GemDelete",
   GemPageUpdate = "ItemEvent_GemPageUpdate",
+  GemDataUpdate = "ItemEvent_GemDataUpdate",
   PersonalArtifactUpdate = "ItemEvent_PersonalArtifactUpdate",
   ItemDeselect = "ItemEvent_ItemDeselect",
   ItemDeselectLongPress = "ItemEvent_ItemDeselectLongPress",
@@ -527,7 +533,8 @@ DragDropEvent = {
   SwapObj = "DragDropEvent_SwapObj",
   DropEmpty = "DragDropEvent_DropEmpty",
   StartDrag = "DragDropEvent_StartDrag",
-  OnDrag = "DragDropEvent_OnDrag"
+  OnDrag = "DragDropEvent_OnDrag",
+  EndDrag = "DragDropEvent_EndDrag"
 }
 SkillEvent = {
   SkillStartEvent = "SkillEvent_SkillStartEvent",
@@ -634,7 +641,8 @@ MainViewEvent = {
   ShowOrHideHead = "MainViewEvent_ShowOrHideHead",
   SaveKapraUpdate = "MainViewEvent_SaveKapraUpdate",
   CameraModeChange = "MainViewEvent_CameraModeChange",
-  BigCatInvadeUpdate = "MainViewEvent_BigCatInvadeUpdate"
+  BigCatInvadeUpdate = "MainViewEvent_BigCatInvadeUpdate",
+  SpaceDragonCellClick = "SpaceDragonCellClick"
 }
 InviteConfirmEvent = {
   AddInvite = "InviteConfirmEvent_AddInvite",
@@ -740,7 +748,10 @@ TriggerEvent = {
   Remove_EndlessBattleFieldEventArea = "TriggerEvent_Remove_EndlessBattleFieldEventArea",
   Enter_EndlessBattle_OccupyArea = "TriggerEvent_Enter_EndlessBattle_OccupyArea",
   Leave_EndlessBattle_OccupyArea = "TriggerEvent_Leave_EndlessBattle_OccupyArea",
-  Remove_EndlessBattle_OccupyArea = "TriggerEvent_Remove_EndlessBattle_OccupyArea"
+  Remove_EndlessBattle_OccupyArea = "TriggerEvent_Remove_EndlessBattle_OccupyArea",
+  EnterAybssLakeBattleArea = "TriggerEvent_EnterAybssLakeBattleArea",
+  LeaveAybssLakeBattleArea = "TriggerEvent_LeaveAybssLakeBattleArea",
+  RemoveAybssLakeBattleArea = "TriggerEvent_RemoveAybssLakeBattleArea"
 }
 ChatRoomEvent = {
   HavePrivateChatMsg = "ChatRoomEvent_HavePrivateChatMsg",
@@ -1570,6 +1581,9 @@ EnchantEvent = {
   ReturnToReset = "EnchantEvent_ReturnToReset",
   ResetLockedAdvCost = "EnchantEvent_ResetLockedAdvCost"
 }
+EquipMemoryEvent = {
+  JumpToAttrReset = "EquipMemoryEvent_JumpToAttrReset"
+}
 ShareNewEvent = {
   HideWeekShraeTip = "ShareNewEvent_HideWeekShraeTip"
 }
@@ -1642,4 +1656,10 @@ CraftingPotViewEvent = {
 }
 AstralGraphEvent = {
   LightenPoint = "AstralGraphEvent_LightenPoint"
+}
+InheritSkillEvent = {
+  ExpendSkill = "InheritSkillEvent_ExpendSkill"
+}
+FakeDragonEvent = {
+  UpdateFakeDragonPoses = "FakeDragonEvent_UpdateFakeDragonPoses"
 }

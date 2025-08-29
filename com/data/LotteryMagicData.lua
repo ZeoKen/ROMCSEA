@@ -20,7 +20,7 @@ autoImport("LotteryData")
 LotteryMagicData = class("LotteryMagicData", LotteryData)
 
 function LotteryMagicData:ctor(data, type)
-  LotteryMagicData.super.ctor(self, data, type)
+  LotteryMagicData.super.ctor(self, data, true)
   self.dressMap = FunctionLottery.SetDressData(type, self.items)
   self.filterItems = {}
 end

@@ -3714,10 +3714,38 @@ function Asset_Role:SetCacheShader()
 end
 
 function Asset_Role:RestoreShader(part, obj)
-  if self.shaderPath == nil then
-    return
+  if self.shaderPath ~= nil then
+    self:SetPartShader(part, obj, self.shaderName, self.originShader)
   end
-  self:SetPartShader(part, obj, self.shaderName, self.originShader)
+  if self.materialKeyword ~= nil and obj ~= nil then
+    if self.materialParams and not self.materialParams.parts[part] then
+      return
+    end
+    local length, mat
+    local smrs = obj.smrs
+    for i = 1, #smrs do
+      length = #obj.smrOriginMaterials[i]
+      for j = 0, length - 1 do
+        mat = obj:GetMaterialByRenderer(smrs[i], j)
+        if mat then
+          self:SetMaterial(mat, false)
+        end
+      end
+    end
+    local mrs = obj.mrs
+    for i = 1, #mrs do
+      length = #obj.mrOriginMaterials[i]
+      for j = 0, length - 1 do
+        mat = obj:GetMaterialByRenderer(mrs[i], j)
+        if mat then
+          self:SetMaterial(mat, false)
+        end
+      end
+    end
+    if self.materialSeted ~= nil then
+      self.materialSeted[part] = nil
+    end
+  end
 end
 
 function Asset_Role:SetPartShader(part, obj, fromShaderName, shader, texName, texture)

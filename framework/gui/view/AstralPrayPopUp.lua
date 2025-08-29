@@ -53,7 +53,7 @@ function AstralPrayPopUp:OnEnter()
   local curSeason = AstralProxy.Instance:GetSeason()
   local config = Table_AstralSeason[curSeason]
   if config then
-    local proGroup = config.ProfessionGroup[self.prayProGroupId]
+    local proGroup = AstralProxy.Instance:GetPrayedBranches(self.prayProGroupId)
     if proGroup then
       local pros = ReusableTable.CreateArray()
       for i = 1, #proGroup do

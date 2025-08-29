@@ -64,6 +64,9 @@ function AchievementDescriptionCell:initView()
   self.BufferLabel = self:FindComponent("BufferLabel", UILabel)
   self:Hide(self.BufferLabel.gameObject)
   self.effectContainer = self:FindGO("EffectContainer")
+  self.timeLimitGO = self:FindGO("TimeLimit")
+  self.timeLimitBG = self.timeLimitGO:GetComponent(UISprite)
+  self.timeLimitLabel = self:FindComponent("TimeLimitLabel", UILabel)
 end
 
 function AchievementDescriptionCell:SubAchieveClick(cellCtl)
@@ -135,6 +138,7 @@ function AchievementDescriptionCell:SetData(data)
     self.name.height = 40
   end
   self:SetRewardData()
+  self:SetRefrestTime()
   local sus = IconManager:SetIconByType(self.data.staticData.Icon, self.icon, self.data.staticData.Atlas, "uiicon")
   if sus then
     self:Show(self.icon.gameObject)
@@ -424,6 +428,18 @@ function AchievementDescriptionCell:SetRewardData()
     self:Hide(self.rewardPreviewPart)
     self:Hide(self.rewardCt)
   end
+end
+
+function AchievementDescriptionCell:SetRefrestTime()
+  local refreshTimeStr = self.data:getResetTime()
+  if not refreshTimeStr then
+    self.timeLimitGO:SetActive(false)
+    return
+  end
+  self.timeLimitGO:SetActive(true)
+  self.timeLimitLabel.text = refreshTimeStr
+  local width = self.timeLimitLabel.printedSize.x
+  self.timeLimitBG.width = width + 40
 end
 
 function AchievementDescriptionCell:UpdateSelected()

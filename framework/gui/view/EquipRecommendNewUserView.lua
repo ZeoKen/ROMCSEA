@@ -153,7 +153,8 @@ function EquipRecommendNewUserView:ClickEquip(cell)
     itemdata = cell.data,
     ignoreBounds = {
       cell.gameObject
-    }
+    },
+    equipBuffUpSource = self.passUserInfos[self.curUserIndex] and self.passUserInfos[self.curUserIndex].id
   }
   self:ShowItemTip(sdata, cell.icon, NGUIUtil.AnchorSide.Left, {offsetX, 0})
 end

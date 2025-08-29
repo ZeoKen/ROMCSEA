@@ -4,8 +4,6 @@ local _GetMaxValue = function(key)
     return GvgProxy.Instance:GetMaxOccupyCityScore()
   elseif key == "contineOccupyCity" then
     return _continue_score
-  elseif key == "pointScore" then
-    return GvgProxy.Instance:GetMaxPointScore()
   end
 end
 GvgScoreFixedCell = class("GvgScoreFixedCell", BaseCell)
@@ -23,7 +21,7 @@ end
 function GvgScoreFixedCell:SetData(configData)
   local name
   if GvgProxy.Instance:IsLeisureSeason() then
-    if configData.type == "defense" or configData.type == "pointScore" then
+    if configData.type == "defense" then
       local perfect_score = GvgProxy.Instance:GetScoreInfoByKey("perfect")
       if 0 < perfect_score then
         name = string.format(ZhString.MainViewGvgPage_GvgQuestTip_Complete, configData.title)
@@ -38,9 +36,5 @@ function GvgScoreFixedCell:SetData(configData)
     name = string.format(configData.title, maxValue)
   end
   self.nameLab.text = name
-  if configData.type == "pointScore" then
-    self.descLab.text = GvgProxy.Instance:GetPointScoreDesc(configData.desc)
-  else
-    self.descLab.text = configData.desc
-  end
+  self.descLab.text = configData.desc
 end

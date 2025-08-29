@@ -4,6 +4,7 @@ GuildFindView.ViewType = UIViewType.NormalLayer
 
 function GuildFindView:Init()
   self.isGuildDate = self.viewdata.viewdata.isGuildDate
+  GuildProxy.Instance:SetGuildDateBattleFind(self.isGuildDate)
   local findBord = self:FindGO("FindBord")
   if not self.guildFindPage then
     self.guildFindPage = self:AddSubView("GuildFindPage", GuildFindPage, findBord)
@@ -18,4 +19,5 @@ function GuildFindView:OnExit()
       view = PanelConfig.GuildDateBattleRecordView
     })
   end
+  GuildProxy.Instance:SetGuildDateBattleFind(false)
 end

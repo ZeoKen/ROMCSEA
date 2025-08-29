@@ -23,6 +23,7 @@ local _cellName = "CupModeForbiddenPro"
 local _cellSize = 0.4
 
 function CupModeScheduleSubview:Init()
+  self.proxy = CupMode6v6Proxy.Instance
   self:LoadSubviews()
   self:FindObjs()
   self:AddBtnEvts()
@@ -31,7 +32,7 @@ function CupModeScheduleSubview:Init()
 end
 
 function CupModeScheduleSubview:LoadSubviews()
-  self.rootGO = self:FindGO(viewName)
+  self.rootGO = self:FindGO(viewName, self.gameObject)
   local obj = self:LoadPreferb_ByFullPath(viewPath, self.rootGO, true)
   obj.name = viewName
 end
@@ -50,10 +51,11 @@ function CupModeScheduleSubview:FindObjs()
   self.groupBandRightCtl:AddEventListener(MouseEvent.MouseClick, self.OnClickOpponentCell, self)
   self.groupLineRoot = self:FindGO("LineRoot", self.groupRoot)
   self.curTabIndex = 1
+  self.opponentRoot = self:FindGO("OpponentRoot", self.rootGO)
+  self.tabScrollView = self:FindComponent("TabScrollView", UIScrollView, self.opponentRoot)
   self.tabGrid = self:FindComponent("TabGrid", UIGrid, self.rootGO)
   self.tabCtl = UIGridListCtrl.new(self.tabGrid, WarbandOpponentGroupTab, "WarbandOpponentGroupTab")
   self.tabCtl:AddEventListener(MouseEvent.MouseClick, self.OnClickGroupTab, self)
-  self.opponentRoot = self:FindGO("OpponentRoot", self.rootGO)
   self.signupRoot = self:FindGO("SignupRoot", self.rootGO)
   self.signupScrollView = self:FindComponent("ListScrollView", UIScrollView, self.signupRoot)
   self.signupPanel = self:FindComponent("ListScrollView", UIPanel, self.signupRoot)
@@ -75,6 +77,7 @@ function CupModeScheduleSubview:FindObjs()
   self.seasonRewardBtn = self:FindGO("SeasonRewardBtn", self.rootGO)
   self.seasonRankBtn = self:FindGO("SeasonRankBtn", self.rootGO)
   self.signupBtn = self:FindGO("SignupBtn", self.signupRoot)
+  self.signupBtnLabel = self:FindComponent("Label", UILabel, self.signupBtn)
   self.myWarbandBtn = self:FindGO("WarbandInfoBtn", self.rootGO)
   self.matchBtn = self:FindComponent("MatchBtn", UISprite, self.opponentRoot)
   self.matchLab = self:FindComponent("Label", UILabel, self.matchBtn.gameObject)
@@ -96,27 +99,38 @@ end
 function CupModeScheduleSubview:AddBtnEvts()
   self:AddClickEvent(self.seasonRewardBtn, function(go)
     self:sendNotification(UIEvent.JumpPanel, {
-      view = PanelConfig.TeamPwsRewardPopUp
+      view = PanelConfig.TeamPwsRewardPopUp,
+      viewdata = {
+        proxy = self.proxy
+      }
     })
   end)
   self:AddClickEvent(self.seasonRankBtn, function(go)
     self:sendNotification(UIEvent.JumpPanel, {
-      view = PanelConfig.CupModeRankPopup
+      view = PanelConfig.CupModeRankPopup,
+      viewdata = {
+        proxy = self.proxy
+      }
     })
   end)
   self:AddClickEvent(self.signupBtn, function(go)
     self:sendNotification(UIEvent.JumpPanel, {
-      view = PanelConfig.CupModeSignupPopup
+      view = PanelConfig.CupModeSignupPopup,
+      viewdata = {
+        proxy = self.proxy
+      }
     })
   end)
   self:AddClickEvent(self.myWarbandBtn, function(go)
     self:sendNotification(UIEvent.JumpPanel, {
-      view = PanelConfig.CupModeSignupPopup
+      view = PanelConfig.CupModeSignupPopup,
+      viewdata = {
+        proxy = self.proxy
+      }
     })
   end)
   self:AddClickEvent(self.matchBtn.gameObject, function(go)
-    local proxy = CupMode6v6Proxy.Instance
-    local match = proxy:DoMatch()
+    local match = self.proxy:DoMatch()
     if match then
       self.container:CloseSelf()
     end
@@ -136,25 +150,45 @@ end
 function CupModeScheduleSubview:InitShow()
   PictureManager.Instance:SetPVP(PVP_LINE_TEXTURE_NAME, self.tex1)
   PictureManager.Instance:SetPVP(PVP_LINE_TEXTURE_NAME, self.tex2)
+  self.curTab = -1
 end
 
 function CupModeScheduleSubview:FirstClickTab()
-  if self.battleisInit then
-    return
+  local myGroup = 0
+  if self.curTab == 1 then
+    myGroup = self.proxy:CheckInPreParticipants()
+  elseif self.curTab == 2 then
+    myGroup = self.proxy:CheckInParticipants()
+  elseif self.curTab == 3 then
+    myGroup = self.proxy:CheckInFinal()
   end
-  local first = self.tabCtl:GetCells()[1]
-  if first then
-    self:OnClickGroupTab(first)
-    first:SetTog(true)
-    self.battleisInit = true
+  local myBandGroup
+  local tabCells = self.tabCtl:GetCells()
+  for i = 1, #tabCells do
+    if i == myGroup then
+      self:OnClickGroupTab(tabCells[i])
+      tabCells[i]:SetTog(true)
+      myBandGroup = tabCells[i]
+    end
+    tabCells[i]:SetAttend(i == myGroup)
+  end
+  if not myBandGroup then
+    self:OnClickGroupTab(tabCells[1])
+    tabCells[1]:SetTog(true)
+  else
+    self.tabScrollView:ResetPosition()
+    local panel = self.tabScrollView.panel
+    local bound = NGUIMath.CalculateRelativeWidgetBounds(panel.cachedTransform, myBandGroup.gameObject.transform)
+    local offset = panel:CalculateConstrainOffset(bound.min, bound.max)
+    offset = Vector3(0, offset.y, 0)
+    self.tabScrollView:MoveRelative(offset)
   end
 end
 
 function CupModeScheduleSubview:ClickBandTeamCell(cellctl)
   local data = cellctl and cellctl.data
   if data then
-    local proxy = CupMode6v6Proxy.Instance
-    proxy:DoQueryBand(0, data.id)
+    self.proxy:DoQueryBand(0, data.id)
   end
 end
 
@@ -206,9 +240,6 @@ function CupModeScheduleSubview:OnClickGroupTab(cell)
   if not data then
     return
   end
-  if self.curTabData and self.curTabData.index == data.index then
-    return
-  end
   self.curTabData = data
   self:UpdateBattleLine(true)
 end
@@ -217,38 +248,68 @@ function CupModeScheduleSubview:OnClickOpponentCell(ctl)
   local data = ctl and ctl.data
   if data and data.id then
     self.tipStick = ctl.bg
-    local proxy = CupMode6v6Proxy.Instance
-    proxy:DoQueryBand(0, data.id)
+    self.proxy:DoQueryBand(0, data.id)
   end
 end
 
-function CupModeScheduleSubview:HandleQueryMember()
-  local proxy = CupMode6v6Proxy.Instance
-  TipManager.Instance:ShowTeamMemberTip({
-    memberData = proxy.memberinfoData,
-    teamName = proxy.memberinfoTeamName
-  })
+function CupModeScheduleSubview:HandleQueryMember(note)
+  local data = note.body
+  local season = data and data.season
+  if season < 10000 then
+    xdlog("HandleQueryMember", self.proxy.proxyName)
+    TipManager.Instance:ShowTeamMemberTip({
+      memberData = self.proxy.memberinfoData,
+      teamName = self.proxy.memberinfoTeamName
+    })
+  end
 end
 
 function CupModeScheduleSubview:UpdateMatchBtn()
-  local proxy = CupMode6v6Proxy.Instance
-  local haveWarband = proxy:IHaveWarband()
-  local matchTimeValid = proxy:CheckMatchTimeValid()
+  local haveWarband = self.proxy:IHaveWarband()
+  local matchTimeValid = self.proxy:CheckMatchTimeValid()
   self.matchBtn.gameObject:SetActive(haveWarband)
   if haveWarband then
+    local curStage = self.proxy:GetCurStage() or 0
+    local hasMatchAuthority = 0
+    if self.curTab == 1 then
+      hasMatchAuthority = self.proxy:CheckInPreParticipants()
+    elseif self.curTab == 2 then
+      hasMatchAuthority = self.proxy:CheckInParticipants()
+    elseif self.curTab == 3 then
+      hasMatchAuthority = self.proxy:CheckInFinal()
+    end
+    xdlog("hasMatchAuthority", hasMatchAuthority)
+    if hasMatchAuthority ~= 0 and curStage == self.curTab then
+      self.matchBtn.gameObject:SetActive(true)
+    else
+      self.matchBtn.gameObject:SetActive(false)
+    end
     self.matchBtn.spriteName = matchTimeValid and BTN_SP[1] or BTN_SP[2]
     self.matchLab.effectColor = matchTimeValid and ColorUtil.ButtonLabelGreen or GRAY_LABEL_COLOR
   end
 end
 
 function CupModeScheduleSubview:UpdateBattleView()
-  local proxy = CupMode6v6Proxy.Instance
-  local bandcount = proxy:GetOpponentCount()
-  self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(bandcount))
+  local bandcount = 0
+  if self.curTab and self.curTab == 1 then
+    bandcount = self.proxy:GetPreRoundOpponentCount()
+    self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(bandcount))
+  elseif self.curTab and self.curTab == 3 then
+    local curStage = self.proxy:GetCurStage()
+    if curStage and curStage == 3 then
+      self.teamNumLab.text = ZhString.Warband_FinalIsReady
+    elseif curStage and curStage < 3 then
+      self.teamNumLab.text = ZhString.Warband_StageReady
+    else
+      self.teamNumLab.text = ZhString.Warband_StageFinish
+    end
+  else
+    bandcount = self.proxy:GetOpponentCount()
+    self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(bandcount))
+  end
   self:UpdateMatchBtn()
   self:UpdateFightingTime()
-  local proxy = CupMode6v6Proxy.Instance
-  local invalidData = proxy.forbiddenPro
+  local invalidData = self.proxy.forbiddenPro
   self.cupModeForbiddenPro:SetData(invalidData)
   if invalidData and 0 < #invalidData then
     self:ResizeSignUpListScrollView(2)
@@ -275,25 +336,46 @@ function CupModeScheduleSubview:ResizeSignUpListScrollView(type)
 end
 
 function CupModeScheduleSubview:UpdateFightingTime()
-  local proxy = CupMode6v6Proxy.Instance
-  self.scheduleLab.text = proxy:GetFightCDTime()
+  local curStage = self.proxy:GetCurStage()
+  if curStage < self.curTab then
+    self.scheduleLab.text = ZhString.Warband_StageReady
+  elseif curStage > self.curTab then
+    self.scheduleLab.text = ZhString.Warband_StageFinish
+  else
+    self.scheduleLab.text = self.proxy:GetFightCDTime()
+  end
 end
 
 function CupModeScheduleSubview:UpdateBtnByMyband()
-  local proxy = CupMode6v6Proxy.Instance
-  local hasSignup = proxy:CheckHasSignup()
-  self.signupBtn:SetActive(not hasSignup)
-  self.myWarbandBtn:SetActive(proxy:IHaveWarband())
+  local hasSignup = self.proxy:CheckHasSignup()
+  local isCaptain = self.proxy:CheckBandAuthority()
+  self.signupBtn:SetActive(isCaptain or not hasSignup)
+  self.signupBtnLabel.text = hasSignup and isCaptain and ZhString.Warband_EditBand or ZhString.Warband_Register
+  local curStage = self.proxy:GetCurStage()
+  self.myWarbandBtn:SetActive(self.proxy:IHaveWarband() and curStage ~= 4)
   self:UpdateMatchBtn()
 end
 
 function CupModeScheduleSubview:UpdateBattleLine(noResetTab)
-  local proxy = CupMode6v6Proxy.Instance
   if not self.curTabData then
     redlog("未同步对战图数据")
     return
   end
-  local opponentData = proxy:GetOpponentData(self.curTabData)
+  if self.firstRoundLine == nil then
+    return
+  end
+  local opponentData
+  if self.curTab == 1 then
+    opponentData = self.proxy:GetPreRoundOpponentData(self.curTabData)
+  elseif self.curTab == 2 then
+    opponentData = self.proxy:GetOpponentData(self.curTabData)
+  elseif self.curTab == 3 then
+    opponentData = self.proxy:GetFinalRoundOpponentData(self.curTabData)
+  end
+  if not opponentData then
+    redlog("暂无对手数据", self.curTabData)
+    return
+  end
   local leftData, rightData = {}, {}
   for index = 1, 8 do
     if index < 5 then
@@ -316,28 +398,31 @@ function CupModeScheduleSubview:UpdateBattleLine(noResetTab)
     self.firstRoundStars[j]:SetData(opponentData[j].starsone)
     self.firstRoundStars[j + 1]:SetData(opponentData[j + 1].starsone)
   end
-  local winnerIndex, maxWintime, stars = 0, 0, 0
+  local winnerIndex_left, maxWintime_left, stars_left = 0, 0, 0
   for i = 1, 4 do
-    if maxWintime < opponentData[i].wintimes then
-      maxWintime = opponentData[i].wintimes
-      winnerIndex = i
+    if maxWintime_left < opponentData[i].wintimes then
+      maxWintime_left = opponentData[i].wintimes
+      winnerIndex_left = i
     end
   end
-  winnerIndex = maxWintime < 2 and 0 or winnerIndex
-  self:UpdateSecondRoundLine(1, winnerIndex)
-  self:UpdateSecondRoundLine(2, winnerIndex)
-  winnerIndex, maxWintime = 0, 0
+  winnerIndex_left = maxWintime_left < 2 and 0 or winnerIndex_left
+  self:UpdateSecondRoundLine(1, winnerIndex_left)
+  self:UpdateSecondRoundLine(2, winnerIndex_left)
+  local winnerIndex_right, maxWintime_right, stars_right = 0, 0, 0
   for i = 5, 8 do
-    if maxWintime < opponentData[i].wintimes then
-      maxWintime = opponentData[i].wintimes
-      winnerIndex = i
+    if maxWintime_right < opponentData[i].wintimes then
+      maxWintime_right = opponentData[i].wintimes
+      winnerIndex_right = i
     end
   end
-  winnerIndex = maxWintime < 2 and 0 or winnerIndex
-  self:UpdateSecondRoundLine(3, winnerIndex)
-  self:UpdateSecondRoundLine(4, winnerIndex)
+  winnerIndex_right = maxWintime_right < 2 and 0 or winnerIndex_right
+  self:UpdateSecondRoundLine(3, winnerIndex_right)
+  self:UpdateSecondRoundLine(4, winnerIndex_right)
+  for _group, _secondStar in pairs(self.secondRoundStars) do
+    _secondStar:SetData(0)
+  end
   for i = 1, 8 do
-    if opponentData[i].wintimes == 2 then
+    if 2 <= opponentData[i].wintimes then
       local group = (i + 1) // 2
       local star = opponentData[i] and opponentData[i].starstwo or 0
       if group and self.secondRoundStars[group] then
@@ -345,6 +430,25 @@ function CupModeScheduleSubview:UpdateBattleLine(noResetTab)
       elseif self.secondRoundStars[group] then
         self.secondRoundStars[group]:SetData(0)
       end
+    end
+  end
+  local curStage = self.proxy:GetCurStage()
+  local isStageFinish = curStage > self.curTab
+  local groupMaxWintime = math.max(maxWintime_left, maxWintime_right)
+  local leftCells = self.groupBandLeftCtl:GetCells()
+  local rightCells = self.groupBandRightCtl:GetCells()
+  for i = 1, #leftCells do
+    if self.curTab == 1 or self.curTab == 2 then
+      leftCells[i]:SetPromotionSymbol(isStageFinish and leftCells[i].data.wintimes == groupMaxWintime or false)
+    else
+      leftCells[i]:SetPromotionSymbol(false)
+    end
+  end
+  for i = 1, #rightCells do
+    if self.curTab == 1 or self.curTab == 2 then
+      rightCells[i]:SetPromotionSymbol(isStageFinish and rightCells[i].data.wintimes == groupMaxWintime or false)
+    else
+      rightCells[i]:SetPromotionSymbol(false)
     end
   end
 end
@@ -369,32 +473,70 @@ function CupModeScheduleSubview:UpdateSecondRoundLine(group, winnerIndex)
 end
 
 function CupModeScheduleSubview:UpdateSignupTeamList()
-  local proxy = CupMode6v6Proxy.Instance
-  local data = proxy:GetSignupWarbandList()
+  local data = self.proxy:GetSignupWarbandList()
+  redlog("报名列表队伍数： ", #data)
   self.bandListCtl:ResetDatas(self:ReUnitData(data, 2))
   self.signupEmpty.gameObject:SetActive(#data < 1)
   self.teamNumLab.text = string.format(ZhString.Warband_OppenentCount, tostring(#data))
   self.scheduleLab.text = ZhString.Warband_IsInSignup
+  local invalidData = self.proxy.forbiddenPro
+  self.cupModeForbiddenPro:SetData(invalidData)
+  if invalidData and 0 < #invalidData then
+    self:ResizeSignUpListScrollView(2)
+  else
+    self:ResizeSignUpListScrollView(1)
+  end
 end
 
 function CupModeScheduleSubview:SwitchSignup(isSignup)
-  local proxy = CupMode6v6Proxy.Instance
+  xdlog("SwitchSignup", isSignup)
   self.signupRoot:SetActive(isSignup)
   self.opponentRoot:SetActive(not isSignup)
   self:UpdateBtnByMyband()
-  proxy:SetOpponentStatus(not isSignup)
+  self.proxy:SetOpponentStatus(not isSignup)
   if isSignup then
     self:UpdateSignupTeamList()
-    proxy:DoQueryTeamList()
+    self.proxy:DoQueryTeamList()
   else
     self:UpdateBattleView()
   end
 end
 
 function CupModeScheduleSubview:HandleQueryOpponent()
-  local proxy = CupMode6v6Proxy.Instance
-  local tabData = proxy:GetGroupTabData()
-  if #tabData < 1 then
+  local preRoundData = self.proxy:GetPreRoundGroupTabData()
+  local hasPreRound = preRoundData and 0 < #preRoundData and true or false
+  local mainRoundData = self.proxy:GetGroupTabData()
+  local hasMainRound = mainRoundData and 0 < #mainRoundData and true or false
+  local finalRoundData = self.proxy:GetFinalRoundGroupTabData()
+  local hasFinalRound = finalRoundData and 0 < #finalRoundData and true or false
+  if not hasPreRound and not hasMainRound and not hasFinalRound then
+    redlog("[cup] 服务器推送对战图数据为空")
+    return
+  end
+  if not self.initedData then
+    self.initedData = true
+    local curStage = self.proxy:GetCurStage() or 0
+    xdlog("curStage", curStage, self.proxy.proxyName)
+    if 3 <= curStage then
+      self.curTab = 3
+    else
+      self.curTab = curStage
+    end
+  end
+  self:UpdateBattleInfo()
+end
+
+function CupModeScheduleSubview:UpdateBattleInfo()
+  local tabData
+  xdlog("当前类型选项", self.curTab)
+  if self.curTab == 1 then
+    tabData = self.proxy:GetPreRoundGroupTabData()
+  elseif self.curTab == 2 then
+    tabData = self.proxy:GetGroupTabData()
+  elseif self.curTab == 3 then
+    tabData = self.proxy:GetFinalRoundGroupTabData()
+  end
+  if not tabData or #tabData < 1 then
     redlog("[cup] 服务器推送对战图数据为空")
     return
   end
@@ -411,8 +553,7 @@ function CupModeScheduleSubview:OnEnter()
 end
 
 function CupModeScheduleSubview:OnExit()
-  local proxy = CupMode6v6Proxy.Instance
-  proxy:SetOpponentStatus(false)
+  self.proxy:SetOpponentStatus(false)
   CupModeScheduleSubview.super.OnExit(self)
   self.cupModeForbiddenPro:OnCellDestroy()
 end
@@ -421,4 +562,13 @@ function CupModeScheduleSubview:OnDestroy()
   CupModeScheduleSubview.super.OnDestroy(self)
   PictureManager.Instance:UnLoadPVP(PVP_LINE_TEXTURE_NAME, self.tex1)
   PictureManager.Instance:UnLoadPVP(PVP_LINE_TEXTURE_NAME, self.tex2)
+end
+
+function CupModeScheduleSubview:UpdateStepChoose(tab)
+  if not tab then
+    return
+  end
+  xdlog("UpdateStepChoose", tab)
+  self.curTab = tab
+  self:UpdateBattleInfo()
 end

@@ -160,6 +160,9 @@ function NPet:IsColliderEnable()
   if data:IsPippi() then
     return true
   end
+  if data:IsPhantom() then
+    return true
+  end
   return data:IsPet() and self:IsMyPet()
 end
 

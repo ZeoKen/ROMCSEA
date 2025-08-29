@@ -40,8 +40,12 @@ function EquipMemoryAttrCell:SetData(data)
     self.colorSymbol.gameObject:SetActive(true)
     self.colorSymbol:MakePixelPerfect()
   else
-    local formatStr = data.unlockTip or ZhString.EquipMemory_AttrResetUnlockTip
-    self.attrName.text = string.format(formatStr, data.unlockLv)
+    if data.unlockLv then
+      local formatStr = data.unlockTip or ZhString.EquipMemory_AttrResetUnlockTip
+      self.attrName.text = string.format(formatStr, data.unlockLv)
+    else
+      self.attrName.text = data.text or ""
+    end
     self.bg.height = 30
     self.chooseSymbol.height = 40
     self.sizeContainer.height = 40
@@ -153,6 +157,59 @@ function EquipMemoryAttrCellType3:SetData(data)
   end
   local height = self.attrName.printedSize.y
   self.bg.height = height + 30
+  if self.chooseSymbolBg then
+    self.chooseSymbolBg:UpdateAnchors()
+  end
+end
+
+EquipMemoryAttrCellType5 = class("EquipMemoryAttrCellType5", EquipMemoryAttrCell)
+
+function EquipMemoryAttrCellType5:Init()
+  EquipMemoryAttrCellType5.super.Init(self)
+  self.waxName = self:FindComponent("WaxName", UILabel)
+end
+
+function EquipMemoryAttrCellType5:SetData(data)
+  self.data = data
+  local level = data.level or 1
+  self.attrValue.text = level
+  local attrId = data.id
+  local descStr = ""
+  local attrConfig = Game.ItemMemoryEffect[attrId]
+  if attrConfig then
+    if 3 < level then
+      level = 3
+    end
+    local staticId = attrConfig.level and attrConfig.level[level]
+    local staticData = staticId and Table_ItemMemoryEffect[staticId]
+    if staticData then
+      local waxBuffId = staticData.WaxBuffID
+      if waxBuffId and 0 < #waxBuffId then
+        self.waxName.text = OverSea.LangManager.Instance():GetLangByKey(staticData.PreviewDesc) .. string.format("(%d/%d)", level, 3)
+        for i = 1, #waxBuffId do
+          local buffData = Table_Buffer[waxBuffId[i]]
+          if buffData and buffData.BuffEffect and not buffData.BuffEffect.NoShow then
+            local dsc = buffData and buffData.Dsc
+            if dsc and dsc ~= "" then
+              if descStr ~= "" then
+                descStr = descStr .. "\n"
+              end
+              descStr = descStr .. dsc
+            end
+          end
+        end
+      end
+    end
+    local color = attrConfig.Color or "red"
+    local _iconName = GameConfig.EquipMemory.AttrTypeIcon and GameConfig.EquipMemory.AttrTypeIcon[color].Icon
+    self.colorSymbol.spriteName = _iconName .. "s"
+    self.colorSymbol:MakePixelPerfect()
+  end
+  if descStr ~= "" then
+    self.attrName.text = descStr
+  end
+  local height = self.attrName.printedSize.y
+  self.bg.height = height + 60
   if self.chooseSymbolBg then
     self.chooseSymbolBg:UpdateAnchors()
   end

@@ -172,6 +172,8 @@ function ShopMallExchangeSellInfoCell:SetPrice(price)
   local equipInfo = self.data.equipInfo
   if self.data.sellType == ShopMallExchangeSellEnum.Resell and equipInfo and equipInfo.equiplv > 0 then
     self:SetInvalidBtn(true)
+  elseif GameConfig.Exchange.CardLvTradeForbid and self.data.staticData.id and Game.CardUpgradeMap and Game.CardUpgradeMap[self.data.staticData.id] and self.data:HasCardLv() then
+    self:SetInvalidBtn(true)
   else
     self:SetInvalidBtn(self.data.shopMallItemData and self.data.sellType == ShopMallExchangeSellEnum.Cancel and self.data.shopMallItemData.publicityId ~= 0)
   end
@@ -216,6 +218,7 @@ function ShopMallExchangeSellInfoCell:Confirm()
         itemInfo.itemid = self.data.staticData.id
         itemInfo.price = self.sellPriceNum
         itemInfo.publicity_id = self.publicityId
+        itemInfo.item_data = self.data:ExportServerItem()
         ServiceRecordTradeProxy.Instance:CallResellPendingRecordTrade(itemInfo, Game.Myself.data.id, nil, self.data.shopMallItemData.orderId)
       else
         errorLog("ShopMallExchangeSellInfoCell Confirm : self.data.shopMallItemData == nil")

@@ -42,7 +42,12 @@ function ShopMallExchangeDetailCell:SetData(data)
     if data.itemid then
       local item = Table_Item[data.itemid]
       if item ~= nil then
-        self.name.text = item.NameZh
+        local itemData = data:GetItemData()
+        if itemData and itemData:IsCard() then
+          self.name.text = itemData:GetName()
+        else
+          self.name.text = item.NameZh
+        end
         UIUtil.WrapLabel(self.name)
       else
         errorLog(string.format("ShopMallExchangeDetailCell SetData : Table_Item[%s] is nil", tostring(data.itemid)))

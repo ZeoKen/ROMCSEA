@@ -123,7 +123,7 @@ function PreviewSaleRoleTaskCell:SetData(data)
     end
     self.timeLabel.text = self:GetUnlockDesc()
   end
-  self.levelLabel.text = self.data.id
+  self.levelLabel.text = self.indexInList
   self.finishSymbol:SetActive(isFinish)
   self.greenLine.gameObject:SetActive(achieved)
   self.processFinish:SetActive(achieved)

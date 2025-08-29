@@ -43,7 +43,9 @@ TXWYPlatPanel.BranchConfig = {
       FunctionSDK.Instance:EnterUserCenter(serverID, "未登入", version)
     end,
     ServiceBtn = function(go)
-      Application.OpenURL("https://www.gnjoy.com.tw/Cs")
+      GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+        view = PanelConfig.CustomerServicePanel
+      })
     end,
     LogoIcon = "index2-ro"
   },

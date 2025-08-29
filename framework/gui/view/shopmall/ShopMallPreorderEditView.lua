@@ -24,6 +24,7 @@ function ShopMallPreorderEditView:Init()
   self:AddViewEvts()
   self:AddCloseButtonEvent()
   self:InitFilter()
+  self:InitCardFilter()
 end
 
 function ShopMallPreorderEditView:FindObjs()
@@ -31,6 +32,7 @@ function ShopMallPreorderEditView:FindObjs()
   self:TryOpenHelpViewById(35279, nil, self.helpButton)
   self.tip = self:FindGO("Tip")
   self.filterGO = self:FindGO("filterPanel")
+  self.cardFilterGO = self:FindGO("cardFilterPanel")
   self.tradeCount = self:FindGO("TradeCount"):GetComponent(UILabel)
 end
 
@@ -38,6 +40,7 @@ local RefineFilter = GameConfig.PreorderFilter.RefineFilter
 local EnchantFilter = GameConfig.PreorderFilter.EnchantFilter
 local BrokenFilter = GameConfig.PreorderFilter.BrokenFilter
 local DamageConfig = GameConfig.PreorderFilter.ExcludeDamaged
+local CardFilter = GameConfig.PreorderFilter.CardFilter
 
 function ShopMallPreorderEditView:InitShow()
   local preorderItemData
@@ -67,12 +70,22 @@ function ShopMallPreorderEditView:InitShow()
   if self.itemid and Table_Equip[self.itemid] then
     self.tip:SetActive(true)
     self.filterGO:SetActive(true)
+    self.cardFilterGO:SetActive(false)
     self.isEquip = true
+    self.cardHasLv = false
+    self.tradeCount.gameObject.transform.localPosition = TradeTipPos[1]
+  elseif not GameConfig.Exchange.CardLvTradeForbid and Game.CardUpgradeMap and self.itemid and Game.CardUpgradeMap[self.itemid] then
+    self.tip:SetActive(true)
+    self.filterGO:SetActive(false)
+    self.cardFilterGO:SetActive(true)
+    self.cardHasLv = true
     self.tradeCount.gameObject.transform.localPosition = TradeTipPos[1]
   else
     self.tip:SetActive(false)
     self.filterGO:SetActive(false)
+    self.cardFilterGO:SetActive(false)
     self.isEquip = false
+    self.cardHasLv = false
     self.tradeCount.gameObject.transform.localPosition = TradeTipPos[2]
   end
 end
@@ -291,6 +304,8 @@ function ShopMallPreorderEditView:OnClickFilter()
   preorderItemData.refinelvmax = self.upperLv
   preorderItemData.buffid = self.buffid
   preorderItemData.damage = self.damage
+  preorderItemData.cardlvmin = self.lowerCardLv
+  preorderItemData.cardlvmax = self.upperCardLv
   ServiceRecordTradeProxy.Instance:CallPreorderQueryPriceRecordTradeCmd(preorderItemData)
 end
 
@@ -298,5 +313,105 @@ function ShopMallPreorderEditView:RecvTradeCount()
   local left, holding, limit = QuickBuyProxy.Instance:GetTradeCount(self.itemid)
   if limit and 0 < limit then
     self.tradeCount.text = string.format(GameConfig.Exchange.ShopMallPreorder_TradeCount, left, holding, math.max(0, limit - left - holding))
+  end
+end
+
+function ShopMallPreorderEditView:InitCardFilter()
+  if not (self.cardHasLv and self.itemid) or not CardFilter then
+    return
+  end
+  self.cardFilterPanel = self:FindGO("cardFilterPanel"):GetComponent(UIPanel)
+  self.initCard = false
+  self.lowerCardFilterGrid = PopupGridList.new(self:FindGO("lowerCardFilterTabs"), function(self, data)
+    if self.selectLowerCardFilterData ~= data then
+      self.selectLowerCardFilterData = data
+      self.lowerCardLv = tonumber(self.selectLowerCardFilterData.lowerCardLv) or 0
+      self:ResetUpperCardLvFilter()
+      self:OnClickFilter()
+    end
+  end, self, self.cardFilterPanel.depth + 2, nil, 2)
+  TableUtility.ArrayClear(popupItems)
+  for k, v in pairs(CardFilter) do
+    local data = ReusableTable.CreateTable()
+    if v.name then
+      data.name = string.format(ZhString.ShopMallPreorder_Refine_Text, v.name)
+    else
+      data.name = string.format(ZhString.ShopMallPreorder_Refine_Num, v.lv)
+    end
+    data.lowerCardLv = k
+    table.insert(popupItems, data)
+  end
+  table.sort(popupItems, function(l, r)
+    return l.lowerCardLv < r.lowerCardLv
+  end)
+  self.lowerCardFilterGrid:SetData(popupItems)
+  self.upperCardFilterGrid = PopupGridList.new(self:FindGO("upperCardFilterTabs"), function(self, data)
+    if self.selectUpperCardFilterData ~= data then
+      self.selectUpperCardFilterData = data
+      self.upperCardLv = tonumber(self.selectUpperCardFilterData.upperCardLv) or 0
+      self:ResetLowerCardLvFilter()
+      self:OnClickFilter()
+    end
+  end, self, self.cardFilterPanel.depth + 2, nil, 2)
+  TableUtility.ArrayClear(popupItems)
+  for k, v in pairs(CardFilter) do
+    local data = ReusableTable.CreateTable()
+    if v.name then
+      data.name = string.format(ZhString.ShopMallPreorder_Refine_Text, v.name)
+    else
+      data.name = string.format(ZhString.ShopMallPreorder_Refine_Num, v.lv)
+    end
+    data.upperCardLv = k
+    table.insert(popupItems, data)
+  end
+  table.sort(popupItems, function(l, r)
+    return l.upperCardLv < r.upperCardLv
+  end)
+  self.upperCardFilterGrid:SetData(popupItems)
+  self.initCard = true
+end
+
+function ShopMallPreorderEditView:ResetUpperCardLvFilter()
+  if self.upperCardFilterGrid and self.initCard then
+    TableUtility.ArrayClear(popupItems)
+    for k, v in pairs(CardFilter) do
+      if self.lowerCardLv <= v.lv then
+        local data = ReusableTable.CreateTable()
+        if v.name then
+          data.name = string.format(ZhString.ShopMallPreorder_Refine_Text, v.name)
+        else
+          data.name = string.format(ZhString.ShopMallPreorder_Refine_Num, v.lv)
+        end
+        data.upperCardLv = k
+        table.insert(popupItems, data)
+      end
+    end
+    table.sort(popupItems, function(l, r)
+      return l.upperCardLv < r.upperCardLv
+    end)
+    self.upperCardFilterGrid:SetData(popupItems, true, true)
+    if self.lowerCardLv >= self.upperCardLv then
+      local firstcelldata = self.upperCardFilterGrid:ClickFirstCell(true)
+      if firstcelldata then
+        self.selectUpperCardFilterData = firstcelldata
+        self.upperCardLv = tonumber(self.selectUpperCardFilterData.upperCardLv)
+      end
+    end
+  end
+end
+
+function ShopMallPreorderEditView:ResetLowerCardLvFilter()
+  if self.lowerCardFilterGrid and self.initCard then
+    TableUtility.ArrayClear(popupItems)
+    for k, v in pairs(CardFilter) do
+      local data = ReusableTable.CreateTable()
+      data.name = string.format(ZhString.ShopMallPreorder_Refine_Num, v.name or v.lv)
+      data.lowerCardLv = k
+      table.insert(popupItems, data)
+    end
+    table.sort(popupItems, function(l, r)
+      return l.lowerCardLv < r.lowerCardLv
+    end)
+    self.lowerCardFilterGrid:SetData(popupItems, true, true)
   end
 end

@@ -3,10 +3,6 @@ GuildDateBattlePreEnterView.ViewType = UIViewType.PopUpLayer
 GuildDateBattlePreEnterView.m_helpId = 1838
 local _PictureManager, _DateProxy
 local _BgTextureName = "sign_7_bg3"
-local _miniMapTextureName = {
-  [E_GuildDateBattle_Mode.Base] = "SceneGuild_battle_prt",
-  [E_GuildDateBattle_Mode.Classic] = "Scenesc_gvg3he1_001"
-}
 
 function GuildDateBattlePreEnterView:Init()
   _DateProxy = GuildDateBattleProxy.Instance
@@ -140,7 +136,7 @@ function GuildDateBattlePreEnterView:SetByConfig()
   self.modeDescLab.text = self.data:GetModeDesc()
   self.modeLab.text = self.data:GetModeName()
   self.modeNameLab.text = self.data:GetModeName()
-  self.mapTextureName = _miniMapTextureName[self.data.mode]
+  self.mapTextureName = _DateProxy:GetMiniMapTextureName(self.data.mode)
   _PictureManager:SetMiniMap(self.mapTextureName, self.mapTexture)
 end
 

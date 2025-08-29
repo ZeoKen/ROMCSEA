@@ -626,18 +626,31 @@ function FloatingPanel:ShowPrestigeUpdate(data)
 end
 
 function FloatingPanel:TryCreateBWLoadingEffect()
-  if Game.MapManager:GetMapID() == 149 then
+  local map_id = Game.MapManager:GetMapID()
+  local effect_path = map_id and GameConfig.BigMapUIEffect and GameConfig.BigMapUIEffect[map_id]
+  if effect_path then
     local effect = self.bwLoadingEffect
     if effect ~= nil then
-      return
+      if effect:GetPath() == effect_path then
+        return
+      else
+        self:DestroyBigWorldLoadingEffect()
+      end
     end
-    effect = self:PlayUIEffect(EffectMap.UI.MapTransfer, self.gameObject)
+    effect = self:PlayUIEffect(effect_path, self.gameObject)
     effect:SetActive(false)
     self.bwLoadingEffect = effect
-  elseif self.bwLoadingEffect then
-    self.bwLoadingEffect:Destroy()
-    self.bwLoadingEffect = nil
+  else
+    self:DestroyBigWorldLoadingEffect()
   end
+end
+
+function FloatingPanel:DestroyBigWorldLoadingEffect()
+  if not self.bwLoadingEffect then
+    return
+  end
+  self.bwLoadingEffect:Destroy()
+  self.bwLoadingEffect = nil
 end
 
 function FloatingPanel:HandlePlayBWMapTransferEffect()

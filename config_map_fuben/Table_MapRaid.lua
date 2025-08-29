@@ -1705,6 +1705,32 @@ Table_MapRaid = {
     ServerMergeTime = "2022-03-09 05:00:00",
     TFServerMergeTime = "2022-02-24 16:00:00"
   },
+  [7230] = {
+    id = 7230,
+    NameZh = "##42628614",
+    NameEn = "sc_ygfb_001",
+    Type = 80,
+    CameraAdj = 0,
+    EndWait = 60,
+    Restrict = 2,
+    ShowAllNpc = 1,
+    ForbidAritfact = 1,
+    ServerMergeTime = "2022-03-09 05:00:00",
+    TFServerMergeTime = "2022-02-24 16:00:00"
+  },
+  [7231] = {
+    id = 7231,
+    NameZh = "##42628615",
+    NameEn = "sc_ygfb_001",
+    Type = 80,
+    CameraAdj = 0,
+    EndWait = 60,
+    Restrict = 2,
+    ShowAllNpc = 1,
+    ForbidAritfact = 1,
+    ServerMergeTime = "2022-03-09 05:00:00",
+    TFServerMergeTime = "2022-02-24 16:00:00"
+  },
   [7499] = {
     id = 7499,
     NameZh = "##42533592",
@@ -2009,6 +2035,20 @@ Table_MapRaid = {
     ForbidAritfact = 1,
     ServerMergeTime = "2022-03-09 05:00:00",
     TFServerMergeTime = "2022-02-24 16:00:00",
+    SameMapReBoot = 1
+  },
+  [7610] = {
+    id = 7610,
+    NameZh = "##42632146",
+    NameEn = "sc_ygfb_001",
+    Type = 68,
+    CameraAdj = 0,
+    EndWait = 60,
+    Restrict = 2,
+    ShowAllNpc = 1,
+    ForbidAritfact = 1,
+    ServerMergeTime = "2021-12-29 05:00:00",
+    TFServerMergeTime = "2021-12-12 05:00:00",
     SameMapReBoot = 1
   },
   [9001] = {
@@ -2770,7 +2810,7 @@ Table_MapRaid = {
   },
   [9100] = {
     id = 9100,
-    NameZh = "##42534708",
+    NameZh = "##42632147",
     NameEn = "Guild_battle_enter",
     Type = 78,
     CameraAdj = 0,
@@ -2779,7 +2819,7 @@ Table_MapRaid = {
   },
   [9101] = {
     id = 9101,
-    NameZh = "##42534709",
+    NameZh = "##42631227",
     NameEn = "sc_gvg3he1_001",
     Type = 77,
     CameraAdj = 0,
@@ -2788,7 +2828,7 @@ Table_MapRaid = {
   },
   [9105] = {
     id = 9105,
-    NameZh = "##42534710",
+    NameZh = "##1233127",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2797,7 +2837,7 @@ Table_MapRaid = {
   },
   [9106] = {
     id = 9106,
-    NameZh = "##42534711",
+    NameZh = "##1233128",
     NameEn = "sc_gvg3he1_001",
     Type = 14,
     CameraAdj = 0,
@@ -2806,7 +2846,7 @@ Table_MapRaid = {
   },
   [9107] = {
     id = 9107,
-    NameZh = "##42534712",
+    NameZh = "##1233131",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2815,7 +2855,7 @@ Table_MapRaid = {
   },
   [9108] = {
     id = 9108,
-    NameZh = "##42534713",
+    NameZh = "##1233132",
     NameEn = "sc_gvg3he1_001",
     Type = 14,
     CameraAdj = 0,
@@ -2824,7 +2864,7 @@ Table_MapRaid = {
   },
   [9109] = {
     id = 9109,
-    NameZh = "##42534714",
+    NameZh = "##1233135",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2833,7 +2873,7 @@ Table_MapRaid = {
   },
   [9110] = {
     id = 9110,
-    NameZh = "##42534715",
+    NameZh = "##1233136",
     NameEn = "sc_gvg3he1_001",
     Type = 14,
     CameraAdj = 0,
@@ -2842,7 +2882,7 @@ Table_MapRaid = {
   },
   [9111] = {
     id = 9111,
-    NameZh = "##42534716",
+    NameZh = "##1233139",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2851,8 +2891,8 @@ Table_MapRaid = {
   },
   [9112] = {
     id = 9112,
-    NameZh = "##42534717",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233140",
+    NameEn = "sc_gvg3he1_002",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2860,7 +2900,7 @@ Table_MapRaid = {
   },
   [9113] = {
     id = 9113,
-    NameZh = "##42534718",
+    NameZh = "##1233143",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2869,8 +2909,8 @@ Table_MapRaid = {
   },
   [9114] = {
     id = 9114,
-    NameZh = "##42534719",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233144",
+    NameEn = "sc_gvg3he1_002",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2878,7 +2918,7 @@ Table_MapRaid = {
   },
   [9115] = {
     id = 9115,
-    NameZh = "##42534720",
+    NameZh = "##1233147",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2887,8 +2927,8 @@ Table_MapRaid = {
   },
   [9116] = {
     id = 9116,
-    NameZh = "##42534721",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233148",
+    NameEn = "sc_gvg3he1_002",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2896,7 +2936,7 @@ Table_MapRaid = {
   },
   [9117] = {
     id = 9117,
-    NameZh = "##42534722",
+    NameZh = "##1233151",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2905,8 +2945,8 @@ Table_MapRaid = {
   },
   [9118] = {
     id = 9118,
-    NameZh = "##42534723",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233152",
+    NameEn = "sc_gvg3he1_003",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2914,7 +2954,7 @@ Table_MapRaid = {
   },
   [9119] = {
     id = 9119,
-    NameZh = "##42534724",
+    NameZh = "##1233155",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2923,8 +2963,8 @@ Table_MapRaid = {
   },
   [9120] = {
     id = 9120,
-    NameZh = "##42534725",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233156",
+    NameEn = "sc_gvg3he1_003",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2932,7 +2972,7 @@ Table_MapRaid = {
   },
   [9122] = {
     id = 9122,
-    NameZh = "##42534726",
+    NameZh = "##1233159",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2941,8 +2981,8 @@ Table_MapRaid = {
   },
   [9123] = {
     id = 9123,
-    NameZh = "##42534727",
-    NameEn = "Guild_battle_prt",
+    NameZh = "##1233160",
+    NameEn = "sc_gvg3he1_003",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2950,7 +2990,7 @@ Table_MapRaid = {
   },
   [9124] = {
     id = 9124,
-    NameZh = "##42534728",
+    NameZh = "##1233163",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2959,8 +2999,8 @@ Table_MapRaid = {
   },
   [9125] = {
     id = 9125,
-    NameZh = "##42534729",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233164",
+    NameEn = "sc_gvg3he1_004",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2968,7 +3008,7 @@ Table_MapRaid = {
   },
   [9126] = {
     id = 9126,
-    NameZh = "##42534730",
+    NameZh = "##1233167",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2977,8 +3017,8 @@ Table_MapRaid = {
   },
   [9127] = {
     id = 9127,
-    NameZh = "##42534731",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233168",
+    NameEn = "sc_gvg3he1_004",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
@@ -2986,7 +3026,7 @@ Table_MapRaid = {
   },
   [9128] = {
     id = 9128,
-    NameZh = "##42534732",
+    NameZh = "##1233171",
     NameEn = "Guild_battle_enter",
     Type = 66,
     CameraAdj = 0,
@@ -2995,12 +3035,66 @@ Table_MapRaid = {
   },
   [9129] = {
     id = 9129,
-    NameZh = "##42534733",
-    NameEn = "sc_gvg3he1_001",
+    NameZh = "##1233172",
+    NameEn = "sc_gvg3he1_004",
     Type = 14,
     CameraAdj = 0,
     EndWait = 30,
     Restrict = 9
+  },
+  [9130] = {
+    id = 9130,
+    NameZh = "##42632148",
+    NameEn = "Guild_battle_enter",
+    Type = 78,
+    CameraAdj = 0,
+    EndWait = 30,
+    Restrict = 17
+  },
+  [9131] = {
+    id = 9131,
+    NameZh = "##42631229",
+    NameEn = "sc_gvg3he1_002",
+    Type = 77,
+    CameraAdj = 0,
+    EndWait = 30,
+    Restrict = 17
+  },
+  [9132] = {
+    id = 9132,
+    NameZh = "##42632149",
+    NameEn = "Guild_battle_enter",
+    Type = 78,
+    CameraAdj = 0,
+    EndWait = 30,
+    Restrict = 17
+  },
+  [9133] = {
+    id = 9133,
+    NameZh = "##42631231",
+    NameEn = "sc_gvg3he1_003",
+    Type = 77,
+    CameraAdj = 0,
+    EndWait = 30,
+    Restrict = 17
+  },
+  [9134] = {
+    id = 9134,
+    NameZh = "##42632150",
+    NameEn = "Guild_battle_enter",
+    Type = 78,
+    CameraAdj = 0,
+    EndWait = 30,
+    Restrict = 17
+  },
+  [9135] = {
+    id = 9135,
+    NameZh = "##42631233",
+    NameEn = "sc_gvg3he1_004",
+    Type = 77,
+    CameraAdj = 0,
+    EndWait = 30,
+    Restrict = 17
   },
   [10001] = {
     id = 10001,
@@ -3100,7 +3194,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10013] = {
     id = 10013,
@@ -3110,7 +3204,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10014] = {
     id = 10014,
@@ -3120,7 +3214,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10015] = {
     id = 10015,
@@ -3157,7 +3251,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10023] = {
     id = 10023,
@@ -3167,7 +3261,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10024] = {
     id = 10024,
@@ -3177,7 +3271,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10025] = {
     id = 10025,
@@ -3215,7 +3309,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10033] = {
     id = 10033,
@@ -3225,7 +3319,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10034] = {
     id = 10034,
@@ -3235,7 +3329,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10035] = {
     id = 10035,
@@ -3281,7 +3375,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10043] = {
     id = 10043,
@@ -3291,7 +3385,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10044] = {
     id = 10044,
@@ -3301,7 +3395,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10045] = {
     id = 10045,
@@ -3329,7 +3423,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10053] = {
     id = 10053,
@@ -3338,7 +3432,8 @@ Table_MapRaid = {
     Type = 6,
     CameraAdj = 0,
     EndWait = 3600,
-    ShowAllNpc = 1
+    ShowAllNpc = 1,
+    Feature = 2
   },
   [10054] = {
     id = 10054,
@@ -3347,7 +3442,8 @@ Table_MapRaid = {
     Type = 6,
     CameraAdj = 0,
     EndWait = 3600,
-    ShowAllNpc = 1
+    ShowAllNpc = 1,
+    Feature = 2
   },
   [10055] = {
     id = 10055,
@@ -3375,7 +3471,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10063] = {
     id = 10063,
@@ -3385,7 +3481,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10064] = {
     id = 10064,
@@ -3395,7 +3491,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10073] = {
     id = 10073,
@@ -3405,7 +3501,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10074] = {
     id = 10074,
@@ -3415,7 +3511,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10076] = {
     id = 10076,
@@ -3442,7 +3538,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10093] = {
     id = 10093,
@@ -3452,7 +3548,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10103] = {
     id = 10103,
@@ -3462,7 +3558,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10113] = {
     id = 10113,
@@ -3472,7 +3568,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10123] = {
     id = 10123,
@@ -3482,7 +3578,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10124] = {
     id = 10124,
@@ -3492,7 +3588,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10125] = {
     id = 10125,
@@ -3511,7 +3607,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10127] = {
     id = 10127,
@@ -3521,7 +3617,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10128] = {
     id = 10128,
@@ -3531,7 +3627,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10129] = {
     id = 10129,
@@ -3541,7 +3637,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10130] = {
     id = 10130,
@@ -3551,7 +3647,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10131] = {
     id = 10131,
@@ -3561,7 +3657,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10132] = {
     id = 10132,
@@ -3571,7 +3667,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10133] = {
     id = 10133,
@@ -3581,7 +3677,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10134] = {
     id = 10134,
@@ -3591,7 +3687,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10135] = {
     id = 10135,
@@ -3601,7 +3697,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10136] = {
     id = 10136,
@@ -3620,7 +3716,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10139] = {
     id = 10139,
@@ -3630,7 +3726,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10140] = {
     id = 10140,
@@ -3640,7 +3736,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10141] = {
     id = 10141,
@@ -3650,7 +3746,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10142] = {
     id = 10142,
@@ -3660,7 +3756,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10143] = {
     id = 10143,
@@ -3670,7 +3766,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10144] = {
     id = 10144,
@@ -3680,7 +3776,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10145] = {
     id = 10145,
@@ -3690,7 +3786,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10146] = {
     id = 10146,
@@ -3700,7 +3796,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10147] = {
     id = 10147,
@@ -3710,7 +3806,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10148] = {
     id = 10148,
@@ -3720,7 +3816,7 @@ Table_MapRaid = {
     CameraAdj = 0,
     EndWait = 3600,
     ShowAllNpc = 1,
-    Feature = 32
+    Feature = 2
   },
   [10149] = {
     id = 10149,
@@ -3736,8 +3832,7 @@ Table_MapRaid = {
     NameZh = "##530196",
     NameEn = "academy",
     CameraAdj = 0,
-    EndWait = 0,
-    ShowAllNpc = 1
+    EndWait = 0
   },
   [20001] = {
     id = 20001,
@@ -7539,7 +7634,7 @@ Table_MapRaid = {
     ForbidAritfact = 1,
     ServerMergeTime = "2024-03-1 05:00:00",
     TFServerMergeTime = "2024-03-1 05:00:00",
-    EntranceId = 259
+    EntranceId = 261
   },
   [74101] = {
     id = 74101,
@@ -7553,7 +7648,21 @@ Table_MapRaid = {
     ForbidAritfact = 1,
     ServerMergeTime = "2024-03-1 05:00:00",
     TFServerMergeTime = "2024-03-1 05:00:00",
-    EntranceId = 260
+    EntranceId = 262
+  },
+  [74102] = {
+    id = 74102,
+    NameZh = "##3462410",
+    NameEn = "dp_fild1",
+    Type = 73,
+    CameraAdj = 0,
+    EndWait = 60,
+    Restrict = 2,
+    ShowAllNpc = 1,
+    ForbidAritfact = 1,
+    ServerMergeTime = "2024-03-1 05:00:00",
+    TFServerMergeTime = "2024-03-1 05:00:00",
+    EntranceId = 263
   },
   [80000] = {
     id = 80000,
@@ -19132,6 +19241,62 @@ Table_MapRaid = {
     id = 1004227,
     NameZh = "##139063",
     NameEn = "luo_fild01",
+    CameraAdj = 0,
+    EndWait = 0,
+    ShowAllNpc = 1
+  },
+  [1004228] = {
+    id = 1004228,
+    NameZh = "##123662",
+    NameEn = "pronteraneo",
+    CameraAdj = 0,
+    EndWait = 0,
+    ShowAllNpc = 1
+  },
+  [1004229] = {
+    id = 1004229,
+    NameZh = "##42635503",
+    NameEn = "sc_syzh",
+    CameraAdj = 0,
+    EndWait = 0,
+    ShowAllNpc = 1
+  },
+  [1004230] = {
+    id = 1004230,
+    NameZh = "##42635503",
+    NameEn = "sc_syzh",
+    CameraAdj = 0,
+    EndWait = 0,
+    ShowAllNpc = 1
+  },
+  [1004231] = {
+    id = 1004231,
+    NameZh = "##42635503",
+    NameEn = "sc_syzh",
+    CameraAdj = 0,
+    EndWait = 0,
+    ShowAllNpc = 1
+  },
+  [1004232] = {
+    id = 1004232,
+    NameZh = "##42635503",
+    NameEn = "sc_syzh",
+    CameraAdj = 0,
+    EndWait = 0,
+    ShowAllNpc = 1
+  },
+  [1004233] = {
+    id = 1004233,
+    NameZh = "##42635503",
+    NameEn = "sc_syzh",
+    CameraAdj = 0,
+    EndWait = 0,
+    ShowAllNpc = 1
+  },
+  [1004234] = {
+    id = 1004234,
+    NameZh = "##42635503",
+    NameEn = "sc_syzh",
     CameraAdj = 0,
     EndWait = 0,
     ShowAllNpc = 1

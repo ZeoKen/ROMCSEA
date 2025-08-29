@@ -3,43 +3,80 @@ autoImport("GemCell")
 autoImport("GemCombineCell")
 autoImport("GemExhibitChooseCell")
 autoImport("ItemTipGemExhibitCell")
+autoImport("GemUpdateAttrCell")
+autoImport("GemDecomposeRewardCell")
 GemFunctionPage = class("GemFunctionPage", SubView)
 GemFunctionState = {
-  Default = 1,
   SameName = 0,
   RandomProf = 1,
   CurrentProf = 2,
   Sculpt = 3,
-  Smelt = 4
+  Smelt = 4,
+  UpdateAttr = 5,
+  Decompose = 6
 }
-GemFunctionTitle = {
+local Gem_ShopId, Gem_ShopType = 1, 3248
+local GemFunctionState = GemFunctionState
+local NoEffectGemState = {
+  [GemFunctionState.Decompose] = 1,
+  [GemFunctionState.UpdateAttr] = 1
+}
+local containEmbeddedGemState = {
+  [GemFunctionState.Sculpt] = 1,
+  [GemFunctionState.UpdateAttr] = 1
+}
+local Entrance_State = {
+  Gem = {
+    SameName = GemFunctionState.SameName,
+    UpdateAttr = GemFunctionState.UpdateAttr,
+    Decompose = GemFunctionState.Decompose,
+    Smelt = GemFunctionState.Smelt
+  },
+  Npc = {
+    RandomProf = GemFunctionState.RandomProf,
+    CurrentProf = GemFunctionState.CurrentProf,
+    Sculpt = GemFunctionState.Sculpt
+  }
+}
+local _GetEntranceState = function(from_npc)
+  return from_npc and Entrance_State.Npc or Entrance_State.Gem
+end
+local _GetEntranceDefaultState = function(from_npc)
+  return from_npc and GemFunctionState.RandomProf or GemFunctionState.UpdateAttr
+end
+local GemFunctionTitle = {
   [GemFunctionState.RandomProf] = Table_NpcFunction[10026].NameZh,
   [GemFunctionState.CurrentProf] = Table_NpcFunction[10027].NameZh,
   [GemFunctionState.SameName] = Table_NpcFunction[10028].NameZh,
   [GemFunctionState.Sculpt] = Table_NpcFunction[10033].NameZh,
-  [GemFunctionState.Smelt] = Table_NpcFunction[10037].NameZh
+  [GemFunctionState.Smelt] = Table_NpcFunction[10037].NameZh,
+  [GemFunctionState.UpdateAttr] = ZhString.Gem_UpdateAttr,
+  [GemFunctionState.Decompose] = ZhString.Gem_Decompose
 }
 GemFunctionHelpId = {
   [GemFunctionState.RandomProf] = 1003,
   [GemFunctionState.CurrentProf] = 1004,
   [GemFunctionState.SameName] = 1005,
   [GemFunctionState.Sculpt] = 1009,
-  [GemFunctionState.Smelt] = 1010
+  [GemFunctionState.Smelt] = 1010,
+  [GemFunctionState.UpdateAttr] = 1012
 }
-GemFunctionCostZeny = {
+local GemFunctionCostZeny = {
   [GemFunctionState.RandomProf] = GameConfig.Gem.ThreeCostZeny,
   [GemFunctionState.CurrentProf] = GameConfig.Gem.FiveCostZeny,
   [GemFunctionState.SameName] = GameConfig.Gem.SameNameCost,
   [GemFunctionState.Smelt] = GameConfig.Gem.SmeltCostZeny
 }
-GemFunctionMainLabel = {
+local GemFunctionMainLabel = {
   [GemFunctionState.RandomProf] = ZhString.Gem_Compose3to1Tip,
   [GemFunctionState.CurrentProf] = ZhString.Gem_Compose5to1Tip,
   [GemFunctionState.SameName] = ZhString.Gem_ComposeSameNameTip,
   [GemFunctionState.Sculpt] = ZhString.Gem_SculptMainTip,
-  [GemFunctionState.Smelt] = ZhString.Gem_SmeltTipWithoutTarget
+  [GemFunctionState.Smelt] = ZhString.Gem_SmeltTipWithoutTarget,
+  [GemFunctionState.Decompose] = ZhString.Gem_DecomposeNoTargetCellTip,
+  [GemFunctionState.UpdateAttr] = ZhString.Gem_UpdateAttrNoTargetCellTip
 }
-GemFunctionCtrl = {
+local GemFunctionCtrl = {
   TargetSelect = {
     [GemFunctionState.Smelt] = true
   },
@@ -47,7 +84,9 @@ GemFunctionCtrl = {
     [GemFunctionState.RandomProf] = true,
     [GemFunctionState.CurrentProf] = true,
     [GemFunctionState.SameName] = true,
-    [GemFunctionState.Sculpt] = true
+    [GemFunctionState.Sculpt] = true,
+    [GemFunctionState.Decompose] = true,
+    [GemFunctionState.UpdateAttr] = true
   },
   ComposeCtrl = {
     [GemFunctionState.RandomProf] = true,
@@ -59,12 +98,25 @@ GemFunctionCtrl = {
   },
   SmeltCtrl = {
     [GemFunctionState.Smelt] = true
+  },
+  DecomposeCtrl = {
+    [GemFunctionState.Decompose] = true
+  },
+  UpdateAttrCtrl = {
+    [GemFunctionState.UpdateAttr] = true
   }
 }
 local tempTable, gemProxyIns, tickManager = {}
 local smeltQualitiesToShow = {3, 4}
+local _UpdateAttrQualities = {3, 4}
+local _BtnSprite = {
+  Yellow = "com_btn_2",
+  Blue = "com_btn_1",
+  Grey = "com_btn_13"
+}
 
-function GemFunctionPage:Init()
+function GemFunctionPage:Init(npc_entrance)
+  self.entrances = _GetEntranceState(npc_entrance)
   if not gemProxyIns then
     gemProxyIns = GemProxy.Instance
   end
@@ -73,24 +125,22 @@ function GemFunctionPage:Init()
   end
   self:ReLoadPerferb("view/GemFunctionPage")
   self.trans:SetParent(self.container.pageContainer.transform, false)
-  for name, _ in pairs(GemFunctionCtrl) do
-    self[name] = self:FindGO(name)
-  end
   self:AddEvents()
   self:InitData()
   self:InitTabs()
   self:InitRight()
   self:InitLeft()
-  self.pageState = GemFunctionState.Default
+  self.pageState = _GetEntranceDefaultState(npc_entrance)
+  self:ResetQualityFilterByPageState()
 end
 
 function GemFunctionPage:AddEvents()
-  self:AddListenEvt(MyselfEvent.ZenyChange, self.UpdateCostLabelColor)
-  self:AddListenEvt(ItemEvent.GemUpdate, self.OnGemUpdate)
-  self:AddListenEvt(ItemEvent.ItemUpdate, self.OnItemUpdate)
-  self:AddListenEvt(ServiceEvent.ItemGemDataUpdateItemCmd, self.OnGemDataUpdate)
-  self:AddListenEvt(GemEvent.ProfessionChanged, self.OnProfessionChanged)
-  self:AddListenEvt(GemEvent.ChooseTargetProfession, self.OnChooseTargetProfession)
+  self:AddDispatcherEvt(MyselfEvent.ZenyChange, self.UpdateCostLabelColor)
+  self:AddDispatcherEvt(ItemEvent.ItemUpdate, self.OnItemUpdate)
+  self:AddDispatcherEvt(ItemEvent.GemDataUpdate, self.OnGemDataUpdate)
+  self:AddDispatcherEvt(GemEvent.ProfessionChanged, self.OnProfessionChanged)
+  self:AddDispatcherEvt(GemEvent.ChooseTargetProfession, self.OnChooseTargetProfession)
+  self:AddDispatcherEvt(ItemEvent.GemUpdate, self.OnGemUpdate)
 end
 
 function GemFunctionPage:OnProfessionChanged()
@@ -105,10 +155,8 @@ function GemFunctionPage:OnProfessionChanged()
   end
 end
 
-function GemFunctionPage:OnChooseTargetProfession(note)
-  local classId = note.body
+function GemFunctionPage:OnChooseTargetProfession(classId)
   self.targetProfession = classId
-  redlog("---OnChooseTargetProfession : ", self.targetProfession)
   local className = ProfessionProxy.GetProfessionName(self.targetProfession, MyselfProxy.Instance:GetMySex())
   self.targetProfessionLab.text = ZhString.Gem_FixedTargetPro .. " " .. "[c][000000]" .. className .. "[-][/c]"
   self.targetProfessionBg.width = 100 + self.targetProfessionLab.width
@@ -118,6 +166,7 @@ function GemFunctionPage:OnChooseTargetProfession(note)
 end
 
 function GemFunctionPage:InitData()
+  self.doFunc = {}
   self.curSkillProfessionFilterPopData = {}
   self.selectedMaterialData = {}
   self.multiFunctionMaterialData = {}
@@ -139,10 +188,12 @@ end
 function GemFunctionPage:InitTabs()
   self.tabGOs = {}
   self.tabIconSps = {}
+  self.funcTabGrid = self:FindComponent("FuncBtnTabs", UIGrid)
   local tabGO, longPress
   for name, state in pairs(GemFunctionState) do
-    tabGO = self:FindGO(name .. "Tab")
+    tabGO = self:FindGO(name .. "Tab", self.funcTabGrid.gameObject)
     if tabGO then
+      tabGO:SetActive(nil ~= self.entrances[name])
       self:AddClickEvent(tabGO, function(go)
         self:UpdatePageState(state)
       end)
@@ -154,17 +205,31 @@ function GemFunctionPage:InitTabs()
         self:PassEvent(TipLongPressEvent.GemFunctionPage, {pressState, state})
       end
     end
+    self.doFunc[state] = self[name]
   end
+  self.funcTabGrid:Reposition()
   self:AddEventListener(TipLongPressEvent.GemFunctionPage, self.OnTabLongPress, self)
 end
 
 local skipAnimTipOffset = {90, -75}
 
 function GemFunctionPage:InitRight()
+  self.gemShopBtn = self:FindGO("GemShopBtn")
+  self:AddClickEvent(self.gemShopBtn, function()
+    HappyShopProxy.Instance:InitShop(nil, Gem_ShopId, Gem_ShopType)
+    GameFacade.Instance:sendNotification(UIEvent.JumpPanel, {
+      view = PanelConfig.HappyShop
+    })
+  end)
   self.helpBtn = self:FindGO("HelpBtn")
-  local skipBtnSp = self:FindComponent("SkipBtn", UISprite)
-  self:AddClickEvent(skipBtnSp.gameObject, function()
-    TipManager.Instance:ShowSkipAnimationTip(SKIPTYPE.GemFunction, skipBtnSp, NGUIUtil.AnchorSide.Right, skipAnimTipOffset)
+  self.skipBtnSp = self:FindComponent("SkipBtn", UISprite)
+  self:AddClickEvent(self.skipBtnSp.gameObject, function()
+    TipManager.Instance:ShowSkipAnimationTip(SKIPTYPE.GemFunction, self.skipBtnSp, NGUIUtil.AnchorSide.Right, skipAnimTipOffset)
+  end)
+  self.autoSelectLab = self:FindComponent("AutoSelect", UILabel)
+  self.autoSelectLab.text = ZhString.Gem_QuickSelect
+  self:AddClickEvent(self.autoSelectLab.gameObject, function()
+    self:AutoChooseGem()
   end)
   self.titleLabel = self:FindComponent("TitleLabel", UILabel)
   self.effectContainer = self:FindGO("EffectContainer")
@@ -177,6 +242,8 @@ function GemFunctionPage:InitRight()
       self:OnClickNeedGem(i)
     end)
   end
+  self:InitDecompose()
+  self:InitUpdateAttr()
 end
 
 function GemFunctionPage:InitLeft()
@@ -194,20 +261,29 @@ function GemFunctionPage:InitSkillQualityFilter()
   local qualityTabRoot = self:FindGO("FunctionSkillQualityTabRoot")
   self:Show(qualityTabRoot)
   for togName, tableData in pairs(GemProxy.QualityTogs) do
-    self[togName] = self:FindGO(togName, qualityTabRoot)
-    self[togName .. "lab1"] = self:FindComponent("Label1", UILabel, self[togName])
+    self[togName] = self:FindComponent(togName, UIToggle, qualityTabRoot)
+    self[togName .. "lab1"] = self:FindComponent("Label1", UILabel, self[togName].gameObject)
     self[togName .. "lab1"].text = tableData.value
-    self[togName .. "lab2"] = self:FindComponent("Label2", UILabel, self[togName])
+    self[togName .. "lab2"] = self:FindComponent("Label2", UILabel, self[togName].gameObject)
     self[togName .. "lab2"].text = tableData.value
-    self:AddClickEvent(self[togName], function()
+    self:AddClickEvent(self[togName].gameObject, function()
       local key = GemProxy.QualityTogs[togName].key
       if self.curSkillClassFilterPopData == key then
         return
       end
-      self.curSkillClassFilterPopData = key
+      if key == 0 then
+        self.curSkillClassFilterPopData = self.pageState == GemFunctionState.UpdateAttr and _UpdateAttrQualities or 0
+      else
+        self.curSkillClassFilterPopData = key
+      end
       self:UpdateMaterialSelectList()
+      self:UpdateAutoSelect()
     end)
   end
+end
+
+function GemFunctionPage:UpdateAutoSelect()
+  self.autoSelectLab.gameObject:SetActive(self.curSkillClassFilterPopData ~= 0 and 0 < #self.materialSelectCtrl:GetDatas() and self.pageState == GemFunctionState.RandomProf)
 end
 
 function GemFunctionPage:InitProfessionFilter()
@@ -238,6 +314,61 @@ function GemFunctionPage:InitMaterialSelect()
   end
 end
 
+function GemFunctionPage:InitUpdateAttr()
+  self.updateAttrTitle = self:FindComponent("UpdateAttrTitle", UILabel)
+  self.updateAttrTitle.text = ZhString.Gem_UpdateAttr
+  self.fixedCostLabel = self:FindComponent("FixedCostLabel", UILabel)
+  self.fixedCostLabel.text = ZhString.GemUpdateAttr_Cost
+  self.updateAttrIsStarLab = self:FindComponent("UpdateAttrIsStar", UILabel)
+  self.updateAttrIsStarLab.text = ZhString.GemUpdateAttr_IsStar
+  self.updateAttrCostItemRoot = self:FindGO("UpdateAttrCostItemRoot")
+  self.updateAttrScrollView = self:FindComponent("UpdateAttrScrollView", UIScrollView)
+  self.updateAttrTable = self:FindComponent("UpdateAttrTable", UITable, self.updateAttrScrollView.gameObject)
+  self.updateAttrCtl = UIGridListCtrl.new(self.updateAttrTable, GemUpdateAttrCell, "GemUpdateAttrCell")
+  self.updateAttrCtl:AddEventListener(MouseEvent.MouseClick, self.OnClickUpdateAttrCell, self)
+  self.updateAttrBg = self:FindGO("UpdateAttrBg")
+  self:Hide(self.updateAttrBg)
+  self.updateAttrCostRoot = self:FindGO("UpdateAttrCostRoot")
+  self.updateAttrTip = self:FindComponent("UpdateAttrTip", UILabel)
+  self.updateAttrTip.text = ZhString.GemUpdateAttr_Tip
+end
+
+function GemFunctionPage:OnClickUpdateAttrCell(cell)
+  local data = cell and cell.data
+  if not data then
+    return
+  end
+  if self.curUpdateAttrCell then
+    self.curUpdateAttrCell:SetSelected(false)
+  end
+  self.curUpdateAttrCell = cell
+  self.curUpdateAttrCell:SetSelected(true)
+  self:UpdateCurrentAttrTip()
+end
+
+function GemFunctionPage:InitDecompose()
+  self.decomposeSelectMaterials = {}
+  self.decomposeSelectMaterialCount = 0
+  self.decomposeTitle = self:FindComponent("DecomposeTitleLab", UILabel)
+  self.decomposeTitle.text = ZhString.Gem_DecomposeTitle
+  self.decomposeCostIcon = self:FindComponent("DecomposeCostIcon", UISprite)
+  IconManager:SetItemIcon(Table_Item[100].Icon, self.decomposeCostIcon)
+  self.decomposeCost = self:FindComponent("DecomposeCostLab", UILabel)
+  self.decomposeCostLab = self:FindComponent("DecomposeFixedCostLab", UILabel)
+  self.decomposeCostLab.text = ZhString.GemDecompose_Cost
+  self.decomposeMaterialContainer = self:FindGO("DecomposeMaterialContainer")
+  self.decomposeMaterialCtrl = WrapListCtrl.new(self.decomposeMaterialContainer, GemCell, "GemCell", WrapListCtrl_Dir.Vertical, 5, 100, true)
+  self.decomposeMaterialCtrl:AddEventListener(MouseEvent.MouseClick, self.OnClickDecomposeMaterialCell, self)
+  self.decomposeMaterialCtrl:AddEventListener(ItemEvent.GemDelete, self.OnClickDecomposeMaterialCell, self)
+  local decomposeRewardGrid = self:FindComponent("DecomposeRewardGrid", UIGrid)
+  self.decomposeRewardList = UIGridListCtrl.new(decomposeRewardGrid, GemDecomposeRewardCell, "GemDecomposeRewardCell")
+  self.emptyRewardBg = self:FindGO("EmptyRewardBg")
+end
+
+function GemFunctionPage:OnClickDecomposeMaterialCell(cell)
+  self:DelItemToDecompose(cell.data)
+end
+
 function GemFunctionPage:InitTargetProfessionFilter()
   local targetProfessionFilterPop = self:FindGO("TargetProfessionFilterPop")
   if targetProfessionFilterPop then
@@ -265,7 +396,7 @@ end
 
 function GemFunctionPage:OnActivate()
   self.targetExhibitTip:SetActive(false)
-  self:UpdatePageState(self.pageState)
+  self:UpdatePage()
 end
 
 function GemFunctionPage:OnDeactivate()
@@ -369,6 +500,7 @@ function GemFunctionPage:OnClickMaterialSelectCell(cellCtl)
   for _, cell in pairs(self.materialSelectCells) do
     cell:SetChoose(data and data.id or 0)
   end
+  self.curUpdateAttrCell = nil
   if self.pageState == GemFunctionState.Sculpt then
     self:SetItemToSculpt(data)
     TipManager.CloseTip()
@@ -380,6 +512,10 @@ function GemFunctionPage:OnClickMaterialSelectCell(cellCtl)
     else
       self:_OnClickMaterialSelectCell(cellCtl)
     end
+  elseif self.pageState == GemFunctionState.Decompose then
+    self:SetItemToDecompose(data)
+  elseif self.pageState == GemFunctionState.UpdateAttr then
+    self:SetItemToUpdateAttr(data)
   else
     self:_OnClickMaterialSelectCell(cellCtl)
   end
@@ -392,12 +528,26 @@ function GemFunctionPage:_OnClickMaterialSelectCell(cellCtl)
     local cloneData = data:Clone()
     cloneData:SetItemNum(1)
     cloneData.gemSkillData = data.gemSkillData
-    if self.curMultiFunctionGO.activeSelf and self.chooseMultiFunctionCellIndex then
+    if self.curMultiFunctionGO and self.curMultiFunctionGO.activeSelf and self.chooseMultiFunctionCellIndex then
       self.multiFunctionMaterialData[self.chooseMultiFunctionCellIndex] = cloneData
       self:UpdateMultiFunctionMaterial()
       self:SetMultiFunctionCellChooseToFirstEmpty()
       self:UpdateMaterialSelectList(true)
     elseif #self.selectedMaterialData < self.maxMaterialCount then
+      TableUtility.ArrayPushBack(self.selectedMaterialData, cloneData)
+      self:UpdateSelectedMaterial()
+      self:UpdateMaterialSelectList(true)
+    end
+  end
+end
+
+function GemFunctionPage:_OnClickMaterialSelectCell_NewState(cellCtl)
+  local data = cellCtl and cellCtl.data
+  if data.num > cellCtl.selectedCount then
+    local cloneData = data:Clone()
+    cloneData:SetItemNum(1)
+    cloneData.gemSkillData = data.gemSkillData
+    if #self.selectedMaterialData < self.maxMaterialCount then
       TableUtility.ArrayPushBack(self.selectedMaterialData, cloneData)
       self:UpdateSelectedMaterial()
       self:UpdateMaterialSelectList(true)
@@ -419,7 +569,7 @@ function GemFunctionPage:OnTabLongPress(param)
 end
 
 function GemFunctionPage:OnGemDelete(cellCtl)
-  if self.curMultiFunctionGO.activeSelf then
+  if self.curMultiFunctionGO and self.curMultiFunctionGO.activeSelf then
     TableUtility.TableRemoveByPredicate(self.multiFunctionMaterialData, function(index, item)
       return not cellCtl:CheckDataIsNilOrEmpty() and cellCtl.data.id == item.id
     end)
@@ -449,7 +599,7 @@ function GemFunctionPage:OnGemUpdate()
     end
     return
   end
-  if self.curMultiFunctionGO.activeSelf then
+  if self.curMultiFunctionGO and self.curMultiFunctionGO.activeSelf then
     local data, realData, index, isArranged
     for i = 1, self:GetMaxMultiFunctionCellCount() do
       data = self.multiFunctionMaterialData[i]
@@ -507,48 +657,64 @@ function GemFunctionPage:OnGemUpdate()
     self:UpdateSelectedMaterial()
   end
   self:UpdateMaterialSelectList()
+  if self.pageState == GemFunctionState.UpdateAttr or self.pageState == GemFunctionState.Decompose then
+    self:UpdatePage()
+  end
 end
 
 function GemFunctionPage:OnItemUpdate()
+  redlog("OnItemUpdate")
   if not self.gameObject.activeInHierarchy then
     return
   end
   self:UpdateSculptCost()
+  self:UpdateCurrentAttrTip()
 end
 
-function GemFunctionPage:OnGemDataUpdate(note)
+function GemFunctionPage:OnGemDataUpdate(server_items)
   if not self.gameObject.activeInHierarchy then
     return
   end
   TipManager.CloseTip()
   self.targetExhibitTip:SetActive(false)
-  gemProxyIns:ShowNewGemResults(note.body and note.body.items)
+  gemProxyIns:ShowNewGemResults(server_items)
 end
 
-function GemFunctionPage:UpdatePageState(state)
-  if state then
-    self.pageState = state
-  end
+function GemFunctionPage:UpdatePage()
   if not self.pageState then
     return
   end
   TableUtility.TableClear(self.selectedMaterialData)
   TableUtility.TableClear(self.multiFunctionMaterialData)
-  self.titleLabel.text = GemFunctionTitle[self.pageState]
+  local title_str = GemFunctionTitle[self.pageState]
+  if title_str and nil == NoEffectGemState[self.pageState] then
+    self:Show(self.titleLabel)
+    self.titleLabel.text = title_str
+  else
+    self:Hide(self.titleLabel)
+  end
+  self.helpId = GemFunctionHelpId[self.pageState]
+  if self.helpId then
+    self:Show(self.helpBtn)
+    self:TryOpenHelpViewById(self.helpId, nil, self.helpBtn)
+  else
+    self:Hide(self.helpBtn)
+  end
   self.materialFilterParent:SetActive(self.pageState ~= GemFunctionState.Smelt)
   self:SetCurrentTabIconColor()
-  for name, cfg in pairs(GemFunctionCtrl) do
-    if cfg[self.pageState] then
+  local _find = string.find
+  for name, state_cfg in pairs(GemFunctionCtrl) do
+    self[name] = self[name] or self:FindGO(name)
+    if state_cfg[self.pageState] then
       self[name]:SetActive(true)
-      if string.find(name, "Ctrl") then
+      if _find(name, "Ctrl") then
         self.curCtrl = self[name]
       end
     else
       self[name]:SetActive(false)
     end
   end
-  self.helpId = GemFunctionHelpId[self.pageState]
-  self:TryOpenHelpViewById(self.helpId, nil, self.helpBtn)
+  self:UpdateAutoSelect()
   self.mainLabel = self:FindComponent("MainLabel", UILabel, self.curCtrl)
   self.mainLabel.text = GemFunctionMainLabel[self.pageState]
   self.costGO = self:FindGO("Cost", self.curCtrl)
@@ -568,9 +734,61 @@ function GemFunctionPage:UpdatePageState(state)
   self:ResetCurCtrl()
 end
 
+function GemFunctionPage:UpdatePageState(state)
+  if not state or state == self.pageState then
+    return
+  end
+  self.pageState = state
+  self:ResetUpdateAttr()
+  self:ResetQualityFilterByPageState()
+  self:UpdatePage()
+end
+
+function GemFunctionPage:ResetUpdateAttr()
+  if self.pageState == GemFunctionState.UpdateAttr then
+    self.curUpdateAttrCell = nil
+    self.curUpdateAttrItemData = nil
+    TableUtility.TableClear(self.decomposeSelectMaterials)
+    self.decomposeSelectMaterialCount = 0
+    self:UpdateDecomposeSelectMaterials()
+  end
+end
+
+function GemFunctionPage:ResetQualityFilterByPageState()
+  if not self.pageState then
+    return
+  end
+  if self.pageState == GemFunctionState.UpdateAttr then
+    if self.curSkillClassFilterPopData == 0 or type(self.curSkillClassFilterPopData) == "number" and 0 == TableUtil.ArrayIndexOf(_UpdateAttrQualities, self.curSkillClassFilterPopData) then
+      self.curSkillClassFilterPopData = _UpdateAttrQualities
+      self.AllTab:Set(true)
+    end
+    self:Hide(self.ATab)
+    self:Hide(self.BTab)
+  else
+    if self.curSkillClassFilterPopData == _UpdateAttrQualities then
+      self.curSkillClassFilterPopData = 0
+      self.AllTab:Set(true)
+    end
+    self:Show(self.ATab)
+    self:Show(self.BTab)
+  end
+end
+
 function GemFunctionPage:ResetCurCtrl()
   self:ResetTargetCell()
   self:ResetRightMaterialGO()
+  self:UpdateEffect()
+end
+
+function GemFunctionPage:UpdateEffect()
+  if nil ~= NoEffectGemState[self.pageState] then
+    self:Hide(self.effectContainer)
+    self:Hide(self.skipBtnSp)
+    return
+  end
+  self:Show(self.skipBtnSp)
+  self:Show(self.effectContainer)
   local exEffectName = self.effectName
   self.effectName = self.pageState == GemFunctionState.SameName and EffectMap.UI.GemViewReset or EffectMap.UI.GemViewSynthetic
   if exEffectName ~= self.effectName then
@@ -693,6 +911,10 @@ function GemFunctionPage:ResetRightMaterialGO()
     self:SetItemToSculpt()
   elseif self.pageState == GemFunctionState.Smelt then
     self:SetItemToSmelt()
+  elseif self.pageState == GemFunctionState.Decompose then
+    self:ResetDecompose()
+  elseif self.pageState == GemFunctionState.UpdateAttr then
+    self:SetItemToUpdateAttr(self.curUpdateAttrItemData)
   end
 end
 
@@ -743,7 +965,7 @@ function GemFunctionPage:UpdateMaterialSelectList(noResetPos)
   else
     gems = GemProxy.GetSkillItemDataByFilterDatasOfView(self)
   end
-  if self.pageState ~= GemFunctionState.Sculpt then
+  if not containEmbeddedGemState[self.pageState] then
     GemProxy.RemoveEmbedded(gems)
   end
   table.sort(gems, materialSelectComparer)
@@ -755,6 +977,9 @@ function GemFunctionPage:UpdateSelectedMaterial()
     return
   end
   self.targetExhibitTip:SetActive(false)
+  if not self.curMaterialCombineCell then
+    return
+  end
   TableUtility.TableClear(tempTable)
   TableUtility.ArrayShallowCopy(tempTable, self.selectedMaterialData)
   for i = #self.selectedMaterialData + 1, self.maxMaterialCount do
@@ -811,14 +1036,19 @@ function GemFunctionPage:UpdateSculptCost()
 end
 
 local multiComposeClickDisablePredicate = function(gemCell, self)
-  if GemProxy.CheckIsFavorite(gemCell.data) then
+  if GemProxy.CheckIsFavorite(gemCell.data) and self.pageState ~= GemFunctionState.UpdateAttr then
     return true
   end
   if gemCell.selectedCount > 0 then
     return false
   end
   local flag
-  if self.pageState ~= GemFunctionState.SameName then
+  if self.pageState == GemFunctionState.UpdateAttr then
+    local quality = GemProxy.GetSkillQualityFromItemData(gemCell.data)
+    if quality == 1 or quality == 2 then
+      flag = true
+    end
+  elseif self.pageState ~= GemFunctionState.SameName then
     local _, compareData = next(self.multiFunctionMaterialData)
     flag = gemCell.data and compareData and gemProxyIns:GetSkillQualityGroupFromItemData(gemCell.data) ~= gemProxyIns:GetSkillQualityGroupFromItemData(compareData)
     if self.pageState == GemFunctionState.CurrentProf and not flag and self.targetProfession and ProfessionProxy.IsHero(self.targetProfession) then
@@ -897,6 +1127,25 @@ function GemFunctionPage:SwitchMultiFunction(isMultiActive)
   self:UpdateMaterialSelectList()
 end
 
+function GemFunctionPage:AutoChooseGem()
+  if self.curSkillClassFilterPopData == 0 then
+    return
+  end
+  local max_num = self.isMultiActive and 30 or 3
+  local material_cell
+  local auto_click_num = 0
+  for i = 1, #self.materialSelectCells do
+    material_cell = self.materialSelectCells[i]
+    if material_cell.data and not material_cell.cellInvalid then
+      self:OnClickMaterialSelectCell(material_cell)
+      auto_click_num = auto_click_num + 1
+      if max_num <= auto_click_num then
+        break
+      end
+    end
+  end
+end
+
 function GemFunctionPage:TryPlayEffectThenCall(func)
   self.isWorking = true
   local delayedTime = 1000
@@ -946,22 +1195,13 @@ function GemFunctionPage:TryUpdateComposeMainLabel(isReady)
   end
 end
 
-local gemFunctionStateKeyMap = {}
-
 function GemFunctionPage:TryDoFunction()
   if not self.isFunctionBtnActive then
     return
   end
-  if not next(gemFunctionStateKeyMap) then
-    for k, v in pairs(GemFunctionState) do
-      if k ~= "Default" then
-        gemFunctionStateKeyMap[v] = k
-      end
-    end
-  end
-  local stateKey = gemFunctionStateKeyMap[self.pageState]
-  if stateKey and self[stateKey] then
-    self[stateKey](self)
+  local call = self.doFunc[self.pageState]
+  if call then
+    call(self)
   end
 end
 
@@ -973,6 +1213,38 @@ function GemFunctionPage:RandomProf()
   self:Compose(function(data)
     GemProxy.CallSkill3to1Compose(data)
   end)
+end
+
+function GemFunctionPage:Decompose()
+  if not self.decomposeCostZeny then
+    return
+  end
+  if MyselfProxy.Instance:GetROB() < self.decomposeCostZeny then
+    MsgManager.ShowMsgByID(1)
+    return
+  end
+  local todo_decompose_guid = ReusableTable.CreateArray()
+  for k, v in pairs(self.decomposeSelectMaterials) do
+    todo_decompose_guid[#todo_decompose_guid + 1] = v.id
+  end
+  ServiceItemProxy.Instance:CallDecomposeGemItemCmd(todo_decompose_guid)
+  ReusableTable.DestroyAndClearArray(todo_decompose_guid)
+end
+
+function GemFunctionPage:UpdateAttr()
+  if self.updateAttrLackOf then
+    MsgManager.ShowMsgByID(8)
+    return
+  end
+  if not self.curUpdateAttrItemData then
+    return
+  end
+  local curAttrData = self.curUpdateAttrCell and self.curUpdateAttrCell.data
+  if not curAttrData then
+    return
+  end
+  local buff_id, param_id = curAttrData.buffId, curAttrData.paramId
+  ServiceItemProxy.Instance:CallUpgradeGemItemCmd(self.curUpdateAttrItemData.id, buff_id, param_id)
 end
 
 function GemFunctionPage:CurrentProf()
@@ -1101,6 +1373,9 @@ function GemFunctionPage:CheckFunctionReady()
   if self.pageState == GemFunctionState.Sculpt then
     return
   end
+  if not self.curMultiFunctionGO then
+    return
+  end
   local isReady, rowCount = false
   if self.curMultiFunctionGO.activeSelf then
     for _, cell in pairs(self.curMultiFunctionListCtrl:GetCells()) do
@@ -1127,10 +1402,16 @@ function GemFunctionPage:CheckFunctionReady()
   self:TryUpdateComposeMainLabel(isReady)
   self:SetFunctionBtnActive(isReady)
   rowCount = rowCount or isReady and 1 or 0
-  self:SetCost(GemFunctionCostZeny[self.pageState] * rowCount)
+  local function_cost_zeny = GemFunctionCostZeny[self.pageState]
+  if function_cost_zeny then
+    self:SetCost(function_cost_zeny * rowCount)
+  end
 end
 
 function GemFunctionPage:SetCost(cost)
+  if not cost then
+    return
+  end
   self.cost = cost
   self.costLabel.text = cost and StringUtil.NumThousandFormat(cost) or ""
   self:UpdateCostLabelColor()
@@ -1151,15 +1432,253 @@ end
 function GemFunctionPage:SetFunctionBtnActive(isActive)
   self.isFunctionBtnActive = isActive and true or false
   self.functionBtn = self:FindGO("FunctionBtn", self.curCtrl)
+  self.functionBtnBgSp = self.functionBtn:GetComponent(UISprite)
+  self.functionBtnLabel = self:FindComponent("Label", UILabel, self.functionBtn)
   if isActive then
     self:AddClickEvent(self.functionBtn, function()
       self:TryDoFunction()
     end)
+    local isUpdateAttr = self.pageState == GemFunctionState.UpdateAttr
+    self.functionBtnBgSp.spriteName = isUpdateAttr and _BtnSprite.Yellow or _BtnSprite.Blue
+    self.functionBtnLabel.effectColor = isUpdateAttr and ColorUtil.ButtonLabelOrange or ColorUtil.ButtonLabelBlue
+  else
+    self.functionBtnBgSp.spriteName = _BtnSprite.Grey
+    self.functionBtnLabel.effectColor = ColorUtil.NGUIGray
   end
-  self.functionBtnBgSp = self.functionBtn:GetComponent(UISprite)
-  self.functionBtnBgSp.spriteName = isActive and "com_btn_1" or "com_btn_13"
-  self.functionBtnLabel = self:FindComponent("Label", UILabel, self.functionBtn)
-  self.functionBtnLabel.effectColor = isActive and ColorUtil.ButtonLabelBlue or ColorUtil.NGUIGray
+end
+
+function GemFunctionPage:SetItemToDecompose(data)
+  if self.pageState ~= GemFunctionState.Decompose then
+    return
+  end
+  if self.decomposeSelectMaterialCount >= (GameConfig.GemNew.MaxDecomposeCount or 50) then
+    MsgManager.ShowMsgByID(244)
+    return
+  end
+  self.mainLabel.gameObject:SetActive(data == nil)
+  self:SetFunctionBtnActive(data ~= nil)
+  self.functionBtnLabel.text = ZhString.GemDecompose_BtnLab
+  self:AddItemToDecompose(data)
+end
+
+function GemFunctionPage:UpdateDecomposeMaterials()
+  local cells = self.decomposeMaterialCtrl:GetCells()
+  for _, cell in pairs(cells) do
+    cell:SetShowNewTag(false)
+    if not cell:CheckDataIsNilOrEmpty() then
+      cell:ForceShowDeleteIcon()
+    end
+  end
+  self:UpdateDecomposeSelectMaterials()
+end
+
+function GemFunctionPage:UpdateDecomposeSelectMaterials()
+  for _, cell in pairs(self.materialSelectCells) do
+    cell:SetMultiSelectModel(self.decomposeSelectMaterials)
+    cell:SetClickDisablePredicate(multiComposeClickDisablePredicate, self)
+  end
+end
+
+function GemFunctionPage:UpdateDecomposeRewardCost()
+  self:CalcDecomposeReward()
+  self:CalDecomposeCost()
+end
+
+function GemFunctionPage:AddItemToDecompose(data)
+  if not data then
+    return
+  end
+  if self.decomposeSelectMaterials[data.id] then
+    return
+  end
+  self.decomposeSelectMaterials[data.id] = data
+  self.decomposeSelectMaterialCount = self.decomposeSelectMaterialCount + 1
+  self.decomposeMaterialCtrl:ResetDatas(TableUtil.HashToArray(self.decomposeSelectMaterials))
+  self:UpdateDecomposeMaterials()
+  self:CalcDecomposeReward()
+  self:CalDecomposeCost()
+end
+
+function GemFunctionPage:DelItemToDecompose(data)
+  if not data then
+    return
+  end
+  if not self.decomposeSelectMaterials[data.id] then
+    return
+  end
+  self.decomposeSelectMaterials[data.id] = nil
+  self.decomposeSelectMaterialCount = self.decomposeSelectMaterialCount - 1
+  self.decomposeMaterialCtrl:ResetDatas(TableUtil.HashToArray(self.decomposeSelectMaterials))
+  self:UpdateDecomposeMaterials()
+  self:UpdateDecomposeRewardCost()
+end
+
+function GemFunctionPage:ResetDecompose()
+  TableUtility.TableClear(self.decomposeSelectMaterials)
+  self.decomposeSelectMaterialCount = 0
+  self:UpdateDecomposeSelectMaterials()
+  self.decomposeMaterialCtrl:ResetDatas(self.decomposeSelectMaterials)
+  self:UpdateDecomposeRewardCost()
+end
+
+function GemFunctionPage:CalcDecomposeReward()
+  if not next(self.decomposeSelectMaterials) then
+    self.decomposeRewardList:ResetDatas(_EmptyTable)
+    self:Show(self.emptyRewardBg)
+    if not self.decomposeEmptyRewardCell then
+      local obj = self:LoadPreferb("cell/GemDecomposeRewardCell", self.emptyRewardBg)
+      obj.transform.localPosition = LuaGeometry.Const_V3_zero
+      obj.transform.localScale = LuaGeometry.Const_V3_one
+      self.decomposeEmptyRewardCell = GemDecomposeRewardCell.new(obj)
+    end
+    self.decomposeEmptyRewardCell:SetData(nil)
+    return
+  end
+  self:Hide(self.emptyRewardBg)
+  local decomposeRewardMap = {}
+  local config = GameConfig.GemNew.DecomposeReward
+  if not config then
+    return
+  end
+  local quality, config_reward_id, config_reward_num
+  for _, data in pairs(self.decomposeSelectMaterials) do
+    quality = data.gemSkillData.quality
+    if config[quality] then
+      config_reward_id = config[quality][1]
+      config_reward_num = config[quality][2]
+      local num = decomposeRewardMap[config_reward_id]
+      if not num then
+        num = 0
+        decomposeRewardMap[config_reward_id] = num
+      end
+      decomposeRewardMap[config_reward_id] = num + config_reward_num
+    end
+  end
+  local rewards = {}
+  for k, v in pairs(decomposeRewardMap) do
+    local itemData = ItemData.new("GemDecomposeReward", k)
+    itemData:SetItemNum(v)
+    rewards[#rewards + 1] = itemData
+  end
+  self.decomposeRewardList:ResetDatas(rewards)
+end
+
+function GemFunctionPage:CalDecomposeCost()
+  local cost = GameConfig.GemNew.DecomposeZeny
+  self.decomposeCostZeny = cost * self.decomposeSelectMaterialCount
+  self.decomposeCost.text = tostring(self.decomposeCostZeny)
+end
+
+function GemFunctionPage:SetItemToUpdateAttr(data)
+  if self.pageState ~= GemFunctionState.UpdateAttr then
+    return
+  end
+  self.mainLabel.gameObject:SetActive(data == nil)
+  self.targetCell:SetData(data)
+  self:InitialUpdateAttrCost(data)
+end
+
+function GemFunctionPage:InitialUpdateAttrCost(data)
+  self.curUpdateAttrItemData = data
+  self:SetFunctionBtnActive(data ~= nil)
+  self.updateAttrBg:SetActive(data ~= nil)
+  self.updateAttrCostRoot:SetActive(data ~= nil)
+  self.updateAttrScrollView.gameObject:SetActive(data ~= nil)
+  self.updateAttrIsStarLab.gameObject:SetActive(data ~= nil)
+  self.updateAttrTip.gameObject:SetActive(data == nil)
+  if not self.curUpdateAttrItemData then
+    return
+  end
+  local skillData = self.curUpdateAttrItemData.gemSkillData
+  if not skillData then
+    return
+  end
+  self.updateAttrCtl:ResetDatas(skillData:GetEffectDescData())
+  self.updateAttrCtl:ResetPosition()
+  local cell = self.curUpdateAttrCell or self.updateAttrCtl:GetCells()[1]
+  if cell then
+    self:OnClickUpdateAttrCell(cell)
+  end
+end
+
+function GemFunctionPage:UpdateCurrentAttrTip()
+  if self.pageState ~= GemFunctionState.UpdateAttr then
+    return
+  end
+  local data = self.curUpdateAttrCell and self.curUpdateAttrCell.data
+  if not data then
+    return
+  end
+  if data.goldStarCount and data.goldStarCount > 0 then
+    self:Show(self.updateAttrIsStarLab)
+    self:SetFunctionBtnActive(false)
+    if self.updateAttrCostItemCell then
+      self:Hide(self.updateAttrCostItemCell)
+    end
+  else
+    self:SetFunctionBtnActive(true)
+    self:Hide(self.updateAttrIsStarLab)
+    local quality = self.curUpdateAttrItemData.gemSkillData.quality
+    local costConfig = GameConfig.GemNew.UpgradeCost and GameConfig.GemNew.UpgradeCost[quality]
+    if not costConfig then
+      return
+    end
+    local starCount = self.curUpdateAttrItemData.gemSkillData:GetStarCounts()
+    costConfig = costConfig[starCount]
+    if not costConfig then
+      return
+    end
+    costConfig = data.paramId == 0 and costConfig.BuffCost or costConfig.ParamCost
+    if not costConfig or not next(costConfig) then
+      return
+    end
+    local costId = costConfig[1][1]
+    local costNum = costConfig[1][2]
+    if not self.updateAttrCostItemCell then
+      local obj = self:LoadPreferb("cell/BagItemCell", self.updateAttrCostItemRoot)
+      obj.transform.localPosition = LuaGeometry.Const_V3_zero
+      obj.transform.localScale = LuaGeometry.Const_V3_one
+      self.updateAttrCostItemCell = BagItemCell.new(obj)
+    end
+    self:Show(self.updateAttrCostItemCell)
+    self:AddClickEvent(self.updateAttrCostItemCell.gameObject, function()
+      self:ClickRewardItem(self.updateAttrCostItemCell.gameObject)
+    end)
+    self.updateAttrCostItemData = ItemData.new("GemUpdateAttr", costId)
+    self.updateAttrCostItemCell:SetData(self.updateAttrCostItemData)
+    local ownNum = BagProxy.Instance:GetItemNumByStaticID(costId, GameConfig.PackageMaterialCheck.gem_upgrade)
+    self.updateAttrLackOf = costNum > ownNum
+    local formatStr = self.updateAttrLackOf and "[c][FF0000]%d[-][/c]/%d" or "%d/%d"
+    self.updateAttrCostItemCell:UpdateNumLabel(string.format(formatStr, ownNum, costNum))
+  end
+end
+
+function GemFunctionPage:ClickRewardItem(cellctl)
+  if cellctl and cellctl ~= self.chooseReward then
+    local stick = cellctl.gameObject:GetComponent(UIWidget)
+    if self.curUpdateAttrItemData then
+      local callback = function()
+        self:CancelChooseReward()
+      end
+      local sdata = {
+        itemdata = self.updateAttrCostItemData,
+        funcConfig = {},
+        callback = callback,
+        ignoreBounds = {
+          cellctl.gameObject
+        }
+      }
+      TipManager.Instance:ShowItemFloatTip(sdata, stick, NGUIUtil.AnchorSide.Left, {-250, 0})
+    end
+    self.chooseReward = cellctl
+  else
+    self:CancelChooseReward()
+  end
+end
+
+function GemFunctionPage:CancelChooseReward()
+  self.chooseReward = nil
+  self:ShowItemTip()
 end
 
 function GemFunctionPage:SetItemToSculpt(data)

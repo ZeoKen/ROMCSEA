@@ -111,7 +111,7 @@ function SystemUnLockView:HandleNewMenu(note)
         class = MenuCatCell,
         data = config
       })
-    elseif config.Condition.found_elf_num then
+    elseif config.Condition.found_elf_num or config.Condition.found_abyss_lake_elf_num then
     else
       self:_waitQueue_Push({
         Type = SystemUnLockView.TypeEnum.MenuUnlock,

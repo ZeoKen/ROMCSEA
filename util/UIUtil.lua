@@ -629,6 +629,42 @@ function AddSpecialCharaIfNecessary(str)
   return XDEInvisibleChara .. str
 end
 
+local utf8ToCodePoint = function(str, index)
+  index = index or 1
+  local byte = string.byte(str, index)
+  if byte < 128 then
+    return byte, 1
+  elseif 192 <= byte and byte < 224 then
+    local byte2 = string.byte(str, index + 1) or 0
+    return (byte & 31) << 6 | byte2 & 63, 2
+  elseif 224 <= byte and byte < 240 then
+    local byte2 = string.byte(str, index + 1) or 0
+    local byte3 = string.byte(str, index + 2) or 0
+    return (byte & 15) << 12 | (byte2 & 63) << 6 | byte3 & 63, 3
+  elseif 240 <= byte and byte <= 247 then
+    local byte2 = string.byte(str, index + 1) or 0
+    local byte3 = string.byte(str, index + 2) or 0
+    local byte4 = string.byte(str, index + 3) or 0
+    return (byte & 7) << 18 | (byte2 & 63) << 12 | (byte3 & 63) << 6 | byte4 & 63, 4
+  end
+  return byte, 1
+end
+
+function ContainsSpecialCharacters(text)
+  if text == nil or text == "" then
+    return false
+  end
+  local index = 1
+  while index <= #text do
+    local codePoint, size = utf8ToCodePoint(text, index)
+    if 8203 <= codePoint and codePoint <= 8207 or 8288 <= codePoint and codePoint <= 8303 or 8232 <= codePoint and codePoint <= 8239 or 8192 <= codePoint and codePoint <= 8202 or codePoint == 10240 or 55296 <= codePoint and codePoint <= 57343 then
+      return true
+    end
+    index = index + size
+  end
+  return false
+end
+
 function RemoveSpecialChara(str)
   if BranchMgr.IsChina() then
     return str

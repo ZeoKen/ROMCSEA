@@ -135,16 +135,18 @@ function MapManager:GetMapID()
   return self.mapInfo[1]
 end
 
+local bigWorldMapIds = {149, 154}
+
 function MapManager:IsCurBigWorld()
-  return self.mapInfo[1] == 149
+  return self.mapInfo[1] and TableUtility.ArrayFindIndex(bigWorldMapIds, self.mapInfo[1]) > 0
 end
 
 function MapManager.IsMapBigWorld(mapid)
-  return mapid == 149
+  return mapid and TableUtility.ArrayFindIndex(bigWorldMapIds, mapid) > 0
 end
 
 function MapManager:IsBigWorld()
-  if self.mapInfo[1] == 149 then
+  if self:IsCurBigWorld() then
     return true
   end
   local mapRaid = Table_MapRaid[self.mapInfo[1]]
@@ -304,6 +306,10 @@ function MapManager:IsPveMode_PveCard()
   return self.dungeonManager:IsPveMode_PveCard()
 end
 
+function MapManager:IsHeroJournery()
+  return self.dungeonManager:IsHeroJournery()
+end
+
 function MapManager:IsPveMode_AltMan()
   return self.dungeonManager:IsPveMode_AltMan()
 end
@@ -340,6 +346,10 @@ end
 
 function MapManager:IsInGuildMap()
   return self:GetMapID() == 10001
+end
+
+function MapManager:IsInAbyssLake()
+  return self:GetMapID() == 154
 end
 
 function MapManager:IsPVEMode_ExpRaid()
@@ -498,6 +508,16 @@ function MapManager:IsEndlessBattleMap(id)
     return false
   end
   return id == config.PvpRaidID or id == config.PveRaidID
+end
+
+function MapManager:IsInSuperGvg()
+  local mapid = self:GetMapID()
+  if mapid then
+    local mapRaid = Table_MapRaid[mapid]
+    if mapRaid and mapRaid.Type == FuBenCmd_pb.ERAIDTYPE_SUPERGVG then
+      return true
+    end
+  end
 end
 
 function MapManager:IsMapRaidTypeForbid(config)
@@ -1033,6 +1053,7 @@ function MapManager:Launch()
   LocalSimpleAIManager.Me():Launch()
   QuestUseFuncManager.Me():Launch()
   FunctionAstral.Me():Launch()
+  FunctionAbyssLake.Me():Launch(self.mapInfo[1])
   if MapManager.Mode.Raid == self.mode then
     self.dungeonManager:SetRaidID(self.curActiveMapID)
   else

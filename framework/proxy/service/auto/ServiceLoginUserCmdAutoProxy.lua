@@ -371,6 +371,15 @@ function ServiceLoginUserCmdAutoProxy:CallSelectRoleUserCmd(id, zoneID, accid, d
       end
       msg.extraData.codeVersion = extraData.codeVersion
     end
+    if extraData ~= nil and extraData.fingerprint ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.extraData == nil then
+        msg.extraData = {}
+      end
+      msg.extraData.fingerprint = extraData.fingerprint
+    end
     if ignorepwd ~= nil then
       msg.ignorepwd = ignorepwd
     end
@@ -518,6 +527,15 @@ function ServiceLoginUserCmdAutoProxy:CallSelectRoleUserCmd(id, zoneID, accid, d
         msgParam.extraData = {}
       end
       msgParam.extraData.codeVersion = extraData.codeVersion
+    end
+    if extraData ~= nil and extraData.fingerprint ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.extraData == nil then
+        msgParam.extraData = {}
+      end
+      msgParam.extraData.fingerprint = extraData.fingerprint
     end
     if ignorepwd ~= nil then
       msgParam.ignorepwd = ignorepwd

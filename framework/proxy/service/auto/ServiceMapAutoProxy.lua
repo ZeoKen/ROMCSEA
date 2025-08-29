@@ -123,6 +123,15 @@ function ServiceMapAutoProxy:onRegister()
   self:Listen(12, 36, function(data)
     self:RecvSkillWeatherSyncCmd(data)
   end)
+  self:Listen(12, 37, function(data)
+    self:RecvAbyssAreaChangeNotifyCmd(data)
+  end)
+  self:Listen(12, 38, function(data)
+    self:RecvAbyssBossUpdateCmd(data)
+  end)
+  self:Listen(12, 39, function(data)
+    self:RecvExtraRewardUpdateMapCmd(data)
+  end)
 end
 
 function ServiceMapAutoProxy:CallAddMapItem(items)
@@ -1943,6 +1952,95 @@ function ServiceMapAutoProxy:CallSkillWeatherSyncCmd(weather)
   end
 end
 
+function ServiceMapAutoProxy:CallAbyssAreaChangeNotifyCmd(area)
+  if not NetConfig.PBC then
+    local msg = SceneMap_pb.AbyssAreaChangeNotifyCmd()
+    if area ~= nil then
+      msg.area = area
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.AbyssAreaChangeNotifyCmd.id
+    local msgParam = {}
+    if area ~= nil then
+      msgParam.area = area
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMapAutoProxy:CallAbyssBossUpdateCmd(area, boss_infos)
+  if not NetConfig.PBC then
+    local msg = SceneMap_pb.AbyssBossUpdateCmd()
+    if area ~= nil then
+      msg.area = area
+    end
+    if boss_infos ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.boss_infos == nil then
+        msg.boss_infos = {}
+      end
+      for i = 1, #boss_infos do
+        table.insert(msg.boss_infos, boss_infos[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.AbyssBossUpdateCmd.id
+    local msgParam = {}
+    if area ~= nil then
+      msgParam.area = area
+    end
+    if boss_infos ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.boss_infos == nil then
+        msgParam.boss_infos = {}
+      end
+      for i = 1, #boss_infos do
+        table.insert(msgParam.boss_infos, boss_infos[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceMapAutoProxy:CallExtraRewardUpdateMapCmd(datas)
+  if not NetConfig.PBC then
+    local msg = SceneMap_pb.ExtraRewardUpdateMapCmd()
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.ExtraRewardUpdateMapCmd.id
+    local msgParam = {}
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceMapAutoProxy:RecvAddMapItem(data)
   self:Notify(ServiceEvent.MapAddMapItem, data)
 end
@@ -2087,6 +2185,18 @@ function ServiceMapAutoProxy:RecvSkillWeatherSyncCmd(data)
   self:Notify(ServiceEvent.MapSkillWeatherSyncCmd, data)
 end
 
+function ServiceMapAutoProxy:RecvAbyssAreaChangeNotifyCmd(data)
+  self:Notify(ServiceEvent.MapAbyssAreaChangeNotifyCmd, data)
+end
+
+function ServiceMapAutoProxy:RecvAbyssBossUpdateCmd(data)
+  self:Notify(ServiceEvent.MapAbyssBossUpdateCmd, data)
+end
+
+function ServiceMapAutoProxy:RecvExtraRewardUpdateMapCmd(data)
+  self:Notify(ServiceEvent.MapExtraRewardUpdateMapCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.MapAddMapItem = "ServiceEvent_MapAddMapItem"
 ServiceEvent.MapPickupItem = "ServiceEvent_MapPickupItem"
@@ -2124,3 +2234,6 @@ ServiceEvent.MapMapNpcDelMapCmd = "ServiceEvent_MapMapNpcDelMapCmd"
 ServiceEvent.MapNpcPreloadForbidMapCmd = "ServiceEvent_MapNpcPreloadForbidMapCmd"
 ServiceEvent.MapCardRewardQueryCmd = "ServiceEvent_MapCardRewardQueryCmd"
 ServiceEvent.MapSkillWeatherSyncCmd = "ServiceEvent_MapSkillWeatherSyncCmd"
+ServiceEvent.MapAbyssAreaChangeNotifyCmd = "ServiceEvent_MapAbyssAreaChangeNotifyCmd"
+ServiceEvent.MapAbyssBossUpdateCmd = "ServiceEvent_MapAbyssBossUpdateCmd"
+ServiceEvent.MapExtraRewardUpdateMapCmd = "ServiceEvent_MapExtraRewardUpdateMapCmd"

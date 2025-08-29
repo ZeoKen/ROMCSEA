@@ -421,6 +421,7 @@ function QuestTracePanel:InitQuestClickShow()
     self.questInfoDetail:SetActive(false)
     self.noQuestTip:SetActive(true)
     self.knightPrestigePanel:SetActive(false)
+    self.mainStoryPart:SetActive(false)
   end
 end
 
@@ -914,19 +915,34 @@ function QuestTracePanel:UpdateMainQuestList()
         areaData.childGoals = {}
         local allFinish = true
         local inProcess = false
-        local prestigeVersion = GameConfig.Prestige and GameConfig.Prestige.QuestTraceVersion
-        if prestigeVersion and prestigeVersion[version] then
-          local menuid = GameConfig.Prestige and GameConfig.Prestige.PrestigeUnlockMenu and GameConfig.Prestige.PrestigeUnlockMenu[prestigeVersion[version]]
-          if not menuid or FunctionUnLockFunc.Me():CheckCanOpen(menuid) then
-            local prestigeFinish = VersionPrestigeProxy:GetVersionAllFinish(prestigeVersion[version])
-            if not prestigeFinish then
-              inProcess = true
+        local questTraceVersion = GameConfig.Prestige and GameConfig.Prestige.QuestTraceVersion
+        local prestigeVersions = questTraceVersion and questTraceVersion[version]
+        if prestigeVersions then
+          if type(prestigeVersions) == "number" then
+            local menuid = GameConfig.Prestige and GameConfig.Prestige.PrestigeUnlockMenu and GameConfig.Prestige.PrestigeUnlockMenu[prestigeVersions]
+            if not menuid or FunctionUnLockFunc.Me():CheckCanOpen(menuid) then
+              local prestigeFinish = VersionPrestigeProxy:GetVersionAllFinish(prestigeVersions)
+              if not prestigeFinish then
+                inProcess = true
+              end
+              local cellData = {isKnight = true, prestigeVersion = prestigeVersions}
+              table.insert(areaData.childGoals, cellData)
             end
-            local cellData = {
-              isKnight = true,
-              prestigeVersion = prestigeVersion[version]
-            }
-            table.insert(areaData.childGoals, cellData)
+          elseif type(prestigeVersions) == "table" then
+            for i = 1, #prestigeVersions do
+              local menuid = GameConfig.Prestige and GameConfig.Prestige.PrestigeUnlockMenu and GameConfig.Prestige.PrestigeUnlockMenu[prestigeVersions[i]]
+              if not menuid or FunctionUnLockFunc.Me():CheckCanOpen(menuid) then
+                local prestigeFinish = VersionPrestigeProxy:GetVersionAllFinish(prestigeVersions[i])
+                if not prestigeFinish then
+                  inProcess = true
+                end
+                local cellData = {
+                  isKnight = true,
+                  prestigeVersion = prestigeVersions[i]
+                }
+                table.insert(areaData.childGoals, cellData)
+              end
+            end
           end
         end
         for index, config in pairs(indexInfo) do
@@ -2513,7 +2529,6 @@ function QuestTracePanel:UpdateKnightPrestige(prestigeVersion)
 end
 
 function QuestTracePanel:HandlePrestigeUpdate()
-  xdlog("QuestTracePanel 更新声望数据数据")
   self:UpdateCellPrestigeProcess()
   if self.knightPrestigePanel.activeSelf then
     self:UpdateKnightPrestige()
@@ -2529,7 +2544,6 @@ function QuestTracePanel:UpdateCellPrestigeProcess()
     for j = 1, #childCells do
       if childCells[j].cellData and childCells[j].cellData.isKnight then
         local prestigeVersion = childCells[j].cellData.prestigeVersion
-        xdlog("是骑士进度", prestigeVersion)
         local prestigeInfo = VersionPrestigeProxy.Instance:GetPrestigeInfo(prestigeVersion)
         local staticPrestigeInfo = VersionPrestigeProxy.Instance:GetStaticPrestigeInfo(prestigeVersion)
         if prestigeInfo then

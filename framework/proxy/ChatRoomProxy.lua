@@ -824,11 +824,13 @@ function ChatRoomProxy:TryParseItemCodeToNormal(content, isBBCode, items)
     local item = items[count]
     local id = item and tonumber(item[2])
     local data = id and Table_Item[id]
+    local cardLv = item and item[3] and tonumber(item[3]) or 0
     if data then
+      local name = 0 < cardLv and "+" .. cardLv .. data.NameZh or data.NameZh
       if isBBCode then
-        return string.format(ChatRoomProxy.ItemBBCodeLabel, item[1] .. ";" .. item[2], data.NameZh)
+        return string.format(ChatRoomProxy.ItemBBCodeLabel, item[1] .. ";" .. item[2], name)
       else
-        return string.format(ChatRoomProxy.ItemNormalLabel, data.NameZh)
+        return string.format(ChatRoomProxy.ItemNormalLabel, name)
       end
     end
     return false

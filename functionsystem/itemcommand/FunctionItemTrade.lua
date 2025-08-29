@@ -48,7 +48,11 @@ function FunctionItemTrade:CombineItemKey(itemData)
       end
     end
   end
-  return itemid .. "_" .. refinelv .. "_" .. damage .. "_" .. enchant .. "_" .. equiplv
+  local cardLv = 0
+  if itemData:IsCard() then
+    cardLv = itemData.cardLv or 0
+  end
+  return itemid .. "_" .. refinelv .. "_" .. damage .. "_" .. enchant .. "_" .. equiplv .. "_" .. cardLv
 end
 
 function FunctionItemTrade:SetTradePrice(serverItem, price)

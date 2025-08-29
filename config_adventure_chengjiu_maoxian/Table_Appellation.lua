@@ -80,7 +80,6 @@ Table_Appellation = {
   },
   [1005] = {
     id = 1005,
-    Name = "##106483",
     GroupID = 1,
     PostID = 1006,
     Level = "D",
@@ -104,6 +103,7 @@ Table_Appellation = {
   },
   [1008] = {
     id = 1008,
+    Name = "##106396",
     GroupID = 1,
     PostID = 1009,
     Level = "A",
@@ -702,7 +702,6 @@ Table_Appellation = {
   },
   [1203] = {
     id = 1203,
-    Name = "##106483",
     GroupID = 3,
     TitleSort = 1203,
     PostID = 1204,
@@ -1270,6 +1269,7 @@ Table_Appellation = {
   },
   [1290] = {
     id = 1290,
+    Name = "##106396",
     GroupID = 3,
     TitleSort = 1290,
     OrderType = 0,
@@ -1659,7 +1659,7 @@ local cell_mt = {
     BaseProp = _EmptyTable,
     GroupID = 2,
     Level = "",
-    Name = "##106396",
+    Name = "##106483",
     id = 3003135
   }
 }

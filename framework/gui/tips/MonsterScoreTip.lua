@@ -370,6 +370,9 @@ function MonsterScoreTip:GetMonsterDetail()
   local rewards = AdventureDataProxy.Instance:getAppendRewardByTargetId(self.data.staticId, "selfie")
   if not self.data.attrUnlock and rewards and 0 < #rewards then
     local items = ItemUtil.GetRewardItemIdsByTeamId(rewards[1])
+    if not items then
+      redlog("there is no reward! rewardId", tostring(rewards[1]))
+    end
     local unlocktip = {}
     unlocktip.label = {}
     unlocktip.hideline = true

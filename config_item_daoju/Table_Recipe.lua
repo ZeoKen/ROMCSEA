@@ -2307,7 +2307,6 @@ Table_Recipe = {
   },
   [12] = {
     id = 12,
-    Name = "##124317",
     Type = 4,
     Product = 551011,
     Material = Table_Recipe_t.Material[3]
@@ -2595,6 +2594,7 @@ Table_Recipe = {
   },
   [58] = {
     id = 58,
+    Name = "##124280",
     Product = 551057,
     Material = Table_Recipe_t.Material[42]
   },
@@ -3119,7 +3119,7 @@ local cell_mt = {
   __index = {
     ExtraReward = _EmptyTable,
     Material = _EmptyTable,
-    Name = "##124280",
+    Name = "##124317",
     Product = 551055,
     ReleaseStartTime = "",
     TFStartTime = "",

@@ -519,7 +519,7 @@ local Get_KeyCodeName = function(keyCode)
   return name
 end
 HotKeyManager.GetKeyCodeName = Get_KeyCodeName
-local WindowsHotKey_KeyMap, WindowsMouse_KeyMap, WindowsHotKey_CustomConfig, WindowsHotKeyId_UpArrow, WindowsHotKeyId_DownArrow, WindowsHotKeyId_LeftArrow, WindowsHotKeyId_RightArrow
+local WindowsHotKey_KeyMap, WindowsMouse_KeyMap, WindowsHotKey_CustomConfig, WindowsHotKeyId_UpArrow, WindowsHotKeyId_DownArrow, WindowsHotKeyId_LeftArrow, WindowsHotKeyId_RightArrow, WindowsHotKey_DisableMap
 local Init_WindowsHotKey_KeyMap = function(refresh)
   if WindowsHotKey_KeyMap ~= nil and not refresh then
     return
@@ -572,6 +572,7 @@ local Init_WindowsHotKey_KeyMap = function(refresh)
   end
   WindowsHotKey_KeyMap = {}
   WindowsMouse_KeyMap = {}
+  WindowsHotKey_DisableMap = {}
   local dataSortFunc = function(da, db)
     return da.id < db.id
   end
@@ -664,6 +665,9 @@ end
 
 function HotKeyManager.ExcuteCmdByData(data)
   local cmd = data.Cmd
+  if WindowsHotKey_DisableMap and WindowsHotKey_DisableMap[data.id] then
+    return false
+  end
   if UICamera.inputHasFocus and not Ignore_InputFocus_Cmd[cmd] then
     redlog("Foucsing Input")
     return false
@@ -804,6 +808,13 @@ function HotKeyManager:SetMoveAxisEnable(enable)
   if inputKey then
     inputKey.IsMoveAxisEnable = enable ~= nil and enable == true
   end
+end
+
+function HotKeyManager:SetHotKeyEnable(id, enable)
+  if not WindowsHotKey_DisableMap then
+    return
+  end
+  WindowsHotKey_DisableMap[id] = not enable
 end
 
 local SAVE_KEY = {

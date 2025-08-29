@@ -67,7 +67,11 @@ Pve_Difficulty_Type = {Normal = 0, Difficult = 1}
 local _ArrayClear = TableUtility.ArrayClear
 local _ArrayPushBack = TableUtility.ArrayPushBack
 local _TableClear = TableUtility.TableClear
-PveSortEnum = {Open = 1, Lock = 2}
+PveSortEnum = {
+  Open = 1,
+  Lock = 2,
+  Forbidden = 3
+}
 local _SortFunc = function(l, r)
   local l_sortId = l:GetSortId()
   local r_sortId = r:GetSortId()
@@ -83,6 +87,9 @@ local _SortFunc = function(l, r)
     return l_sortId < r_sortId
   end
 end
+local _SortByDifficulty = function(l, r)
+  return l.staticEntranceData.staticDifficulty < r.staticEntranceData.staticDifficulty
+end
 autoImport("PvePassInfo")
 autoImport("PveDropItemData")
 autoImport("WildMvpAffixData")
@@ -90,6 +97,11 @@ PveEntranceProxy = class("PveEntranceProxy", pm.Proxy)
 PveEntranceProxy.Instance = nil
 PveEntranceProxy.NAME = "PveEntranceProxy"
 PveEntranceProxy.EmptyDiff = "EMPTY_DIFF"
+local EUseItem_QuickPass = {roguelike = 1, thanatos = 2}
+local quick_pass_msg = {
+  [EUseItem_QuickPass.roguelike] = 43598,
+  [EUseItem_QuickPass.thanatos] = 43601
+}
 
 function PveEntranceProxy:ctor(proxyName, data)
   self.proxyName = proxyName or PveEntranceProxy.NAME
@@ -105,6 +117,7 @@ end
 function PveEntranceProxy:Init()
   self.raidMap = {}
   self.catalogAll = {}
+  self.dirtyRaidForbiddenMap = {}
   self.catalogAll_raid = {}
   self.catalogAll_crack = {}
   self.catalogAll_boss = {}
@@ -128,29 +141,26 @@ function PveEntranceProxy:Init()
   self.bossId2MatchIdMap = {}
   self.activeAffixs = {}
   self.quickBossMap = {}
-  self:InitStatic()
   self:InitMultiRewardCondition()
 end
 
-function PveEntranceProxy:InitStatic()
-  PveEntranceProxy.minUnlockLv = 999
-  PveEntranceProxy.endlessTowerUnlockLv = 999
-  for k, v in pairs(Table_PveRaidEntrance) do
-    if v.Goal then
-      self.goalMap[v.Goal] = v.id
-    end
-    local difficultyMap = self.raidMap[v.GroupId]
-    if nil == difficultyMap then
-      difficultyMap = {}
-    end
-    local data = PvePassInfo.new(k)
-    difficultyMap[v.DifficultyName[2]] = data
-    self.raidMap[v.GroupId] = difficultyMap
-    PveEntranceProxy.minUnlockLv = math.min(PveEntranceProxy.minUnlockLv, v.UnlockLv)
-    if data.staticEntranceData:IsInfiniteTower() then
-      PveEntranceProxy.endlessTowerUnlockLv = math.min(PveEntranceProxy.endlessTowerUnlockLv, data.staticEntranceData.UnlockLv)
-    end
+function PveEntranceProxy:TryResetCatalogAll()
+  if not next(self.dirtyRaidForbiddenMap) and self.initialAllCatalog then
+    return
   end
+  _ArrayClear(self.catalogAll_raid)
+  _ArrayClear(self.catalogAll_crack)
+  _ArrayClear(self.catalogAll_boss)
+  _ArrayClear(self.catalogAll_RoadOfHero)
+  _ArrayClear(self.catalogAll_Astral)
+  _ArrayClear(self.catalogAll_Memory)
+  _TableClear(self.catalogMap_raid)
+  self:SetAllCatalogByRaidMap()
+  _TableClear(self.dirtyRaidForbiddenMap)
+end
+
+function PveEntranceProxy:SetAllCatalogByRaidMap()
+  self.initialAllCatalog = true
   for _, difficultyMap in pairs(self.raidMap) do
     local firstPveData = difficultyMap[1]
     if not firstPveData then
@@ -159,7 +169,9 @@ function PveEntranceProxy:InitStatic()
     if firstPveData.staticEntranceData:IsCrack() then
       _ArrayPushBack(self.catalogAll_crack, firstPveData)
     elseif firstPveData.staticEntranceData:IsBoss() then
-      _ArrayPushBack(self.catalogAll_boss, firstPveData)
+      if not firstPveData:Forbidden() then
+        _ArrayPushBack(self.catalogAll_boss, firstPveData)
+      end
     elseif firstPveData.staticEntranceData:IsRoadOfHero() then
       _ArrayPushBack(self.catalogAll_RoadOfHero, firstPveData)
     elseif firstPveData.staticEntranceData:IsAstral() then
@@ -178,6 +190,32 @@ function PveEntranceProxy:InitStatic()
     end
   end
   self:StaticSortEntrance()
+end
+
+function PveEntranceProxy:TryInitStatic()
+  if self._inited then
+    return
+  end
+  self._inited = true
+  PveEntranceProxy.minUnlockLv = 999
+  PveEntranceProxy.endlessTowerUnlockLv = 999
+  for k, v in pairs(Table_PveRaidEntrance) do
+    if v.Goal then
+      self.goalMap[v.Goal] = v.id
+    end
+    local difficultyMap = self.raidMap[v.GroupId]
+    if nil == difficultyMap then
+      difficultyMap = {}
+    end
+    local data = PvePassInfo.new(k)
+    difficultyMap[v.DifficultyName[2]] = data
+    self.raidMap[v.GroupId] = difficultyMap
+    PveEntranceProxy.minUnlockLv = math.min(PveEntranceProxy.minUnlockLv, v.UnlockLv)
+    if data.staticEntranceData:IsInfiniteTower() then
+      PveEntranceProxy.endlessTowerUnlockLv = math.min(PveEntranceProxy.endlessTowerUnlockLv, data.staticEntranceData.UnlockLv)
+    end
+  end
+  self:SetAllCatalogByRaidMap()
 end
 
 function PveEntranceProxy:PreprocessCrackEntrance()
@@ -289,7 +327,7 @@ function PveEntranceProxy:PreprocessBossEntrance()
   _TableClear(self.catalogMap_boss)
   if self:HasServerLastBossEntranceInfo() then
     for i = #self.catalogAll_boss, 1, -1 do
-      if self.catalogAll_boss[i].id == self.lastBossEntranceId then
+      if self.catalogAll_boss[i].id == self.lastBossEntranceId and not self.catalogAll_boss[i]:Forbidden() then
         self.bossFirstPveData = self.catalogAll_boss[i]
         break
       end
@@ -297,10 +335,16 @@ function PveEntranceProxy:PreprocessBossEntrance()
     self.bossFirstPveData = self.bossFirstPveData or self.catalogAll_boss[1]
   else
     local maxLvEntranceData
-    for i = #self.catalogAll_boss, 1, -1 do
-      if self:IsOpen(self.catalogAll_boss[i].id) then
-        maxLvEntranceData = self.catalogAll_boss[i]
-        break
+    if #self.catalogAll_boss > 0 then
+      if self.catalogAll_boss[1]:CheckActivityValid() then
+        maxLvEntranceData = self.catalogAll_boss[1]
+      else
+        for i = #self.catalogAll_boss, 1, -1 do
+          if self:IsOpen(self.catalogAll_boss[i].id) and not self.catalogAll_boss[i].no_show then
+            maxLvEntranceData = self.catalogAll_boss[i]
+            break
+          end
+        end
       end
     end
     self.bossFirstPveData = maxLvEntranceData or self.catalogAll_boss[1]
@@ -335,34 +379,18 @@ function PveEntranceProxy:GetAllMemoryRaidData()
 end
 
 function PveEntranceProxy:StaticSortEntrance()
-  table.sort(self.catalogAll_raid, function(l, r)
-    return _SortFunc(l, r)
-  end)
-  table.sort(self.catalogAll_crack, function(l, r)
-    return _SortFunc(l, r)
-  end)
-  table.sort(self.catalogAll_boss, function(l, r)
-    return _SortFunc(l, r)
-  end)
-  table.sort(self.catalogAll_RoadOfHero, function(l, r)
-    return _SortFunc(l, r)
-  end)
-  table.sort(self.catalogAll_Astral, function(l, r)
-    return _SortFunc(l, r)
-  end)
-  table.sort(self.catalogAll_Memory, function(l, r)
-    return _SortFunc(l, r)
-  end)
+  table.sort(self.catalogAll_raid, _SortFunc)
+  table.sort(self.catalogAll_crack, _SortFunc)
+  table.sort(self.catalogAll_boss, _SortFunc)
+  table.sort(self.catalogAll_RoadOfHero, _SortFunc)
+  table.sort(self.catalogAll_Astral, _SortFunc)
+  table.sort(self.catalogAll_Memory, _SortFunc)
 end
 
 function PveEntranceProxy:SortEntrance()
-  table.sort(self.catalogAll, function(l, r)
-    return _SortFunc(l, r)
-  end)
+  table.sort(self.catalogAll, _SortFunc)
   for _, v in pairs(self.catalogMap) do
-    table.sort(v, function(l, r)
-      return _SortFunc(l, r)
-    end)
+    table.sort(v, _SortFunc)
   end
 end
 
@@ -396,12 +424,11 @@ function PveEntranceProxy:GetDifficultyData(groupid, difficulty_type)
       end
     end
   end
-  table.sort(diffDatas, function(a, b)
-    return a.staticEntranceData.staticDifficulty < b.staticEntranceData.staticDifficulty
-  end)
+  table.sort(diffDatas, _SortByDifficulty)
   if #diffDatas < 7 then
+    local _emptyDiff = PveEntranceProxy.EmptyDiff
     for i = 1, 7 - #diffDatas do
-      diffDatas[#diffDatas + 1] = PveEntranceProxy.EmptyDiff
+      diffDatas[#diffDatas + 1] = _emptyDiff
     end
   end
   return diffDatas
@@ -409,9 +436,10 @@ end
 
 function PveEntranceProxy:GetCurMaxPickupLayer(gId, diffMode, cur_layer)
   local max = 0
+  local _emptyDiff = PveEntranceProxy.EmptyDiff
   local diff = self:GetDifficultyData(gId, diffMode)
   for i = 1, #diff do
-    if diff[i] ~= PveEntranceProxy.EmptyDiff and diff[i].IsPickup and diff[i]:IsPickup() and cur_layer > diff[i].staticEntranceData.difficultyIgoreType then
+    if diff[i] ~= _emptyDiff and diff[i].IsPickup and diff[i]:IsPickup() and cur_layer > diff[i].staticEntranceData.difficultyIgoreType then
       max = math.max(max, diff[i].staticEntranceData.difficultyIgoreType)
     end
   end
@@ -437,24 +465,24 @@ function PveEntranceProxy:CheckBossCanQuick(bossid)
 end
 
 function PveEntranceProxy:RecvSyncPvePassInfoFubenCmd(server_data, battletime, lastBossInfo, affixids, quickBoss, endlessrewardlayer, all_crack_non_first)
+  self:TryInitStatic()
   self:SetQuickBossMap(quickBoss)
   if not server_data and not battletime then
     return
   end
   self:SetLastBossInfo(lastBossInfo)
   self.battletime = battletime
+  local raidType
   for i = 1, #server_data do
-    self:UpdatePassInfo(server_data[i])
-  end
-  if affixids then
-    _ArrayClear(self.activeAffixs)
-    for i = 1, #affixids do
-      local config = Table_MonsterAffix[affixids[i]]
-      if config then
-        _ArrayPushBack(self.activeAffixs, WildMvpAffixData.new(config))
+    local data = self:UpdatePassInfo(server_data[i])
+    if data and data:Forbidden() then
+      raidType = data.staticEntranceData.raidType
+      if nil == self.dirtyRaidForbiddenMap[raidType] then
+        self.dirtyRaidForbiddenMap[raidType] = 1
       end
     end
   end
+  self:HandleAffixId(affixids)
   self:HandleCombinePveData()
   self.endlessrewardlayer = endlessrewardlayer
   self.all_crack_non_first = all_crack_non_first
@@ -469,7 +497,22 @@ function PveEntranceProxy:GetEndlessRewardLayer()
   return self.endlessrewardlayer
 end
 
+function PveEntranceProxy:HandleAffixId(affixids)
+  if not affixids then
+    return
+  end
+  _ArrayClear(self.activeAffixs)
+  local _Table_MonsterAffix = Table_MonsterAffix
+  for i = 1, #affixids do
+    local config = _Table_MonsterAffix[affixids[i]]
+    if config then
+      _ArrayPushBack(self.activeAffixs, WildMvpAffixData.new(config))
+    end
+  end
+end
+
 function PveEntranceProxy:HandleCombinePveData()
+  self:TryResetCatalogAll()
   self:PreprocessCrackEntrance()
   self:PreprocessBossEntrance()
   self:PreprocessHeroRoadEntrance()
@@ -504,11 +547,19 @@ end
 function PveEntranceProxy:UpdatePassInfo(data)
   local staticData = Table_PveRaidEntrance[data.id]
   if staticData then
+    if data.id == 100 then
+      redlog("打印异界副本 no_show_label|act_end_time ", data.no_show_label, data.act_end_time)
+    end
     local diff = staticData.DifficultyName[2]
     local cacheData = self.raidMap[staticData.GroupId][diff]
+    local oldForbidden = cacheData:Forbidden()
     cacheData:SetServerData(data)
+    if oldForbidden ~= cacheData:Forbidden() and nil == self.dirtyRaidForbiddenMap[staticData.RaidType] then
+      self.dirtyRaidForbiddenMap[staticData.RaidType] = 1
+    end
     self.passInfoMap[data.id] = cacheData
     FunctionPve.Debug("Pve副本入口 SyncPvePassInfo 服务器同步 id| firstpass | passtime | open :  ", data.id, data.firstpass, data.passtime, data.open)
+    return cacheData
   else
   end
 end
@@ -660,9 +711,7 @@ function PveEntranceProxy:OpenMultiTargetPveByGroupID(gids)
       resultList[#resultList + 1] = targetData[1]
     end
   end
-  table.sort(crackList, function(l, r)
-    return _SortFunc(l, r)
-  end)
+  table.sort(crackList, _SortFunc)
   self.targetMaxLvEntranceData = nil
   for i = #crackList, 1, -1 do
     if single_group or self:IsOpen(crackList[i].id) then
@@ -703,6 +752,45 @@ function PveEntranceProxy:HandleSyncPveRaidAchieveFubenCmd(server_data)
     self:UpdateAchieveInfo(server_data[i])
   end
   GameFacade.Instance:sendNotification(PVEEvent.SyncPvePassInfo)
+end
+
+function PveEntranceProxy:HandleSyncQuickPassItemInfoMessCCmd(data)
+  FunctionPve.Debug("[背包道具扫荡副本] 后端同步背包道具扫荡副本信息")
+  TableUtil.Print(data)
+  local item_guid = data.guid
+  if StringUtil.IsEmpty(item_guid) then
+    return
+  end
+  local type = data.type
+  if type and 0 < type then
+    local status = data.status
+    if status == MessCCmd_pb.QUICK_PASS_STATUS_LOCK then
+      MsgManager.ShowMsgByID(43600)
+      return
+    end
+    local confirmFunc = function()
+      local item_data = BagProxy.Instance:GetItemByGuid(item_guid)
+      if not item_data then
+        return
+      end
+      ServiceItemProxy.Instance:CallItemUse(item_data, nil, 1)
+    end
+    if status == MessCCmd_pb.QUICK_PASS_STATUS_FULL then
+      MsgManager.ConfirmMsgByID(43599, confirmFunc)
+      return
+    end
+    local msg_id = quick_pass_msg[type]
+    if not msg_id then
+      return
+    end
+    local prefix, suffix
+    local roguelike_pass = data.roguelikepass
+    if type == MessCCmd_pb.QUICK_PASS_ITEM_ROGUELIKE and roguelike_pass and 0 < roguelike_pass then
+      prefix = roguelike_pass - 9
+      suffix = roguelike_pass
+    end
+    MsgManager.ConfirmMsgByID(msg_id, confirmFunc, nil, nil, tostring(prefix), tostring(suffix))
+  end
 end
 
 function PveEntranceProxy:UpdateAchieveInfo(data)

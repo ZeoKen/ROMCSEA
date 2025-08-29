@@ -16,6 +16,9 @@ function GVGWeeklyPointPopUp:InitFixedContext()
       ZhString.GvgWeeklyPoint_PointScore,
       ZhString.GvgWeeklyPoint_Result
     }
+    if GameConfig.GvgNewConfig.kill_mvp_score then
+      _FixedTitleList[7] = ZhString.GvgWeeklyPoint_MVP
+    end
   end
   self.fixedTitleLabs = {}
   local length = #_FixedTitleList

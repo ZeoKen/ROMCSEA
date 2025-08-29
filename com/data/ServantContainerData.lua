@@ -235,6 +235,8 @@ function ServantContainerData:SetActivityData()
           valid = WarbandProxy.Instance:CheckCalendarTimeValid(PvpProxy.Type.TwelvePVPBattle, self.dayStartTime)
         elseif v.id == 13 then
           valid = WarbandProxy.Instance:CheckCalendarTimeValid(PvpProxy.Type.TwelvePVPChampion, self.dayStartTime)
+        elseif v.id == 15 then
+          valid = WarbandProxy.Instance:CheckCalendarTimeValid(PvpProxy.Type.TeamPwsChampion, self.dayStartTime, true)
         end
       end
     else

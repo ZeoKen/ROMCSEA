@@ -21,6 +21,40 @@ function BattleFundProxy:Init()
   end
 end
 
+function BattleFundProxy:SetGlobalAct(data)
+  if not data then
+    return
+  end
+  self.globalActData = {
+    starttime = data.starttime,
+    endtime = data.endtime
+  }
+  redlog("BattleFundProxy:SetGlobalAct() 设置globalActData", self.globalActData)
+end
+
+function BattleFundProxy:IsGlobalActActive()
+  if not self.globalActData then
+    redlog("BattleFundProxy:IsGlobalActActive() 没有globalActData")
+    return false
+  end
+  if self.globalActData.starttime > ServerTime.CurServerTime() / 1000 then
+    redlog("BattleFundProxy:IsGlobalActActive() 没有开始")
+    return false
+  end
+  if self.globalActData.endtime < ServerTime.CurServerTime() / 1000 then
+    redlog("BattleFundProxy:IsGlobalActActive() 已经结束")
+    return false
+  end
+  return true
+end
+
+function BattleFundProxy:GetGlobalActEndLeftTime()
+  if not self.globalActData then
+    return 0
+  end
+  return self.globalActData.endtime - ServerTime.CurServerTime() / 1000
+end
+
 function BattleFundProxy:IsActive()
   if self.actData then
     return self.actData:IsActive()
@@ -67,10 +101,10 @@ function BattleFundProxy:RecvBattleFundInfo(serverData)
   end
 end
 
-function BattleFundProxy:TakeReward(day, free)
+function BattleFundProxy:TakeReward(day, free, resetDepositReward)
   local actId = self.actData and self.actData:GetActId()
   if actId then
-    ServiceActivityCmdProxy.Instance:CallBattleFundRewardActCmd(actId, day, free)
+    ServiceActivityCmdProxy.Instance:CallBattleFundRewardActCmd(actId, day, free, resetDepositReward)
   end
 end
 
@@ -110,4 +144,18 @@ function BattleFundProxy:GetTakableRewards()
     return self.actData:GetTakableRewards()
   end
   return 0
+end
+
+function BattleFundProxy:GetResetDepositReward()
+  if self.actData then
+    return self.actData:GetResetDepositReward()
+  end
+  return false
+end
+
+function BattleFundProxy:HasResetDepositReward()
+  if self.actData then
+    return self.actData:HasResetDepositReward()
+  end
+  return false
 end

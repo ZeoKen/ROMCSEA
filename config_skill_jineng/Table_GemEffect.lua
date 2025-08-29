@@ -741,7 +741,13 @@ Table_GemEffect_t = {
     {217121},
     {217131},
     {217141},
-    {217151}
+    {217151},
+    {218101},
+    {218111},
+    {218121},
+    {218131},
+    {218141},
+    {218151}
   },
   PioneerNeed = {
     {DamSpike = 100000},
@@ -6875,7 +6881,8 @@ Table_GemEffect = {
     GemID = 379400,
     BufferID = 22001150,
     NormalRate = 6,
-    SameNameRate = 12
+    SameNameRate = 12,
+    Desc = "##3352241"
   },
   [922] = {
     id = 922,
@@ -6888,7 +6895,8 @@ Table_GemEffect = {
     GemID = 379401,
     BufferID = 22001160,
     NormalRate = 6,
-    SameNameRate = 12
+    SameNameRate = 12,
+    Desc = "##3352241"
   },
   [924] = {
     id = 924,
@@ -6902,7 +6910,8 @@ Table_GemEffect = {
     GemID = 379402,
     BufferID = 22001170,
     NormalRate = 6,
-    SameNameRate = 12
+    SameNameRate = 12,
+    Desc = "##3352241"
   },
   [926] = {
     id = 926,
@@ -6915,7 +6924,8 @@ Table_GemEffect = {
     GemID = 379403,
     BufferID = 22001180,
     NormalRate = 6,
-    SameNameRate = 12
+    SameNameRate = 12,
+    Desc = "##3352241"
   },
   [928] = {
     id = 928,
@@ -6928,7 +6938,8 @@ Table_GemEffect = {
     GemID = 379404,
     BufferID = 22001190,
     NormalRate = 6,
-    SameNameRate = 12
+    SameNameRate = 12,
+    Desc = "##3352241"
   },
   [930] = {
     id = 930,
@@ -6941,7 +6952,8 @@ Table_GemEffect = {
     GemID = 379405,
     BufferID = 22001200,
     NormalRate = 6,
-    SameNameRate = 12
+    SameNameRate = 12,
+    Desc = "##3352241"
   },
   [932] = {
     id = 932,
@@ -6954,8 +6966,7 @@ Table_GemEffect = {
     GemID = 379406,
     BufferID = 22001220,
     NormalRate = 6,
-    SameNameRate = 12,
-    Desc = "##3352253"
+    SameNameRate = 12
   },
   [934] = {
     id = 934,
@@ -6969,8 +6980,7 @@ Table_GemEffect = {
     GemID = 379407,
     BufferID = 22001230,
     NormalRate = 6,
-    SameNameRate = 12,
-    Desc = "##3352253"
+    SameNameRate = 12
   },
   [936] = {
     id = 936,
@@ -6983,8 +6993,7 @@ Table_GemEffect = {
     GemID = 379408,
     BufferID = 22001240,
     NormalRate = 6,
-    SameNameRate = 12,
-    Desc = "##3352253"
+    SameNameRate = 12
   },
   [938] = {
     id = 938,
@@ -6997,8 +7006,7 @@ Table_GemEffect = {
     GemID = 379409,
     BufferID = 22001250,
     NormalRate = 6,
-    SameNameRate = 12,
-    Desc = "##3352253"
+    SameNameRate = 12
   },
   [940] = {
     id = 940,
@@ -7011,8 +7019,7 @@ Table_GemEffect = {
     GemID = 379410,
     BufferID = 22001260,
     NormalRate = 6,
-    SameNameRate = 12,
-    Desc = "##3352253"
+    SameNameRate = 12
   },
   [942] = {
     id = 942,
@@ -7025,8 +7032,7 @@ Table_GemEffect = {
     GemID = 379411,
     BufferID = 22001270,
     NormalRate = 6,
-    SameNameRate = 12,
-    Desc = "##3352253"
+    SameNameRate = 12
   },
   [944] = {
     id = 944,
@@ -7640,11 +7646,96 @@ Table_GemEffect = {
     NormalRate = 6,
     SameNameRate = 12,
     Desc = "##42591047"
+  },
+  [1031] = {
+    id = 1031,
+    GemID = 379454,
+    ParamsID = Table_GemEffect_t.ParamsID[735],
+    Desc = "##42640159"
+  },
+  [1032] = {
+    id = 1032,
+    GemID = 379454,
+    BufferID = 22001820,
+    NormalRate = 6,
+    SameNameRate = 12,
+    Desc = "##42637369"
+  },
+  [1033] = {
+    id = 1033,
+    GemID = 379455,
+    ParamsID = Table_GemEffect_t.ParamsID[736],
+    Desc = "##42637370"
+  },
+  [1034] = {
+    id = 1034,
+    GemID = 379455,
+    BufferID = 22001830,
+    NormalRate = 6,
+    SameNameRate = 12,
+    Desc = "##42637369"
+  },
+  [1035] = {
+    id = 1035,
+    GemID = 379456,
+    ParamsID = Table_GemEffect_t.ParamsID[737],
+    Desc = "##42637372"
+  },
+  [1036] = {
+    id = 1036,
+    GemID = 379456,
+    BufferID = 22001840,
+    NormalRate = 6,
+    SameNameRate = 12,
+    Desc = "##42637369"
+  },
+  [1037] = {
+    id = 1037,
+    GemID = 379457,
+    ParamsID = Table_GemEffect_t.ParamsID[738],
+    Desc = "##42637374"
+  },
+  [1038] = {
+    id = 1038,
+    GemID = 379457,
+    BufferID = 22001850,
+    NormalRate = 6,
+    SameNameRate = 12,
+    Desc = "##42637369"
+  },
+  [1039] = {
+    id = 1039,
+    GemID = 379458,
+    BufferID = 22001880,
+    ParamsID = Table_GemEffect_t.ParamsID[739],
+    Desc = "##42637376"
+  },
+  [1040] = {
+    id = 1040,
+    GemID = 379458,
+    BufferID = 22001860,
+    NormalRate = 6,
+    SameNameRate = 12,
+    Desc = "##42637369"
+  },
+  [1041] = {
+    id = 1041,
+    GemID = 379459,
+    ParamsID = Table_GemEffect_t.ParamsID[740],
+    Desc = "##42637378"
+  },
+  [1042] = {
+    id = 1042,
+    GemID = 379459,
+    BufferID = 22001870,
+    NormalRate = 6,
+    SameNameRate = 12,
+    Desc = "##42637369"
   }
 }
 local cell_mt = {
   __index = {
-    Desc = "##3352241",
+    Desc = "##3352253",
     GemID = 372010,
     NormalRate = 100,
     ParamsID = _EmptyTable,

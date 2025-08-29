@@ -30,6 +30,18 @@ function ServiceAchieveCmdAutoProxy:onRegister()
   self:Listen(17, 5, function(data)
     self:RecvRewardGetQuickAchCmd(data)
   end)
+  self:Listen(17, 6, function(data)
+    self:RecvNewNpcAchieveNtfAchCmd(data)
+  end)
+  self:Listen(17, 7, function(data)
+    self:RecvQueryNpcAchieveAchCmd(data)
+  end)
+  self:Listen(17, 8, function(data)
+    self:RecvUpdateNpcAchieveAchCmd(data)
+  end)
+  self:Listen(17, 9, function(data)
+    self:RecvGetNpcAchieveRewardAchCmd(data)
+  end)
 end
 
 function ServiceAchieveCmdAutoProxy:CallQueryUserResumeAchCmd(data)
@@ -541,6 +553,100 @@ function ServiceAchieveCmdAutoProxy:CallRewardGetQuickAchCmd(ids)
   end
 end
 
+function ServiceAchieveCmdAutoProxy:CallNewNpcAchieveNtfAchCmd(groupid)
+  if not NetConfig.PBC then
+    local msg = AchieveCmd_pb.NewNpcAchieveNtfAchCmd()
+    if groupid ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.groupid == nil then
+        msg.groupid = {}
+      end
+      for i = 1, #groupid do
+        table.insert(msg.groupid, groupid[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.NewNpcAchieveNtfAchCmd.id
+    local msgParam = {}
+    if groupid ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.groupid == nil then
+        msgParam.groupid = {}
+      end
+      for i = 1, #groupid do
+        table.insert(msgParam.groupid, groupid[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceAchieveCmdAutoProxy:CallQueryNpcAchieveAchCmd()
+  if not NetConfig.PBC then
+    local msg = AchieveCmd_pb.QueryNpcAchieveAchCmd()
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.QueryNpcAchieveAchCmd.id
+    local msgParam = {}
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceAchieveCmdAutoProxy:CallUpdateNpcAchieveAchCmd(datas)
+  if not NetConfig.PBC then
+    local msg = AchieveCmd_pb.UpdateNpcAchieveAchCmd()
+    if datas ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.datas == nil then
+        msg.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msg.datas, datas[i])
+      end
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.UpdateNpcAchieveAchCmd.id
+    local msgParam = {}
+    if datas ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.datas == nil then
+        msgParam.datas = {}
+      end
+      for i = 1, #datas do
+        table.insert(msgParam.datas, datas[i])
+      end
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
+function ServiceAchieveCmdAutoProxy:CallGetNpcAchieveRewardAchCmd(id)
+  if not NetConfig.PBC then
+    local msg = AchieveCmd_pb.GetNpcAchieveRewardAchCmd()
+    if id ~= nil then
+      msg.id = id
+    end
+    self:SendProto(msg)
+  else
+    local msgId = ProtoReqInfoList.GetNpcAchieveRewardAchCmd.id
+    local msgParam = {}
+    if id ~= nil then
+      msgParam.id = id
+    end
+    self:SendProto2(msgId, msgParam)
+  end
+end
+
 function ServiceAchieveCmdAutoProxy:RecvQueryUserResumeAchCmd(data)
   self:Notify(ServiceEvent.AchieveCmdQueryUserResumeAchCmd, data)
 end
@@ -561,9 +667,29 @@ function ServiceAchieveCmdAutoProxy:RecvRewardGetQuickAchCmd(data)
   self:Notify(ServiceEvent.AchieveCmdRewardGetQuickAchCmd, data)
 end
 
+function ServiceAchieveCmdAutoProxy:RecvNewNpcAchieveNtfAchCmd(data)
+  self:Notify(ServiceEvent.AchieveCmdNewNpcAchieveNtfAchCmd, data)
+end
+
+function ServiceAchieveCmdAutoProxy:RecvQueryNpcAchieveAchCmd(data)
+  self:Notify(ServiceEvent.AchieveCmdQueryNpcAchieveAchCmd, data)
+end
+
+function ServiceAchieveCmdAutoProxy:RecvUpdateNpcAchieveAchCmd(data)
+  self:Notify(ServiceEvent.AchieveCmdUpdateNpcAchieveAchCmd, data)
+end
+
+function ServiceAchieveCmdAutoProxy:RecvGetNpcAchieveRewardAchCmd(data)
+  self:Notify(ServiceEvent.AchieveCmdGetNpcAchieveRewardAchCmd, data)
+end
+
 ServiceEvent = _G.ServiceEvent or {}
 ServiceEvent.AchieveCmdQueryUserResumeAchCmd = "ServiceEvent_AchieveCmdQueryUserResumeAchCmd"
 ServiceEvent.AchieveCmdQueryAchieveDataAchCmd = "ServiceEvent_AchieveCmdQueryAchieveDataAchCmd"
 ServiceEvent.AchieveCmdNewAchieveNtfAchCmd = "ServiceEvent_AchieveCmdNewAchieveNtfAchCmd"
 ServiceEvent.AchieveCmdRewardGetAchCmd = "ServiceEvent_AchieveCmdRewardGetAchCmd"
 ServiceEvent.AchieveCmdRewardGetQuickAchCmd = "ServiceEvent_AchieveCmdRewardGetQuickAchCmd"
+ServiceEvent.AchieveCmdNewNpcAchieveNtfAchCmd = "ServiceEvent_AchieveCmdNewNpcAchieveNtfAchCmd"
+ServiceEvent.AchieveCmdQueryNpcAchieveAchCmd = "ServiceEvent_AchieveCmdQueryNpcAchieveAchCmd"
+ServiceEvent.AchieveCmdUpdateNpcAchieveAchCmd = "ServiceEvent_AchieveCmdUpdateNpcAchieveAchCmd"
+ServiceEvent.AchieveCmdGetNpcAchieveRewardAchCmd = "ServiceEvent_AchieveCmdGetNpcAchieveRewardAchCmd"

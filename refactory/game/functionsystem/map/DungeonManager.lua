@@ -128,6 +128,10 @@ local PVERaidConfig = {
   PVE_MemoryRaid = {
     Type = FuBenCmd_pb.ERAIDTYPE_MEMORY_RAID,
     DungeonSpawner = PVEFactory.GetSevenRoyals
+  },
+  PVE_HeroJourney = {
+    Type = FuBenCmd_pb.ERAIDTYPE_HERO_JOURNEY,
+    DungeonSpawner = PVEFactory.GetHeroJourney
   }
 }
 local PVPRaidConfig = {
@@ -324,6 +328,10 @@ end
 
 function DungeonManager:IsPveMode_PveCard()
   return self.currentDungeon ~= nil and self.currentDungeon.isPveCard or false
+end
+
+function DungeonManager:IsHeroJournery()
+  return nil ~= self.currentDungeon and self.currentDungeon.isHeroJourney or false
 end
 
 function DungeonManager:IsGvgMode_Droiyan()

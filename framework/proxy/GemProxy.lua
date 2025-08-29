@@ -759,7 +759,7 @@ function GemProxy:UpdateGemPageData()
     arrayPushBack(tempArr, bagIns:GetItemByGuid(id, self.PackageCheck))
   end
   self.gemPageData:SetData(tempArr)
-  self:sendNotification(ItemEvent.GemPageUpdate)
+  EventManager.Me():PassEvent(ItemEvent.GemPageUpdate)
 end
 
 function GemProxy:GetStaticDatasOfAttributeGem(id)

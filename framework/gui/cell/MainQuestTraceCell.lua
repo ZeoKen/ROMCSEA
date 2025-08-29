@@ -2,11 +2,19 @@ autoImport("QuestTraceBaseTogCell")
 MainQuestTraceCell = class("MainQuestTraceCell", QuestTraceBaseTogCell)
 local _PrestigePartColor = {
   [1] = LuaColor.White(),
-  [2] = LuaColor.New(1, 0.9450980392156862, 0.9450980392156862, 1)
+  [2] = LuaColor.New(1, 0.9450980392156862, 0.9450980392156862, 1),
+  [3] = LuaColor.New(0.9450980392156862, 1.0, 0.9607843137254902, 1),
+  [4] = LuaColor.New(1, 0.8745098039215686, 0.7764705882352941, 1),
+  [5] = LuaColor.New(0.8509803921568627, 0.8509803921568627, 0.8509803921568627, 1),
+  [6] = LuaColor.New(1, 0.8352941176470589, 0.9568627450980393, 1)
 }
 local _PrestigeOutlineColor = {
   [1] = LuaColor.New(0.8, 0.2549019607843137, 0.24705882352941178, 1),
-  [2] = LuaColor.New(0.7568627450980392, 0.17647058823529413, 0.4470588235294118, 1)
+  [2] = LuaColor.New(0.7568627450980392, 0.17647058823529413, 0.4470588235294118, 1),
+  [3] = LuaColor.New(0.3411764705882353, 0.6509803921568628, 0.5725490196078431, 1),
+  [4] = LuaColor.New(0.8431372549019608, 0.5490196078431373, 0.3215686274509804, 1),
+  [5] = LuaColor.New(0.41568627450980394, 0.41568627450980394, 0.41568627450980394, 1),
+  [6] = LuaColor.New(0.7647058823529411, 0.27058823529411763, 0.6431372549019608, 1)
 }
 
 function MainQuestTraceCell:Init()
@@ -38,7 +46,6 @@ end
 function MainQuestTraceCell:SetData(data)
   self.cellData = data
   if data.isKnight then
-    xdlog("骑士跳转", prestigeVersion)
     self.prestigePart:SetActive(true)
     self.lv.text = ""
     self.prestigeVersion = data.prestigeVersion

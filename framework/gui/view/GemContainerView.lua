@@ -10,6 +10,18 @@ GemContainerView.TogglePageNameMap = {
 }
 local _TabNamePrefix = "GemContainer_TabName_"
 local _Single_Tab_Width = 160
+local _GemPageUnlockConfig = {
+  SecretLandGemOptionalPage = {
+    MenuId = GameConfig.Gem.SecretlandGemMenuID,
+    GemType = SceneItem_pb.EPACKTYPE_GEM_SECRETLAND
+  },
+  GemFunctionPage = {
+    GemType = SceneItem_pb.EPACKTYPE_GEM_SKILL
+  },
+  GemUpgradePage = {
+    GemType = SceneItem_pb.EPACKTYPE_GEM_ATTR
+  }
+}
 
 function GemContainerView:Init()
   GemProxy.Instance:InitSkillProfessionFilter()
@@ -19,28 +31,35 @@ function GemContainerView:Init()
     return
   end
   self.tabLineBg = self:FindComponent("TabLineBg", UISprite)
+  self.tabGrid = self:FindComponent("Tabs", UIGrid)
   self.gem_forbidden_count = 0
-  for toggleName, pageName in pairs(self.TogglePageNameMap) do
-    autoImport(pageName)
-    self:AddSubView(pageName, _G[pageName])
+  self.gem_tab_count = 0
+  for tabName, pageName in pairs(self.TogglePageNameMap) do
+    self[tabName] = self:FindGO(tabName, self.tabGrid.gameObject)
+    if self[tabName] then
+      self:Hide(self[tabName])
+    end
+  end
+  self.npc_entrance = self.viewdata.viewdata and self.viewdata.viewdata.fromNpc or false
+  local togglePageNameMap = self.npc_entrance and {
+    FunctionTab = "GemFunctionPage"
+  } or self.TogglePageNameMap
+  for toggleName, pageName in pairs(togglePageNameMap) do
     self:FindAndAddToggle(toggleName, pageName)
   end
+  self.tabGrid:Reposition()
   if self.tabLineBg then
-    self.tabLineBg.width = (5 - self.gem_forbidden_count) * _Single_Tab_Width
+    self.tabLineBg.width = (self.gem_tab_count - self.gem_forbidden_count) * _Single_Tab_Width
   end
   self:AddEvents()
 end
 
 function GemContainerView:FindAndAddToggle(toggleName, pageName)
   local toggleGO = self:FindGO(toggleName)
-  local togName1 = self:FindComponent("Label1", UILabel, toggleGO)
-  if togName1 and ZhString[_TabNamePrefix .. toggleName] then
-    togName1.text = ZhString[_TabNamePrefix .. toggleName]
-  end
-  local togName2 = self:FindComponent("Label2", UILabel, toggleGO)
-  if togName2 and ZhString[_TabNamePrefix .. toggleName] then
-    togName2.text = ZhString[_TabNamePrefix .. toggleName]
-  end
+  self:Show(toggleGO)
+  self.gem_tab_count = self.gem_tab_count + 1
+  self:SetTogName("Label1", toggleGO, toggleName)
+  self:SetTogName("Label2", toggleGO, toggleName)
   self:AddClickEvent(toggleGO, function(go)
     self:SwitchToPage(self.TogglePageNameMap[go.name])
   end)
@@ -49,29 +68,49 @@ function GemContainerView:FindAndAddToggle(toggleName, pageName)
   if toggle then
     self.toggleMap[pageName] = toggle
   end
-  if pageName == "SecretLandGemOptionalPage" and (not FunctionUnLockFunc.Me():CheckCanOpen(GameConfig.Gem.SecretlandGemMenuID) or GemProxy.CheckGemForbidden(SceneItem_pb.EPACKTYPE_GEM_SECRETLAND)) then
-    toggle.gameObject:SetActive(false)
-    self.gem_forbidden_count = self.gem_forbidden_count + 1
-  end
-  if pageName == "GemFunctionPage" and GemProxy.CheckGemForbidden(SceneItem_pb.EPACKTYPE_GEM_SKILL) then
-    toggle.gameObject:SetActive(false)
-    self.gem_forbidden_count = self.gem_forbidden_count + 1
-  end
-  if pageName == "GemUpgradePage" and GemProxy.CheckGemForbidden(SceneItem_pb.EPACKTYPE_GEM_ATTR) then
-    toggle.gameObject:SetActive(false)
-    self.gem_forbidden_count = self.gem_forbidden_count + 1
-  end
+  self:HandleGemUnlock(toggle, pageName)
   return toggle
 end
 
-function GemContainerView:SwitchToPage(targetPageName)
-  local toggle = self.toggleMap[targetPageName]
+function GemContainerView:SetTogName(compName, toggleGO, toggleName)
+  local togName1 = self:FindComponent(compName, UILabel, toggleGO)
+  if togName1 and ZhString[_TabNamePrefix .. toggleName] then
+    togName1.text = ZhString[_TabNamePrefix .. toggleName]
+  end
+end
+
+function GemContainerView:HandleGemUnlock(toggle, pageName)
+  local unlockConfig = _GemPageUnlockConfig[pageName]
+  if unlockConfig then
+    local menuId = unlockConfig.MenuId
+    local gemType = unlockConfig.GemType
+    if not (not menuId or FunctionUnLockFunc.Me():CheckCanOpen(menuId)) or gemType and GemProxy.CheckGemForbidden(gemType) then
+      toggle.gameObject:SetActive(false)
+      self.gem_forbidden_count = self.gem_forbidden_count + 1
+    end
+  end
+end
+
+function GemContainerView:TryLoadSubview(page_name)
+  if not self.viewMap or not self.viewMap[page_name] then
+    autoImport(page_name)
+    if page_name == "GemFunctionPage" then
+      self:AddSubView(page_name, _G[page_name], self.npc_entrance)
+    else
+      self:AddSubView(page_name, _G[page_name])
+    end
+  end
+end
+
+function GemContainerView:SwitchToPage(page_name)
+  local toggle = self.toggleMap[page_name]
   if toggle then
     toggle.value = true
   end
+  self:TryLoadSubview(page_name)
   local isActive
   for pageName, pageClass in pairs(self.viewMap) do
-    isActive = pageName == targetPageName
+    isActive = pageName == page_name
     pageClass.gameObject:SetActive(isActive)
     if isActive then
       self.activePageName = pageName

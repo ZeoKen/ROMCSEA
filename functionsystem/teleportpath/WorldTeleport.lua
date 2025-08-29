@@ -727,7 +727,7 @@ function WorldTeleport.TryGetTransferMapInfo(srcID, dstID)
     end
   end
   redlog("WalkCost", walkCost, transferCost)
-  if transferCost >= walkCost then
+  if walkCost ~= 0 and transferCost >= walkCost then
     return nil
   end
   return transferID1, transferID2, transferPos, targetNpcUID

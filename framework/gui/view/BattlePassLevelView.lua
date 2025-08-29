@@ -128,7 +128,7 @@ end
 
 function BattlePassLevelView:SetLevelReward()
   local levelRewards = {}
-  local maxLv = BattlePassProxy.Instance.maxBpLevel
+  local maxLv = BattlePassProxy.Instance.maxBpLevel or 0
   for i = 1, maxLv do
     TableUtility.ArrayPushBack(levelRewards, BattlePassProxy.Instance:LevelConfig(i))
   end

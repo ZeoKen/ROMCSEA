@@ -77,7 +77,7 @@ local CellHeight = 36
 function TeamMemberCell:ShowSwitchList(v)
   self.switchList:SetActive(v)
   if v then
-    local roles = MyselfProxy.Instance:GetMyTeamRoles() or {}
+    local roles = MyselfProxy.Instance:GetMyTeamRoles()
     self.switchCtrl:ResetDatas(roles)
     local cells = self.switchCtrl:GetCells()
     if cells then

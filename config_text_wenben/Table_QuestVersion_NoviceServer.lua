@@ -239,6 +239,24 @@ Table_QuestVersion = {
       80,
       81
     }
+  },
+  [12] = {
+    id = 12,
+    version = "17.0",
+    name = "深渊之湖",
+    icon = "taskmanual_btn_YZHX",
+    PuzzleUnder = "taskmanual_bg_jigsaw",
+    VersionStory = "这里正在发生改变——交错的时间在虚空里回荡，失落的过往在潮汐中涌动，四色的光芒在湖面上流转，绝望的咆哮在深渊下响起。这里是深渊之湖，亦是龙族的栖息之地，而此刻，龙族正以鲜血书写绝望，他们在等待，等待那股命运之风，引领他们点燃绝望中的花火，期待再一次的振翅高飞。",
+    StoryName = "深渊之湖",
+    VersionPic = "",
+    FirstMainQuest = 211580001,
+    Tab = 2,
+    sortid = 25,
+    KeyReward = {
+      {48213, 1}
+    },
+    VersionBG = "Missiontracking_bottom_syzh",
+    MapID = {154}
   }
 }
 Table_QuestVersion_fields = {

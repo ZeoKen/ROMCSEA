@@ -74,6 +74,10 @@ function GuildDateBattleRecordData:GetSelfGuildId()
   return self.my_guild_id
 end
 
+function GuildDateBattleRecordData:GetServerId()
+  return self.atkServerId
+end
+
 function GuildDateBattleRecordData:Update(srv_data)
   self.atkGuildid = srv_data.atk_guildid
   self.atkGuildName = IsEmpty(srv_data.atk_guildname) and ZhString.GuildDate_EmptyGuild or srv_data.atk_guildname

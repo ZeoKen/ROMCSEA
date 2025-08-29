@@ -810,6 +810,10 @@ function LotteryProxy:CheckHasFree(type)
 end
 
 function LotteryProxy:GetFreeCnt(type)
+  local checkRoleLevel = GameConfig.Lottery.FreeLevelLimit and GameConfig.Lottery.FreeLevelLimit[type]
+  if checkRoleLevel and checkRoleLevel > MyselfProxy.Instance:RoleLevel() then
+    return 0
+  end
   if LotteryProxy.IsMixLottery(type) then
     return self:GetMixFreeCnt()
   else
@@ -949,9 +953,12 @@ function LotteryProxy:CheckAddItems(type, lotteryData, items, addFixed)
   end
   local staticId
   local cacheBagItemMap = {}
+  local _BagProxy = BagProxy.Instance
+  local _Table_HeadwearRepair = Table_HeadwearRepair
   for i = 1, #items do
     local bagData = items[i]
-    if BagProxy.Instance:CheckIfFavoriteCanBeMaterial(bagData) ~= false then
+    local isFavorite = _BagProxy:CheckIsFavorite(bagData)
+    if not isFavorite and _BagProxy:CheckIfFavoriteCanBeMaterial(bagData) ~= false then
       staticId = bagData.staticData.id
       local lotteryItemData
       if type == LotteryType.Head then
@@ -966,7 +973,7 @@ function LotteryProxy:CheckAddItems(type, lotteryData, items, addFixed)
         cacheBagItemMap[staticId] = 1
       end
       if addFixed then
-        local repairConfig = Table_HeadwearRepair[staticId]
+        local repairConfig = _Table_HeadwearRepair[staticId]
         if nil == cacheBagItemMap[staticId] and repairConfig and repairConfig.IsHeadwear == 2 and repairConfig.Price and repairConfig.Price ~= _EmptyTable then
           local priceConfig = repairConfig.Price
           for i = 1, #priceConfig do

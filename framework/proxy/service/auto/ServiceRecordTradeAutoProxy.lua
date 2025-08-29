@@ -1117,6 +1117,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
       end
       msg.log.itemdata.base.tmp.num_param = log.itemdata.base.tmp.num_param
     end
+    if log.itemdata.base.tmp ~= nil and log.itemdata.base.tmp.from_reward ~= nil then
+      if msg.log.itemdata.base == nil then
+        msg.log.itemdata.base = {}
+      end
+      if msg.log.itemdata.base.tmp == nil then
+        msg.log.itemdata.base.tmp = {}
+      end
+      msg.log.itemdata.base.tmp.from_reward = log.itemdata.base.tmp.from_reward
+    end
     if log.itemdata.base ~= nil and log.itemdata.base.mount_fashion_activated ~= nil then
       if msg.log.itemdata == nil then
         msg.log.itemdata = {}
@@ -1134,6 +1143,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
         msg.log.itemdata.base = {}
       end
       msg.log.itemdata.base.no_trade_reason = log.itemdata.base.no_trade_reason
+    end
+    if log.itemdata.base.card_info ~= nil and log.itemdata.base.card_info.lv ~= nil then
+      if msg.log.itemdata.base == nil then
+        msg.log.itemdata.base = {}
+      end
+      if msg.log.itemdata.base.card_info == nil then
+        msg.log.itemdata.base.card_info = {}
+      end
+      msg.log.itemdata.base.card_info.lv = log.itemdata.base.card_info.lv
     end
     if log.itemdata ~= nil and log.itemdata.equiped ~= nil then
       if msg.log == nil then
@@ -2584,6 +2602,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
         table.insert(msg.log.itemdata.memory.effects, log.itemdata.memory.effects[i])
       end
     end
+    if log.itemdata ~= nil and log.itemdata.deletetime ~= nil then
+      if msg.log == nil then
+        msg.log = {}
+      end
+      if msg.log.itemdata == nil then
+        msg.log.itemdata = {}
+      end
+      msg.log.itemdata.deletetime = log.itemdata.deletetime
+    end
     if log ~= nil and log.receiverid ~= nil then
       if msg == nil then
         msg = {}
@@ -2700,6 +2727,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
         msg.log = {}
       end
       msg.log.preorderstatus = log.preorderstatus
+    end
+    if log ~= nil and log.card_lv ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.log == nil then
+        msg.log = {}
+      end
+      msg.log.card_lv = log.card_lv
     end
     if success ~= nil then
       msg.success = success
@@ -3198,6 +3234,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
       end
       msgParam.log.itemdata.base.tmp.num_param = log.itemdata.base.tmp.num_param
     end
+    if log.itemdata.base.tmp ~= nil and log.itemdata.base.tmp.from_reward ~= nil then
+      if msgParam.log.itemdata.base == nil then
+        msgParam.log.itemdata.base = {}
+      end
+      if msgParam.log.itemdata.base.tmp == nil then
+        msgParam.log.itemdata.base.tmp = {}
+      end
+      msgParam.log.itemdata.base.tmp.from_reward = log.itemdata.base.tmp.from_reward
+    end
     if log.itemdata.base ~= nil and log.itemdata.base.mount_fashion_activated ~= nil then
       if msgParam.log.itemdata == nil then
         msgParam.log.itemdata = {}
@@ -3215,6 +3260,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
         msgParam.log.itemdata.base = {}
       end
       msgParam.log.itemdata.base.no_trade_reason = log.itemdata.base.no_trade_reason
+    end
+    if log.itemdata.base.card_info ~= nil and log.itemdata.base.card_info.lv ~= nil then
+      if msgParam.log.itemdata.base == nil then
+        msgParam.log.itemdata.base = {}
+      end
+      if msgParam.log.itemdata.base.card_info == nil then
+        msgParam.log.itemdata.base.card_info = {}
+      end
+      msgParam.log.itemdata.base.card_info.lv = log.itemdata.base.card_info.lv
     end
     if log.itemdata ~= nil and log.itemdata.equiped ~= nil then
       if msgParam.log == nil then
@@ -4665,6 +4719,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
         table.insert(msgParam.log.itemdata.memory.effects, log.itemdata.memory.effects[i])
       end
     end
+    if log.itemdata ~= nil and log.itemdata.deletetime ~= nil then
+      if msgParam.log == nil then
+        msgParam.log = {}
+      end
+      if msgParam.log.itemdata == nil then
+        msgParam.log.itemdata = {}
+      end
+      msgParam.log.itemdata.deletetime = log.itemdata.deletetime
+    end
     if log ~= nil and log.receiverid ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -4781,6 +4844,15 @@ function ServiceRecordTradeAutoProxy:CallTakeLogCmd(log, success)
         msgParam.log = {}
       end
       msgParam.log.preorderstatus = log.preorderstatus
+    end
+    if log ~= nil and log.card_lv ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.log == nil then
+        msgParam.log = {}
+      end
+      msgParam.log.card_lv = log.card_lv
     end
     if success ~= nil then
       msgParam.success = success
@@ -5285,6 +5357,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
       end
       msg.log.itemdata.base.tmp.num_param = log.itemdata.base.tmp.num_param
     end
+    if log.itemdata.base.tmp ~= nil and log.itemdata.base.tmp.from_reward ~= nil then
+      if msg.log.itemdata.base == nil then
+        msg.log.itemdata.base = {}
+      end
+      if msg.log.itemdata.base.tmp == nil then
+        msg.log.itemdata.base.tmp = {}
+      end
+      msg.log.itemdata.base.tmp.from_reward = log.itemdata.base.tmp.from_reward
+    end
     if log.itemdata.base ~= nil and log.itemdata.base.mount_fashion_activated ~= nil then
       if msg.log.itemdata == nil then
         msg.log.itemdata = {}
@@ -5302,6 +5383,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
         msg.log.itemdata.base = {}
       end
       msg.log.itemdata.base.no_trade_reason = log.itemdata.base.no_trade_reason
+    end
+    if log.itemdata.base.card_info ~= nil and log.itemdata.base.card_info.lv ~= nil then
+      if msg.log.itemdata.base == nil then
+        msg.log.itemdata.base = {}
+      end
+      if msg.log.itemdata.base.card_info == nil then
+        msg.log.itemdata.base.card_info = {}
+      end
+      msg.log.itemdata.base.card_info.lv = log.itemdata.base.card_info.lv
     end
     if log.itemdata ~= nil and log.itemdata.equiped ~= nil then
       if msg.log == nil then
@@ -6752,6 +6842,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
         table.insert(msg.log.itemdata.memory.effects, log.itemdata.memory.effects[i])
       end
     end
+    if log.itemdata ~= nil and log.itemdata.deletetime ~= nil then
+      if msg.log == nil then
+        msg.log = {}
+      end
+      if msg.log.itemdata == nil then
+        msg.log.itemdata = {}
+      end
+      msg.log.itemdata.deletetime = log.itemdata.deletetime
+    end
     if log ~= nil and log.receiverid ~= nil then
       if msg == nil then
         msg = {}
@@ -6868,6 +6967,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
         msg.log = {}
       end
       msg.log.preorderstatus = log.preorderstatus
+    end
+    if log ~= nil and log.card_lv ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.log == nil then
+        msg.log = {}
+      end
+      msg.log.card_lv = log.card_lv
     end
     if total_page_count ~= nil then
       msg.total_page_count = total_page_count
@@ -7369,6 +7477,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
       end
       msgParam.log.itemdata.base.tmp.num_param = log.itemdata.base.tmp.num_param
     end
+    if log.itemdata.base.tmp ~= nil and log.itemdata.base.tmp.from_reward ~= nil then
+      if msgParam.log.itemdata.base == nil then
+        msgParam.log.itemdata.base = {}
+      end
+      if msgParam.log.itemdata.base.tmp == nil then
+        msgParam.log.itemdata.base.tmp = {}
+      end
+      msgParam.log.itemdata.base.tmp.from_reward = log.itemdata.base.tmp.from_reward
+    end
     if log.itemdata.base ~= nil and log.itemdata.base.mount_fashion_activated ~= nil then
       if msgParam.log.itemdata == nil then
         msgParam.log.itemdata = {}
@@ -7386,6 +7503,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
         msgParam.log.itemdata.base = {}
       end
       msgParam.log.itemdata.base.no_trade_reason = log.itemdata.base.no_trade_reason
+    end
+    if log.itemdata.base.card_info ~= nil and log.itemdata.base.card_info.lv ~= nil then
+      if msgParam.log.itemdata.base == nil then
+        msgParam.log.itemdata.base = {}
+      end
+      if msgParam.log.itemdata.base.card_info == nil then
+        msgParam.log.itemdata.base.card_info = {}
+      end
+      msgParam.log.itemdata.base.card_info.lv = log.itemdata.base.card_info.lv
     end
     if log.itemdata ~= nil and log.itemdata.equiped ~= nil then
       if msgParam.log == nil then
@@ -8836,6 +8962,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
         table.insert(msgParam.log.itemdata.memory.effects, log.itemdata.memory.effects[i])
       end
     end
+    if log.itemdata ~= nil and log.itemdata.deletetime ~= nil then
+      if msgParam.log == nil then
+        msgParam.log = {}
+      end
+      if msgParam.log.itemdata == nil then
+        msgParam.log.itemdata = {}
+      end
+      msgParam.log.itemdata.deletetime = log.itemdata.deletetime
+    end
     if log ~= nil and log.receiverid ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -8952,6 +9087,15 @@ function ServiceRecordTradeAutoProxy:CallAddNewLog(charid, log, total_page_count
         msgParam.log = {}
       end
       msgParam.log.preorderstatus = log.preorderstatus
+    end
+    if log ~= nil and log.card_lv ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.log == nil then
+        msgParam.log = {}
+      end
+      msgParam.log.card_lv = log.card_lv
     end
     if total_page_count ~= nil then
       msgParam.total_page_count = total_page_count
@@ -9322,6 +9466,15 @@ function ServiceRecordTradeAutoProxy:CallReqServerPriceRecordTradeCmd(charid, it
       end
       msg.itemData.base.tmp.num_param = itemData.base.tmp.num_param
     end
+    if itemData.base.tmp ~= nil and itemData.base.tmp.from_reward ~= nil then
+      if msg.itemData.base == nil then
+        msg.itemData.base = {}
+      end
+      if msg.itemData.base.tmp == nil then
+        msg.itemData.base.tmp = {}
+      end
+      msg.itemData.base.tmp.from_reward = itemData.base.tmp.from_reward
+    end
     if itemData.base ~= nil and itemData.base.mount_fashion_activated ~= nil then
       if msg.itemData == nil then
         msg.itemData = {}
@@ -9339,6 +9492,15 @@ function ServiceRecordTradeAutoProxy:CallReqServerPriceRecordTradeCmd(charid, it
         msg.itemData.base = {}
       end
       msg.itemData.base.no_trade_reason = itemData.base.no_trade_reason
+    end
+    if itemData.base.card_info ~= nil and itemData.base.card_info.lv ~= nil then
+      if msg.itemData.base == nil then
+        msg.itemData.base = {}
+      end
+      if msg.itemData.base.card_info == nil then
+        msg.itemData.base.card_info = {}
+      end
+      msg.itemData.base.card_info.lv = itemData.base.card_info.lv
     end
     if itemData ~= nil and itemData.equiped ~= nil then
       if msg == nil then
@@ -10789,6 +10951,15 @@ function ServiceRecordTradeAutoProxy:CallReqServerPriceRecordTradeCmd(charid, it
         table.insert(msg.itemData.memory.effects, itemData.memory.effects[i])
       end
     end
+    if itemData ~= nil and itemData.deletetime ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.itemData == nil then
+        msg.itemData = {}
+      end
+      msg.itemData.deletetime = itemData.deletetime
+    end
     if price ~= nil then
       msg.price = price
     end
@@ -11116,6 +11287,15 @@ function ServiceRecordTradeAutoProxy:CallReqServerPriceRecordTradeCmd(charid, it
       end
       msgParam.itemData.base.tmp.num_param = itemData.base.tmp.num_param
     end
+    if itemData.base.tmp ~= nil and itemData.base.tmp.from_reward ~= nil then
+      if msgParam.itemData.base == nil then
+        msgParam.itemData.base = {}
+      end
+      if msgParam.itemData.base.tmp == nil then
+        msgParam.itemData.base.tmp = {}
+      end
+      msgParam.itemData.base.tmp.from_reward = itemData.base.tmp.from_reward
+    end
     if itemData.base ~= nil and itemData.base.mount_fashion_activated ~= nil then
       if msgParam.itemData == nil then
         msgParam.itemData = {}
@@ -11133,6 +11313,15 @@ function ServiceRecordTradeAutoProxy:CallReqServerPriceRecordTradeCmd(charid, it
         msgParam.itemData.base = {}
       end
       msgParam.itemData.base.no_trade_reason = itemData.base.no_trade_reason
+    end
+    if itemData.base.card_info ~= nil and itemData.base.card_info.lv ~= nil then
+      if msgParam.itemData.base == nil then
+        msgParam.itemData.base = {}
+      end
+      if msgParam.itemData.base.card_info == nil then
+        msgParam.itemData.base.card_info = {}
+      end
+      msgParam.itemData.base.card_info.lv = itemData.base.card_info.lv
     end
     if itemData ~= nil and itemData.equiped ~= nil then
       if msgParam == nil then
@@ -12583,6 +12772,15 @@ function ServiceRecordTradeAutoProxy:CallReqServerPriceRecordTradeCmd(charid, it
         table.insert(msgParam.itemData.memory.effects, itemData.memory.effects[i])
       end
     end
+    if itemData ~= nil and itemData.deletetime ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.itemData == nil then
+        msgParam.itemData = {}
+      end
+      msgParam.itemData.deletetime = itemData.deletetime
+    end
     if price ~= nil then
       msgParam.price = price
     end
@@ -12982,6 +13180,15 @@ function ServiceRecordTradeAutoProxy:CallBuyItemRecordTradeCmd(item_info, charid
       end
       msg.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.tmp == nil then
+        msg.item_info.item_data.base.tmp = {}
+      end
+      msg.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msg.item_info.item_data == nil then
         msg.item_info.item_data = {}
@@ -12999,6 +13206,15 @@ function ServiceRecordTradeAutoProxy:CallBuyItemRecordTradeCmd(item_info, charid
         msg.item_info.item_data.base = {}
       end
       msg.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.card_info == nil then
+        msg.item_info.item_data.base.card_info = {}
+      end
+      msg.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msg.item_info == nil then
@@ -14449,6 +14665,15 @@ function ServiceRecordTradeAutoProxy:CallBuyItemRecordTradeCmd(item_info, charid
         table.insert(msg.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
     end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msg.item_info == nil then
+        msg.item_info = {}
+      end
+      if msg.item_info.item_data == nil then
+        msg.item_info.item_data = {}
+      end
+      msg.item_info.item_data.deletetime = item_info.item_data.deletetime
+    end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msg == nil then
         msg = {}
@@ -14914,6 +15139,15 @@ function ServiceRecordTradeAutoProxy:CallBuyItemRecordTradeCmd(item_info, charid
       end
       msgParam.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.tmp == nil then
+        msgParam.item_info.item_data.base.tmp = {}
+      end
+      msgParam.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msgParam.item_info.item_data == nil then
         msgParam.item_info.item_data = {}
@@ -14931,6 +15165,15 @@ function ServiceRecordTradeAutoProxy:CallBuyItemRecordTradeCmd(item_info, charid
         msgParam.item_info.item_data.base = {}
       end
       msgParam.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.card_info == nil then
+        msgParam.item_info.item_data.base.card_info = {}
+      end
+      msgParam.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msgParam.item_info == nil then
@@ -16380,6 +16623,15 @@ function ServiceRecordTradeAutoProxy:CallBuyItemRecordTradeCmd(item_info, charid
       for i = 1, #item_info.item_data.memory.effects do
         table.insert(msgParam.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
+    end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msgParam.item_info == nil then
+        msgParam.item_info = {}
+      end
+      if msgParam.item_info.item_data == nil then
+        msgParam.item_info.item_data = {}
+      end
+      msgParam.item_info.item_data.deletetime = item_info.item_data.deletetime
     end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msgParam == nil then
@@ -16849,6 +17101,15 @@ function ServiceRecordTradeAutoProxy:CallSellItemRecordTradeCmd(item_info, chari
       end
       msg.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.tmp == nil then
+        msg.item_info.item_data.base.tmp = {}
+      end
+      msg.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msg.item_info.item_data == nil then
         msg.item_info.item_data = {}
@@ -16866,6 +17127,15 @@ function ServiceRecordTradeAutoProxy:CallSellItemRecordTradeCmd(item_info, chari
         msg.item_info.item_data.base = {}
       end
       msg.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.card_info == nil then
+        msg.item_info.item_data.base.card_info = {}
+      end
+      msg.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msg.item_info == nil then
@@ -18316,6 +18586,15 @@ function ServiceRecordTradeAutoProxy:CallSellItemRecordTradeCmd(item_info, chari
         table.insert(msg.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
     end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msg.item_info == nil then
+        msg.item_info = {}
+      end
+      if msg.item_info.item_data == nil then
+        msg.item_info.item_data = {}
+      end
+      msg.item_info.item_data.deletetime = item_info.item_data.deletetime
+    end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msg == nil then
         msg = {}
@@ -18781,6 +19060,15 @@ function ServiceRecordTradeAutoProxy:CallSellItemRecordTradeCmd(item_info, chari
       end
       msgParam.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.tmp == nil then
+        msgParam.item_info.item_data.base.tmp = {}
+      end
+      msgParam.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msgParam.item_info.item_data == nil then
         msgParam.item_info.item_data = {}
@@ -18798,6 +19086,15 @@ function ServiceRecordTradeAutoProxy:CallSellItemRecordTradeCmd(item_info, chari
         msgParam.item_info.item_data.base = {}
       end
       msgParam.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.card_info == nil then
+        msgParam.item_info.item_data.base.card_info = {}
+      end
+      msgParam.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msgParam.item_info == nil then
@@ -20248,6 +20545,15 @@ function ServiceRecordTradeAutoProxy:CallSellItemRecordTradeCmd(item_info, chari
         table.insert(msgParam.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
     end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msgParam.item_info == nil then
+        msgParam.item_info = {}
+      end
+      if msgParam.item_info.item_data == nil then
+        msgParam.item_info.item_data = {}
+      end
+      msgParam.item_info.item_data.deletetime = item_info.item_data.deletetime
+    end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -20716,6 +21022,15 @@ function ServiceRecordTradeAutoProxy:CallCancelItemRecordTrade(item_info, charid
       end
       msg.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.tmp == nil then
+        msg.item_info.item_data.base.tmp = {}
+      end
+      msg.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msg.item_info.item_data == nil then
         msg.item_info.item_data = {}
@@ -20733,6 +21048,15 @@ function ServiceRecordTradeAutoProxy:CallCancelItemRecordTrade(item_info, charid
         msg.item_info.item_data.base = {}
       end
       msg.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.card_info == nil then
+        msg.item_info.item_data.base.card_info = {}
+      end
+      msg.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msg.item_info == nil then
@@ -22182,6 +22506,15 @@ function ServiceRecordTradeAutoProxy:CallCancelItemRecordTrade(item_info, charid
       for i = 1, #item_info.item_data.memory.effects do
         table.insert(msg.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
+    end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msg.item_info == nil then
+        msg.item_info = {}
+      end
+      if msg.item_info.item_data == nil then
+        msg.item_info.item_data = {}
+      end
+      msg.item_info.item_data.deletetime = item_info.item_data.deletetime
     end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msg == nil then
@@ -22657,6 +22990,15 @@ function ServiceRecordTradeAutoProxy:CallCancelItemRecordTrade(item_info, charid
       end
       msgParam.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.tmp == nil then
+        msgParam.item_info.item_data.base.tmp = {}
+      end
+      msgParam.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msgParam.item_info.item_data == nil then
         msgParam.item_info.item_data = {}
@@ -22674,6 +23016,15 @@ function ServiceRecordTradeAutoProxy:CallCancelItemRecordTrade(item_info, charid
         msgParam.item_info.item_data.base = {}
       end
       msgParam.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.card_info == nil then
+        msgParam.item_info.item_data.base.card_info = {}
+      end
+      msgParam.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msgParam.item_info == nil then
@@ -24123,6 +24474,15 @@ function ServiceRecordTradeAutoProxy:CallCancelItemRecordTrade(item_info, charid
       for i = 1, #item_info.item_data.memory.effects do
         table.insert(msgParam.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
+    end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msgParam.item_info == nil then
+        msgParam.item_info = {}
+      end
+      if msgParam.item_info.item_data == nil then
+        msgParam.item_info.item_data = {}
+      end
+      msgParam.item_info.item_data.deletetime = item_info.item_data.deletetime
     end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msgParam == nil then
@@ -24601,6 +24961,15 @@ function ServiceRecordTradeAutoProxy:CallResellPendingRecordTrade(item_info, cha
       end
       msg.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.tmp == nil then
+        msg.item_info.item_data.base.tmp = {}
+      end
+      msg.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msg.item_info.item_data == nil then
         msg.item_info.item_data = {}
@@ -24618,6 +24987,15 @@ function ServiceRecordTradeAutoProxy:CallResellPendingRecordTrade(item_info, cha
         msg.item_info.item_data.base = {}
       end
       msg.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msg.item_info.item_data.base == nil then
+        msg.item_info.item_data.base = {}
+      end
+      if msg.item_info.item_data.base.card_info == nil then
+        msg.item_info.item_data.base.card_info = {}
+      end
+      msg.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msg.item_info == nil then
@@ -26068,6 +26446,15 @@ function ServiceRecordTradeAutoProxy:CallResellPendingRecordTrade(item_info, cha
         table.insert(msg.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
     end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msg.item_info == nil then
+        msg.item_info = {}
+      end
+      if msg.item_info.item_data == nil then
+        msg.item_info.item_data = {}
+      end
+      msg.item_info.item_data.deletetime = item_info.item_data.deletetime
+    end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msg == nil then
         msg = {}
@@ -26539,6 +26926,15 @@ function ServiceRecordTradeAutoProxy:CallResellPendingRecordTrade(item_info, cha
       end
       msgParam.item_info.item_data.base.tmp.num_param = item_info.item_data.base.tmp.num_param
     end
+    if item_info.item_data.base.tmp ~= nil and item_info.item_data.base.tmp.from_reward ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.tmp == nil then
+        msgParam.item_info.item_data.base.tmp = {}
+      end
+      msgParam.item_info.item_data.base.tmp.from_reward = item_info.item_data.base.tmp.from_reward
+    end
     if item_info.item_data.base ~= nil and item_info.item_data.base.mount_fashion_activated ~= nil then
       if msgParam.item_info.item_data == nil then
         msgParam.item_info.item_data = {}
@@ -26556,6 +26952,15 @@ function ServiceRecordTradeAutoProxy:CallResellPendingRecordTrade(item_info, cha
         msgParam.item_info.item_data.base = {}
       end
       msgParam.item_info.item_data.base.no_trade_reason = item_info.item_data.base.no_trade_reason
+    end
+    if item_info.item_data.base.card_info ~= nil and item_info.item_data.base.card_info.lv ~= nil then
+      if msgParam.item_info.item_data.base == nil then
+        msgParam.item_info.item_data.base = {}
+      end
+      if msgParam.item_info.item_data.base.card_info == nil then
+        msgParam.item_info.item_data.base.card_info = {}
+      end
+      msgParam.item_info.item_data.base.card_info.lv = item_info.item_data.base.card_info.lv
     end
     if item_info.item_data ~= nil and item_info.item_data.equiped ~= nil then
       if msgParam.item_info == nil then
@@ -28005,6 +28410,15 @@ function ServiceRecordTradeAutoProxy:CallResellPendingRecordTrade(item_info, cha
       for i = 1, #item_info.item_data.memory.effects do
         table.insert(msgParam.item_info.item_data.memory.effects, item_info.item_data.memory.effects[i])
       end
+    end
+    if item_info.item_data ~= nil and item_info.item_data.deletetime ~= nil then
+      if msgParam.item_info == nil then
+        msgParam.item_info = {}
+      end
+      if msgParam.item_info.item_data == nil then
+        msgParam.item_info.item_data = {}
+      end
+      msgParam.item_info.item_data.deletetime = item_info.item_data.deletetime
     end
     if item_info ~= nil and item_info.publicity_id ~= nil then
       if msgParam == nil then
@@ -28694,6 +29108,15 @@ function ServiceRecordTradeAutoProxy:CallReqGiveItemInfoCmd(id, iteminfo)
       end
       msg.iteminfo.itemdata.base.tmp.num_param = iteminfo.itemdata.base.tmp.num_param
     end
+    if iteminfo.itemdata.base.tmp ~= nil and iteminfo.itemdata.base.tmp.from_reward ~= nil then
+      if msg.iteminfo.itemdata.base == nil then
+        msg.iteminfo.itemdata.base = {}
+      end
+      if msg.iteminfo.itemdata.base.tmp == nil then
+        msg.iteminfo.itemdata.base.tmp = {}
+      end
+      msg.iteminfo.itemdata.base.tmp.from_reward = iteminfo.itemdata.base.tmp.from_reward
+    end
     if iteminfo.itemdata.base ~= nil and iteminfo.itemdata.base.mount_fashion_activated ~= nil then
       if msg.iteminfo.itemdata == nil then
         msg.iteminfo.itemdata = {}
@@ -28711,6 +29134,15 @@ function ServiceRecordTradeAutoProxy:CallReqGiveItemInfoCmd(id, iteminfo)
         msg.iteminfo.itemdata.base = {}
       end
       msg.iteminfo.itemdata.base.no_trade_reason = iteminfo.itemdata.base.no_trade_reason
+    end
+    if iteminfo.itemdata.base.card_info ~= nil and iteminfo.itemdata.base.card_info.lv ~= nil then
+      if msg.iteminfo.itemdata.base == nil then
+        msg.iteminfo.itemdata.base = {}
+      end
+      if msg.iteminfo.itemdata.base.card_info == nil then
+        msg.iteminfo.itemdata.base.card_info = {}
+      end
+      msg.iteminfo.itemdata.base.card_info.lv = iteminfo.itemdata.base.card_info.lv
     end
     if iteminfo.itemdata ~= nil and iteminfo.itemdata.equiped ~= nil then
       if msg.iteminfo == nil then
@@ -30161,6 +30593,15 @@ function ServiceRecordTradeAutoProxy:CallReqGiveItemInfoCmd(id, iteminfo)
         table.insert(msg.iteminfo.itemdata.memory.effects, iteminfo.itemdata.memory.effects[i])
       end
     end
+    if iteminfo.itemdata ~= nil and iteminfo.itemdata.deletetime ~= nil then
+      if msg.iteminfo == nil then
+        msg.iteminfo = {}
+      end
+      if msg.iteminfo.itemdata == nil then
+        msg.iteminfo.itemdata = {}
+      end
+      msg.iteminfo.itemdata.deletetime = iteminfo.itemdata.deletetime
+    end
     if iteminfo ~= nil and iteminfo.senderid ~= nil then
       if msg == nil then
         msg = {}
@@ -30584,6 +31025,15 @@ function ServiceRecordTradeAutoProxy:CallReqGiveItemInfoCmd(id, iteminfo)
       end
       msgParam.iteminfo.itemdata.base.tmp.num_param = iteminfo.itemdata.base.tmp.num_param
     end
+    if iteminfo.itemdata.base.tmp ~= nil and iteminfo.itemdata.base.tmp.from_reward ~= nil then
+      if msgParam.iteminfo.itemdata.base == nil then
+        msgParam.iteminfo.itemdata.base = {}
+      end
+      if msgParam.iteminfo.itemdata.base.tmp == nil then
+        msgParam.iteminfo.itemdata.base.tmp = {}
+      end
+      msgParam.iteminfo.itemdata.base.tmp.from_reward = iteminfo.itemdata.base.tmp.from_reward
+    end
     if iteminfo.itemdata.base ~= nil and iteminfo.itemdata.base.mount_fashion_activated ~= nil then
       if msgParam.iteminfo.itemdata == nil then
         msgParam.iteminfo.itemdata = {}
@@ -30601,6 +31051,15 @@ function ServiceRecordTradeAutoProxy:CallReqGiveItemInfoCmd(id, iteminfo)
         msgParam.iteminfo.itemdata.base = {}
       end
       msgParam.iteminfo.itemdata.base.no_trade_reason = iteminfo.itemdata.base.no_trade_reason
+    end
+    if iteminfo.itemdata.base.card_info ~= nil and iteminfo.itemdata.base.card_info.lv ~= nil then
+      if msgParam.iteminfo.itemdata.base == nil then
+        msgParam.iteminfo.itemdata.base = {}
+      end
+      if msgParam.iteminfo.itemdata.base.card_info == nil then
+        msgParam.iteminfo.itemdata.base.card_info = {}
+      end
+      msgParam.iteminfo.itemdata.base.card_info.lv = iteminfo.itemdata.base.card_info.lv
     end
     if iteminfo.itemdata ~= nil and iteminfo.itemdata.equiped ~= nil then
       if msgParam.iteminfo == nil then
@@ -32051,6 +32510,15 @@ function ServiceRecordTradeAutoProxy:CallReqGiveItemInfoCmd(id, iteminfo)
         table.insert(msgParam.iteminfo.itemdata.memory.effects, iteminfo.itemdata.memory.effects[i])
       end
     end
+    if iteminfo.itemdata ~= nil and iteminfo.itemdata.deletetime ~= nil then
+      if msgParam.iteminfo == nil then
+        msgParam.iteminfo = {}
+      end
+      if msgParam.iteminfo.itemdata == nil then
+        msgParam.iteminfo.itemdata = {}
+      end
+      msgParam.iteminfo.itemdata.deletetime = iteminfo.itemdata.deletetime
+    end
     if iteminfo ~= nil and iteminfo.senderid ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -32924,6 +33392,15 @@ function ServiceRecordTradeAutoProxy:CallUpdateOrderTradeCmd(charid, info, type)
       end
       msg.info.item_data.base.tmp.num_param = info.item_data.base.tmp.num_param
     end
+    if info.item_data.base.tmp ~= nil and info.item_data.base.tmp.from_reward ~= nil then
+      if msg.info.item_data.base == nil then
+        msg.info.item_data.base = {}
+      end
+      if msg.info.item_data.base.tmp == nil then
+        msg.info.item_data.base.tmp = {}
+      end
+      msg.info.item_data.base.tmp.from_reward = info.item_data.base.tmp.from_reward
+    end
     if info.item_data.base ~= nil and info.item_data.base.mount_fashion_activated ~= nil then
       if msg.info.item_data == nil then
         msg.info.item_data = {}
@@ -32941,6 +33418,15 @@ function ServiceRecordTradeAutoProxy:CallUpdateOrderTradeCmd(charid, info, type)
         msg.info.item_data.base = {}
       end
       msg.info.item_data.base.no_trade_reason = info.item_data.base.no_trade_reason
+    end
+    if info.item_data.base.card_info ~= nil and info.item_data.base.card_info.lv ~= nil then
+      if msg.info.item_data.base == nil then
+        msg.info.item_data.base = {}
+      end
+      if msg.info.item_data.base.card_info == nil then
+        msg.info.item_data.base.card_info = {}
+      end
+      msg.info.item_data.base.card_info.lv = info.item_data.base.card_info.lv
     end
     if info.item_data ~= nil and info.item_data.equiped ~= nil then
       if msg.info == nil then
@@ -34391,6 +34877,15 @@ function ServiceRecordTradeAutoProxy:CallUpdateOrderTradeCmd(charid, info, type)
         table.insert(msg.info.item_data.memory.effects, info.item_data.memory.effects[i])
       end
     end
+    if info.item_data ~= nil and info.item_data.deletetime ~= nil then
+      if msg.info == nil then
+        msg.info = {}
+      end
+      if msg.info.item_data == nil then
+        msg.info.item_data = {}
+      end
+      msg.info.item_data.deletetime = info.item_data.deletetime
+    end
     if info ~= nil and info.publicity_id ~= nil then
       if msg == nil then
         msg = {}
@@ -34853,6 +35348,15 @@ function ServiceRecordTradeAutoProxy:CallUpdateOrderTradeCmd(charid, info, type)
       end
       msgParam.info.item_data.base.tmp.num_param = info.item_data.base.tmp.num_param
     end
+    if info.item_data.base.tmp ~= nil and info.item_data.base.tmp.from_reward ~= nil then
+      if msgParam.info.item_data.base == nil then
+        msgParam.info.item_data.base = {}
+      end
+      if msgParam.info.item_data.base.tmp == nil then
+        msgParam.info.item_data.base.tmp = {}
+      end
+      msgParam.info.item_data.base.tmp.from_reward = info.item_data.base.tmp.from_reward
+    end
     if info.item_data.base ~= nil and info.item_data.base.mount_fashion_activated ~= nil then
       if msgParam.info.item_data == nil then
         msgParam.info.item_data = {}
@@ -34870,6 +35374,15 @@ function ServiceRecordTradeAutoProxy:CallUpdateOrderTradeCmd(charid, info, type)
         msgParam.info.item_data.base = {}
       end
       msgParam.info.item_data.base.no_trade_reason = info.item_data.base.no_trade_reason
+    end
+    if info.item_data.base.card_info ~= nil and info.item_data.base.card_info.lv ~= nil then
+      if msgParam.info.item_data.base == nil then
+        msgParam.info.item_data.base = {}
+      end
+      if msgParam.info.item_data.base.card_info == nil then
+        msgParam.info.item_data.base.card_info = {}
+      end
+      msgParam.info.item_data.base.card_info.lv = info.item_data.base.card_info.lv
     end
     if info.item_data ~= nil and info.item_data.equiped ~= nil then
       if msgParam.info == nil then
@@ -36320,6 +36833,15 @@ function ServiceRecordTradeAutoProxy:CallUpdateOrderTradeCmd(charid, info, type)
         table.insert(msgParam.info.item_data.memory.effects, info.item_data.memory.effects[i])
       end
     end
+    if info.item_data ~= nil and info.item_data.deletetime ~= nil then
+      if msgParam.info == nil then
+        msgParam.info = {}
+      end
+      if msgParam.info.item_data == nil then
+        msgParam.info.item_data = {}
+      end
+      msgParam.info.item_data.deletetime = info.item_data.deletetime
+    end
     if info ~= nil and info.publicity_id ~= nil then
       if msgParam == nil then
         msgParam = {}
@@ -36632,6 +37154,24 @@ function ServiceRecordTradeAutoProxy:CallPreorderQueryPriceRecordTradeCmd(item)
       end
       msg.item.pricemin = item.pricemin
     end
+    if item ~= nil and item.cardlvmin ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.item == nil then
+        msg.item = {}
+      end
+      msg.item.cardlvmin = item.cardlvmin
+    end
+    if item ~= nil and item.cardlvmax ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.item == nil then
+        msg.item = {}
+      end
+      msg.item.cardlvmax = item.cardlvmax
+    end
     self:SendProto(msg)
   else
     local msgId = ProtoReqInfoList.PreorderQueryPriceRecordTradeCmd.id
@@ -36761,6 +37301,24 @@ function ServiceRecordTradeAutoProxy:CallPreorderQueryPriceRecordTradeCmd(item)
         msgParam.item = {}
       end
       msgParam.item.pricemin = item.pricemin
+    end
+    if item ~= nil and item.cardlvmin ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.item == nil then
+        msgParam.item = {}
+      end
+      msgParam.item.cardlvmin = item.cardlvmin
+    end
+    if item ~= nil and item.cardlvmax ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.item == nil then
+        msgParam.item = {}
+      end
+      msgParam.item.cardlvmax = item.cardlvmax
     end
     self:SendProto2(msgId, msgParam)
   end
@@ -36895,6 +37453,24 @@ function ServiceRecordTradeAutoProxy:CallPreorderItemRecordTradeCmd(item, ret)
       end
       msg.item.pricemin = item.pricemin
     end
+    if item ~= nil and item.cardlvmin ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.item == nil then
+        msg.item = {}
+      end
+      msg.item.cardlvmin = item.cardlvmin
+    end
+    if item ~= nil and item.cardlvmax ~= nil then
+      if msg == nil then
+        msg = {}
+      end
+      if msg.item == nil then
+        msg.item = {}
+      end
+      msg.item.cardlvmax = item.cardlvmax
+    end
     if ret ~= nil then
       msg.ret = ret
     end
@@ -37027,6 +37603,24 @@ function ServiceRecordTradeAutoProxy:CallPreorderItemRecordTradeCmd(item, ret)
         msgParam.item = {}
       end
       msgParam.item.pricemin = item.pricemin
+    end
+    if item ~= nil and item.cardlvmin ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.item == nil then
+        msgParam.item = {}
+      end
+      msgParam.item.cardlvmin = item.cardlvmin
+    end
+    if item ~= nil and item.cardlvmax ~= nil then
+      if msgParam == nil then
+        msgParam = {}
+      end
+      if msgParam.item == nil then
+        msgParam.item = {}
+      end
+      msgParam.item.cardlvmax = item.cardlvmax
     end
     if ret ~= nil then
       msgParam.ret = ret

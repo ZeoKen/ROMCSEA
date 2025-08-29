@@ -193,6 +193,7 @@ function Asset_RolePart:OnSubPartCreated(partIndex, subpart)
 end
 
 function Asset_RolePart:HaveAllPartsLoaded()
+  redlog("HaveAllPartsLoaded", tostring(self.loadingPartCount))
   return not self.loadingPartCount or self.loadingPartCount <= 0
 end
 
@@ -223,6 +224,7 @@ function Asset_RolePart:TryCallCreatedCallback()
 end
 
 function Asset_RolePart:OnPartCreated(tag, obj, part, ID)
+  redlog("OnPartCreated", ID, tostring(obj))
   if self.args[10] ~= tag then
     self.assetManager:DestroyPart(part, ID, obj)
     return
@@ -437,6 +439,7 @@ function Asset_RolePart:DoConstruct(asArray, args)
   local hasSubpart = false
   if subpartMap then
     for partIndex, resId in pairs(subpartMap) do
+      redlog("subpartMap", partIndex, tostring(resId))
       if Asset_Role.IsSubPartIndex(partIndex) and resId and resId ~= 0 then
         self.loadingPartCount = self.loadingPartCount + 1
       end

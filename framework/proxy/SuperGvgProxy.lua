@@ -33,6 +33,8 @@ function SuperGvgProxy:InitGvg()
   self.guildIndexMap = {}
   self.userDetailDatas = {}
   self.userDetailDatasIndexMap = {}
+  self.lastUserDetailDatas = {}
+  self.lastUserDetailDatasIndexMap = {}
   for k, v in pairs(GvgFinalFightTip.EGvgTowerType) do
     local towerData = {etype = k}
     towerData.info = {}
@@ -45,6 +47,7 @@ function SuperGvgProxy:InitGvg()
   for i = 1, SuperGvgProxy.E_SuperGVGRank._count do
     self.rankMap[i] = {}
   end
+  self.needResetRank = true
 end
 
 function SuperGvgProxy:GetGuildInfos()
@@ -187,6 +190,28 @@ function SuperGvgProxy:HandleRecvGvgUserDetailFubenCmd(data)
   end
 end
 
+function SuperGvgProxy:HandleRecvQuerySuperGvgStatCmd(data)
+  local guilduserdatas = data.datas
+  helplog("<<<======HandleRecvQuerySuperGvgStatCmd=======>>>", #guilduserdatas)
+  if guilduserdatas and 0 < #guilduserdatas then
+    for i = 1, #guilduserdatas do
+      local oneGuildUserData = guilduserdatas[i]
+      local userDatas = oneGuildUserData.userdatas
+      for j = 1, #userDatas do
+        local newData = userDatas[j]
+        local oldData = self.lastUserDetailDatas[newData.username]
+        if not oldData then
+          userdata = UserDetailData.new(newData, oneGuildUserData.guildid)
+          self.lastUserDetailDatas[newData.username] = userdata
+          self.lastUserDetailDatasIndexMap[#self.lastUserDetailDatasIndexMap + 1] = userdata
+        else
+          oldData:updata(newData, oneGuildUserData.guildid)
+        end
+      end
+    end
+  end
+end
+
 function SuperGvgProxy:HandleRecvGvgMetalDieFubenCmd(data)
   local guildInfo = self.guildIndexMap[data.index]
   if guildInfo then
@@ -241,6 +266,10 @@ function SuperGvgProxy:GetUserDetails()
   return self.userDetailDatasIndexMap
 end
 
+function SuperGvgProxy:GetLastUserDetails()
+  return self.lastUserDetailDatasIndexMap
+end
+
 local QueryTowerInfo_TagMap = {}
 
 function SuperGvgProxy:Active_QueryTowerInfo(k, b)
@@ -273,16 +302,22 @@ function SuperGvgProxy:GetFinalFightTimeDiff()
   return secDiff
 end
 
-function SuperGvgProxy:HandleSuperGvgRankData(server_datas)
+function SuperGvgProxy:HandleSuperGvgRankData(server_datas, end_flag)
   if not server_datas then
     return
   end
-  for grade, datas in pairs(self.rankMap) do
-    _ArrayClear(datas)
+  if self.needResetRank then
+    for grade, datas in pairs(self.rankMap) do
+      _ArrayClear(datas)
+    end
+    self.needResetRank = false
   end
   for i = 1, #server_datas do
     local gradeArray = self.rankMap[server_datas[i].grade]
     gradeArray[#gradeArray + 1] = SuperGvgRankData.new(server_datas[i])
+  end
+  if end_flag then
+    self.needResetRank = true
   end
 end
 

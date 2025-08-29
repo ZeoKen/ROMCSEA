@@ -14,12 +14,96 @@ function AstrolabeProxy:ctor(proxyName, data)
 end
 
 function AstrolabeProxy:Init()
+  self:TryPreprocessTableAstrolabe()
   self.curBord = Astrolabe_BordData.new()
   if not AstrolabeProxy.BindedContributeItemId then
     AstrolabeProxy.BindedContributeItemId = GameConfig.BindItem[AstrolabeProxy.ContributeItemId]
   end
   if not AstrolabeProxy.BindedGoldMedalItemId then
     AstrolabeProxy.BindedGoldMedalItemId = GameConfig.BindItem[AstrolabeProxy.GoldMedalItemId]
+  end
+end
+
+function AstrolabeProxy:TryPreprocessTableAstrolabe()
+  if GameConfig.Astrolabe.UseWebConnect ~= 1 then
+    return
+  end
+  local t = Table_Astrolabe
+  for _, data in pairs(t) do
+    local stars = data.stars
+    for id, v in pairs(stars) do
+      v[3] = v[1]
+    end
+    for id, v in pairs(stars) do
+      local innerConnect = {}
+      v[1] = innerConnect
+      local pos_Width, dir_index = 0, 0
+      if 0 < id then
+        pos_Width = math.floor((id - 1) / 6) + 1
+        dir_index = id % 6
+        dir_index = dir_index == 0 and 6 or dir_index
+      end
+      local min, max = 0, 3
+      if id == 0 then
+        for i = 1, 6 do
+          for j = pos_Width + 1, max do
+            local k = i + 6 * (j - 1)
+            if stars[k] then
+              innerConnect[#innerConnect + 1] = k
+              break
+            end
+          end
+        end
+      else
+        local i = dir_index
+        for j = pos_Width - 1, min, -1 do
+          local k = math.max(i + 6 * (j - 1), 0)
+          if stars[k] then
+            innerConnect[#innerConnect + 1] = k
+            break
+          end
+        end
+        for j = pos_Width + 1, max do
+          local k = i + 6 * (j - 1)
+          if stars[k] then
+            innerConnect[#innerConnect + 1] = k
+            break
+          end
+        end
+      end
+      if id ~= 0 then
+        local max = pos_Width * 6
+        local min = max - 5
+        local k = id
+        while true do
+          k = k + 1
+          if max < k then
+            k = min
+          end
+          if k == id or 0 < TableUtility.ArrayFindIndex(innerConnect, k) then
+            break
+          end
+          if stars[k] then
+            innerConnect[#innerConnect + 1] = k
+            break
+          end
+        end
+        k = id
+        while true do
+          k = k - 1
+          if min > k then
+            k = max
+          end
+          if k == id or 0 < TableUtility.ArrayFindIndex(innerConnect, k) then
+            break
+          end
+          if stars[k] then
+            innerConnect[#innerConnect + 1] = k
+            break
+          end
+        end
+      end
+    end
   end
 end
 
